@@ -203,6 +203,7 @@ DEPENDENCIES
   minitest
   pg
   rails
+  rake
   rvm-capistrano
   sass-rails (~> 3.2.3)
   simple_form

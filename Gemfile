@@ -33,6 +33,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'turn'
   gem 'tconsole'
+  gem "rake"
 end
 
 group :development do
