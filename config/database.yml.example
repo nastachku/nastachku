@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: nastachku_development
+  pool: 5
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: nastachku_test
+  pool: 5
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: nastachku_production
+  pool: 5
