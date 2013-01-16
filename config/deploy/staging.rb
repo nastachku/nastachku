@@ -1,4 +1,4 @@
-set :rails_env, :staging
+set :rails_env, "staging"
 set :branch, 'staging'
 set :user, 'nastachku_staging'
 set :keep_releases, 5
