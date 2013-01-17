@@ -35,6 +35,7 @@ group :test do
   gem 'turn'
   gem 'tconsole'
   gem "rake"
+  gem 'coveralls', require: false
 end
 
 group :development do

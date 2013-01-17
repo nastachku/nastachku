@@ -61,7 +61,14 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
+    colorize (0.5.8)
     connection_pool (1.0.0)
+    coveralls (0.5.5)
+      colorize
+      json
+      rest-client
+      simplecov (>= 0.7)
+      thor
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -132,6 +139,8 @@ GEM
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rubinius-actor (0.0.2)
       rubinius-core-api
     rubinius-core-api (0.0.1)
@@ -196,6 +205,7 @@ DEPENDENCIES
   capistrano_colors
   ci_reporter
   coffee-rails (~> 3.2.1)
+  coveralls
   factory_girl_rails
   haml-rails
   jbuilder
