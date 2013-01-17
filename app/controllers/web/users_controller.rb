@@ -10,7 +10,7 @@ class Web::UsersController < Web::ApplicationController
   def show
     @user = User.find(params[:id])
 
-    render action: "edit" if @user == current_user
+    redirect_to [:edit, @user] if @user == current_user
   end
 
   def new
@@ -18,7 +18,7 @@ class Web::UsersController < Web::ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = UserEditType.find(params[:id])
   end
 
   def create

@@ -1,0 +1,94 @@
+ru: 
+  layouts:
+    application:
+      title: 'Стачка! <0'
+      participants: 'Участники'
+      login: 'Войти'
+      company: "undev.ru / kaize"
+
+  simple_from:
+    labels:
+      user:
+        email: 'Почта'
+        password: 'Пароль'
+
+  activerecord:                
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              confirmation: 'Пароли не совпадают'
+
+            name:
+              blank: 'Имя не может быть пустым'
+
+    attributes:                
+      user:
+        email: 'Почта'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        name: 'Имя'
+        city: 'Город'
+        company: 'Компания'
+        position: 'Должность'
+        show_as_participant: 'Показывать в списке участников'
+
+      session:
+        email: 'Почта'
+        password: 'Пароль'
+
+  web:
+    shared:
+      login_form:
+        authorization: 'Вход'
+        email: 'Почта'
+        password: 'Пароль'
+        submit: 'Войти'
+
+      registration_form:
+        registration: 'Регистрация'
+        submit: 'Ок'
+
+    users:
+      index:
+        title: 'Пойдут на стачку'
+
+      edit:
+        title: 'Изменить'
+
+      new:
+        title: 'Регистрация'
+
+      show:
+        shown: 'Да'
+        not_shown: 'Нет'
+    home:
+      index:
+        login: 'Вход'
+        registration: 'Регистрация'
+
+    sessions:
+      new:
+        login: 'Вход'
+
+  helpers:
+    submit:
+      user:
+        update: "Сохранить"
+        create: "Зарегистрировать"
+
+      session:
+        update: "Сохранить"
+        create: "Зарегистрировать"
+
+    links:
+      cancel: 'Отмена'
+      back: 'Назад'
+
+  i_will_go: 'Я пойду'
+  participants: 'Участники'
+  login:
+    successful: 'Вы вошли на сайт'
+
+  Vasua: ''

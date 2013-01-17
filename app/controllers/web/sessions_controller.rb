@@ -2,6 +2,7 @@
 class Web::SessionsController < Web::ApplicationController
 
   def new
+    @user = UserEditType.new
   end
 
   def create

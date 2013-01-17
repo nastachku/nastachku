@@ -87,6 +87,7 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (~> 3.1)
       railties (>= 3.1, < 4.1)
+    hash-deep-merge (0.1.1)
     highline (1.6.15)
     hike (1.2.1)
     i18n (0.6.1)
@@ -201,6 +202,9 @@ GEM
     unicorn-rails (1.0.0)
       rack
       unicorn
+    untranslated (1.0.2)
+      hash-deep-merge
+      i18n
     ya_acl (0.0.7)
       rake
 
@@ -238,5 +242,6 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
   unicorn
   unicorn-rails
+  untranslated
   usefull_scopes!
   ya_acl

@@ -64,3 +64,5 @@ gem 'usefull_scopes', git: 'https://github.com/kaize/usefull_scopes.git'
 gem 'ya_acl'
 
 gem 'state_machine'
+
+gem 'untranslated'

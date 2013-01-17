@@ -1,17 +1,18 @@
-- @user ||= User.new
+- @user ||= UserEditType.new
 
 = simple_form_for @user, :html => { :class => 'form-horizontal' } do |f|
 
-  %legend= t('.registration')
+  = f.error_notification
 
   = f.input :email
-  = f.input :password
-  = f.input :password_confirmation
+  = f.input :password,              :required => true
+  = f.input :password_confirmation, :required => true
   = f.input :name
   = f.input :city
   = f.input :company
+  = f.input :position
   = f.input :show_as_participant
 
   .form-actions
-    = f.button :submit, :class => 'btn-primary'
+    = f.submit :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn'

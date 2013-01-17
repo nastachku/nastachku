@@ -25,14 +25,18 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href=home_path) Nastachku
+          %a.brand(href=home_path)= t('.title')
           .container.nav-collapse
             %ul.nav
-              %li= link_to(t("participants"), users_path)
+              - unless signed_in?
+                %li= link_to(t("i_will_go"), new_user_path)
+
+              %li= link_to(t(".participants"), users_path)
+
               - if signed_in?
-                %li= link_to(t(current_user.full_name), user_path(current_user))
+                %li= link_to(current_user.full_name, user_path(current_user))
               - else
-                %li= link_to(t("login"), new_session_path)
+                %li= link_to(t(".login"), new_session_path)
 
     .container
 
@@ -42,7 +46,10 @@
           = yield
     
       %footer
-        %p &copy; Company 2012
+        %p
+          = raw "&copy;"
+          = t '.company'
+          = " 2012"
     /
       Javascripts
       \==================================================
