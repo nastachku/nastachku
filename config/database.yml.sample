@@ -53,7 +53,7 @@ production:
 staging:
   adapter: postgresql
   encoding: unicode
-  database: castle_staging
+  database: nastachku_staging
   pool: 5
   username: nastachku_staging
   password: a3matn6vEGvdq2jpr39A
