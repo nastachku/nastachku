@@ -1,0 +1,6 @@
+.page-header
+  %h1=t '.title', :default => t('helpers.titles.index', :default => 'Главная')
+
+  - unless signed_in?
+    = render "web/shared/login_form"
+    = render "web/shared/registration_form"

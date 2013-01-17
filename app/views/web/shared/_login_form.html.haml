@@ -1,0 +1,12 @@
+
+= simple_form_for :user, :url => session_path, :class => 'form-horizontal', :defaults => { :input_html => { :class => 'input-xlarge' } } do |f|
+
+  %legend= t('.authorization')
+
+  = f.error_notification
+
+  = f.input :email
+  = f.input :password
+
+  .form-actions
+    = f.button :submit, t('simple_form.submit', :default => "submit"), :class => 'btn btn-primary btn-large'
