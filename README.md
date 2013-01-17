@@ -4,7 +4,7 @@
 ## Installation and running way
 ```sh
   git clone https://github.com/kaize/nastachku.git
-  cd itc73
+  cd nastachku
   bundle install
   bundle exec rake db:create db:migrate db:seed
   bundle exec unicorn_rails
