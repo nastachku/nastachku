@@ -1,0 +1,19 @@
+---
+ru:
+  layouts:
+    shared:
+      navigation:
+        title: ''
+        participants: ''
+        logout: ''
+        login: ''
+      footer:
+        company: ''
+  success: ''
+  web:
+    user:
+      sessions:
+        new:
+          login: ''
+  '':
+    created: ''

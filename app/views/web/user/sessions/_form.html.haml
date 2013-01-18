@@ -1,0 +1,8 @@
+
+= simple_form_for :user, :url => user_session_path, :class => 'form-horizontal' do |f|
+
+  = f.input :email
+  = f.input :password
+
+  .form-actions
+    = f.button :submit, :class => 'btn btn-primary btn-large'

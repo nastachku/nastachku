@@ -1,10 +1,18 @@
 - model_class = User
-.page-header
-  %h1=t '.title'
-  - @users.each do |user|
-    - line = []
-    - line << user.name
-    - line << user.company  if user.company.present?
-    - line << user.position if user.position.present?
-    = line.join ", "
-    %br/
+
+%h1=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:city)
+      %th= model_class.human_attribute_name(:company)
+      %th= model_class.human_attribute_name(:position)
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.name
+        %td= user.city
+        %td= user.company
+        %td= user.position
+

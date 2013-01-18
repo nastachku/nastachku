@@ -1,14 +1,14 @@
 Nastachku::Application.routes.draw do
 
-  root to: "web/home#index", as: :home
+  root to: "web/home#index"
 
   scope :module => :web do
-    resource :session, only: [:new, :create, :delete]
-    resources :users
-  end
+    resources :users, only: [:new, :create, :index]
 
-  namespace :admin do
-    resources :users
+    namespace :user do
+      resource :session, only: [:new, :create, :destroy]
+      resources :accounts, only: [:edit, :update]
+    end
   end
 
 end
