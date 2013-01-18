@@ -10,6 +10,7 @@ gem 'unicorn'
 
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
+gem 'less-rails'
 gem 'simple_form'
 
 gem "airbrake"
@@ -21,7 +22,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -47,6 +48,8 @@ group :development do
   gem 'capi'
 end
 
+gem 'coveralls', require: false
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
@@ -61,3 +64,5 @@ gem 'usefull_scopes', git: 'https://github.com/kaize/usefull_scopes.git'
 gem 'ya_acl'
 
 gem 'state_machine'
+
+gem 'untranslated'

@@ -1,0 +1,10 @@
+
+= simple_form_for :user, :url => session_path, :class => 'form-horizontal', :defaults => { :input_html => { :class => 'input-xlarge' } } do |f|
+
+  = f.error_notification
+
+  = f.input :email,    :label => t('.email')
+  = f.input :password, :label => t('.password')
+
+  .form-actions
+    = f.submit t('.submit'), :class => 'btn btn-primary btn-large'
