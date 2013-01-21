@@ -1,19 +1,11 @@
 ---
 ru:
-  layouts:
-    shared:
-      navigation:
-        title: ''
-        participants: ''
-        logout: ''
-        login: ''
-      footer:
-        company: ''
-  success: ''
   web:
-    user:
-      sessions:
-        new:
-          login: ''
-  '':
-    created: ''
+    users:
+      form:
+        cancel: ''
+    home:
+      index:
+        hero_unit_title: ''
+        hero_unit_content: ''
+        join: ''

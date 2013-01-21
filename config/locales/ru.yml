@@ -1,94 +1,214 @@
-ru: 
+ru:
   layouts:
-    application:
-      title: 'Стачка! <0'
-      participants: 'Участники'
-      login: 'Войти'
-      company: "undev.ru / kaize"
+    web:
+      shared:
+        navigation:
+          title: 'Стачка!'
+          participants: 'Кто идёт?'
+          logout: 'Выйти'
+          admin: 'Админка'
+          i_will_go: 'Я пойду'
+          login: 'Войти'
 
-  simple_from:
-    labels:
-      user:
-        email: 'Почта'
-        password: 'Пароль'
-
-  activerecord:                
-    errors:
-      models:
-        user:
-          attributes:
-            password:
-              confirmation: 'Пароли не совпадают'
-
-            name:
-              blank: 'Имя не может быть пустым'
-
-    attributes:                
-      user:
-        email: 'Почта'
-        password: 'Пароль'
-        password_confirmation: 'Подтверждение пароля'
-        name: 'Имя'
-        city: 'Город'
-        company: 'Компания'
-        position: 'Должность'
-        show_as_participant: 'Показывать в списке участников'
-
-      session:
-        email: 'Почта'
-        password: 'Пароль'
+      admin:
+        shared:
+          navigation:
+            title: 'На главную'
+            pages: 'Страницы'
+            news: 'Новости'
+            logout: 'Выйти'
+  global:
+    footer:
+      company: 'Кайдзен / undev.ru'
 
   web:
-    shared:
-      login_form:
-        authorization: 'Вход'
-        email: 'Почта'
-        password: 'Пароль'
-        submit: 'Войти'
-
-      registration_form:
-        registration: 'Регистрация'
-        submit: 'Ок'
-
     users:
-      index:
-        title: 'Пойдут на стачку'
-
-      edit:
-        title: 'Изменить'
+      form:
+        cancel: "Я передумал"
 
       new:
         title: 'Регистрация'
 
-      show:
-        shown: 'Да'
-        not_shown: 'Нет'
+      index:
+        title: 'Пойдут на стачку'
+
     home:
       index:
-        login: 'Вход'
-        registration: 'Регистрация'
+        hero_unit_title: 'Стачка 2013'
+        hero_unit_content: '<br>УЛЬЯНОВСК 12-13 АПРЕЛЯ 2013 МЕМЦЕНТР<br>Веб-технологии, менеджмент в IT, электронная коммерция, IT-стартапы, программирование, IT на службе в обществе'
+        join: 'Я пойду!'
 
-    sessions:
-      new:
-        login: 'Вход'
+    account:
+      sessions:
+        new:
+          login: 'Войти'
 
+    admin:
+      home:
+        index:
+          title: 'Админка стачки'
+
+      pages:
+        index:
+          title: 'Страницы'
+          actions: 'Действия'
+          edit: 'Редактировать'
+          destroy: 'Удалить'
+          confirm: 'Вы уверены?'
+          new: 'Новая страница'
+
+        show:
+          title: 'Страница'
+          back: 'К списку страниц'
+          edit: 'Редактировать'
+          destroy: 'Удалить'
+          confirm: 'Вы уверены?'
+
+        edit:
+          title: 'Редактирование страницы'
+
+        form:
+          cancel: 'Отменить'
+
+        new:
+          title: 'Новая страница'
+
+      news:
+        index:
+          title: 'Новости'
+          actions: 'Действия'
+          edit: 'Редактировать'
+          destroy: 'Удалить'
+          confirm: 'Вы уверены?'
+          new: 'Добавить новость'
+
+        show:
+          title: 'Новость'
+          back: 'К списку новостей'
+          edit: 'Редактировать'
+          destroy: 'Удалить'
+          confirm: 'Вы уверены?'
+
+        edit:
+          title: 'Редактирование новости'
+
+        form:
+          cancel: 'Отменить'
+
+        new:
+          title: 'Добавление новости'
   helpers:
     submit:
-      user:
-        update: "Сохранить"
-        create: "Зарегистрировать"
-
       session:
-        update: "Сохранить"
+        create: "Войти на сайт"
+
+      user:
         create: "Зарегистрировать"
+        update: "Подтверждаю"
+
+      page:
+        create: "Добавить страницу"
+        update: "Добавить страницу"
+
+      news:
+        create: "Добавить новость"
+        update: "Изменить новость"
 
     links:
-      cancel: 'Отмена'
-      back: 'Назад'
+      cancel: 'Отменить (я ru.helpers.links.cancel!)'
 
-  i_will_go: 'Я пойду'
-  participants: 'Участники'
-  login:
-    successful: 'Вы вошли на сайт'
+  success: 'Успех (я ru.success!)'
 
-  Vasua: ''
+  activerecord:
+    attributes:
+      page:
+        slug:  "slug"
+        title: "Заголовок"
+        body:  "Содержимое"
+        created_at: "Время создания"
+
+      news:
+        slug:  "slug"
+        title: "Заголовок"
+        body:  "Содержимое"
+        created_at: "Время создания"
+
+      user:
+        email: "Email"
+        name:  "ФИО"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        city: "Город"
+        company: "Компания"
+        position: "Должность"
+        show_as_participant: "Показывать как участника"
+
+    errors:
+      models:
+        page:
+          attributes:
+            slug:
+              blank: 'Поле не может быть пустым'
+              taken: 'Такой слаг уже есть, выберите другой'
+
+            title:
+              blank: 'Заголовок не может быть пустым'
+
+            body:
+              blank: 'Тело страницы не может быть пустым'
+
+        news:
+          attributes:
+            slug:
+              blank: 'Поле не может быть пустым'
+              taken: 'Такой слаг уже есть, выберите другой'
+
+            title:
+              blank: 'Заголовок не может быть пустым'
+
+            body:
+              blank: 'Тело новости не может быть пустым'
+
+  simple_form:
+    labels:
+      user:
+        email: "Email"
+        password: "Пароль"
+
+  flash:
+    controllers:
+      web:
+        users:
+          create:
+            success: 'Запись о вашем будущем участии добавлена!'
+            error:   'Не удалось добавить запись, есть ошибки в заполнении форм.'
+
+        account:
+          accounts:
+            update:
+              success: 'Аккаунт успешно изменён!'
+              error:   'Не удалось изменить аккаунт, есть ошибки в заполнении форм.'
+
+          sessions:
+            create:
+              success: 'Вы вошли на сайт.'
+              error:   'Аутентификация не удалась. Проверьте логин/пароль.'
+
+        admin:
+          pages:
+            create:
+              success: 'Страница добавлена.'
+              error:   'Не удалось добавить страницу, есть ошибки в заполнении форм.'
+
+            update:
+              success: 'Страница изменена.'
+              error:   'Не удалось изменить страницу, есть ошибки в заполнении форм.'
+
+          news:
+            create:
+              success: 'Новость добавлена.'
+              error:   'Не удалось добавить новость, есть ошибки в заполнении форм.'
+
+            update:
+              success: 'Новость изменена.'
+              error:   'Не удалось изменить новость, есть ошибки в заполнении форм.'

@@ -1,0 +1,23 @@
+- model_class = News
+.news-header
+  %h1=t '.title'
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:slug)
+      %th= model_class.human_attribute_name(:title)
+      %th= model_class.human_attribute_name(:body)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions'
+  %tbody
+    - @news.each do |news|
+      %tr
+        %td= link_to news.slug, admin_news_path(news)
+        %td= news.title
+        %td= news.body
+        %td= news.created_at
+        %td
+          = link_to t('.edit'), edit_admin_news_path(news), :class => 'btn btn-mini'
+          = link_to t('.destroy'), admin_news_path(news), :method => :delete, :data => { :confirm => t('.confirm') }, :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new'), new_admin_news_path, :class => 'btn btn-primary'

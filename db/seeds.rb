@@ -6,4 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create [{email: 'admin@undev.home', password: '12345'}]
+UserEditType.create [{
+  email: 'admin@undev.home',
+  name: 'Admin',
+  password: '12345',
+  password_confirmation: '12345',
+  is_admin: true
+}]

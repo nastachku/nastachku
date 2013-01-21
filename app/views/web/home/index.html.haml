@@ -1,3 +1,15 @@
-.page-header
-  %h1=t '.title', :default => t('helpers.titles.index', :default => 'Главная')
+.hero-unit
+  %h1!= t '.hero_unit_title'
+  .lead
+    %p
+      != t '.hero_unit_content'
 
+  = link_to t('.join'), new_user_path, class: 'btn btn-large btn-success'
+
+- @news.each do |news|
+  .well
+    %h2= news.title
+
+    %p= news.created_at
+
+    = raw news.body

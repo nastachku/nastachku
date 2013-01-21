@@ -1,5 +1,5 @@
 
-class Web::User::AccountsController < Web::User::ApplicationController
+class Web::Account::AccountsController < Web::Account::ApplicationController
 
   before_filter :authenticate_user!
 
@@ -15,6 +15,8 @@ class Web::User::AccountsController < Web::User::ApplicationController
 
       redirect_to root_path
     else
+      flash_error message: flash_translate(:error)
+
       render action: "new"
     end
   end

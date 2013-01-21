@@ -13,8 +13,12 @@ class Web::UsersController < Web::ApplicationController
     @user = UserEditType.new(params[:user])
 
     if @user.save
-      redirect_to root_path, notice: t('.created')
+      flash_success message: flash_translate(:success)
+
+      redirect_to root_path
     else
+      flash_error message: flash_translate(:error)
+
       render action: "new"
     end
   end

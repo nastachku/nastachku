@@ -1,0 +1,24 @@
+.navbar.navbar-floating-top
+  .navbar-inner
+    .container
+      %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.brand(href=root_path)= t('.title')
+      .container.nav-collapse
+        %ul.nav
+          - unless signed_in?
+            %li= link_to t(".i_will_go"), new_user_path
+
+          %li= navbar_link t(".participants"), users_path, with: User.shown_as_participants.count
+
+          - if signed_in?
+            %li= link_to current_user.full_name, edit_account_account_path(current_user)
+            %li= link_to t('.logout'), account_session_path, method: :delete
+
+          - else
+            %li= link_to t(".login"), new_account_session_path
+
+          - if signed_as_admin?
+            %li= link_to t(".admin"), admin_root_path

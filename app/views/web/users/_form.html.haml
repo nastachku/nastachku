@@ -1,17 +1,18 @@
 
-= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for @user do |f|
 
   = f.error_notification
 
-  = f.input :email
+  .span4
+    = f.input :email
+    = f.input :name
+    = f.input :city
+    = f.input :show_as_participant
+
   = f.input :password,              :required => true
   = f.input :password_confirmation, :required => true
-  = f.input :name
-  = f.input :city
   = f.input :company
   = f.input :position
-  = f.input :show_as_participant
 
   .form-actions
-    = f.submit :class => 'btn-primary'
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn'
+    = f.button :submit, :class => 'btn btn-primary'

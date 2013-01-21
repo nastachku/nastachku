@@ -1,5 +1,5 @@
 
-class Web::User::SessionsController < Web::User::ApplicationController
+class Web::Account::SessionsController < Web::Account::ApplicationController
 
   def new
     @user = UserEditType.new
@@ -9,12 +9,12 @@ class Web::User::SessionsController < Web::User::ApplicationController
     user = UserEditType.find_by_email(params[:user][:email])
 
     if user.try(:authenticate, params[:user][:password])
-      flash_success
-      
+      flash_success message: flash_translate(:success)
+
       sign_in(user)
       redirect_to root_path
     else
-      flash_error
+      flash_error message: flash_translate(:error)
 
       render action: 'new'
     end
@@ -22,7 +22,7 @@ class Web::User::SessionsController < Web::User::ApplicationController
 
   def destroy
     sign_out
-    redirect_to new_user_session_path
+    redirect_to root_path
   end
 
 end
