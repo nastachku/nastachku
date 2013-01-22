@@ -15,10 +15,10 @@
 
           - if signed_in?
             %li= link_to current_user.full_name, edit_account_account_path(current_user)
-            %li= link_to t('.logout'), account_session_path, method: :delete
+            %li= link_to t('.logout'), session_path, method: :delete
 
           - else
-            %li= link_to t(".login"), new_account_session_path
+            %li= link_to t(".login"), new_session_path
 
           - if signed_as_admin?
             %li= link_to t(".admin"), admin_root_path

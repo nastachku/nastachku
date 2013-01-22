@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Web::Account::SessionsControllerTest < ActionController::TestCase
+class Web::SessionsControllerTest < ActionController::TestCase
 
   setup do
     @user = create :user

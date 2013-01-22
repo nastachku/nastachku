@@ -4,9 +4,9 @@ Nastachku::Application.routes.draw do
 
   scope :module => :web do
     resources :users, only: [:new, :create, :index]
+    resource :session, only: [:new, :create, :destroy]
 
     namespace :account do
-      resource  :session,  only: [:new, :create, :destroy]
       resources :accounts, only: [:edit, :update]
     end
 

@@ -8,8 +8,6 @@
       %a.brand(href=root_path)= t('.title')
       .container.nav-collapse
         %ul.nav
-          /%li= link_to(t(".participants"), users_path)
-
           %li= link_to t('.pages'),  admin_pages_path
           %li= link_to t('.news'),   admin_news_index_path
-          %li= link_to t('.logout'), account_session_path, :method => :delete
+          %li= link_to t('.logout'), session_path, :method => :delete
