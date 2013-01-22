@@ -28,7 +28,6 @@ class Web::Admin::PagesControllerTest < ActionController::TestCase
     post :create, page: attrs
 
     assert_response :redirect
-    assert_equal attrs[:slug], Page.last.slug
   end
 
   test "should get show" do
@@ -49,7 +48,7 @@ class Web::Admin::PagesControllerTest < ActionController::TestCase
     put :update, id: @page, page: attrs
 
     assert_response :redirect
-    assert_equal attrs[:slug], Page.last.slug
+    assert Page.find_by_slug attrs[:slug]
   end
 
   test "should destroy page" do

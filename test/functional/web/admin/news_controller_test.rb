@@ -25,12 +25,9 @@ class Web::Admin::NewsControllerTest < ActionController::TestCase
   test "should create news" do
     attrs = attributes_for :news
 
-    assert_difference 'News.count' do
-      post :create, news: attrs
-    end
+    post :create, news: attrs
 
     assert_response :redirect
-    assert_equal attrs[:slug], News.last.slug
   end
 
   test "should get show" do
@@ -51,7 +48,7 @@ class Web::Admin::NewsControllerTest < ActionController::TestCase
     put :update, id: @news, news: attrs
 
     assert_response :redirect
-    assert_equal attrs[:slug], News.last.slug
+    assert News.find_by_slug attrs[:slug]
   end
 
   test "should destroy news" do
