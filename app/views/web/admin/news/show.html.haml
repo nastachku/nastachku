@@ -1,17 +1,16 @@
-- model_class = News
 .news-header
   %h1=t '.title'
 
 %p
-  %strong= model_class.human_attribute_name(:slug) + ':'
+  %strong= News.human_attribute_name :slug
   %br
   = @news.slug
 %p
-  %strong= model_class.human_attribute_name(:title) + ':'
+  %strong= News.human_attribute_name :title
   %br
   = @news.title
 %p
-  %strong= model_class.human_attribute_name(:body) + ':'
+  %strong= News.human_attribute_name :body
   %br
   = @news.body
 

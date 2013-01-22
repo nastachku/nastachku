@@ -1,13 +1,11 @@
-- model_class = User
-
-%h1=t '.title', :default => model_class.model_name.human.pluralize
+%h1=t '.title'
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:name)
-      %th= model_class.human_attribute_name(:city)
-      %th= model_class.human_attribute_name(:company)
-      %th= model_class.human_attribute_name(:position)
+      %th= User.human_attribute_name :name
+      %th= User.human_attribute_name :city
+      %th= User.human_attribute_name :company
+      %th= User.human_attribute_name :position
   %tbody
     - @users.each do |user|
       %tr
