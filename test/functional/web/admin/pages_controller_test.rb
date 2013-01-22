@@ -48,7 +48,10 @@ class Web::Admin::PagesControllerTest < ActionController::TestCase
     put :update, id: @page, page: attrs
 
     assert_response :redirect
-    assert Page.find_by_slug attrs[:slug]
+
+    page = Page.find_by_slug attrs[:slug]
+
+    assert page
   end
 
   test "should destroy page" do

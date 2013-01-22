@@ -48,7 +48,10 @@ class Web::Admin::NewsControllerTest < ActionController::TestCase
     put :update, id: @news, news: attrs
 
     assert_response :redirect
-    assert News.find_by_slug attrs[:slug]
+
+    news = News.find_by_slug attrs[:slug]
+
+    assert news
   end
 
   test "should destroy news" do

@@ -1,6 +1,6 @@
 FactoryGirl.define do
 
-  factory :news, :class => News do
+  factory :news do
     slug
     title
     body
