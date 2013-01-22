@@ -13,7 +13,7 @@ module AuthHelper
   end
 
   def signed_as_admin?
-    signed_in? && current_user.is_admin
+    signed_in? && current_user.admin?
   end
 
   def authenticate_user!

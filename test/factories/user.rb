@@ -11,7 +11,7 @@ FactoryGirl.define do
   end
 
   factory :admin, :parent => :user do
-    is_admin true
+    admin true
   end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121075751) do
+ActiveRecord::Schema.define(:version => 20130122080929) do
 
   create_table "news", :force => true do |t|
     t.string   "slug"
@@ -39,7 +39,8 @@ ActiveRecord::Schema.define(:version => 20130121075751) do
     t.string   "company"
     t.boolean  "show_as_participant"
     t.string   "position"
-    t.boolean  "is_admin"
+    t.boolean  "admin"
+    t.string   "password"
   end
 
 end
