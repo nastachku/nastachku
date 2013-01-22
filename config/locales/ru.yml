@@ -1,4 +1,8 @@
 ru:
+  time:
+    formats:
+      default: "%d-%m-%Y H%:%M:%S"
+
   layouts:
     web:
       shared:
