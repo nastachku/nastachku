@@ -9,11 +9,11 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
     @page = PageEditType.create params[:page]
 
     if @page.save
-      flash_success message: flash_translate(:success)
+      flash_success
 
       redirect_to admin_page_path(@page)
     else
-      flash_error message: flash_translate(:error)
+      flash_error
 
       render "new"
     end
@@ -35,11 +35,11 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
     @page = PageEditType.find params[:id]
 
     if @page.update_attributes params[:page]
-      flash_success message: flash_translate(:success)
+      flash_success
 
       redirect_to admin_page_path(@page)
     else
-      flash_error message: flash_translate(:error)
+      flash_error
 
       render "new"
     end

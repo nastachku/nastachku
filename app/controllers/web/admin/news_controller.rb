@@ -9,11 +9,11 @@ class Web::Admin::NewsController < Web::Admin::ApplicationController
     @news = NewsEditType.new params[:news]
 
     if @news.save
-      flash_success message: flash_translate(:success)
+      flash_success
 
       redirect_to admin_news_path(@news)
     else
-      flash_error message: flash_translate(:error)
+      flash_error
 
       render "new"
     end
@@ -35,11 +35,11 @@ class Web::Admin::NewsController < Web::Admin::ApplicationController
     @news = NewsEditType.find params[:id]
 
     if @news.update_attributes params[:news]
-      flash_success message: flash_translate(:success)
+      flash_success
 
       redirect_to admin_news_path(@news)
     else
-      flash_error message: flash_translate(:error)
+      flash_error
 
       render "new"
     end
