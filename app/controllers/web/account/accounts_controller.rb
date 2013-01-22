@@ -1,8 +1,6 @@
 
 class Web::Account::AccountsController < Web::Account::ApplicationController
 
-  before_filter :authenticate_user!
-
   def edit
     @user = UserEditType.find params[:id]
   end
