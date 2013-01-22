@@ -5,7 +5,9 @@ module ApplicationHelper
     patch = options[:with]
 
     if patch
-      label += [" (", patch, ")"].join
+      label << " ("
+      label << patch.to_s
+      label << ")"
     end
 
     link_to label, path
