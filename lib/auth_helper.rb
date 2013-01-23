@@ -17,11 +17,11 @@ module AuthHelper
   end
 
   def authenticate_user!
-    redirect_to new_account_session_path unless signed_in?
+    redirect_to new_session_path unless signed_in?
   end
 
   def authenticate_admin!
-    redirect_to new_account_session_path unless signed_as_admin?
+    redirect_to new_session_path unless signed_as_admin?
   end
 
   def current_user
