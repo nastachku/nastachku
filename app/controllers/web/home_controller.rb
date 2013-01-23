@@ -1,10 +1,8 @@
 
 class Web::HomeController < Web::ApplicationController
 
-  # before_filter 'authenticate_user!', :only => [:index]
-
   def index
-
+    @news = News.web
   end
 
 end

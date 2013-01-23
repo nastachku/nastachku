@@ -1,2 +1,18 @@
 
-= render "web/shared/registration_form"
+= simple_form_for @user do |f|
+
+  = f.error_notification
+
+  .span4
+    = f.input :email
+    = f.input :name
+    = f.input :city
+    = f.input :show_as_participant
+
+  = f.input :password
+  = f.input :password_confirmation
+  = f.input :company
+  = f.input :position
+
+  .form-actions
+    = f.button :submit, :class => 'btn btn-primary'

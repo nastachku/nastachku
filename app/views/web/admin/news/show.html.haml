@@ -1,0 +1,20 @@
+.news-header
+  %h1=t '.title'
+
+%p
+  %strong= News.human_attribute_name :slug
+  %br
+  = @news.slug
+%p
+  %strong= News.human_attribute_name :title
+  %br
+  = @news.title
+%p
+  %strong= News.human_attribute_name :body
+  %br
+  = @news.body
+
+.form-actions
+  = link_to t('.back'), admin_news_index_path, :class => 'btn'
+  = link_to t('.edit'), edit_admin_news_path(@news), :class => 'btn'
+  = link_to t('.destroy'), admin_news_path(@news), :method => "delete", :data => { :confirm => t('.confirm') }, :class => 'btn btn-danger'

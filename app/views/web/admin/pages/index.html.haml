@@ -1,0 +1,22 @@
+.page-header
+  %h1=t '.title'
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Page.human_attribute_name :slug
+      %th= Page.human_attribute_name :title
+      %th= Page.human_attribute_name :body
+      %th= Page.human_attribute_name :created_at
+      %th= Page.human_attribute_name :actions
+  %tbody
+    - @pages.each do |page|
+      %tr
+        %td= link_to page.slug, admin_page_path(page)
+        %td= page.title
+        %td= page.body
+        %td= l page.created_at
+        %td
+          = link_to t('.edit'), edit_admin_page_path(page), :class => 'btn btn-mini'
+          = link_to t('.destroy'), admin_page_path(page), :method => :delete, :data => { :confirm => t('.confirm') }, :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new'), new_admin_page_path, :class => 'btn btn-primary'

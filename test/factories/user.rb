@@ -10,9 +10,8 @@ FactoryGirl.define do
     email
   end
 
-  factory :update_user, :parent => :user do
-    email
-    password "sicret"
-    password_confirmation "sicret"
+  factory :admin, :parent => :user do
+    admin true
   end
+
 end

@@ -1,2 +1,8 @@
 
-= render "web/shared/login_form"
+= simple_form_for :user, :url => session_path do |f|
+
+  = f.input :email
+  = f.input :password
+
+  .form-actions
+    = f.button :submit, :class => 'btn btn-primary btn-large'
