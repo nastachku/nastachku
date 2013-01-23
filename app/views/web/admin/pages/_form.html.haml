@@ -2,7 +2,7 @@
 
   = f.input :slug
   = f.input :title
-  = f.input :body
+  = f.input :body, as: :ckeditor
 
   .form-actions
     = f.button :submit, :class => 'btn btn-primary'
