@@ -8,6 +8,80 @@ header .info {
 	height: 150px;
 }
 .center {
-	text-align: center;
+	text-align: center !important;
 	padding: 0 !important;
+}
+td.middle {
+	vertical-align: middle;
+}
+
+.theme-block {
+	color: #fff;
+	padding: 20px;
+	min-height: 130px;
+}
+.theme-block h4 {
+	color: #fff;
+}
+
+.g-blue {
+	background-color: #70b2e2;
+}
+.g-red {
+	background-color: #ce2c29;
+}
+.g-green {
+	background-color: #00c655;
+}
+.g-orange {
+	background-color: #E09533;
+}
+.g-yellow {
+	background-color: #d0ce09;
+}
+.g-violin {
+	background-color: #70019d;
+}
+.g-disabled {
+	background-color: #ccc;
+}
+
+.timetable {
+	margin-top: 20px;
+}
+.timetable thead th {
+	vertical-align: middle;
+	color: #fff;
+	font-weight: normal;
+	text-align: center;
+}
+.timetable .hour,
+.timetable .hour td {
+	height: 120px;
+}
+.issue-container {
+	position: relative;
+	width: 100%;
+}
+.issue-wrap {
+	position: absolute;
+	margin: 0 0px;
+	width: 129px;
+}
+.issue-container .issue {
+	
+	background: #eee;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 4px;
+	width: 128px;
+}
+.hour_1 {
+	height: 100px;
+}
+.hour_3 {
+	height: 385px;
+}
+.hour_4 {
+	height: 520px;
 }
