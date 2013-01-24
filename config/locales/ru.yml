@@ -1,7 +1,7 @@
 ru:
   time:
     formats:
-      default: "%d-%m-%Y H%:%M:%S"
+      default: "%d-%m-%Y %H:%M:%S"
 
   layouts:
     web:
@@ -33,7 +33,10 @@ ru:
 
     users:
       form:
-        cancel: "Я передумал"
+        title: 'Регистрация'
+        authentication: 'Данные для входа'
+        already_registered?: 'Уже зарегистрированы?'
+        login: 'Войти'
 
       new:
         title: 'Регистрация'
@@ -48,7 +51,7 @@ ru:
         join: 'Я пойду!'
 
     sessions:
-      new:
+      form:
         login: 'Войти'
 
     admin:

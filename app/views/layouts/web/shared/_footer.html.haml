@@ -1,8 +1,14 @@
 %footer
-  %hr
-  %p
-    = raw "&copy;"
-    = t 'global.footer.company'
-    = " 2012"
+  .container
+    .row
+      .span12
+        .copy
+          %h5
+            %span.color «Стачка»
+          %p
+            Copyright © 2012 – 2013
+            %a{:href => "#"}
+              = t 'global.footer.company'
+    .clearfix
 
 = javascript_include_tag "application"

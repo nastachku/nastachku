@@ -1,18 +1,55 @@
+%h1=t '.title'
+.row
+  .span12
+    .formy
+      .form
+        = simple_form_for @user do |f|
+          .row-fluid
+            .span4
+              = f.input :name
 
-= simple_form_for @user do |f|
+            .span4
+              = f.input :company
 
-  = f.error_notification
+            .span4
+              = f.input :position
 
-  .span4
-    = f.input :email
-    = f.input :name
-    = f.input :city
-    = f.input :show_as_participant
+          %br
+            %h5= t('.authentication')
+            .row-fluid
+              .span4
+                = f.input :email
 
-  = f.input :password
-  = f.input :password_confirmation
-  = f.input :company
-  = f.input :position
+              .span4
+                = f.input :password
 
-  .form-actions
-    = f.button :submit, :class => 'btn btn-primary'
+              .span4
+                = f.input :password_confirmation
+
+            .row-fluid
+              .span4
+                = f.input :show_as_participant
+
+            .center.form-actions
+              = f.button :submit, class: 'btn'
+
+        = t('.already_registered?')
+        = link_to t('.login'), new_session_path
+
+/ = simple_form_for @user do |f|
+
+/   = f.error_notification
+
+/   .span4
+/     = f.input :email
+/     = f.input :name
+/     = f.input :city
+/     = f.input :show_as_participant
+
+/   = f.input :password
+/   = f.input :password_confirmation
+/   = f.input :company
+/   = f.input :position
+
+/   .form-actions
+/     = f.button :submit, :class => 'btn btn-primary'

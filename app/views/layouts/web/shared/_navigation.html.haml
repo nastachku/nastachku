@@ -1,12 +1,10 @@
-.navbar.navbar-floating-top
+.navbar
   .navbar-inner
     .container
-      %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      %a.brand(href=root_path)= t('.title')
-      .container.nav-collapse
+      %a.btn.btn-navbar{ class: "btn btn-navbar",  :'data-toggle' => "collapse",  :'data-target' => ".nav-collapse" }
+        %span Menu
+
+      .nav-collapse.collapse
         %ul.nav
           - unless signed_in?
             %li= link_to t(".i_will_go"), new_user_path

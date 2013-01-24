@@ -1,0 +1,120 @@
+/* Orange */
+
+body{
+	border-top: 3px solid #fe781e;
+}
+
+a, a:visited{
+	color: #fe781e;
+}
+
+a:hover{
+	color: #e66d1c;
+}
+
+blockquote{
+	border-left: 4px solid #fe781e;
+}
+
+.color{
+	color: #fe781e;	
+}
+
+.navbar .btn{
+background:#fe781e !important;  
+}
+
+.navbar .btn:hover{
+background:#e66d1c !important;
+}
+
+.da-slider{
+	border-top: 3px solid #fe781e;
+	border-bottom: 3px solid #fe781e;
+}
+
+.da-slide h2 span{
+	background: url("../img/border-o.png") left bottom no-repeat;
+}
+
+.da-slide .da-link{
+	background: #fe781e;
+}	
+
+.da-slide .da-link:hover{
+	background: #e66d1c;
+}
+
+.da-dots span{
+	background: #fe781e;
+}
+
+.da-arrows span{
+	background: #fe781e;
+}
+
+.home-product{
+	background: #fe781e;
+}
+
+.home-product .home-prod-img{
+	border: 1px solid #e66d1c;
+}
+
+#portfolio .element{
+	background: #e66d1c;
+}
+
+#portfolio .pcap{
+	background:#fe781e;
+	border-top: 2px solid #e66d1c;
+}
+
+.social-links{
+	background: #fe781e;	
+}
+
+.social-links i{
+	background: #e66d1c;
+}
+
+.formy{
+	background: #fe781e;
+}
+
+.service-two i{
+	color: #fe781e;	
+}
+
+
+.features-two .feat i, .features-three i{
+	color: #fe781e;
+}
+
+.about-two .asocial i{
+	background:#fe781e;
+}
+
+.career .nav-tabs > li > a:hover{
+	background: #fe781e;
+}
+
+.button a, .button a:visited{
+	background: #fe781e;
+}
+
+.button a:hover{
+	background: #e66d1c;
+}	
+
+.paging a:hover{
+	background: #fe781e;
+}
+
+.paging .current{
+	background: #e66d1c;
+}
+
+.comments .comment{
+	border-bottom:2px solid #e66d1c;
+}
