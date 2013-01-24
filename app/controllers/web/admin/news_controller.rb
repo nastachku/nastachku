@@ -49,7 +49,7 @@ class Web::Admin::NewsController < Web::Admin::ApplicationController
     @news = News.find params[:id]
     @news.delete
 
-    redirect_to admin_news_path
+    redirect_to admin_news_index_path
   end
 
 end
