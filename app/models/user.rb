@@ -7,6 +7,19 @@ class User < ActiveRecord::Base
                   :company, :position,
                   :show_as_participant
 
+  state_machine :state, initial: :active do
+    state :active
+    state :inactive
+
+    event :activate do
+      transition any - :active => :active
+    end
+
+    event :deactivate do
+      transition :active => :inactive
+    end
+  end
+
   def full_name
     name
   end

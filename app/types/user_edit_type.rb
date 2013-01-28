@@ -2,7 +2,7 @@
 class UserEditType < User
   include BasicType
 
-  attr_accessible :password_confirmation
+  attr_accessible :password_confirmation, :state_event
 
   has_secure_password
 

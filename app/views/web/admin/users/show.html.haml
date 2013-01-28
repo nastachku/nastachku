@@ -10,6 +10,10 @@
   %br
   = @user.full_name
 %p
+  %strong= User.human_attribute_name :state
+  %br
+  = @user.state
+%p
   %strong= User.human_attribute_name :city
   %br
   = @user.city

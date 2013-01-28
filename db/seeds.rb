@@ -8,4 +8,5 @@
 
 UserEditType.create({ email: 'admin@undev.home', name: 'Admin', password: '12345', password_confirmation: '12345' }) { |u|
   u.admin = true
+  u.activate
 }

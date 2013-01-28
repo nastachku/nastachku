@@ -8,6 +8,10 @@ FactoryGirl.define do
     company
     show_as_participant
     email
+
+    after(:create) do |u|
+      u.activate
+    end
   end
 
   factory :admin, :parent => :user do

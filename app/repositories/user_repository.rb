@@ -10,5 +10,6 @@ module UserRepository
     scope :shown_as_participants, ->{
       where show_as_participant: true
     }
+    scope :active, where(state: :active)
   end
 end

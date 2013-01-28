@@ -44,5 +44,5 @@ class Web::Admin::UsersControllerTest < ActionController::TestCase
     assert_response :redirect
     assert !User.exists?(@user)
   end
-
+  
 end

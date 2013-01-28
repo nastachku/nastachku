@@ -5,6 +5,7 @@
     %tr
       %th= User.human_attribute_name :id
       %th= User.human_attribute_name :name
+      %th= User.human_attribute_name :state
       %th= t(".created_at")
       %th= t(".actions")
   %tbody
@@ -12,7 +13,8 @@
       %tr
         %td= link_to user.id, admin_user_path(user)
         %td= user.full_name
-        %td= l user.created_at
+        %td= user.state
+        %td= user.created_at
         %td
           = link_to t('.edit'), edit_admin_user_path(user), :class => 'btn btn-mini'
           = link_to t('.destroy'), admin_user_path(user), :method => :delete, :data => { :confirm => t('.confirm') }, :class => 'btn btn-mini btn-danger'

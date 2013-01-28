@@ -1,6 +1,5 @@
 = simple_form_for [:admin, @user], :html => { :class => 'form-horizontal' } do |f|
 
-  = f.input :id
   = f.input :name
   = f.input :city
   = f.input :company
@@ -9,6 +8,7 @@
   = f.input :email
   = f.input :password
   = f.input :password_confirmation
+  = f.input :state, :as => :state_event
 
   .form-actions
     = f.button :submit, :class => 'btn btn-primary'
