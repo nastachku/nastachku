@@ -4,7 +4,8 @@
     %p
       != t '.hero_unit_content'
 
-  = link_to t('.join'), new_user_path, class: 'btn btn-large'
+  - unless signed_in?
+    = link_to t('.join'), new_user_path, class: 'btn btn-large'
 
 %h1 Пресс-центр
 .row

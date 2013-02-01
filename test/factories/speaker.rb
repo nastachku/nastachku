@@ -1,6 +1,6 @@
 FactoryGirl.define do
 
-  factory :user, :class => UserEditType do
+  factory :speaker do
     password              "sekret"
     name
     city
@@ -12,10 +12,6 @@ FactoryGirl.define do
     after(:create) do |u|
       u.activate
     end
-  end
-
-  factory :admin, :parent => :user do
-    admin true
   end
 
 end

@@ -3,7 +3,7 @@
   .span12
     .formy
       .form
-        = simple_form_for @user do |f|
+        = simple_form_for @member do |f|
           .row-fluid
             .span4
               = f.input :name
@@ -35,21 +35,3 @@
 
         = t('.already_registered?')
         = link_to t('.login'), new_session_path
-
-/ = simple_form_for @user do |f|
-
-/   = f.error_notification
-
-/   .span4
-/     = f.input :email
-/     = f.input :name
-/     = f.input :city
-/     = f.input :show_as_participant
-
-/   = f.input :password
-/   = f.input :password_confirmation
-/   = f.input :company
-/   = f.input :position
-
-/   .form-actions
-/     = f.button :submit, :class => 'btn btn-primary'

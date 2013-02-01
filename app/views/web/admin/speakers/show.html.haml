@@ -1,0 +1,35 @@
+.page-header
+  %h1=t '.title'
+  .row
+    .span4
+      %strong= Speaker.human_attribute_name :id
+      %br= @speaker.id
+
+      %strong= Speaker.human_attribute_name :name
+      %br= @speaker.full_name
+
+      %strong= Speaker.human_attribute_name :state
+      %br= @speaker.state
+
+      %strong= Speaker.human_attribute_name :city
+      %br= @speaker.city
+    .span4
+
+      %strong= Speaker.human_attribute_name :position
+      %br= @speaker.position
+
+      %strong= Speaker.human_attribute_name :company
+      %br= @speaker.company
+      
+      %strong= Speaker.human_attribute_name :show_as_participant
+      %br= @speaker.show_as_participant
+    .span4
+      %strong= Speaker.human_attribute_name :photo
+      .media
+        = image_tag @speaker.photo.url, class: 'media-object'
+
+
+  .form-actions
+    = link_to t('.back'), admin_users_path, :class => 'btn'
+    = link_to t('.edit'), edit_admin_speaker_path(@speaker), :class => 'btn'
+    = link_to t('.destroy'), admin_speaker_path(@speaker), :method => "delete", :data => { :confirm => t('.confirm') }, :class => 'btn btn-danger'  
