@@ -25,12 +25,7 @@ class Web::Admin::SpeakersController < Web::Admin::ApplicationController
 
   def update
     @speaker = User.find(params[:id])
-    #TODO херовое решение, вынести или реализовать другой вариант 
-    @speaker.type = :Speaker
-    @speaker.save
-    
     @speaker = @speaker.becomes(SpeakerEditType)    
-
     if @speaker.update_attributes params[:speaker]     
       flash_success
       redirect_to admin_users_path

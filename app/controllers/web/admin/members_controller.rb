@@ -25,12 +25,7 @@ class Web::Admin::MembersController < Web::Admin::ApplicationController
 
   def update
     @member = User.find(params[:id])
-    #TODO херовое решение, вынести или реализовать другой вариант
-    @member.type = :Member
-    @member.save
-
     @member = @member.becomes(MemberEditType)    
-
     if @member.update_attributes params[:member]     
       flash_success
       redirect_to admin_users_path
