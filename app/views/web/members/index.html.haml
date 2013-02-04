@@ -1,0 +1,16 @@
+%h1=t '.title'
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Member.human_attribute_name :name
+      %th= Member.human_attribute_name :city
+      %th= Member.human_attribute_name :company
+      %th= Member.human_attribute_name :position
+  %tbody
+    - @members.each do |member|
+      %tr
+        %td= member.name
+        %td= member.city
+        %td= member.company
+        %td= member.position
+

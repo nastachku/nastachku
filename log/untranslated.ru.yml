@@ -1,11 +1,9 @@
 ---
 ru:
-  web:
-    users:
-      form:
-        cancel: ''
-    home:
-      index:
-        hero_unit_title: ''
-        hero_unit_content: ''
-        join: ''
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            state:
+              invalid_transition: ''

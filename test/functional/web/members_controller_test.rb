@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Web::UsersControllerTest < ActionController::TestCase
+class Web::MembersControllerTest < ActionController::TestCase
 
   test "should get index" do
     get :index
@@ -15,12 +15,12 @@ class Web::UsersControllerTest < ActionController::TestCase
   end
 
   test "should create user" do
-    attrs = attributes_for :user
+    attrs = attributes_for :member
 
-    post :create, user: attrs
+    post :create, member: attrs
 
     assert_response :redirect
-    assert_equal attrs[:email], User.last.email
+    assert_equal attrs[:email], Member.last.email
   end
 
 end
