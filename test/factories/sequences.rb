@@ -5,7 +5,7 @@ FactoryGirl.define do
   end
 
   [:name, :city,  :company,
-   :slug, :title, :body, :photo].each do |trait|
+   :slug, :title, :body].each do |trait|
     
     sequence trait do |n|
       "#{trait}_#{n}"

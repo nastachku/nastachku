@@ -1,6 +1,8 @@
-= simple_form_for @speaker, :url => account_speaker_path(@speaker), :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for @user, :url => account_account_path(@user), :html => { :class => 'form-horizontal' } do |f|
 
   = f.input :email
+  = f.input :password
+  = f.input :password_confirmation
   = f.input :name
   = f.input :city
   = f.input :company
