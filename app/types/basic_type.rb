@@ -6,5 +6,9 @@ module BasicType
     def model_name
       superclass.model_name
     end
+
+    def name
+      superclass.name
+    end
   end
 end

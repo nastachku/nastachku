@@ -20,11 +20,11 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
   end
 
   def show
-    @user = User.find params[:id]
+    @user = UserEditType.find params[:id]
   end
 
   def edit
-    @user = User.find params[:id]
+    @user = UserEditType.find params[:id]
   end
 
   def update
