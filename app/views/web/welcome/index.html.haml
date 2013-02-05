@@ -7,23 +7,7 @@
   - unless signed_in?
     = link_to t('.join'), new_user_path, class: 'btn btn-large'
 
-%h1 Пресс-центр
-.row
-  .span5
-    %h4 Что нового?
-    .blog
-      .posts
-        - @news.each do |news|
-          .entry
-            / Meta details
-            .meta
-              %i.icon-calendar
-              = l news.created_at
-            %p= raw news.body
-
-  .span3.offset1
-    %h4 Twitter
-    %p Twitter-feed.
-  .span3
-    %h4 Facebook
-    %p Facebook-widget.
+= render "themes"
+.border
+= render "want_to_do"
+.border
