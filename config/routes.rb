@@ -6,6 +6,7 @@ Nastachku::Application.routes.draw do
 
   scope :module => :web do
     resources :users, only: [:new, :create, :index]
+    resources :pages, only: [:show]
     resource :session, only: [:new, :create, :destroy]
 
     namespace :account do
