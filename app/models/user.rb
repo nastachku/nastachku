@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   attr_accessible :email,   :password, :password_digest,
                   :name,    :city,
                   :company, :position,
-                  :show_as_participant, :photo, :state_event
+                  :show_as_participant, :photo, :state_event, :about
 
   mount_uploader :photo, UsersPhotoUploader 
 

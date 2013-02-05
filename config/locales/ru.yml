@@ -183,7 +183,8 @@ ru:
         photo: "Фото"
         state_event: "Изменить состояние"
         state: "Состояние"
-
+        about: "О себе"
+        
     errors:
       models:
         page:
