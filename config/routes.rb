@@ -15,6 +15,7 @@ Nastachku::Application.routes.draw do
     namespace :admin do
       resources :pages
       resources :news
+      resources :users
 
       root to: "welcome#index"
     end
