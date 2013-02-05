@@ -4,17 +4,17 @@
     .formy
       %h5= t '.login'
       .form
-        = simple_form_for :user, url: session_path, html: { class: 'form-horizontal' } do |f|
+        = simple_form_for :user, url: session_path, html: { class: 'form-horizontal form-type-login' } do |f|
           .control-group
-            = f.input :email
+            = f.input :email, :tabindex => 1
         
           .control-group
-            = f.input :password
+            = f.input :password, :tabindex => 2
 
           .form-actions
-            = f.button :submit, :class => 'btn'
+            = f.button :submit, :value => t('.login'), :class => 'btn', :tabindex => 3
 
           Ещё не зарегистрировались?!
 
-          %a{ :href => new_user_path }
+          %a{ :href => new_user_path, :tabindex => 4}
             Сделайте это прямо сейчас!

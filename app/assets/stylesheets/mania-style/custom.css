@@ -11,3 +11,22 @@ header .info {
 	text-align: center;
 	padding: 0 !important;
 }
+
+/* Login form */
+.form-horizontal.form-type-login input[type="email"],
+.form-horizontal.form-type-login input[type="text"],
+.form-horizontal.form-type-login input[type="password"] {
+	width: 100%;
+	height: 28px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.form-horizontal.form-type-login .form-actions {
+	padding-left: 0;
+	padding-right: 0;
+	text-align: center;
+}
+.form-horizontal.form-type-login .form-actions input[type="submit"] {
+	margin: 0 auto;
+}
