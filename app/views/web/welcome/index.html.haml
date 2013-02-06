@@ -1,12 +1,3 @@
-.hero-unit
-  %h1!= t '.hero_unit_title'
-  .lead
-    %p
-      != t '.hero_unit_content'
-      
-  - unless signed_in?
-    = link_to t('.join'), new_user_path, class: 'btn btn-large'
-
 = render "themes"
 .border
 = render "want_to_do"

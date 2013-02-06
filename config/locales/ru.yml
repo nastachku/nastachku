@@ -211,6 +211,12 @@ ru:
             body:
               blank: 'Тело новости не может быть пустым'
 
+          users: 
+            attributes:
+              email:
+                blank: 'Поле не может быть пустым'
+                taken: 'Такой email уже есть, выберите другой'
+
   simple_form:
     labels:
       user:
