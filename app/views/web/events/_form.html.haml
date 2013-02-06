@@ -1,0 +1,21 @@
+%h1=t '.title'
+%br
+.row
+  .span12
+    .formy
+      .form
+        = simple_form_for @user, url: user_events_path(current_user), method: :post do |f|
+          .row-fluid
+            .span4
+              = f.input :photo
+            
+            .span4
+              = f.input :about
+            
+            = f.simple_fields_for :events do |event|
+              = render 'event_fields', f: event
+              
+            = link_to_add_association t('.add_event'), f, :events
+            
+            .center.form-actions
+              = f.button :submit, class: 'btn'

@@ -7,8 +7,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password,
                   :first_name, :last_name, :city,
                   :company, :position,
-                  :show_as_participant,
-                  :photo, :state_event, :about
+                  :show_as_participant, :photo, :state_event, :about, :events_attributes
 
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
@@ -21,6 +20,8 @@ class User < ActiveRecord::Base
 
   enumerize :role, in: [ :lector, :user ], default: :user
   has_many :events, class_name: 'UserEvent', foreign_key: 'speaker_id', dependent: :destroy
+
+  accepts_nested_attributes_for :events, :reject_if => :all_blank, :allow_destroy => true
 
   mount_uploader :photo, UsersPhotoUploader 
 

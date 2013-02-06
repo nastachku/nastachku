@@ -71,6 +71,12 @@ ru:
         hero_unit_title: 'Стачка 2013'
         hero_unit_content: '<br>УЛЬЯНОВСК 12-13 АПРЕЛЯ 2013 МЕМЦЕНТР<br>Веб-технологии, менеджмент в IT, электронная коммерция, IT-стартапы, программирование, IT на службе в обществе'
         join: 'Я пойду!'
+        
+    events:
+      form: 
+        add_event: 'Добавить доклад'
+      event_fields:
+        remove_event: 'Удалить доклад'
 
     sessions:
       form:
@@ -183,3 +189,143 @@ ru:
           title: 'Редактирование топика'
         form:
           cancel: 'Отменить'
+  helpers:
+    submit:
+      session:
+        create: "Войти на сайт"
+
+      user:
+        create: "Зарегистрировать"
+        update: "Подтверждаю"
+
+      page:
+        create: "Добавить страницу"
+        update: "Добавить страницу"
+
+      news:
+        create: "Добавить новость"
+        update: "Изменить новость"
+
+    links:
+      cancel: 'Отменить (я ru.helpers.links.cancel!)'
+
+  success: 'Успех (я ru.success!)'
+
+  activerecord:
+    attributes:
+      page:
+        slug:  "slug"
+        title: "Заголовок"
+        body:  "Содержимое"
+        created_at: "Время создания"
+
+      news:
+        slug:  "slug"
+        title: "Заголовок"
+        body:  "Содержимое"
+        created_at: "Время создания"
+
+      user:
+        email: "Email"
+        first_name: "Имя"
+        last_name: "Фамилия"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        city: "Город"
+        company: "Компания"
+        position: "Должность"
+        show_as_participant: "Показывать как участника"
+        photo: "Фото"
+        state_event: "Изменить состояние"
+        state: "Состояние"
+        about: "О себе"
+        
+      base_event:
+        title: 'Название доклада'
+        presentation: 'Добавить презентацию'
+        thesises: 'Тезисы'
+        
+    errors:
+      models:
+        page:
+          attributes:
+            slug:
+              blank: 'Поле не может быть пустым'
+              taken: 'Такой слаг уже есть, выберите другой'
+
+            title:
+              blank: 'Заголовок не может быть пустым'
+
+            body:
+              blank: 'Тело страницы не может быть пустым'
+          
+        news:
+          attributes:
+            slug:
+              blank: 'Поле не может быть пустым'
+              taken: 'Такой слаг уже есть, выберите другой'
+
+            title:
+              blank: 'Заголовок не может быть пустым'
+
+            body:
+              blank: 'Тело новости не может быть пустым'
+
+          users: 
+            attributes:
+              email:
+                blank: 'Поле не может быть пустым'
+                taken: 'Такой email уже есть, выберите другой'
+
+  simple_form:
+    labels:
+      user:
+        email: "Email"
+        password: "Пароль"
+
+  flash:
+    controllers:
+      web:
+        users:
+          create:
+            success: 'Регистрация прошла успешно. На указанный электронный адрес отправлено письмо с персональным номер для участия в конференции.'
+            error:   'Не удалось добавить запись, есть ошибки в заполнении форм.'
+
+        account:
+          accounts:
+            update:
+              success: 'Аккаунт успешно изменён!'
+              error:   'Не удалось изменить аккаунт, есть ошибки в заполнении форм.'
+
+        sessions:
+          create:
+            success: 'Вы вошли на сайт.'
+            error:   'Аутентификация не удалась. Проверьте логин/пароль.'
+
+        admin:
+          pages:
+            create:
+              success: 'Страница добавлена.'
+              error:   'Не удалось добавить страницу, есть ошибки в заполнении форм.'
+
+            update:
+              success: 'Страница изменена.'
+              error:   'Не удалось изменить страницу, есть ошибки в заполнении форм.'
+
+          news:
+            create:
+              success: 'Новость добавлена.'
+              error:   'Не удалось добавить новость, есть ошибки в заполнении форм.'
+
+            update:
+              success: 'Новость изменена.'
+              error:   'Не удалось изменить новость, есть ошибки в заполнении форм.'
+
+          users:
+            create:
+              success: 'Пользовтаель добавлен.'
+              error:   'Не удалось добавить пользователя, есть ошибки в заполнении форм.'
+
+            update:
+              success: 'Пользователь изменен.'
+              error:   'Не удалось изменить пользователя, есть ошибки в заполнении форм.'

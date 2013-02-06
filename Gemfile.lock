@@ -72,6 +72,7 @@ GEM
     ckeditor (4.0.2)
       mime-types
       orm_adapter
+    cocoon (1.1.2)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -278,6 +279,7 @@ DEPENDENCIES
   chosen-rails
   ci_reporter
   ckeditor
+  cocoon
   coffee-rails (~> 3.2.1)
   configus
   coveralls

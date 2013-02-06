@@ -5,7 +5,9 @@ class BaseEvent < ActiveRecord::Base
 
   belongs_to :speaker, class_name: 'User'
   
-  validates :speaker, presence: true
+  # validates :speaker, presence: true
+  validates :title, presence: true
+  validates :thesises, presence: true
   
   state_machine :state, initial: :new do
     state :new

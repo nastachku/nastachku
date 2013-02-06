@@ -9,6 +9,7 @@
           
           - if signed_in?
             %li= link_to t('.add_lecture'), new_event_path
+            %li= link_to current_user.full_name, edit_account_account_path(current_user)
           - else 
             %li= link_to t(".i_will_go"), new_user_path
 

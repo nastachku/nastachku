@@ -35,6 +35,7 @@ gem 'chosen-rails'
 gem 'auditable', :github => 'harleyttd/auditable'
 gem 'enumerize'
 gem 'rack-rewrite'
+gem 'cocoon'
 
 # Gems used only for assets and not required
 # in production environments by default.
