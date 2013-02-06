@@ -1,9 +1,3 @@
-GIT
-  remote: https://github.com/kaize/usefull_scopes.git
-  revision: 9836607ac1becbfad4515069ae4ce56f1c089109
-  specs:
-    usefull_scopes (0.0.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -217,6 +211,7 @@ GEM
     untranslated (1.0.2)
       hash-deep-merge
       i18n
+    usefull_scopes (0.1.0)
     ya_acl (0.0.7)
       rake
 
@@ -259,5 +254,5 @@ DEPENDENCIES
   unicorn
   unicorn-rails
   untranslated
-  usefull_scopes!
+  usefull_scopes
   ya_acl
