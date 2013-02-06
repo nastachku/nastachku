@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   validates :position, length: { maximum: 255 }
 
   enumerize :role, in: [ :lector, :user ], default: :user
+  has_many :events, class_name: 'UserEvent', foreign_key: 'speaker_id', dependent: :destroy
 
   mount_uploader :photo, UsersPhotoUploader 
 

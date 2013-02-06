@@ -7,7 +7,9 @@
       .nav-collapse.collapse
         %ul.nav.no-padding
           
-          - unless signed_in?
+          - if signed_in?
+            %li= link_to t('.add_lecture'), new_event_path
+          - else 
             %li= link_to t(".i_will_go"), new_user_path
 
           %li= navbar_link t(".participants"), users_path, with: User.activated.count

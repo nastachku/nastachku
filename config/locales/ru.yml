@@ -9,6 +9,7 @@ ru:
         navigation:
           title: 'Стачка!'
           participants: 'Участники'
+          add_lecture: 'Добавить доклад'
           i_will_go: 'Я пойду'
           contacts: "Контакты"
           routes: "Как доехать и где жить?"

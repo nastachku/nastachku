@@ -1,0 +1,2 @@
+class UserEvent < BaseEvent
+end
