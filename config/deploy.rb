@@ -3,6 +3,7 @@ set :default_stage, "staging"
 
 require 'capistrano/ext/multistage'
 require 'capi/unicorn'
+require 'airbrake/capistrano'
 
 set :application, "nastachku"
 set :rvm_type, :user
