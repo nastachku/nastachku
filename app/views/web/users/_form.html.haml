@@ -7,11 +7,15 @@
         = simple_form_for @user do |f|
           .row-fluid
             .span4
-              = f.input :name
+              = f.input :first_name
+            
+            .span4
+              = f.input :last_name
 
             .span4
               = f.input :company
 
+          .row-fluid
             .span4
               = f.input :position
 

@@ -2,14 +2,14 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= User.human_attribute_name :name
+      %th= User.human_attribute_name :first_name
       %th= User.human_attribute_name :city
       %th= User.human_attribute_name :company
       %th= User.human_attribute_name :position
   %tbody
     - @users.each do |user|
       %tr
-        %td= user.name
+        %td= user
         %td= user.city
         %td= user.company
         %td= user.position
