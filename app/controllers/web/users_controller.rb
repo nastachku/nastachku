@@ -1,4 +1,3 @@
-
 class Web::UsersController < Web::ApplicationController
 
   def index
@@ -13,12 +12,11 @@ class Web::UsersController < Web::ApplicationController
     @user = UserEditType.new(params[:user])
 
     if @user.save
+      UserMailer.welcome(@user).deliver
       flash_success
-
       redirect_to root_path
     else
       flash_error
-
       render action: "new"
     end
   end
