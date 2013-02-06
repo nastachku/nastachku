@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   include UserRepository
 
   attr_accessible :email,   :password, :password_digest,
-                  :name,    :city,
+                  :first_name, :last_name, :city,
                   :company, :position,
                   :show_as_participant, :photo, :state_event, :about
 
@@ -22,11 +22,11 @@ class User < ActiveRecord::Base
   end
 
   def full_name
-    name
+    "#{last_name} #{first_name}"
   end
 
   def to_s
-    name
+    full_name
   end
 
 end

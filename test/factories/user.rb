@@ -2,7 +2,8 @@ FactoryGirl.define do
 
   factory :user, :class => UserEditType do
     password              "sekret"
-    name
+    first_name
+    last_name
     city
     company
     show_as_participant

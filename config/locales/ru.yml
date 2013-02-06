@@ -173,7 +173,8 @@ ru:
 
       user:
         email: "Email"
-        name:  "ФИО"
+        first_name: "Имя"
+        last_name: "Фамилия"
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
         city: "Город"
