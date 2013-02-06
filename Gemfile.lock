@@ -69,6 +69,8 @@ GEM
     coffee-script-source (1.4.0)
     colorize (0.5.8)
     commonjs (0.2.6)
+    configus (0.0.4)
+      rake
     connection_pool (1.0.0)
     coveralls (0.5.5)
       colorize
@@ -232,6 +234,7 @@ DEPENDENCIES
   ci_reporter
   ckeditor
   coffee-rails (~> 3.2.1)
+  configus
   coveralls
   factory_girl_rails
   haml-rails
