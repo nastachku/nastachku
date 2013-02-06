@@ -467,3 +467,39 @@ ul.icons li [class*=" icon-"] {
 .icon-github-alt:before           { content: "\f113"; }
 .icon-folder-close-alt:before     { content: "\f114"; }
 .icon-folder-open-alt:before      { content: "\f115"; }
+
+
+@font-face {
+  font-family: 'fontello';
+  src: url("../font/fontello.eot");
+  src: url("../font/fontello.eot?#iefix") format('embedded-opentype'), url("../font/fontello.woff") format('woff'), url("../font/fontello.ttf") format('truetype'), url("../font/fontello.svg#fontello") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="ficon-"]:before,
+[class*=" ficon-"]:before {
+  font-family: 'fontello';
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: middle;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: auto;
+  text-align: center;
+  opacity: 0.8;
+/* fix buttons height, for twitter bootstrap */
+  line-height: normal;
+/* Animation center compensation - magrins should be symmetric */
+/* remove if not needed */
+  margin-left: 0.1em;
+  margin-right: 0.1em;
+/* you can be more comfortable with increased icons size */
+/* font-size: 120%; */
+/* Uncomment for 3D effect */
+/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.ficon-facebook-rect:before { content: '\f301'; color: #3b5998;} /* '' */
+.ficon-twitter-bird:before { content: '\f303'; color: #00acee;} /* '' */
+.ficon-vkontakte-rect:before { content: '\f30a'; color: #4e7299;} /* '' */
