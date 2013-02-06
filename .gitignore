@@ -17,3 +17,6 @@
 /tmp
 
 /coverage
+
+# Ignore schema
+schema.rb
