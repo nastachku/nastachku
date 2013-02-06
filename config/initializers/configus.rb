@@ -2,7 +2,7 @@ Configus.build Rails.env do
   env :production do
     mailer do
       default_host "nastachku.ru"
-      default_from "noreplay@nastachku.ru"
+      default_from "noreply@nastachku.ru"
     end
   end
 

@@ -1,0 +1,49 @@
+ru:
+  activerecord:
+    attributes:
+      page:
+        slug:  "slug"
+        title: "Заголовок"
+        body:  "Содержимое"
+        created_at: "Время создания"
+
+      news:
+        slug:  "slug"
+        title: "Заголовок"
+        body:  "Содержимое"
+        created_at: "Время создания"
+
+      user:
+        email: "Email"
+        first_name: "Имя"
+        last_name: "Фамилия"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        city: "Город"
+        company: "Компания"
+        position: "Должность"
+        show_as_participant: "Показывать как участника"
+        photo: "Фото"
+        state_event: "Изменить состояние"
+        state: "Состояние"
+        about: "О себе"
+
+    errors:
+      messages:
+        blank: 'Поле не может быть пустым'
+
+      models:
+        page:
+          attributes:
+            slug:
+              taken: 'Такой слаг уже есть, выберите другой'
+
+        news:
+          attributes:
+            slug:
+              taken: 'Такой слаг уже есть, выберите другой'
+
+        user: 
+          attributes:
+            email:
+              taken: 'Такой email уже есть, выберите другой'

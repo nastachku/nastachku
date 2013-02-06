@@ -20,6 +20,7 @@ gem 'ya_acl'
 gem 'state_machine'
 gem 'untranslated'
 gem 'configus'
+gem 'russian'
 
 # Gems used only for assets and not required
 # in production environments by default.
