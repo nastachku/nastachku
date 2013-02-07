@@ -36,7 +36,7 @@
 
             .row-fluid
               .span4
-                = f.input :show_as_participant, :wrapper => :inline_checkbox
+                = f.input :show_as_participant, :input_html => { :checked => true }, :wrapper => :inline_checkbox
             .center.form-actions
               = f.button :submit, class: 'btn'
 

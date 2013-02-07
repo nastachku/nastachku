@@ -22,7 +22,7 @@ ru:
         city: "Город"
         company: "Компания"
         position: "Должность"
-        show_as_participant: "Показывать как участника"
+        show_as_participant: "Показывать на странице участников"
         photo: "Фото"
         state_event: "Изменить состояние"
         state: "Состояние"
