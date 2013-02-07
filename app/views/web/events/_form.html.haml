@@ -7,7 +7,9 @@
         = simple_form_for @user, url: user_events_path(current_user), method: :post do |f|
           .row-fluid
             .span4
-              = f.input :photo
+              - if @user.photo
+                = image_tag(@user.photo.url)
+              = f.input :photo, as: :file
             
             .span4
               = f.input :about

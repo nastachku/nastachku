@@ -1,2 +1,2 @@
-class UserEvent < BaseEvent
+class UserEvent < BaseUserEvent
 end

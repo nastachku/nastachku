@@ -1,4 +1,6 @@
 class Web::EventsController < Web::ApplicationController
+
+  before_filter :authenticate_user!
   
   def new
     @user = UserEventEditType.find params[:user_id]
