@@ -124,6 +124,9 @@ td.middle {
 	height: 520px;
 }
 
+.error {
+	display: block; 
+}
 .color {
 	color: #d4724b !important;
 }

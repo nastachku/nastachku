@@ -1,0 +1,17 @@
+ru: 
+  helpers:
+    submit:
+      session:
+        create: "Войти на сайт"
+
+      user:
+        create: "Зарегистрировать"
+        update: "Подтверждаю"
+
+      page:
+        create: "Добавить страницу"
+        update: "Добавить страницу"
+
+      news:
+        create: "Добавить новость"
+        update: "Изменить новость"
