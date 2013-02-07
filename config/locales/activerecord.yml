@@ -31,6 +31,7 @@ ru:
     errors:
       messages:
         blank: 'Поле не может быть пустым'
+        confirmation: 'Не совпадает с подтверждением'
 
       models:
         page:
@@ -46,4 +47,4 @@ ru:
         user: 
           attributes:
             email:
-              taken: 'Такой email уже есть, выберите другой'
+              taken: 'Данный Email уже зарегистрирован'
