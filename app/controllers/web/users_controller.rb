@@ -13,6 +13,7 @@ class Web::UsersController < Web::ApplicationController
 
     if @user.save
       UserMailer.welcome(@user).deliver
+      sign_in @user
       flash_success
       redirect_to root_path
     else

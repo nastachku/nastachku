@@ -6,7 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-UserEditType.create({ email: 'admin@undev.home', name: 'Admin', password: '12345', password_confirmation: '12345' }) { |u|
-  u.admin = true
-  u.activate
-}
+user = User.find_or_initialize_by_email configus.admin.email
+user.password = configus.admin.password
+user.activate
+user.admin = true
+user.save!
