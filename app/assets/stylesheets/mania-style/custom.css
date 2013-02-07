@@ -48,6 +48,13 @@ footer .copy {
 .form-horizontal.form-type-login .form-actions input[type="submit"] {
 	margin: 0 auto;
 }
+.formy .help-inline {
+	font-size: 12px;
+}
+abbr[title], abbr[data-original-title] {
+	cursor: default;
+	border-bottom: none;
+}
 
 td.middle {
 	vertical-align: middle;
