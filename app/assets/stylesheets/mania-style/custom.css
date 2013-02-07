@@ -1,3 +1,11 @@
+.formy,
+.formy h5 {
+	color: #000 !important;
+	background: #fff !important;
+}
+.formy a {
+	color: #333 !important;
+}
 h1 {
 	margin-bottom: 20px;
 }
@@ -31,22 +39,25 @@ footer .copy {
 }
 
 /* Login form */
-.form-horizontal.form-type-login input[type="email"],
-.form-horizontal.form-type-login input[type="text"],
-.form-horizontal.form-type-login input[type="password"] {
+.form-type-login input[type="email"],
+.form-type-login input[type="text"],
+.form-type-login input[type="password"] {
 	width: 100%;
 	height: 28px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-.form-horizontal.form-type-login .form-actions {
+.form-type-login .form-actions {
 	padding-left: 0;
 	padding-right: 0;
 	text-align: center;
 }
-.form-horizontal.form-type-login .form-actions input[type="submit"] {
+.form-type-login .form-actions input[type="submit"] {
 	margin: 0 auto;
+}
+.formy input[type="submit"] {
+	color: #000;
 }
 .formy .help-inline {
 	font-size: 12px;
@@ -54,6 +65,22 @@ footer .copy {
 abbr[title], abbr[data-original-title] {
 	cursor: default;
 	border-bottom: none;
+}
+
+/* Profile form */
+.form-horizontal.profile-form .control-label {
+	width: 200px;
+}
+.form-horizontal.profile-form .controls {
+	margin-left: 220px;
+}
+.form-horizontal.profile-form label.checkbox {
+	text-align: left;
+}
+.form-horizontal.profile-form input[type="email"],
+.form-horizontal.profile-form input[type="text"],
+.form-horizontal.profile-form input[type="password"] {
+	width: 300px;
 }
 
 td.middle {
@@ -136,7 +163,4 @@ td.middle {
 }
 .color {
 	color: #d4724b !important;
-}
-.formy {
-	background: #fe781e !important;	
 }

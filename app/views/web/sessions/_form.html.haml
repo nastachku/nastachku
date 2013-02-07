@@ -4,12 +4,10 @@
     .formy
       %h5= t '.login'
       .form
-        = simple_form_for :user, url: session_path, html: { class: 'form-horizontal form-type-login' } do |f|
-          .control-group
-            = f.input :email, :tabindex => 1
-        
-          .control-group
-            = f.input :password, :tabindex => 2
+        = simple_form_for @user, url: session_path, html: { class: 'form-type-login' } do |f|
+
+          = f.input :email, :tabindex => 1
+          = f.input :password, :tabindex => 2
 
           .form-actions
             = f.button :submit, :value => t('.login'), :class => 'btn', :tabindex => 3

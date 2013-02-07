@@ -15,7 +15,7 @@ class Web::Account::AccountsController < Web::Account::ApplicationController
     else
       flash_error
 
-      render action: "new"
+      render action: "edit"
     end
   end
 
