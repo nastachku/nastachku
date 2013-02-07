@@ -66,10 +66,6 @@ footer .copy {
 .form-type-login .form-actions {
 	padding-left: 0;
 	padding-right: 0;
-	text-align: center;
-}
-.form-type-login .form-actions input[type="submit"] {
-	margin: 0 auto;
 }
 .formy input[type="submit"] {
 	color: #000;
