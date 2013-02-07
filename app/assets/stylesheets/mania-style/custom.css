@@ -1,3 +1,14 @@
+html,
+body {
+	height: 100%;
+	border: none !important;
+}
+.main {
+	min-height: 100%;
+}
+.main > .container {
+	padding-bottom: 96px;
+}
 .formy,
 .formy h5 {
 	color: #000 !important;
@@ -8,6 +19,9 @@
 }
 h1 {
 	margin-bottom: 20px;
+}
+header {
+	border-top: 3px solid #fe781e;
 }
 header .info {
 	padding-top: 44px;
@@ -24,6 +38,7 @@ header .info h3 {
 }
 footer {
 	position: relative;
+	margin-top: -96px;
 }
 footer .line {
 	width: 100%;

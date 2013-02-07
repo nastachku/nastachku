@@ -8,16 +8,16 @@
     = csrf_meta_tags
     = stylesheet_link_tag "application", :media => "all"
 
-    = render "layouts/web/shared/header"
-
   %body
-    = render "layouts/web/shared/navigation"
-    .container
-      .content
-        = bootstrap_flash
-        = yield
+    .main
+      = render "layouts/web/shared/header"
+      = render "layouts/web/shared/navigation"
+      .container
+        .content
+          = bootstrap_flash
+          = yield
 
-      %br/
+        %br/
 
   = render "layouts/web/shared/reformal"
   = render "layouts/web/shared/footer"
