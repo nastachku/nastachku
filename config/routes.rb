@@ -8,6 +8,7 @@ Nastachku::Application.routes.draw do
     resources :users, only: [:new, :create, :index]
     resources :pages, only: [:show]
     resource :session, only: [:new, :create, :destroy]
+    resources :news, only: [:index]
 
     namespace :account do
       resources :accounts, only: [:edit, :update]

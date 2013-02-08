@@ -1,0 +1,18 @@
+%h1 Пресс-центр
+.row
+  .span5
+    %h4 Что нового?
+    .blog
+      .posts
+        - @news.each do |news|
+          .entry
+            / Meta details
+            .meta
+              %i.icon-calendar
+              = l news.created_at
+            %p= raw news.body
+
+  .span4
+    = render "facebook_widget"
+  .span3
+    = render "twitter_widget"
