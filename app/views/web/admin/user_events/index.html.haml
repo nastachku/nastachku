@@ -1,0 +1,24 @@
+.page-header
+  %h1=t '.title'
+%table.table.table-striped
+  %thead
+    %tr
+      %th= UserEvent.human_attribute_name :title
+      %th= UserEvent.human_attribute_name :speaker
+      %th= UserEvent.human_attribute_name :thesises
+      %th= t '.actions'
+  %tbody
+    - @events.each do |event|
+      %tr
+        %td= link_to event.title, edit_admin_user_event_path(event)
+        %td= link_to event.speaker, edit_admin_user_path(event.speaker)
+        %td= event.thesises
+        %td
+          = link_to t('.edit'), edit_admin_user_event_path(event), :class => 'btn btn-mini'
+          - if event.can_move_to_schedule?
+            = link_to t('.publish'), admin_user_event_change_state_path(event, event: :move_to_schedule), method: :put, :class => 'btn btn-mini'
+          - if event.can_reject?
+            = link_to t('.reject'), admin_user_event_change_state_path(event, event: :reject), method: :put, :class => 'btn btn-mini'
+          / = link_to t('.destroy'), admin_page_path(page), :method => :delete, :data => { :confirm => t('.confirm') }, :class => 'btn btn-mini btn-danger'
+
+/ = link_to t('.new'), new_admin_page_path, :class => 'btn btn-primary'

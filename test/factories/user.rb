@@ -29,4 +29,8 @@ FactoryGirl.define do
     events_attributes { { 0 => attributes_for(:user_event) } } 
   end
 
+  
+  factory :admin_with_events, parent: :user_with_events do
+    admin true
+  end
 end

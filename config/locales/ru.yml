@@ -30,6 +30,7 @@ ru:
             users: 'Пользователи'
             audits: 'Аудит'
             topics: 'Топики'
+            lectures: 'Пользовательские доклады'
             logout: 'Выйти'
 
   global:
@@ -189,6 +190,21 @@ ru:
           title: 'Редактирование топика'
         form:
           cancel: 'Отменить'
+      user_events: 
+        index: 
+          title: 'Пользовательские доклады'
+          actions: 'Действия'
+          edit: 'Редактировать'
+          publish: 'Опубликовать'
+          reject: 'Заблокировать'
+        edit:
+          title: 'Редактирование доклада'
+          speaker: 'Докладчик: %{name}'
+        update:
+          title: 'Редактирование доклада'
+        form:
+          presentation_link: 'Ссылка на презентацию'
+
   helpers:
     submit:
       session:
@@ -244,6 +260,7 @@ ru:
         title: 'Название доклада'
         presentation: 'Добавить презентацию'
         thesises: 'Тезисы'
+        speaker: 'Докладчик'
         
     errors:
       models:
@@ -329,3 +346,11 @@ ru:
             update:
               success: 'Пользователь изменен.'
               error:   'Не удалось изменить пользователя, есть ошибки в заполнении форм.'
+          
+          user_events:
+            change_state:
+              success: 'Статус изменен.'
+              error: 'Не удалось изменить статус доклада.'
+            update:
+              success: 'Доклад изменен.'
+              error:   'Не удалось изменить доклад, есть ошибки в заполнении форм.'

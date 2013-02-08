@@ -9,7 +9,18 @@ ru:
           logout: ''
           login: ''
           admin: ''
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            state:
+              invalid_transition: ''
   web:
+    admin:
+      user_events:
+        form:
+          cancel: ''
     events:
       form:
         title: ''
