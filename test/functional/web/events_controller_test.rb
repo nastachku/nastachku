@@ -12,7 +12,8 @@ class Web::EventsControllerTest < ActionController::TestCase
   end
 
   test "should post create" do
-    post :create, user_id: @user.id, user: attributes_for(:user_with_events)
+    attrs = attributes_for(:user_with_events)
+    post :create, user_id: @user.id, user: attrs
     
     assert_response :redirect
     assert @user.events.count == 1

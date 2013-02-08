@@ -19,6 +19,3 @@
             = link_to t('.publish'), admin_user_event_change_state_path(event, event: :move_to_schedule), method: :put, :class => 'btn btn-mini'
           - if event.can_reject?
             = link_to t('.reject'), admin_user_event_change_state_path(event, event: :reject), method: :put, :class => 'btn btn-mini'
-          / = link_to t('.destroy'), admin_page_path(page), :method => :delete, :data => { :confirm => t('.confirm') }, :class => 'btn btn-mini btn-danger'
-
-/ = link_to t('.new'), new_admin_page_path, :class => 'btn btn-primary'

@@ -17,8 +17,8 @@
 /log/*.log
 /tmp
 
+/public/system/*
 /coverage
-
 # Ignore schema
 schema.rb
 

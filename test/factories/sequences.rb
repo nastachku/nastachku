@@ -20,4 +20,7 @@ FactoryGirl.define do
     true
   end
 
+  sequence :events_attributes do |n|
+    { n => FactoryGirl.attributes_for(:user_event) }
+  end
 end

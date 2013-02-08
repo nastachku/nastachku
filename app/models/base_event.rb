@@ -23,7 +23,7 @@ class BaseEvent < ActiveRecord::Base
     end
 
     event :reject do
-      transition all - :rejected => :rejected
+      transition [:new, :in_schedule, :voted] => :rejected
     end
   end
 end

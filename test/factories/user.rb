@@ -26,7 +26,7 @@ FactoryGirl.define do
   factory :user_with_events, class: UserEventEditType do
     about "about info"
     photo { fixture_file_upload Rails.root.to_s + "/test/fixtures/photos/test.png", "image/png" }
-    events_attributes { { 0 => attributes_for(:user_event) } } 
+    events_attributes  
   end
 
   
