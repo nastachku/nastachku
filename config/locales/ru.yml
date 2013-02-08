@@ -13,6 +13,9 @@ ru:
           admin: 'Админка'
           i_will_go: 'Я пойду'
           login: 'Войти'
+          contacts: "Контакты"
+          routes: "Как доехать и где жить?"
+          news: "Пресс-центр"
 
       admin:
         shared:
