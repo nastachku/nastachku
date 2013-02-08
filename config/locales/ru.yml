@@ -1,7 +1,7 @@
 ru:
   time:
     formats:
-      default: "%d-%m-%Y %H:%M:%S"
+      default: "%d-%m-%Y %H:%M"
 
   layouts:
     web:

@@ -6,9 +6,7 @@
       .posts
         - @news.each do |news|
           .entry
-            / Meta details
             .meta
-              %i.icon-calendar
               = l news.created_at
             %p= raw news.body
 
