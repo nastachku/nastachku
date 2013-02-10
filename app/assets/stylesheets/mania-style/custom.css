@@ -175,3 +175,18 @@ td.middle {
 .color {
 	color: #d4724b !important;
 }
+
+/* Foooter social */
+.social-share-links {
+	float: right;
+	height: 40px;
+	padding-top: 24px;
+}
+.social-share-links li {
+	float: left;
+	margin-left: 10px;
+}
+.social-share-links .gplus {
+	position: relative;
+	top: -1px;
+}
