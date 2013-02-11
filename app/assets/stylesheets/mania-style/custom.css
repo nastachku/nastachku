@@ -179,7 +179,7 @@ td.middle {
 /* Foooter social */
 .social-share-links {
 	float: right;
-	height: 40px;
+	height: 36px;
 	padding-top: 24px;
 }
 .social-share-links li {
@@ -189,4 +189,13 @@ td.middle {
 .social-share-links .gplus {
 	position: relative;
 	top: -1px;
+}
+.social-public-links {
+	clear: both;
+	float: right;
+}
+.social-public-links li {
+	float: left;
+	margin-left: 10px;
+	font-size: 16px;
 }
