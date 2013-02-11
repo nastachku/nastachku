@@ -18,8 +18,11 @@ ru:
               invalid_transition: ''
   web:
     admin:
-      user_events:
+      events:
+        edit:
+          title: ''
         form:
+          presentation_link: ''
           cancel: ''
     events:
       form:

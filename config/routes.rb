@@ -42,7 +42,10 @@ Nastachku::Application.routes.draw do
       resources :user_events do
         put :change_state
       end
-      
+
+      resources :events
+      resources :workshops
+                  
       root to: "welcome#index"
     end
   end

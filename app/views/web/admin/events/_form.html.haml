@@ -1,0 +1,14 @@
+= simple_form_for [:admin, @event], :html => { :class => 'form-horizontal' } do |f|
+  = f.input :title      
+  = f.input :thesises, as: :ckeditor
+  = f.input :start_time, as: :datepicker
+  = f.input :finish_time, as: :datepicker
+  = f.input :workshop, collection: Workshop.all
+  = f.input :speaker, collection: User.all
+  = f.input :presentation
+  = link_to t('.presentation_link'), @event.presentation.url
+
+  .form-actions
+    = f.button :submit, :class => 'btn btn-primary'
+    = link_to t('.cancel'), admin_workshops_path, :class => 'btn'
+

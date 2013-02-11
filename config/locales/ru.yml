@@ -207,6 +207,28 @@ ru:
         form:
           presentation_link: 'Ссылка на презентацию'
 
+      events:
+        index: 
+          title: 'События'
+          actions: 'Действия'
+          edit: 'Редактировать'
+          new: 'Добавить событие'
+          workshops: 'Секции'
+
+      workshops:
+        index:
+          title: 'Секции'
+          actions: 'Действия'
+          new: 'Добавить секцию'
+          edit: 'Редактировать'
+          delete: 'Удалить'
+        new:
+          title: 'Создание новой секции'
+        edit:
+          title: 'Редактирование секции'
+        form:
+          cancel: 'Отменить'
+
   helpers:
     submit:
       session:
@@ -263,6 +285,11 @@ ru:
         presentation: 'Добавить презентацию'
         thesises: 'Тезисы'
         speaker: 'Докладчик'
+        start_time: 'Время начала'
+        finish_time: 'Время окончания'
+
+      workshop:
+        title: 'Название'
         
     errors:
       models:
@@ -348,7 +375,6 @@ ru:
             update:
               success: 'Пользователь изменен.'
               error:   'Не удалось изменить пользователя, есть ошибки в заполнении форм.'
-          
           user_events:
             change_state:
               success: 'Статус изменен.'
@@ -356,3 +382,10 @@ ru:
             update:
               success: 'Доклад изменен.'
               error:   'Не удалось изменить доклад, есть ошибки в заполнении форм.'
+          workshops:
+            create:
+              success: 'Секция добавлена'
+              error: 'Не удалось добавить секцию, есть ошибки в заполнении форм'
+            update:
+              success: 'Секция изменена'
+              error: 'Не удалось изменить секцию, есть ошибки в заполнении форм'

@@ -1,12 +1,14 @@
 class BaseEvent < ActiveRecord::Base
   include EventRepository
 
-  attr_accessible :presentation, :thesises, :title
+  attr_accessible :presentation, :thesises, :title, :start_time, :finish_time
 
   validates :title, presence: true
   validates :thesises, presence: true
   
   mount_uploader :presentation, EventPresentationUploader
+
+  belongs_to :workshop
   
   state_machine :state, initial: :new do
     state :new
