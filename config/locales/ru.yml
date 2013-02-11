@@ -31,6 +31,8 @@ ru:
             audits: 'Аудит'
             topics: 'Топики'
             lectures: 'Пользовательские доклады'
+            user_lectures: 'Пользовательские доклады'
+            events: 'События'
             logout: 'Выйти'
 
   global:
