@@ -6,14 +6,14 @@
 
       .nav-collapse.collapse
         %ul.nav
-          / %li= navbar_link t(".participants"), users_path, with: User.shown_as_participants.count
-
+          
           - if signed_in?
             %li= link_to current_user.full_name, edit_account_account_path(current_user)
           - else 
             %li= link_to t(".i_will_go"), new_user_path
             %li= link_to t(".login"), new_session_path
 
+          %li= navbar_link t(".participants"), users_path, with: User.shown_as_participants.count
           %li= link_to t(".news"), news_index_path
           %li= link_to t(".routes"), page_path(:routes)
           %li= link_to t(".contacts"), page_path(:contacts)
