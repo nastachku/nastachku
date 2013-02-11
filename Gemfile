@@ -65,5 +65,6 @@ group :development do
   gem 'capistrano'
   gem 'rvm-capistrano'
   gem 'capistrano-ext'
-  gem 'capistrano-unicorn', require: false
+  gem 'capistrano_colors'
+  gem 'capi'
 end

@@ -1,6 +1,6 @@
 class Admin::EventEditType < UserEvent
   include BasicType
-
+  
   validates :title, presence: true
   validates :thesises, presence: true
   validates :start_time, presence: true

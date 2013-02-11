@@ -19,7 +19,7 @@ ru:
   web:
     admin:
       events:
-        edit:
+        new:
           title: ''
         form:
           presentation_link: ''
@@ -49,3 +49,10 @@ ru:
           attributes:
             speaker:
               blank: ''
+        edit:
+          title: ''
+      user_events:
+        form:
+          cancel: ''
+  success: ''
+  error: ''

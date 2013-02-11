@@ -15,3 +15,4 @@
 //= require twitter/bootstrap
 //= require ckeditor/init
 //= require chosen-jquery
+//= require bootstrap-datetimepicker.min

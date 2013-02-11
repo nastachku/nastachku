@@ -1,7 +1,7 @@
 class BaseEvent < ActiveRecord::Base
   include EventRepository
 
-  attr_accessible :presentation, :thesises, :title, :start_time, :finish_time
+  attr_accessible :presentation, :thesises, :title, :start_time, :finish_time, :workshop_id
 
   validates :title, presence: true
   validates :thesises, presence: true

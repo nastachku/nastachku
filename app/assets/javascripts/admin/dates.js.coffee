@@ -1,6 +1,3 @@
-$ ->
-  $("input.datepicker").each (i) ->
-    $(this).datepicker
-      altFormat: "yy-mm-dd"
-      dateFormat: "mm/dd/yy"
-      altField: $(this).next()
+  $('.datetimepicker').datetimepicker
+    language: 'ru-RU'
+    format: 'dd/MM/yyyy hh:mm'
