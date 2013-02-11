@@ -18,7 +18,7 @@ body {
 	color: #333 !important;
 }
 h1 {
-	margin-bottom: 20px;
+	margin-bottom: 20px !important;
 }
 header {
 	border-top: 3px solid #fe781e;

@@ -35,6 +35,8 @@ ru:
       accounts:
         edit:
           title: 'Редактирование аккаунта'
+        form:
+          personal_number: 'Ваш персональный номер для участия в конференции:'
 
     users:
       form:
