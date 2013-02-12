@@ -1,12 +1,14 @@
 = f.input :title      
+= f.input :state_event, :as => :state_event
 = f.input :thesises, as: :ckeditor
 = f.input :start_time, as: :date_time_picker
 = f.input :finish_time, as: :date_time_picker
 = f.association :workshop
+= f.association :hall
 = f.association :speaker
 = f.input :presentation, as: :file_download
 
 .form-actions
-  = f.button :submit, :class => 'btn btn-primary'
-  = link_to t('.cancel'), admin_workshops_path, :class => 'btn'
+  = f.submit class: 'btn btn-primary'
+  = link_to t('.cancel'), admin_workshops_path, class: 'btn'
 

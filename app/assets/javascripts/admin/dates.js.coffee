@@ -1,3 +1,3 @@
-  $('.datetimepicker').datetimepicker
-    language: 'ru-RU'
-    format: 'dd/MM/yyyy hh:mm'
+$('.datetimepicker').datetimepicker
+#  language: 'ru-RU'
+  format: 'dd/MM/yyyy hh:mm:ss'

@@ -1,14 +1,15 @@
 class BaseEvent < ActiveRecord::Base
   include EventRepository
 
-  attr_accessible :presentation, :thesises, :title, :start_time, :finish_time, :workshop_id
+  attr_accessible :presentation, :thesises, :title, :start_time, :finish_time, :workshop_id, :hall_id
 
-  validates :title, presence: true
-  validates :thesises, presence: true
+  #validates :title, presence: true
+  #validates :thesises, presence: true
   
   mount_uploader :presentation, EventPresentationUploader
 
   belongs_to :workshop
+  belongs_to :hall
   
   state_machine :state, initial: :new do
     state :new
@@ -27,5 +28,9 @@ class BaseEvent < ActiveRecord::Base
     event :reject do
       transition [:new, :in_schedule, :voted] => :rejected
     end
+  end
+
+  def to_s
+    title
   end
 end

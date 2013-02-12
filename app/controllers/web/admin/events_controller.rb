@@ -1,7 +1,7 @@
 class Web::Admin::EventsController < Web::Admin::ApplicationController
 
   def index
-  	@events = BaseEvent.web
+  	@events = BaseEvent.asc_by_start_time.asc_by_workshop_id
   end
 
   def new 
@@ -9,7 +9,8 @@ class Web::Admin::EventsController < Web::Admin::ApplicationController
   end
 
   def create 
-    @event = ::Admin::EventEditType.new params[:event]
+    @event = ::Admin::EventEditType.new params[:user_event]
+
     if @event.save
       flash_success
       redirect_to admin_events_path
@@ -25,7 +26,7 @@ class Web::Admin::EventsController < Web::Admin::ApplicationController
 
   def update
     @event = ::Admin::EventEditType.find params[:id]
-    if @event.update_attributes params[:event]
+    if @event.update_attributes params[:user_event]
       flash_success
       redirect_to admin_events_path
     else
@@ -34,4 +35,9 @@ class Web::Admin::EventsController < Web::Admin::ApplicationController
     end
   end
 
+  def destroy
+    @event = BaseEvent.find params[:id]
+    @event.delete
+    redirect_to admin_events_path
+  end
 end

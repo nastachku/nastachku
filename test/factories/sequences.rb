@@ -12,6 +12,12 @@ FactoryGirl.define do
 
   end
 
+  [:start_time, :finish_time].each do |trait|
+    sequence trait do |n| 
+      n.year.ago
+    end
+  end
+  
   sequence :show_as_participant do |n|
     n % 2
   end

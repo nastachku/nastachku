@@ -45,7 +45,9 @@ Nastachku::Application.routes.draw do
 
       resources :events
       resources :workshops
-                  
+      resources :halls
+      resources :event_breaks
+
       root to: "welcome#index"
     end
   end

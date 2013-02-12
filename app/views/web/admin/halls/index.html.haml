@@ -1,0 +1,17 @@
+.page-header
+  %h1=t '.title'
+
+= link_to t('.new'), new_admin_hall_path, class: 'btn btn-primary'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Hall.human_attribute_name :title
+      %th= t '.actions'
+  %tbody
+    - @halls.each do |hall|
+      %tr
+        %td= link_to hall.title, edit_admin_hall_path(hall)
+        %td
+          = link_to t('.edit'), edit_admin_hall_path(hall), class: 'btn btn-mini'
+          = link_to t('.delete'), admin_hall_path(hall), class: 'btn btn-mini', method: :delete

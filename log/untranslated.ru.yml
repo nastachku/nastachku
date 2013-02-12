@@ -19,10 +19,7 @@ ru:
   web:
     admin:
       events:
-        new:
-          title: ''
         form:
-          presentation_link: ''
           cancel: ''
     events:
       form:
@@ -54,5 +51,6 @@ ru:
       user_events:
         form:
           cancel: ''
-  success: ''
-  error: ''
+    events:
+      form:
+        title: ''

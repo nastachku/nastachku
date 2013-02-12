@@ -1,12 +1,12 @@
 require 'test_helper'
 
-class Web::Admin::WorkshopsControllerTest < ActionController::TestCase
+class Web::Admin::HallsControllerTest < ActionController::TestCase
 
   setup do
     user = create :admin
     sign_in user
-    @workshop = create :workshop
-    @attrs = attributes_for :workshop
+    @hall = create :hall
+    @attrs = attributes_for :hall
   end
 
   test 'should get index' do
@@ -20,28 +20,28 @@ class Web::Admin::WorkshopsControllerTest < ActionController::TestCase
   end
 
   test 'should post create' do
-    post :create, workshop: @attrs
+    post :create, hall: @attrs
     assert_response :redirect
-    workshop = Workshop.find_by_title @attrs[:title]
-    assert workshop
+    hall = Hall.find_by_title @attrs[:title]
+    assert hall
   end
 
   test 'should get edit' do
-    get :edit, id: @workshop.id
+    get :edit, id: @hall.id
     assert_response :success
   end
 
   test 'should put update' do
-    put :update, id: @workshop.id, workshop: @attrs
+    put :update, id: @hall.id, hall: @attrs
     assert_response :redirect
-    workshop = Workshop.find_by_title @attrs[:title]
-    assert workshop
+    hall = Hall.find_by_title @attrs[:title]
+    assert hall
   end
 
   test 'should delete destroy' do
-    delete :destroy, id: @workshop.id
+    delete :destroy, id: @hall.id
     assert_response :redirect
-    assert !Workshop.exists?(@workshop)
+    assert !Hall.exists?(@hall)
   end
 
 end

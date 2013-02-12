@@ -1,8 +1,12 @@
 .page-header
   %h1=t '.title'
 
-= link_to t('.new'), new_admin_event_path, class: 'btn btn-primary'
-= link_to t('.workshops'), admin_workshops_path, class: 'btn btn-info'
+.span9
+  = link_to t('.new'), new_admin_event_path, class: 'btn btn-primary'
+  = link_to t('.new_break'), new_admin_event_break_path, class: 'btn btn-danger'
+.span2
+  = link_to t('.workshops'), admin_workshops_path, class: 'btn btn-info'
+  = link_to t('.halls'), admin_halls_path, class: 'btn btn-success'
 
 %table.table.table-striped
   %thead
@@ -13,7 +17,7 @@
   %tbody
     - @events.each do |event|
       %tr
-        %td= link_to event.title, edit_admin_event_path(event)
-        %td= event.start_time
+        %td= link_to event, [:edit, :admin, event]
+        %td= l event.start_time
         %td
-          = link_to t('.edit'), edit_admin_event_path(event), :class => 'btn btn-mini'
+          = link_to t('.edit'), edit_admin_event_cpath(event), :class => 'btn btn-mini'

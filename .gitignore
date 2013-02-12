@@ -22,5 +22,5 @@
 # Ignore schema
 schema.rb
 
-#ignore idea config
+#ignore idea project files
 .idea
