@@ -129,6 +129,11 @@ td.middle {
 	background-color: #ccc;
 }
 
+.posts .icon-calendar {
+	position: relative;
+	top: -1px !important;
+}
+
 .timetable {
 	margin-top: 20px;
 }
