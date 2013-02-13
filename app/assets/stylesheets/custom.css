@@ -27,7 +27,14 @@ header .info {
 	padding-top: 44px;
 }
 header .info h3 {
-	color: #7c7852;
+	color: #d4724b;
+	text-transform: uppercase;
+	font-family: Arial;
+	font-size: 30px;
+	font-weight: bold !important;	
+}
+header .info h3 .color {
+	color: #7c7852 !important;
 }
 .da-slide p {
 	height: 150px;
