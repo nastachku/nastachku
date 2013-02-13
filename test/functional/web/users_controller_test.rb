@@ -20,7 +20,7 @@ class Web::UsersControllerTest < ActionController::TestCase
     post :create, user: attrs
 
     assert_response :redirect
-    assert_equal attrs[:email], User.last.email
+    assert User.find_by_email(attrs[:email])
   end
 
 end
