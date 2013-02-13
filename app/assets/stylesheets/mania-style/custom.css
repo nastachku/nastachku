@@ -175,3 +175,33 @@ td.middle {
 .color {
 	color: #d4724b !important;
 }
+
+/* Foooter social */
+.social-share-links {
+	float: right;
+	height: 36px;
+	padding-top: 24px;
+}
+.social-share-links li {
+	float: left;
+	margin-left: 10px;
+	height: 20px;
+}
+.social-share-links li.vk {
+	width: 150px;
+}
+.social-share-links .gplus {
+	position: relative;
+	top: -1px;
+	overflow: hidden;	
+}
+.social-public-links {
+	float: right;
+	padding-top: 23px;
+	margin-left: 30px;
+}
+.social-public-links li {
+	float: left;
+	margin-left: 10px;
+	font-size: 18px;
+}

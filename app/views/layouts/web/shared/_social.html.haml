@@ -1,0 +1,25 @@
+%nav.social-public-links
+  %ul
+    %li
+      %a{:href => "http://www.facebook.com/nastachku?ref=stream", :target => "_blank"}
+        %i.ficon-facebook-rect
+    %li
+      %a{:href => "https://twitter.com/nastachku", :target => "_blank"}
+        %i.ficon-twitter-bird
+    %li
+      %a{:href => "http://vk.com/nastachku", :target => "_blank"}
+        %i.ficon-vkontakte-rect
+%nav.social-share-links
+  %ul
+    %li.twitter
+      %iframe{:allowtransparency => "true", :frameborder => "0", :scrolling => "no", :src => "https://platform.twitter.com/widgets/tweet_button.html?url=http://nastachku.ru&via=nastachku&text=Мне нравится конференция СТАЧКА - 2013!&lang=ru&hashtags=nastachku", :style => "width:110px; height:20px;"}
+    %li.facebook
+      %iframe{:allowTransparency => "true", :frameborder => "0", :scrolling => "no", :src => "//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fnastachku.ru&send=false&layout=button_count&width=450&show_faces=false&font=arial&colorscheme=light&action=like&height=21&appId=158311267605711", :style => "border:none; overflow:hidden; width:110px; height:21px;"}
+    %li.vk
+      <script type="text/javascript" src="//vk.com/js/api/openapi.js?78"></script>
+      <script type="text/javascript">VK.init({apiId: 3420525, onlyWidgets: true});</script>
+      #vk_like
+      <script type="text/javascript">VK.Widgets.Like("vk_like", {type: "button", height: 20, pageTitle: "Конференция СТАЧКА - 2013"});</script>
+    %li.gplus
+      .g-plusone{"data-href" => "http://nastachku.ru", "data-size" => "medium"}
+      <script type="text/javascript">window.___gcfg = {lang: 'ru'};(function() {var po = document.createElement('script');po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script>
