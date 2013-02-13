@@ -4,4 +4,5 @@ ru:
     account:
       accounts:
         form:
-          personal_number: ''
+          save: ''
+          login: ''

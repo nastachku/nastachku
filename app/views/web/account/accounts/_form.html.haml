@@ -1,18 +1,19 @@
-= simple_form_for @user, :url => account_account_path(@user), :html => { :class => 'form-horizontal profile-form' } do |f|
+.formy
+  = simple_form_for @user, :url => account_account_path(@user), :html => { :class => 'form-horizontal profile-form' } do |f|
 
-  = f.input :email, disabled: true, readonly: true
-  = f.input :password
-  = f.input :password_confirmation
-  = f.input :first_name
-  = f.input :last_name
-  = f.input :city
-  = f.input :company
-  = f.input :position
-  = f.input :show_as_participant, :wrapper => :inline_checkbox
+    = f.input :email, disabled: true, readonly: true
+    = f.input :password
+    = f.input :password_confirmation
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :city
+    = f.input :company
+    = f.input :position
+    = f.input :show_as_participant, :wrapper => :inline_checkbox
 
-  .control-group
-    .controls
-      = f.button :submit, :class => 'btn btn-primary'
+    .control-group
+      .controls
+        = f.button :submit, :value => t('.save'), :class => 'btn'
 
 
 %br
