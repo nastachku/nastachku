@@ -18,11 +18,14 @@
   .row
     .span12
       %br
+      %br
       
       #events
         = f.simple_fields_for :events do |event|
           = render 'event_fields', f: event
 
-      .btn-diff.links 
-        = f.button :submit, class: 'btn'
-        = link_to_add_association t('.add_event'), f, :events, :class => "btn"
+      .btn-diff.links.clearfix
+        .pull-left 
+          = f.button :submit, class: 'btn btn-green'
+        .pull-right
+          = link_to_add_association t('.add_event'), f, :events, :class => "btn"

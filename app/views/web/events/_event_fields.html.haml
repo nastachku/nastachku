@@ -1,9 +1,13 @@
-%table.table
-  %tr
-    %td= f.input :title
-    %td= f.input :thesises, input_html: {rows: 5}
-    %td= f.input :presentation, as: :file
-    %td
-      = link_to_remove_association f do
-        %i.icon-trash
-              
+.formy
+  .row-fluid
+    .span4
+      = f.input :title
+    .span4
+      = f.input :thesises, input_html: {rows: 5}
+    .span3
+      = f.input :presentation, as: :file
+    .span1
+      .pull-right
+        = link_to_remove_association f do
+          %i.icon-trash
+%br              
