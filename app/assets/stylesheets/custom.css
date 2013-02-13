@@ -29,6 +29,17 @@ header .info {
 header .info h3 {
 	color: #7c7852;
 }
+.content h1 {
+	font: bold 72px/60px Arial, sans-serif !important;
+	text-transform: uppercase !important;
+	margin: 0 0 30px !important;
+	padding: 0 !important;
+}
+.content h4 {
+	font: bold 24px/22px Arial, sans-serif !important;
+	margin: 0 0 20px !important;
+	color: #000 !important;
+}
 .da-slide p {
 	height: 150px;
 }
@@ -204,4 +215,28 @@ td.middle {
 	float: left;
 	margin-left: 10px;
 	font-size: 18px;
+}
+
+
+@font-face {
+  font-family: 'Bender-bold';
+  src: url("/assets/bender_bold-webfont.eot");
+  src: url("/assets/bender_bold-webfont.eot?#iefix") format('embedded-opentype'),
+    url("/assets/bender_bold-webfont.woff") format('woff'),
+    url("/assets/bender_bold-webfont.ttf") format('truetype'),
+    url("/assets/bender_bold-webfont.svg#fontello") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.bender {
+  font-family: 'Bender-bold' !important;
+}
+.hero .bender {
+	font-weight: 100;
+	text-transform: uppercase;
+	color: #839d01 !important;
+	font-size: 30px !important;
+}
+.hero .bender .color {
+	color: #000 !important;
 }
