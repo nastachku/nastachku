@@ -28,3 +28,4 @@ end
 
 before 'deploy:finalize_update', 'deploy:symlink_db'
 after "deploy:update", "deploy:cleanup"
+after 'deploy:restart', 'unicorn:stop'
