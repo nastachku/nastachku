@@ -1,0 +1,26 @@
+.span12
+  - @workshop.user_events.each do |event|
+    .row
+      .span6
+        .col-l
+          .pic
+            = image_tag(event.speaker.photo.url)
+        .col-r
+          .sinfo
+            %h5= event.speaker.full_name
+            %h6.grey= event.speaker.about
+            .social
+              %a.tip{"data-original-title" => "Facebook", :href => "#"}
+                %i.icon-facebook.facebook
+              -#%a.tip{"data-original-title" => "Twitter", :href => "#"}
+              -#  %i.icon-twitter.twitter
+              -#%a.tip{"data-original-title" => "Google Plus", :href => "#"}
+              -#  %i.icon-google-plus.google-plus
+              -#%a.tip{"data-original-title" => "LinkedIn", :href => "#"}
+                %i.icon-linkedin.linkedin
+        .clearfix
+      .span6
+        / Small para
+        %h4= event.title
+        %p.ainfo= event.thesises.html_safe
+      %hr

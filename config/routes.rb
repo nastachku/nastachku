@@ -19,7 +19,9 @@ Nastachku::Application.routes.draw do
     resources :users, only: [:new, :create, :index] do
       resources :events, only: [:new, :create]
     end
-    
+
+    resources :workshops, only: [:show]
+
     resources :pages, only: [:show]
     resource :session, only: [:new, :create, :destroy]
     resources :news, only: [:index]
