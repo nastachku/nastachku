@@ -108,22 +108,22 @@ td.middle {
 }
 
 .g-blue {
-	background-color: #70b2e2;
+	background-color: #9d0102;
 }
 .g-red {
-	background-color: #ce2c29;
+	background-color: #019d9b;
 }
 .g-green {
-	background-color: #00c655;
-}
-.g-orange {
-	background-color: #E09533;
-}
-.g-yellow {
 	background-color: #d0ce09;
 }
-.g-violin {
+.g-orange {
+	background-color: #839d01;
+}
+.g-yellow {
 	background-color: #70019d;
+}
+.g-violin {
+	background-color: #016f9d;
 }
 .g-disabled {
 	background-color: #ccc;
