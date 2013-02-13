@@ -10,6 +10,9 @@ Configus.build Rails.env do
       password ""
     end
 
+    token do
+      lifetime 1.hour
+    end
   end
 
   env :development, parent: :production do
