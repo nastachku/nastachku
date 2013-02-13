@@ -35,8 +35,6 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
-    capi (0.1.1)
-      capistrano
     capistrano (2.14.1)
       highline
       net-scp (>= 1.0.0)
@@ -45,7 +43,8 @@ GEM
       net-ssh-gateway (>= 1.1.0)
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
-    capistrano_colors (0.5.5)
+    capistrano-unicorn (0.1.6)
+      capistrano
     carrierwave (0.6.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -223,10 +222,9 @@ PLATFORMS
 DEPENDENCIES
   airbrake
   bcrypt-ruby (~> 3.0.0)
-  capi
   capistrano
   capistrano-ext
-  capistrano_colors
+  capistrano-unicorn
   carrierwave
   ci_reporter
   ckeditor
