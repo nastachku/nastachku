@@ -51,6 +51,3 @@ ru:
       user_events:
         form:
           cancel: ''
-    events:
-      form:
-        title: ''

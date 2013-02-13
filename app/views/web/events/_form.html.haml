@@ -1,23 +1,28 @@
-%h1=t '.title'
-%br
-.row
-  .span12
-    .formy
-      .form
-        = simple_form_for @user, url: user_events_path(current_user), method: :post do |f|
+%h1=t '.add_event'
+
+= simple_form_for @user, url: user_events_path(current_user), method: :post do |f|
+  .row
+    .span12
+      .formy.user-info
+        .form
           .row-fluid
             .span4
               - if @user.photo
-                = image_tag(@user.photo.url)
+                .userpic
+                  = image_tag(@user.photo.url)
               = f.input :photo, as: :file
             
-            .span4
-              = f.input :about
-            
-            = f.simple_fields_for :events do |event|
-              = render 'event_fields', f: event
-              
-            = link_to_add_association t('.add_event'), f, :events
-            
-            .center.form-actions
-              = f.button :submit, class: 'btn'
+            .span8
+              = f.input :about, input_html: {rows: 5, cols: 20, class: 'user-summary'}
+
+  .row
+    .span12
+      %br
+      
+      #events
+        = f.simple_fields_for :events do |event|
+          = render 'event_fields', f: event
+
+      .btn-diff.links 
+        = f.button :submit, class: 'btn'
+        = link_to_add_association t('.add_event'), f, :events, :class => "btn"

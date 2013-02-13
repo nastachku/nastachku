@@ -1,5 +1,9 @@
-= f.input :title
-= f.input :thesises
-= f.input :presentation, as: :file
-= link_to_remove_association t('.remove_event'), f
+%table.table
+  %tr
+    %td= f.input :title
+    %td= f.input :thesises, input_html: {rows: 5}
+    %td= f.input :presentation, as: :file
+    %td
+      = link_to_remove_association f do
+        %i.icon-trash
               
