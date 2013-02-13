@@ -1,5 +1,5 @@
 class UserEvent < BaseEvent
-  attr_accessible :speaker_id, :state_event
+  attr_accessible :speaker_id, :state_event, :votings_count
 
   validates :title, presence: true
   validates :thesises, presence: true

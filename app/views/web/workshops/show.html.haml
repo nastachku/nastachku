@@ -1,5 +1,5 @@
 .span12
-  - @workshop.user_events.each do |event|
+  - @workshop.user_events.voted.asc_by_votings_count.each do |event|
     .row
       .span6
         .col-l
@@ -12,15 +12,14 @@
             .social
               %a.tip{"data-original-title" => "Facebook", :href => "#"}
                 %i.icon-facebook.facebook
-              -#%a.tip{"data-original-title" => "Twitter", :href => "#"}
-              -#  %i.icon-twitter.twitter
-              -#%a.tip{"data-original-title" => "Google Plus", :href => "#"}
-              -#  %i.icon-google-plus.google-plus
-              -#%a.tip{"data-original-title" => "LinkedIn", :href => "#"}
-                %i.icon-linkedin.linkedin
         .clearfix
       .span6
-        / Small para
         %h4= event.title
         %p.ainfo= event.thesises.html_safe
+        - unless current_user.voted?(event)
+          = link_to t('.i_am_going'), event_vote_path(event), method: :post, class: 'btn'
+        - else
+          .btn= t('.already_voted')
+        %span
+          .btn.votings-count= event.votings.size
     %hr

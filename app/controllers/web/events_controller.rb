@@ -5,6 +5,12 @@ class Web::EventsController < Web::ApplicationController
   def new
     @user = UserEventEditType.find params[:user_id]
   end
+
+  def vote
+    event = UserEvent.find params[:event_id]
+    current_user.vote(event)
+    redirect_to :back
+  end
   
   def create
     @user = UserEventEditType.find params[:user_id]

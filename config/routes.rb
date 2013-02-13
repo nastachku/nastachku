@@ -26,8 +26,9 @@ Nastachku::Application.routes.draw do
     resource :session, only: [:new, :create, :destroy]
     resources :news, only: [:index]
     resource :remind_password, only: [:new, :create]
-
-    resources :events, only: [:new, :create]
+    resources :events, only: [:new, :create] do
+      post :vote
+    end
     namespace :account do
       resource :password, only: [:edit, :update]
       resources :accounts, only: [:edit, :update]

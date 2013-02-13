@@ -92,6 +92,11 @@ ru:
         password_recovery: 'Восстановление пароля'
         recovery: 'Восстановить'
 
+    workshops:
+      show:
+        i_am_going: 'Я пойду!'
+        already_voted: 'Вы идете на этот доклад'
+
     admin:
       welcome:
         index:
