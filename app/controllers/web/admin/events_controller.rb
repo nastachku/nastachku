@@ -37,7 +37,7 @@ class Web::Admin::EventsController < Web::Admin::ApplicationController
 
   def destroy
     @event = BaseEvent.find params[:id]
-    @event.delete
+    @event.destroy
     redirect_to admin_events_path
   end
 end

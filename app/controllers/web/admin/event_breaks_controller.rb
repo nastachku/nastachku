@@ -32,7 +32,7 @@ class Web::Admin::EventBreaksController < Web::Admin::ApplicationController
 
   def destroy
     @break = Event::Break.find params[:id]
-    @break.delete
+    @break.destroy
     redirect_to admin_events_path
   end
 end

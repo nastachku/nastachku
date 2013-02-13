@@ -6,7 +6,7 @@ class UsersPhotoUploader < CarrierWave::Uploader::Base
   storage :file
 
   def store_dir
-    "system/uploads/users/#{mounted_as}/#{model.id}"
+    "system/uploads/users_photos/#{mounted_as}/#{model.id}"
   end
 
   process resize_to_fill: [256, 256]
