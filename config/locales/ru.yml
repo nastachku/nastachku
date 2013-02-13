@@ -8,7 +8,7 @@ ru:
       shared:
         navigation:
           title: 'Стачка!'
-          participants: 'Кто идёт?'
+          participants: 'Участники'
           logout: 'Выйти'
           admin: 'Админка'
           i_will_go: 'Я пойду'
