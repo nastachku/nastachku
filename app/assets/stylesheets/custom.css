@@ -115,7 +115,7 @@ td.middle {
 	min-height: 155px;
 }
 .theme-block h4 {
-	color: #fff;
+	color: #fff !important;
 }
 
 .g-blue {
