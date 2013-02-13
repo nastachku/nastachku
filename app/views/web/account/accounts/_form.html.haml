@@ -13,3 +13,10 @@
   .control-group
     .controls
       = f.button :submit, :class => 'btn btn-primary'
+
+
+%br
+%h3
+  =t(".personal_number")
+  %span.color
+    = @user.id

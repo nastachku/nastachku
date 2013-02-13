@@ -1,9 +1,7 @@
 ---
 ru:
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            state:
-              invalid_transition: ''
+  web:
+    account:
+      accounts:
+        form:
+          personal_number: ''
