@@ -24,8 +24,7 @@
         = f.simple_fields_for :events do |event|
           = render 'event_fields', f: event
 
-      .btn-diff.links.clearfix
+      .btn-diff.links.clearfix.right
         .pull-left 
           = f.button :submit, class: 'btn btn-green'
-        .pull-right
-          = link_to_add_association t('.add_event'), f, :events, :class => "btn"
+        = link_to_add_association t('.add_event'), f, :events, :class => "btn"
