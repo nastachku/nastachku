@@ -6,7 +6,7 @@ require 'capi/unicorn'
 require 'airbrake/capistrano'
 
 set :application, "nastachku"
-set :rvm_type, :user
+set :rvm_type, :system
 
 set :scm, :git
 set :repository,  "git://github.com/kaize/nastachku.git"
