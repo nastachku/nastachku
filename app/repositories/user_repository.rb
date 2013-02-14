@@ -10,7 +10,7 @@ module UserRepository
       where show_as_participant: true
     }
 
-    scope :alphabetically, -> { order("first_name, last_name ASC") }
+    scope :alphabetically, -> { order("last_name ASC") }
   end
 
 end
