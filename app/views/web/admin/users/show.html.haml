@@ -27,9 +27,11 @@
       %br= @user.show_as_participant
     .span4
 
-      %strong= User.human_attribute_name :photo
-      .media
-        = image_tag @user.photo.url
+      - if @user.photo.present?
+        %strong= User.human_attribute_name :photo
+        .page-image
+          = image_tag @user.photo.url.to_s
+
 
 
   .form-actions
