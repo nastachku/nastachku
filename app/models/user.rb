@@ -1,3 +1,5 @@
+require 'digest/md5'
+
 class User < ActiveRecord::Base
   include UserRepository
 
@@ -27,6 +29,14 @@ class User < ActiveRecord::Base
 
   def to_s
     full_name
+  end
+
+  def authenticate(password)
+    self.password_digest == Digest::MD5.hexdigest(password)
+  end
+
+  def password=(password)
+    self.password_digest = Digest::MD5.hexdigest(password)
   end
 
 end
