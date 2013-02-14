@@ -274,3 +274,8 @@ td.middle {
 .hero .bender .color {
 	color: #000 !important;
 }
+
+.ui-menu {
+	width: 220px !important;
+	list-style: none;
+}
