@@ -64,6 +64,29 @@ footer .copy {
 	border: none !important;
 }
 
+/* navbar */
+.navbar {
+	border: none !important;
+	padding: 25px 0 15px;
+}
+.navbar-inner {
+	background-color: #fff !important;
+}
+.navbar .nav {
+	padding-left: 15px;
+}
+.navbar .nav > li > a, .navbar .nav > li > a:visited {
+	padding: 0 !important;
+	margin-right: 20px;
+	color: #020202 !important;
+	font-family: Arial;
+	font-size: 18px !important;
+}
+.navbar .nav > li > a:hover {
+	color: #535353 !important;
+	background: none !important;
+}
+
 /* Login form */
 .form-type-login input[type="email"],
 .form-type-login input[type="text"],
