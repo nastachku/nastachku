@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
                   :company, :position,
                   :show_as_participant, :photo, :state_event, :about
 
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
+  validates :city, presence: true
 
   mount_uploader :photo, UsersPhotoUploader 
 
