@@ -1,10 +1,9 @@
+require 'digest/md5'
+
 class User < ActiveRecord::Base
   include UserRepository
 
-  has_secure_password
-
-  attr_accessor :password_confirmation
-  attr_accessible :email, :password, :password_digest, :password_confirmation,
+  attr_accessible :email, :password,
                   :first_name, :last_name, :city,
                   :company, :position,
                   :show_as_participant, :photo, :state_event, :about
@@ -43,5 +42,17 @@ class User < ActiveRecord::Base
     full_name
   end
 
+  def authenticate(password)
+    self.password_digest == Digest::MD5.hexdigest(password)
+  end
+
+  def password=(password)
+    @real_password = password
+    self.password_digest = Digest::MD5.hexdigest(password)
+  end
+
+  def password
+    @real_password
+  end
 
 end
