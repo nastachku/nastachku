@@ -220,6 +220,9 @@ td.middle {
 .color {
 	color: #d4724b !important;
 }
+.no-padding {
+	padding-bottom: 0 !important;
+}
 
 /* Foooter social */
 .social-share-links {
@@ -273,4 +276,10 @@ td.middle {
 }
 .hero .bender .color {
 	color: #000 !important;
+}
+
+@media (max-width: 767px) {
+	#reformal_tab {
+		display: none !important;
+	}
 }
