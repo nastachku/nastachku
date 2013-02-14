@@ -98,6 +98,9 @@ GEM
     jquery-rails (2.1.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (2.0.2)
+      jquery-rails
+      railties (>= 3.1.0)
     json (1.7.6)
     kgio (2.7.4)
     less (2.2.2)
@@ -235,6 +238,7 @@ DEPENDENCIES
   haml-rails
   jbuilder
   jquery-rails
+  jquery-ui-rails
   less-rails
   mini_magick
   minitest

@@ -14,5 +14,6 @@
 //#= require jquery_ujs
 //#= require twitter/bootstrap
 //= require_tree .
+//= require jquery.ui.all
 //= require ckeditor/init
 //= require_tree ./mania-js

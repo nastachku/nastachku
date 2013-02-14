@@ -5,6 +5,7 @@ gem 'pg'
 gem 'unicorn'
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
+gem 'jquery-ui-rails'
 gem 'less-rails'
 gem 'simple_form'
 gem "airbrake"
