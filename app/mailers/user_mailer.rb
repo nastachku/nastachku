@@ -7,4 +7,9 @@ class UserMailer < ActionMailer::Base
     mail :to => @user.email
   end
 
+  def remind_password(user, token)
+    @user = user
+    @token = token
+    mail :to => @user.email
+  end
 end

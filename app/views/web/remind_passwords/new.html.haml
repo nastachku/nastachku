@@ -1,0 +1,8 @@
+%h1= t('.password_recovery')
+= simple_form_for @user, :url => remind_password_path, html: { class: 'form-type-login' } do |f|
+  .row
+    .span6
+      .formy
+        = f.input :email, input_html: { class: 'input-xlarge' }
+        .form-actions
+          = f.button :submit, :value => t(".recovery"), :class => 'pull-left'

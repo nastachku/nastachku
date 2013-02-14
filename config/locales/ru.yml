@@ -39,6 +39,10 @@ ru:
         form:
           personal_number: 'Ваш персональный номер для участия в конференции:'
           save: 'Сохранить'
+      passwords:
+        edit:
+          password_reset: "Изменение пароля"
+          reset: "Изменить"
 
     users:
       form:
@@ -62,6 +66,12 @@ ru:
     sessions:
       form:
         login: 'Войти'
+        remind_password: 'Забыли пароль?'
+
+    remind_passwords:
+      new:
+        password_recovery: 'Восстановление пароля'
+        recovery: 'Восстановить'
 
     admin:
       welcome:

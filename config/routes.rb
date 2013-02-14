@@ -9,8 +9,10 @@ Nastachku::Application.routes.draw do
     resources :pages, only: [:show]
     resource :session, only: [:new, :create, :destroy]
     resources :news, only: [:index]
+    resource :remind_password, only: [:new, :create]
 
     namespace :account do
+      resource :password, only: [:edit, :update]
       resources :accounts, only: [:edit, :update]
     end
 
