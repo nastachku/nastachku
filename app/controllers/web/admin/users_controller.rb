@@ -5,7 +5,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
   end
 
   def create
-    @user = UserEditType.new(params[:user])
+    @user = ::Admin::UserEditType.new(params[:user])
     if @user.save
       flash_success
       redirect_to admin_users_path
@@ -20,15 +20,15 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
   end
 
   def show
-    @user = UserEditType.find params[:id]
+    @user = ::Admin::UserEditType.find params[:id]
   end
 
   def edit
-    @user = UserEditType.find params[:id]
+    @user = ::Admin::UserEditType.find params[:id]
   end
 
   def update
-    @user = UserEditType.find(params[:id])
+    @user = ::Admin::UserEditType.find(params[:id])
     if @user.update_attributes params[:user]     
       flash_success
       redirect_to admin_users_path

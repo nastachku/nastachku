@@ -8,6 +8,8 @@ Configus.build Rails.env do
     admin do
       email ""
       password ""
+      first_name = "admin"
+      last_name = "admin"
     end
 
     token do
@@ -29,6 +31,8 @@ Configus.build Rails.env do
     admin do
       email "admin@np.kaize.ru"
       password "123456"
+      first_name = "admin"
+      last_name = "admin"
     end
   end
 
