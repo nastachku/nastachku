@@ -29,7 +29,7 @@
 
       %strong= User.human_attribute_name :photo
       .media
-        = image_tag @user.photo, class: 'media-object'
+        = image_tag @user.photo.url
 
 
   .form-actions
