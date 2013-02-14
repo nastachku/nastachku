@@ -21,7 +21,7 @@ h1 {
 	margin-bottom: 20px !important;
 }
 header {
-	border-top: 3px solid #fe781e;
+	border: none !important;
 }
 header .info {
 	padding-top: 44px;
@@ -53,6 +53,10 @@ header .info h3 .color {
 .center {
 	text-align: center !important;
 	padding: 0 !important;
+}
+.border {
+	height: 4px !important;
+	background: #7c7852 !important;
 }
 footer {
 	position: relative;
