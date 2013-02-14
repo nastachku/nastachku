@@ -9,9 +9,11 @@
           = f.input :email, :tabindex => 1
           = f.input :password, :tabindex => 2
 
-          .form-actions
-            = f.button :submit, :value => t('.login'), :class => 'btn', :tabindex => 3
-            = link_to t('.remind_password'), new_remind_password_path
+          .form-actions.clearfix
+            .pull-left
+              = f.button :submit, :value => t('.login'), :class => 'btn', :tabindex => 3
+            .pull-right
+              = link_to t('.remind_password'), new_remind_password_path
 
           Ещё не зарегистрировались?!
 
