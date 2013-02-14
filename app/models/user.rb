@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
                   :company, :position,
                   :show_as_participant, :photo, :state_event, :about
 
+  validates :email, presence: true
+
   mount_uploader :photo, UsersPhotoUploader 
 
   has_many :auth_tokens
