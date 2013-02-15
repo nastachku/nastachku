@@ -1,4 +1,4 @@
-class Web::Account::AccountsController < Web::ApplicationController
+class Web::AccountsController < Web::ApplicationController
 
   before_filter :authenticate_user!
 

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Web::Account::AccountsControllerTest < ActionController::TestCase
+class Web::AccountsControllerTest < ActionController::TestCase
 
   setup do
     @user = create :user
@@ -9,7 +9,7 @@ class Web::Account::AccountsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, id: @user
+    get :edit
 
     assert_response :success
   end
@@ -17,7 +17,7 @@ class Web::Account::AccountsControllerTest < ActionController::TestCase
   test "should update user" do
     attrs = attributes_for :user
 
-    put :update, id: @user, user: attrs
+    put :update, user: attrs
 
     assert_response :redirect
   end
