@@ -4,7 +4,7 @@ module UserRepository
   include UsefullScopes
 
   included do
-    scope :web, -> { by_email }
+    scope :web, -> { by_created_at }
 
     scope :shown_as_participants, -> {
       where show_as_participant: true

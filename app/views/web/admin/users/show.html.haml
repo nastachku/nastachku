@@ -30,7 +30,7 @@
       - if @user.photo.present?
         %strong= User.human_attribute_name :photo
         .page-image
-          = image_tag @user.photo.url.to_s
+          = image_tag @user.photo.url
 
 
 

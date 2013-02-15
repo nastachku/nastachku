@@ -16,7 +16,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
   end
 
   def index
-    @users = User.web
+    @users = User.alphabetically
   end
 
   def show
