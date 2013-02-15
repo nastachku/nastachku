@@ -1,9 +1,11 @@
-class Web::ErrorsController < ApplicationController
+class Web::ErrorsController < Web::ApplicationController
+  layout false
+
   def not_found
-    render :status => 404
+    render :not_found, :status => 404
   end
 
   def internal_server_error
-    render :status => 500
+    render :internal_server_error, :status => 500
   end
 end
