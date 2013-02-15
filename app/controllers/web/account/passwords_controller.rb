@@ -5,7 +5,7 @@ class Web::Account::PasswordsController < Web::ApplicationController
   end
 
   def update
-    @token = User::AuthToken.find_by_authentication_token(params[:auth_token])
+    @token = User::AuthToken.find_by_authentication_token!(params[:auth_token])
     @user = UserPasswordConfirmationType.find @token.user
     if @token && !@token.expired?
       if @user.update_attributes(params[:user])
