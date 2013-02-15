@@ -18,7 +18,7 @@ body {
 	color: #333 !important;
 }
 h1 {
-	margin-bottom: 20px !important;
+	margin-bottom: 30px !important;
 }
 header {
 	border: none !important;
@@ -36,7 +36,7 @@ header .info h3 {
 header .info h3 .color {
 	color: #7c7852 !important;
 }
-.content h1 {
+.content h1.title {
 	font: bold 72px/60px Arial, sans-serif !important;
 	text-transform: uppercase !important;
 	margin: 0 0 30px !important;
@@ -79,6 +79,7 @@ footer .copy {
 .navbar {
 	border: none !important;
 	padding: 25px 0 15px;
+	margin-bottom: 10px !important;
 }
 .navbar-inner {
 	background-color: #fff !important;
