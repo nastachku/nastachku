@@ -12,11 +12,12 @@ Nastachku::Application.routes.draw do
     resource :remind_password, only: [:new, :create]
 
 
-    resource :account, olny: [:edit, :update] do
+    resource :account, only: [:edit, :update] do
       scope :module => :account do
         resource :password, only: [:edit, :update]
       end
     end
+
 
     namespace :admin do
       resources :pages

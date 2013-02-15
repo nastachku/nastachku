@@ -32,13 +32,13 @@ ru:
       company: 'Кайдзен / undev.ru'
 
   web:
+    accounts:
+      edit:
+        title: 'Редактирование аккаунта'
+      form:
+        personal_number: 'Ваш персональный номер для участия в конференции:'
+        save: 'Сохранить'
     account:
-      accounts:
-        edit:
-          title: 'Редактирование аккаунта'
-        form:
-          personal_number: 'Ваш персональный номер для участия в конференции:'
-          save: 'Сохранить'
       passwords:
         edit:
           password_reset: "Изменение пароля"
