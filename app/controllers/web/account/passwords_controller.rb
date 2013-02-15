@@ -10,12 +10,12 @@ class Web::Account::PasswordsController < Web::ApplicationController
     if @token && !@token.expired?
       if @user.update_attributes(params[:user])
         flash_success
-        redirect_to root_path
+        return redirect_to root_path
       end
-    else
-      flash_error
-      render :edit
     end
+
+    flash_error
+    render :edit
   end
 
 end
