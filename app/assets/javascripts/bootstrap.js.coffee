@@ -1,11 +1,11 @@
 jQuery ->
 
   $('input#user_company').autocomplete
-    source: "/api/companies"
+    source: Routes.api_companies_path()
     minLength: 2
 
   $('input#user_city').autocomplete
-    source: "/api/cities"
+    source: Routes.api_cities_path()
     minLength: 2
 
   $("a[rel=popover]").popover()

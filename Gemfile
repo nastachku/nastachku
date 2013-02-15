@@ -22,6 +22,7 @@ gem 'state_machine'
 gem 'untranslated'
 gem 'configus'
 gem 'russian'
+gem 'js-routes'
 
 # Gems used only for assets and not required
 # in production environments by default.

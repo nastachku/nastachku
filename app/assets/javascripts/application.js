@@ -16,4 +16,5 @@
 //= require_tree .
 //= require jquery.ui.all
 //= require ckeditor/init
+//= require js-routes
 //= require_tree ./mania-js
