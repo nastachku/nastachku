@@ -10,7 +10,12 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true
   validates :city, presence: true
-
+  validates :first_name, length: {maximum: 20}
+  validates :last_name, length: {maximum: 20}
+  validates :city, length: {maximum: 20}
+  validates :company, length: {maximum: 20}
+  validates :position, length: {maximum: 20}
+  
   mount_uploader :photo, UsersPhotoUploader 
 
   has_many :auth_tokens
