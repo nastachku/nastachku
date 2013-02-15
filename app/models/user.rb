@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
                   :company, :position,
                   :show_as_participant, :photo, :state_event, :about
 
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, email: true
   validates :city, presence: true
 
   mount_uploader :photo, UsersPhotoUploader 
@@ -54,6 +54,12 @@ class User < ActiveRecord::Base
 
   def password
     @real_password
+  end
+
+  def remind_password
+    token = self.build_auth_token
+    token.save!
+    UserMailer.remind_password(self, token).deliver
   end
 
 end

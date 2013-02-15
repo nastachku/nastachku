@@ -32,6 +32,7 @@ ru:
       messages:
         blank: 'Поле не может быть пустым'
         confirmation: 'Не совпадает с подтверждением'
+        user_should_not_exists: 'Пользователь с таким email не найден!'
 
       models:
         page:
@@ -48,3 +49,4 @@ ru:
           attributes:
             email:
               taken: 'Данный Email уже зарегистрирован'
+
