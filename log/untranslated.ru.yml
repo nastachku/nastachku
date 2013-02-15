@@ -16,11 +16,3 @@ ru:
           attributes:
             state:
               invalid_transition: ''
-  web:
-    admin:
-      events:
-        form:
-          cancel: ''
-      user_events:
-        form:
-          cancel: ''

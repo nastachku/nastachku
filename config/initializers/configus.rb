@@ -17,6 +17,7 @@ Configus.build Rails.env do
       password "123456"
       first_name "Админ"
       last_name "Админов"
+      city 'Москва'
     end
 
     token do
