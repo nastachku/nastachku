@@ -4,6 +4,11 @@ Nastachku::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
+  namespace :api do
+    resources :companies
+    resources :cities
+  end
+
   scope :module => :web do
     resources :users, only: [:new, :create, :index]
     resources :pages, only: [:show]

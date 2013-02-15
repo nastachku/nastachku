@@ -5,6 +5,7 @@ gem 'pg'
 gem 'unicorn'
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
+gem 'jquery-ui-rails'
 gem 'less-rails'
 gem 'simple_form'
 gem "airbrake"
@@ -24,6 +25,7 @@ gem 'russian'
 gem 'google-analytics-rails'
 gem 'validates'
 gem 'virtus'
+gem 'js-routes'
 
 # Gems used only for assets and not required
 # in production environments by default.

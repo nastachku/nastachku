@@ -10,5 +10,6 @@
  *
  *= require  ../../../vendor/assets/stylesheets/mania-style/bootstrap.css
  *= require_directory ../../../vendor/assets/stylesheets/mania-style
+ *= require jquery.ui.datepicker
  *= require custom
  */
