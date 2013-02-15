@@ -21,3 +21,4 @@ class Web::EventsController < Web::ApplicationController
     end
   end
 end
+
