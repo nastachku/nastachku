@@ -1,5 +1,5 @@
 .formy
-  = simple_form_for @user, :url => account_account_path(@user), :html => { :class => 'form-horizontal profile-form' } do |f|
+  = simple_form_for @user, :url => account_path(@user), :html => { :class => 'form-horizontal profile-form' } do |f|
 
     = f.input :email, disabled: true, readonly: true
     = f.input :first_name
