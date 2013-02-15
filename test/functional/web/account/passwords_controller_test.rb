@@ -3,8 +3,7 @@ require 'test_helper'
 class Web::Account::PasswordsControllerTest < ActionController::TestCase
   setup do
     @user = create :user
-    @token = @user.build_auth_token
-    @token.save!
+    @token = @user.create_auth_token
   end
 
   test "should get edit" do

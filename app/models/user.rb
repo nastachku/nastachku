@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
                   :company, :position,
                   :show_as_participant, :photo, :state_event, :about
 
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, email: true
   validates :city, presence: true
   validates :first_name, length: {maximum: 20}
   validates :last_name, length: {maximum: 20}
@@ -34,10 +34,10 @@ class User < ActiveRecord::Base
   end
 
 
-  def build_auth_token
+  def create_auth_token
     token = SecureHelper.generate_token
     expired_at = Time.current + configus.token.lifetime
-    auth_tokens.build :authentication_token => token, :expired_at => expired_at
+    auth_tokens.create! :authentication_token => token, :expired_at => expired_at
   end
 
   def full_name

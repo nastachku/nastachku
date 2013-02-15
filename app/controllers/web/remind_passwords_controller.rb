@@ -1,21 +1,21 @@
 class Web::RemindPasswordsController < Web::ApplicationController
   def new
-    @user = User.new
+    @type = UserPasswordRemindType.new
   end
 
   def create
-    @user = User.find_by_email(params[:user][:email])
-    if @user && @user.active?
-      token = @user.build_auth_token
-      token.save!
-      UserMailer.remind_password(@user, token).deliver
-      flash_success
-      redirect_to root_path
-    else
-      @user = User.new params[:user]
-      flash_error
-      render :new
+    @type = UserPasswordRemindType.new params[:user_password_remind_type]
+    if @type.valid?
+      user = @type.user
+      if user && user.active?
+        token = user.create_auth_token
+        UserMailer.remind_password(user, token).deliver
+        flash_success
+        return redirect_to root_path
+      end
     end
+
+    render :new
   end
 
 end

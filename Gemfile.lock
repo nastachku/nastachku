@@ -33,6 +33,7 @@ GEM
       girl_friday
     ansi (1.4.3)
     arel (3.0.2)
+    backports (2.6.7)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
     capistrano (2.14.1)
@@ -71,6 +72,7 @@ GEM
       rest-client
       simplecov (>= 0.7)
       thor
+    descendants_tracker (0.0.1)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -215,6 +217,12 @@ GEM
       hash-deep-merge
       i18n
     usefull_scopes (0.1.0)
+    validates (0.0.8)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+    virtus (0.5.4)
+      backports (~> 2.6.1)
+      descendants_tracker (~> 0.0.1)
     ya_acl (0.0.7)
       rake
 
@@ -260,4 +268,6 @@ DEPENDENCIES
   unicorn-rails
   untranslated
   usefull_scopes
+  validates
+  virtus
   ya_acl
