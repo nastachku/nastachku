@@ -1,2 +1,33 @@
-%h1 Web::Errors#internal_server_error
-%p Find me in app/views/web/errors/internal_server_error.html.haml
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %link{:href => "/favicon.ico", :rel => "icon", :type => "image/x-icon"}/
+    %link{:href => "/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
+    %meta{:content => "http://nastachku.ru/assets/fb_logo.png", :property => "og:image"}
+    %title= content_for?(:title) ? yield(:title) : "Nastachku"
+    = analytics_init if Rails.env.production?
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", :media => "all"
+
+  %body
+    .container
+      .content
+        %br
+        %a{ href: root_path }
+          = image_tag "/assets/stachka_logo.png", alt: "", width: "136", height: "69"
+        %br
+        %br
+        %h1 500
+        %h3 Ошибка сервера
+        %br
+        %ul
+          %li
+            %a{:href => "javascript:window.history.back();"}
+              Назад
+          %li
+            %a{ href: root_path }
+              Перейти на домашнюю страницу 
+        
