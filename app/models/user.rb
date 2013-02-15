@@ -29,10 +29,10 @@ class User < ActiveRecord::Base
   end
 
 
-  def build_auth_token
+  def create_auth_token
     token = SecureHelper.generate_token
     expired_at = Time.current + configus.token.lifetime
-    auth_tokens.build :authentication_token => token, :expired_at => expired_at
+    auth_tokens.create! :authentication_token => token, :expired_at => expired_at
   end
 
   def full_name
@@ -54,12 +54,6 @@ class User < ActiveRecord::Base
 
   def password
     @real_password
-  end
-
-  def remind_password
-    token = self.build_auth_token
-    token.save!
-    UserMailer.remind_password(self, token).deliver
   end
 
 end
