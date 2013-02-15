@@ -11,8 +11,11 @@ Nastachku::Application.routes.draw do
     resources :news, only: [:index]
     resource :remind_password, only: [:new, :create]
 
+
     resource :account, olny: [:edit, :update] do
-      resource :password, only: [:edit, :update]
+      scope :module => :account do
+        resource :password, only: [:edit, :update]
+      end
     end
 
     namespace :admin do
