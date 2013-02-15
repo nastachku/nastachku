@@ -65,5 +65,9 @@ module Nastachku
       g.stylesheets false
       g.javascripts false
     end
+
+    # catch 404/500 errors
+    config.exceptions_app = self.routes
+
   end
 end
