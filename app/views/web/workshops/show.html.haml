@@ -1,4 +1,4 @@
-.span12
+.span12.workshop
   - @workshop.user_events.voted.asc_by_votings_count.each do |event|
     .row
       .span6
@@ -17,9 +17,8 @@
         %h4= event.title
         %p.ainfo= event.thesises.html_safe
         - unless current_user.voted?(event)
-          = link_to t('.i_am_going'), event_vote_path(event), method: :post, class: 'btn'
+          = link_to t('.i_am_going'), event_vote_path(event), method: :post, class: 'btn btn-shine'
         - else
           .btn= t('.already_voted')
-        %span
-          .btn.votings-count= event.votings.size
+        %span.btn.votings-count= event.votings.size
     %hr

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html,
 body {
 	height: 100%;
@@ -330,6 +331,11 @@ td.middle {
 	font-size: 13px !important;
 }
 .btn-diff a.btn {
-	margin-top: 0 !important;
-	font-size: 13px !important;
+  	margin-top: 0 !important;
+  	font-size: 13px !important;
+  	color: #000 !important;
+}
+.btn-shine {
+  	background-color: #41bb19 !important;
+  	color: #fff !important;
 }
