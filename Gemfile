@@ -21,6 +21,7 @@ gem 'state_machine'
 gem 'untranslated'
 gem 'configus'
 gem 'russian'
+gem 'google-analytics-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

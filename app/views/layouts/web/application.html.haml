@@ -8,6 +8,7 @@
     %link{:href => "/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
     %meta{:content => "http://nastachku.ru/assets/fb_logo.png", :property => "og:image"}
     %title= content_for?(:title) ? yield(:title) : "Nastachku"
+    = analytics_init if Rails.env.production?
     = csrf_meta_tags
     = stylesheet_link_tag "application", :media => "all"
 

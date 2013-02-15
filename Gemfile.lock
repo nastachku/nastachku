@@ -82,6 +82,7 @@ GEM
     girl_friday (0.11.2)
       connection_pool (~> 1.0)
       rubinius-actor
+    google-analytics-rails (0.0.3)
     haml (3.1.7)
     haml-rails (0.3.5)
       actionpack (>= 3.1, < 4.1)
@@ -232,6 +233,7 @@ DEPENDENCIES
   configus
   coveralls
   factory_girl_rails
+  google-analytics-rails
   haml-rails
   jbuilder
   jquery-rails
