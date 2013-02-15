@@ -3,7 +3,7 @@
 = simple_form_for @user, url: user_events_path(current_user), method: :post do |f|
   .row
     .span12
-      .formy.user-info
+      .formy.formy-color
         .form
           .row-fluid
             .span4
@@ -24,7 +24,8 @@
         -#= f.simple_fields_for :events do |event|
         -#  = render 'event_fields', f: event
 
-      .btn-diff.links 
-        = f.submit class: 'btn'
-        = link_to_add_association t('.add_event'), f, :events, class: "btn", :'data-association-insertion-node' => '#events',
-         :'data-association-insertion-method' => 'append'
+      .btn-diff.clearfix
+        .pull-left
+          = f.submit class: 'btn btn-shine'
+        .pull-right  
+          = link_to_add_association t('.add_event'), f, :events, class: "btn", :'data-association-insertion-node' => '#events', :'data-association-insertion-method' => 'append'
