@@ -21,33 +21,6 @@ ru:
       events:
         form:
           cancel: ''
-    events:
-      form:
-        title: ''
-        login: ''
-      event_fields:
-        remove_event: ''
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            state:
-              invalid_transition: ''
-            password_digest:
-              blank: ''
-            email:
-              blank: ''
-            first_name:
-              blank: ''
-            last_name:
-              blank: ''
-        user_event:
-          attributes:
-            speaker:
-              blank: ''
-        edit:
-          title: ''
       user_events:
         form:
           cancel: ''
