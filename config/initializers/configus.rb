@@ -34,6 +34,12 @@ Configus.build Rails.env do
       first_name = "admin"
       last_name = "admin"
     end
+
+    basic_auth do
+      username 'admin'
+      password '123654'
+    end
+    
   end
 
 end
