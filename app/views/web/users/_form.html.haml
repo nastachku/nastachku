@@ -1,0 +1,44 @@
+%h1=t '.title'
+%br
+.row
+  .span12
+    .formy
+      .form
+        = simple_form_for @user do |f|
+          .row-fluid
+            .span4
+              = f.input :first_name
+            
+            .span4
+              = f.input :last_name
+
+            .span4
+              = f.input :company
+
+          .row-fluid
+            .span4
+              = f.input :position
+
+            .span4
+              = f.input :city
+
+          %br
+            %h5= t('.authentication')
+            .row-fluid
+              .span4
+                = f.input :email
+
+              .span4
+                = f.input :password
+
+              .span4
+                = f.input :password_confirmation, :required => true
+
+            .row-fluid
+              .span4
+                = f.input :show_as_participant, :input_html => { :checked => true }, :wrapper => :inline_checkbox
+            .center.form-actions
+              = f.button :submit, class: 'btn'
+
+        = t('.already_registered?')
+        = link_to t('.login'), new_session_path

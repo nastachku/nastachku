@@ -1,0 +1,8 @@
+= simple_form_for @user, :url => account_password_path(auth_token: params[:auth_token]), :method => :put do |f|
+  .row
+    .span4
+      %h2= t('.password_reset')
+      = f.input :password, input_html: { class: 'input-xlarge' }
+      = f.input :password_confirmation, input_html: { class: 'input-xlarge' }
+  .form-actions
+    = f.button :submit, :value => t(".reset"), :class => 'btn-primary pull-left'

@@ -34,4 +34,14 @@ Nastachku::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :user_name => 'nastachku-d251116be64dd9a7',
+    :password => '0470946bc4830693',
+    :address => 'mailtrap.io',
+    :port => '2525',
+    :authentication => :plain,
+  }
+
 end

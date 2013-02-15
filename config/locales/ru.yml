@@ -1,0 +1,154 @@
+ru:
+  time:
+    formats:
+      default: "%d-%m-%Y %H:%M"
+
+  layouts:
+    web:
+      shared:
+        navigation:
+          title: 'Стачка!'
+          participants: 'Участники'
+          logout: 'Выйти'
+          admin: 'Админка'
+          i_will_go: 'Я пойду'
+          login: 'Войти'
+          contacts: "Контакты"
+          routes: "Как доехать и где жить?"
+          news: "Пресс-центр"
+          afterpaty: "Афтепати" 
+
+      admin:
+        shared:
+          navigation:
+            title: 'На главную'
+            pages: 'Страницы'
+            news: 'Новости'
+            users: 'Пользователи'
+            logout: 'Выйти'
+
+  global:
+    footer:
+      company: 'Кайдзен / undev.ru'
+
+  web:
+    accounts:
+      edit:
+        title: 'Редактирование аккаунта'
+      form:
+        personal_number: 'Ваш персональный номер для участия в конференции:'
+        save: 'Сохранить'
+    account:
+      passwords:
+        edit:
+          password_reset: "Изменение пароля"
+          reset: "Изменить"
+
+    users:
+      form:
+        title: 'Регистрация'
+        authentication: 'Данные для входа'
+        already_registered?: 'Уже зарегистрированы?'
+        login: 'Войти'
+
+      new:
+        title: 'Регистрация'
+
+      index:
+        title: 'Пойдут на стачку'
+
+    welcome:
+      index:
+        hero_unit_title: 'Стачка 2013'
+        hero_unit_content: '<br>УЛЬЯНОВСК 12-13 АПРЕЛЯ 2013 МЕМЦЕНТР<br>Веб-технологии, менеджмент в IT, электронная коммерция, IT-стартапы, программирование, IT на службе в обществе'
+        join: 'Я пойду!'
+
+    sessions:
+      form:
+        login: 'Войти'
+        remind_password: 'Забыли пароль?'
+
+    remind_passwords:
+      new:
+        password_recovery: 'Восстановление пароля'
+        recovery: 'Восстановить'
+
+    admin:
+      welcome:
+        index:
+          title: 'Админка стачки'
+
+      pages:
+        index:
+          title: 'Страницы'
+          actions: 'Действия'
+          edit: 'Редактировать'
+          destroy: 'Удалить'
+          confirm: 'Вы уверены?'
+          new: 'Новая страница'
+
+        show:
+          title: 'Страница'
+          back: 'К списку страниц'
+          edit: 'Редактировать'
+          destroy: 'Удалить'
+          confirm: 'Вы уверены?'
+
+        edit:
+          title: 'Редактирование страницы'
+
+        form:
+          cancel: 'Отменить'
+
+        new:
+          title: 'Новая страница'
+
+      news:
+        index:
+          title: 'Новости'
+          actions: 'Действия'
+          edit: 'Редактировать'
+          destroy: 'Удалить'
+          confirm: 'Вы уверены?'
+          new: 'Добавить новость'
+
+        show:
+          title: 'Новость'
+          back: 'К списку новостей'
+          edit: 'Редактировать'
+          destroy: 'Удалить'
+          confirm: 'Вы уверены?'
+
+        edit:
+          title: 'Редактирование новости'
+
+        form:
+          cancel: 'Отменить'
+
+        new:
+          title: 'Добавление новости'
+
+      users:
+        new:
+          title: 'Создать пользователя'
+          cancel: 'Отменить'
+
+        index:
+          title: 'Список пользователей'
+          created_at: 'Время создания'
+          actions: 'Действия'
+          edit: 'Редактировать'
+          destroy: 'Удалить'
+          confirm: 'Вы уверены?'
+          new_user: 'Добавить пользователя'
+
+        edit:
+          title: 'Редактирование пользователя'
+          cancel: 'Отменить'
+
+        show:
+          title: 'Просмотр пользователя'
+          confirm: 'Вы уверены?'
+          edit: 'Редактировать'
+          destroy: "Удалить"
+          back: "К списку пользователей"

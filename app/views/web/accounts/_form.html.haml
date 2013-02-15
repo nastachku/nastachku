@@ -1,0 +1,21 @@
+.formy
+  = simple_form_for @user, :url => account_path, :html => { :class => 'form-horizontal profile-form' } do |f|
+
+    = f.input :email, disabled: true, readonly: true
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :city
+    = f.input :company
+    = f.input :position
+    = f.input :show_as_participant, :wrapper => :inline_checkbox
+
+    .control-group
+      .controls
+        = f.button :submit, :value => t('.save'), :class => 'btn'
+
+
+%br
+%h3
+  =t(".personal_number")
+  %span.color
+    = @user.id

@@ -9,7 +9,17 @@
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
+/config/database.yml
+/public/uploads/
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+/coverage
+
+# Ignore schema
+schema.rb
+
+#ignore idea config
+.idea
