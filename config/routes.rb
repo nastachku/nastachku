@@ -6,6 +6,7 @@ Nastachku::Application.routes.draw do
 
   namespace :api do
     resources :companies
+    resources :cities
   end
 
   scope :module => :web do
