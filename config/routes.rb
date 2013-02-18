@@ -28,9 +28,12 @@ Nastachku::Application.routes.draw do
     resources :events, only: [:index] do
       post :vote
     end
-    namespace :account do
-      resource :password, only: [:edit, :update]
-      resources :accounts, only: [:edit, :update]
+
+    resource :account, only: [:edit, :update] do
+      scope :module => :account do
+        resource :password, only: [:edit, :update]
+        resources :events, only: [:new, :create]
+      end
     end
 
     resources :lectors, only: [ :index ]

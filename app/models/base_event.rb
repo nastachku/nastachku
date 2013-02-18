@@ -3,9 +3,8 @@ class BaseEvent < ActiveRecord::Base
 
   attr_accessible :presentation, :thesises, :title, :start_time, :finish_time, :workshop_id, :hall_id, :votings_count
 
-  #validates :title, presence: true
-  #validates :thesises, presence: true
-  
+  validates :title, presence: true
+
   mount_uploader :presentation, EventPresentationUploader
 
   belongs_to :workshop

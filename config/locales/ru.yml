@@ -49,6 +49,12 @@ ru:
         personal_number: 'Ваш персональный номер для участия в конференции:'
         save: 'Сохранить'
     account:
+      events:
+        form:
+          add_event: 'Добавить доклад'
+        event_fields:
+          remove_event: 'Удалить доклад'
+
       passwords:
         edit:
           password_reset: "Изменение пароля"
@@ -78,10 +84,6 @@ ru:
         join: 'Я пойду!'
         
     events:
-      form: 
-        add_event: 'Добавить доклад'
-      event_fields:
-        remove_event: 'Удалить доклад'
       index:
         title: 'Доклады 2.0'
 

@@ -1,6 +1,6 @@
 %h1=t '.add_event'
 
-= simple_form_for @user, url: user_events_path, method: :post do |f|
+= simple_form_for @user, url: account_events_path, method: :post do |f|
   .row
     .span12
       .formy.formy-color
@@ -11,7 +11,7 @@
                 .userpic
                   = image_tag(@user.photo.url)
               = f.input :photo, as: :file
-            
+
             .span8
               = f.input :about, input_html: {rows: 5, cols: 20, class: 'user-summary'}
 
@@ -19,7 +19,7 @@
     .span12
       %br
       %br
-      
+
       #events
         = f.simple_fields_for :events do |event|
           = render 'event_fields', f: event
@@ -27,5 +27,5 @@
       .btn-diff.clearfix
         .pull-left
           = f.submit class: 'btn btn-shine'
-        .pull-right  
+        .pull-right
           = link_to_add_association t('.add_event'), f, :events, class: "btn", :'data-association-insertion-node' => '#events', :'data-association-insertion-method' => 'append'
