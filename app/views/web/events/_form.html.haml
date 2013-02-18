@@ -7,7 +7,7 @@
         .form
           .row-fluid
             .span4
-              - if @user.photo
+              - if @user.photo.url
                 .userpic
                   = image_tag(@user.photo.url)
               = f.input :photo, as: :file
