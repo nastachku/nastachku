@@ -18,9 +18,9 @@ ru:
               invalid_transition: ''
   web:
     admin:
-      user_events:
+      events:
         form:
           cancel: ''
-      events:
+      user_events:
         form:
           cancel: ''
