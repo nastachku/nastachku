@@ -13,11 +13,17 @@
     %tr
       %th= BaseEvent.human_attribute_name :title
       %th= BaseEvent.human_attribute_name :start_time
+      %th= BaseEvent.human_attribute_name :state
+      %th= BaseEvent.human_attribute_name :workshop
+      %th= BaseEvent.human_attribute_name :hall
       %th= t '.actions'
   %tbody
     - @events.each do |event|
       %tr
         %td= event.title
         %td= l event.start_time if event.start_time
+        %td= event.human_state_name
+        %td= event.workshop.try(:title)
+        %td= event.hall.try(:title)
         %td
           = link_to t('.edit'), edit_admin_event_cpath(event), :class => 'btn btn-mini'

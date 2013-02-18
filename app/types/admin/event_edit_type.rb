@@ -7,5 +7,5 @@ class Admin::EventEditType < UserEvent
   validates :finish_time, presence: true
   validates :workshop, presence: true
   validates :speaker, presence: true
-  validates :presentation, presence: true
+  #validates :presentation, presence: true
 end

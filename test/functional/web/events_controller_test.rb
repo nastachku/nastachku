@@ -6,7 +6,12 @@ class Web::EventsControllerTest < ActionController::TestCase
     sign_in @user
     @event = create :user_event
   end
-  
+
+  test "should get index" do
+    get :index
+    assert_response :success
+  end
+
   test "should get new" do
     get :new, user_id: @user.id
     assert_response :success

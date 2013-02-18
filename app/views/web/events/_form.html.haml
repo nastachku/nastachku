@@ -21,8 +21,8 @@
       %br
       
       #events
-        -#= f.simple_fields_for :events do |event|
-        -#  = render 'event_fields', f: event
+        = f.simple_fields_for :events do |event|
+          = render 'event_fields', f: event
 
       .btn-diff.clearfix
         .pull-left

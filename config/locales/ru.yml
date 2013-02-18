@@ -21,6 +21,7 @@ ru:
           login: 'Войти'
           admin: 'Админка'
           speakers: "Докладчики"
+          lectures_20: 'Доклады 2.0'
 
       admin:
         shared:
@@ -81,6 +82,8 @@ ru:
         add_event: 'Добавить доклад'
       event_fields:
         remove_event: 'Удалить доклад'
+      index:
+        title: 'Доклады 2.0'
 
     sessions:
       form:
@@ -321,6 +324,7 @@ ru:
         speaker: 'Докладчик'
         start_time: 'Время начала'
         finish_time: 'Время окончания'
+        state: 'Статус'
         workshop: 'Секция'
         hall: 'Зал'
 
