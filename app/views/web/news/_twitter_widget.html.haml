@@ -1,4 +1,61 @@
 %a.twitter-timeline{"data-widget-id" => "299845141907243008", :href => "https://twitter.com/search?q=%23nastachku"} Tweets about "#nastachku"
 
+%script(charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js")
+
 :javascript
-  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+  new TWTR.Widget({
+
+  version: 2,
+
+  type: 'search',
+
+  search: 'nastachku',
+
+  interval: 30000,
+
+  title: '#nastachku',
+
+  subject: 'Новости из Twitter',
+
+  width: 220,
+
+  height: 600,
+
+  theme: {
+
+  shell: {
+
+  background: '#ffffff',
+
+  color: '#333333'
+
+  },
+
+  tweets: {
+
+  background: '#f5f5f5',
+
+  color: '#555555',
+
+  links: '#0088cc'
+
+  }
+
+  },
+
+  features: {
+
+  scrollbar: true,
+
+  loop: true,
+
+  live: true,
+
+  behavior: 'default'
+
+  }
+
+  }).render().start();
+
+//:javascript
+//  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
