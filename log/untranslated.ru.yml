@@ -1,9 +1,19 @@
 ---
 ru:
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            state:
-              invalid_transition: ''
+  web:
+    account:
+      events:
+        form:
+          add_event: ''
+    events:
+      index:
+        already_voted: ''
+  success: ''
+  layouts:
+    web:
+      application:
+        title: ''
+        pages: ''
+        news: ''
+        users: ''
+        logout: ''
