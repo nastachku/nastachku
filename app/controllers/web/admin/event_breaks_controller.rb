@@ -1,6 +1,6 @@
 class Web::Admin::EventBreaksController < Web::Admin::ApplicationController
   def new
-    @break = Event::Break.new
+    @break = Event::Break.new(state: :in_schedule)
   end
 
   def create

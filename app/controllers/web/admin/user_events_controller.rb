@@ -1,6 +1,6 @@
 class Web::Admin::UserEventsController < Web::Admin::ApplicationController
   def index
-    @events = UserEvent.web
+    @events = UserEvent.new_and_in_voting.web
   end
 
   def edit

@@ -16,3 +16,4 @@
 //= require ckeditor/init
 //= require chosen-jquery
 //= require bootstrap-datetimepicker.min
+//= require admin/dates

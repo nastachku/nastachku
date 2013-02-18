@@ -3,7 +3,7 @@ class Web::EventsController < Web::ApplicationController
   before_filter :authenticate_user!
 
   def new
-    @user = UserEventEditType.find params[:user_id]
+    @user = UserEventEditType.find current_user.id
   end
 
   def vote
@@ -13,8 +13,9 @@ class Web::EventsController < Web::ApplicationController
   end
   
   def create
-    @user = UserEventEditType.find params[:user_id]
+    @user = UserEventEditType.find current_user.id
     if @user.update_attributes params[:user]
+      flash_success
       redirect_to root_path
     else
       render :new

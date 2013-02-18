@@ -15,10 +15,9 @@ Nastachku::Application.routes.draw do
   scope :module => :web do
     resource :user do
       get :activate
-    end
-    resources :users, only: [:new, :create, :index] do
       resources :events, only: [:new, :create]
     end
+    resources :users, only: [:new, :create, :index]
 
     resources :workshops, only: [:show]
 

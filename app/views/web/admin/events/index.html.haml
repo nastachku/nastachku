@@ -17,7 +17,7 @@
   %tbody
     - @events.each do |event|
       %tr
-        %td= link_to event, [:edit, :admin, event]
+        %td= event.title
         %td= l event.start_time if event.start_time
         %td
           = link_to t('.edit'), edit_admin_event_cpath(event), :class => 'btn btn-mini'

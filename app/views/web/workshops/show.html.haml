@@ -1,10 +1,11 @@
 .span12.workshop
-  - @workshop.user_events.voted.asc_by_votings_count.each do |event|
+  - @workshop.user_events.voted.by_votes.each do |event|
     .row
       .span6
         .col-l
           .pic
-            = image_tag(event.speaker.photo.url)
+            - if event.speaker.photo.url
+              = image_tag(event.speaker.photo.url)
         .col-r
           .sinfo
             %h5= event.speaker.full_name
