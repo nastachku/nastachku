@@ -10,6 +10,8 @@ module UserRepository
       where show_as_participant: true
     }
 
+    scope :activated, -> { where state: :active }
+
     scope :alphabetically, -> { order("last_name ASC") }
 
     def self.companies_by_term(company = nil)
