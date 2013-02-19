@@ -26,6 +26,8 @@ gem 'google-analytics-rails'
 gem 'validates'
 gem 'virtus'
 gem 'js-routes'
+gem 'backup'
+gem 'whenever'
 
 # Gems used only for assets and not required
 # in production environments by default.
