@@ -12,7 +12,7 @@ class UserSignInType
   validates_each :email do |record, attr, value|
     user = record.user
 
-    if user && user.inactive?
+    if user && !user.active?
       record.errors.add(attr, :user_not_active)
     end
 
