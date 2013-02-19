@@ -1,6 +1,6 @@
 ru:  
   user_mailer:
-    welcome:
-      subject: "Персональный номер для участия в конференции Стачка"
+    confirm_registration:
+      subject: "Подтверждение регистрации"
     remind_password:
       subject: "Восстановление пароля"
