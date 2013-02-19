@@ -4,7 +4,6 @@ class Web::Account::EventsControllerTest < ActionController::TestCase
   setup do
     @user = create :user
     sign_in @user
-    @event = create :user_event
   end
 
   test "should get new" do
@@ -17,7 +16,8 @@ class Web::Account::EventsControllerTest < ActionController::TestCase
     post :create, user_id: @user.id, user: attrs
 
     assert_response :redirect
-    assert @user.events.count == 1
+    event = @user.events.find_by_title(attrs[:events_attributes][1][:title])
+    assert event
   end
 
 end
