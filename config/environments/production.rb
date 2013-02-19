@@ -69,5 +69,5 @@ Nastachku::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # google-analytics
-  GA.tracker = "UA-29741973-1"
+  GA.tracker = "UA-38587983-1"
 end
