@@ -1,11 +1,12 @@
 class Web::Admin::EventBreaksController < Web::Admin::ApplicationController
   def new
-    @break = Event::Break.new(state: :in_schedule)
+    @break = Event::Break.new
   end
 
   def create
     @break = Event::Break.new params[:event_break]
     if @break.save
+      @break.move_to_schedule
       flash_success
       redirect_to admin_events_path
     else
