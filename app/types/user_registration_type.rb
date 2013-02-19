@@ -1,4 +1,4 @@
-class UserEditType < User
+class UserRegistrationType < User
   include BasicType
 
   attr_accessible :password_confirmation, :state_event
@@ -7,5 +7,7 @@ class UserEditType < User
 
   validates :first_name,  presence: true
   validates :last_name,  presence: true
+  validates :city, presence: true
   validates :password, presence: true, confirmation: true
+  
 end

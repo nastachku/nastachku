@@ -9,27 +9,27 @@ class User < ActiveRecord::Base
                   :show_as_participant, :photo, :state_event, :about
 
   validates :email, presence: true, uniqueness: true, email: true
-  validates :city, presence: true
-  validates :first_name, length: {maximum: 20}
-  validates :last_name, length: {maximum: 20}
-  validates :city, length: {maximum: 20}
-  validates :company, length: {maximum: 20}
-  validates :position, length: {maximum: 20}
+  validates :first_name, length: { maximum: 255 }
+  validates :last_name, length: { maximum: 255 }
+  validates :city, length: { maximum: 255 }
+  validates :company, length: { maximum: 255 }
+  validates :position, length: { maximum: 255 }
   
   mount_uploader :photo, UsersPhotoUploader 
 
   has_many :auth_tokens
 
-  state_machine :state, initial: :active do
+  state_machine :state, initial: :new do
+    state :new
     state :active
     state :inactive
 
     event :activate do
-      transition any - :active => :active
+      transition [:inactive, :new] => :active
     end
 
     event :deactivate do
-      transition :active => :inactive
+      transition [:active, :new] => :inactive
     end
   end
 

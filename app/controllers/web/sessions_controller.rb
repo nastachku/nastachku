@@ -2,21 +2,19 @@
 class Web::SessionsController < Web::ApplicationController
 
   def new
-    @user = UserEditType.new
+    @type = UserSignInType.new
   end
 
   def create
-    user = UserEditType.find_by_email(params[:user][:email])
+    @type = UserSignInType.new(params[:user_sign_in_type])
 
-    if user.try(:authenticate, params[:user][:password])
+    if @type.valid?
+      user = @type.user
       flash_success
-
       sign_in(user)
       redirect_to root_path
     else
-      flash_error
-
-      render action: 'new'
+      render :new
     end
   end
 

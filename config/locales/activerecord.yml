@@ -27,6 +27,7 @@ ru:
         state_event: "Изменить состояние"
         state: "Состояние"
         about: "О себе"
+        admin: "Администратор"
 
     errors:
       messages:
@@ -48,5 +49,6 @@ ru:
         user: 
           attributes:
             email:
+              email: 'Введен некорректный email'
               taken: 'Данный Email уже зарегистрирован'
 
