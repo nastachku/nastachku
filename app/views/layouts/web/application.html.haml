@@ -7,7 +7,8 @@
     %link{:href => "/favicon.ico", :rel => "icon", :type => "image/x-icon"}/
     %link{:href => "/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
     %meta{:content => "http://nastachku.ru/assets/fb_logo.png", :property => "og:image"}
-    %title= content_for?(:title) ? yield(:title) : "Nastachku"
+    %meta{:content => "Digital-коммуникации, Программирование, IT-стартапы, Электронная коммерция, Менеджмент в IT, IT на службе общества", :property => "og:summary"}
+    %title= content_for?(:title) ? yield(:title) : "Стачка! Конференция"
     = analytics_init if Rails.env.production?
     = csrf_meta_tags
     = stylesheet_link_tag "application", :media => "all"
