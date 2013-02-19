@@ -4,9 +4,6 @@ set :default_stage, "staging"
 require 'capistrano/ext/multistage'
 require 'airbrake/capistrano'
 
-set :whenever_command, "bundle exec whenever"
-require "whenever/capistrano"
-
 set :application, "nastachku"
 set :rvm_type, :system
 
