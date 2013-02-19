@@ -11,12 +11,15 @@ class UserSignInType
 
   validates_each :email do |record, attr, value|
     user = record.user
-
-    if user && !user.active?
-      record.errors.add(attr, :user_not_active)
+    if user.try :new?
+      record.errors.add(attr, :user_new)
     end
 
-    unless user && user.authenticate(record.password)
+    if user.try :inactive?
+      record.errors.add(attr, :user_inactive)
+    end
+
+    if !user.try(:authenticate, record.password)
       record.errors.add(attr, :user_or_password_invalid)
     end
   end
