@@ -17,21 +17,62 @@
     document.getElementsByTagName('head')[0].appendChild(script);
   })();
 
-{}
 %noscript
   = link_to 'http://reformal.ru' do
     = image_tag 'http://media.reformal.ru/reformal.png'
   = link_to 'http://nastachku.reformal.ru'
 
+:javascript
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38587983-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+  })();
 
 :javascript
-  (function(w, c) {
-      (w[c] = w[c] || []).push(function() {
-          try {
-              w.yaCounter12986590 = new Ya.Metrika({id:12986590, enableAll: true, webvisor:true});
-          }
-          catch(e) { }
-      });
-  })(window, "yandex_metrika_callbacks");
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+      try {
+        w.yaCounter20139103 = new Ya.Metrika({
+          id:20139103,
+          webvisor:true,
+          clickmap:true,
+          trackLinks:true,
+          accurateTrackBounce:true
+        });
+      } catch(e) { }
+    });
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () {
+          n.parentNode.insertBefore(s, n);
+        };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+        } else {
+          f();
+        }
+  })(document, window, "yandex_metrika_callbacks");
 
-%script(src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer")
+
+
+-#:javascript
+-#  (function(w, c) {
+-#      (w[c] = w[c] || []).push(function() {
+-#          try {
+-#              w.yaCounter12986590 = new Ya.Metrika({id:12986590, enableAll: true, webvisor:true});
+-#          }
+-#          catch(e) { }
+-#      });
+-#  })(window, "yandex_metrika_callbacks");
+-#
+-#%script(src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer")
