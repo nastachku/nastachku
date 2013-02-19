@@ -9,6 +9,5 @@ class UserRegistrationType < User
   validates :last_name,  presence: true
   validates :city, presence: true
   validates :password, presence: true, confirmation: true
-  validates :password_confirmation, presence: true
-
+  
 end
