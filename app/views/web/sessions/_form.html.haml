@@ -1,0 +1,21 @@
+
+.row
+  .span6
+    .formy
+      %h5= t '.login'
+      .form
+        = simple_form_for :user, url: session_path, html: { class: 'form-type-login' } do |f|
+
+          = f.input :email, :tabindex => 1
+          = f.input :password, :tabindex => 2
+
+          .form-actions.clearfix
+            .pull-left
+              = f.button :submit, :value => t('.login'), :class => 'btn', :tabindex => 3
+            .pull-right
+              = link_to t('.remind_password'), new_remind_password_path
+
+          Ещё не зарегистрировались?!
+
+          %a{ :href => new_user_path, :tabindex => 4}
+            Сделайте это прямо сейчас!

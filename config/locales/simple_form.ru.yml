@@ -1,0 +1,8 @@
+ru:
+  simple_form:
+    "yes": 'Да'
+    "no": 'Нет'
+    labels:
+      defaults:
+        email: 'Email'
+        password: 'Пароль'

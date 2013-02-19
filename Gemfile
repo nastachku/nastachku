@@ -1,38 +1,59 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'rails'
 gem 'pg'
-
+gem 'unicorn'
+gem 'haml-rails'
+gem 'twitter-bootstrap-rails'
+gem 'jquery-ui-rails'
+gem 'less-rails'
+gem 'simple_form'
+gem "airbrake"
+gem "mini_magick"
+gem "carrierwave"
+gem 'ckeditor'
+gem 'jquery-rails'
+gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'jbuilder'
+gem 'unicorn-rails'
+gem 'usefull_scopes'
+gem 'ya_acl'
+gem 'state_machine'
+gem 'untranslated'
+gem 'configus'
+gem 'russian'
+gem 'google-analytics-rails'
+gem 'validates'
+gem 'virtus'
+gem 'js-routes'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+group :test, :development do
+  gem 'sqlite3'
+end
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+group :test do
+  gem 'minitest'
+  gem 'simplecov', :require => false
+  gem 'ci_reporter'
+  gem 'factory_girl_rails'
+  gem 'turn'
+  gem 'tconsole'
+  gem "rake"
+  gem 'coveralls', require: false
+end
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
+group :development do
+  gem 'capistrano'
+  gem 'rvm-capistrano'
+  gem 'capistrano-ext'
+  gem 'capistrano-unicorn', require: false
+end

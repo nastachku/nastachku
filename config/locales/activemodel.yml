@@ -1,0 +1,9 @@
+ru:
+  activemodel:
+    errors:
+      models:
+        user_password_remind_type:
+          attributes:
+            email:
+              email: 'Введите корректный email!'
+              user_should_not_exists: 'Пользователь с таким email не существует!'
