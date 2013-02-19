@@ -27,6 +27,7 @@ ru:
         state_event: "Изменить состояние"
         state: "Состояние"
         about: "О себе"
+        admin: "Администратор"
 
     errors:
       messages:

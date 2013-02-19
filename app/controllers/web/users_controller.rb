@@ -1,7 +1,7 @@
 class Web::UsersController < Web::ApplicationController
 
   def index
-    @users = User.shown_as_participants.alphabetically
+    @users = User.activated.shown_as_participants.alphabetically
   end
 
   def new
