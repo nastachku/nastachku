@@ -5,11 +5,11 @@ class Web::UsersController < Web::ApplicationController
   end
 
   def new
-    @user = UserEditType.new
+    @user = UserRegistrationType.new
   end
 
   def create
-    @user = UserEditType.new(params[:user])
+    @user = UserRegistrationType.new(params[:user])
 
     if @user.save
       UserMailer.welcome(@user).deliver

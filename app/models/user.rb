@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
                   :show_as_participant, :photo, :state_event, :about
 
   validates :email, presence: true, uniqueness: true, email: true
-  validates :city, presence: true
   validates :first_name, length: { maximum: 255 }
   validates :last_name, length: { maximum: 255 }
   validates :city, length: { maximum: 255 }

@@ -2,11 +2,13 @@
 class Web::SessionsController < Web::ApplicationController
 
   def new
-    @user = UserEditType.new
+    #FIXME Frank change this type to UserSignInType
+    @user = UserRegistrationType.new
   end
 
   def create
-    user = UserEditType.find_by_email(params[:user][:email])
+    #FIXME Frank change this type to UserSignInType
+    user = UserRegistrationType.find_by_email(params[:user][:email])
 
     if user.try(:authenticate, params[:user][:password])
       flash_success
