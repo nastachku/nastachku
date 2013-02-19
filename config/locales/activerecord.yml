@@ -49,5 +49,6 @@ ru:
         user: 
           attributes:
             email:
+              email: 'Введен некорректный email'
               taken: 'Данный Email уже зарегистрирован'
 
