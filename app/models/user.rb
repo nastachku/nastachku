@@ -19,16 +19,17 @@ class User < ActiveRecord::Base
 
   has_many :auth_tokens
 
-  state_machine :state, initial: :active do
+  state_machine :state, initial: :new do
+    state :new
     state :active
     state :inactive
 
     event :activate do
-      transition any - :active => :active
+      transition [:inactive, :new] => :active
     end
 
     event :deactivate do
-      transition :active => :inactive
+      transition [:active, :new] => :inactive
     end
   end
 

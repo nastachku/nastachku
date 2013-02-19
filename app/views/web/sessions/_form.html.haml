@@ -4,7 +4,7 @@
     .formy
       %h5= t '.login'
       .form
-        = simple_form_for :user, url: session_path, html: { class: 'form-type-login' } do |f|
+        = simple_form_for @type, url: session_path, html: { class: 'form-type-login' } do |f|
 
           = f.input :email, :tabindex => 1
           = f.input :password, :tabindex => 2

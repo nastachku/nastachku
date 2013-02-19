@@ -1,0 +1,5 @@
+<p>Здравствуйте, <%= @user.full_name %>.</p>
+<p>Ваш почтовый ящик был указан при регистрации на сайте <%= link_to 'nastachku.ru', root_url %>.</p>
+<p>Для подтверждения регистрации пожалуйста перейдите по ссылке:</p>
+<%= link_to 'Подтвердить регистрацию на сайте nastachku.ru.', activate_user_url(auth_token: @token.authentication_token) %>
+<p>Ваш персональный номер для участия в конференции: <strong><%= @user.id %></strong></p>
