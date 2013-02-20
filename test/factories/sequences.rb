@@ -16,4 +16,8 @@ FactoryGirl.define do
     n % 2
   end
 
+  sequence :process_personal_data do |n|
+    true
+  end
+
 end
