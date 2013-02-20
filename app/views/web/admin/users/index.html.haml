@@ -1,20 +1,33 @@
 .page-header
   %h1=t('.title')
-  
+
+= simple_form_for @search, url: admin_users_path, method: :get, html: { class: 'form-inline' } do |f|
+  .form-inputs
+    = f.input :last_name_cont, label: t(".last_name"), required: false
+    = f.input :first_name_cont, label: t(".first_name"), required: false
+    = f.input :email_cont, label: t(".email"), required: false
+    = f.input :state_in, :as => :chosen_select, collection: User.state_machine.states.map { |s| [s.human_name, s.name] }, label: t(".state"), required: false
+  .action
+    = f.submit t(".search")
+    
 = paginate @users
 %table.table.table-striped
   %thead
     %tr
-      %th= User.human_attribute_name :id
-      %th= User.human_attribute_name :first_name
-      %th= User.human_attribute_name :state
-      %th= t(".created_at")
+      %th= sort_link(@search, :id, User.human_attribute_name(:id))
+      %th= sort_link(@search, :last_name, User.human_attribute_name(:last_name))
+      %th= sort_link(@search, :first_name, User.human_attribute_name(:first_name))
+      %th= sort_link(@search, :email, User.human_attribute_name(:email))
+      %th= sort_link(@search, :state, User.human_attribute_name(:state))
+      %th= sort_link(@search, :created_at, t(".created_at"))
       %th= t(".actions")
   %tbody
     - @users.each do |user|
       %tr
         %td= link_to user.id, admin_user_path(user)
-        %td= user.full_name
+        %td= user.last_name
+        %td= user.first_name
+        %td= user.email
         %td= user.state
         %td= l user.created_at
         %td
