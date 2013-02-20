@@ -17,6 +17,7 @@ ru:
           routes: "Как доехать и где жить?"
           news: "Пресс-центр"
           afterpaty: "Афтепати" 
+          lectors: 'Докладчики'
 
       admin:
         shared:

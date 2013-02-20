@@ -14,3 +14,10 @@ ru:
       users:
         form:
           cancel: ''
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            state:
+              invalid_transition: ''
