@@ -11,6 +11,7 @@ FactoryGirl.define do
     show_as_participant
     email
     photo
+    process_personal_data
 
     after(:create) do |u|
       u.activate

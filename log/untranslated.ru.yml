@@ -1,13 +1,9 @@
 ---
 ru:
-  web:
-    admin:
-      audits:
-        index:
-          title: ''
-  layouts:
-    web:
-      admin:
-        shared:
-          navigation:
-            audits: ''
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            state:
+              invalid_transition: ''
