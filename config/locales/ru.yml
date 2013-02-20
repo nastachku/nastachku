@@ -141,6 +141,11 @@ ru:
           destroy: 'Удалить'
           confirm: 'Вы уверены?'
           new_user: 'Добавить пользователя'
+          search: 'Найти'
+          first_name: 'Имя'
+          last_name: 'Фамилия'
+          email: 'Email'
+          state: 'Состояние'
 
         edit:
           title: 'Редактирование пользователя'
