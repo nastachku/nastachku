@@ -7,7 +7,7 @@ class Web::Admin::NewsController < Web::Admin::ApplicationController
 
   def create
     @news = NewsEditType.new params[:news]
-
+    @news.changed_by = current_user
     if @news.save
       flash_success
 
@@ -33,6 +33,7 @@ class Web::Admin::NewsController < Web::Admin::ApplicationController
 
   def update
     @news = NewsEditType.find params[:id]
+    @news.changed_by = current_user
 
     if @news.update_attributes params[:news]
       flash_success
@@ -47,7 +48,7 @@ class Web::Admin::NewsController < Web::Admin::ApplicationController
 
   def destroy
     @news = News.find params[:id]
-    @news.delete
+    @news.destroy
 
     redirect_to admin_news_index_path
   end
