@@ -29,6 +29,14 @@ ru:
         about: "О себе"
         admin: "Администратор"
 
+      auditable_audit:
+        auditable_id: 'ID'
+        auditable_type: 'Тип'
+        user: 'Изменивший'
+        modifications: 'Изменения'
+        action: 'Действие'
+        created_at: 'Дата'
+
     errors:
       messages:
         blank: 'Поле не может быть пустым'

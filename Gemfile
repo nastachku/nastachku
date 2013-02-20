@@ -28,6 +28,7 @@ gem 'virtus'
 gem 'js-routes'
 gem 'backup'
 gem 'whenever'
+gem 'auditable'
 
 # Gems used only for assets and not required
 # in production environments by default.
