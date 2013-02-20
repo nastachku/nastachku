@@ -85,6 +85,8 @@ GEM
       simplecov (>= 0.7)
       thor
     descendants_tracker (0.0.1)
+    enumerize (0.5.1)
+      activesupport (>= 3.2)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -270,6 +272,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   configus
   coveralls
+  enumerize
   factory_girl_rails
   google-analytics-rails
   haml-rails

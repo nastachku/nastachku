@@ -1,0 +1,6 @@
+ru:
+  enumerize:
+    user:
+      role:
+        lector: 'Докладчик'
+        user: 'Участник'

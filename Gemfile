@@ -32,6 +32,7 @@ gem 'kaminari'
 gem 'auditable'
 gem 'ransack'
 gem 'chosen-rails'
+gem 'enumerize'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -11,3 +11,6 @@ ru:
         shared:
           navigation:
             audits: ''
+      users:
+        form:
+          cancel: ''

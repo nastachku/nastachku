@@ -28,6 +28,7 @@ ru:
         state: "Состояние"
         about: "О себе"
         admin: "Администратор"
+        role: 'Роль'
 
       auditable_audit:
         auditable_id: 'ID'
