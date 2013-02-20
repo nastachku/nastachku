@@ -30,6 +30,7 @@ Nastachku::Application.routes.draw do
       end
     end
 
+    resources :lectors, only: [ :index ]
 
     namespace :admin do
       resources :pages

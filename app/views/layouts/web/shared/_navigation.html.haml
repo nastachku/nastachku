@@ -15,6 +15,7 @@
 
           %li= navbar_link t(".participants"), users_path, with: User.activated.count
           / %li= link_to t(".news"), news_index_path
+          %li= link_to t('.lectors'), lectors_path
           %li= link_to t(".routes"), page_path(:routes)
           %li= link_to t(".contacts"), page_path(:contacts)
           / %li= link_to t(".afterpaty"), page_path(:afterpaty)

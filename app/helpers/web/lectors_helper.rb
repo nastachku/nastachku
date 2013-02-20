@@ -1,0 +1,2 @@
+module Web::LectorsHelper
+end

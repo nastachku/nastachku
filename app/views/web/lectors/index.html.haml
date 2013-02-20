@@ -1,0 +1,17 @@
+.span12.workshop
+  - @lectors.each do |lector|
+    .row
+      .span10
+        .col-l
+          .pic
+            - if lector.photo.url
+              = image_tag(lector.photo.url)
+        .col-r
+          .sinfo
+            %h5= lector.full_name
+            %h6.grey= lector.about
+            .social
+              %a.tip{"data-original-title" => "Facebook", :href => "#"}
+                %i.icon-facebook.facebook
+        .clearfix
+    %hr

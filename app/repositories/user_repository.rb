@@ -12,7 +12,7 @@ module UserRepository
 
     scope :activated, -> { where state: :active }
 
-    scope :lectors, -> { where role: :lector }
+    scope :as_lectors, -> { where role: :lector }
 
     scope :alphabetically, -> { order("last_name ASC") }
 
