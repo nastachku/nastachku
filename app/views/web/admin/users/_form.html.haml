@@ -13,6 +13,7 @@
       = f.input :password_confirmation
       = f.input :photo, as: :image_preview
       = f.input :show_as_participant
+      = f.input :admin
       = f.input :role
       = f.association :topics, as: :chosen_select, input_html: { multiple: true }
 
