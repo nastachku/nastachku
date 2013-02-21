@@ -1,8 +1,13 @@
 class Web::UsersController < Web::ApplicationController
 
   def index
-    @search = User.search(params[:q])
-    @users = @search.result.activated.shown_as_participants.alphabetically
+    @search = User.ransack(params[:q])
+    if params[:q]
+      @users = @search.result.activated.shown_as_participants
+    else
+      @users = @search.result.activated.shown_as_participants.alphabetically
+    end
+
   end
 
   def new
