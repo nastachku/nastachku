@@ -38,7 +38,7 @@
               .span4
                 = f.input :show_as_participant, :input_html => { :checked => true }, :wrapper => :inline_checkbox
               .span6
-                = f.input :process_personal_data, :input_html => { :checked => true }, :wrapper => :inline_checkbox
+                = f.input :process_personal_data, as: :boolean, :input_html => { :checked => true }, :wrapper => :inline_checkbox
             .center.form-actions
               = f.button :submit, class: 'btn'
 
