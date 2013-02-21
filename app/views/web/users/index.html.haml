@@ -1,5 +1,5 @@
 %h1=t '.title'
-%h5=t '.registred_title', activated_count: User.activated.count, participant: Russian.p(User.activated.shown_as_participants.count, t('.one_participant'), t('.one_participant'), t('.two_participant'), t('.many_participant')), participants_count: User.activated.shown_as_participants.count
+%h5=t '.registred_title', activated_count: User.activated.count, participant: Russian.p(User.activated.shown_as_participants.count, t('.one_participant'), t('.two_participant'), t('.many_participant')), participants_count: User.activated.shown_as_participants.count
 
 %table.table.table-striped
   %thead
