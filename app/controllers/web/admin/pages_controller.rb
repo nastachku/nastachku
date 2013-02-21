@@ -7,6 +7,7 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
 
   def create
     @page = PageEditType.create params[:page]
+    @page.changed_by = current_user
 
     if @page.save
       flash_success
@@ -33,6 +34,7 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
 
   def update
     @page = PageEditType.find params[:id]
+    @page.changed_by = current_user
 
     if @page.update_attributes params[:page]
       flash_success
@@ -47,7 +49,7 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
 
   def destroy
     @page = Page.find params[:id]
-    @page.delete
+    @page.destroy
 
     redirect_to admin_pages_path
   end

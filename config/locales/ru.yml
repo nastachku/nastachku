@@ -25,6 +25,7 @@ ru:
             pages: 'Страницы'
             news: 'Новости'
             users: 'Пользователи'
+            audits: 'Аудит'
             logout: 'Выйти'
 
   global:
