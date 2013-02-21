@@ -1,5 +1,8 @@
 .page-header
   %h1=t '.title'
+
+= link_to t('.new'), new_admin_page_path, :class => 'btn btn-primary'
+
 %table.table.table-striped
   %thead
     %tr
