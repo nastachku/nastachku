@@ -1,10 +1,12 @@
-FactoryGirl.define do
+# coding: utf-8
 
+FactoryGirl.define do
+  #TODO  first_name, first_name, city to russian sequence
   factory :user do
     password              "sekret"
-    first_name
-    last_name
-    city
+    first_name "Строка"
+    last_name "Строка"
+    city "Строка"
     company
     show_as_participant
     email
