@@ -12,7 +12,10 @@ module UserRepository
 
     scope :activated, -> { where state: :active }
 
+    scope :as_lectors, -> { where role: :lector }
+
     scope :alphabetically, -> { order("last_name ASC") }
+
 
     def self.companies_by_term(company = nil)
       if company

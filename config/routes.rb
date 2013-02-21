@@ -1,7 +1,5 @@
 Nastachku::Application.routes.draw do
 
-  get "audits/index"
-
   match "/404", :to => "web/errors#not_found"
   match "/500", :to => "web/errors#internal_server_error"
 
@@ -32,12 +30,14 @@ Nastachku::Application.routes.draw do
       end
     end
 
+    resources :lectors, only: [ :index ]
 
     namespace :admin do
       resources :pages
       resources :news
       resources :users
       resources :audits, only: [ :index ]
+      resources :topics
 
       root to: "welcome#index"
     end
