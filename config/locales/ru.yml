@@ -57,6 +57,8 @@ ru:
 
       index:
         title: 'Пойдут на стачку'
+        registred: "Зарегистрировалось – %{activated_count}."
+        participants: "%{participants_count}, кто согласился рассказать о себе."
 
     welcome:
       index:

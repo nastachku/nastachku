@@ -1,11 +1,13 @@
 %h1=t '.title'
+%h3=t '.registred', activated_count: User.activated.count
+%h3=t '.participants', participants_count: User.activated.shown_as_participants.count
 %table.table.table-striped
   %thead
     %tr
-      %th= User.human_attribute_name :first_name
-      %th= User.human_attribute_name :city
-      %th= User.human_attribute_name :company
-      %th= User.human_attribute_name :position
+      %th= sort_link(@search, :first_name, User.human_attribute_name(:first_name)) 
+      %th= sort_link(@search, :city, User.human_attribute_name(:city))
+      %th= sort_link(@search, :company, User.human_attribute_name(:company))
+      %th= sort_link(@search, :position, User.human_attribute_name(:position))
   %tbody
     - @users.each do |user|
       %tr
@@ -13,4 +15,3 @@
         %td= user.city
         %td= user.company
         %td= user.position
-
