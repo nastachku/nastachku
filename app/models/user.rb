@@ -2,6 +2,7 @@ require 'digest/md5'
 
 class User < ActiveRecord::Base
   include UserRepository
+  include ActiveModel::Validations
 
   attr_accessible :email, :password,
                   :first_name, :last_name, :city,
@@ -11,9 +12,9 @@ class User < ActiveRecord::Base
   audit :email, :password, :first_name, :last_name, :city, :company, :show_as_participant, :photo, :state, :about
 
   validates :email, presence: true, uniqueness: true, email: true
-  validates :first_name, length: { maximum: 255 }
-  validates :last_name, length: { maximum: 255 }
-  validates :city, length: { maximum: 255 }
+  validates :first_name, length: { maximum: 255 }, russian: true
+  validates :last_name, length: { maximum: 255 }, russian: true
+  validates :city, length: { maximum: 255 }, russian: true
   validates :company, length: { maximum: 255 }
   validates :position, length: { maximum: 255 }
   
