@@ -16,6 +16,7 @@ module UserRepository
 
     scope :alphabetically, -> { order("last_name ASC") }
 
+
     def self.companies_by_term(company = nil)
       if company
         company = company.downcase
