@@ -6,6 +6,8 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
 
   def create
     @user = ::Admin::UserEditType.new(params[:user])
+    @user.changed_by = current_user
+
     if @user.save
       flash_success
       redirect_to admin_users_path
@@ -16,7 +18,12 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
   end
 
   def index
-    @users = User.alphabetically
+    @search = User.ransack(params[:q])
+    if params[:q]
+      @users = @search.result.page(params[:page]).per(50)
+    else
+      @users = @search.result.alphabetically.page(params[:page]).per(50)
+    end
   end
 
   def show
@@ -29,6 +36,8 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
 
   def update
     @user = ::Admin::UserEditType.find(params[:id])
+    @user.changed_by = current_user
+
     if @user.update_attributes params[:user]     
       flash_success
       redirect_to admin_users_path

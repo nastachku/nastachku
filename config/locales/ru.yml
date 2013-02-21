@@ -17,6 +17,7 @@ ru:
           routes: "Как доехать и где жить?"
           news: "Пресс-центр"
           afterpaty: "Афтепати" 
+          lectors: 'Докладчики'
 
       admin:
         shared:
@@ -25,6 +26,8 @@ ru:
             pages: 'Страницы'
             news: 'Новости'
             users: 'Пользователи'
+            audits: 'Аудит'
+            topics: 'Топики'
             logout: 'Выйти'
 
   global:
@@ -56,6 +59,10 @@ ru:
 
       index:
         title: 'Пойдут на стачку'
+        registred_title: "Зарегистрировалось – %{activated_count} %{participant}. Ниже %{participants_count}, кто согласился рассказать о себе."
+        one_participant: 'Участник'
+        two_participant: 'участника'
+        many_participant: 'участников'
 
     welcome:
       index:
@@ -141,6 +148,11 @@ ru:
           destroy: 'Удалить'
           confirm: 'Вы уверены?'
           new_user: 'Добавить пользователя'
+          search: 'Найти'
+          first_name: 'Имя'
+          last_name: 'Фамилия'
+          email: 'Email'
+          state: 'Состояние'
 
         edit:
           title: 'Редактирование пользователя'
@@ -152,3 +164,20 @@ ru:
           edit: 'Редактировать'
           destroy: "Удалить"
           back: "К списку пользователей"
+
+        form:
+          cancel: 'Отменить'
+
+      topics:
+        index:
+          title: 'Список топиков'
+          new: 'Добавить топик'
+          edit: 'Редактировать'
+          destroy: 'Удалить'
+          confirm: 'Вы уверены?'
+        new:
+          title: 'Создать топик'
+        edit:
+          title: 'Редактирование топика'
+        form:
+          cancel: 'Отменить'

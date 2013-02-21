@@ -2,22 +2,29 @@ require 'digest/md5'
 
 class User < ActiveRecord::Base
   include UserRepository
+  extend Enumerize
 
   attr_accessible :email, :password,
                   :first_name, :last_name, :city,
                   :company, :position,
                   :show_as_participant, :photo, :state_event, :about
 
+  audit :email, :password, :first_name, :last_name, :city, :company, :show_as_participant, :photo, :state, :about
+
   validates :email, presence: true, uniqueness: true, email: true
-  validates :first_name, length: { maximum: 255 }
-  validates :last_name, length: { maximum: 255 }
-  validates :city, length: { maximum: 255 }
+  validates :first_name, length: { maximum: 255 }, russian: true
+  validates :last_name, length: { maximum: 255 }, russian: true
+  validates :city, length: { maximum: 255 }, russian: true
   validates :company, length: { maximum: 255 }
   validates :position, length: { maximum: 255 }
-  
+
+  enumerize :role, in: [ :lector, :user ], default: :user
+
   mount_uploader :photo, UsersPhotoUploader 
 
   has_many :auth_tokens
+  has_many :topics, through: :user_topics
+  has_many :user_topics
 
   state_machine :state, initial: :new do
     state :new

@@ -7,4 +7,8 @@ class AccountEditType < User
   validates :last_name,  presence: true
   validates :city, presence: true
 
+  def city=(city)
+    write_attribute(:city, city.mb_chars.downcase)
+  end
+
 end

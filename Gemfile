@@ -28,6 +28,11 @@ gem 'virtus'
 gem 'js-routes'
 gem 'backup'
 gem 'whenever'
+gem 'kaminari'
+gem 'ransack'
+gem 'chosen-rails'
+gem 'auditable'
+gem 'enumerize'
 
 # Gems used only for assets and not required
 # in production environments by default.

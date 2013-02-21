@@ -30,11 +30,14 @@ Nastachku::Application.routes.draw do
       end
     end
 
+    resources :lectors, only: [ :index ]
 
     namespace :admin do
       resources :pages
       resources :news
       resources :users
+      resources :audits, only: [ :index ]
+      resources :topics
 
       root to: "welcome#index"
     end
