@@ -1,0 +1,21 @@
+.page-header
+  %h1=t '.title'
+
+= link_to t('.new'), new_admin_topic_path, :class => 'btn btn-primary'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Topic.human_attribute_name :title
+      %th= Topic.human_attribute_name :description
+      %th= Topic.human_attribute_name :created_at
+      %th= Topic.human_attribute_name :actions
+  %tbody
+    - @topics.each do |topic|
+      %tr
+        %td= topic.title
+        %td= topic.description
+        %td= l topic.created_at
+        %td
+          = link_to t('.edit'), edit_admin_topic_path(topic), :class => 'btn btn-mini'
+          = link_to t('.destroy'), admin_topic_path(topic), :method => :delete, :data => { :confirm => t('.confirm') }, :class => 'btn btn-mini btn-danger'

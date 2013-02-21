@@ -1,10 +1,5 @@
 ---
 ru:
-  web:
-    admin:
-      users:
-        form:
-          cancel: ''
   activerecord:
     errors:
       models:

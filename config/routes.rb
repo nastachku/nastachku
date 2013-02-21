@@ -36,6 +36,7 @@ Nastachku::Application.routes.draw do
       resources :pages
       resources :news
       resources :users
+      resources :topics
 
       root to: "welcome#index"
     end

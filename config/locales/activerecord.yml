@@ -29,6 +29,13 @@ ru:
         about: "О себе"
         admin: "Администратор"
         role: 'Роль'
+        topics: 'Топики'
+
+      topic:
+        title: 'Название'
+        description: 'Описание'
+        created_at: 'Дата создания'
+        actions: 'Действия'
 
     errors:
       messages:
