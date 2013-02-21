@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 Configus.build Rails.env do
   env :production do
     mailer do
@@ -6,10 +8,10 @@ Configus.build Rails.env do
     end
 
     admin do
-      email ""
-      password ""
-      first_name = "admin"
-      last_name = "admin"
+      email "admin@np.kaize.ru"
+      password "123456"
+      first_name "Админ"
+      last_name "Админов"
     end
 
     token do
@@ -21,6 +23,8 @@ Configus.build Rails.env do
     admin do
       email "admin@np.kaize.ru"
       password "123456"
+      first_name "Админ"
+      last_name "Админов"
     end
   end
 
@@ -31,8 +35,8 @@ Configus.build Rails.env do
     admin do
       email "admin@np.kaize.ru"
       password "123456"
-      first_name = "admin"
-      last_name = "admin"
+      first_name "Админ"
+      last_name "Админов"
     end
 
     basic_auth do
