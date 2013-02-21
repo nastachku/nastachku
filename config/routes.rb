@@ -39,6 +39,7 @@ Nastachku::Application.routes.draw do
       resources :news
       resources :users
       resources :audits, only: [ :index ]
+      resources :topics
 
       root to: "welcome#index"
     end

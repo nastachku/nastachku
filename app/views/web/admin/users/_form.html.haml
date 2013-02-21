@@ -14,6 +14,7 @@
       = f.input :photo, as: :image_preview
       = f.input :show_as_participant
       = f.input :role
+      = f.association :topics
 
   .form-actions
     = f.button :submit, :class => 'btn btn-primary'

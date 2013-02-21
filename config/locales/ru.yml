@@ -27,6 +27,7 @@ ru:
             news: 'Новости'
             users: 'Пользователи'
             audits: 'Аудит'
+            topics: 'Топики'
             logout: 'Выйти'
 
   global:
@@ -163,3 +164,20 @@ ru:
           edit: 'Редактировать'
           destroy: "Удалить"
           back: "К списку пользователей"
+
+        form:
+          cancel: 'Отменить'
+
+      topics:
+        index:
+          title: 'Список топиков'
+          new: 'Добавить топик'
+          edit: 'Редактировать'
+          destroy: 'Удалить'
+          confirm: 'Вы уверены?'
+        new:
+          title: 'Создать топик'
+        edit:
+          title: 'Редактирование топика'
+        form:
+          cancel: 'Отменить'

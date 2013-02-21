@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
   mount_uploader :photo, UsersPhotoUploader 
 
   has_many :auth_tokens
+  has_many :topics, through: :user_topics
+  has_many :user_topics
 
   state_machine :state, initial: :new do
     state :new
