@@ -4,7 +4,7 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= sort_link(@search, :first_name, User.human_attribute_name(:first_name)) 
+      %th= sort_link(@search, :last_name, User.human_attribute_name(:first_name)) 
       %th= sort_link(@search, :city, User.human_attribute_name(:city))
       %th= sort_link(@search, :company, User.human_attribute_name(:company))
       %th= sort_link(@search, :position, User.human_attribute_name(:position))

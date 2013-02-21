@@ -1,7 +1,7 @@
 class UserRegistrationType < User
   include BasicType
 
-  attr_accessible :password_confirmation, :state_event
+  attr_accessible :password_confirmation, :state_event, :process_personal_data
 
   #has_secure_password
 
@@ -9,6 +9,7 @@ class UserRegistrationType < User
   validates :last_name,  presence: true
   validates :city, presence: true
   validates :password, presence: true, confirmation: true
+  validates :process_personal_data, acceptance: { accept: true }
   
 
   def city=(city)

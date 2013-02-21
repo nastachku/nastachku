@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password,
                   :first_name, :last_name, :city,
                   :company, :position,
-                  :show_as_participant, :photo, :state_event, :about
+                  :show_as_participant,
+                  :photo, :state_event, :about
 
   audit :email, :password, :first_name, :last_name, :city, :company, :show_as_participant, :photo, :state, :about
 
