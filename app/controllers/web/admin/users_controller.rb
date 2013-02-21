@@ -16,7 +16,12 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
   end
 
   def index
-    @users = User.alphabetically
+    @search = User.ransack(params[:q])
+    if params[:q]
+      @users = @search.result.page(params[:page]).per(50)
+    else
+      @users = @search.result.alphabetically.page(params[:page]).per(50)
+    end
   end
 
   def show

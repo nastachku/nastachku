@@ -1,5 +1,8 @@
 .page-header
   %h1=t '.title'
+
+= link_to t('.new'), new_admin_page_path, :class => 'btn btn-primary'
+
 %table.table.table-striped
   %thead
     %tr
@@ -13,7 +16,7 @@
       %tr
         %td= link_to page.slug, admin_page_path(page)
         %td= page.title
-        %td= sanitize(page.body, :tags=>[])
+        %td= sanitize(page.body, :tags=>[]).truncate(240)
         %td= l page.created_at
         %td
           = link_to t('.edit'), edit_admin_page_path(page), :class => 'btn btn-mini'

@@ -1,36 +1,34 @@
 .page-header
   %h1=t '.title'
-  .row
-    .span4
-      %strong= User.human_attribute_name :id
-      %br= @user.id
 
-      %strong= User.human_attribute_name :first_name
-      %br= @user.full_name
+  %strong= User.human_attribute_name :id
+  %br= @user.id
 
-      %strong= User.human_attribute_name :state
-      %br= @user.state
+  %strong= User.human_attribute_name :first_name
+  %br= @user.full_name
 
-      %strong= User.human_attribute_name :city
-      %br= @user.city
-    .span4
-      %strong= User.human_attribute_name :about
-      %br= @user.about
+  %strong= User.human_attribute_name :state
+  %br= @user.state
 
-      %strong= User.human_attribute_name :position
-      %br= @user.position
+  %strong= User.human_attribute_name :city
+  %br= @user.city
 
-      %strong= User.human_attribute_name :company
-      %br= @user.company
+  %strong= User.human_attribute_name :about
+  %br= @user.about
+
+  %strong= User.human_attribute_name :position
+  %br= @user.position
+
+  %strong= User.human_attribute_name :company
+  %br= @user.company
       
-      %strong= User.human_attribute_name :show_as_participant
-      %br= @user.show_as_participant
-    .span4
+  %strong= User.human_attribute_name :show_as_participant
+  %br= @user.show_as_participant
 
-      - if @user.photo.present?
-        %strong= User.human_attribute_name :photo
-        .page-image
-          = image_tag @user.photo.url
+  - if @user.photo.present?
+    %strong= User.human_attribute_name :photo
+    .page-image
+      = image_tag @user.photo.url
 
 
 

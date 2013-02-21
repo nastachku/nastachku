@@ -56,6 +56,8 @@ ru:
 
       index:
         title: 'Пойдут на стачку'
+        # TODO add pluralize word "участников
+        registred_title: "Зарегистрировалось – %{activated_count} участников. Ниже %{participants_count}, кто согласился рассказать о себе."
 
     welcome:
       index:
@@ -141,6 +143,11 @@ ru:
           destroy: 'Удалить'
           confirm: 'Вы уверены?'
           new_user: 'Добавить пользователя'
+          search: 'Найти'
+          first_name: 'Имя'
+          last_name: 'Фамилия'
+          email: 'Email'
+          state: 'Состояние'
 
         edit:
           title: 'Редактирование пользователя'
