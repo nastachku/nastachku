@@ -8,7 +8,7 @@ class AccountEditType < User
   validates :city, presence: true
 
   def city=(city)
-    write_attribute(:city, city.downcase)
+    write_attribute(:city, city.mb_chars.downcase)
   end
 
 end
