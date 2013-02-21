@@ -12,7 +12,7 @@ class UserRegistrationType < User
   
 
   def city=(city)
-    write_attribute(:city, city.downcase)
+    write_attribute(:city, city.mb_chars.downcase)
   end
 
 end
