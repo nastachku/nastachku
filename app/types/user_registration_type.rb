@@ -9,7 +9,7 @@ class UserRegistrationType < User
   validates :last_name,  presence: true
   validates :city, presence: true
   validates :password, presence: true, confirmation: true
-  validates :process_personal_data, presence: true
+  validates :process_personal_data, acceptance: { accept: true }
   
 
   def city=(city)
