@@ -42,6 +42,7 @@ ru:
         blank: 'Поле не может быть пустым'
         confirmation: 'Не совпадает с подтверждением'
         user_should_not_exists: 'Пользователь с таким email не найден!'
+        wrong_language: "Поле должно содержать только русские буквы"
 
       models:
         page:
@@ -59,4 +60,3 @@ ru:
             email:
               email: 'Введен некорректный email'
               taken: 'Данный Email уже зарегистрирован'
-
