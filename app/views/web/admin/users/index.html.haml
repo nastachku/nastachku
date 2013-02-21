@@ -1,6 +1,6 @@
 .page-header
   %h1=t('.title')
-
+/ FIXME vdv73rus, form-inline not work
 = simple_form_for @search, url: admin_users_path, method: :get, html: { class: 'form-inline' } do |f|
   .form-inputs
     = f.input :last_name_cont, label: t(".last_name"), required: false
