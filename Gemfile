@@ -32,7 +32,7 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'ransack'
 gem 'chosen-rails'
-gem 'auditable'
+gem 'auditable', :github => 'harleyttd/auditable'
 gem 'enumerize'
 
 # Gems used only for assets and not required
