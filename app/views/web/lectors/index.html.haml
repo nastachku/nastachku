@@ -10,6 +10,8 @@
               = image_tag(lector.photo.url)
         .span8
           %h5= lector.full_name
+          %h6
+            %strong= lector.company
           %p= lector.about
           -#.social
           -#  %a.tip{"data-original-title" => "Facebook", :href => "#"}
