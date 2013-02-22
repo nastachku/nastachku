@@ -10,10 +10,10 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
 
     if @user.save
       flash_success
-      redirect_to admin_users_path
+      redirect_to edit_admin_user_path(@user)
     else
       flash_error
-      render "new"
+      render :new
     end
   end
 
@@ -39,11 +39,10 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     @user.changed_by = current_user
 
     if @user.update_attributes params[:user]     
-      flash_success
-      redirect_to edit_admin_user_path
+      redirect_to edit_admin_user_path(@user)
     else
       flash_error
-      render "edit"
+      render :edit
     end
   end
 

@@ -6,16 +6,15 @@ class Web::Admin::NewsController < Web::Admin::ApplicationController
   end
 
   def create
-    @news = NewsEditType.new params[:news]
+    @news = ::Admin::NewsEditType.new params[:news]
     @news.changed_by = current_user
+
     if @news.save
       flash_success
-
-      redirect_to admin_news_path(@news)
+      redirect_to edit_admin_news_path(@news)
     else
       flash_error
-
-      render "new"
+      render :new
     end
   end
 
@@ -32,17 +31,15 @@ class Web::Admin::NewsController < Web::Admin::ApplicationController
   end
 
   def update
-    @news = NewsEditType.find params[:id]
+    @news = ::Admin::NewsEditType.find params[:id]
     @news.changed_by = current_user
 
     if @news.update_attributes params[:news]
       flash_success
-
       redirect_to edit_admin_news_path(@news)
     else
       flash_error
-
-      render "new"
+      render :new
     end
   end
 

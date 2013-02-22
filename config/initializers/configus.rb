@@ -2,6 +2,11 @@
 
 Configus.build Rails.env do
   env :production do
+
+    pagination do
+      audits_per_page 20
+    end
+
     mailer do
       default_host "nastachku.ru"
       default_from "noreply@nastachku.ru"
