@@ -6,17 +6,15 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
   end
 
   def create
-    @page = PageEditType.create params[:page]
+    @page = PageEditType.new params[:page]
     @page.changed_by = current_user
 
     if @page.save
       flash_success
-
-      redirect_to admin_page_path(@page)
+      redirect_to edit_admin_page_path(@page)
     else
       flash_error
-
-      render "new"
+      render :new
     end
   end
 
@@ -38,19 +36,16 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
 
     if @page.update_attributes params[:page]
       flash_success
-
       redirect_to edit_admin_page_path(@page)
     else
       flash_error
-
-      render "new"
+      render :new
     end
   end
 
   def destroy
     @page = Page.find params[:id]
     @page.destroy
-
     redirect_to admin_pages_path
   end
 
