@@ -69,5 +69,16 @@ module Nastachku
     # catch 404/500 errors
     config.exceptions_app = self.routes
 
+    config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
+      r301   '/reporters.html',  'http://2012.nastachku.ru/reporters.html'
+      r301      '/vote-comment.html',   'http://2012.nastachku.ru/'
+      r301      '/day-zero.html',   'http://2012.nastachku.ru/'
+      r301      '/participants.html',   'http://2012.nastachku.ru/'
+      r301      '/sponsors.html',   'http://2012.nastachku.ru/sponsors.html'
+      r301      '/site-news.html',   'http://2012.nastachku.ru/site-news.html'
+      r301      '/program.html-ru',   'http://2012.nastachku.ru/'
+      r301      '/contacts.html',   'http://2012.nastachku.ru/'
+      r301      '/community.html-ru',   'http://2012.nastachku.ru/community.html-ru'
+    end
   end
 end

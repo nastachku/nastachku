@@ -36,6 +36,6 @@ class Web::Admin::TopicsController < Web::Admin::ApplicationController
   def destroy
     @topic = Topic.find params[:id]
     @topic.destroy
-    redirect_to admin_topic_path
+    redirect_to admin_topics_path
   end
 end
