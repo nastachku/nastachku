@@ -40,7 +40,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
 
     if @user.update_attributes params[:user]     
       flash_success
-      redirect_to admin_users_path
+      redirect_to edit_admin_user_path
     else
       flash_error
       render "edit"

@@ -38,7 +38,7 @@ class Web::Admin::NewsController < Web::Admin::ApplicationController
     if @news.update_attributes params[:news]
       flash_success
 
-      redirect_to admin_news_path(@news)
+      redirect_to edit_admin_news_path(@news)
     else
       flash_error
 
