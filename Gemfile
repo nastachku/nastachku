@@ -35,6 +35,7 @@ gem 'ransack'
 gem 'chosen-rails'
 gem 'auditable', :github => 'harleyttd/auditable'
 gem 'enumerize'
+gem 'rack-rewrite'
 
 # Gems used only for assets and not required
 # in production environments by default.
