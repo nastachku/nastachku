@@ -26,7 +26,7 @@ class Web::Admin::TopicsController < Web::Admin::ApplicationController
     @topic = ::Admin::TopicEditType.find params[:id]
     if @topic.update_attributes params[:topic]
       flash_success
-      redirect_to admin_topics_path
+      redirect_to edit_admin_topic_path
     else
       flash_error
       render :edit
