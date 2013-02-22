@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
                   :show_as_participant,
                   :photo, :state_event, :about
 
-  audit :email, :password, :first_name, :last_name, :city, :company, :show_as_participant, :photo, :state, :about
+  audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
   validates :email, presence: true, uniqueness: true, email: true
   validates :first_name, length: { maximum: 255 }, russian: true
