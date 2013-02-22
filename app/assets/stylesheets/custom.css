@@ -288,3 +288,10 @@ td.middle {
 	width: 220px !important;
 	list-style: none;
 }
+
+/* lectors */
+.workshop p {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: pre-wrap;
+}
