@@ -1,5 +1,5 @@
 
-class NewsEditType < News
+class Admin::NewsEditType < News
   include BasicType
 
   validates :slug,  presence: true, uniqueness: true

@@ -6,7 +6,7 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
   end
 
   def create
-    @page = PageEditType.new params[:page]
+    @page = ::Admin::PageEditType.new params[:page]
     @page.changed_by = current_user
 
     if @page.save
@@ -31,7 +31,7 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
   end
 
   def update
-    @page = PageEditType.find params[:id]
+    @page = ::Admin::PageEditType.find params[:id]
     @page.changed_by = current_user
 
     if @page.update_attributes params[:page]
