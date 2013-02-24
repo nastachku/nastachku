@@ -9,14 +9,15 @@ ru:
         navigation:
           title: 'Стачка!'
           participants: 'Участники'
-          logout: 'Выйти'
-          admin: 'Админка'
           i_will_go: 'Я пойду'
-          login: 'Войти'
           contacts: "Контакты"
           routes: "Как доехать и где жить?"
           news: "Пресс-центр"
-          afterpaty: "Афтепати" 
+          afterpaty: "Афтепати"
+        navbar:
+          logout: 'Выйти'
+          login: 'Войти'
+          admin: 'Админка'
 
       admin:
         shared:

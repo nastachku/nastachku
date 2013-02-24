@@ -3,6 +3,7 @@ body {
 	height: 100%;
 	border: none !important;
 }
+
 .main {
 	min-height: 100%;
 }
@@ -84,9 +85,6 @@ footer .copy {
 .navbar-inner {
 	background-color: #fff !important;
 }
-.navbar .nav {
-	padding-left: 15px;
-}
 .navbar .nav > li > a, .navbar .nav > li > a:visited {
 	padding: 0 !important;
 	margin-right: 20px;
@@ -97,6 +95,36 @@ footer .copy {
 .navbar .nav > li > a:hover {
 	color: #535353 !important;
 	background: none !important;
+}
+
+/* top navbar */
+.navbar-position-top {
+	background-color: #f6f6f6;
+	margin-bottom: 0 !important;
+	padding: 10px 0;
+}
+.navbar-position-top .navbar-inner {
+	background-color: transparent !important;
+	min-height: auto;
+	height: 28px;
+	line-height: 28px !important;
+	padding-right: 0 !important;
+}
+.navbar-position-top .navbar-inner li {
+	height: 100%;
+}
+.navbar-position-top .navbar-inner a {
+	line-height: 28px !important;	
+}
+.social-public-links ul {
+	list-style: none;
+}
+.social-public-links li {
+	float: left;
+	margin-left: 10px;
+}
+.social-public-links li a i {
+	font-size: 18px !important;
 }
 
 /* Login form */
@@ -242,19 +270,9 @@ td.middle {
 .social-share-links .gplus {
 	position: relative;
 	top: -1px;
-	overflow: hidden;	
+	overflow: hidden;
+	width: 65px;
 }
-.social-public-links {
-	float: right;
-	padding-top: 23px;
-	margin-left: 30px;
-}
-.social-public-links li {
-	float: left;
-	margin-left: 10px;
-	font-size: 18px;
-}
-
 
 @font-face {
   font-family: 'Bender-bold';
