@@ -7,6 +7,8 @@
 = simple_form_for @user, :url => account_path, :html => { :class => 'form-horizontal profile-form' } do |f|  
   .formy
     = f.input :email, disabled: true, readonly: true
+    = f.input :photo, as: :image_preview
+    = f.input :about
     = f.input :first_name
     = f.input :last_name
     = f.input :city
