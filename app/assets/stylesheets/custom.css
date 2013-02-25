@@ -192,6 +192,9 @@ abbr[title], abbr[data-original-title] {
 .sponsors .logo-srit {
 	margin: 22px 0;
 }
+.sponsors-first-line {
+	height: 66px;
+}
 
 
 td.middle {
