@@ -24,8 +24,10 @@ FactoryGirl.define do
   end
   
   factory :user_with_events, class: UserEventEditType do
+    first_name "Строка"
+    last_name "Строка"
     email
-    city
+    city "Строка"
     about "about info"
     photo { fixture_file_upload Rails.root.to_s + "/test/fixtures/photos/test.png", "image/png" }
     events_attributes  
