@@ -7,13 +7,19 @@ class Web::ApplicationController < ApplicationController
 
   helper_method :title
 
+
+  before_filter do
+    title t('base_name')
+    title t("#{params[:controller].gsub('/', '.')}.#{params[:action]}.title")
+  end
+
   private
 
   def title(part = nil)
     @parts ||= []
     unless part
       return nil if @parts.blank?
-      return @parts.reverse.join(' - ')
+      return @parts.reverse.join(' | ')
     end
     @parts << part
   end
