@@ -67,4 +67,5 @@ group :development do
   gem 'capistrano-ext'
   gem 'capistrano_colors'
   gem 'capi'
+  gem 'capistrano-unicorn', require: false
 end

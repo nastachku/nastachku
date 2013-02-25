@@ -58,6 +58,8 @@ GEM
       net-ssh-gateway (>= 1.1.0)
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
+    capistrano-unicorn (0.1.6)
+      capistrano
     capistrano_colors (0.5.5)
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
@@ -276,6 +278,7 @@ DEPENDENCIES
   capi
   capistrano
   capistrano-ext
+  capistrano-unicorn
   capistrano_colors
   carrierwave
   chosen-rails
