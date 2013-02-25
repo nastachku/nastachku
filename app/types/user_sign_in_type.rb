@@ -29,6 +29,6 @@ class UserSignInType
   end
 
   def user
-    @user ||= User.find_by_email(email)
+    @user ||= User.find_by_email(email.mb_chars.downcase)
   end
 end
