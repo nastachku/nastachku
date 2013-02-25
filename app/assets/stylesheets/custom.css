@@ -322,9 +322,10 @@ td.middle {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 }
-.btn-shine {
-	background-color: #41bb19 !important;
-	color: #fff !important;
+.workshop .sinfo h5,
+.workshop .sinfo h6 {
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .btn-diff input {
 	font-size: 13px !important;
@@ -334,7 +335,9 @@ td.middle {
   	font-size: 13px !important;
   	color: #000 !important;
 }
-.btn-shine {
-  	background-color: #41bb19 !important;
-  	color: #fff !important;
+.btn-shine,
+a.btn-shine,
+.btn-diff a.btn.btn-shine {
+	background-color: #41bb19 !important;
+	color: #fff !important;
 }

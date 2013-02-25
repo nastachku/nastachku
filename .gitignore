@@ -15,6 +15,7 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
+/log/untranslated.ru.yml
 /tmp
 
 /public/system/*
