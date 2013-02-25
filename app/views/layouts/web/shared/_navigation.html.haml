@@ -14,7 +14,10 @@
           / %li= link_to t(".news"), news_index_path
           -#%li= link_to t('.lectors'), lectors_path
           %li.dropdown
-            = link_to t(".lectors"), "#", class: 'dropdown-toggle', :'data-toggle' => 'dropdown'
+            = link_to "#", class: 'dropdown-toggle', :'data-toggle' => 'dropdown' do
+              = t(".lectors")
+              %b.caret
+
             %ul.dropdown-menu
               - topics.each do |topic|
                 %li= link_to topic, lectors_path(q: { topics_id_eq: topic.id })
