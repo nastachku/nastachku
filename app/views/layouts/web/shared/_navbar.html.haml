@@ -1,18 +1,8 @@
 .navbar.navbar-position-top
   .navbar-inner
     .container.nav-collapse.no-padding
-      %ul.nav.pull-left
-        - unless signed_in?
-          %li= link_to t(".login"), new_session_path
-        - if signed_in?
-          %li= link_to current_user.full_name, edit_account_path
-          %li= link_to '/', '#'
-          %li= link_to t('.logout'), session_path, :method => :delete
-          - if signed_as_admin?
-            %li= link_to '/', '#'
-            %li= link_to t(".admin"), admin_root_path
-
-      %nav.social-public-links.pull-right
+    
+      %nav.social-public-links.pull-left
         %ul
           %li
             %a{:href => "http://www.facebook.com/nastachku?ref=stream", :target => "_blank"}
@@ -23,3 +13,14 @@
           %li
             %a{:href => "http://vk.com/nastachku", :target => "_blank"}
               %i.ficon-vkontakte-rect
+
+      %ul.nav.pull-right
+        - unless signed_in?
+          %li= link_to t(".login"), new_session_path
+        - if signed_in?
+          %li= link_to current_user.full_name, edit_account_path
+          %li= link_to '/', '#'
+          %li= link_to t('.logout'), session_path, :method => :delete
+          - if signed_as_admin?
+            %li= link_to '/', '#'
+            %li= link_to t(".admin"), admin_root_path
