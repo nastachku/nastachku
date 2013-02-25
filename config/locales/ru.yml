@@ -60,7 +60,7 @@ ru:
 
       index:
         title: 'Пойдут на стачку'
-        registred_title: "Зарегистрировалось – <span class='color'>%{activated_count} %{participant}</span>.<br>Ниже <span class='color'>%{participants_count}, кто согласился рассказать о себе.</span>"
+        registred_title: "Зарегистрировалось – %{activated_count} %{participant}. Ниже %{participants_count}, кто согласился рассказать о себе."
         one_participant: 'Участник'
         two_participant: 'участника'
         many_participant: 'участников'
