@@ -9,6 +9,7 @@ class Web::Account::PasswordsController < Web::ApplicationController
     @user = UserPasswordConfirmationType.find @token.user
     if @token && !@token.expired?
       if @user.update_attributes(params[:user])
+        sign_in @user
         flash_success
         return redirect_to root_path
       end
