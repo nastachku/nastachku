@@ -9,7 +9,7 @@ class UsersPhotoUploader < CarrierWave::Uploader::Base
     "system/uploads/users/#{mounted_as}/#{model.id}"
   end
 
-  process resize_to_limit: [256, 256]
+  process resize_to_fill: [256, 256]
 
   def extension_white_list
    %w(jpg jpeg gif png)
