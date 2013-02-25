@@ -1,19 +1,11 @@
 ---
 ru:
-  web:
-    account:
-      events:
-        form:
-          add_event: ''
-    events:
-      index:
-        already_voted: ''
-  success: ''
   layouts:
     web:
       application:
-        title: ''
-        pages: ''
-        news: ''
-        users: ''
         logout: ''
+      shared:
+        navbar:
+          logout: ''
+          login: ''
+          admin: ''
