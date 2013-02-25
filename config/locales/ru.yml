@@ -15,13 +15,13 @@ ru:
           routes: "Как доехать и где жить?"
           news: "Пресс-центр"
           lectors: 'Докладчики'
-          afterpaty: "Афтепати"
+          lectures: 'Доклады'
+          speakers: "Докладчики"
+          lectures_20: 'Доклады 2.0'
         navbar:
           logout: 'Выйти'
           login: 'Войти'
           admin: 'Админка'
-          speakers: "Докладчики"
-          lectures_20: 'Доклады 2.0'
 
       admin:
         shared:

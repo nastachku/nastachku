@@ -1,6 +1,6 @@
 class Web::EventsController < Web::ApplicationController
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, only: [ :vote ]
 
   def index
     @events = UserEvent.voted.by_created_at
