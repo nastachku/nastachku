@@ -38,7 +38,8 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     @user = ::Admin::UserEditType.find(params[:id])
     @user.changed_by = current_user
 
-    if @user.update_attributes params[:user]     
+    if @user.update_attributes params[:user]
+      flash_success
       redirect_to edit_admin_user_path(@user)
     else
       flash_error
