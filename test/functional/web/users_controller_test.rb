@@ -16,6 +16,8 @@ class Web::UsersControllerTest < ActionController::TestCase
 
   test "should create user" do
     attrs = attributes_for :user
+    attrs[:password_confirmation] = attrs[:password]
+    attrs[:process_personal_data] = "1"
 
     post :create, user: attrs
 

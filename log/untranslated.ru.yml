@@ -1,9 +1,11 @@
 ---
 ru:
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            state:
-              invalid_transition: ''
+  layouts:
+    web:
+      application:
+        logout: ''
+      shared:
+        navbar:
+          logout: ''
+          login: ''
+          admin: ''

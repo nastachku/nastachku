@@ -1,17 +1,19 @@
 %h1=t '.title'
-%h5=t '.registred_title', activated_count: User.activated.count, participant: Russian.p(User.activated.shown_as_participants.count, t('.one_participant'), t('.two_participant'), t('.many_participant')), participants_count: User.activated.shown_as_participants.count
+%h5
+  =t '.registred_title', activated_count: User.activated.count, participant: Russian.p(User.activated.shown_as_participants.count, t('.one_participant'), t('.two_participant'), t('.many_participant')), participants_count: User.activated.shown_as_participants.count
+%br
 
 %table.table.table-striped
   %thead
     %tr
-      %th= sort_link(@search, :last_name, User.human_attribute_name(:first_name)) 
-      %th= sort_link(@search, :city, User.human_attribute_name(:city))
-      %th= sort_link(@search, :company, User.human_attribute_name(:company))
-      %th= sort_link(@search, :position, User.human_attribute_name(:position))
+      %th{:width => "30%"}= sort_link(@search, :last_name, User.human_attribute_name(:first_name)) 
+      %th{:width => "20%"}= sort_link(@search, :city, User.human_attribute_name(:city))
+      %th{:width => "25%"}= sort_link(@search, :company, User.human_attribute_name(:company))
+      %th{:width => "25%"}= sort_link(@search, :position, User.human_attribute_name(:position))
   %tbody
     - @users.each do |user|
       %tr
         %td= user
-        %td= user.city
+        %td= user.city.mb_chars.capitalize if user.city
         %td= user.company
         %td= user.position

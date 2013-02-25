@@ -5,19 +5,19 @@
         %span Menu
 
       .nav-collapse.collapse
-        %ul.nav
+        %ul.nav.no-padding
           
-          - if signed_in?
-            %li= link_to current_user.full_name, edit_account_path
-          - else 
+          - unless signed_in?
             %li= link_to t(".i_will_go"), new_user_path
-            %li= link_to t(".login"), new_session_path
 
           %li= navbar_link t(".participants"), users_path, with: User.activated.count
           / %li= link_to t(".news"), news_index_path
           -#%li= link_to t('.lectors'), lectors_path
           %li.dropdown
-            = link_to t(".lectors"), "#", class: 'dropdown-toggle', :'data-toggle' => 'dropdown'
+            = link_to "#", class: 'dropdown-toggle', :'data-toggle' => 'dropdown' do
+              = t(".lectors")
+              %b.caret
+
             %ul.dropdown-menu
               - topics.each do |topic|
                 %li= link_to topic, lectors_path(q: { topics_id_eq: topic.id })
@@ -26,9 +26,3 @@
           %li= link_to t(".routes"), page_path(:routes)
           %li= link_to t(".contacts"), page_path(:contacts)
           / %li= link_to t(".afterpaty"), page_path(:afterpaty)
-
-          - if signed_as_admin?
-            %li= link_to t(".admin"), admin_root_path
-            
-          - if signed_in?
-            %li= link_to t('.logout'), session_path, method: :delete

@@ -84,9 +84,6 @@ footer .copy {
 .navbar-inner {
 	background-color: #fff !important;
 }
-.navbar .nav {
-	padding-left: 15px;
-}
 .navbar .nav > li > a, .navbar .nav > li > a:visited {
 	padding: 0 !important;
 	margin-right: 20px;
@@ -97,6 +94,56 @@ footer .copy {
 .navbar .nav > li > a:hover {
 	color: #535353 !important;
 	background: none !important;
+}
+
+/* top navbar */
+.navbar-position-top {
+	background-color: #f6f6f6;
+	margin-bottom: 0 !important;
+	padding: 10px 0;
+}
+.navbar-position-top .navbar-inner {
+	background-color: transparent !important;
+	min-height: auto;
+	height: 28px;
+	line-height: 28px !important;
+	padding-right: 0 !important;
+}
+.navbar-position-top .navbar-inner li {
+	height: 100%;
+}
+.navbar-position-top .navbar-inner a {
+	line-height: 28px !important;	
+}
+.navbar-position-top .nav > li > a {
+	margin-right: 10px;
+}
+.navbar-position-top .nav > li:last-child > a {
+	margin-right: 0;
+}
+.social-public-links ul {
+	list-style: none;
+	margin: 0;
+}
+.social-public-links li {
+	float: left;
+	margin-right: 10px;
+}
+.social-public-links li a i {
+	font-size: 18px !important;
+}
+/* dropdown menu */
+.dropdown-menu {
+	margin-top: 10px;
+	border-top: 1px solid #000 !important;
+	border-width: 1px 0 0 0 !important;
+}
+.dropdown-menu li {
+	border: 1px solid #000;
+	border-width: 0 1px 1px 1px;
+}
+.dropdown-menu li a {
+	color: #000 !important;
 }
 
 /* Login form */
@@ -139,6 +186,95 @@ abbr[title], abbr[data-original-title] {
 .form-horizontal.profile-form input[type="password"] {
 	width: 300px;
 }
+
+/* sponsors */
+.sponsors {
+	margin-bottom: 20px;
+	margin-left: 120px;
+	overflow: hidden;
+}
+.sponsors h4 {
+	font-size: 24px;
+	color: #000;
+	text-transform: uppercase;
+	font-weight: bold !important;
+	margin-bottom: 12px !important;
+}
+.sponsors .left-column {
+	width: 699px;
+	border-right: 1px solid #fff;
+	float: left;
+}
+.sponsors .right-column {
+	width: 208px;
+	padding-left: 32px;
+	float: right;
+}
+.sponsors .logo-wrapper {
+	border: 1px solid #e3e3e3;
+	padding: 30px 0 30px 45px;
+	margin-right: 40px;
+}
+.sponsors .line {
+	margin-bottom: 35px;
+}
+.sponsors .line:last-child {
+	margin-bottom: 0;
+}
+.sponsors .line img {
+	margin-right: 44px;
+	float: left;
+}
+.sponsors .line sup {
+	float: left;
+}
+.sponsors .line a:last-child img {
+	margin-right: 0;
+}
+.sponsors .first-line {
+	height: 78px;
+}
+.sponsors .second-line {
+	height: 42px;
+}
+.sponsors .third-line {
+	height: 51px;
+}
+.sponsors .logo-srit {
+	margin: 22px 0;
+}
+.sponsors-first-line {
+	height: 66px;
+}
+.sponsor-star {
+	display: inline-block;
+	font-size: 0;
+	width: 14px;
+	height: 14px;
+	background-repeat: no-repeat;
+	background-image: url(/assets/stars.jpg);
+}
+.sponsor-star.argentum {
+	background-position: 0 0;
+}
+.sponsor-star.gold {
+	background-position: 0 -14px;
+}
+.legend .sponsor-star {
+	margin-left: 20px;
+	position: relative;
+	top: 2px;
+}
+.legend .sponsor-star:first-child {
+	margin-left: 0;
+}
+.sponsors-wrapper img {
+	margin-right: 0 !important;
+}
+.sponsors-wrapper sup {
+	margin-right: 44px !important;
+}
+
 
 td.middle {
 	vertical-align: middle;
@@ -242,19 +378,18 @@ td.middle {
 .social-share-links .gplus {
 	position: relative;
 	top: -1px;
-	overflow: hidden;	
+	overflow: hidden;
+	width: 65px;
 }
-.social-public-links {
-	float: right;
-	padding-top: 23px;
+.counter-links {
+	padding-top: 22px;
 	margin-left: 30px;
 }
-.social-public-links li {
-	float: left;
-	margin-left: 10px;
-	font-size: 18px;
+.counter-links li {
+	width: 31px;
+	height: 31px;
+	overflow: hidden;
 }
-
 
 @font-face {
   font-family: 'Bender-bold';
@@ -287,4 +422,11 @@ td.middle {
 .ui-menu {
 	width: 220px !important;
 	list-style: none;
+}
+
+/* lectors */
+.workshop p {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: pre-wrap;
 }

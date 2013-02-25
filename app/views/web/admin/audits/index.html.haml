@@ -1,3 +1,5 @@
+= paginate @audits
+
 %table.table.table-striped
   %thead
     %tr
@@ -16,3 +18,5 @@
         %td= debug audit.modifications
         %td= audit.action
         %td= l audit.created_at
+
+= paginate @audits
