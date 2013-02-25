@@ -119,12 +119,19 @@ footer .copy {
 .navbar-position-top .navbar-inner a {
 	line-height: 28px !important;	
 }
+.navbar-position-top .nav > li > a {
+	margin-right: 10px;
+}
+.navbar-position-top .nav > li:last-child > a {
+	margin-right: 0;
+}
 .social-public-links ul {
 	list-style: none;
+	margin: 0;
 }
 .social-public-links li {
 	float: left;
-	margin-left: 10px;
+	margin-right: 10px;
 }
 .social-public-links li a i {
 	font-size: 18px !important;
