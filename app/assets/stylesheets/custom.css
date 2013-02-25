@@ -177,6 +177,9 @@ abbr[title], abbr[data-original-title] {
 	margin-right: 44px;
 	float: left;
 }
+.sponsors .line sup {
+	float: left;
+}
 .sponsors .line a:last-child img {
 	margin-right: 0;
 }
@@ -194,6 +197,34 @@ abbr[title], abbr[data-original-title] {
 }
 .sponsors-first-line {
 	height: 66px;
+}
+.sponsor-star {
+	display: inline-block;
+	font-size: 0;
+	width: 14px;
+	height: 14px;
+	background-repeat: no-repeat;
+	background-image: url(/assets/stars.jpg);
+}
+.sponsor-star.argentum {
+	background-position: 0 0;
+}
+.sponsor-star.gold {
+	background-position: 0 -14px;
+}
+.legend .sponsor-star {
+	margin-left: 20px;
+	position: relative;
+	top: 2px;
+}
+.legend .sponsor-star:first-child {
+	margin-left: 0;
+}
+.sponsors-wrapper img {
+	margin-right: 0 !important;
+}
+.sponsors-wrapper sup {
+	margin-right: 44px !important;
 }
 
 
