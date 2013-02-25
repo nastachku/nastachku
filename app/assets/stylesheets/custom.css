@@ -143,6 +143,7 @@ abbr[title], abbr[data-original-title] {
 /* sponsors */
 .sponsors {
 	margin-bottom: 20px;
+	margin-left: 120px;
 	overflow: hidden;
 }
 .sponsors h4 {
@@ -154,7 +155,7 @@ abbr[title], abbr[data-original-title] {
 }
 .sponsors .left-column {
 	width: 699px;
-	border-right: 1px solid #e3e3e3;
+	border-right: 1px solid #fff;
 	float: left;
 }
 .sponsors .right-column {
