@@ -136,6 +136,19 @@ footer .copy {
 .social-public-links li a i {
 	font-size: 18px !important;
 }
+/* dropdown menu */
+.dropdown-menu {
+	margin-top: 10px;
+	border-top: 1px solid #000 !important;
+	border-width: 1px 0 0 0 !important;
+}
+.dropdown-menu li {
+	border: 1px solid #000;
+	border-width: 0 1px 1px 1px;
+}
+.dropdown-menu li a {
+	color: #000 !important;
+}
 
 /* Login form */
 .form-type-login input[type="email"],
