@@ -14,7 +14,6 @@
 /public/system/upload
 /public/system/uploads/
 
-
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
