@@ -279,6 +279,15 @@ td.middle {
 	overflow: hidden;
 	width: 65px;
 }
+.counter-links {
+	padding-top: 22px;
+	margin-left: 30px;
+}
+.counter-links li {
+	width: 31px;
+	height: 31px;
+	overflow: hidden;
+}
 
 @font-face {
   font-family: 'Bender-bold';
