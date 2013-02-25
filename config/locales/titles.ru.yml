@@ -1,0 +1,35 @@
+ru:
+  base_name: 'Стачка!'
+  web:
+    welcome:
+      index:
+        title: 'Главная'
+    lectors:
+      index:
+        title: 'Докладчики'
+    pages:
+      show:
+        title: 'Страницы'
+    sessions:
+      new:
+        title: 'Вход'
+      create:
+        title: 'Вход'
+
+    remind_passwords:
+      new:
+        title: 'Восстановление пароля'
+      create:
+        title: 'Восстановление пароля'
+
+    users:
+      index:
+        title: 'Участники'
+      new:
+        title: 'Регистрация'
+      create:
+        title: 'Регистрация'
+
+    news:
+      index:
+        title: 'Новости'
