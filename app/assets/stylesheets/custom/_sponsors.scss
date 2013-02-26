@@ -1,0 +1,87 @@
+// sponsors
+.sponsors {
+	margin-bottom: 20px;
+	margin-left: 120px;
+	overflow: hidden;
+}
+.sponsors h4 {
+	font-size: 24px;
+	color: #000;
+	text-transform: uppercase;
+	font-weight: bold !important;
+	margin-bottom: 12px !important;
+}
+.sponsors .left-column {
+	width: 699px;
+	border-right: 1px solid #fff;
+	float: left;
+}
+.sponsors .right-column {
+	width: 208px;
+	padding-left: 32px;
+	float: right;
+}
+.sponsors .logo-wrapper {
+	border: 1px solid #e3e3e3;
+	padding: 30px 0 30px 45px;
+	margin-right: 40px;
+}
+.sponsors .line {
+	margin-bottom: 35px;
+}
+.sponsors .line:last-child {
+	margin-bottom: 0;
+}
+.sponsors .line img {
+	margin-right: 44px;
+	float: left;
+}
+.sponsors .line sup {
+	float: left;
+}
+.sponsors .line a:last-child img {
+	margin-right: 0;
+}
+.sponsors .first-line {
+	height: 78px;
+}
+.sponsors .second-line {
+	height: 42px;
+}
+.sponsors .third-line {
+	height: 51px;
+}
+.sponsors .logo-srit {
+	margin: 22px 0;
+}
+.sponsors-first-line {
+	height: 66px;
+}
+.sponsor-star {
+	display: inline-block;
+	font-size: 0;
+	width: 14px;
+	height: 14px;
+	background-repeat: no-repeat;
+	background-image: url(/assets/stars.jpg);
+}
+.sponsor-star.argentum {
+	background-position: 0 0;
+}
+.sponsor-star.gold {
+	background-position: 0 -14px;
+}
+.legend .sponsor-star {
+	margin-left: 20px;
+	position: relative;
+	top: 2px;
+}
+.legend .sponsor-star:first-child {
+	margin-left: 0;
+}
+.sponsors-wrapper img {
+	margin-right: 0 !important;
+}
+.sponsors-wrapper sup {
+	margin-right: 44px !important;
+}
