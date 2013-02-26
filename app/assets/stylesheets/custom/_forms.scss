@@ -1,0 +1,50 @@
+
+.formy,
+.formy h5 {
+	color: #000 !important;
+	background: #fff !important;
+}
+.formy a {
+	color: #333 !important;
+}
+
+// Login form
+.form-type-login input[type="email"],
+.form-type-login input[type="text"],
+.form-type-login input[type="password"] {
+	width: 100%;
+	height: 28px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.form-type-login .form-actions {
+	padding-left: 0;
+	padding-right: 0;
+}
+.formy input[type="submit"] {
+	color: #000;
+}
+.formy .help-inline {
+	font-size: 12px;
+}
+abbr[title], abbr[data-original-title] {
+	cursor: default;
+	border-bottom: none;
+}
+
+// Profile form
+.form-horizontal.profile-form .control-label {
+	width: 200px;
+}
+.form-horizontal.profile-form .controls {
+	margin-left: 220px;
+}
+.form-horizontal.profile-form label.checkbox {
+	text-align: left;
+}
+.form-horizontal.profile-form input[type="email"],
+.form-horizontal.profile-form input[type="text"],
+.form-horizontal.profile-form input[type="password"] {
+	width: 300px;
+}

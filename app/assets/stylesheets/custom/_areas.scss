@@ -1,0 +1,39 @@
+// Color areas at themes block & timetable
+$blue: #9d0102;
+$red: #019d9b;
+$green: #d0ce09;
+$orange: #839d01;
+$yellow: #70019d;
+$violin: #016f9d;
+$disabled: #ccc;
+
+.theme-block {
+	color: #fff;
+	padding: 20px;
+	min-height: 155px;
+}
+.content .theme-block h4 {
+	color: #fff !important;
+}
+
+.g-blue {
+	background-color: $blue;
+}
+.g-red {
+	background-color: $red;
+}
+.g-green {
+	background-color: $green;
+}
+.g-orange {
+	background-color: $orange;
+}
+.g-yellow {
+	background-color: $yellow;
+}
+.g-violin {
+	background-color: $violin;
+}
+.g-disabled {
+	background-color: $disabled;
+}
