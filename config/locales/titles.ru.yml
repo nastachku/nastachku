@@ -16,6 +16,18 @@ ru:
       create:
         title: 'Вход'
 
+    account:
+      events:
+        new:
+          title: 'Добавить доклад'
+        create:
+          title: 'Добавить доклад'
+
+      passwords:
+        edit:
+          title: 'Изменение пароля'
+        update:
+          title: 'Изменение пароля'
     remind_passwords:
       new:
         title: 'Восстановление пароля'
