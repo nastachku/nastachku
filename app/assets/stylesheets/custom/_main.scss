@@ -1,3 +1,5 @@
+$main_color: #d4724b;
+
 html,
 body {
 	height: 100%;
@@ -19,7 +21,7 @@ header .info {
 	padding-top: 44px;
 }
 header .info h3 {
-	color: #d4724b;
+	color: $main_color;
 	text-transform: uppercase;
 	font-family: Arial;
 	font-size: 26px;
@@ -30,10 +32,12 @@ header .info h3 .color {
 }
 
 // main elements
+a {
+	color: $main_color !important;
+}
 h1 {
 	margin-bottom: 30px !important;
 }
-
 .content h1.title {
 	font: bold 72px/60px Arial, sans-serif !important;
 	text-transform: uppercase !important;
