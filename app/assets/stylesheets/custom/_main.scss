@@ -84,6 +84,37 @@ td.middle {
 	background-color: #ddd;
 }
 
+// participants table
+.table-participants {
+	width: 100%;
+	border-collapse: collapse;
+	font-family: Arial;
+	font-size: 12px;
+	color: #000;
+	tr {
+		td {
+			padding: 6px 10px;	
+		}
+		&:nth-child(odd) {
+			td {
+				background-color: #f1f1f1;	
+			}
+		}
+	}
+}
+.table-participants-header {
+	margin-bottom: 16px;
+	th {
+		font-weight: normal;
+		text-align: left;
+		padding: 0 10px 16px;
+		border-bottom: 1px solid #d6d6d6;
+		a {
+			color: #999 !important;
+		}
+	}
+}
+
 // footer
 footer {
 	position: relative;
