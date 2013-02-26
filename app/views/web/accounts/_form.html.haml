@@ -1,3 +1,9 @@
+%h3
+  =t(".personal_number")
+  %span.color
+    = @user.id
+%br
+    
 .formy
   = simple_form_for @user, :url => account_path, :html => { :class => 'form-horizontal profile-form' } do |f|
 
@@ -15,7 +21,3 @@
 
 
 %br
-%h3
-  =t(".personal_number")
-  %span.color
-    = @user.id
