@@ -1,8 +1,11 @@
-
+.formy {
+	margin-bottom: 30px;
+	padding-top: 20px;
+}
 .formy,
 .formy h5 {
 	color: #000 !important;
-	background: #fff !important;
+	background: #f4f4f4 !important;
 }
 .formy a {
 	color: #333 !important;
@@ -22,8 +25,9 @@
 	padding-left: 0;
 	padding-right: 0;
 }
-.formy input[type="submit"] {
-	color: #000;
+input[type="submit"].btn-shine {
+	color: #fff;
+	background-color: #41bb19;
 }
 .formy .help-inline {
 	font-size: 12px;
