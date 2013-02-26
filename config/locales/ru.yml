@@ -48,6 +48,8 @@ ru:
       form:
         personal_number: 'Ваш персональный номер для участия в конференции:'
         save: 'Сохранить'
+        info: 'Мои данные'
+        my_events: 'Мои доклады'
     account:
       events:
         form:
