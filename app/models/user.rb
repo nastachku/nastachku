@@ -61,8 +61,10 @@ class User < ActiveRecord::Base
   end
 
   def password=(password)
-    @real_password = password
-    self.password_digest = Digest::MD5.hexdigest(password)
+    if password.present?
+      @real_password = password
+      self.password_digest = Digest::MD5.hexdigest(password)
+    end
   end
 
   def password
