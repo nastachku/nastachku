@@ -29,14 +29,14 @@
             = f.input :last_name
 
           .span4
-            = f.input :company
+            = f.input :city
 
         .row-fluid
           .span4
-            = f.input :position
+            = f.input :company
 
           .span4
-            = f.input :city
+            = f.input :position
 
         = t('.already_registered?')
         = link_to t('.login'), new_session_path
