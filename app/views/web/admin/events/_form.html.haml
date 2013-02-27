@@ -5,7 +5,7 @@
 = f.input :finish_time, as: :date_time_picker
 = f.association :workshop
 = f.association :hall
-= f.association :speaker
+= f.association :speaker, collection: User.activated
 = f.input :presentation, as: :file_download
 
 .form-actions
