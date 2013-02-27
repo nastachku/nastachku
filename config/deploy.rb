@@ -12,6 +12,8 @@ set :repository,  "git://github.com/kaize/nastachku.git"
 
 set :use_sudo, false
 set :ssh_options, forward_agent: true
+set :rake, "#{rake} --trace"
+
 default_run_options[:pty] = true
 
 namespace :deploy do
