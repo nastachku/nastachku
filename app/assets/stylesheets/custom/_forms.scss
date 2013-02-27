@@ -7,6 +7,9 @@
   color: #000 !important;
   background: #f4f4f4 !important;
 }
+.formy a {
+  text-decoration: none;
+}
 
 // Login form
 .form-type-login input[type="email"],
@@ -24,7 +27,7 @@
 }
 input[type="submit"].btn-shine {
   color: #fff;
-  background-color: #41bb19;
+  background-color: #7c7852;
 }
 .formy .help-inline {
   font-size: 12px;
