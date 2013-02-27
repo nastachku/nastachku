@@ -8,7 +8,7 @@
         %ul.nav.no-padding{:role => "navigation"}
           
           - if signed_in?
-            %li= link_to t('.add_lecture'), new_user_event_path
+            %li= link_to t('.add_lecture'), new_account_event_path
           - else 
             %li= link_to t(".i_will_go"), new_user_path
 
