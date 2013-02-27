@@ -1,0 +1,191 @@
+$main_color: #d4724b;
+
+html,
+body {
+  height: 100%;
+  border: none !important;
+}
+
+.main {
+  min-height: 100%;
+}
+.main > .container {
+  padding-bottom: 126px;
+}
+
+// header
+header {
+  border: none !important;
+}
+header .info {
+  padding-top: 44px;
+}
+header .info h3 {
+  color: $main_color;
+  text-transform: uppercase;
+  font-family: Arial;
+  font-size: 26px;
+  font-weight: bold !important;
+}
+header .info h3 .color {
+  color: #7c7852 !important;
+}
+
+// main elements
+a {
+  color: $main_color !important;
+}
+h1 {
+  margin-bottom: 30px !important;
+}
+.content h1.title {
+  font: bold 72px/60px Arial, sans-serif !important;
+  text-transform: uppercase !important;
+  margin: 0 0 30px !important;
+  padding: 0 !important;
+}
+.content h4 {
+  font: bold 24px/22px Arial, sans-serif !important;
+  margin: 0 0 20px !important;
+}
+.content {
+  h1,h2,h3,h4,h6 {
+    color: #333 !important;
+  }
+}
+.da-slide p {
+  height: 150px;
+}
+.center {
+  text-align: center !important;
+}
+.border {
+  height: 4px !important;
+  background: #7c7852 !important;
+}
+td.middle {
+  vertical-align: middle;
+}
+.error {
+  display: block;
+}
+.color {
+  color: #d4724b !important;
+}
+.no-padding {
+  padding-bottom: 0 !important;
+}
+.right {
+  text-align: right;
+}
+
+// twitter widget
+.nastachku-twitter-widget {	
+	border: 1px solid #ddd;
+}
+.twtr-doc {
+	border-radius: 0 !important;
+}
+.twtr-ft {
+	background-color: #ddd;
+}
+
+// participants table
+.table-participants {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial;
+  font-size: 12px;
+  color: #000;
+  tr {
+    td {
+      padding: 6px 10px;
+      line-height: 18px !important;
+    }
+    &:nth-child(odd) {
+      td {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+  th {
+    font-weight: normal;
+    text-align: center;
+    padding: 0 10px 16px;
+    border-bottom: 1px solid #d6d6d6;
+    color: #999;
+  }
+}
+.table-participants-header {
+  margin-bottom: 16px;
+  th {
+    font-weight: normal;
+    text-align: left;
+    padding: 0 10px 16px;
+    border-bottom: 1px solid #d6d6d6;
+    a {
+      color: #999 !important;
+    }
+  }
+}
+
+// footer
+footer {
+  position: relative;
+  margin-top: -96px;
+}
+footer .copy {
+  border: none !important;
+}
+.social-share-links {
+  float: right;
+  height: 36px;
+  padding-top: 24px;
+}
+.social-share-links li {
+  float: left;
+  margin-left: 10px;
+  height: 20px;
+}
+.social-share-links li.vk {
+  width: 150px;
+}
+.social-share-links .gplus {
+  position: relative;
+  top: -1px;
+  overflow: hidden;
+  width: 65px;
+}
+.counter-links {
+  padding-top: 22px;
+  margin-left: 30px;
+}
+.counter-links li {
+  width: 31px;
+  height: 31px;
+  overflow: hidden;
+}
+
+// custom web-font & it's blocks
+@font-face {
+  font-family: 'Bender-bold';
+  src: url("/assets/bender_bold-webfont.eot");
+  src: url("/assets/bender_bold-webfont.eot?#iefix") format('embedded-opentype'),
+    url("/assets/bender_bold-webfont.woff") format('woff'),
+    url("/assets/bender_bold-webfont.ttf") format('truetype'),
+    url("/assets/bender_bold-webfont.svg#fontello") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.bender {
+  font-family: 'Bender-bold' !important;
+}
+.hero .bender {
+  font-weight: 100;
+  text-transform: uppercase;
+  color: $main_color !important;
+  font-size: 30px !important;
+}
+.hero .bender .color {
+  color: #000 !important;
+}

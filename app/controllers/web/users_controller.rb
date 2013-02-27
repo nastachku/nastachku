@@ -19,6 +19,7 @@ class Web::UsersController < Web::ApplicationController
     user = token.user
     if token && user
       user.activate!
+      sign_in user
       flash_success
     else
       flash_error

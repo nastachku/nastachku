@@ -5,7 +5,7 @@
         %span Menu
 
       .nav-collapse.collapse
-        %ul.nav.no-padding
+        %ul.nav.no-padding{:role => "navigation"}
           
           - unless signed_in?
             %li= link_to t(".i_will_go"), new_user_path
@@ -14,14 +14,13 @@
           / %li= link_to t(".news"), news_index_path
           -#%li= link_to t('.lectors'), lectors_path
           %li.dropdown
-            = link_to "#", class: 'dropdown-toggle', :'data-toggle' => 'dropdown' do
+            %a#lectors_link.dropdown-toggle{:href => "#", :"data-toggle" => "dropdown", :role => "button"}
               = t(".lectors")
               %b.caret
 
-            %ul.dropdown-menu
+            %ul.dropdown-menu{:role => "menu", :'aria-labelledby' => "lectors_link"}
               - topics.each do |topic|
-                %li= link_to topic, lectors_path(q: { topics_id_eq: topic.id })
-
+                %li{:role => "presentation"}= link_to topic, lectors_path(q: { topics_id_eq: topic.id })
 
           %li= link_to t(".routes"), page_path(:routes)
           %li= link_to t(".contacts"), page_path(:contacts)

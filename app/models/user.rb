@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
-  validates :email, presence: true, uniqueness: true, uniqueness: {case_sensitive: false}, email: true
+  validates :email, presence: true, uniqueness: {case_sensitive: false}, email: true
   validates :first_name, length: { maximum: 255 }, russian: true
   validates :last_name, length: { maximum: 255 }, russian: true
   validates :city, length: { maximum: 255 }, russian: true
@@ -61,8 +61,10 @@ class User < ActiveRecord::Base
   end
 
   def password=(password)
-    @real_password = password
-    self.password_digest = Digest::MD5.hexdigest(password)
+    if password.present?
+      @real_password = password
+      self.password_digest = Digest::MD5.hexdigest(password)
+    end
   end
 
   def password
