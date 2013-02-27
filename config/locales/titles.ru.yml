@@ -1,0 +1,51 @@
+ru:
+  base_name: 'Стачка!'
+  web:
+    welcome:
+      index:
+        title: 'Главная'
+    lectors:
+      index:
+        title: 'Докладчики'
+    pages:
+      show:
+        title: 'Страницы'
+    sessions:
+      new:
+        title: 'Вход'
+      create:
+        title: 'Вход'
+
+    account:
+      events:
+        new:
+          title: 'Добавить доклад'
+        create:
+          title: 'Добавить доклад'
+
+      passwords:
+        edit:
+          title: 'Изменение пароля'
+        update:
+          title: 'Изменение пароля'
+    remind_passwords:
+      new:
+        title: 'Восстановление пароля'
+      create:
+        title: 'Восстановление пароля'
+
+    users:
+      index:
+        title: 'Участники'
+      new:
+        title: 'Регистрация'
+      create:
+        title: 'Регистрация'
+
+    news:
+      index:
+        title: 'Новости'
+
+    workshops:
+      show:
+        title: 'Доклады'
