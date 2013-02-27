@@ -1,7 +1,7 @@
 // main menu navbar
 .navbar {
 	border: none !important;
-	padding: 25px 0 15px;
+	padding: 15px 0;
 	margin-bottom: 10px !important;
 }
 .navbar-inner {
@@ -13,6 +13,7 @@
 	color: #020202 !important;
 	font-family: Arial;
 	font-size: 18px !important;
+	padding: 10px 0 !important;
 }
 .navbar .nav > li > a:hover {
 	color: #535353 !important;
@@ -40,6 +41,8 @@
 }
 .navbar-position-top .nav > li > a {
 	margin-right: 10px;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
 }
 .navbar-position-top .nav > li:last-child > a {
 	margin-right: 0;
@@ -58,7 +61,7 @@
 
 // dropdown menu
 .dropdown-menu {
-	margin-top: 10px;
+	margin-top: 0;
 	border-top: 1px solid #000 !important;
 	border-width: 1px 0 0 0 !important;
 }
