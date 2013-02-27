@@ -1,7 +1,7 @@
 class Web::Account::PasswordsController < Web::ApplicationController
 
   def edit
-    @user = UserPasswordEditType.new
+    @user = UserPasswordConfirmationType.new
   end
 
   def update
