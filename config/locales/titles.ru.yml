@@ -45,3 +45,7 @@ ru:
     news:
       index:
         title: 'Новости'
+
+    workshops:
+      show:
+        title: 'Доклады'
