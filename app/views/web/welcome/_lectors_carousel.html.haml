@@ -1,0 +1,17 @@
+#lectorCarousel.carousel.slide
+  .carousel-inner
+    - @lectors.each do |lector|
+      .item
+        .row
+          .span4
+            .pic
+              - if lector.photo.url
+                = image_tag(lector.photo.url)
+          .span8
+            %h5= lector.full_name
+            %h6
+              %strong= lector.company
+            %p= lector.about
+
+  %a.carousel-control.left{ "data-slide" => "prev", href: "#lectorCarousel" }
+  %a.carousel-control.right{ "data-slide" => "next", href: "#lectorCarousel" }
