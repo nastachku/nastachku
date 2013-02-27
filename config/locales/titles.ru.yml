@@ -16,6 +16,12 @@ ru:
       create:
         title: 'Вход'
 
+    accounts:
+      edit:
+       title: 'Редактирование аккаунта'
+      update:
+       title: 'Редактирование аккаунта'
+
     account:
       events:
         new:
