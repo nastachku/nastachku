@@ -33,7 +33,7 @@ namespace :deploy do
   end
 
   namespace :assets do
-
+    desc "Local precompile assets and upload to server"
     task :precompile, roles: :app do
       run_locally "RAILS_ENV=#{rails_env} #{rake} assets:clean && RAILS_ENV=#{rails_env} #{rake} assets:precompile"
       run_locally "cd public && tar -jcf assets.tar.bz2 assets"
@@ -43,16 +43,23 @@ namespace :deploy do
       run_locally "#{rake} assets:clean"
     end
 
+    desc "Symlink local precompile assets"
     task :symlink, roles: :app do
       run "rm -rf #{latest_release}/public/assets &&
             mkdir -p #{latest_release}/public &&
             mkdir -p #{shared_path}/assets &&
             ln -s #{shared_path}/assets #{latest_release}/public/assets"
     end
-    
   end
-
 end
+
+namespace :logs do    
+  desc "Watch tailf env log"
+  task :watch do
+    stream("tailf /u/apps/#{application}/log/#{rails_env}.log")
+  end
+end
+
 
 before 'deploy:finalize_update', 'deploy:symlink_db'
 before 'deploy:finalize_update', 'deploy:assets:symlink'
