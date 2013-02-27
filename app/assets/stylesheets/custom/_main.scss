@@ -58,7 +58,6 @@ h1 {
 }
 .center {
 	text-align: center !important;
-	padding: 0 !important;
 }
 .border {
 	height: 4px !important;
@@ -100,13 +99,21 @@ td.middle {
 	color: #000;
 	tr {
 		td {
-			padding: 6px 10px;	
+			padding: 6px 10px;
+			line-height: 18px !important;
 		}
 		&:nth-child(odd) {
 			td {
 				background-color: #f1f1f1;	
 			}
 		}
+	}
+	th {
+		font-weight: normal;
+		text-align: center;
+		padding: 0 10px 16px;
+		border-bottom: 1px solid #d6d6d6;
+		color: #999;
 	}
 }
 .table-participants-header {
