@@ -23,6 +23,6 @@
           - if current_user.voted?(event)
             .btn= t('.already_voted')
           - else
-            = link_to t('.i_am_going'), event_vote_path(event), method: :post, class: 'btn btn-shine'
+            = link_to t('.i_am_going'), user_event_vote_path(event), method: :post, class: 'btn btn-shine'
         %span.btn.votings-count= event.votings.size
     %hr
