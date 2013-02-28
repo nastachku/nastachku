@@ -8,7 +8,7 @@ class Web::Admin::EventsController < Web::Admin::ApplicationController
     @event = ::Admin::EventEditType.new
   end
 
-  def create 
+  def create
     @event = ::Admin::EventEditType.new params[:user_event]
 
     if @event.save
@@ -21,11 +21,13 @@ class Web::Admin::EventsController < Web::Admin::ApplicationController
   end
 
   def edit
-    @event = ::Admin::EventEditType.find params[:id]
+    user_event = UserEvent.find params[:id]
+    @event = user_event.becomes(::Admin::EventEditType)
   end
 
   def update
-    @event = ::Admin::EventEditType.find params[:id]
+    user_event = UserEvent.find params[:id]
+    @event = user_event.becomes(::Admin::EventEditType)
     if @event.update_attributes params[:user_event]
       flash_success
       redirect_to admin_events_path

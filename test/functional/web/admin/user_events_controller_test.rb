@@ -3,7 +3,7 @@ require 'test_helper'
 class Web::Admin::UserEventsControllerTest < ActionController::TestCase
 
   setup do
-    @user = create :admin_with_events
+    @user = create :admin
     sign_in @user
     @event = create :user_event, speaker: @user
   end

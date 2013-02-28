@@ -10,31 +10,16 @@ FactoryGirl.define do
     company
     show_as_participant
     email
-    photo
 #    process_personal_data
 
-    after(:create) do |u|
-      u.activate
+    after(:create) do |user|
+      user.activate
+      FactoryGirl.create_list(:user_event, 5, speaker: user)
     end
     
   end
 
   factory :admin, :parent => :user do
-    admin true
-  end
-  
-  factory :user_with_events, class: UserEventEditType do
-    first_name "Строка"
-    last_name "Строка"
-    email
-    city "Строка"
-    about "about info"
-    photo { fixture_file_upload Rails.root.to_s + "/test/fixtures/photos/test.png", "image/png" }
-    events_attributes  
-  end
-
-  
-  factory :admin_with_events, parent: :user_with_events do
     admin true
   end
 end

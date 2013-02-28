@@ -14,7 +14,7 @@ class Web::UserEventsControllerTest < ActionController::TestCase
 
 
   test "should post vote" do
-    request.env["HTTP_REFERER"] = '/'
+    set_http_referer
     post :vote, user_event_id: @event.id
     assert_response :redirect
     assert @user.voted?(@event)

@@ -12,7 +12,7 @@ class Web::Account::EventsControllerTest < ActionController::TestCase
   end
 
   test "should post create" do
-    attrs = attributes_for(:user_with_events)
+    attrs = generate(:user_with_events)
     post :create, user_id: @user.id, user: attrs
 
     assert_response :redirect

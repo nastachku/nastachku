@@ -3,9 +3,9 @@
 = f.input :thesises, as: :ckeditor
 = f.input :start_time, as: :date_time_picker
 = f.input :finish_time, as: :date_time_picker
-= f.association :workshop
-= f.association :hall
-= f.association :speaker, collection: User.activated
+= f.association :workshop, as: :chosen_select
+= f.association :hall, as: :chosen_select
+= f.association :speaker, collection: User.activated.asc_by_last_name, as: :chosen_select
 = f.input :presentation, as: :file_download
 
 .form-actions

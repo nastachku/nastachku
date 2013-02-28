@@ -35,7 +35,7 @@ class Web::Admin::HallsController < Web::Admin::ApplicationController
 
   def destroy
     @hall = Hall.find params[:id]
-    @hall.delete
+    @hall.destroy
     redirect_to admin_halls_path
   end
 end

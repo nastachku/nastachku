@@ -36,7 +36,7 @@ class Web::Admin::WorkshopsController < Web::Admin::ApplicationController
 
   def destroy
     @workshop = Workshop.find params[:id]
-    @workshop.delete
+    @workshop.destroy
     redirect_to admin_workshops_path
   end
 

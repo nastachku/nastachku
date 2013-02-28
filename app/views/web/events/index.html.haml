@@ -18,7 +18,7 @@
         %h4= event.title
         %p.ainfo= event.thesises.html_safe
         .btn-diff
-          -if current_user
+          -if signed_in?
             - if current_user.voted?(event)
               .btn= t('.already_voted')
             - else
