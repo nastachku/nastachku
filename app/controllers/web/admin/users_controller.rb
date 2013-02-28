@@ -49,7 +49,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
 
    def destroy
      @user = User.find params[:id]
-     @user.delete
+     @user.destroy
      redirect_to admin_users_path
    end
 

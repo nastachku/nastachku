@@ -27,7 +27,7 @@ class Web::Admin::EventsControllerTest < ActionController::TestCase
   end
 
   test "should post create" do
-    attrs = attributes_for :user_event, workshop_id: @workshop.id, speaker_id: @user.id, hall_id: @hall.id
+    attrs = attributes_for :user_event, workshop_id: @workshop.id, speaker_id: @user.id
     post :create, user_event: attrs
     assert_response :redirect
     event = BaseEvent.find_by_workshop_id attrs[:workshop_id]
@@ -35,7 +35,7 @@ class Web::Admin::EventsControllerTest < ActionController::TestCase
   end
 
   test "should put update" do
-    attrs = attributes_for :user_event, workshop_id: @workshop.id, speaker_id: @user.id, hall_id: @hall.id
+    attrs = attributes_for :user_event, workshop_id: @workshop.id, speaker_id: @user.id
     put :update, id: @event.id, event: attrs
     assert_response :redirect
     event = BaseEvent.find_by_title attrs[:title]

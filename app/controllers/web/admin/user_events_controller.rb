@@ -8,7 +8,8 @@ class Web::Admin::UserEventsController < Web::Admin::ApplicationController
   end
   
   def update
-    @event = ::Admin::UserEventEditType.find params[:id]
+    user_event = UserEvent.find params[:id]
+    @event = user_event.becomes(::Admin::UserEventEditType)
     if @event.update_attributes params[:user_event]
       flash_success
       redirect_to admin_user_events_path

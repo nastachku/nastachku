@@ -95,8 +95,8 @@ ru:
 
     workshops:
       show:
-        i_am_going: 'Голосовать за доклад'
-        already_voted: 'Вы проголосовали за этот доклад'
+        i_am_going: 'Я пойду!'
+        already_going: 'Вы уже идете на этот доклад'
 
     sessions:
       form:
