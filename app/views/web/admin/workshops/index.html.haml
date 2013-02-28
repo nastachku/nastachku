@@ -1,0 +1,17 @@
+.page-header
+  %h1=t '.title'
+
+= link_to t('.new'), new_admin_workshop_path, class: 'btn btn-primary'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Workshop.human_attribute_name :title
+      %th= t '.actions'
+  %tbody
+    - @workshops.each do |workshop|
+      %tr
+        %td= link_to workshop.title, edit_admin_workshop_path(workshop)
+        %td
+          = link_to t('.edit'), edit_admin_workshop_path(workshop), class: 'btn btn-mini'
+          = link_to t('.delete'), admin_workshop_path(workshop), class: 'btn btn-mini', method: :delete

@@ -18,10 +18,10 @@
 /log/untranslated.*.yml
 /tmp
 
+/public/system/*
 /coverage
-
 # Ignore schema
 schema.rb
 
-#ignore idea config
+#ignore idea project files
 .idea

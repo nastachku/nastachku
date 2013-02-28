@@ -7,7 +7,9 @@
       .nav-collapse.collapse
         %ul.nav.no-padding{:role => "navigation"}
           
-          - unless signed_in?
+          - if signed_in?
+            %li= link_to t('.add_lecture'), new_account_event_path
+          - else 
             %li= link_to t(".i_will_go"), new_user_path
 
           %li= navbar_link t(".participants"), users_path, with: User.activated.count
@@ -25,3 +27,9 @@
           %li= link_to t(".routes"), page_path(:routes)
           %li= link_to t(".contacts"), page_path(:contacts)
           / %li= link_to t(".afterpaty"), page_path(:afterpaty)
+          %li= link_to t('.lectures_20'), user_events_path
+          %li.dropdown
+            = link_to t(".lectures"), "#", class: 'dropdown-toggle', :'data-toggle' => 'dropdown'
+            %ul.dropdown-menu
+              - workshops.each do |w|
+                %li= link_to w, w

@@ -7,8 +7,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password,
                   :first_name, :last_name, :city,
                   :company, :position,
-                  :show_as_participant,
-                  :photo, :state_event, :about
+                  :show_as_participant, :photo, :state_event, :about, :events_attributes
 
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
@@ -20,6 +19,10 @@ class User < ActiveRecord::Base
   validates :position, length: { maximum: 255 }
 
   enumerize :role, in: [ :lector, :user ], default: :user
+  has_many :events, class_name: 'UserEvent', foreign_key: 'speaker_id', dependent: :destroy
+  has_many :votings
+
+  accepts_nested_attributes_for :events, :reject_if => :all_blank, :allow_destroy => true
 
   mount_uploader :photo, UsersPhotoUploader 
 
@@ -69,6 +72,24 @@ class User < ActiveRecord::Base
 
   def password
     @real_password
+  end
+
+  def vote(event)
+    voting = fetch_voting(event)
+    if voting
+      raise 'Your should have already voted!'
+    end
+    Voting.create!(user_id: self.id, event_id: event.id)
+  end
+
+  def voted?(event)
+    voting = fetch_voting(event)
+    voting.present?
+  end
+
+  private
+  def fetch_voting(event)
+    votings.where(event_id: event.id).try(:first)
   end
 
 end

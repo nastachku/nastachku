@@ -1,0 +1,28 @@
+.span12.workshop
+  - @workshop.user_events.scheduled.by_votes.each do |event|
+    .row
+      .span6
+        .col-l
+          .pic
+            - if event.speaker.photo.url
+              = image_tag(event.speaker.photo.url)
+        .col-r
+          .sinfo
+            %h5= event.speaker.full_name
+            %h6
+              %strong= event.speaker.company
+            -#%h6.grey= event.speaker.about
+            -#.social
+            -#  %a.tip{"data-original-title" => "Facebook", :href => "#"}
+            -#    %i.icon-facebook.facebook
+        .clearfix
+      .span6
+        %h4= event.title
+        %p.ainfo= event.thesises.html_safe
+        - if current_user
+          - if current_user.voted?(event)
+            .btn= t('.already_voted')
+          - else
+            = link_to t('.i_am_going'), event_vote_path(event), method: :post, class: 'btn btn-shine'
+        %span.btn.votings-count= event.votings.size
+    %hr

@@ -1,0 +1,11 @@
+= simple_form_for @break, url: [:admin, @break], html: { class: 'form-horizontal' } do |f|
+
+  = f.input :title
+  = f.input :start_time, as: :date_time_picker
+  = f.input :finish_time, as: :date_time_picker
+  = f.association :workshop
+  = f.association :hall
+
+  .form-actions
+    = f.submit class: 'btn btn-primary'
+    = link_to t('.cancel'), admin_events_path, :class => 'btn'

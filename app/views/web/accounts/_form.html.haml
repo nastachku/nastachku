@@ -1,17 +1,41 @@
-%h5
-  =t(".personal_number")
-  %span.color
-    = @user.id
-%br
+= simple_form_for @user, :url => account_path, :html => { :class => 'form-horizontal profile-form' } do |f|
 
-= simple_form_for @user, :url => account_path, :html => { :class => 'form-horizontal profile-form' } do |f|  
-  .formy
-    = f.input :email, disabled: true, readonly: true
-    = f.input :first_name
-    = f.input :last_name
-    = f.input :city
-    = f.input :company
-    = f.input :position
-    = f.input :show_as_participant, :wrapper => :inline_checkbox
+  .tabbable
+    %ul.nav.nav-tabs
+      %li.active= link_to t('.info'), '#info', data: { toggle: 'tab' }
+      %li= link_to t('.my_events'), '#my_events', data: { toggle: 'tab' }
 
-  = f.button :submit, :value => t('.save'), :class => 'btn btn-shine'
+    .tab-content
+      .tab-pane.active#info
+        = f.input :email, disabled: true, readonly: true
+        = f.input :first_name
+        = f.input :last_name
+        = f.input :city
+        = f.input :company
+        = f.input :position
+        = f.input :show_as_participant, :wrapper => :inline_checkbox
+
+        .control-group
+          .controls
+            = f.button :submit, :value => t('.save'), :class => 'btn'
+
+        %br
+        %h3
+          =t(".personal_number")
+          %span.color
+            = @user.id
+
+      .tab-pane#my_events
+
+        %table.table.table-striped
+          %thead
+            %tr
+              %th= BaseEvent.human_attribute_name(:title)
+              %th= BaseEvent.human_attribute_name(:created_at)
+              %th= BaseEvent.human_attribute_name(:state)
+          %tbody
+            - @user.events.each do |event|
+              %tr
+                %td= event.title
+                %td= l event.created_at
+                %td= event.human_state_name

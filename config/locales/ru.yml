@@ -11,12 +11,15 @@ ru:
         navigation:
           title: 'Стачка!'
           participants: 'Участники'
+          add_lecture: 'Добавить доклад'
           i_will_go: 'Я пойду'
           contacts: "Контакты"
           routes: "Как доехать и где жить?"
           news: "Пресс-центр"
           lectors: 'Докладчики'
-          afterpaty: "Афтепати"
+          lectures: 'Доклады'
+          speakers: "Докладчики"
+          lectures_20: 'Доклады 2.0'
         navbar:
           logout: 'Выйти'
           login: 'Войти'
@@ -31,6 +34,9 @@ ru:
             users: 'Пользователи'
             audits: 'Аудит'
             topics: 'Топики'
+            lectures: 'Пользовательские доклады'
+            user_lectures: 'Пользовательские доклады'
+            events: 'События'
             logout: 'Выйти'
 
   global:
@@ -44,7 +50,15 @@ ru:
       form:
         personal_number: 'Ваш персональный номер для участия в конференции:'
         save: 'Сохранить'
+        info: 'Мои данные'
+        my_events: 'Мои доклады'
     account:
+      events:
+        form:
+          add_event: 'Добавить доклад'
+        event_fields:
+          remove_event: 'Удалить доклад'
+
       passwords:
         edit:
           password_reset: "Изменение пароля"
@@ -72,6 +86,12 @@ ru:
         hero_unit_title: 'Стачка 2013'
         hero_unit_content: '<br>УЛЬЯНОВСК 12-13 АПРЕЛЯ 2013 МЕМЦЕНТР<br>Веб-технологии, менеджмент в IT, электронная коммерция, IT-стартапы, программирование, IT на службе в обществе'
         join: 'Я пойду!'
+        
+    user_events:
+      index:
+        title: 'Доклады 2.0'
+        vote_this_lecture: 'Голосовать за доклад'
+        already_voted: 'Вы проголосовали за этот доклад'
 
     sessions:
       form:
@@ -184,3 +204,254 @@ ru:
           title: 'Редактирование топика'
         form:
           cancel: 'Отменить'
+      user_events: 
+        index: 
+          title: 'Пользовательские доклады'
+          actions: 'Действия'
+          edit: 'Редактировать'
+          publish: 'Опубликовать'
+          reject: 'Заблокировать'
+        edit:
+          title: 'Редактирование доклада'
+          speaker: 'Докладчик: %{name}'
+        update:
+          title: 'Редактирование доклада'
+        form:
+          presentation_link: 'Ссылка на презентацию'
+
+      events:
+        index: 
+          title: 'События'
+          actions: 'Действия'
+          edit: 'Редактировать'
+          new: 'Добавить событие'
+          workshops: 'Секции'
+          halls: 'Залы'
+          new_break: 'Добавить перерыв'
+        new:
+          title: 'Добавить событие'
+        edit:
+          title: 'Редактировать событие'
+
+      workshops:
+        index:
+          title: 'Секции'
+          actions: 'Действия'
+          new: 'Добавить секцию'
+          edit: 'Редактировать'
+          delete: 'Удалить'
+        new:
+          title: 'Создание новой секции'
+        edit:
+          title: 'Редактирование секции'
+        form:
+          cancel: 'Отменить'
+
+      halls:
+        index:
+          title: 'Залы'
+          actions: 'Действия'
+          new: 'Добавить зал'
+          edit: 'Редактировать'
+          delete: 'Удалить'
+        new:
+          title: 'Добавление нового зала'
+        edit:
+          title: 'Редактирование зала'
+        form:
+          cancel: 'Отменить'
+
+      event_breaks:
+        new:
+          title: 'Добавить перерыв'
+        edit:
+          title: 'Редактировать перерыв'
+        form:
+          cancel: 'Отменить'
+
+  helpers:
+    submit:
+      session:
+        create: "Войти на сайт"
+
+      user:
+        create: "Зарегистрировать"
+        update: "Подтверждаю"
+
+      page:
+        create: "Добавить страницу"
+        update: "Добавить страницу"
+
+      news:
+        create: "Добавить новость"
+        update: "Изменить новость"
+
+    links:
+      cancel: 'Отменить (я ru.helpers.links.cancel!)'
+
+  success: 'Успех (я ru.success!)'
+
+  activerecord:
+    attributes:
+      page:
+        slug:  "slug"
+        title: "Заголовок"
+        body:  "Содержимое"
+        created_at: "Время создания"
+
+      news:
+        slug:  "slug"
+        title: "Заголовок"
+        body:  "Содержимое"
+        created_at: "Время создания"
+
+      user:
+        email: "Email"
+        first_name: "Имя"
+        last_name: "Фамилия"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        city: "Город"
+        company: "Компания"
+        position: "Должность"
+        show_as_participant: "Показывать как участника"
+        photo: "Фото"
+        state_event: "Изменить состояние"
+        state: "Состояние"
+        about: "О себе"
+
+      base_event:
+        title: 'Название'
+        presentation: 'Добавить презентацию'
+        thesises: 'Тезисы'
+        speaker: 'Докладчик'
+        start_time: 'Время начала'
+        finish_time: 'Время окончания'
+        state: 'Статус'
+        workshop: 'Секция'
+        hall: 'Зал'
+
+      workshop:
+        title: 'Название'
+      hall:
+        title: 'Название'
+        
+    errors:
+      models:
+        page:
+          attributes:
+            slug:
+              blank: 'Поле не может быть пустым'
+              taken: 'Такой слаг уже есть, выберите другой'
+
+            title:
+              blank: 'Заголовок не может быть пустым'
+
+            body:
+              blank: 'Тело страницы не может быть пустым'
+          
+        news:
+          attributes:
+            slug:
+              blank: 'Поле не может быть пустым'
+              taken: 'Такой слаг уже есть, выберите другой'
+
+            title:
+              blank: 'Заголовок не может быть пустым'
+
+            body:
+              blank: 'Тело новости не может быть пустым'
+
+          users: 
+            attributes:
+              email:
+                blank: 'Поле не может быть пустым'
+                taken: 'Такой email уже есть, выберите другой'
+
+  simple_form:
+    labels:
+      user:
+        email: "Email"
+        password: "Пароль"
+
+  flash:
+    controllers:
+      web:
+        users:
+          create:
+            success: 'Регистрация прошла успешно. На указанный электронный адрес отправлено письмо с персональным номер для участия в конференции.'
+            error:   'Не удалось добавить запись, есть ошибки в заполнении форм.'
+
+        account:
+          accounts:
+            update:
+              success: 'Аккаунт успешно изменён!'
+              error:   'Не удалось изменить аккаунт, есть ошибки в заполнении форм.'
+
+        sessions:
+          create:
+            success: 'Вы вошли на сайт.'
+            error:   'Аутентификация не удалась. Проверьте логин/пароль.'
+
+        admin:
+          pages:
+            create:
+              success: 'Страница добавлена.'
+              error:   'Не удалось добавить страницу, есть ошибки в заполнении форм.'
+
+            update:
+              success: 'Страница изменена.'
+              error:   'Не удалось изменить страницу, есть ошибки в заполнении форм.'
+
+          news:
+            create:
+              success: 'Новость добавлена.'
+              error:   'Не удалось добавить новость, есть ошибки в заполнении форм.'
+
+            update:
+              success: 'Новость изменена.'
+              error:   'Не удалось изменить новость, есть ошибки в заполнении форм.'
+
+          users:
+            create:
+              success: 'Пользователь добавлен.'
+              error:   'Не удалось добавить пользователя, есть ошибки в заполнении форм.'
+
+            update:
+              success: 'Пользователь изменен.'
+              error:   'Не удалось изменить пользователя, есть ошибки в заполнении форм.'
+          user_events:
+            change_state:
+              success: 'Статус изменен.'
+              error: 'Не удалось изменить статус доклада.'
+            update:
+              success: 'Доклад изменен.'
+              error:   'Не удалось изменить доклад, есть ошибки в заполнении форм.'
+          events:
+            create:
+              success: 'Событие добавлено.'
+              error: 'Не удалось добавить событие, есть ошибки в заполнении форм'
+            update:
+              success: 'Событие изменено.'
+              error:   'Не удалось изменить событие, есть ошибки в заполнении форм.'
+          workshops:
+            create:
+              success: 'Секция добавлена'
+              error: 'Не удалось добавить секцию, есть ошибки в заполнении форм'
+            update:
+              success: 'Секция изменена'
+              error: 'Не удалось изменить секцию, есть ошибки в заполнении форм'
+          halls:
+            create:
+              success: 'Зал добавлен'
+              error: 'Не удалось добавить зал, есть ошибки в заполнении форм'
+            update:
+              success: 'Зал изменен'
+              error: 'Не удалось изменить зал, есть ошибки в заполнении форм'
+          event_breaks:
+            create:
+              success: 'Перерыв добавлен'
+              error: 'Не удалось добавить перерыв, есть ошибки в заполнении форм'
+            update:
+              success: 'Перерыв изменен'
+              error: 'Не удалось изменить перерыв, есть ошибки в заполнении форм'
