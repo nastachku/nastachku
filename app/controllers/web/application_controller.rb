@@ -3,6 +3,8 @@ class Web::ApplicationController < ApplicationController
   include FlashHelper
   include Web::LectorsHelper
 
+  before_filter :basic_auth if Rails.env.staging?
+
   protect_from_forgery
 
   helper_method :title
