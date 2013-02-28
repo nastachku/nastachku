@@ -11,7 +11,7 @@ class Web::AccountsController < Web::ApplicationController
 
     if @user.update_attributes params[:user]
       flash_success
-      redirect_to root_path
+      redirect_to edit_account_path
     else
       flash_error
       render action: "edit"
