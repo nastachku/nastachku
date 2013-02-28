@@ -9,7 +9,8 @@
         .col-r
           .sinfo
             %h5= event.speaker.full_name
-            %h6.grey= event.speaker.about
+            %h6
+              %strong= event.speaker.company
             -#.social
             -#  %a.tip{"data-original-title" => "Facebook", :href => "#"}
             -#    %i.icon-facebook.facebook
