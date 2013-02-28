@@ -34,24 +34,6 @@
           %img{:src => "/images/logo-creater.jpg", :width => 179, :height => 51, :alt => "Creater"}
 
     %br
-    %h4 Спонсоры
-    .logo-wrapper.sponsors-wrapper
-      .line.sponsors-first-line
-        %a{:href => "http://avito.ru/", :target => "_blank"}
-          %img{:src => "/images/sponsor-avito.jpg", :width => 166, :height => 66, :alt => "Avito"}
-          %sup
-            %i.sponsor-star.gold
-        %a{:href => "http://www.aviasales.ru/", :target => "_blank"}
-          %img{:src => "/images/sponsor-aviasales.jpg", :width => 198, :height => 66, :alt => "Aviasales"}
-          %sup
-            %i.sponsor-star.argentum
-      .legend.clear.clear-both
-        %i.sponsor-star.argentum
-        — серебряный спонсор
-        %i.sponsor-star.gold
-        — золотой спонсор
-
-    %br
     %h4 Информационные спонсоры
     .logo-wrapper
       .line.info-sponsors-first-line
@@ -75,6 +57,21 @@
           %img{:src => "/images/logo-cnews.jpg", :width => 144, :height => 54, :alt => "Cnews"}
 
   .right-column
-    -# %h4 Генеральный спонсор
-    -# %a{:href => "http://avito.ru", :target => "_blank"}
-      -# %img{:src => "/images/logo-avito.jpg", :width => 168, :height => 72, :alt => "Avito"}
+    %h4 Спонсоры
+    .star-sponsors
+      .item
+        %a{:href => "http://avito.ru/", :target => "_blank"}
+          %img{:src => "/images/sponsor-avito.jpg", :width => 166, :height => 66, :alt => "Avito"}
+          %sup
+            %i.sponsor-star.gold
+      .item
+        %a{:href => "http://www.aviasales.ru/", :target => "_blank"}
+          %img{:src => "/images/sponsor-aviasales.jpg", :width => 198, :height => 66, :alt => "Aviasales"}
+          %sup
+            %i.sponsor-star.argentum
+      .legend
+        %i.sponsor-star.argentum
+        — серебряный спонсор
+        %br
+        %i.sponsor-star.gold
+        — золотой спонсор
