@@ -11,6 +11,9 @@
   text-decoration: none;
 }
 
+.btn {
+  background-color: #dfdfdf !important;
+}
 // Login form
 .form-type-login input[type="email"],
 .form-type-login input[type="text"],
@@ -26,9 +29,10 @@
   padding-right: 0;
 }
 input[type="submit"].btn-shine,
-.btn.btn-shine {
+.btn.btn-shine,
+a.btn-shine {
   color: #fff !important;
-  background-color: #7c7852;
+  background-color: #7c7852 !important;
 }
 .formy .help-inline {
   font-size: 12px;
