@@ -37,7 +37,7 @@ module AuthHelper
 
   def track_user(user)
     old_sign_in_at = user.current_sign_in_at 
-    new_sign_in_at = Time.now.utc
+    new_sign_in_at = Time.zone.now.utc
 
     user.last_sign_in_at = old_sign_in_at || new_sign_in_at
     user.current_sign_in_at = new_sign_in_at
@@ -51,6 +51,8 @@ module AuthHelper
     user.sign_in_count ||= 0
     user.sign_in_count += 1
 
+    #FIXME Скипаем валиадцию, так как в бд присутствуют невалидные пользователи 
+    #(юзеры успели зарегаться до ввода некоторых валидаций)
     user.save(validate: false)
   end
 
