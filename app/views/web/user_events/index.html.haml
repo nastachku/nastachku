@@ -1,6 +1,6 @@
-.span12.workshop
+.span12
   - @events.each do |event|
-    .row
+    .row.workshop
       .span6
         .col-l
           .pic
@@ -17,13 +17,15 @@
       .span6
         %h4= event.title
         %p.ainfo= event.thesises.html_safe
-        .btn-diff
+        .buttons-group
           -if current_user
             - if current_user.voted?(event)
               .btn= t('.already_voted')
             - else
               = link_to t('.vote_this_lecture'), user_event_vote_path(event), method: :post, class: 'btn btn-shine'
-          %span.btn.votings-count= event.votings.size
+          %span.btn.votings-count
+            = event.votings.size
+            = Russian.pluralize(event.votings.size, 'голос', 'голоса', 'голосов')
     %hr
 
 .clearfix

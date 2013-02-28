@@ -25,8 +25,9 @@
   padding-left: 0;
   padding-right: 0;
 }
-input[type="submit"].btn-shine {
-  color: #fff;
+input[type="submit"].btn-shine,
+.btn.btn-shine {
+  color: #fff !important;
   background-color: #7c7852;
 }
 .formy .help-inline {

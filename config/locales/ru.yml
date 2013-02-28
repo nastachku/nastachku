@@ -11,7 +11,6 @@ ru:
         navigation:
           title: 'Стачка!'
           participants: 'Участники'
-          add_lecture: 'Добавить доклад'
           i_will_go: 'Я пойду'
           contacts: "Контакты"
           routes: "Как доехать и где жить?"
@@ -24,6 +23,7 @@ ru:
           logout: 'Выйти'
           login: 'Войти'
           admin: 'Админка'
+          add_lecture: 'Добавить доклад'
 
       admin:
         shared:
@@ -86,11 +86,16 @@ ru:
         hero_unit_title: 'Стачка 2013'
         hero_unit_content: '<br>УЛЬЯНОВСК 12-13 АПРЕЛЯ 2013 МЕМЦЕНТР<br>Веб-технологии, менеджмент в IT, электронная коммерция, IT-стартапы, программирование, IT на службе в обществе'
         join: 'Я пойду!'
-        
+
     user_events:
       index:
         title: 'Доклады 2.0'
         vote_this_lecture: 'Голосовать за доклад'
+        already_voted: 'Вы проголосовали за этот доклад'
+
+    workshops:
+      show:
+        i_am_going: 'Голосовать за доклад'
         already_voted: 'Вы проголосовали за этот доклад'
 
     sessions:
