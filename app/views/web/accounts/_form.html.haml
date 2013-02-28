@@ -7,17 +7,20 @@
 
     .tab-content
       .tab-pane.active#info
-        = f.input :email, disabled: true, readonly: true
-        = f.input :first_name
-        = f.input :last_name
-        = f.input :city
-        = f.input :company
-        = f.input :position
-        = f.input :show_as_participant, :wrapper => :inline_checkbox
+        .formy
+          = f.input :email, disabled: true, readonly: true
+          = f.input :first_name
+          = f.input :last_name
+          = f.input :city
+          = f.input :company
+          = f.input :position
+          = f.input :photo, as: :image_preview
+          = f.input :about
+          = f.input :show_as_participant, :wrapper => :inline_checkbox
 
         .control-group
           .controls
-            = f.button :submit, :value => t('.save'), :class => 'btn'
+            = f.button :submit, :value => t('.save'), :class => 'btn btn-shine'
 
         %br
         %h3
