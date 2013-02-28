@@ -1,129 +1,144 @@
 html,
 body {
-	height: 100%;
-	border: none !important;
+  height: 100%;
+  border: none !important;
 }
 
 .main {
-	min-height: 100%;
+  min-height: 100%;
 }
 .main > .container {
-	padding-bottom: 126px;
+  padding-bottom: 126px;
 }
 
 // header
 header {
-	border: none !important;
+  border: none !important;
 }
 header .info {
-	padding-top: 44px;
+  padding-top: 44px;
 }
 header .info h3 {
-	color: #d4724b;
-	text-transform: uppercase;
-	font-family: Arial;
-	font-size: 26px;
-	font-weight: bold !important;	
+  color: #d4724b;
+  text-transform: uppercase;
+  font-family: Arial;
+  font-size: 26px;
+  font-weight: bold !important;
 }
 header .info h3 .color {
-	color: #7c7852 !important;
+  color: #7c7852 !important;
+}
+
+// slider
+.da-slider {
+  border-top-color: #d4724b;
+  border-bottom-color: #d4724b;
+  color: #000;
+  margin-bottom: 60px;
+}
+.da-slide {
+  p {
+    height: 160px;
+    color: #000;
+  }
+  h2 {
+    font-size: 40px;
+    color: #000;
+  }
 }
 
 // main elements
 h1 {
-	margin-bottom: 30px !important;
+  margin-bottom: 30px !important;
 }
 
 .content h1.title {
-	font: bold 72px/60px Arial, sans-serif !important;
-	text-transform: uppercase !important;
-	margin: 0 0 30px !important;
-	padding: 0 !important;
+  font: bold 72px/60px Arial, sans-serif !important;
+  text-transform: uppercase !important;
+  margin: 0 0 30px !important;
+  padding: 0 !important;
 }
 .content h4 {
-	font: bold 24px/22px Arial, sans-serif !important;
-	margin: 0 0 20px !important;
-	color: #000 !important;
-}
-.da-slide p {
-	height: 150px;
+  font: bold 24px/22px Arial, sans-serif !important;
+  margin: 0 0 20px !important;
+  color: #000 !important;
 }
 .center {
-	text-align: center !important;
-	padding: 0 !important;
+  text-align: center !important;
+  padding: 0 !important;
 }
 .border {
-	height: 4px !important;
-	background: #7c7852 !important;
+  height: 4px !important;
+  background: #7c7852 !important;
 }
 td.middle {
-	vertical-align: middle;
+  vertical-align: middle;
 }
 .error {
-	display: block; 
+  display: block;
 }
 .color {
-	color: #d4724b !important;
+  color: #d4724b !important;
 }
 .no-padding {
-	padding-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 // twitter widget
-.nastachku-twitter-widget {	
-	border: 1px solid #ddd;
+.nastachku-twitter-widget {
+  border: 1px solid #ddd;
 }
 .twtr-doc {
-	border-radius: 0 !important;
+  border-radius: 0 !important;
 }
 .twtr-ft {
-	background-color: #ddd;
+  background-color: #ddd;
 }
 
 // footer
 footer {
-	position: relative;
-	margin-top: -96px;
+  position: relative;
+  margin-top: -96px;
 }
 footer .line {
-	width: 100%;
-	height: 1px;
-	font-size: 0;
-	position: absolute;
-	left: 0;
-	top: 10px;
-	background-color: #ddd;
+  width: 100%;
+  height: 1px;
+  font-size: 0;
+  position: absolute;
+  left: 0;
+  top: 10px;
+  background-color: #ddd;
 }
 footer .copy {
-	border: none !important;
+  border: none !important;
 }
 .social-share-links {
-	float: right;
-	height: 36px;
-	padding-top: 24px;
+  float: right;
+  height: 36px;
+  padding-top: 24px;
 }
 .social-share-links li {
-	float: left;
-	margin-left: 10px;
-	height: 20px;
+  float: left;
+  margin-left: 10px;
+  height: 20px;
 }
 .social-share-links li.vk {
-	width: 150px;
+  width: 150px;
 }
 .social-share-links .gplus {
-	position: relative;
-	top: -1px;
-	overflow: hidden;
-	width: 65px;
+  position: relative;
+  top: -1px;
+  overflow: hidden;
+  width: 65px;
 }
 .counter-links {
-	padding-top: 22px;
-	margin-left: 30px;
+  padding-top: 22px;
+  margin-left: 30px;
 }
 .counter-links li {
-	width: 31px;
-	height: 31px;
-	overflow: hidden;
+  width: 31px;
+  height: 31px;
+  overflow: hidden;
 }
 
 // custom web-font & it's blocks
@@ -141,11 +156,11 @@ footer .copy {
   font-family: 'Bender-bold' !important;
 }
 .hero .bender {
-	font-weight: 100;
-	text-transform: uppercase;
-	color: #839d01 !important;
-	font-size: 30px !important;
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #839d01 !important;
+  font-size: 30px !important;
 }
 .hero .bender .color {
-	color: #000 !important;
+  color: #000 !important;
 }
