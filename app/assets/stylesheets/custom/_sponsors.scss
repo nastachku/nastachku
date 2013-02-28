@@ -58,6 +58,10 @@
   position: relative;
   top: -6px;
 }
+.cnews {
+  position: relative;
+  top: 4px;
+}
 
 // info sponsors
 .info-sponsors-first-line {
@@ -73,7 +77,7 @@
 // star sponsors
 .star-sponsors {
   .item {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     position: relative;
     height: 66px;
     sup {
