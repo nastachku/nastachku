@@ -1,7 +1,6 @@
 // sponsors
 .sponsors {
   margin-bottom: 20px;
-  margin-left: 120px;
   overflow: hidden;
 }
 .sponsors h4 {
@@ -13,7 +12,7 @@
 }
 .sponsors .left-column {
   width: 699px;
-  border-right: 1px solid #fff;
+  border-right: 1px solid #e3e3e3;
   float: left;
 }
 .sponsors .right-column {
@@ -54,8 +53,35 @@
 .sponsors .logo-srit {
   margin: 22px 0;
 }
-.sponsors-first-line {
-  height: 66px;
+
+.platidoma {
+  position: relative;
+  top: -6px;
+}
+
+// info sponsors
+.info-sponsors-first-line {
+  height: 62px;
+}
+.info-sponsors-second-line {
+  height: 57px;
+}
+.info-sponsors-third-line {
+  height: 54px;
+}
+
+// star sponsors
+.star-sponsors {
+  .item {
+    margin-bottom: 20px;
+    position: relative;
+    height: 66px;
+    sup {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
 }
 .sponsor-star {
   display: inline-block;
@@ -72,32 +98,6 @@
   background-position: 0 -14px;
 }
 .legend .sponsor-star {
-  margin-left: 20px;
   position: relative;
   top: 2px;
-}
-.legend .sponsor-star:first-child {
-  margin-left: 0;
-}
-.sponsors-wrapper img {
-  margin-right: 0 !important;
-}
-.sponsors-wrapper sup {
-  margin-right: 44px !important;
-}
-
-.platidoma {
-  position: relative;
-  top: -6px;
-}
-
-// info sponsors
-.info-sponsors-first-line {
-  height: 62px;
-}
-.info-sponsors-second-line {
-  height: 57px;
-}
-.info-sponsors-third-line {
-  height: 54px;
 }
