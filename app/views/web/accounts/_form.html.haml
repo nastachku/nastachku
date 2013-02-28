@@ -5,40 +5,40 @@
       %li.active= link_to t('.info'), '#info', data: { toggle: 'tab' }
       %li= link_to t('.my_events'), '#my_events', data: { toggle: 'tab' }
 
-    .tab-content
-      .tab-pane.active#info
-        .formy
-          = f.input :email, disabled: true, readonly: true
-          = f.input :first_name
-          = f.input :last_name
-          = f.input :city
-          = f.input :company
-          = f.input :position
-          = f.input :photo, as: :image_preview
-          = f.input :about
-          = f.input :show_as_participant, :wrapper => :inline_checkbox
+  .tab-content
+    .tab-pane.active#info
+      .formy
+        = f.input :email, disabled: true, readonly: true
+        = f.input :first_name
+        = f.input :last_name
+        = f.input :city
+        = f.input :company
+        = f.input :position
+        = f.input :photo, as: :image_preview
+        = f.input :about
+        = f.input :show_as_participant, :wrapper => :inline_checkbox
 
-        .control-group
-          .controls
-            = f.button :submit, :value => t('.save'), :class => 'btn btn-shine'
+      .control-group
+        .controls
+          = f.button :submit, :value => t('.save'), :class => 'btn btn-shine'
 
-        %br
-        %h3
-          =t(".personal_number")
-          %span.color
-            = @user.id
+      %br
+      %h3
+        =t(".personal_number")
+        %span.color
+          = @user.id
 
-      .tab-pane#my_events
+    .tab-pane#my_events
 
-        %table.table.table-striped
-          %thead
+      %table.table.table-striped
+        %thead
+          %tr
+            %th= BaseEvent.human_attribute_name(:title)
+            %th= BaseEvent.human_attribute_name(:created_at)
+            %th= BaseEvent.human_attribute_name(:state)
+        %tbody
+          - @user.events.each do |event|
             %tr
-              %th= BaseEvent.human_attribute_name(:title)
-              %th= BaseEvent.human_attribute_name(:created_at)
-              %th= BaseEvent.human_attribute_name(:state)
-          %tbody
-            - @user.events.each do |event|
-              %tr
-                %td= event.title
-                %td= l event.created_at
-                %td= event.human_state_name
+              %td= event.title
+              %td= l event.created_at
+              %td= event.human_state_name
