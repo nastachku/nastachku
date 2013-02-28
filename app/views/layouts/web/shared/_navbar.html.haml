@@ -16,7 +16,7 @@
 
       - if signed_in?
         %ul.nav.pull-left
-          %li= link_to t('.add_lecture'), new_account_event_path
+          %li= link_to t('.add_lecture'), new_account_event_path, class: 'btn-shine add_lecture'
 
       %ul.nav.pull-right
         - unless signed_in?
