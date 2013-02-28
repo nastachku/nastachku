@@ -1,8 +1,8 @@
-= simple_form_for @user, :url => account_password_path(auth_token: params[:auth_token]), :method => :put do |f|
+= simple_form_for @user, :url => account_password_path(auth_token: params[:auth_token]), :method => :put, html: { class: 'form-type-login' } do |f|
   .row
-    .span4
-      %h2= t('.password_reset')
-      = f.input :password, input_html: { class: 'input-xlarge' }
-      = f.input :password_confirmation, input_html: { class: 'input-xlarge' }
-  .form-actions
-    = f.button :submit, :value => t(".reset"), :class => 'btn-primary pull-left'
+    .span6
+      .formy
+        %h5= t('.password_reset')
+        = f.input :password, input_html: { class: 'input-xlarge' }
+        = f.input :password_confirmation, input_html: { class: 'input-xlarge' }
+      = f.button :submit, :value => t(".reset"), :class => 'btn btn-shine'

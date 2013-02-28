@@ -1,46 +1,44 @@
 %h1=t '.title'
-%br
-.row
-  .span12
-    .formy
-      .form
-        = simple_form_for @user do |f|
-          .row-fluid
-            .span4
-              = f.input :first_name
-            
-            .span4
-              = f.input :last_name
 
-            .span4
-              = f.input :company
+= simple_form_for @user do |f|
+  .row
+    .span12
+      .formy
+        .row-fluid
+          .span4
+            = f.input :email
 
-          .row-fluid
-            .span4
-              = f.input :position
+          .span4
+            = f.input :password
 
-            .span4
-              = f.input :city
+          .span4
+            = f.input :password_confirmation, :required => true
 
-          %br
-            %h5= t('.authentication')
-            .row-fluid
-              .span4
-                = f.input :email
+        .row-fluid
+          .span4
+            = f.input :show_as_participant, :input_html => { :checked => true }, :wrapper => :inline_checkbox
+          .span6
+            = f.input :process_personal_data, as: :boolean, :input_html => { :checked => true }, :wrapper => :inline_checkbox
+      .formy
+        %h5= t('personal_data')
+        .row-fluid
+          .span4
+            = f.input :first_name
+          
+          .span4
+            = f.input :last_name
 
-              .span4
-                = f.input :password
+          .span4
+            = f.input :city
 
-              .span4
-                = f.input :password_confirmation, :required => true
+        .row-fluid
+          .span4
+            = f.input :company
 
-            .row-fluid
-              .span4
-                = f.input :show_as_participant, :input_html => { :checked => true }, :wrapper => :inline_checkbox
-              .span6
-                = f.input :process_personal_data, as: :boolean, :input_html => { :checked => true }, :wrapper => :inline_checkbox
-            .center.form-actions
-              = f.button :submit, class: 'btn'
+          .span4
+            = f.input :position
 
         = t('.already_registered?')
         = link_to t('.login'), new_session_path
+
+      = f.button :submit, class: 'btn btn-shine'

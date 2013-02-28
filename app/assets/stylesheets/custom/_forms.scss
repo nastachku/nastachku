@@ -1,50 +1,55 @@
-
+.formy {
+  margin-bottom: 30px;
+  padding-top: 20px;
+}
 .formy,
 .formy h5 {
-	color: #000 !important;
-	background: #fff !important;
+  color: #000 !important;
+  background: #f4f4f4 !important;
 }
 .formy a {
-	color: #333 !important;
+  text-decoration: none;
 }
 
 // Login form
 .form-type-login input[type="email"],
 .form-type-login input[type="text"],
 .form-type-login input[type="password"] {
-	width: 100%;
-	height: 28px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+  width: 100%;
+  height: 28px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .form-type-login .form-actions {
-	padding-left: 0;
-	padding-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
-.formy input[type="submit"] {
-	color: #000;
+input[type="submit"].btn-shine {
+  color: #fff;
+  background-color: #7c7852;
 }
 .formy .help-inline {
-	font-size: 12px;
+  font-size: 12px;
+  display: block;
 }
 abbr[title], abbr[data-original-title] {
-	cursor: default;
-	border-bottom: none;
+  cursor: default;
+  border-bottom: none;
 }
 
 // Profile form
 .form-horizontal.profile-form .control-label {
-	width: 200px;
+  width: 200px;
 }
 .form-horizontal.profile-form .controls {
-	margin-left: 220px;
+  margin-left: 220px;
 }
 .form-horizontal.profile-form label.checkbox {
-	text-align: left;
+  text-align: left;
 }
 .form-horizontal.profile-form input[type="email"],
 .form-horizontal.profile-form input[type="text"],
 .form-horizontal.profile-form input[type="password"] {
-	width: 300px;
+  width: 300px;
 }

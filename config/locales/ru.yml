@@ -1,4 +1,6 @@
 ru:
+  personal_data: "Личные данные"
+  
   time:
     formats:
       default: "%d-%m-%Y %H:%M"
