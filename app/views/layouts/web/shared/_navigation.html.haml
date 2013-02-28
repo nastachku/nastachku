@@ -5,23 +5,27 @@
         %span Menu
 
       .nav-collapse.collapse
-        %ul.nav.no-padding{:role => "navigation"}
+        %ul.nav.no-padding{ role: "navigation" }
           
           - unless signed_in?
             %li= link_to t(".i_will_go"), new_user_path
 
-          %li= navbar_link t(".participants"), users_path, with: User.activated.count
+          %li{ class: "#{'active' if current_page?(users_path)}" }
+            = navbar_link t(".participants"), users_path, with: User.activated.count
           / %li= link_to t(".news"), news_index_path
-          -#%li= link_to t('.lectors'), lectors_path
-          %li.dropdown
-            %a#lectors_link.dropdown-toggle{:href => "#", :"data-toggle" => "dropdown", :role => "button"}
+          / %li= link_to t('.lectors'), lectors_path
+          %li{ class: "#{'active' if current_page?(lectors_path)}" }
+            %a#lectors_link.dropdown-toggle{ href: "#", :"data-toggle" => "dropdown", role: "button" }
               = t(".lectors")
               %b.caret
 
-            %ul.dropdown-menu{:role => "menu", :'aria-labelledby' => "lectors_link"}
+            %ul.dropdown-menu{ role: "menu", :'aria-labelledby' => "lectors_link" }
               - topics.each do |topic|
-                %li{:role => "presentation"}= link_to topic, lectors_path(q: { topics_id_eq: topic.id })
+                %li{ role: "presentation" }
+                  = link_to topic, lectors_path(q: { topics_id_eq: topic.id })
 
-          %li= link_to t(".routes"), page_path(:routes)
-          %li= link_to t(".contacts"), page_path(:contacts)
+          %li{ class: "#{'active' if current_page?(page_path(:routes))}" }
+            = link_to t(".routes"), page_path(:routes)
+          %li{ class: "#{'active' if current_page?(page_path(:contacts))}" }
+            = link_to t(".contacts"), page_path(:contacts)
           / %li= link_to t(".afterpaty"), page_path(:afterpaty)
