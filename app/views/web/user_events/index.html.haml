@@ -23,7 +23,9 @@
               .btn= t('.already_voted')
             - else
               = link_to t('.vote_this_lecture'), user_event_vote_path(event), method: :post, class: 'btn btn-shine'
-          %span.btn.votings-count= event.votings.size
+          %span.btn.votings-count
+            = event.votings.size
+            = Russian.pluralize(event.votings.size, 'голос', 'голоса', 'голосов')
     %hr
 
 .clearfix
