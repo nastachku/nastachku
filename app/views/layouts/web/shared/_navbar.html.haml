@@ -14,6 +14,10 @@
             %a{:href => "http://vk.com/nastachku", :target => "_blank"}
               %i.ficon-vkontakte-rect
 
+      - if signed_in?
+        %ul.nav.pull-left
+          %li= link_to t('.add_lecture'), new_account_event_path
+
       %ul.nav.pull-right
         - unless signed_in?
           %li= link_to t(".login"), new_session_path

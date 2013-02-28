@@ -1,9 +1,8 @@
 - if f.object.new_record?
-  .formy.formy-color.formy-issue.nested-fields
+  .formy.formy-issue.nested-fields
     .row-fluid
-      .span4
+      .span8
         = f.input :title
-      .span4
         = f.input :thesises, input_html: {rows: 5}
       .span3
         = f.input :presentation, as: :file
