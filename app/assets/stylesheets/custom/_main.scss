@@ -31,6 +31,24 @@ header .info h3 .color {
   color: #7c7852 !important;
 }
 
+// slider
+.da-slider {
+  border-top-color: #d4724b;
+  border-bottom-color: #d4724b;
+  color: #000;
+  margin-bottom: 60px;
+}
+.da-slide {
+  p {
+    height: 160px;
+    color: #000;
+  }
+  h2 {
+    font-size: 40px;
+    color: #000;
+  }
+}
+
 // main elements
 a {
   color: $main_color !important;
@@ -80,14 +98,14 @@ td.middle {
 }
 
 // twitter widget
-.nastachku-twitter-widget {	
-	border: 1px solid #ddd;
+.nastachku-twitter-widget {
+  border: 1px solid #ddd;
 }
 .twtr-doc {
-	border-radius: 0 !important;
+  border-radius: 0 !important;
 }
 .twtr-ft {
-	background-color: #ddd;
+  background-color: #ddd;
 }
 
 // participants table
