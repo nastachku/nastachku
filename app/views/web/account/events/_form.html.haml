@@ -3,7 +3,7 @@
 = simple_form_for @user, url: account_events_path, method: :post do |f|
   .row
     .span12
-      .formy.formy-color
+      .formy{ :class => @user.photo.url ? 'formy-photo' : '' }
         .form
           .row-fluid
             .span4
@@ -17,7 +17,6 @@
 
   .row
     .span12
-      %br
       %br
 
       #events
