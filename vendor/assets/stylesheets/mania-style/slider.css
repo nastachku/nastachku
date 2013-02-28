@@ -153,7 +153,7 @@
   height: 20px;
   top: 5px;
   left: 5px;
-  background: transparent url("arrows.png") no-repeat top left;
+  background: transparent url(/assets/mania-style/arrows.png) no-repeat top left;
 }
 .da-arrows span.da-arrows-next:after{
   background-position: top right;
