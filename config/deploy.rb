@@ -56,7 +56,7 @@ end
 namespace :logs do    
   desc "Watch tailf env log"
   task :watch do
-    stream("tailf /u/apps/#{application}/log/#{rails_env}.log")
+    stream("tailf /u/apps/#{application}/current/log/#{rails_env}.log")
   end
 end
 
