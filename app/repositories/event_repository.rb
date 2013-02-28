@@ -8,6 +8,6 @@ module EventRepository
     scope :web, ->{by_created_at}
     scope :scheduled, -> { where(state: :in_schedule) }
     scope :voted, -> { where(state: :voted) }
-    scope :by_votes, -> { asc_by_votings_count }
+    scope :by_votes, -> { by_votings_count }
   end
 end

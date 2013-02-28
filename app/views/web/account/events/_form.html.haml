@@ -26,6 +26,7 @@
 
       .btn-diff.clearfix
         .pull-left
-          = f.submit class: 'btn btn-shine'
+          = f.submit t('.add_event'), class: 'btn btn-shine'
         .pull-right
-          = link_to_add_association t('.add_event'), f, :events, class: "btn", :'data-association-insertion-node' => '#events', :'data-association-insertion-method' => 'append'
+          = link_to_add_association f, :events, class: "btn", :'data-association-insertion-node' => '#events', :'data-association-insertion-method' => 'append' do
+            %i.icon-plus

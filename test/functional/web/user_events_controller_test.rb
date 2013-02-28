@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Web::EventsControllerTest < ActionController::TestCase
+class Web::UserEventsControllerTest < ActionController::TestCase
   setup do
     @user = create :user
     sign_in @user
@@ -15,7 +15,7 @@ class Web::EventsControllerTest < ActionController::TestCase
 
   test "should post vote" do
     request.env["HTTP_REFERER"] = '/'
-    post :vote, event_id: @event.id
+    post :vote, user_event_id: @event.id
     assert_response :redirect
     assert @user.voted?(@event)
   end
