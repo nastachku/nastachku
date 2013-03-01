@@ -28,7 +28,8 @@
           %li{ class: "#{'active' if current_page?(page_path(:contacts))}" }
             = link_to t(".contacts"), page_path(:contacts)
           / %li= link_to t(".afterpaty"), page_path(:afterpaty)
-          %li= link_to t('.lectures_20'), user_events_path
+          %li{ class: "#{'active' if current_page?(user_events_path)}" }
+            = link_to t('.lectures_20'), user_events_path
           %li.dropdown
             %a#lectures_link.dropdown-toggle{:href => "#", :"data-toggle" => "dropdown", :role => "button"}
               = t(".lectures")
