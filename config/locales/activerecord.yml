@@ -28,6 +28,7 @@ ru:
         state_event: "Изменить состояние"
         state: "Состояние"
         about: "О себе"
+        carousel_info: "Информация в карусели"
         admin: "Администратор"
         role: 'Роль'
         topics: 'Топики'
