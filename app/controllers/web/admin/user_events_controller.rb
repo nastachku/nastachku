@@ -12,7 +12,11 @@ class Web::Admin::UserEventsController < Web::Admin::ApplicationController
     @event = user_event.becomes(::Admin::UserEventEditType)
     if @event.update_attributes params[:user_event]
       flash_success
-      redirect_to admin_user_events_path
+      if @event.in_schedule?
+        redirect_to edit_admin_event_cpath(@event)
+      else
+        redirect_to edit_admin_user_event_path(@event)
+      end
     else
       flash_error
       render :edit
