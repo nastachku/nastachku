@@ -66,4 +66,4 @@ before 'deploy:finalize_update', 'deploy:assets:symlink'
 after 'deploy:update_code', 'deploy:assets:precompile'
 after 'deploy:symlink_db', 'deploy:symlink_backup'
 after "deploy:update", "deploy:cleanup"
-# after 'deploy:restart', 'unicorn:stop'
+after 'deploy:restart', 'unicorn:stop'
