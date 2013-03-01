@@ -54,15 +54,6 @@
   margin: 22px 0;
 }
 
-.platidoma {
-  position: relative;
-  top: -6px;
-}
-.cnews {
-  position: relative;
-  top: 4px;
-}
-
 // info sponsors
 .info-sponsors-first-line {
   height: 62px;
@@ -104,4 +95,18 @@
 .legend .sponsor-star {
   position: relative;
   top: 2px;
+}
+
+// custom logo position
+.platidoma {
+  position: relative;
+  top: -6px;
+}
+.ultop {
+  position: relative;
+  top: 10px;
+}
+.hackday {
+  position: relative;
+  top: -4px;
 }
