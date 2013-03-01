@@ -1,5 +1,4 @@
-class Web::ApplicationController < ApplicationController  
-  include AuthHelper
+class Web::ApplicationController < ApplicationController
   include FlashHelper
   include Web::LectorsHelper
   include CustomUrlHelpers

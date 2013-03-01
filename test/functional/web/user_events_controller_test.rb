@@ -4,7 +4,6 @@ class Web::UserEventsControllerTest < ActionController::TestCase
   setup do
     @user = create :user
     sign_in @user
-    @event = create :user_event
   end
 
   test "should get index" do
@@ -12,11 +11,4 @@ class Web::UserEventsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-
-  test "should post vote" do
-    set_http_referer
-    post :vote, user_event_id: @event.id
-    assert_response :redirect
-    assert @user.voted?(@event)
-  end
 end
