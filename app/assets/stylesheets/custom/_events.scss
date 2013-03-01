@@ -45,6 +45,9 @@
   .votings-count,
   .btn {
     color: #000;
+    &:active {
+      box-shadow: none;
+    }
   }
 }
 

@@ -78,16 +78,19 @@ td.middle {
 .right {
   text-align: right;
 }
+.btn-no-clickable {
+  cursor: default;
+}
 
 // twitter widget
-.nastachku-twitter-widget {	
-	border: 1px solid #ddd;
+.nastachku-twitter-widget {
+  border: 1px solid #ddd;
 }
 .twtr-doc {
-	border-radius: 0 !important;
+  border-radius: 0 !important;
 }
 .twtr-ft {
-	background-color: #ddd;
+  background-color: #ddd;
 }
 
 // participants table
