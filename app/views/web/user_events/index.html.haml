@@ -21,10 +21,10 @@
         .buttons-group
           -if signed_in?
             - if current_user.voted?(event)
-              .btn= t('.already_voted')
+              .btn.btn-no-clickable= t('.already_voted')
             - else
               = link_to t('.vote_this_lecture'), user_event_vote_path(event), method: :post, class: 'btn btn-shine'
-          %span.btn.votings-count
+          %span.btn.votings-count.btn-no-clickable
             = event.votings.size
             = Russian.pluralize(event.votings.size, 'голос', 'голоса', 'голосов')
     %hr
