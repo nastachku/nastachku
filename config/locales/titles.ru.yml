@@ -18,6 +18,7 @@ ru:
     user_events:
       index:
         title: "Доклады 2.0"
+
     accounts:
       edit:
        title: 'Редактирование аккаунта'

@@ -104,6 +104,9 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
+    gon (4.0.2)
+      actionpack (>= 2.3.0)
+      json
     google-analytics-rails (0.0.3)
     haml (4.0.0)
       tilt
@@ -290,6 +293,7 @@ DEPENDENCIES
   coveralls
   enumerize
   factory_girl_rails
+  gon
   google-analytics-rails
   haml-rails
   jbuilder

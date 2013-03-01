@@ -11,8 +11,6 @@ class Web::ApplicationController < ApplicationController
 
   before_filter :basic_auth if Rails.env.staging?
 
-  before_filter :basic_auth if Rails.env.staging?
-
   protect_from_forgery
 
   helper_method :title
