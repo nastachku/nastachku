@@ -55,6 +55,11 @@ abbr[title], abbr[data-original-title] {
 }
 .form-horizontal.profile-form input[type="email"],
 .form-horizontal.profile-form input[type="text"],
-.form-horizontal.profile-form input[type="password"] {
+.form-horizontal.profile-form input[type="password"],
+.form-horizontal.profile-form textarea {
   width: 300px;
+}
+.form-horizontal.profile-form textarea {
+  min-width: 300px;
+  height: 100px;
 }
