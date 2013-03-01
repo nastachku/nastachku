@@ -21,6 +21,7 @@ header .info {
   padding-top: 44px;
 }
 header .info h3 {
+
   color: $main_color;
   text-transform: uppercase;
   font-family: Arial;
@@ -29,6 +30,24 @@ header .info h3 {
 }
 header .info h3 .color {
   color: #7c7852 !important;
+}
+
+// slider
+.da-slider {
+  border-top-color: #d4724b;
+  border-bottom-color: #d4724b;
+  color: #000;
+  margin-bottom: 60px;
+}
+.da-slide {
+  p {
+    height: 160px;
+    color: #000;
+  }
+  h2 {
+    font-size: 40px;
+    color: #000;
+  }
 }
 
 // main elements
@@ -52,9 +71,6 @@ h1 {
   h1,h2,h3,h4,h6 {
     color: #333 !important;
   }
-}
-.da-slide p {
-  height: 150px;
 }
 .center {
   text-align: center !important;
