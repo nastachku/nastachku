@@ -96,7 +96,7 @@ ru:
     workshops:
       show:
         i_am_going: 'Я пойду!'
-        already_going: 'Вы уже идете на этот доклад'
+        already_going: 'Вы пойдете на этот доклад'
 
     sessions:
       form:
