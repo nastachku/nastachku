@@ -1,4 +1,4 @@
-= simple_form_for @type, url: session_path, html: { class: 'form-type-login' } do |f|
+= simple_form_for @type, url: session_path(from: params[:from]), html: { class: 'form-type-login' } do |f|
   .row
     .span6
       .formy
