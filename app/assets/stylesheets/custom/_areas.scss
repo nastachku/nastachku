@@ -7,33 +7,37 @@ $yellow: #70019d;
 $violin: #016f9d;
 $disabled: #ccc;
 
+// themes
+.themes-talk {
+  margin-bottom: 40px;
+}
 .theme-block {
-	color: #fff;
-	padding: 20px;
-	min-height: 155px;
+  color: #fff;
+  padding: 20px;
+  min-height: 155px;
 }
 .content .theme-block h4 {
-	color: #fff !important;
+  color: #fff !important;
 }
 
 .g-blue {
-	background-color: $blue;
+  background-color: $blue;
 }
 .g-red {
-	background-color: $red;
+  background-color: $red;
 }
 .g-green {
-	background-color: $green;
+  background-color: $green;
 }
 .g-orange {
-	background-color: $orange;
+  background-color: $orange;
 }
 .g-yellow {
-	background-color: $yellow;
+  background-color: $yellow;
 }
 .g-violin {
-	background-color: $violin;
+  background-color: $violin;
 }
 .g-disabled {
-	background-color: $disabled;
+  background-color: $disabled;
 }
