@@ -93,8 +93,8 @@ ru:
         vote_this_lecture: 'Голосовать за доклад'
         already_voted: 'Вы проголосовали за этот доклад'
 
-    workshops:
-      show:
+    events:
+      index:
         i_am_going: 'Я пойду!'
         already_going: 'Вы пойдете на этот доклад'
 
