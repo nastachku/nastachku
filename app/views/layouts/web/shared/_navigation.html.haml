@@ -35,4 +35,4 @@
               %b.caret
             %ul.dropdown-menu{:role => "menu", :'aria-labelledby' => "lectures_link"}
               - workshops.each do |w|
-                %li= link_to w, w
+                %li= link_to w, events_path(q: { workshop_id_eq: w.id })

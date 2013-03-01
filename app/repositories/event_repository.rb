@@ -9,5 +9,6 @@ module EventRepository
     scope :scheduled, -> { where(state: :in_schedule) }
     scope :voted, -> { where(state: :voted) }
     scope :by_votes, -> { by_votings_count }
+    scope :with_active_speaker, -> { joins(:speaker).where("users.state = ?", :active) }
   end
 end

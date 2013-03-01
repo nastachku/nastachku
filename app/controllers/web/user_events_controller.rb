@@ -3,7 +3,7 @@ class Web::UserEventsController < Web::ApplicationController
   before_filter :authenticate_user!, only: [ :vote ]
 
   def index
-    @events = UserEvent.voted.by_votes
+    @events = UserEvent.voted.with_active_speaker.by_votes
   end
 
   def vote
