@@ -10,7 +10,12 @@ Nastachku::Application.routes.draw do
   namespace :api do
     resources :companies
     resources :cities
+
     resources :user_events do
+      post :vote
+    end
+
+    resources :events do
       post :vote
     end
   end

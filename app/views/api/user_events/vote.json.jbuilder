@@ -1,1 +1,1 @@
-json.votings_count @event.votings.size
+json.votings_count @event.lecture_votings_count
