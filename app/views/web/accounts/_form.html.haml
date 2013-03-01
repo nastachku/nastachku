@@ -1,3 +1,9 @@
+%h3
+  =t(".personal_number")
+  %span.color
+    = @user.id
+%br
+
 = simple_form_for @user, :url => account_path, :html => { :class => 'form-horizontal profile-form' } do |f|
 
   .tabbable
@@ -17,20 +23,11 @@
         = f.input :photo, as: :image_preview
         = f.input :about
         = f.input :show_as_participant, :wrapper => :inline_checkbox
-
-      .control-group
-        .controls
-          = f.button :submit, :value => t('.save'), :class => 'btn btn-shine'
-
-      %br
-      %h3
-        =t(".personal_number")
-        %span.color
-          = @user.id
+      = f.button :submit, :value => t('.save'), :class => 'btn btn-shine'
 
     .tab-pane#my_events
 
-      %table.table.table-striped
+      %table.table.table-participants
         %thead
           %tr
             %th= BaseEvent.human_attribute_name(:title)
@@ -40,5 +37,5 @@
           - @user.events.each do |event|
             %tr
               %td= event.title
-              %td= l event.created_at
-              %td= event.human_state_name
+              %td.center= l event.created_at
+              %td.center= event.human_state_name
