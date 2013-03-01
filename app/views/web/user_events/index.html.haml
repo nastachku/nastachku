@@ -20,12 +20,12 @@
         %p.ainfo= event.thesises.html_safe
         .buttons-group{ data: { success: t('.already_voted') } }
           -if signed_in?
-            - if current_user.voted?(event)
+            - if current_user.voted_to_event?(event)
               .btn.btn-no-clickable= t('.already_voted')
             - else
               = link_to t('.vote_this_lecture'), api_user_event_vote_path(event), remote: true, method: :post, class: 'vote-event btn btn-shine'
           %span.btn.votings-count.btn-no-clickable
-            = event.votings.size
+            = event.lecture_votings_count
     %hr
 
 .clearfix

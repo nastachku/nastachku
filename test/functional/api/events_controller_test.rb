@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Api::UserEventsControllerTest < ActionController::TestCase
+class Api::EventsControllerTest < ActionController::TestCase
   setup do
     @user = create :user
     sign_in @user
@@ -8,8 +8,8 @@ class Api::UserEventsControllerTest < ActionController::TestCase
   end
 
   test "should post vote" do
-    post :vote, format: :json, user_event_id: @event.id
+    post :vote, format: :json, event_id: @event.id
     assert_response :success
-    assert @user.voted_to_event?(@event)
+    assert @user.going_to_event?(@event)
   end
 end

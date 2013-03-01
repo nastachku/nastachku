@@ -1,0 +1,2 @@
+class ListenerVoting < Voting
+end

@@ -1,0 +1,2 @@
+class LectureVoting < Voting
+end
