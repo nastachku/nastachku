@@ -1,3 +1,8 @@
+.span4
+  = sort_link(@search, :lecture_votings_count, t('.by_lecture_votings_count'))
+  = sort_link(@search, :created_at, t('.by_created_at'))
+.clearfix
+
 .span12
   - @events.each do |event|
     .row.workshop
