@@ -5,6 +5,8 @@ class UserEvent < BaseEvent
   validates :thesises, presence: true
 
   belongs_to :speaker, class_name: 'User'
-  has_many :listener_votings, as: :voteable
-  has_many :lecture_votings, as: :voteable
+  has_many :listener_votings, as: :voteable, extend: [Extensions::VotingExtension]
+  has_many :lecture_votings, as: :voteable, extend: [Extensions::VotingExtension]
+  has_many :listeners, through: :listener_votings, source: :user
+  has_many :voted, through: :lecture_votings, source: :user
 end

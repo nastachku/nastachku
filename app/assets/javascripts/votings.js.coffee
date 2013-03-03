@@ -6,5 +6,5 @@ $('a.vote-event[data-remote]').bind 'ajax:success', (evt, data, status, xhr) ->
 
   parent.find('a').remove()
   parent.prepend(success_block)
-  count.html(data.votings_count)
+  count.html(parseInt(count.html()) + 1)
 

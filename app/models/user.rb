@@ -75,39 +75,4 @@ class User < ActiveRecord::Base
   def password
     @real_password
   end
-
-  def vote_to_event(event)
-    vote(event, lecture_votings, :lecture_votings_count)
-  end
-
-  def go_to_event(event)
-    vote(event, listener_votings, :listener_votings_count)
-  end
-
-  def voted_to_event?(event)
-    voted?(lecture_votings, event)
-  end
-
-  def going_to_event?(event)
-    voted?(listener_votings, event)
-  end
-
-  private
-  def vote(voteable, association, counter)
-    voting = association.where(voteable_id: voteable.id).try(:first)
-    if voting
-      raise "Your should have already voted! Class: #{voteable.class.name}"
-    end
-    voting = association.build(voteable: voteable)
-    voteable.update_attribute(counter, voteable.send(counter) + 1)
-    User.transaction do
-      voting.save
-      voteable.save
-    end
-  end
-
-  def voted?(association, voteable)
-    voting_count = association.where(voteable_id: voteable.id).try(:count)
-    voting_count > 0
-  end
 end
