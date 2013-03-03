@@ -37,6 +37,7 @@ gem 'enumerize'
 gem 'rack-rewrite'
 gem 'cocoon'
 gem 'gon'
+gem 'redcarpet'
 
 # Gems used only for assets and not required
 # in production environments by default.

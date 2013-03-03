@@ -9,7 +9,7 @@
             .meta
               %i.icon-calendar
               = l news.created_at
-            %p= raw news.body
+            %p= raw markdown news.body
 
   .span4
     = render "web/news/facebook_widget"
