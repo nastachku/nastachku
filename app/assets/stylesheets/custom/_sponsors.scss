@@ -70,7 +70,6 @@
   .item {
     margin-bottom: 25px;
     position: relative;
-    height: 66px;
     sup {
       position: absolute;
       top: 0;
@@ -84,7 +83,7 @@
   width: 14px;
   height: 14px;
   background-repeat: no-repeat;
-  background-image: url(/assets/stars.jpg);
+  background-image: url(/assets/stars.png);
 }
 .sponsor-star.argentum {
   background-position: 0 0;
@@ -92,9 +91,22 @@
 .sponsor-star.gold {
   background-position: 0 -14px;
 }
-.legend .sponsor-star {
-  position: relative;
-  top: 2px;
+.sponsor-star.red {
+  background-position: 0 -28px;
+}
+.sponsor-star.violin {
+  background-position: 0 -42px;
+}
+.sponsor-star.green {
+  background-position: 0 -56px;
+}
+.legend {
+  font-size: 12px;
+  line-height: 18px;
+  .sponsor-star {
+    position: relative;
+    top: 3px;
+  }
 }
 
 // custom logo position
@@ -109,4 +121,10 @@
 .hackday {
   position: relative;
   top: -4px;
+}
+.itmozg sup {
+  right: 90px !important;
+}
+.superjob sup {
+  right: 30px !important;
 }
