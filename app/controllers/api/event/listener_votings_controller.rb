@@ -1,4 +1,4 @@
-class Api::ListenerVotingsController < Api::ApplicationController
+class Api::Event::ListenerVotingsController < Api::ApplicationController
   def create
     @event = UserEvent.find params[:event_id]
     @event.listener_votings.vote_by current_user

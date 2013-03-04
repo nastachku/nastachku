@@ -10,8 +10,19 @@ Nastachku::Application.routes.draw do
   namespace :api do
     resources :companies
     resources :cities
-    resources :listener_votings, only: [:create]
-    resources :lecture_votings, only: [:create]
+    resources :events do
+      scope module: :event do
+        resources :listener_votings, only: [:create]
+      end
+    end
+
+    resources :user_events do
+      scope module: :user_event do
+        resources :lecture_votings, only: [:create]
+      end
+    end
+    #resources :listener_votings, only: [:create]
+    #resources :lecture_votings, only: [:create]
   end
 
   scope :module => :web do
@@ -26,9 +37,7 @@ Nastachku::Application.routes.draw do
     resource :session, only: [:new, :create, :destroy]
     resources :news, only: [:index]
     resource :remind_password, only: [:new, :create]
-    resources :user_events, only: [:index] do
-      post :vote
-    end
+    resources :user_events, only: [:index]
 
     resource :account, only: [:edit, :update] do
       scope :module => :account do

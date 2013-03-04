@@ -1,4 +1,4 @@
-module Web::CustomUrlHelpers
+module CustomUrlHelpers
 
   def edit_admin_event_cpath(event)
     case event

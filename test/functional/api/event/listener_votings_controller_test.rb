@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Api::ListenerVotingsControllerTest < ActionController::TestCase
+class Api::Event::ListenerVotingsControllerTest < ActionController::TestCase
   setup do
     @user = create :user
     sign_in @user

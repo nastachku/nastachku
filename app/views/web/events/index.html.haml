@@ -26,7 +26,7 @@
             - if event.listener_votings.voted_by?(current_user)
               .btn.btn-no-clickable= t('.already_going')
             - else
-              = link_to t('.i_am_going'), api_listener_votings_path(event_id: event), remote: true,  method: :post, class: 'vote-event btn btn-shine'
+              = link_to t('.i_am_going'), api_event_listener_votings_path(event), remote: true,  method: :post, class: 'vote-event btn btn-shine'
           %span.btn.votings-count
             = event.listener_votings.size
     %hr
