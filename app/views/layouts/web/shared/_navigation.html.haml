@@ -12,6 +12,8 @@
 
           %li{ class: "#{'active' if current_page?(users_path)}" }
             = navbar_link t(".participants"), users_path, with: User.activated.count
+          %li{ class: "#{'active' if current_page?(schedule_path)}" }
+            = link_to t(".schedule"), schedule_path
           / %li= link_to t(".news"), news_index_path
           / %li= link_to t('.lectors'), lectors_path
           %li.dropdown{ class: "#{'active' if current_page?(lectors_path)}" }

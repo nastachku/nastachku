@@ -17,6 +17,7 @@ ru:
           news: "Пресс-центр"
           lectors: 'Докладчики'
           afterpaty: "Афтепати"
+          schedule: 'Расписание'
         navbar:
           logout: 'Выйти'
           login: 'Войти'

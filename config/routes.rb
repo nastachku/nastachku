@@ -18,6 +18,8 @@ Nastachku::Application.routes.draw do
       get :activate
     end
 
+    resource :schedule, only: [:show]
+
     resources :pages, only: [:show]
     resource :session, only: [:new, :create, :destroy]
     resources :news, only: [:index]
