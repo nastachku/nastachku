@@ -10,19 +10,13 @@ Nastachku::Application.routes.draw do
   namespace :api do
     resources :companies
     resources :cities
-    resources :events do
-      scope module: :events do
-        resources :listener_votings, only: [:create]
-      end
-    end
 
     resources :user_events do
       scope module: :user_events do
         resources :lecture_votings, only: [:create]
+        resources :listener_votings, only: [:create]
       end
     end
-    #resources :listener_votings, only: [:create]
-    #resources :lecture_votings, only: [:create]
   end
 
   scope :module => :web do

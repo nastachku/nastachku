@@ -1,1 +1,1 @@
-json.(@event, :lecture_votings_count)
+json.(resource_user_event, :lecture_votings_count)
