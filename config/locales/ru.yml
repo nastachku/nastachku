@@ -155,6 +155,7 @@ ru:
           first_name: 'Имя'
           last_name: 'Фамилия'
           email: 'Email'
+          city: 'Город'
           state: 'Состояние'
 
         edit:
