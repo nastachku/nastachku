@@ -77,6 +77,10 @@
   line-height: 28px !important;
   padding-right: 0 !important;
 }
+.navbar-position-top .navbar-inner > .container {
+  width: auto !important;
+  max-width: 940px;
+}
 .navbar-position-top .navbar-inner li {
   height: 100%;
 }
