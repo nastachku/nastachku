@@ -64,6 +64,9 @@
 .info-sponsors-third-line {
   height: 54px;
 }
+.info-sponsors-4th-line {
+  height: 67px;
+}
 
 // star sponsors
 .star-sponsors {
@@ -122,9 +125,11 @@
   position: relative;
   top: -4px;
 }
-.itmozg sup {
-  right: 90px !important;
+.ulpeople {
+  position: relative;
+  top: 9px;
 }
-.superjob sup {
-  right: 30px !important;
+.rubyflow {
+  position: relative;
+  top: -12px;
 }
