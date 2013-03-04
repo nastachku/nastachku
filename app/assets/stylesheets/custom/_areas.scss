@@ -19,6 +19,7 @@ $disabled: #ccc;
   margin-bottom: 40px;
   .row {
     margin-bottom: 20px;
+    overflow: hidden;
     &:last-child {
       margin-bottom: 0;
     }
@@ -27,8 +28,12 @@ $disabled: #ccc;
     color: #fff;
     padding: 20px;
     min-height: 160px;
+    padding-bottom: 10020px;
+    margin-bottom: -10000px;
     h4 {
       color: #fff !important;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 }
