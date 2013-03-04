@@ -94,7 +94,7 @@ ru:
         already_voted: 'Вы проголосовали за этот доклад'
         by_lecture_votings_count: 'По количеству голосов'
         by_created_at: 'По дате добавления'
-
+        sort_by: 'Сортировать'
     events:
       index:
         i_am_going: 'Я пойду!'
