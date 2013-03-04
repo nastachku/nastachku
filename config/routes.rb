@@ -11,13 +11,13 @@ Nastachku::Application.routes.draw do
     resources :companies
     resources :cities
     resources :events do
-      scope module: :event do
+      scope module: :events do
         resources :listener_votings, only: [:create]
       end
     end
 
     resources :user_events do
-      scope module: :user_event do
+      scope module: :user_events do
         resources :lecture_votings, only: [:create]
       end
     end
