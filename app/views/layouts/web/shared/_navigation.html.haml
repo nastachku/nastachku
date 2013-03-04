@@ -1,11 +1,11 @@
 .container.no-padding
   .navbar
-    .navbar-inner
+    .navbar-inner.no-padding
       %a.btn.btn-navbar{ class: "btn btn-navbar",  :'data-toggle' => "collapse",  :'data-target' => ".nav-collapse" }
         %span Menu
 
       .nav-collapse.collapse
-        %ul.nav.no-padding{ role: "navigation" }
+        %ul.nav.no-padding.main-menu{ role: "navigation" }
           
           - unless signed_in?
             %li= link_to t(".i_will_go"), new_user_path
@@ -14,7 +14,7 @@
             = navbar_link t(".participants"), users_path, with: User.activated.count
           / %li= link_to t(".news"), news_index_path
           / %li= link_to t('.lectors'), lectors_path
-          %li{ class: "#{'active' if current_page?(lectors_path)}" }
+          %li.dropdown{ class: "#{'active' if current_page?(lectors_path)}" }
             %a#lectors_link.dropdown-toggle{ href: "#", :"data-toggle" => "dropdown", role: "button" }
               = t(".lectors")
               %b.caret
