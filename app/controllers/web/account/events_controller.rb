@@ -11,6 +11,7 @@ class Web::Account::EventsController < Web::Account::ApplicationController
       flash_success
       redirect_to root_path
     else
+      flash_error
       render :new
     end
   end

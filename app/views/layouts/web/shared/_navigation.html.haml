@@ -7,7 +7,8 @@
       .nav-collapse.collapse
         %ul.nav.no-padding.main-menu{ role: "navigation" }
           - unless signed_in?
-            %li= link_to t(".i_will_go"), new_user_path
+            %li{ class: "#{'active' if current_page?(new_user_path)}" }
+              = link_to t(".i_will_go"), new_user_path
 
           %li{ class: "#{'active' if current_page?(users_path)}" }
             = navbar_link t(".participants"), users_path, with: User.activated.count
