@@ -31,10 +31,10 @@
           / %li= link_to t(".afterpaty"), page_path(:afterpaty)
           %li{ class: "#{'active' if current_page?(user_events_path)}" }
             = link_to t('.lectures_20'), user_events_path
-          %li.dropdown{ class: "#{'active' if current_page?(events_path)}" }
-            %a#lectures_link.dropdown-toggle{:href => "#", :"data-toggle" => "dropdown", :role => "button"}
-              = t(".lectures")
-              %b.caret
-            %ul.dropdown-menu{:role => "menu", :'aria-labelledby' => "lectures_link"}
-              - workshops.each do |w|
-                %li= link_to w, events_path(q: { workshop_id_eq: w.id })
+          -#%li.dropdown{ class: "#{'active' if current_page?(events_path)}" }
+          -#  %a#lectures_link.dropdown-toggle{:href => "#", :"data-toggle" => "dropdown", :role => "button"}
+          -#    = t(".lectures")
+          -#    %b.caret
+          -#  %ul.dropdown-menu{:role => "menu", :'aria-labelledby' => "lectures_link"}
+          -#    - workshops.each do |w|
+          -#      %li= link_to w, events_path(q: { workshop_id_eq: w.id })
