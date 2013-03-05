@@ -27,5 +27,5 @@
           %li{ class: "#{'active' if current_page?(page_path(:routes))}" }
             = link_to t(".routes"), page_path(:routes)
           %li{ class: "#{'active' if current_page?(page_path(:contacts))}" }
-            = link_to t(".contacts"), page_path(:contacts)
+            = link_to_unless_current t(".contacts"), page_path(:contacts)
           / %li= link_to t(".afterpaty"), page_path(:afterpaty)

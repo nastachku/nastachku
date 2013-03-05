@@ -12,6 +12,7 @@ require 'rails/test_help'
 
 class ActiveSupport::TestCase
   include AuthHelper
+  include SocNetworkHelper
 
   require 'factory_girl_rails'
   include FactoryGirl::Syntax::Methods

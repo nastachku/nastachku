@@ -12,6 +12,11 @@ class Web::UsersController < Web::ApplicationController
 
   def new
     @user = UserRegistrationType.new
+
+    if registration_by_soc_network?
+      @user = UserPopulator.via_facebook(@user, session_auth_hash)
+    end
+
   end
 
   def activate
@@ -31,9 +36,14 @@ class Web::UsersController < Web::ApplicationController
     @user = UserRegistrationType.new(params[:user])
 
     if @user.save
+      
+      if registration_by_soc_network?
+        @user.authorizations << build_authorization(session_auth_hash)
+        clear_session_auth_hash
+      end
+
       token = @user.create_auth_token
       UserMailer.confirm_registration(@user, token).deliver
-      #sign_in @user
       flash_success
       redirect_to new_session_path
     else

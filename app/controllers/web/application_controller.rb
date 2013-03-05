@@ -2,6 +2,7 @@ class Web::ApplicationController < ApplicationController
   include AuthHelper
   include FlashHelper
   include Web::LectorsHelper
+  include SocNetworkHelper
 
   before_filter :basic_auth if Rails.env.staging?
 
