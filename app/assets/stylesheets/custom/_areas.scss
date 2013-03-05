@@ -127,6 +127,7 @@ $max_speech_time : 240; // The longest speech time
     font-size: 12px;
     font-family: Arial;
     line-height: 18px;
+    overflow: hidden;
     .caption {
       overflow: hidden;
       text-overflow: ellipsis;
