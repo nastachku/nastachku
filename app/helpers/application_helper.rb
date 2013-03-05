@@ -1,5 +1,6 @@
 module ApplicationHelper
   include AuthHelper
+  include CustomUrlHelper
 
   def navbar_link(label, path, options = {})
     patch = options[:with]
