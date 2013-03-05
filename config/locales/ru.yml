@@ -93,7 +93,7 @@ ru:
       index:
         title: 'Доклады 2.0'
         vote_this_lecture: 'Голосовать за доклад'
-        already_voted: 'Вы проголосовали за этот доклад'
+        already_voted: 'Вы проголосовали'
         by_lecture_votings_count: 'По количеству голосов'
         by_created_at: 'По дате добавления'
         sort_by: 'Сортировать'
