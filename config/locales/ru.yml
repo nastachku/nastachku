@@ -19,6 +19,8 @@ ru:
           lectures: 'Доклады'
           speakers: "Докладчики"
           lectures_20: 'Доклады 2.0'
+          afterpaty: "Афтепати"
+          schedule: 'Расписание'
         navbar:
           logout: 'Выйти'
           login: 'Войти'

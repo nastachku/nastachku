@@ -27,6 +27,8 @@ Nastachku::Application.routes.draw do
 
     #resources :events, only: [ :index ]
 
+    resource :schedule, only: [:show]
+
     resources :pages, only: [:show]
     resource :session, only: [:new, :create, :destroy]
     resources :news, only: [:index]
