@@ -138,6 +138,17 @@ $max_speech_time : 240; // The longest speech time
       font-weight: bold;
       text-align: right;
     }
+    &.break {
+      background-color: #eee;
+      border: 1px solid #ccc;
+    }
+    &.full-event {
+      width: $tp_width + px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      text-align: center;
+      font-size: 18px;
+    }
   }
 }
 
@@ -175,6 +186,9 @@ $colors: $blue $red $green $orange $yellow $violin;
 @for $i from $min_speech_time through $max_speech_time {
   .event.long-#{$i} {
     height: $b_height * $i / 15 + 1;
-    $i : $i + 15;
   }
+  .event.full-event.long-#{$i} {
+    line-height: $b_height * $i / 15 - 11;
+  }
+  $i : $i + 15;
 }
