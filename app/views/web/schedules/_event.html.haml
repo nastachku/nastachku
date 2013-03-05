@@ -1,0 +1,7 @@
+- if locals[:event].type == 'UserEvent'
+  .event{ class: "area-#{locals[:index]} section-#{locals[:event].workshop.id} start-#{locals[:event].start_hour} offset-#{locals[:event].start_offset} long-#{locals[:event].duration}" }
+    .caption= locals[:event].title
+    .author= locals[:event].speaker.full_name
+- else
+  .event{ class: "area-#{locals[:index]} start-#{locals[:event].start_hour} long-#{locals[:event].duration} break" }
+    .caption= locals[:event].title

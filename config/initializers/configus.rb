@@ -7,6 +7,11 @@ Configus.build Rails.env do
       audits_per_page 20
     end
 
+    schedule do
+      first_day Time.utc(2013, 4, 12)
+      second_day Time.utc(2013, 4, 13)
+    end
+
     mailer do
       default_host "nastachku.ru"
       default_from "noreply@nastachku.ru"

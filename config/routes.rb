@@ -25,7 +25,7 @@ Nastachku::Application.routes.draw do
     end
     resources :users, only: [:new, :create, :index]
 
-    #resources :events, only: [ :index ]
+    resources :events, only: [ :index ]
 
     resource :schedule, only: [:show]
 

@@ -4,7 +4,7 @@ module HallRepository
   include UsefullScopes
 
   included do
-    scope :web, -> { by_created_at }
+    scope :web, -> { asc_by_created_at }
   end
 
 end
