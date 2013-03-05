@@ -43,6 +43,6 @@ class BaseEvent < ActiveRecord::Base
   end
 
   def duration
-    duration = (finish_time - start_time).to_int / 60
+    (finish_time - start_time).to_int / 60
   end
 end

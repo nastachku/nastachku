@@ -1,7 +1,8 @@
 class Web::UserEventsController < Web::ApplicationController
 
   def index
-    @search = UserEvent.ransack(params[:q])
+    conditions = params[:q]  || { s: %w[ created_at asc ] }
+    @search = UserEvent.ransack conditions
     @events = @search.result.voted.with_active_speaker.by_created_at
   end
 end
