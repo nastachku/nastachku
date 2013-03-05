@@ -1,4 +1,4 @@
-class Web::SocialNetworkController < Web::ApplicationController
+class Web::SocialNetworksController < Web::ApplicationController
 
   def authorization
     authorization = Authorization.find_by_provider_and_uid(auth_hash[:provider], auth_hash[:uid])
