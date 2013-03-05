@@ -1,6 +1,6 @@
 %h1 Пресс-центр
 .row
-  .span4
+  .span.press
     %h4 Что нового?
     .blog
       .posts
@@ -11,7 +11,7 @@
               = l news.created_at
             %p= raw markdown news.body
 
-  .span4
+  .span4.social-widget
     = render "web/news/facebook_widget"
-  .span4
+  .span4.social-widget
     = render "web/news/twitter_widget"
