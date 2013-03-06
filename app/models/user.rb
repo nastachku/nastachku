@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
                   :first_name, :last_name, :city,
                   :company, :position,
                   :show_as_participant,
-                  :photo, :state_event, :about, :carousel_info, :events_attributes
+                  :photo, :state_event, :about, :carousel_info, :in_carousel, :events_attributes
 
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 

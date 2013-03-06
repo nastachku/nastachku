@@ -14,7 +14,10 @@
                   = lector.company
               %br/
               %br/
-              = lector.carousel_info
+              - if lector.carousel_info.blank?
+                = lector.about
+              - else
+                = lector.carousel_info
             .da-img
               - if lector.photo.url
                 = image_tag(lector.photo.url)

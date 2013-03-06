@@ -16,6 +16,8 @@ module UserRepository
 
     scope :alphabetically, -> { order("last_name ASC") }
 
+    scope :in_carousel, -> { where in_carousel: :true }
+
 
     def self.companies_by_term(company = nil)
       if company
