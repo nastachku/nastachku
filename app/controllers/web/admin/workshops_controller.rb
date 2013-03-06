@@ -1,7 +1,7 @@
 class Web::Admin::WorkshopsController < Web::Admin::ApplicationController
   
   def index
-    @workshops = Workshop.all
+    @workshops = Workshop.web
   end
 
   def new
@@ -10,6 +10,7 @@ class Web::Admin::WorkshopsController < Web::Admin::ApplicationController
 
   def create 
     @workshop = WorkshopEditType.new params[:workshop]
+    @workshop.changed_by = current_user
     if @workshop.save
       flash_success
       redirect_to admin_workshops_path
@@ -25,6 +26,7 @@ class Web::Admin::WorkshopsController < Web::Admin::ApplicationController
 
   def update
     @workshop = WorkshopEditType.find params[:id]
+    @workshop.changed_by = current_user
     if @workshop.update_attributes params[:workshop]
       flash_success
       redirect_to admin_workshops_path

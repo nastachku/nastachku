@@ -13,6 +13,7 @@ class Web::Admin::HallsController < Web::Admin::ApplicationController
 
   def create  
     @hall = Hall.new params[:hall]
+    @hall.changed_by = current_user
     if @hall.save
       flash_success
       redirect_to admin_halls_path
@@ -24,6 +25,7 @@ class Web::Admin::HallsController < Web::Admin::ApplicationController
 
   def update 
     @hall = Hall.find params[:id]
+    @hall.changed_by = current_user
     if @hall.update_attributes params[:hall]
       flash_success
       redirect_to admin_halls_path

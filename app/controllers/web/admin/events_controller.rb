@@ -10,7 +10,7 @@ class Web::Admin::EventsController < Web::Admin::ApplicationController
 
   def create
     @event = ::Admin::EventEditType.new params[:user_event]
-
+    @event.changed_by = current_user
     if @event.save
       flash_success
       redirect_to admin_events_path
@@ -28,6 +28,7 @@ class Web::Admin::EventsController < Web::Admin::ApplicationController
   def update
     user_event = UserEvent.find params[:id]
     @event = user_event.becomes(::Admin::EventEditType)
+    @event.changed_by = current_user
     if @event.update_attributes params[:user_event]
       flash_success
       redirect_to admin_events_path
