@@ -11,12 +11,9 @@
   text-decoration: none;
 }
 
-<<<<<<< HEAD
-=======
 .btn {
   background-color: #dfdfdf !important;
 }
->>>>>>> release/v11
 // Login form
 .form-type-login input[type="email"],
 .form-type-login input[type="text"],
@@ -31,17 +28,11 @@
   padding-left: 0;
   padding-right: 0;
 }
-<<<<<<< HEAD
-input[type="submit"].btn-shine {
-  color: #fff;
-  background-color: #7c7852;
-=======
 input[type="submit"].btn-shine,
 .btn.btn-shine,
 a.btn-shine {
   color: #fff !important;
   background-color: #7c7852 !important;
->>>>>>> release/v11
 }
 .formy .help-inline {
   font-size: 12px;
@@ -64,11 +55,6 @@ abbr[title], abbr[data-original-title] {
 }
 .form-horizontal.profile-form input[type="email"],
 .form-horizontal.profile-form input[type="text"],
-<<<<<<< HEAD
-.form-horizontal.profile-form input[type="password"] {
-  width: 300px;
-}
-=======
 .form-horizontal.profile-form input[type="password"],
 .form-horizontal.profile-form textarea {
   width: 300px;
@@ -97,4 +83,3 @@ abbr[title], abbr[data-original-title] {
     height: 36px !important;
   }
 }
->>>>>>> release/v11

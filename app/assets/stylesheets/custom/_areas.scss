@@ -7,46 +7,6 @@ $yellow: #70019d;
 $violin: #016f9d;
 $disabled: #ccc;
 
-<<<<<<< HEAD
-.themes-talk {
-	.row {
-		margin-bottom: 20px;
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
-	.theme-block {
-		color: #fff;
-		padding: 20px;
-		min-height: 160px;
-		h4 {
-			color: #fff !important;		
-		}
-	}
-}
-
-.g-blue {
-	background-color: $blue;
-}
-.g-red {
-	background-color: $red;
-}
-.g-green {
-	background-color: $green;
-}
-.g-orange {
-	background-color: $orange;
-}
-.g-yellow {
-	background-color: $yellow;
-}
-.g-violin {
-	background-color: $violin;
-}
-.g-disabled {
-	background-color: $disabled;
-}
-=======
 // themes
 @mixin box-sizing($bs) {
   $bs: unquote($bs);
@@ -237,4 +197,3 @@ $colors: $blue $red $green $orange $yellow $violin;
   }
   $i : $i + 15;
 }
->>>>>>> release/v11
