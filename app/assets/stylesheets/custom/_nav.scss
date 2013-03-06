@@ -21,6 +21,16 @@
   background: none !important;
   text-decoration: underline;
 }
+.navbar .nav > li.active {
+  a {
+    color: #7c7852 !important;
+    background: none !important;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
 .navbar .nav.main-menu {
   margin-right: 0 !important;
   width: 100%;
@@ -81,6 +91,9 @@
 .navbar-position-top .nav > li:last-child > a {
   margin-right: 0;
 }
+.social-public-links {
+  margin-right: 60px;
+}
 .social-public-links ul {
   list-style: none;
   margin: 0;
@@ -91,6 +104,13 @@
 }
 .social-public-links li a i {
   font-size: 18px !important;
+}
+.navbar .nav > li > a.add_lecture,
+.navbar .nav > li > a.add_lecture:hover {
+  color: #fff !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  background-color: #7c7852 !important;
 }
 
 // dropdown menu

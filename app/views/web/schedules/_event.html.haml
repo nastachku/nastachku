@@ -1,0 +1,7 @@
+- if event.type.eql? 'UserEvent'
+  .event{ class: "area-#{index} section-#{event.workshop_id} start-#{event.start_hour} offset-#{event.start_offset} long-#{event.duration}" }
+    .caption= event.title
+    .author= event.speaker.full_name
+- else
+  .event{ class: "area-#{index} start-#{event.start_hour} long-#{event.duration} break" }
+    .caption= event.title

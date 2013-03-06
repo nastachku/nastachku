@@ -15,6 +15,12 @@ ru:
         title: 'Вход'
       create:
         title: 'Вход'
+    user_events:
+      index:
+        title: "Доклады 2.0"
+    schedules:
+      show:
+        title: "Расписание"
 
     accounts:
       edit:

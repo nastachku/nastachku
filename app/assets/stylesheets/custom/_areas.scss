@@ -7,6 +7,14 @@ $yellow: #70019d;
 $violin: #016f9d;
 $disabled: #ccc;
 
+// themes
+@mixin box-sizing($bs) {
+  $bs: unquote($bs);
+  -moz-box-sizing: $bs;
+  -webkit-box-sizing: $bs;
+  box-sizing: $bs;
+}
+
 .themes-talk {
   margin-bottom: 40px;
   .row {
@@ -45,4 +53,142 @@ $disabled: #ccc;
 }
 .g-disabled {
   background-color: $disabled;
+}
+
+// Timetable
+
+$tt_width : 940; // total table width
+$tl_width : 40; // timeline column width
+$tp_width : $tt_width - $tl_width; // timepad column width
+
+$areas_count : 6; // Number of rooms
+$area_width : $tp_width / $areas_count;
+
+$b_height : 30px; // height of 15-minutes block
+$td_color : #ccc; // Time delimiters color
+$hour_start : 10; // Event begin at
+$hour_end : 20; // Event till this time
+
+$min_speech_time : 30; // The shortest speech time
+$max_speech_time : 240; // The longest speech time
+
+.awesome-timetable {
+  width: 940px;
+  padding: 30px 0;
+
+  .area {
+    float: left;
+    height: $b_height;
+    width: $area_width + px;
+    text-align: center;
+  }
+
+  .timeline {
+    float: left;
+    width: $tl_width - 4 +px;
+    padding-right: 4px;
+    font-size: 12px;
+    .b-quart {
+      text-align: right;
+      position: relative;
+      z-index: 0;
+      .lined {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        height: 1px;
+        width: $tt_width+px;
+        font-size: 0;
+        background-color: $td_color;
+      }
+    }
+  }
+
+  .timepad {
+    width: $tp_width+px;
+    margin-left: $tl_width+px;
+    position: relative;
+  }
+
+  .b-quart {
+    height: $b_height;
+  }
+
+  .event {
+    width: $area_width + px;
+    height: $b_height;
+    background-color: #ccc;
+    position: absolute;
+    top: 0;
+    color: #333;
+    @include box-sizing(border-box);
+    padding: 6px;
+    font-size: 12px;
+    font-family: Arial;
+    line-height: 18px;
+    overflow: hidden;
+    .caption {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .author {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: bold;
+      text-align: right;
+    }
+    &.break {
+      background-color: #eee;
+      border: 1px solid #ccc;
+    }
+    &.full-event {
+      width: $tp_width + px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      text-align: center;
+      font-size: 18px;
+    }
+  }
+}
+
+// Areas coordinates
+$colors: $blue $red $green $orange $yellow $violin;
+
+@for $i from 1 through $areas_count {
+  .event.area-#{$i} {
+    left: $area_width * $i - $area_width + px;
+  }
+}
+
+// Areas sections
+@for $i from 1 through $areas_count {
+  .event.section-#{$i} {
+    background-color: desaturate(lighten(nth($colors, $i), 50), 50);
+    border: 1px solid nth($colors, $i);
+  }
+}
+
+// Events start hour time
+@for $i from $hour_start through $hour_end {
+  .event.start-#{$i} {
+    top: $b_height * 4 * ($i - $hour_start);
+  }
+}
+@for $i from 15 through 45 {
+  .event.offset-#{$i} {
+    margin-top: $b_height * $i / 15;
+    $i : $i + 15;
+  }
+}
+
+// Events continuance
+@for $i from $min_speech_time through $max_speech_time {
+  .event.long-#{$i} {
+    height: $b_height * $i / 15 + 1;
+  }
+  .event.full-event.long-#{$i} {
+    line-height: $b_height * $i / 15 - 11;
+  }
+  $i : $i + 15;
 }

@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
                   :first_name, :last_name, :city,
                   :company, :position,
                   :show_as_participant,
-                  :photo, :state_event, :about, :carousel_info
+                  :photo, :state_event, :about, :carousel_info, :events_attributes
 
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
@@ -20,6 +20,11 @@ class User < ActiveRecord::Base
   validates :position, length: { maximum: 255 }
 
   enumerize :role, in: [ :lector, :user ], default: :user
+  has_many :events, class_name: 'UserEvent', foreign_key: 'speaker_id', dependent: :destroy
+  has_many :lecture_votings
+  has_many :listener_votings
+
+  accepts_nested_attributes_for :events, :reject_if => :all_blank, :allow_destroy => true
 
   mount_uploader :photo, UsersPhotoUploader 
 
@@ -71,5 +76,4 @@ class User < ActiveRecord::Base
   def password
     @real_password
   end
-
 end

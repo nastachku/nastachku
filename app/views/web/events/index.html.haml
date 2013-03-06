@@ -1,0 +1,32 @@
+%h1= @workshop
+
+.span12.workshop
+  - @events.each do |event|
+    .row
+      .span6
+        .col-l
+          .pic
+            - if event.speaker.photo.url
+              = image_tag(event.speaker.photo.url)
+        .col-r
+          .sinfo
+            %h5= event.speaker.full_name
+            %h6
+              %strong= event.speaker.company
+            -#%h6.grey= event.speaker.about
+            -#.social
+            -#  %a.tip{"data-original-title" => "Facebook", :href => "#"}
+            -#    %i.icon-facebook.facebook
+        .clearfix
+      .span6
+        %h4= event.title
+        %p.ainfo= event.thesises.html_safe
+        .buttons-group{ data: { success: t('.already_going') } }
+          - if signed_in?
+            - if event.listener_votings.voted_by?(current_user)
+              .btn.btn-no-clickable= t('.already_going')
+            - else
+              = link_to t('.i_am_going'), api_user_event_listener_votings_path(event), remote: true,  method: :post, class: 'vote-event btn btn-shine'
+          %span.btn.votings-count
+            = event.listener_votings.size
+    %hr

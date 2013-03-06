@@ -32,6 +32,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
 
   def edit
     @user = ::Admin::UserEditType.find params[:id]
+    gon.user_events_count = @user.events.count
   end
 
   def update
@@ -43,13 +44,14 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
       redirect_to edit_admin_user_path(@user)
     else
       flash_error
+      gon.user_events_count = @user.events.count
       render :edit
     end
   end
 
    def destroy
      @user = User.find params[:id]
-     @user.delete
+     @user.destroy
      redirect_to admin_users_path
    end
 

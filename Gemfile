@@ -35,6 +35,8 @@ gem 'chosen-rails'
 gem 'auditable', :github => 'harleyttd/auditable'
 gem 'enumerize'
 gem 'rack-rewrite'
+gem 'cocoon'
+gem 'gon'
 gem 'redcarpet'
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -67,5 +69,7 @@ group :development do
   gem 'capistrano'
   gem 'rvm-capistrano'
   gem 'capistrano-ext'
+  gem 'capistrano_colors'
+  gem 'capi'
   gem 'capistrano-unicorn', require: false
 end

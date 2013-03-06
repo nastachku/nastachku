@@ -21,7 +21,6 @@ header .info {
   padding-top: 44px;
 }
 header .info h3 {
-
   color: $main_color;
   text-transform: uppercase;
   font-family: Arial;
@@ -93,6 +92,9 @@ td.middle {
 }
 .right {
   text-align: right;
+}
+.btn-no-clickable {
+  cursor: default;
 }
 
 // twitter widget

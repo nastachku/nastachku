@@ -1,6 +1,9 @@
 require 'test_helper'
 
 class Web::UsersControllerTest < ActionController::TestCase
+  setup do
+    create :user
+  end
 
   test "should get index" do
     get :index

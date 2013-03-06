@@ -48,6 +48,8 @@ GEM
       thor (>= 0.15.4, < 2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    capi (0.1.1)
+      capistrano
     capistrano (2.14.2)
       highline
       net-scp (>= 1.0.0)
@@ -58,6 +60,7 @@ GEM
       capistrano (>= 1.0.0)
     capistrano-unicorn (0.1.6)
       capistrano
+    capistrano_colors (0.5.5)
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -72,6 +75,7 @@ GEM
     ckeditor (4.0.2)
       mime-types
       orm_adapter
+    cocoon (1.1.2)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -102,6 +106,9 @@ GEM
       railties (>= 3.0.0)
     faraday (0.8.5)
       multipart-post (~> 1.1)
+    gon (4.0.2)
+      actionpack (>= 2.3.0)
+      json
     google-analytics-rails (0.0.3)
     haml (4.0.0)
       tilt
@@ -209,7 +216,7 @@ GEM
       actionpack (~> 3.0)
       activerecord (~> 3.0)
       polyamorous (~> 0.5.0)
-    rdoc (3.12.1)
+    rdoc (3.12.2)
       json (~> 1.4)
     redcarpet (2.2.2)
     ref (1.0.2)
@@ -219,7 +226,7 @@ GEM
       i18n (>= 0.5.0)
     rvm-capistrano (1.2.7)
       capistrano (>= 2.0.0)
-    sass (3.2.5)
+    sass (3.2.6)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -293,18 +300,22 @@ DEPENDENCIES
   auditable!
   backup
   bcrypt-ruby (~> 3.0.0)
+  capi
   capistrano
   capistrano-ext
   capistrano-unicorn
+  capistrano_colors
   carrierwave
   chosen-rails
   ci_reporter
   ckeditor
+  cocoon
   coffee-rails (~> 3.2.1)
   configus
   coveralls
   enumerize
   factory_girl_rails
+  gon
   google-analytics-rails
   haml-rails
   jbuilder

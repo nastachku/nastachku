@@ -1,8 +1,12 @@
-class Web::ApplicationController < ApplicationController  
-  include AuthHelper
+class Web::ApplicationController < ApplicationController
   include FlashHelper
   include Web::LectorsHelper
+  include CustomUrlHelpers
   include SocNetworkHelper
+  include Web::WorkshopsHelper
+
+  #helper :all
+  helper_method :edit_admin_event_cpath, :workshops
 
   before_filter :basic_auth if Rails.env.staging?
 
