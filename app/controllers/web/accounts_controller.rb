@@ -3,11 +3,11 @@ class Web::AccountsController < Web::ApplicationController
   before_filter :authenticate_user!
 
   def edit
-    @user = current_user.becomes(AccountEditType)    
+    @user = AccountEditType.find current_user    
   end
 
   def update
-    @user = current_user.becomes(AccountEditType)
+    @user = AccountEditType.find current_user
 
     if @user.update_attributes params[:user]
       flash_success
