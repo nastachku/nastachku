@@ -1,6 +1,10 @@
 ru:
   personal_data: "Личные данные"
-  
+
+  errors:
+    messages:
+      extension_white_list_error: 'Неверный формат!'
+
   time:
     formats:
       default: "%d-%m-%Y %H:%M"
