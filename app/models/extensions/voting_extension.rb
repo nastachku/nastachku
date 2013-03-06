@@ -7,9 +7,9 @@ module Extensions
     end
 
     def vote_by(user)
-      raise "Your should have already voted!" if voted_by? user
+      return false if voted_by? user
       voting = proxy_association.build(user: user)
-      voting.save!
+      voting.save
     end
   end
 end
