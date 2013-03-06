@@ -137,4 +137,9 @@
 .ui-menu {
   width: 220px !important;
   list-style: none;
+  a {
+    color: #000 !important;
+    text-decoration: none !important;
+    font-size: 12px !important;
+  }
 }

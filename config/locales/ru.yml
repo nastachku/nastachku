@@ -100,7 +100,7 @@ ru:
     events:
       index:
         i_am_going: 'Я пойду!'
-        already_going: 'Вы пойдете на этот доклад'
+        already_going: 'Вы пойдете'
 
     sessions:
       form:
