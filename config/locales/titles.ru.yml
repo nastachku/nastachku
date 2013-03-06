@@ -18,6 +18,10 @@ ru:
     user_events:
       index:
         title: "Доклады 2.0"
+    events:
+      index:
+        title: "Доклады"
+
     schedules:
       show:
         title: "Расписание"
