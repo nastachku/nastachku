@@ -30,8 +30,8 @@ Configus.build Rails.env do
     end
 
     facebook do
-      app_id ''
-      app_secret ''
+      app_id '223587801118877'
+      app_secret 'd196986f373c3fe86f79d881e270ae97'
     end
 
   end
