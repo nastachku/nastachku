@@ -63,3 +63,23 @@ abbr[title], abbr[data-original-title] {
   min-width: 300px;
   height: 100px;
 }
+
+// social auth
+.social-auth-enter {
+  display: inline-block;
+  height: 32px;
+  position: relative;
+  top: -1px;
+  padding-top: 1px;
+  overflow: hidden;
+  i {
+    position: relative;
+    top: -3px;
+    margin-left: 6px;
+  }
+  i,
+  i:before {
+    font-size: 36px;
+    height: 36px !important;
+  }
+}
