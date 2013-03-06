@@ -28,6 +28,8 @@ ru:
         state_event: "Изменить состояние"
         state: "Состояние"
         about: "О себе"
+        in_carousel: "Отображать в карусели"
+        carousel_info: "Информация в карусели"
         admin: "Администратор"
         role: 'Роль'
         topics: 'Топики'
@@ -45,6 +47,9 @@ ru:
         modifications: 'Изменения'
         action: 'Действие'
         created_at: 'Дата'
+
+      base_event:
+        created_at: "Дата отправки"
 
     errors:
       messages:
@@ -73,3 +78,11 @@ ru:
               blank: "Необходимо дать согласие на обработку персональных данных"
               #blank: 'Согласиться вы должны (с) Йода'
 
+    state_machines:
+      base_event:
+        state:
+          states:
+            in_schedule: 'В программе'
+            new: 'Новый'
+            voted: 'На голосовании'
+            rejected: 'Отклонен'

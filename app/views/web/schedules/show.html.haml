@@ -1,0 +1,41 @@
+%h1 Программа
+
+%h3 Пятница, 12 апреля
+.awesome-timetable
+  = render 'halls'
+  .clearfix
+  = render 'timeline'
+
+  .timepad
+    .event.full-event.area-1.start-10.long-30
+      Регистрация
+    .event.full-event.area-1.start-10.offset-30.long-30
+      Торжественное открытие
+
+    - @halls.each_with_index do |hall, i|
+      .area-container{ class: "area-#{i}-container" }
+        - hall.events.for_day(configus.schedule.first_day).asc_by_created_at.each do |event|
+          = render 'event', event: event, index: i
+
+    .event.full-event.area-1.start-20.offset-30.long-30
+      Закрытие. Афтепати.
+  .clearfix
+
+
+
+%h3 Суббота, 13 апреля
+.awesome-timetable
+  = render 'halls'
+  .clearfix
+  = render 'timeline'
+
+  .timepad
+
+    - @halls.each_with_index do |hall, i|
+      .area-container{ class: "area-#{i}-container" }
+        - hall.events.for_day(configus.schedule.second_day).asc_by_created_at.each do |event|
+          = render 'event', event: event, index: i
+
+    .event.full-event.area-1.start-20.offset-30.long-30
+      Закрытие. Афтепати.
+  .clearfix

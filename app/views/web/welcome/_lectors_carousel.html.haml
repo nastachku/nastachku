@@ -1,0 +1,27 @@
+.row
+  .span12
+    #da-slider.da-slider
+      - @lectors.each do |lector|
+        .da-slide
+          .da-blue
+            %h2
+              %span
+                = lector.full_name
+              %br/
+            %p
+              %strong
+                %small
+                  = lector.company
+              %br/
+              %br/
+              - if lector.carousel_info.blank?
+                = lector.about
+              - else
+                = lector.carousel_info
+            .da-img
+              - if lector.photo.url
+                = image_tag(lector.photo.url)
+
+        %nav.da-arrows
+          %span.da-arrows-prev
+          %span.da-arrows-next

@@ -12,7 +12,7 @@ class Web::SessionsController < Web::ApplicationController
       user = @type.user
       flash_success
       sign_in(user)
-      redirect_to root_path
+      redirect_to params[:from] || root_path
     else
       render :new
     end

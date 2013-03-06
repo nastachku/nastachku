@@ -10,11 +10,11 @@ FactoryGirl.define do
     company
     show_as_participant
     email
-    photo
 #    process_personal_data
 
-    after(:create) do |u|
-      u.activate
+    after(:create) do |user|
+      user.activate
+      FactoryGirl.create_list(:user_event, 5, speaker: user)
     end
     
   end
@@ -22,5 +22,4 @@ FactoryGirl.define do
   factory :admin, :parent => :user do
     admin true
   end
-
 end

@@ -1,4 +1,4 @@
-= simple_form_for @user, url: [:admin, @user], html: { class: 'form-horizontal' } do |f|
+= simple_form_for @user, url: [:admin, @user], html: { class: 'form-horizontal admin-user-edit-form' } do |f|
   .row
     .span10
       = f.input :state_event, :as => :state_event
@@ -7,6 +7,8 @@
       = f.input :city
       = f.input :company
       = f.input :about, :as => :text, :input_html => { :cols => 50, :rows => 3 }
+      = f.input :in_carousel
+      = f.input :carousel_info, :as => :text, :input_html => { :cols => 50, :rows => 3 }
       = f.input :position
       = f.input :email
       -#= f.input :password

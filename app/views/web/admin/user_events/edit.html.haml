@@ -1,0 +1,5 @@
+.page-header
+  %h1=t '.title'
+
+%h4= t('.speaker', name: @event.speaker.full_name)
+= render 'form'

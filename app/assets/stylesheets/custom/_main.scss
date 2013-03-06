@@ -31,6 +31,27 @@ header .info h3 .color {
   color: #7c7852 !important;
 }
 
+<<<<<<< HEAD
+=======
+// slider
+.da-slider {
+  border-top-color: #d4724b;
+  border-bottom-color: #d4724b;
+  color: #000;
+  margin-bottom: 60px;
+}
+.da-slide {
+  p {
+    height: 160px;
+    color: #000;
+  }
+  h2 {
+    font-size: 40px;
+    color: #000;
+  }
+}
+
+>>>>>>> release/v11
 // main elements
 a {
   color: $main_color !important;
@@ -53,9 +74,12 @@ h1 {
     color: #333 !important;
   }
 }
+<<<<<<< HEAD
 .da-slide p {
   height: 150px;
 }
+=======
+>>>>>>> release/v11
 .center {
   text-align: center !important;
 }
@@ -78,6 +102,7 @@ td.middle {
 .right {
   text-align: right;
 }
+<<<<<<< HEAD
 
 // twitter widget
 .nastachku-twitter-widget {	
@@ -88,6 +113,21 @@ td.middle {
 }
 .twtr-ft {
 	background-color: #ddd;
+=======
+.btn-no-clickable {
+  cursor: default;
+}
+
+// twitter widget
+.nastachku-twitter-widget {
+  border: 1px solid #ddd;
+}
+.twtr-doc {
+  border-radius: 0 !important;
+}
+.twtr-ft {
+  background-color: #ddd;
+>>>>>>> release/v11
 }
 
 // participants table
@@ -188,4 +228,8 @@ footer .copy {
 }
 .hero .bender .color {
   color: #000 !important;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> release/v11

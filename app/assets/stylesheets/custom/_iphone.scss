@@ -1,5 +1,42 @@
 @media (max-width: 767px) {
+<<<<<<< HEAD
 	#reformal_tab {
 		display: none !important;
 	}
+=======
+  #reformal_tab {
+    display: none !important;
+  }
+}
+
+@media (max-width: 979px) {
+  .navbar .nav.main-menu {
+    text-align: left;
+    text-align-last: left;
+    line-height: 0;
+    font-size: 1px;
+    &:after {
+      display: none;
+    }
+    >li {
+      float: none !important;
+      margin-right: 0 !important;
+      display: block !important;
+      text-align: left;
+      vertical-align: top;
+      &:last-child {
+        text-align: left !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 940px) {
+  .press {
+    width: 100% !important;
+  }
+  .social-widget {
+    width: 300px !important;
+  }
+>>>>>>> release/v11
 }

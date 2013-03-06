@@ -11,7 +11,6 @@
 /db/*.sqlite3
 /config/database.yml
 /public/uploads/
-/public/system/upload
 /public/system/uploads/
 
 # Ignore all logfiles and tempfiles.
@@ -19,10 +18,10 @@
 /log/untranslated.*.yml
 /tmp
 
+/public/system/*
 /coverage
-
 # Ignore schema
 schema.rb
 
-#ignore idea config
+#ignore idea project files
 .idea

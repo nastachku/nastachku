@@ -1,6 +1,78 @@
+<<<<<<< HEAD
 // lectors
 .workshop p {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: pre-wrap;
+=======
+.sinfo {
+  h5 {
+    line-height: 20px;
+    margin-bottom: 15px;
+    position: relative;
+    top: -2px;
+  }
+  h6 {
+    margin-bottom: 15px;
+  }
+}
+.ainfo {
+  margin-bottom: 20px;
+}
+.user-summary {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.formy-photo {
+  .user-summary {
+    height: 220px;
+  }
+}
+
+//cocoon form
+.formy-issue {
+  input,
+  textarea {
+    width: 90%;
+  }
+  a {
+    color: #000 !important;
+  }
+}
+
+.add_fields {
+  margin-top: 0 !important;
+  .icon-plus {
+    margin-left: 0;
+    top: 0;
+  }
+}
+
+// buttons group
+.buttons-group {
+  a {
+    margin-top: 0 !important;
+  }
+  .votings-count,
+  .btn {
+    color: #000;
+    &:active {
+      box-shadow: none;
+    }
+  }
+}
+
+// lectors
+.workshop {
+  margin-bottom: 40px;
+  padding-top: 20px;
+}
+.workshop p,
+.workshop h6.grey {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: pre-wrap;
+>>>>>>> release/v11
 }

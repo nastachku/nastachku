@@ -11,6 +11,12 @@
   text-decoration: none;
 }
 
+<<<<<<< HEAD
+=======
+.btn {
+  background-color: #dfdfdf !important;
+}
+>>>>>>> release/v11
 // Login form
 .form-type-login input[type="email"],
 .form-type-login input[type="text"],
@@ -25,9 +31,17 @@
   padding-left: 0;
   padding-right: 0;
 }
+<<<<<<< HEAD
 input[type="submit"].btn-shine {
   color: #fff;
   background-color: #7c7852;
+=======
+input[type="submit"].btn-shine,
+.btn.btn-shine,
+a.btn-shine {
+  color: #fff !important;
+  background-color: #7c7852 !important;
+>>>>>>> release/v11
 }
 .formy .help-inline {
   font-size: 12px;
@@ -50,6 +64,37 @@ abbr[title], abbr[data-original-title] {
 }
 .form-horizontal.profile-form input[type="email"],
 .form-horizontal.profile-form input[type="text"],
+<<<<<<< HEAD
 .form-horizontal.profile-form input[type="password"] {
   width: 300px;
 }
+=======
+.form-horizontal.profile-form input[type="password"],
+.form-horizontal.profile-form textarea {
+  width: 300px;
+}
+.form-horizontal.profile-form textarea {
+  min-width: 300px;
+  height: 100px;
+}
+
+// social auth
+.social-auth-enter {
+  display: inline-block;
+  height: 32px;
+  position: relative;
+  top: -1px;
+  padding-top: 1px;
+  overflow: hidden;
+  i {
+    position: relative;
+    top: -3px;
+    margin-left: 6px;
+  }
+  i,
+  i:before {
+    font-size: 36px;
+    height: 36px !important;
+  }
+}
+>>>>>>> release/v11

@@ -15,6 +15,19 @@ ru:
         title: 'Вход'
       create:
         title: 'Вход'
+<<<<<<< HEAD
+=======
+    user_events:
+      index:
+        title: "Доклады 2.0"
+    events:
+      index:
+        title: "Доклады"
+
+    schedules:
+      show:
+        title: "Расписание"
+>>>>>>> release/v11
 
     accounts:
       edit:
@@ -54,4 +67,8 @@ ru:
 
     workshops:
       show:
+<<<<<<< HEAD
         title: 'Доклады'
+=======
+        title: 'Доклады'
+>>>>>>> release/v11

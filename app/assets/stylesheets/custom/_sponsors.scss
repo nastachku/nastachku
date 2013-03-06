@@ -54,6 +54,7 @@
   margin: 22px 0;
 }
 
+<<<<<<< HEAD
 .platidoma {
   position: relative;
   top: -6px;
@@ -63,6 +64,8 @@
   top: 4px;
 }
 
+=======
+>>>>>>> release/v11
 // info sponsors
 .info-sponsors-first-line {
   height: 62px;
@@ -73,13 +76,22 @@
 .info-sponsors-third-line {
   height: 54px;
 }
+<<<<<<< HEAD
+=======
+.info-sponsors-4th-line {
+  height: 67px;
+}
+>>>>>>> release/v11
 
 // star sponsors
 .star-sponsors {
   .item {
     margin-bottom: 25px;
     position: relative;
+<<<<<<< HEAD
     height: 66px;
+=======
+>>>>>>> release/v11
     sup {
       position: absolute;
       top: 0;
@@ -93,7 +105,11 @@
   width: 14px;
   height: 14px;
   background-repeat: no-repeat;
+<<<<<<< HEAD
   background-image: url(/assets/stars.jpg);
+=======
+  background-image: url(/assets/stars.png);
+>>>>>>> release/v11
 }
 .sponsor-star.argentum {
   background-position: 0 0;
@@ -101,7 +117,56 @@
 .sponsor-star.gold {
   background-position: 0 -14px;
 }
+<<<<<<< HEAD
 .legend .sponsor-star {
   position: relative;
   top: 2px;
+=======
+.sponsor-star.red {
+  background-position: 0 -28px;
+}
+.sponsor-star.violin {
+  background-position: 0 -42px;
+}
+.sponsor-star.green {
+  background-position: 0 -56px;
+}
+.legend {
+  font-size: 12px;
+  line-height: 18px;
+  .sponsor-star {
+    position: relative;
+    top: 3px;
+  }
+}
+
+// custom logo position
+.platidoma {
+  position: relative;
+  top: -6px;
+}
+.ultop {
+  position: relative;
+  top: 10px;
+}
+.hackday {
+  position: relative;
+  top: -4px;
+}
+.ulpeople {
+  position: relative;
+  top: 9px;
+}
+.rubyflow {
+  position: relative;
+  top: -12px;
+}
+.softline {
+  position: relative;
+  top: 22px;
+}
+.allintop {
+  position: relative;
+  top: -4px;
+>>>>>>> release/v11
 }

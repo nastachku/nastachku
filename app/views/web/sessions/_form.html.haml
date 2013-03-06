@@ -1,4 +1,4 @@
-= simple_form_for @type, url: session_path, html: { class: 'form-type-login' } do |f|
+= simple_form_for @type, url: session_path(from: params[:from]), html: { class: 'form-type-login' } do |f|
   .row
     .span6
       .formy
@@ -8,7 +8,11 @@
 
       .clearfix
         .pull-left
-          = f.button :submit, :value => t('.login'), :class => 'btn btn-shine', :tabindex => 3
+          .pull-left
+            = f.button :submit, :value => t('.login'), :class => 'btn btn-shine', :tabindex => 3
+          .pull-left
+            = link_to sign_in_via_social_network_cpath(:facebook), :class => 'social-auth-enter' do
+              %i.ficon-facebook-rect
         .pull-right
           = link_to t('.remind_password'), new_remind_password_path
 
