@@ -9,6 +9,7 @@
       .clearfix
         .pull-left
           = f.button :submit, :value => t('.login'), :class => 'btn btn-shine', :tabindex => 3
+          = link_to image_tag('auth_providers/facebook.png'), sign_in_via_social_network_cpath(:facebook)
         .pull-right
           = link_to t('.remind_password'), new_remind_password_path
 

@@ -7,6 +7,10 @@ Nastachku::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
+  # omniauth-facebook
+  get '/auth/facebook/callback' => 'web/social_networks#authorization'
+  get '/auth/facebook/failure' => 'web/social_networks#failure'
+
   namespace :api do
     resources :companies
     resources :cities
@@ -40,6 +44,10 @@ Nastachku::Application.routes.draw do
         resource :password, only: [:edit, :update]
         resources :events, only: [:new, :create]
       end
+    end
+
+    resource :social_networks, :only => [] do 
+      get :authorization, :on => :member
     end
 
     resources :lectors, only: [ :index ]

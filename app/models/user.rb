@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   has_many :auth_tokens
   has_many :topics, through: :user_topics
   has_many :user_topics
+  has_many :authorizations 
 
   state_machine :state, initial: :new do
     state :new

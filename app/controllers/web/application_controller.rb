@@ -2,8 +2,8 @@ class Web::ApplicationController < ApplicationController
   include FlashHelper
   include Web::LectorsHelper
   include CustomUrlHelpers
+  include SocNetworkHelper
   include Web::WorkshopsHelper
-
 
   #helper :all
   helper_method :edit_admin_event_cpath, :workshops

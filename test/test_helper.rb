@@ -14,6 +14,7 @@ Dir[File.expand_path('../support/**/*.rb', __FILE__)].each { |f| require f }
 
 class ActiveSupport::TestCase
   include AuthHelper
+  include SocNetworkHelper
 
   require 'factory_girl_rails'
   include FactoryGirl::Syntax::Methods
