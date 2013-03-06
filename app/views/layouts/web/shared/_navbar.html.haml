@@ -1,12 +1,6 @@
 .navbar.navbar-position-top
   .navbar-inner
-<<<<<<< HEAD
-    .container.nav-collapse.no-padding
-    
-=======
-    
     .container
->>>>>>> release/v11
       %nav.social-public-links.pull-left
         %ul
           %li
@@ -19,13 +13,6 @@
             %a{:href => "http://vk.com/nastachku", :target => "_blank"}
               %i.ficon-vkontakte-rect
 
-<<<<<<< HEAD
-      %ul.nav.pull-right
-        - unless signed_in?
-          %li= link_to t(".login"), new_session_path
-        - if signed_in?
-          %li= link_to current_user.full_name, edit_account_path
-=======
       %ul.nav.pull-left
         %li= link_to t('.add_lecture'), new_account_event_path, class: 'btn-shine add_lecture'
 
@@ -34,7 +21,6 @@
           = item :li, t(".login"), new_session_path
         - if signed_in?
           = item :li, current_user.full_name, edit_account_path
->>>>>>> release/v11
           %li= link_to '/', '#'
           %li= link_to t('.logout'), session_path, :method => :delete
           - if signed_as_admin?
