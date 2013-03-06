@@ -31,6 +31,8 @@
                       .btn.btn-no-clickable= t('.already_voted')
                     - else
                       = link_to t('.vote_this_lecture'), api_user_event_lecture_votings_path(event), remote: true, method: :post, class: 'vote-event btn btn-shine'
+                  -else
+                    .btn.btn-no-clickable= t('.they_voted')
                   %span.btn.votings-count.btn-no-clickable
                     = event.lecture_votings.size
                 -#.social

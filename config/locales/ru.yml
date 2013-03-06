@@ -98,6 +98,7 @@ ru:
         title: 'Доклады 2.0'
         vote_this_lecture: 'Голосовать за доклад'
         already_voted: 'Вы проголосовали'
+        they_voted: 'Проголосовали'
         by_lecture_votings_count: 'По количеству голосов'
         by_created_at: 'По дате добавления'
         sort_by: 'Сортировать'
@@ -105,6 +106,7 @@ ru:
       index:
         i_am_going: 'Я пойду!'
         already_going: 'Вы пойдете'
+        they_going: 'Пойдут'
 
     sessions:
       form:
