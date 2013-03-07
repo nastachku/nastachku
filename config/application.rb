@@ -81,6 +81,7 @@ module Nastachku
       r301 '/community.html-ru', 'http://2012.nastachku.ru/community.html-ru'
       r301 '/banners.html', 'http://2012.nastachku.ru/banners.html'
       r301 '/accreditation.html', 'http://2012.nastachku.ru/accreditation.html'
+      r301 '/user/new', 'http://nastachku.ru/users/new'
     end
   end
 end
