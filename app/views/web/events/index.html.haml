@@ -1,22 +1,23 @@
-%h1= ""
+%h1=t(".events")
 
-- workshops.each do |workshop|
-  = workshop
-  %br
+.row.workshop
+  .span3
+    %ul.nav.nav-list{ data: {spy: "affix", offset_top: 380, offset_bottom: 1800}}
+      - workshops.each do |workshop|
+        %li
+          %a= workshop
 
-.span12.workshop
-  - @events.each do |event|
-    .row
-      .span6
-        .col-l
-          .pic
-            - if event.speaker.photo.url
-              = image_tag(event.speaker.photo.url)
-        .col-r
-          .sinfo
+  .span9
+    - @events.each do |event|
+      .row-fluid
+        .span4.sinfo
+          .col-l
             %h5= event.speaker.full_name
             %h6
               %strong= event.speaker.company
+            .pic
+              - if event.speaker.photo.url
+                = image_tag(event.speaker.photo.url)
             .buttons-group{ data: { success: t('.already_going') } }
               - if signed_in?
                 - if event.listener_votings.voted_by?(current_user)
@@ -27,12 +28,12 @@
                 .btn.btn-no-clickable= t('.they_going')
               %span.btn.votings-count.btn-no-clickable
                 = event.listener_votings.size
-            -#%h6.grey= event.speaker.about
-            -#.social
-            -#  %a.tip{"data-original-title" => "Facebook", :href => "#"}
-            -#    %i.icon-facebook.facebook
-        .clearfix
-      .span6
-        %h4= event.title
-        %p.ainfo= event.thesises.html_safe
-    %hr
+              -#%h6.grey= event.speaker.about
+              -#.social
+              -#  %a.tip{"data-original-title" => "Facebook", :href => "#"}
+              -#    %i.icon-facebook.facebook
+          .clearfix
+        .span8
+          %h4= event.title
+          %p.ainfo= event.thesises.html_safe
+      %hr

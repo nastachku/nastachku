@@ -1,11 +1,14 @@
 .sinfo {
   h5 {
     line-height: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     position: relative;
     top: -2px;
   }
   h6 {
+    margin-bottom: 15px;
+  }
+  .pic {
     margin-bottom: 15px;
   }
 }
@@ -61,10 +64,19 @@
 .workshop {
   margin-bottom: 40px;
   padding-top: 20px;
+  .col-l {
+    width: 100%;
+  }
 }
 .workshop p,
 .workshop h6.grey {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: pre-wrap;
+}
+
+//scrollspy-affix
+.affix {
+  top: 10px;
+  z-index: 100;
 }
