@@ -94,6 +94,7 @@ ru:
     user_events:
       index:
         title: 'Доклады 2.0'
+        events20: 'Доклады 2.0'
         vote_this_lecture: 'Голосовать за доклад'
         already_voted: 'Вы проголосовали'
         they_voted: 'Проголосовали'
