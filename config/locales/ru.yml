@@ -58,6 +58,8 @@ ru:
         save: 'Сохранить'
         info: 'Мои данные'
         my_events: 'Мои доклады'
+        add_user_event_text: 'Вами пока не добавлено ни одного доклада.'
+        add_user_event: 'Добавить доклад'
     account:
       events:
         form:
