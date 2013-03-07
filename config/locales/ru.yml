@@ -45,10 +45,6 @@ ru:
             events: 'События'
             logout: 'Выйти'
 
-  global:
-    footer:
-      company: 'Кайдзен / undev.ru'
-
   web:
     accounts:
       edit:
