@@ -6,9 +6,9 @@
   .row
     .span12
       #{ t '.sort_by' }:&nbsp;
-      = sort_link(@search, :lecture_votings_count, t('.by_lecture_votings_count'))
+      = sort_clink(@search, :lecture_votings_count, t('.by_lecture_votings_count'))
       &nbsp;&nbsp;
-      = sort_link(@search, :created_at, t('.by_created_at'))
+      = sort_clink(@search, :created_at, t('.by_created_at'))
     .clearfix
   %br
   .row

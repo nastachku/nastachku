@@ -6,10 +6,10 @@
 %table.table-participants.table-participants-header
   %thead
     %tr
-      %th{:width => "30%"}= sort_link(@search, :last_name, User.human_attribute_name(:first_name)) 
-      %th{:width => "20%"}= sort_link(@search, :city, User.human_attribute_name(:city))
-      %th{:width => "25%"}= sort_link(@search, :company, User.human_attribute_name(:company))
-      %th{:width => "25%"}= sort_link(@search, :position, User.human_attribute_name(:position))
+      %th{:width => "30%"}= sort_clink(@search, :last_name, User.human_attribute_name(:first_name))
+      %th{:width => "20%"}= sort_clink(@search, :city, User.human_attribute_name(:city))
+      %th{:width => "25%"}= sort_clink(@search, :company, User.human_attribute_name(:company))
+      %th{:width => "25%"}= sort_clink(@search, :position, User.human_attribute_name(:position))
 
 %table.table-participants
   %tbody

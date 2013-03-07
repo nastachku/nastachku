@@ -14,7 +14,7 @@ module UserRepository
 
     scope :as_lectors, -> { where role: :lector }
 
-    scope :alphabetically, -> { order("last_name ASC") }
+    scope :alphabetically, -> { asc_by_last_name }
 
     scope :in_carousel, -> { where in_carousel: :true }
 
