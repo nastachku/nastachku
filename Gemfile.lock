@@ -187,6 +187,8 @@ GEM
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
+    pre-commit (0.7.0)
+      execjs
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -330,6 +332,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   pg
+  pre-commit
   rack-rewrite
   rails
   rake

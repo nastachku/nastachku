@@ -46,10 +46,6 @@ ru:
             events: 'События'
             logout: 'Выйти'
 
-  global:
-    footer:
-      company: 'Кайдзен / undev.ru'
-
   web:
     accounts:
       edit:
@@ -59,6 +55,8 @@ ru:
         save: 'Сохранить'
         info: 'Мои данные'
         my_events: 'Мои доклады'
+        add_user_event_text: 'Вами пока не добавлено ни одного доклада.'
+        add_user_event: 'Добавить доклад'
     account:
       events:
         form:
@@ -97,8 +95,10 @@ ru:
     user_events:
       index:
         title: 'Доклады 2.0'
+        events20: 'Доклады 2.0'
         vote_this_lecture: 'Голосовать за доклад'
         already_voted: 'Вы проголосовали'
+        they_voted: 'Проголосовали'
         by_lecture_votings_count: 'По количеству голосов'
         by_created_at: 'По дате добавления'
         sort_by: 'Сортировать'
@@ -106,6 +106,7 @@ ru:
       index:
         i_am_going: 'Я пойду!'
         already_going: 'Вы пойдете'
+        they_going: 'Пойдут'
 
     sessions:
       form:
@@ -228,7 +229,7 @@ ru:
           reject: 'Заблокировать'
         edit:
           title: 'Редактирование доклада'
-          speaker: 'Докладчик: %{name}'
+          speaker: 'Докладчик: '
         update:
           title: 'Редактирование доклада'
         form:

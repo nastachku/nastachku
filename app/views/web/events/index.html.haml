@@ -10,7 +10,7 @@
               = image_tag(event.speaker.photo.url)
         .col-r
           .sinfo
-            %h5= event.speaker.full_name
+            %h5= event.speaker.reverse_full_name
             %h6
               %strong= event.speaker.company
             .buttons-group{ data: { success: t('.already_going') } }
@@ -19,7 +19,9 @@
                   .btn.btn-no-clickable= t('.already_going')
                 - else
                   = link_to t('.i_am_going'), api_user_event_listener_votings_path(event), remote: true,  method: :post, class: 'vote-event btn btn-shine'
-              %span.btn.votings-count
+              - else
+                .btn.btn-no-clickable= t('.they_going')
+              %span.btn.votings-count.btn-no-clickable
                 = event.listener_votings.size
             -#%h6.grey= event.speaker.about
             -#.social

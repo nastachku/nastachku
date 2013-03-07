@@ -8,7 +8,7 @@ class Web::AccountsController < Web::ApplicationController
 
   def update
     @user = AccountEditType.find current_user
-
+    @user.changed_by = current_user
     if @user.update_attributes params[:user]
       flash_success
       redirect_to edit_account_path

@@ -8,6 +8,8 @@ class BaseEvent < ActiveRecord::Base
 
   mount_uploader :presentation, EventPresentationUploader
 
+  audit :title, :thesises, :start_time, :finish_time, :thesises, :workshop, :hall
+
   belongs_to :workshop
   belongs_to :hall
   

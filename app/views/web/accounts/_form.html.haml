@@ -27,15 +27,20 @@
 
     .tab-pane#my_events
 
-      %table.table.table-participants
-        %thead
-          %tr
-            %th= BaseEvent.human_attribute_name(:title)
-            %th= BaseEvent.human_attribute_name(:created_at)
-            %th= BaseEvent.human_attribute_name(:state)
-        %tbody
-          - @user.events.each do |event|
+      - if @user.events.blank?
+        %p
+          = t(".add_user_event_text")
+          = link_to t(".add_user_event"), new_account_event_path
+      - else
+        %table.table.table-participants
+          %thead
             %tr
-              %td= event.title
-              %td.center= l event.created_at
-              %td.center= event.human_state_name
+              %th= BaseEvent.human_attribute_name(:title)
+              %th= BaseEvent.human_attribute_name(:created_at)
+              %th= BaseEvent.human_attribute_name(:state)
+          %tbody
+            - @user.events.each do |event|
+              %tr
+                %td= event.title
+                %td.center= l event.created_at
+                %td.center= event.human_state_name

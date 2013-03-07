@@ -52,6 +52,7 @@ end
 
 group :test, :development do
   gem 'sqlite3'
+  gem 'pre-commit'
 end
 
 group :test do

@@ -5,6 +5,8 @@ class Hall < ActiveRecord::Base
   
   validates :title, presence: true
 
+  audit :title
+
   has_many :events, class_name: :BaseEvent
 
   def to_s

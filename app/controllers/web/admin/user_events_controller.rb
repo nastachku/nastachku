@@ -10,6 +10,7 @@ class Web::Admin::UserEventsController < Web::Admin::ApplicationController
   def update
     user_event = UserEvent.find params[:id]
     @event = user_event.becomes(::Admin::UserEventEditType)
+    @event.changed_by = current_user
     if @event.update_attributes params[:user_event]
       flash_success
       if @event.in_schedule?

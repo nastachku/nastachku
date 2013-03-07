@@ -13,6 +13,7 @@ class Web::Admin::TopicsController < Web::Admin::ApplicationController
 
   def create
     @topic = ::Admin::TopicEditType.new params[:topic]
+    @topic.changed_by = current_user
     if @topic.save
       flash_success
       redirect_to admin_topics_path
@@ -24,6 +25,7 @@ class Web::Admin::TopicsController < Web::Admin::ApplicationController
 
   def update
     @topic = ::Admin::TopicEditType.find params[:id]
+    @topic.changed_by = current_user
     if @topic.update_attributes params[:topic]
       flash_success
       redirect_to edit_admin_topic_path
