@@ -2,7 +2,7 @@
   %h1=t('.title')
   
 = simple_form_for @search, url: admin_users_path, method: :get do |f|  
-  %table.table
+  %table
     %thead
       %tr
         %td
@@ -11,6 +11,7 @@
           = f.input_field :first_name_cont, placeholder: t(".first_name"), label: false, required: false
         %td
           = f.input_field :email_cont, placeholder: t(".email"), label: false, required: false
+      %tr
         %td
           = f.input_field :city_cont, placeholder: t(".city"), label: false, required: false
         %td
