@@ -227,7 +227,7 @@ ru:
           reject: 'Заблокировать'
         edit:
           title: 'Редактирование доклада'
-          speaker: 'Докладчик: %{name}'
+          speaker: 'Докладчик: '
         update:
           title: 'Редактирование доклада'
         form:
