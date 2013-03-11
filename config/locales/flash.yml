@@ -23,6 +23,14 @@ ru:
               error: "Ссылка не действительна"
               success: "Введите новый пароль"
 
+          social_networks:
+            link_twitter:
+              success: "Twitter успешно связан с аккаунтом"
+              error: "Twitter не связан с аккаунтом"
+            unlink_twitter:
+              success: "Twitter успешно отвязан от аккаунта"
+              error: "Twitter не отвязан от аккаунта"
+
         accounts:
           update:
             success: 'Аккаунт успешно изменён!'

@@ -31,4 +31,25 @@ module SocNetworkHelper
     session[:auth_hash] ? true : false
   end 
 
+  def twitter_provider?
+    auth_hash[:provider] == "twitter"
+  end
+
+  def save_twitter_name_to_session
+    session[:auth_hash] = {}
+    session[:auth_hash][:twitter_name] = auth_hash[:info][:nickname]
+  end
+
+  def session_twitter_name
+    session[:auth_hash][:twitter_name]
+  end
+
+  def clear_session_twitter_name
+    session[:auth_hash] = nil
+  end
+
+  def clear_twitter_link(user)
+    user.twitter_name = ""
+  end
+
 end

@@ -11,6 +11,10 @@ Nastachku::Application.routes.draw do
   get '/auth/facebook/callback' => 'web/social_networks#authorization'
   get '/auth/facebook/failure' => 'web/social_networks#failure'
 
+  # omniauth-twitter
+  get '/auth/twitter/callback' => 'web/social_networks#authorization'
+  get '/auth/twitter/failure' => 'web/social_networks#failure'
+
   namespace :api do
     resources :companies
     resources :cities
@@ -43,6 +47,10 @@ Nastachku::Application.routes.draw do
       scope :module => :account do
         resource :password, only: [:edit, :update]
         resources :events, only: [:new, :create]
+        resource :social_networks, :only => [] do
+          get :link_twitter, on: :member
+          get :unlink_twitter, on: :member
+        end
       end
     end
 

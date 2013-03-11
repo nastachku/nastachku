@@ -20,8 +20,6 @@
 
 /public/system/*
 /coverage
-# Ignore schema
-schema.rb
 
 #ignore idea project files
 .idea
