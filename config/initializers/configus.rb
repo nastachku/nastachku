@@ -34,6 +34,11 @@ Configus.build Rails.env do
       app_secret 'd196986f373c3fe86f79d881e270ae97'
     end
 
+    twitter do
+       key 'xH0ui4CoEcH39X5ucFyk0w'
+       secret 'qqJwi8Nc3NQMHcm6IEbi4dYA8Z6eKpv8uSqm9VpMCEA'
+    end
+
   end
 
   env :development, parent: :production do

@@ -22,6 +22,14 @@
         = f.input :position
         = f.input :photo, as: :image_preview
         = f.input :about
+
+        - if @user.twitter_name.empty?
+          = link_to t(".link_twitter"), link_via_social_network_cpath(:twitter), :class => 'btn'
+        - else
+          %p
+            = link_to t(".twitter"), twitter_account_curl(@user.twitter_name)
+            = link_to t(".unlink_twitter"), unlink_twitter_account_social_networks_path, :class => 'btn'
+
         = f.input :show_as_participant, :wrapper => :inline_checkbox
       = f.button :submit, :value => t('.save'), :class => 'btn btn-shine'
 

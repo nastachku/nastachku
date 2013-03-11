@@ -4,6 +4,14 @@ module CustomUrlHelper
     "/auth/#{provider}"
   end
 
+  def link_via_social_network_cpath(provider)
+    "/auth/#{provider}"
+  end
+
+  def twitter_account_curl(twitter_name)
+    "http://twitter.com/#{twitter_name}"
+  end
+
   def edit_admin_event_cpath(event)
     case event
       when ::UserEvent

@@ -1,6 +1,16 @@
 class Web::SocialNetworksController < Web::ApplicationController
 
   def authorization
+
+    #Если юзер уже авторизован, то линкуем его аккаунт с соц сетью
+    if signed_in?
+      if twitter_provider?
+        save_twitter_name_to_session
+        redirect_to link_twitter_account_social_networks_path
+      end
+      return
+    end
+
     authorization = Authorization.find_by_provider_and_uid(auth_hash[:provider], auth_hash[:uid])
 
     if authorization
