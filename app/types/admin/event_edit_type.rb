@@ -3,8 +3,8 @@ class Admin::EventEditType < UserEvent
 
   validates :title, presence: true
   validates :thesises, presence: true
-  validates :start_time, presence: true
-  validates :finish_time, presence: true
+  # validates :start_time, presence: true
+  # validates :finish_time, presence: true
   validates :speaker, presence: true
   validates :workshop, presence: true
 
