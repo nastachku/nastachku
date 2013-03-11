@@ -13,9 +13,9 @@
       Торжественное открытие
 
     - @halls.each_with_index do |hall, i|
-      .area-container{ class: "area-#{i}-container" }
+      .area-container{ class: "area-#{i + 1}-container" }
         - hall.slots.for_day(configus.schedule.first_day).asc_by_created_at.each do |slot|
-          = render 'event', slot: slot, index: i
+          = render 'event', slot: slot, index: i + 1
 
     .event.full-event.area-1.start-20.offset-30.long-30
       Закрытие. Афтепати.
@@ -32,9 +32,9 @@
   .timepad
 
     - @halls.each_with_index do |hall, i|
-      .area-container{ class: "area-#{i}-container" }
+      .area-container{ class: "area-#{i + 1}-container" }
         - hall.slots.for_day(configus.schedule.second_day).asc_by_start_time.each do |slot|
-          = render 'event', slot: slot, index: i
+          = render 'event', slot: slot, index: i + 1
 
     .event.full-event.area-1.start-20.offset-30.long-30
       Закрытие. Афтепати.
