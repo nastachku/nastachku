@@ -6,6 +6,10 @@ body {
   border: none !important;
 }
 
+body {
+  position: relative;
+}
+
 .main {
   min-height: 100%;
 }
@@ -16,6 +20,7 @@ body {
 // header
 header {
   border: none !important;
+  height: 134px;
 }
 header .info {
   padding-top: 44px;

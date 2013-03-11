@@ -80,3 +80,8 @@
   top: 10px;
   z-index: 100;
 }
+.affix-bottom {
+  position: absolute;
+  top: auto;
+  bottom: 1300px;
+}

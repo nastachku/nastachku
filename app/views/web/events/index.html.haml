@@ -2,7 +2,7 @@
 
 .row.workshop
   .span3
-    %ul.nav.nav-list{ data: {spy: "affix", offset_top: 380, offset_bottom: 1800}}
+    %ul.nav.nav-list#section_submenu
       - workshops.each do |workshop|
         %li
           %a= workshop
