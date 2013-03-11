@@ -10,7 +10,7 @@
               = image_tag(event.speaker.photo.url)
         .col-r
           .sinfo
-            %h5= event.speaker.reverse_full_name
+            %h5= link_to event.speaker.reverse_full_name, lectors_path(anchor: event.speaker)
             %h6
               %strong= event.speaker.company
             .buttons-group{ data: { success: t('.already_going') } }
