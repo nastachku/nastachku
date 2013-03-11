@@ -120,6 +120,13 @@ $max_speech_time : 240; // The longest speech time
     height: $b_height;
   }
 
+  .area-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: none;
+  }
+
   .event {
     width: $area_width + px;
     height: $b_height;
@@ -133,6 +140,10 @@ $max_speech_time : 240; // The longest speech time
     font-family: Arial;
     line-height: 18px;
     overflow: hidden;
+    .time {
+      display: none;
+      font-weight: bold;
+    }
     .caption {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -196,4 +207,33 @@ $colors: $blue $red $green $orange $yellow $violin;
     line-height: $b_height * $i / 15 - 11;
   }
   $i : $i + 15;
+}
+
+@media (max-width: 940px) {
+  .awesome-timetable {
+    width: auto;
+    .timeline,
+    .timepad-areas {
+      display: none;
+    }
+   .timepad {
+      margin-left: 0;
+      width: 100%;
+    }
+    .event {
+      position: static;
+      margin-top: 0 !important;
+      height: auto !important;
+      margin-bottom: 10px;
+      width: 100% !important;
+      .time,
+      .caption,
+      .author {
+        display: inline;
+      }
+    }
+    .area-name {
+      display: block;
+    }
+  }
 }

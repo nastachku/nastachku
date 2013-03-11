@@ -1,7 +1,11 @@
 - if slot.event.type.eql? 'UserEvent'
   .event{ class: "area-#{index} section-#{slot.event.workshop_id} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}" }
+    .time
+      %span.end-time
     .caption= slot.event.title
     .author= slot.event.speaker.full_name
 - else
   .event{ class: "area-#{index} start-#{slot.start_hour} long-#{slot.duration} break" }
+    .time
+      %span.end-time
     .caption= slot.event.title
