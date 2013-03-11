@@ -1,7 +1,7 @@
-- if event.type.eql? 'UserEvent'
-  .event{ class: "area-#{index} section-#{event.workshop_id} start-#{event.start_hour} offset-#{event.start_offset} long-#{event.duration}" }
-    .caption= event.title
-    .author= event.speaker.full_name
+- if slot.event.type.eql? 'UserEvent'
+  .event{ class: "area-#{index} section-#{slot.event.workshop_id} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}" }
+    .caption= slot.event.title
+    .author= slot.event.speaker.full_name
 - else
-  .event{ class: "area-#{index} start-#{event.start_hour} long-#{event.duration} break" }
-    .caption= event.title
+  .event{ class: "area-#{index} start-#{slot.start_hour} long-#{slot.duration} break" }
+    .caption= slot.event.title

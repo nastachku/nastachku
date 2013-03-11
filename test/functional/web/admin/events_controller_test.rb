@@ -7,7 +7,6 @@ class Web::Admin::EventsControllerTest < ActionController::TestCase
     @event = create :user_event
     sign_in @user
     @workshop = @event.workshop
-    @hall = @event.hall
   end
 
   test "should get index" do

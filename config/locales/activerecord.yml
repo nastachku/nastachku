@@ -1,5 +1,7 @@
 ru:
   activerecord:
+    models:
+      hall: 'Зал'
     attributes:
       page:
         slug:  "slug"
@@ -49,7 +51,15 @@ ru:
         created_at: 'Дата'
 
       base_event:
+        lecture_votings_count: 'Количество голосов'
+        listener_votings_count: 'Количество слушателей'
         created_at: "Дата отправки"
+
+      slot:
+        event_id: 'Событие'
+        hall: 'Зал'
+        start_time: 'Время начала'
+        finish_time: 'Время окончания'
 
     errors:
       messages:

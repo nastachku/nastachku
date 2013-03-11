@@ -5,6 +5,7 @@ class Web::Admin::HallsController < Web::Admin::ApplicationController
 
   def new
     @hall = Hall.new
+    @hall.slots.build
   end
 
   def edit

@@ -1,10 +1,10 @@
 .page-header
   %h1=t '.title'
 
-.span9
-  = link_to t('.new'), new_admin_event_path, class: 'btn btn-primary'
-  = link_to t('.new_break'), new_admin_event_break_path, class: 'btn btn-danger'
-.span2
+.span4
+  = link_to t('.new'), new_admin_event_path, class: 'btn'
+  = link_to t('.new_break'), new_admin_event_break_path, class: 'btn'
+.span2.pull-right
   = link_to t('.workshops'), admin_workshops_path, class: 'btn btn-info'
   = link_to t('.halls'), admin_halls_path, class: 'btn btn-success'
 
@@ -12,18 +12,20 @@
   %thead
     %tr
       %th= BaseEvent.human_attribute_name :title
-      %th= BaseEvent.human_attribute_name :start_time
+      %th= BaseEvent.human_attribute_name :speaker
       %th= BaseEvent.human_attribute_name :state
       %th= BaseEvent.human_attribute_name :workshop
-      %th= BaseEvent.human_attribute_name :hall
-      %th= t '.actions'
+      %th= UserEvent.human_attribute_name :listener_votings_count
+      %th
   %tbody
     - @events.each do |event|
       %tr
         %td= event.title
-        %td= l event.start_time if event.start_time
+        %td= event.try(:speaker) if event.respond_to? :speaker
         %td= event.human_state_name
         %td= event.workshop.try(:title)
-        %td= event.hall.try(:title)
+        %td= event.listener_votings.size if event.respond_to? :listener_votings
         %td
-          = link_to t('.edit'), edit_admin_event_cpath(event), :class => 'btn btn-mini'
+          .pull-right.btn-group
+            = link_to edit_admin_event_cpath(event), class: 'btn btn-mini' do
+              %i.icon-pencil
