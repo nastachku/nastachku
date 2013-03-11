@@ -63,7 +63,6 @@
 // lectors
 .workshop {
   margin-bottom: 40px;
-  padding-top: 20px;
   .col-l {
     width: 100%;
   }
@@ -75,13 +74,23 @@
   white-space: pre-wrap;
 }
 
-//scrollspy-affix
+//bootstrap-affix
+#section_submenu {
+  height: 72px;
+}
+.affix-wrapper {
+  //position: relative;
+}
+.affix-top {
+  top: 352px;
+  z-index: 100;
+  position: absolute;
+}
 .affix {
   top: 10px;
-  z-index: 100;
 }
 .affix-bottom {
   position: absolute;
   top: auto;
-  bottom: 1300px;
+  bottom: 0;
 }
