@@ -225,15 +225,18 @@ $colors: $blue $red $green $orange $yellow $violin;
     top: $b_height * 4 * ($i - $hour_start);
   }
 }
-@for $i from 15 through 45 {
-  .event.offset-#{$i} {
-    margin-top: $b_height * $i / 15;
-    $i : $i + 15;
+
+$start_offset : 15;
+@while $start_offset < 60 {
+  .event.offset-#{$start_offset} {
+    margin-top: $b_height * $start_offset / 15;
+    $start_offset : $start_offset + 15;
   }
 }
 
 // Events continuance
-@for $i from $min_speech_time through $max_speech_time {
+$i : $min_speech_time;
+@while $i <=  $max_speech_time {
   .event.long-#{$i} {
     height: $b_height * $i / 15 + 1;
   }
