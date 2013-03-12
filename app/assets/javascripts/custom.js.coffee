@@ -7,6 +7,7 @@ window.onload = ->
   affixBottom = $(".sponsors").outerHeight() + parseInt($("#main_container").css("padding-bottom"))
   affixHeight = $(".b-affix:first").outerHeight()
   docHeight = $(document).height()
+  bottomLimit = docHeight - affixBottom - affixHeight
 
   setInterval (->
     b_affix()
@@ -14,14 +15,12 @@ window.onload = ->
 
   b_affix = ->
     curPos = $(window).scrollTop()
-    if curPos > affixTop and curPos < docHeight - affixBottom - affixHeight
+    if curPos > affixTop and curPos < bottomLimit
       $(".b-affix").addClass("top")
     else
       $(".b-affix").removeClass("top")
 
-    if curPos > docHeight - affixBottom - affixHeight
+    if curPos > bottomLimit
       $(".b-affix").addClass("bottom")
     else
       $(".b-affix").removeClass("bottom")
-
-    console.log affixBottom
