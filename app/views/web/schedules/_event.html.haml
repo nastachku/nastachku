@@ -10,7 +10,7 @@
     .caption= slot.event.title
     .author= slot.event.speaker.full_name
 - else
-  .event{ class: "area-#{index} start-#{slot.start_hour} long-#{slot.duration} break" }
+  .event{ class: "area-#{index} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration} break" }
     .time
       = slot.start_hour
       %sup= l slot.start_time, format: :minutes
