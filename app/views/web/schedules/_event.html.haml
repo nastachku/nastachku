@@ -1,19 +1,21 @@
 - if slot.event.type.eql? 'UserEvent'
-  .event{ class: "area-#{index} section-#{slot.event.workshop_id} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}", data: {placement: "right", trigger: "hover", toggle: "popover", original_title: slot.event.speaker.full_name, content: "Монтмориллонит переоткладывает совершенный пролювий, что обусловлено не только первичными неровностями эрозионно-тектонического рельефа поверхности кристаллических пород, но и проявлениями долее поздней блоковой тектоники. Закарстованность, либо из самой плиты, либо из астеносферы под ней, относительно слабо определяет сталагмит, что в конце концов приведет к полному разрушению хребта под действием собственного веса. Антеклиза восстановлена. Как видно из самых общих закономерности распределения криолитозоны, генезис активен. Геосинклиналь определяет пегматитовый мусковит, где присутствуют моренные суглинки днепровского возраста. Отложение, с учетом региональных факторов, затруднено."}}
+  .event{ class: "area-#{index} section-#{slot.event.workshop_id} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}", data: {placement: "right", trigger: "hover", toggle: "popover", original_title: slot.event.speaker.full_name, content: slot.event.thesises }}
     .time
-      12
-      %sup 30
+      = slot.start_hour
+      %sup= slot.start_offset
       %span.end-time
-        &minus; 14
-        %sup 30
+        &minus;
+        = slot.finish_time.hour
+        %sup= slot.finish_time.min
     .caption= slot.event.title
     .author= slot.event.speaker.full_name
 - else
   .event{ class: "area-#{index} start-#{slot.start_hour} long-#{slot.duration} break" }
     .time
-      12
-      %sup 30
+      = slot.start_hour
+      %sup= slot.start_offset
       %span.end-time
-        &minus; 14
-        %sup 30
+        &minus;
+        = slot.finish_time.hour
+        %sup= slot.finish_time.min
     .caption= slot.event.title
