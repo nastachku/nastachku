@@ -1,6 +1,6 @@
 class Web::SocialNetworksController < Web::ApplicationController
 
-  def facebook_authorization
+  def facebook
 
     authorization = Authorization.find_by_provider_and_uid(auth_hash[:provider], auth_hash[:uid])
 
@@ -30,7 +30,7 @@ class Web::SocialNetworksController < Web::ApplicationController
     redirect_to root_path
   end
 
-  def twitter_authorization
+  def twitter
 
     #Если юзер уже авторизован, то линкуем его аккаунт с соц сетью
     if signed_in?

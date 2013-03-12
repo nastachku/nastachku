@@ -7,13 +7,9 @@ Nastachku::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
-  # omniauth-facebook
-  get '/auth/facebook/callback' => 'web/social_networks#facebook_authorization'
-  get '/auth/facebook/failure' => 'web/social_networks#failure'
-
-  # omniauth-twitter
-  get '/auth/twitter/callback' => 'web/social_networks#twitter_authorization'
-  get '/auth/twitter/failure' => 'web/social_networks#failure'
+  # omniauth-facebook, omniauth-twitter
+  get '/auth/:action/callback' => 'web/social_networks'
+  get '/auth/:action/failure' => 'web/social_networks'
 
   namespace :api do
     resources :companies
