@@ -15,8 +15,22 @@
 
       .timepad
         .event.full-event.area-1.start-10.long-30
+          .time
+            %span.end-time
+              10
+              %sup 00
+              &minus;
+              10
+              %sup 30
           Регистрация
         .event.full-event.area-1.start-10.offset-30.long-30
+          .time
+            %span.end-time
+              10
+              %sup 30
+              &minus;
+              11
+              %sup 00
           Торжественное открытие
 
         - @halls.each_with_index do |hall, i|
@@ -26,6 +40,13 @@
               = render 'event', slot: slot, index: i + 1
 
         .event.full-event.area-1.start-20.offset-30.long-30
+          .time
+            %span.end-time
+              20
+              %sup 30
+              &minus;
+              21
+              %sup 00
           Закрытие. Афтепати.
       .clearfix
 
@@ -44,5 +65,12 @@
               = render 'event', slot: slot, index: i + 1
 
         .event.full-event.area-1.start-20.offset-30.long-30
+          .time
+            %span.end-time
+              20
+              %sup 30
+              &minus;
+              21
+              %sup 00
           Закрытие. Афтепати.
       .clearfix
