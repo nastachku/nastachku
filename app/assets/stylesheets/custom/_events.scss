@@ -66,6 +66,9 @@
   position: relative;
   .col-l {
     width: 100%;
+    &.thin {
+      width: 47.5%;
+    }
   }
 }
 .workshop p,
