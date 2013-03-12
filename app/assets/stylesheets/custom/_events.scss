@@ -62,7 +62,6 @@
 
 // lectors
 .workshop {
-  margin-bottom: 20px;
   position: relative;
   .col-l {
     width: 100%;
@@ -102,11 +101,15 @@
 }
 
 // bootstrap-affix
-.affix {
-  top: 10px;
-}
-.affix-bottom {
-  position: absolute;
-  top: auto;
-  bottom: 0;
+.b-affix {
+  width: 190px;
+  padding-bottom: 20px;
+  &.top {
+    position: fixed;
+    top: 4px;
+  }
+  &.bottom {
+    position: absolute;
+    bottom: 0;
+  }
 }
