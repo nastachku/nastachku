@@ -56,8 +56,9 @@ ru:
         my_events: 'Мои доклады'
         add_user_event_text: 'Вами пока не добавлено ни одного доклада.'
         add_user_event: 'Добавить доклад'
-        link_twitter: 'Привязать twitter аккаунт'
-        unlink_twitter: 'Отвязать twitter аккаунт'
+        link_twitter: 'Привязать'
+        unlink_twitter: 'Отвязать'
+        twitter_account: 'Твиттер-аккаунт'
     account:
       events:
         form:
