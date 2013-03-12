@@ -22,12 +22,12 @@ class Web::Account::SocialNetworksControllerTest < ActionController::TestCase
     @user.twitter_name = ""
     @user.save
     request.env['omniauth.auth'] = @auth_hash
-    save_twitter_name_to_session
+    save_auth_hash_to_session
 
     get :link_twitter
 
     assert_response :redirect
-    assert !current_user.twitter_name.empty?
+    assert_equal current_user.twitter_name, @auth_hash[:info][:nickname]
   end
 
 end

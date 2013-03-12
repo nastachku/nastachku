@@ -4,7 +4,7 @@ class Web::Account::SocialNetworksController < Web::ApplicationController
     current_user.twitter_name = session_twitter_name
 
     if current_user.save
-      clear_session_twitter_name
+      clear_session_auth_hash
       flash_success
     else
       flash_error
