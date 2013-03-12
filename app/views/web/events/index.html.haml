@@ -1,11 +1,11 @@
 %h1=t(".events")
 
 .row.workshop
-  .span3.affix-wrapper
+  .span3
     %ul.nav.nav-list#section_submenu
       - workshops.each do |workshop|
-        %li
-          %a= workshop
+        %li.active
+          %a{href: "#"}= workshop
 
   .span9
     - @events.each do |event|

@@ -63,6 +63,7 @@
 // lectors
 .workshop {
   margin-bottom: 40px;
+  position: relative;
   .col-l {
     width: 100%;
   }
@@ -74,18 +75,30 @@
   white-space: pre-wrap;
 }
 
-//bootstrap-affix
-#section_submenu {
-  height: 72px;
+// nav-list
+.nav-list {
+  >li {
+    padding: 0 !important;
+    margin-bottom: 4px;
+    >a {
+      padding-top: 6px;
+      padding-bottom: 6px;
+      &:hover {
+        background: none;
+        text-decoration: underline;
+      }
+    }
+    &.active {
+      >a {
+        background-color: #7c7852 !important;
+        color: #fff !important;
+        text-decoration: none !important;
+      }
+    }
+  }
 }
-.affix-wrapper {
-  //position: relative;
-}
-.affix-top {
-  top: 352px;
-  z-index: 100;
-  position: absolute;
-}
+
+// bootstrap-affix
 .affix {
   top: 10px;
 }
