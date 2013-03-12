@@ -2,20 +2,20 @@
   .event{ class: "area-#{index} section-#{slot.event.workshop_id} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}", data: {placement: "right", trigger: "hover", toggle: "popover", original_title: slot.event.speaker.full_name, content: slot.event.thesises }}
     .time
       = slot.start_hour
-      %sup= slot.start_offset
+      %sup= l slot.start_time, format: :minutes
       %span.end-time
         &minus;
         = slot.finish_time.hour
-        %sup= slot.finish_time.min
+        %sup= l slot.finish_time, format: :minutes
     .caption= slot.event.title
     .author= slot.event.speaker.full_name
 - else
   .event{ class: "area-#{index} start-#{slot.start_hour} long-#{slot.duration} break" }
     .time
       = slot.start_hour
-      %sup= slot.start_offset
+      %sup= l slot.start_time, format: :minutes
       %span.end-time
         &minus;
         = slot.finish_time.hour
-        %sup= slot.finish_time.min
+        %sup= l slot.finish_time, format: :minutes
     .caption= slot.event.title
