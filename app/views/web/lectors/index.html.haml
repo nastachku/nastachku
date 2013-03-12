@@ -1,13 +1,15 @@
-%h1= ""
+%h1=t(".lectors")
 
-- topics.each do |topic|
-  = topic
-  %br
+.row.workshop
+  .span3
+    %ul.nav.nav-list#section_submenu
+      - topics.each do |topic|
+        %li
+          %a{href: "#"}= topic
 
-.row
-  .span12.workshop
+  .span9
     - @lectors.each do |lector|
-      .row
+      .row-fluid
         .span4
           .pic
             - if lector.photo.url
