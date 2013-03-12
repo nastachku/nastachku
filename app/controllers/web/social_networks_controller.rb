@@ -1,15 +1,6 @@
 class Web::SocialNetworksController < Web::ApplicationController
 
-  def authorization
-
-    #Если юзер уже авторизован, то линкуем его аккаунт с соц сетью
-    if signed_in?
-      if twitter_provider?
-        save_twitter_name_to_session
-        redirect_to link_twitter_account_social_networks_path
-      end
-      return
-    end
+  def facebook_authorization
 
     authorization = Authorization.find_by_provider_and_uid(auth_hash[:provider], auth_hash[:uid])
 
@@ -37,6 +28,19 @@ class Web::SocialNetworksController < Web::ApplicationController
 
     end    
     redirect_to root_path
+  end
+
+  def twitter_authorization
+
+    #Если юзер уже авторизован, то линкуем его аккаунт с соц сетью
+    if signed_in?
+      save_auth_hash_to_session
+      redirect_to link_twitter_account_social_networks_path if twitter_provider?
+    else
+      flash_error
+      redirect_to root_path
+    end
+
   end
 
   def failure
