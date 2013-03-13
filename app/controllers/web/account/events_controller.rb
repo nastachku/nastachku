@@ -17,4 +17,9 @@ class Web::Account::EventsController < Web::Account::ApplicationController
     end
   end
 
+  def update
+    @event = current_user.events.find params[:id]
+    @updated = @event.update_attributes params[:user_event]
+    render :edit, layout: false
+  end
 end
