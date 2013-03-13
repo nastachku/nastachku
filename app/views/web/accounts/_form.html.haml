@@ -26,13 +26,16 @@
         .control-group
           .control-label= t(".twitter_account")
           .controls
-            - unless @user.twitter_name?
-              = link_to t(".link_twitter"), link_via_social_network_cpath(:twitter), :class => 'btn'
-            - else
-              = link_to twitter_account_curl(@user.twitter_name), target: "_blank" do
-                %i.ficon-twitter-bird
-                &nbsp;
-              = link_to t(".unlink_twitter"), unlink_twitter_account_social_networks_path, method: :put, :class => 'btn'
+            .control-form-text
+              - unless @user.twitter_name?
+                = link_to t(".link_twitter"), link_via_social_network_cpath(:twitter)
+              - else
+                = link_to twitter_account_curl(@user.twitter_name), target: "_blank" do
+                  = @user.twitter_name
+                  IvanPupkin
+                (
+                = link_to t(".unlink_twitter"), unlink_twitter_account_social_networks_path, method: :put
+                )
 
         = f.input :show_as_participant, :wrapper => :inline_checkbox
       = f.button :submit, :value => t('.save'), :class => 'btn btn-shine'
