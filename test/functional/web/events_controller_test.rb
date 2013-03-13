@@ -15,5 +15,4 @@ class Web::EventsControllerTest < ActionController::TestCase
     get :index, q: { workshop_id_eq: @event.workshop.id }
     assert_response :success
   end
-
 end

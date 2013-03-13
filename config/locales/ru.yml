@@ -8,6 +8,8 @@ ru:
   time:
     formats:
       default: "%d-%m-%Y %H:%M"
+      admin_date_time_picker: "%Y-%m-%d %H:%M:%S"
+      minutes: "%M"
 
   layouts:
     web:
@@ -41,7 +43,7 @@ ru:
             audits: 'Аудит'
             topics: 'Топики'
             lectures: 'Пользовательские доклады'
-            user_lectures: 'Пользовательские доклады'
+            user_lectures: 'Доклады 2.0'
             events: 'События'
             logout: 'Выйти'
 
@@ -242,7 +244,7 @@ ru:
           title: 'События'
           actions: 'Действия'
           edit: 'Редактировать'
-          new: 'Добавить событие'
+          new: 'Добавить доклад'
           workshops: 'Секции'
           halls: 'Залы'
           new_break: 'Добавить перерыв'
@@ -277,7 +279,11 @@ ru:
         edit:
           title: 'Редактирование зала'
         form:
+          timeslots: 'Таймслоты'
+          add_slot: 'Добавить таймслот'
           cancel: 'Отменить'
+        slot_fields:
+          delete: 'Удалить таймслот'
 
       event_breaks:
         new:

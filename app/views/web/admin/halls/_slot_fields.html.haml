@@ -1,0 +1,6 @@
+.row
+  .span9.well
+    = f.input :event_id, collection: BaseEvent.scheduled, as: :chosen_select, input_html: { class: 'span7' }
+    = f.input :start_time, as: :date_time_picker, input_html: { class: 'span7' }
+    = f.input :finish_time, as: :date_time_picker, input_html: { class: 'span7' }
+    = link_to_remove_association t('.delete'), f, class: 'btn btn-danger pull-right'

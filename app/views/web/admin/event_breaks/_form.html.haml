@@ -1,10 +1,7 @@
 = simple_form_for @break, url: [:admin, @break], html: { class: 'form-horizontal' } do |f|
 
-  = f.input :title
-  = f.input :start_time, as: :date_time_picker
-  = f.input :finish_time, as: :date_time_picker
-  = f.association :workshop
-  = f.association :hall
+  = f.input :title, input_html: { class: 'span6' }
+  = f.association :workshop, as: :chosen_select, input_html: { class: 'span6' }
 
   .form-actions
     = f.submit class: 'btn btn-primary'
