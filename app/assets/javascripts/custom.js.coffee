@@ -19,6 +19,3 @@ window.onload = ->
 #    parent.find('a').remove()
 #    parent.prepend(success_block)
 #    count.html(parseInt(count.html()) + 1)
-
-
-  
