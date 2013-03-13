@@ -1,7 +1,7 @@
 class Web::Admin::EventsController < Web::Admin::ApplicationController
 
   def index
-    @events = BaseEvent.without_votings_events.by_start_time.asc_by_workshop_id
+    @events = BaseEvent.without_votings_events.asc_by_workshop_id
   end
 
   def new 

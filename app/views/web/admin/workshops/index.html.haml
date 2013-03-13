@@ -7,11 +7,14 @@
   %thead
     %tr
       %th= Workshop.human_attribute_name :title
-      %th= t '.actions'
+      %th
   %tbody
     - @workshops.each do |workshop|
       %tr
         %td= link_to workshop.title, edit_admin_workshop_path(workshop)
         %td
-          = link_to t('.edit'), edit_admin_workshop_path(workshop), class: 'btn btn-mini'
-          = link_to t('.delete'), admin_workshop_path(workshop), class: 'btn btn-mini', method: :delete
+          .pull-right.btn-group
+            = link_to edit_admin_workshop_path(workshop), class: 'btn btn-mini' do
+              %i.icon-pencil
+            = link_to admin_workshop_path(workshop), class: 'btn btn-mini', method: :delete do
+              %i.icon-trash

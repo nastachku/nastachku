@@ -10,6 +10,7 @@ FactoryGirl.define do
     company
     show_as_participant
     email
+    twitter_name ""
 #    process_personal_data
 
     after(:create) do |user|

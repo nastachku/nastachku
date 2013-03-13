@@ -14,6 +14,9 @@ ru:
             create:
               success: 'Ваш доклад отправлен на модерацию. Вам на почту придет письмо с результатами проверки.'
               error: 'Есть ошибки в заполнении форм.'
+            update:
+              success: 'Ваш доклад успешно изменен.'
+              error: 'Есть ошибки в заполнении форм.'
 
           passwords:
             update:
@@ -22,6 +25,14 @@ ru:
             edit:
               error: "Ссылка не действительна"
               success: "Введите новый пароль"
+
+          social_networks:
+            link_twitter:
+              success: "Twitter успешно связан с аккаунтом"
+              error: "Twitter не связан с аккаунтом"
+            unlink_twitter:
+              success: "Twitter успешно отвязан от аккаунта"
+              error: "Twitter не отвязан от аккаунта"
 
         accounts:
           update:

@@ -6,7 +6,7 @@ class Web::Admin::EventBreaksControllerTest < ActionController::TestCase
     user = create :admin
     sign_in user
     @break_time = create :break
-    @attrs = attributes_for :break, hall_id: @break_time.hall.id
+    @attrs = attributes_for :break
   end
 
   test "should get new" do

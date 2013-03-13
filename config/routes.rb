@@ -9,9 +9,9 @@ Nastachku::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
-  # omniauth-facebook
-  get '/auth/facebook/callback' => 'web/social_networks#authorization'
-  get '/auth/facebook/failure' => 'web/social_networks#failure'
+  # omniauth-facebook, omniauth-twitter
+  get '/auth/:action/callback' => 'web/social_networks'
+  get '/auth/:action/failure' => 'web/social_networks#failure'
 
   namespace :api do
     resources :companies
@@ -44,7 +44,12 @@ Nastachku::Application.routes.draw do
     resource :account, only: [:edit, :update] do
       scope :module => :account do
         resource :password, only: [:edit, :update]
-        resources :events, only: [:new, :create]
+        resource :social_networks, :only => [] do
+          #FIXME по REST тут должен быть put. Решить проблему вызова экшена из другого контроллера
+          get :link_twitter
+          put :unlink_twitter
+        end
+        resources :events, only: [ :new, :create, :update ]
       end
     end
 

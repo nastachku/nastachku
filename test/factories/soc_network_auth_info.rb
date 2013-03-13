@@ -38,4 +38,15 @@ FactoryGirl.define do
       }
     }
   end
+
+  sequence :twitter_auth_hash do
+    {
+      :provider => 'twitter',
+      :uid => '12345678',
+
+      :info => {
+        :nickname => 'jbloggs'
+      }
+    }
+  end
 end

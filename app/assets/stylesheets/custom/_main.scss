@@ -119,6 +119,17 @@ td.middle {
     td {
       padding: 6px 10px;
       line-height: 18px !important;
+      vertical-align: middle;
+      a.btn {
+        margin-top: 0 !important;
+      }
+      &.no-padding {
+        padding-left: 0;
+        padding-right: 0;
+        .alert {
+          margin-bottom: 6px !important;
+        }
+      }
     }
     &:nth-child(odd) {
       td {

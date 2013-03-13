@@ -8,6 +8,8 @@ ru:
   time:
     formats:
       default: "%d-%m-%Y %H:%M"
+      admin_date_time_picker: "%Y-%m-%d %H:%M:%S"
+      minutes: "%M"
 
   layouts:
     web:
@@ -42,7 +44,7 @@ ru:
             audits: 'Аудит'
             topics: 'Топики'
             lectures: 'Пользовательские доклады'
-            user_lectures: 'Пользовательские доклады'
+            user_lectures: 'Доклады 2.0'
             events: 'События'
             logout: 'Выйти'
 
@@ -57,6 +59,9 @@ ru:
         my_events: 'Мои доклады'
         add_user_event_text: 'Вами пока не добавлено ни одного доклада.'
         add_user_event: 'Добавить доклад'
+        link_twitter: 'Привязать аккаунт'
+        unlink_twitter: 'Отключить'
+        twitter_account: 'Твиттер'
     account:
       events:
         form:
@@ -240,7 +245,7 @@ ru:
           title: 'События'
           actions: 'Действия'
           edit: 'Редактировать'
-          new: 'Добавить событие'
+          new: 'Добавить доклад'
           workshops: 'Секции'
           halls: 'Залы'
           new_break: 'Добавить перерыв'
@@ -275,7 +280,11 @@ ru:
         edit:
           title: 'Редактирование зала'
         form:
+          timeslots: 'Таймслоты'
+          add_slot: 'Добавить таймслот'
           cancel: 'Отменить'
+        slot_fields:
+          delete: 'Удалить таймслот'
 
       event_breaks:
         new:

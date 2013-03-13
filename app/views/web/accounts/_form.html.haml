@@ -4,7 +4,6 @@
     = @user.id
 %br
 
-= simple_form_for @user, :url => account_path, :html => { :class => 'form-horizontal profile-form' } do |f|
 
   .tabbable
     %ul.nav.nav-tabs
@@ -13,17 +12,34 @@
 
   .tab-content
     .tab-pane.active#info
-      .formy
-        = f.input :email, disabled: true, readonly: true
-        = f.input :first_name
-        = f.input :last_name
-        = f.input :city
-        = f.input :company
-        = f.input :position
-        = f.input :photo, as: :image_preview
-        = f.input :about
-        = f.input :show_as_participant, :wrapper => :inline_checkbox
-      = f.button :submit, :value => t('.save'), :class => 'btn btn-shine'
+      = simple_form_for @user, :url => account_path, :html => { :class => 'form-horizontal profile-form' } do |f|
+        .formy
+          = f.input :email, disabled: true, readonly: true
+          = f.input :first_name
+          = f.input :last_name
+          = f.input :city
+          = f.input :company
+          = f.input :position
+          = f.input :photo, as: :image_preview
+          = f.input :about
+
+          .control-group
+            .control-label= t(".twitter_account")
+            .controls
+              .control-form-text
+                - unless @user.twitter_name?
+                  = link_to t(".link_twitter"), link_via_social_network_cpath(:twitter)
+                - else
+                  = link_to twitter_account_curl(@user.twitter_name), target: "_blank" do
+                    = @user.twitter_name
+                  (
+                  = link_to t(".unlink_twitter"), unlink_twitter_account_social_networks_path, method: :put
+                  )
+
+          = f.input :show_as_participant, :wrapper => :inline_checkbox
+        = f.button :submit, :value => t('.save'), :class => 'btn btn-shine'
+
+
 
     .tab-pane#my_events
 
@@ -38,9 +54,7 @@
               %th= BaseEvent.human_attribute_name(:title)
               %th= BaseEvent.human_attribute_name(:created_at)
               %th= BaseEvent.human_attribute_name(:state)
+              %th
           %tbody
             - @user.events.each do |event|
-              %tr
-                %td= event.title
-                %td.center= l event.created_at
-                %td.center= event.human_state_name
+              = render 'web/account/events/edit', event: event

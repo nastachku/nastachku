@@ -12,3 +12,7 @@
  *= require chosen
  *= require bootstrap-datetimepicker.min
  */
+
+body {
+    padding-top: 60px;
+}
