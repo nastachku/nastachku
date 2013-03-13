@@ -32,7 +32,6 @@
               - else
                 = link_to twitter_account_curl(@user.twitter_name), target: "_blank" do
                   = @user.twitter_name
-                  IvanPupkin
                 (
                 = link_to t(".unlink_twitter"), unlink_twitter_account_social_networks_path, method: :put
                 )
