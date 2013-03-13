@@ -41,24 +41,4 @@
               %th
           %tbody
             - @user.events.each do |event|
-              %tr
-                %td= event.title
-                %td.center= l event.created_at
-                %td.center= event.human_state_name
-                %td.center
-                  .btn-group.pull-right
-                    %a.btn.btn-mini.edit-event
-                      %i.icon-pencil
-              %tr.hidden
-                %td( colspan="4" )
-                  = simple_form_for [:api, event], remote: true, html: { class: 'edit-event' }  do |event|
-                    .formy.formy-issue.nested-fields
-                      .row-fluid
-                        .span8
-                          = event.input :title
-                          = event.input :thesises, input_html: {rows: 5}
-                        .span3
-                          = event.input :presentation, as: :file
-                      .row-fluid
-                        .span3
-                          = event.submit t('.save'), class: 'btn btn-shine'
+              = render 'web/account/events/edit', event: event

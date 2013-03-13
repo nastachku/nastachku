@@ -15,7 +15,7 @@ Nastachku::Application.routes.draw do
     resources :companies
     resources :cities
 
-    resources :user_events, only: [:update] do
+    resources :user_events do
       scope module: :user_events do
         resources :lecture_votings, only: [:create]
         resources :listener_votings, only: [:create]
@@ -47,7 +47,7 @@ Nastachku::Application.routes.draw do
           get :link_twitter
           put :unlink_twitter
         end
-        resources :events, only: [ :new, :create ]
+        resources :events, only: [ :new, :create, :update ]
       end
     end
 
