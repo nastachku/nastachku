@@ -13,3 +13,4 @@ window.onload = ->
     row.after(data)
     row.prev().remove()
     row.remove()
+    delay 4000, -> $('.alert').fadeOut('slow')
