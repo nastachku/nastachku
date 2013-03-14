@@ -1,12 +1,3 @@
-// Color areas at themes block & timetable
-$blue: #9d0102;
-$red: #019d9b;
-$green: #d0ce09;
-$orange: #839d01;
-$yellow: #70019d;
-$violin: #016f9d;
-$disabled: #ccc;
-
 // themes
 @mixin box-sizing($bs) {
   $bs: unquote($bs);
@@ -60,30 +51,13 @@ $disabled: #ccc;
   background-color: $disabled;
 }
 
-// Timetable
-
-$tt_width : 940; // total table width
-$tl_width : 40; // timeline column width
-$tp_width : $tt_width - $tl_width; // timepad column width
-
-$areas_count : 6; // Number of rooms
-$area_width : $tp_width / $areas_count;
-
-$b_height : 30px; // height of 15-minutes block
-$td_color : #ccc; // Time delimiters color
-$hour_start : 10; // Event begin at
-$hour_end : 20; // Event till this time
-
-$min_speech_time : 30; // The shortest speech time
-$max_speech_time : 240; // The longest speech time
-
 .awesome-timetable {
   width: 940px;
   padding: 30px 0;
 
   .area {
     float: left;
-    height: $b_height;
+    height: $b_height * $timing_step;
     width: $area_width + px;
     text-align: center;
   }
@@ -117,7 +91,7 @@ $max_speech_time : 240; // The longest speech time
   }
 
   .b-quart {
-    height: $b_height;
+    height: $b_height * $timing_step;
   }
 
   .area-name {
@@ -129,7 +103,7 @@ $max_speech_time : 240; // The longest speech time
 
   .event {
     width: $area_width + px;
-    height: $b_height;
+    height: $b_height  * $timing_step;
     background-color: #ccc;
     position: absolute;
     top: 0;
@@ -179,9 +153,9 @@ $max_speech_time : 240; // The longest speech time
 }
 
 .popover {
-  background-color: #d4724b;
+  background-color: $main_color_1;
   .popover-title {
-    background-color: #7c7852;
+    background-color: $main_color_2;
     font-size: 14px;
     font-weight: normal;
     color: #fff !important;
@@ -197,7 +171,7 @@ $max_speech_time : 240; // The longest speech time
   }
   &.right {
     .arrow:after {
-      border-right-color: #d4724b;
+      border-right-color: $main_color_1;
     }
   }
 }
@@ -222,15 +196,15 @@ $colors: $blue $red $green $orange $yellow $violin;
 // Events start hour time
 @for $i from $hour_start through $hour_end {
   .event.start-#{$i} {
-    top: $b_height * 4 * ($i - $hour_start);
+    top: $b_height * 60 * ($i - $hour_start);
   }
 }
 
-$start_offset : 15;
+$start_offset : 1;
 @while $start_offset < 60 {
   .event.offset-#{$start_offset} {
-    margin-top: $b_height * $start_offset / 15;
-    $start_offset : $start_offset + 15;
+    margin-top: $b_height * $start_offset / $step_offset_render;
+    $start_offset : $start_offset + $step_offset_render;
   }
 }
 
@@ -238,12 +212,12 @@ $start_offset : 15;
 $i : $min_speech_time;
 @while $i <=  $max_speech_time {
   .event.long-#{$i} {
-    height: $b_height * $i / 15 + 1;
+    height: $b_height * $i / $step_cont_render + 1;
   }
   .event.full-event.long-#{$i} {
-    line-height: $b_height * $i / 15 - 11;
+    line-height: $b_height * $i / $step_cont_render - 11;
   }
-  $i : $i + 15;
+  $i : $i + $step_cont_render;
 }
 
 @media (max-width: 940px) {
