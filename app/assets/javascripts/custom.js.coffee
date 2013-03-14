@@ -3,8 +3,8 @@ window.onload = ->
   delay 4000, -> $('.alert').fadeOut('slow')
 
   # side bar
-  affixTop = $("#nav_top").outerHeight() + $("#nav_main").outerHeight() + $("header").outerHeight() + $(".content h1:first").outerHeight()
-  affixBottom = $(".sponsors").outerHeight() + parseInt($("#main_container").css("padding-bottom"))
+  affixTop = $("#nav_top").outerHeight() + $("#nav_main").outerHeight() + $("header").outerHeight() + $(".content h1:first").outerHeight() + parseInt($(".content h1:first").css('marginTop')) + parseInt($(".content h1:first").css('marginBottom'))
+  affixBottom = $(".sponsors").outerHeight() + parseInt($("#main_container").css("padding-bottom"))+ parseInt($(".border").css('marginTop'))
   affixHeight = $(".b-affix:first").outerHeight()
   docHeight = $(document).height()
   bottomLimit = docHeight - affixBottom - affixHeight

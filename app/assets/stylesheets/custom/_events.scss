@@ -102,8 +102,9 @@
 
 // bootstrap-affix
 .b-affix {
-  width: 190px;
-  padding-bottom: 20px;
+  width: inherit;
+  box-sizing: border-box;
+  background-color: #f4f4f4 !important;
   &.top {
     position: fixed;
     top: 4px;
