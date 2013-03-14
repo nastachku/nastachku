@@ -70,6 +70,7 @@ GEM
       railties (>= 3.0)
       sass-rails (>= 3.2)
     chronic (0.9.0)
+    chunky_png (1.2.7)
     ci_reporter (1.8.4)
       builder (>= 2.1.2)
     ckeditor (4.0.2)
@@ -85,6 +86,12 @@ GEM
     coffee-script-source (1.4.0)
     colorize (0.5.8)
     commonjs (0.2.6)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
     configus (0.0.4)
       rake
     coveralls (0.5.6)
@@ -106,6 +113,7 @@ GEM
       railties (>= 3.0.0)
     faraday (0.8.5)
       multipart-post (~> 1.1)
+    fssm (0.2.10)
     gon (4.0.2)
       actionpack (>= 2.3.0)
       json
@@ -320,6 +328,7 @@ DEPENDENCIES
   ckeditor
   cocoon
   coffee-rails (~> 3.2.1)
+  compass-rails
   configus
   coveralls
   enumerize
