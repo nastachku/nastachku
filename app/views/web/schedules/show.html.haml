@@ -14,23 +14,23 @@
       = render 'timeline'
 
       .timepad
-        .event.full-event.area-1.start-10.long-30
+        .event.full-event.area-1.start-9.long-60
           .time
             %span.end-time
-              10
+              9
               %sup 00
               &minus;
               10
-              %sup 30
+              %sup 00
           Регистрация
-        .event.full-event.area-1.start-10.offset-30.long-30
+        .event.full-event.area-1.start-10.long-45
           .time
             %span.end-time
               10
-              %sup 30
-              &minus;
-              11
               %sup 00
+              &minus;
+              10
+              %sup 45
           Торжественное открытие
 
         - @halls.each_with_index do |hall, i|
@@ -39,15 +39,15 @@
             - hall.slots.for_day(configus.schedule.first_day).asc_by_created_at.each do |slot|
               = render 'event', slot: slot, index: i + 1
 
-        .event.full-event.area-1.start-20.offset-30.long-30
+        .event.full-event.area-1.start-19.long-60
           .time
             %span.end-time
-              20
-              %sup 30
-              &minus;
-              21
+              19
               %sup 00
-          Закрытие. Афтепати.
+              &minus;
+              02
+              %sup 00
+          Афтепати.
       .clearfix
 
   .tab-pane#conf-day-2
