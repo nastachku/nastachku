@@ -1,5 +1,5 @@
 - if slot.event.type.eql? 'UserEvent'
-  .event{ class: "area-#{index} section-#{slot.event.workshop_id} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}", data: {placement: "right", trigger: "hover", toggle: "popover", html: 'true', original_title: slot.event.speaker.full_name, content: raw(slot.event.thesises) }}
+  .event{ class: "area-#{index} section-#{slot.event.workshop_id} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}", data: {placement: "right", trigger: "hover", toggle: "popover", html: 'true', original_title: slot.event.speaker.full_name, content:  sanitize(slot.event.thesises).html_safe }}
     .time
       = slot.start_hour
       %sup= l slot.start_time, format: :minutes

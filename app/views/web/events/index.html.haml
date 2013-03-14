@@ -30,5 +30,5 @@
         .clearfix
       .span6
         %h4= event.title
-        %p.ainfo= event.thesises.html_safe
+        %p.ainfo= sanitize(event.thesises).html_safe
     %hr

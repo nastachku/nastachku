@@ -16,7 +16,8 @@ module ApplicationHelper
 
   def markdown(content)
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
-    markdown.render(content).html_safe
+    sanitized_content = sanitize content
+    markdown.render(sanitized_content).html_safe
   end
 
   def item(tag, name, path, link_options = {}, &block)
