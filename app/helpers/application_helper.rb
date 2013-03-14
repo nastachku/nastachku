@@ -20,6 +20,11 @@ module ApplicationHelper
     markdown.render(sanitized_content).html_safe
   end
 
+  def filter(content)
+    plain_text = strip_tags content
+    plain_text.gsub(/\r\n/, '<br />').html_safe
+  end
+
   def item(tag, name, path, link_options = {}, &block)
     options = {}
     options[:class] = :active if current_page?(path)
