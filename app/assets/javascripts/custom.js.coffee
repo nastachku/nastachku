@@ -50,9 +50,6 @@ $(document).ready ->
     row.remove()
     delay 4000, -> $('.alert').fadeOut('slow')
 
-  # popover demo
-  $("[data-toggle=popover]").popover()
-
   # Twitter Bootstrap tabs hashes
 
   # Automagically jump on good tab based on anchor; for page reloads or links

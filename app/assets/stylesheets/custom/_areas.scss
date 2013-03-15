@@ -177,7 +177,7 @@ $step_cont_render: 1; // The continuance time accuracy (min)
       text-overflow: ellipsis;
       font-weight: bold;
       text-align: right;
-      display: inline-block;
+      display: block;
     }
     &.break {
       background-color: #eee;
@@ -189,30 +189,6 @@ $step_cont_render: 1; // The continuance time accuracy (min)
       border: 1px solid #ccc;
       text-align: center;
       font-size: 18px;
-    }
-  }
-}
-
-.popover {
-  background-color: #d4724b;
-  .popover-title {
-    background-color: #7c7852;
-    font-size: 14px;
-    font-weight: normal;
-    color: #fff !important;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-  }
-  .popover-content {
-    font-size: 12px;
-    font-weight: normal;
-    line-height: 18px;
-    text-align: left;
-  }
-  &.right {
-    .arrow:after {
-      border-right-color: #d4724b;
     }
   }
 }
