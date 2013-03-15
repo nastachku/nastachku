@@ -21,7 +21,7 @@ module ApplicationHelper
   end
 
   def nl2br(content)
-    lines = content.split(/(\r)?\n/)
+    lines = content.split(/\r\n/)
     render 'helpers/web/nl2br', lines: lines
   end
 
