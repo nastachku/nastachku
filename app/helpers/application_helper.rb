@@ -16,7 +16,13 @@ module ApplicationHelper
 
   def markdown(content)
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
-    markdown.render(content).html_safe
+    sanitized_content = sanitize content
+    markdown.render(sanitized_content).html_safe
+  end
+
+  def nl2br(content)
+    lines = content.split(/\r\n/)
+    render 'helpers/web/nl2br', lines: lines
   end
 
   def item(tag, name, path, link_options = {}, &block)

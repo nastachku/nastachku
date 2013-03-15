@@ -41,7 +41,7 @@ module Nastachku
 
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
-
+    config.action_view.sanitized_allowed_tags = 'p', 'strong', 'ul', 'li'
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,
     # like if you have constraints or database-specific column types

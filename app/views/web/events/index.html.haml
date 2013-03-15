@@ -30,6 +30,5 @@
                 = event.listener_votings.size
         .span8
           %h4= event.title
-          %p.ainfo= event.thesises.html_safe
+          %p.ainfo= nl2br event.thesises
         .clearfix
-      %hr
