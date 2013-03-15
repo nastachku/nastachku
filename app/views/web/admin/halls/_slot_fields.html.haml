@@ -1,4 +1,4 @@
-.row
+.row.nested-fields
   .span9.well
     = f.input :event_id, collection: BaseEvent.scheduled, as: :chosen_select, input_html: { class: 'span7' }
     = f.input :start_time, as: :date_time_picker, input_html: { class: 'span7' }

@@ -1,11 +1,14 @@
 .sinfo {
   h5 {
     line-height: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     position: relative;
     top: -2px;
   }
   h6 {
+    margin-bottom: 15px;
+  }
+  .pic {
     margin-bottom: 15px;
   }
 }
@@ -59,12 +62,58 @@
 
 // lectors
 .workshop {
-  margin-bottom: 40px;
-  padding-top: 20px;
+  position: relative;
+  .col-l {
+    width: 100%;
+    &.thin {
+      width: 47.5%;
+    }
+  }
 }
 .workshop p,
 .workshop h6.grey {
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+.workshop h6.grey {
   white-space: pre-wrap;
+}
+
+// nav-list
+.nav-list {
+  >li {
+    padding: 0 !important;
+    margin-bottom: 4px;
+    >a {
+      padding-top: 6px;
+      padding-bottom: 6px;
+      &:hover {
+        background: none;
+        text-decoration: underline;
+      }
+    }
+    &.active {
+      >a {
+        background-color: #7c7852 !important;
+        color: #fff !important;
+        text-decoration: none !important;
+      }
+    }
+  }
+}
+
+// bootstrap-affix
+.b-affix {
+  width: inherit;
+  box-sizing: border-box;
+  background-color: #f4f4f4 !important;
+  &.top {
+    position: fixed;
+    top: 4px;
+  }
+  &.bottom {
+    position: absolute;
+    bottom: 0;
+  }
 }

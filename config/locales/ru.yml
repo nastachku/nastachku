@@ -33,6 +33,7 @@ ru:
           login: 'Войти'
           admin: 'Админка'
           add_lecture: 'Добавить доклад'
+          stachka_2012: 'Стачка! 2012'
 
       admin:
         shared:
@@ -112,6 +113,10 @@ ru:
         i_am_going: 'Я пойду!'
         already_going: 'Вы пойдете'
         they_going: 'Пойдут'
+        events: 'Доклады'
+    lectors:
+      index:
+        lectors: 'Докладчики'
 
     sessions:
       form:

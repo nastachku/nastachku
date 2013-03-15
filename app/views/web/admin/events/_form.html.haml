@@ -1,8 +1,8 @@
-= f.input :title, input_html: { class: 'span6' }
-= f.input :state_event, as: :state_event, input_html: { class: 'span6' }
-= f.input :thesises, as: :ckeditor
-= f.association :workshop, as: :chosen_select, input_html: { class: 'span6' }
-= f.association :speaker, collection: User.asc_by_last_name, as: :chosen_select, input_html: { class: 'span6' }
+= f.input :title, input_html: { class: 'span7' }
+= f.input :state_event, as: :state_event, input_html: { class: 'span7' }
+= f.input :thesises, input_html: { class: 'span7' }
+= f.association :workshop, as: :chosen_select, input_html: { class: 'span7' }
+= f.association :speaker, collection: User.asc_by_last_name, as: :chosen_select, input_html: { class: 'span7' }
 = f.input :presentation, as: :file_download
 
 .form-actions

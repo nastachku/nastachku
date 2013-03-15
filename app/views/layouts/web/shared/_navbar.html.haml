@@ -1,4 +1,4 @@
-.navbar.navbar-position-top
+.navbar.navbar-position-top#nav_top
   .navbar-inner
     .container
       %nav.social-public-links.pull-left
@@ -14,6 +14,7 @@
               %i.ficon-vkontakte-rect
 
       %ul.nav.pull-left
+        %li= link_to t('.stachka_2012'), 'http://2012.nastachku.ru', class: 'btn-shine add_lecture prev_year', target: "_blank"
         %li= link_to t('.add_lecture'), new_account_event_path, class: 'btn-shine add_lecture'
 
       %ul.nav.pull-right

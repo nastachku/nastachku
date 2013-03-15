@@ -9,7 +9,7 @@ class Hall < ActiveRecord::Base
   has_many :events, class_name: :BaseEvent, through: :slots
   has_many :slots, order: :start_time
 
-  accepts_nested_attributes_for :slots
+  accepts_nested_attributes_for :slots, allow_destroy: true
 
   audit :title
 

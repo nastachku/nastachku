@@ -1,7 +1,6 @@
 .clearfix
-%br
-.border
 .sponsors
+  .border
   .left-column
     %h4 Организаторы 
 
@@ -79,8 +78,12 @@
           %img.dailycomm{:src => "/images/logo-dailycomm.jpeg", :width => 180, :height => 54, :alt => "DailyComm"}
 
       .line.info-sponsors-6th-line
-        %a{:href => "http://www.pr73.ru/", :target => "_blank"}
-          %img{:src => "/images/logo-cru.png", :width => 181, :height => 30, :alt => "Ц.Р.У."}
+        %a{:href => "http://rocid.ru/", :target => "_blank"}
+          %img.rocid{:src => "/images/logo-rocid.png", :width => 150, :height => 53, :alt => "ROCID"}
+        %a{:href => "http://raec.ru/", :target => "_blank"}
+          %img.raec{:src => "/images/logo-raec.png", :width => 160, :height => 29, :alt => "РАЭК"}
+        %a{:href => "http://in-numbers.ru/", :target => "_blank"}
+          %img{:src => "/images/logo-innumbers.png", :width => 150, :height => 36, :alt => "inNumbers"}
 
   .right-column
     %h4 Спонсоры
@@ -107,9 +110,6 @@
       Партнеры
     .star-sponsors
       .item
-        %a{:href => "http://it.ulgov.ru/", :target => "_blank"}
-          %img{:src => "/images/logo-ulgov.gif", :width => 73, :height => 62, :alt => "Министерство Ульяновской области по развитию информационных технологий и электронной демократии"}
-      .item
         %a{:href => "http://mosaica.ru/", :target => "_blank"}
           %img{:src => "/images/logo-mosaica.jpg", :width => 180, :height => 40, :alt => "Мозаика"}
         %sup
@@ -124,6 +124,9 @@
           %img{:src => "/images/logo-superjob.png", :width => 160, :height => 44, :alt => "SuperJob"}
         %sup
           %i.sponsor-star.green
+      .item.cru
+        %a{:href => "http://www.pr73.ru/", :target => "_blank"}
+          %img{:src => "/images/logo-cru.png", :width => 181, :height => 30, :alt => "Ц.Р.У."}
 
     .legend
       %i.sponsor-star.red
@@ -134,3 +137,4 @@
       %br
       %i.sponsor-star.green
       — генеральный HR-партнер
+  .clearfix

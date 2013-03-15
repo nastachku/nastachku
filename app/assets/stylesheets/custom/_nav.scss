@@ -75,8 +75,8 @@
 }
 .navbar-position-top .navbar-inner {
   background-color: transparent !important;
-  min-height: auto;
-  height: 28px;
+  min-height: 28px;
+  height: auto;
   line-height: 28px !important;
   padding-right: 0 !important;
 }
@@ -118,6 +118,9 @@
   padding-left: 10px !important;
   padding-right: 10px !important;
   background-color: #7c7852 !important;
+  &.prev_year {
+    font-size: 14px !important;
+  }
 }
 
 // dropdown menu
