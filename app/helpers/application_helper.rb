@@ -20,9 +20,9 @@ module ApplicationHelper
     markdown.render(sanitized_content).html_safe
   end
 
-  def filter(content)
-    plain_text = strip_tags content
-    plain_text.gsub(/\r\n/, '<br />').html_safe
+  def nl2br(content)
+    lines = content.split(/(\r)?\n/)
+    render 'helpers/web/nl2br', lines: lines
   end
 
   def item(tag, name, path, link_options = {}, &block)
