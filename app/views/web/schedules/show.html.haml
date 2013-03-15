@@ -11,10 +11,21 @@
     .awesome-timetable
       = render 'halls'
       .clearfix
-      = render 'timeline', start_hour: 9, end_hour: 20
+
+      .timeline
+        .b-quart
+          .lined
+          9
+          %sup
+            00
+        .b-quart
+          .lined
+          10
+          %sup
+            00
 
       .timepad
-        .event.full-event.area-1.start-9.long-60
+        .event.full-event.area-1.start-0.long-15
           .time
             %span.end-time
               9
@@ -23,7 +34,7 @@
               10
               %sup 00
           Регистрация
-        .event.full-event.area-1.start-10.long-45
+        .event.full-event.area-1.start-0.long-15.offset-15
           .time
             %span.end-time
               10
@@ -32,16 +43,28 @@
               10
               %sup 45
           Торжественное открытие
+      .clearfix
 
+      = render 'timeline', start_hour: 11, end_hour: 19
+
+      .timepad
         - @halls.each_with_index do |hall, i|
           .area-container{ class: "area-#{i + 1}-container" }
             .area-name #{hall}
             - hall.slots.for_day(configus.schedule.first_day).asc_by_created_at.each do |slot|
               = render 'event', slot: slot, index: i + 1
 
-        .event.full-event.area-1.start-19.long-60
-          .time
-            %span.end-time
+      .clearfix
+      .timeline
+        .b-quart
+          .lined
+          19
+          %sup
+            00
+      .timepad
+        .event.full-event.area-1.start-0.long-15
+          %small
+            .time
               19
               %sup 00
               &minus;
@@ -55,10 +78,15 @@
     .awesome-timetable
       = render 'halls'
       .clearfix
-      = render 'timeline', start_hour: 9, end_hour: 18
 
+      .timeline
+        .b-quart
+          .lined
+          10
+          %sup
+            00
       .timepad
-        .event.full-event.area-1.start-10.long-60
+        .event.full-event.area-1.start-0.long-15
           .time
             %span.end-time
               10
@@ -67,13 +95,25 @@
               11
               %sup 00
           Выставка.
+      .clearfix
 
+      = render 'timeline', start_hour: 11, end_hour: 17
+
+      .timepad
         - @halls.each_with_index do |hall, i|
           .area-container{ class: "area-#{i + 1}-container" }
             - hall.slots.for_day(configus.schedule.second_day).asc_by_start_time.each do |slot|
               = render 'event', slot: slot, index: i + 1
+      .clearfix
 
-        .event.full-event.area-1.start-17.long-30
+      .timeline
+        .b-quart
+          .lined
+          17
+          %sup
+            00
+      .timepad
+        .event.full-event.area-1.start-0.long-15
           .time
             %span.end-time
               17
