@@ -9,7 +9,7 @@
 
   .span9
     - @events.each do |event|
-      .row-fluid
+      .row-fluid.event-item
         .span4.sinfo
           .col-l
             %h5= link_to event.speaker.reverse_full_name, lectors_path(anchor: event.speaker)
