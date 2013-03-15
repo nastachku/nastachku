@@ -26,6 +26,17 @@ window.onload = ->
       $(".b-affix").removeClass("bottom")
 
 $(document).ready ->
+
+  # timetable long events hover
+  $('.event').mouseenter ->
+    heightSummary = $(this).find('.summary').outerHeight()
+    heightEvent = $(this).outerHeight()
+    if heightSummary > heightEvent
+      $(this).addClass('expand')
+  .mouseleave ->
+    $(this).removeClass('expand')
+
+  # events editing table
   $('table').delegate 'a.edit-event', 'click', ->
     parent_row = $(this).closest('tr')
     parent_row.next().toggleClass('hidden')

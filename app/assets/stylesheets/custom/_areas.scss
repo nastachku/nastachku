@@ -137,7 +137,7 @@ $step_cont_render: 1; // The continuance time accuracy (min)
     background-color: #ccc;
     position: absolute;
     top: 0;
-    color: #333;
+    color: #333 !important;
     @include box-sizing(border-box);
     padding: 6px;
     font-size: 12px;
@@ -145,6 +145,12 @@ $step_cont_render: 1; // The continuance time accuracy (min)
     line-height: 18px;
     overflow: hidden;
     cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    z-index: 10;
+    .summary {
+      display: block;
+    }
     .time {
       font-weight: bold;
       display: inline;
@@ -162,11 +168,16 @@ $step_cont_render: 1; // The continuance time accuracy (min)
         text-decoration: underline;
       }
     }
+    &.expand {
+      height: auto !important;
+      z-index: 100 !important;
+    }
     .author {
       overflow: hidden;
       text-overflow: ellipsis;
       font-weight: bold;
       text-align: right;
+      display: inline-block;
     }
     &.break {
       background-color: #eee;
@@ -269,6 +280,7 @@ $i : $min_speech_time;
       width: 100% !important;
       cursor: default;
       .time .end-time,
+      .summary,
       .caption,
       .author {
         display: inline;

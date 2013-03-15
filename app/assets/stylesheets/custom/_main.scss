@@ -16,7 +16,7 @@ body {
 // header
 header {
   border: none !important;
-  height: 134px;
+  min-height: 134px;
 }
 header .info {
   padding-top: 44px;
@@ -218,4 +218,13 @@ footer .copy {
 }
 .hero .bender .color {
   color: #000 !important;
+}
+
+#reformal_tab {
+  z-index: 1000 !important;
+}
+
+.modal-body p {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
