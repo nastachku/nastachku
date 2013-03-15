@@ -111,6 +111,10 @@ ru:
         i_am_going: 'Я пойду!'
         already_going: 'Вы пойдете'
         they_going: 'Пойдут'
+        events: 'Доклады'
+    lectors:
+      index:
+        lectors: 'Докладчики'
 
     sessions:
       form:
