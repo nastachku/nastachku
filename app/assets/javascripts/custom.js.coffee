@@ -56,7 +56,7 @@ $(document).ready ->
   $("a[href=" + location.hash + "]").tab "show"  if location.hash
 
   # Update hash based on tab, basically restores browser default behavior to fix bootstrap tabs
-  $(document.body).on "click", "a[data-toggle]", (event) ->
+  $(document.body).on "click", "a[data-toggle=tab]", (event) ->
     location.hash = @getAttribute("href")
 
 # on history back activate the tab of the location hash if exists or the default tab if no hash exists
