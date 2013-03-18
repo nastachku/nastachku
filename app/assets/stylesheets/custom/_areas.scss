@@ -1,11 +1,4 @@
 // themes
-@mixin box-sizing($bs) {
-  $bs: unquote($bs);
-  -moz-box-sizing: $bs;
-  -webkit-box-sizing: $bs;
-  box-sizing: $bs;
-}
-
 .themes-talk {
   margin-bottom: 40px;
   .row {

@@ -28,9 +28,7 @@
 .form-type-login input[type="password"] {
   width: 100%;
   height: 28px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
 }
 .form-type-login .form-actions {
   padding-left: 0;

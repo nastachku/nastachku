@@ -100,6 +100,8 @@ td.middle {
   border: 1px solid #ddd;
 }
 .twtr-doc {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
   border-radius: 0 !important;
 }
 .twtr-ft {
