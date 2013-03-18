@@ -6,6 +6,7 @@ class Lecture < ActiveRecord::Base
 
   validates :title, presence: true
   validates :thesises, presence: true
+
   belongs_to :workshop
   belongs_to :user
 
