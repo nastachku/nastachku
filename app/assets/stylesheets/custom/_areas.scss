@@ -272,3 +272,17 @@ $i : $min_speech_time;
     }
   }
 }
+
+// Modals
+.content {
+  .modal-header {
+    background-color: #7c7852;
+    h3 {
+      color: #fff !important;
+    }
+  }
+  .modal-body {
+    background-color: #d4724b;
+    color: #fff;
+  }
+}

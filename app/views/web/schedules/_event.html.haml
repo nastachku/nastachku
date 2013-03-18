@@ -1,9 +1,10 @@
 - if slot.event.type.eql? 'UserEvent'
 
-  .modal.hide.fade{id: dom_id(slot), "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal.hide.fade{id: dom_id(slot), "aria-hidden" => "true", "aria-labelledby" => "#{dom_id(slot)}myModalLabel", :role => "dialog", :tabindex => "-1"}
     .modal-header
       %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-      %h3#myModalLabel= slot.event.speaker.full_name
+      %h3{id: "#{dom_id(slot)}myModalLabel"}
+        = slot.event.speaker.full_name
     .modal-body
       %p= nl2br(slot.event.thesises)
 
