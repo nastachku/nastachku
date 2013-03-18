@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130311135540) do
+ActiveRecord::Schema.define(:version => 20130318165854) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -48,10 +48,7 @@ ActiveRecord::Schema.define(:version => 20130311135540) do
     t.string   "state"
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
-    t.datetime "start_time"
-    t.datetime "finish_time"
     t.integer  "workshop_id"
-    t.integer  "hall_id"
     t.integer  "listener_votings_count", :default => 0
     t.integer  "lecture_votings_count",  :default => 0
   end
@@ -72,10 +69,30 @@ ActiveRecord::Schema.define(:version => 20130311135540) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.string   "state"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "halls", :force => true do |t|
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "lectures", :force => true do |t|
+    t.string   "state"
+    t.string   "presentation"
+    t.integer  "listener_votings_count", :default => 0
+    t.integer  "lecture_votings_count",  :default => 0
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "thesises"
+    t.integer  "workshop_id"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
   end
 
   create_table "news", :force => true do |t|
@@ -103,6 +120,16 @@ ActiveRecord::Schema.define(:version => 20130311135540) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "slots", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "hall_id"
+    t.datetime "start_time"
+    t.datetime "finish_time"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "event_type"
+  end
 
   create_table "topics", :force => true do |t|
     t.string   "title"
@@ -137,8 +164,8 @@ ActiveRecord::Schema.define(:version => 20130311135540) do
     t.string   "position"
     t.boolean  "admin"
     t.string   "password"
-    t.string   "state"
     t.string   "photo"
+    t.string   "state"
     t.text     "about"
     t.string   "first_name"
     t.string   "last_name"

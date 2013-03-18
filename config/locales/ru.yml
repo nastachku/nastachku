@@ -244,15 +244,25 @@ ru:
         form:
           presentation_link: 'Ссылка на презентацию'
 
-      events:
+      lectures:
         index: 
-          title: 'События'
+          title: 'Доклады'
           actions: 'Действия'
           edit: 'Редактировать'
           new: 'Добавить доклад'
           workshops: 'Секции'
           halls: 'Залы'
-          new_break: 'Добавить перерыв'
+        new:
+          title: 'Добавить доклад'
+        edit:
+          title: 'Редактировать доклад'
+
+      events:
+        index:
+          title: 'Другие события'
+          actions: 'Действия'
+          edit: 'Редактировать'
+          new: 'Добавить событие'
         new:
           title: 'Добавить событие'
         edit:

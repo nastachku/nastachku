@@ -58,6 +58,7 @@ Nastachku::Application.routes.draw do
     resources :lectors, only: [ :index ]
 
     namespace :admin do
+      resources :lectures
       resources :pages
       resources :news
       resources :users

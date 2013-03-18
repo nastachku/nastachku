@@ -1,0 +1,29 @@
+.page-header
+  %h1=t '.title'
+
+.span4
+  = link_to t('.new'), new_admin_lecture_path, class: 'btn btn-primary'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Lecture.human_attribute_name :title
+      %th= Lecture.human_attribute_name :user
+      %th= Lecture.human_attribute_name :state
+      %th= Lecture.human_attribute_name :workshop
+      %th= Lecture.human_attribute_name :listener_votings_count
+      %th= Lecture.human_attribute_name :lecture_votings_count
+      %th
+  %tbody
+    - @lectures.each do |lecture|
+      %tr
+        %td= lecture.title
+        %td= lecture.user
+        %td= lecture.human_state_name
+        %td= lecture.workshop.try(:title)
+        %td= lecture.listener_votings.size
+        %td= lecture.lecture_votings.size
+        %td
+          .pull-right.btn-group
+            = link_to edit_admin_lecture_path(lecture), class: 'btn btn-mini' do
+              %i.icon-pencil

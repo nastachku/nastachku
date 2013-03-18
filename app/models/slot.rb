@@ -1,10 +1,10 @@
 class Slot < ActiveRecord::Base
   include SlotRepository
 
-  attr_accessible :event_id, :finish_time, :hall_id, :start_time
+  attr_accessible :event_id, :event_type, :finish_time, :hall_id, :start_time
 
   belongs_to :hall
-  belongs_to :event, class_name: :BaseEvent
+  belongs_to :event, polymorphic: true
 
   validates :start_time, presence: true
   validates :finish_time, presence: true
