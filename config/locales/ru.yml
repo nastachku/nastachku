@@ -407,7 +407,7 @@ ru:
         color: 'Цвет'
       hall:
         title: 'Название'
-        
+
     errors:
       models:
         page:
@@ -421,7 +421,7 @@ ru:
 
             body:
               blank: 'Тело страницы не может быть пустым'
-          
+
         news:
           attributes:
             slug:
