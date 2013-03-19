@@ -101,7 +101,7 @@
     background-color: #ccc;
     position: absolute;
     top: 0;
-    color: #333;
+    color: #333 !important;
     @include box-sizing(border-box);
     padding: 6px;
     font-size: 12px;
@@ -109,6 +109,12 @@
     line-height: 18px;
     overflow: hidden;
     cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    z-index: 10;
+    .summary {
+      display: block;
+    }
     .time {
       font-weight: bold;
       display: inline;
@@ -126,11 +132,16 @@
         text-decoration: underline;
       }
     }
+    &.expand {
+      height: auto !important;
+      z-index: 100 !important;
+    }
     .author {
       overflow: hidden;
       text-overflow: ellipsis;
       font-weight: bold;
       text-align: right;
+      display: block;
     }
     &.break {
       background-color: #eee;
@@ -142,30 +153,6 @@
       border: 1px solid #ccc;
       text-align: center;
       font-size: 18px;
-    }
-  }
-}
-
-.popover {
-  background-color: $main_color_1;
-  .popover-title {
-    background-color: $main_color_2;
-    font-size: 14px;
-    font-weight: normal;
-    color: #fff !important;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-  }
-  .popover-content {
-    font-size: 12px;
-    font-weight: normal;
-    line-height: 18px;
-    text-align: left;
-  }
-  &.right {
-    .arrow:after {
-      border-right-color: $main_color_1;
     }
   }
 }
@@ -233,6 +220,7 @@ $i : $min_speech_time;
       width: 100% !important;
       cursor: default;
       .time .end-time,
+      .summary,
       .caption,
       .author {
         display: inline;
@@ -246,5 +234,19 @@ $i : $min_speech_time;
     .area-name {
       display: block;
     }
+  }
+}
+
+// Modals
+.content {
+  .modal-header {
+    background-color: #7c7852;
+    h3 {
+      color: #fff !important;
+    }
+  }
+  .modal-body {
+    background-color: #d4724b;
+    color: #fff;
   }
 }

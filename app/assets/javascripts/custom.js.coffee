@@ -26,6 +26,17 @@ window.onload = ->
       $(".b-affix").removeClass("bottom")
 
 $(document).ready ->
+
+  # timetable long events hover
+  $('.event').mouseenter ->
+    heightSummary = $(this).find('.summary').outerHeight()
+    heightEvent = $(this).outerHeight()
+    if heightSummary > heightEvent
+      $(this).addClass('expand')
+  .mouseleave ->
+    $(this).removeClass('expand')
+
+  # events editing table
   $('table').delegate 'a.edit-event', 'click', ->
     parent_row = $(this).closest('tr')
     parent_row.next().toggleClass('hidden')
@@ -39,16 +50,13 @@ $(document).ready ->
     row.remove()
     delay 4000, -> $('.alert').fadeOut('slow')
 
-  # popover demo
-  $("[data-toggle=popover]").popover()
-
   # Twitter Bootstrap tabs hashes
 
   # Automagically jump on good tab based on anchor; for page reloads or links
   $("a[href=" + location.hash + "]").tab "show"  if location.hash
 
   # Update hash based on tab, basically restores browser default behavior to fix bootstrap tabs
-  $(document.body).on "click", "a[data-toggle]", (event) ->
+  $(document.body).on "click", "a[data-toggle=tab]", (event) ->
     location.hash = @getAttribute("href")
 
 # on history back activate the tab of the location hash if exists or the default tab if no hash exists
