@@ -22,18 +22,16 @@
 }
 .sponsors .logo-wrapper {
   border: 1px solid #e3e3e3;
-  padding: 30px 0 30px 45px;
+  padding: 30px 0px 30px 45px;
   margin-right: 40px;
-}
-.sponsors .line {
-  margin-bottom: 35px;
-}
-.sponsors .line:last-child {
-  margin-bottom: 0;
+  overflow: hidden;
 }
 .sponsors .line img {
   margin-right: 44px;
-  float: left;
+  display: inline-block;
+  padding: 15px 0;
+  vertical-align: middle;
+  position: relative;
 }
 .sponsors .line sup {
   float: left;
@@ -41,43 +39,14 @@
 .sponsors .line a:last-child img {
   margin-right: 0;
 }
-.sponsors .first-line {
-  height: 78px;
-}
-.sponsors .second-line {
-  height: 42px;
-}
-.sponsors .third-line {
-  height: 51px;
-}
 .sponsors .logo-srit {
   margin: 22px 0;
-}
-
-// info sponsors
-.info-sponsors-first-line {
-  height: 62px;
-}
-.info-sponsors-second-line {
-  height: 57px;
-}
-.info-sponsors-third-line {
-  height: 54px;
-}
-.info-sponsors-4th-line {
-  height: 67px;
-}
-.info-sponsors-5th-line {
-  height: 80px;
-}
-.info-sponsors-6th-line {
-  height: 53px;
 }
 
 // star sponsors
 .star-sponsors {
   .item {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     position: relative;
     sup {
       position: absolute;
@@ -109,6 +78,9 @@
 .sponsor-star.green {
   background-position: 0 -56px;
 }
+.sponsor-star.bordo {
+  background-position: 0 -70px;
+}
 .legend {
   font-size: 12px;
   line-height: 18px;
@@ -119,50 +91,48 @@
 }
 
 // custom logo position
+.simtech {
+  top: -3px;
+}
 .platidoma {
-  position: relative;
-  top: -6px;
-}
-.ultop {
-  position: relative;
-  top: 10px;
-}
-.hackday {
-  position: relative;
-  top: -4px;
+  top: -16px;
 }
 .ulpeople {
-  position: relative;
-  top: 9px;
+  top: 6px;
 }
-.rubyflow {
-  position: relative;
-  top: -12px;
+.regru {
+  top: -2px;
 }
-.softline {
-  position: relative;
-  top: 22px;
+.rubyjobs {
+  top: -6px;
 }
 .allintop {
-  position: relative;
-  top: -4px;
-}
-.free-lance {
-  position: relative;
-  top: 26px;
-}
-.dailycomm {
-  position: relative;
-  top: 12px;
+  top: -8px;
 }
 .cru {
   padding-top: 10px;
 }
-.raec {
-  position: relative;
-  top: 10px;
-}
-.rocid {
-  position: relative;
-  top: 10px;
+
+@media (max-width: 960px) {
+  .sponsors {
+    .left-column {
+      width: 100%;
+      float: none;
+      border-right: none;
+      margin-bottom: 40px;
+    }
+    .logo-wrapper {
+      margin-right: 0;
+    }
+    .right-column {
+      width: 100%;
+    }
+    .star-sponsors {
+      .item {
+        display: inline-block;
+        padding-right: 30px;
+        margin-right: 40px;
+      }
+    }
+  }
 }

@@ -1,5 +1,3 @@
-$main_color: #d4724b;
-
 html,
 body {
   height: 100%;
@@ -16,13 +14,13 @@ body {
 // header
 header {
   border: none !important;
-  height: 134px;
+  min-height: 134px;
 }
 header .info {
   padding-top: 44px;
 }
 header .info h3 {
-  color: $main_color;
+  color: $main_color_1;
   text-transform: uppercase;
   font-family: Arial;
   font-size: 26px;
@@ -34,8 +32,8 @@ header .info h3 .color {
 
 // slider
 .da-slider {
-  border-top-color: #d4724b;
-  border-bottom-color: #d4724b;
+  border-top-color: $main_color_1;
+  border-bottom-color: $main_color_1;
   color: #000;
   margin-bottom: 60px;
 }
@@ -52,7 +50,7 @@ header .info h3 .color {
 
 // main elements
 a {
-  color: $main_color !important;
+  color: $main_color_1 !important;
 }
 h1 {
   margin-bottom: 30px !important;
@@ -86,7 +84,7 @@ td.middle {
   display: block;
 }
 .color {
-  color: #d4724b !important;
+  color: $main_color_1 !important;
 }
 .no-padding {
   padding-bottom: 0 !important;
@@ -103,6 +101,8 @@ td.middle {
   border: 1px solid #ddd;
 }
 .twtr-doc {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
   border-radius: 0 !important;
 }
 .twtr-ft {
@@ -213,9 +213,18 @@ footer .copy {
 .hero .bender {
   font-weight: 100;
   text-transform: uppercase;
-  color: $main_color !important;
+  color: $main_color_1 !important;
   font-size: 30px !important;
 }
 .hero .bender .color {
   color: #000 !important;
+}
+
+#reformal_tab {
+  z-index: 1000 !important;
+}
+
+.modal-body p {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -1,21 +1,32 @@
 - if slot.event.type.eql? 'UserEvent'
-  .event{ class: "area-#{index} section-#{slot.event.workshop_id} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}", data: {placement: (index < 4 ? "right" : "left"), trigger: "hover", toggle: "popover", html: 'true', original_title: slot.event.speaker.full_name, content: nl2br(slot.event.thesises) }}
-    .time
-      = slot.start_hour
-      %sup= l slot.start_time, format: :minutes
-      %span.end-time
-        &minus;
-        = slot.finish_time.hour
-        %sup= l slot.finish_time, format: :minutes
-    .caption= slot.event.title
-    .author= slot.event.speaker.full_name
+
+  .modal.hide.fade{id: dom_id(slot), "aria-hidden" => "true", "aria-labelledby" => "#{dom_id(slot)}myModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+      %h3{id: "#{dom_id(slot)}myModalLabel"}
+        = slot.event.speaker.full_name
+    .modal-body
+      %p= nl2br(slot.event.thesises)
+
+  %a.event{ class: "area-#{index} section-#{slot.event.workshop_id} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}", data: {toggle: 'modal'}, href: "##{dom_id(slot)}", role: "button"}
+    %span.summary
+      %span.time
+        = slot.start_hour
+        %sup= l slot.start_time, format: :minutes
+        %span.end-time
+          &minus;
+          = slot.finish_time.hour
+          %sup= l slot.finish_time, format: :minutes
+      %span.caption
+        = slot.event.title
+      %span.author= slot.event.speaker.full_name
 - else
-  .event{ class: "area-#{index} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration} break" }
-    .time
+  %a.event{ class: "area-#{index} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration} break" }
+    %span.time
       = slot.start_hour
       %sup= l slot.start_time, format: :minutes
       %span.end-time
         &minus;
         = slot.finish_time.hour
         %sup= l slot.finish_time, format: :minutes
-    .caption= slot.event.title
+    %span.caption= slot.event.title

@@ -1,20 +1,4 @@
-// Color areas at themes block & timetable
-$blue: #9d0102;
-$red: #019d9b;
-$green: #d0ce09;
-$orange: #839d01;
-$yellow: #70019d;
-$violin: #016f9d;
-$disabled: #ccc;
-
 // themes
-@mixin box-sizing($bs) {
-  $bs: unquote($bs);
-  -moz-box-sizing: $bs;
-  -webkit-box-sizing: $bs;
-  box-sizing: $bs;
-}
-
 .themes-talk {
   margin-bottom: 40px;
   .row {
@@ -61,26 +45,6 @@ $disabled: #ccc;
 }
 
 // Timetable
-
-$tt_width : 940; // total table width
-$tl_width : 40; // timeline column width
-$tp_width : $tt_width - $tl_width; // timepad column width
-
-$areas_count : 6; // Number of rooms
-$area_width : $tp_width / $areas_count;
-
-$b_height : 2px; // height of 1-minute block
-$timing_step: 15; // step for drawing timeline (min)
-$td_color : #ccc; // Time delimiters color
-$hour_start : 11; // Event begin at
-$hour_end : 19; // Event till this time
-
-$min_speech_time : 15; // The shortest speech time
-$max_speech_time : 240; // The longest speech time
-
-$step_offset_render: 1; // The start time accuracy (min)
-$step_cont_render: 1; // The continuance time accuracy (min)
-
 .awesome-timetable {
   width: 940px;
   padding: 30px 0;
@@ -137,7 +101,7 @@ $step_cont_render: 1; // The continuance time accuracy (min)
     background-color: #ccc;
     position: absolute;
     top: 0;
-    color: #333;
+    color: #333 !important;
     @include box-sizing(border-box);
     padding: 6px;
     font-size: 12px;
@@ -145,6 +109,12 @@ $step_cont_render: 1; // The continuance time accuracy (min)
     line-height: 18px;
     overflow: hidden;
     cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    z-index: 10;
+    .summary {
+      display: block;
+    }
     .time {
       font-weight: bold;
       display: inline;
@@ -162,11 +132,16 @@ $step_cont_render: 1; // The continuance time accuracy (min)
         text-decoration: underline;
       }
     }
+    &.expand {
+      height: auto !important;
+      z-index: 100 !important;
+    }
     .author {
       overflow: hidden;
       text-overflow: ellipsis;
       font-weight: bold;
       text-align: right;
+      display: block;
     }
     &.break {
       background-color: #eee;
@@ -178,30 +153,6 @@ $step_cont_render: 1; // The continuance time accuracy (min)
       border: 1px solid #ccc;
       text-align: center;
       font-size: 18px;
-    }
-  }
-}
-
-.popover {
-  background-color: #d4724b;
-  .popover-title {
-    background-color: #7c7852;
-    font-size: 14px;
-    font-weight: normal;
-    color: #fff !important;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-  }
-  .popover-content {
-    font-size: 12px;
-    font-weight: normal;
-    line-height: 18px;
-    text-align: left;
-  }
-  &.right {
-    .arrow:after {
-      border-right-color: #d4724b;
     }
   }
 }
@@ -270,6 +221,7 @@ $i : $min_speech_time;
       width: 100% !important;
       cursor: default;
       .time .end-time,
+      .summary,
       .caption,
       .author {
         display: inline;
@@ -283,5 +235,19 @@ $i : $min_speech_time;
     .area-name {
       display: block;
     }
+  }
+}
+
+// Modals
+.content {
+  .modal-header {
+    background-color: #7c7852;
+    h3 {
+      color: #fff !important;
+    }
+  }
+  .modal-body {
+    background-color: #d4724b;
+    color: #fff;
   }
 }
