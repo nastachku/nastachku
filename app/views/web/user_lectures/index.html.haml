@@ -2,9 +2,9 @@
 %h5 Если у вас в копилке есть сумасшедший доклад и вам есть о чем рассказать ИТ-общественности, предложите его и выступите на конференции.
 %br
 
-- if @events.empty?
+- if @lectures.empty?
   Пока не добавлено ни одного доклада. Вы можете
-  = link_to "стать первым докладчиком.", new_account_event_path
+  = link_to "стать первым докладчиком.", new_account_lecture_path
 
 - else
   .row
@@ -17,34 +17,34 @@
   %br
   .row
     .span12
-      - @events.each do |event|
+      - @lectures.each do |lecture|
         .row.workshop
           .span6
             .col-l.thin
               .pic
-                - if event.speaker.photo.url
-                  = image_tag(event.speaker.photo.url)
+                - if lecture.user.photo.url
+                  = image_tag(lecture.user.photo.url)
             .col-r
               .sinfo
-                %h5= event.speaker.full_name
+                %h5= lecture.user.full_name
                 %h6
-                  %strong= event.speaker.company
+                  %strong= lecture.user.company
                 .buttons-group{ data: { success: t('.already_voted') } }
                   -if signed_in?
-                    - if event.lecture_votings.voted_by?(current_user)
+                    - if lecture.lecture_votings.voted_by?(current_user)
                       .btn.btn-no-clickable= t('.already_voted')
                     - else
-                      = link_to t('.vote_this_lecture'), api_user_event_lecture_votings_path(event), remote: true, method: :post, class: 'vote-event btn btn-shine'
+                      = link_to t('.vote_this_lecture'), api_lecture_lecture_votings_path(lecture), remote: true, method: :post, class: 'vote-event btn btn-shine'
                   -else
                     .btn.btn-no-clickable= t('.they_voted')
                   %span.btn.votings-count.btn-no-clickable
-                    = event.lecture_votings.size
+                    = lecture.lecture_votings.size
                 -#.social
                 -#  %a.tip{"data-original-title" => "Facebook", :href => "#"}
                 -#    %i.icon-facebook.facebook
             .clearfix
           .span6
-            %h4= event.title
-            %P.ainfo= nl2br event.thesises
+            %h4= lecture.title
+            %P.ainfo= nl2br lecture.thesises
         %hr
     .clearfix

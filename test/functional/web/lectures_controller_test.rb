@@ -1,9 +1,10 @@
 require 'test_helper'
 
-class Web::EventsControllerTest < ActionController::TestCase
+class Web::LecturesControllerTest < ActionController::TestCase
 
   setup do
-    @event = create :user_event
+    @lecture = create :lecture
+    @lecture.move_to_schedule
   end
 
   test "should get :index" do
@@ -12,7 +13,7 @@ class Web::EventsControllerTest < ActionController::TestCase
   end
 
   test "should get :index with params" do
-    get :index, q: { workshop_id_eq: @event.workshop.id }
+    get :index, q: { workshop_id_eq: @lecture.workshop.id }
     assert_response :success
   end
 end

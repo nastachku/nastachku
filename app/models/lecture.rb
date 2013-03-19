@@ -1,7 +1,7 @@
 class Lecture < ActiveRecord::Base
   include LectureRepository
 
-  attr_accessible :presentation, :thesises, :title, :workshop_id,
+  attr_accessible :presentation, :thesises, :title, :workshop_id, :user_id,
                   :listener_votings_count, :lecture_votings_count, :type, :state
 
   validates :title, presence: true

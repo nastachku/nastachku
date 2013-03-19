@@ -43,18 +43,18 @@
 
     .tab-pane#my_events
 
-      - if @user.events.blank?
+      - if @user.lectures.blank?
         %p
           = t(".add_user_event_text")
-          = link_to t(".add_user_event"), new_account_event_path
+          = link_to t(".add_user_event"), new_account_lecture_path
       - else 
         %table.table.table-participants
           %thead
             %tr
-              %th= BaseEvent.human_attribute_name(:title)
-              %th= BaseEvent.human_attribute_name(:created_at)
-              %th= BaseEvent.human_attribute_name(:state)
+              %th= Lecture.human_attribute_name(:title)
+              %th= Lecture.human_attribute_name(:created_at)
+              %th= Lecture.human_attribute_name(:state)
               %th
           %tbody
-            - @user.events.each do |event|
-              = render 'web/account/events/edit', event: event
+            - @user.lectures.each do |lecture|
+              = render 'web/account/lectures/edit', lecture: lecture

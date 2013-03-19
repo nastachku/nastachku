@@ -1,0 +1,23 @@
+%tr
+  %td= lecture.title
+  %td.center= l lecture.created_at
+  %td.center= lecture.human_state_name
+  %td.center
+    .btn-group.pull-right
+      %a.btn.btn-mini.edit-event
+        %i.icon-pencil
+%tr
+  %td.no-padding( colspan="4" )
+    - if @updated
+      .alert.alert-success
+        Доклад успешно обновлен!
+        %button.close{"data-dismiss" => "alert", :type => "button"} &times;
+    = simple_form_for lecture, url: account_lecture_path(lecture), remote: true, html: { class: 'edit-event' }  do |lecture|
+      .formy.formy-issue.nested-fields
+        .row-fluid
+          .span12
+            = lecture.input :title, input_html: { class: 'span12' }
+            = lecture.input :thesises, input_html: {rows: 5, class: 'span12' }
+        .row-fluid
+          .span3
+            = lecture.submit 'Сохранить', class: 'btn btn-shine'

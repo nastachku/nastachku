@@ -8,7 +8,6 @@
     = csrf_meta_tags
     = include_gon
     = stylesheet_link_tag "admin/application", :media => "all"
-    = javascript_include_tag "admin/application"
   %body
     = render "layouts/web/admin/shared/navigation"
     .container
@@ -18,3 +17,5 @@
 
       %br/
       = render "layouts/web/admin/shared/footer"
+
+    = javascript_include_tag "admin/application"
