@@ -39,15 +39,6 @@
 .sponsors .line a:last-child img {
   margin-right: 0;
 }
-.sponsors .first-line {
-  height: 78px;
-}
-.sponsors .second-line {
-  height: 42px;
-}
-.sponsors .third-line {
-  height: 51px;
-}
 .sponsors .logo-srit {
   margin: 22px 0;
 }
@@ -55,7 +46,7 @@
 // star sponsors
 .star-sponsors {
   .item {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     position: relative;
     sup {
       position: absolute;
@@ -86,6 +77,9 @@
 }
 .sponsor-star.green {
   background-position: 0 -56px;
+}
+.sponsor-star.bordo {
+  background-position: 0 -70px;
 }
 .legend {
   font-size: 12px;
