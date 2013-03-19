@@ -1,0 +1,4 @@
+- if slot.event_type.eql? :Lecture
+  = render 'lecture', slot: slot, index: index
+- else
+  = render 'event', slot: slot, index: index
