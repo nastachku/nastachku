@@ -5,6 +5,7 @@ class Lecture < ActiveRecord::Base
                   :listener_votings_count, :lecture_votings_count, :type, :state
 
   validates :title, presence: true
+  validates :thesises, presence: true
   belongs_to :workshop
   belongs_to :user
 

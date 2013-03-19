@@ -63,7 +63,7 @@ ru:
         unlink_twitter: 'Отключить'
         twitter_account: 'Твиттер'
     account:
-      events:
+      lectures:
         form:
           add_event: 'Добавить доклад'
         event_fields:
@@ -97,7 +97,7 @@ ru:
         hero_unit_content: '<br>УЛЬЯНОВСК 12-13 АПРЕЛЯ 2013 МЕМЦЕНТР<br>Веб-технологии, менеджмент в IT, электронная коммерция, IT-стартапы, программирование, IT на службе в обществе'
         join: 'Я пойду!'
 
-    user_events:
+    user_lectures:
       index:
         title: 'Доклады 2.0'
         events20: 'Доклады 2.0'
@@ -107,7 +107,7 @@ ru:
         by_lecture_votings_count: 'По количеству голосов'
         by_created_at: 'По дате добавления'
         sort_by: 'Сортировать'
-    events:
+    lectures:
       index:
         i_am_going: 'Я пойду!'
         already_going: 'Вы пойдете'
