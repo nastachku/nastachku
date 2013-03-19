@@ -252,6 +252,7 @@ ru:
           new: 'Добавить доклад'
           workshops: 'Секции'
           halls: 'Залы'
+          search: 'Поиск'
         new:
           title: 'Добавить доклад'
         edit:

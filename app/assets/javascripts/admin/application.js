@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require ckeditor/init
+//= require twitter/bootstrap
 //= require js-routes
 //= require cocoon
 //= require select2
