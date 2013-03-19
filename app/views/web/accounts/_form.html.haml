@@ -43,8 +43,7 @@
 
 
     .tab-pane#my_events
-
-      - if @user.lectures.blank?
+      - if @user.lectures.empty?
         %p
           = t(".add_user_event_text")
           = link_to t(".add_user_event"), new_account_lecture_path
