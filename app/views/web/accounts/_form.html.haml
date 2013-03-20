@@ -56,6 +56,7 @@
               %th= Lecture.human_attribute_name(:state)
               %th
           %tbody
+
             - @user.lectures.each do |lecture|
               = render 'web/account/lectures/edit', lecture: lecture
 

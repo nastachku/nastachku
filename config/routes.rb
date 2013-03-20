@@ -21,29 +21,15 @@ Nastachku::Application.routes.draw do
         resources :listener_votings, only: [:create]
       end
     end
-<<<<<<< HEAD
-    resources :events, only: [ :index ]
-
-  end
 
   scope :module => :web do
-=======
-
-    namespace :admin do
-      resources :events, only: [ :index ]
-    end
-  end
-
-  scope :module => :web do
-
-    resources :lectures, only: [ :index ]
->>>>>>> add select type for hall timeslots and improve tests
     resources :users, only: [:new, :create, :index]
     resources :lectures, only: [ :index ]
     resources :pages, only: [:show]
     resources :news, only: [:index]
     resources :user_lectures, only: [:index]
     resources :lectors, only: [:index]
+    resources :user_lectures, only: [:index]
     resource :remind_password, only: [:new, :create]
     resource :session, only: [:new, :create, :destroy]
     resource :schedule, only: [:show]
@@ -51,9 +37,6 @@ Nastachku::Application.routes.draw do
     resource :user, only: [] do
       get :activate
     end
-
-    resource :remind_password, only: [:new, :create]
-    resources :user_lectures, only: [:index]
 
     resource :account, only: [:edit, :update] do
       scope :module => :account do
@@ -64,11 +47,7 @@ Nastachku::Application.routes.draw do
           put :unlink_twitter
         end
 
-<<<<<<< HEAD
         resources :lectures, only: [ :new, :create, :update ]
-=======
-        resources :events, only: [:new, :create, :update]
->>>>>>> add select type for hall timeslots and improve tests
         resources :orders, only: [:update] do
           put :pay, :on => :member
 
@@ -80,8 +59,6 @@ Nastachku::Application.routes.draw do
         end
         resources :afterparty_orders, only: [:new, :create]
         resources :shirt_orders, only: [:new, :create]
-        resources :lectures, only: [ :new, :create, :update ]
-
       end
     end
 
