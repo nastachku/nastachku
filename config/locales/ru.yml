@@ -90,6 +90,9 @@ ru:
           shirt: "Футболка"
           add_order: "Оформить заказ"
 
+        create:
+          title: "Оформить заказ на афтепати"
+
       shirt_orders:
         new:
           title: "Оформить заказ на футболку"
