@@ -6,7 +6,7 @@
   .modal-body
     %p= nl2br(slot.event.thesises)
 
-%a.event{ class: "area-#{index} section-#{slot.event.workshop_id} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}", data: {toggle: 'modal'}, href: "##{dom_id(slot)}", role: "button"}
+%a.event{ class: "area-#{index} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}", data: {toggle: 'modal'}, href: "##{dom_id(slot)}", role: "button", style: "background-color: #{slot.event.workshop.color}"}
   %span.summary
     %span.time
       = slot.start_hour
