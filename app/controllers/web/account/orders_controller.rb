@@ -1,4 +1,4 @@
-class Web::Account::OrdersController < Web::ApplicationController
+class Web::Account::OrdersController < Web::Account::ApplicationController
 
   skip_before_filter :verify_authenticity_token, only: [:approve, :cancel, :decline]
 

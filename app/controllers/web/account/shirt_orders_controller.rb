@@ -1,4 +1,4 @@
-class Web::Account::ShirtOrdersController < Web::ApplicationController
+class Web::Account::ShirtOrdersController < Web::Account::ApplicationController
 
   def new
     @shirt_order = ShirtOrder.new
