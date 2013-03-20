@@ -1,0 +1,13 @@
+.page-header
+  %h1=t '.add_order'
+
+.tabbable
+  %ul.nav.nav-tabs
+    %li= link_to t('.afterparty'), new_account_afterparty_order_path
+    %li.active= link_to t('.shirt'),  new_account_shirt_order_path
+
+= simple_form_for [:account, @shirt_order], :html => { :class => 'form-horizontal profile-form' } do |f|
+  .formy
+    = f.input :count, collection: 1..10
+    = f.input :size
+    = f.button :submit, :value => t('.buy'), :class => 'btn btn-shine'

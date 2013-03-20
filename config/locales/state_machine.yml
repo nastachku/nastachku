@@ -1,0 +1,20 @@
+ru:
+  activerecord:
+    state_machines:
+
+      base_event:
+        state:
+          states:
+            in_schedule: 'В программе'
+            new: 'Новый'
+            voted: 'На голосовании'
+            rejected: 'Отклонен'
+
+      order:
+        payment_state:
+          states:
+            unpaid: 'Неоплачен'
+            paid: 'Оплачен'
+            canceled: 'Отменен'
+            refunded: 'Возврат'
+            declined: 'Отказ от оплаты'

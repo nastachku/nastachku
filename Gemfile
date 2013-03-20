@@ -42,6 +42,8 @@ gem 'redcarpet'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'platidoma', path: "/home/vagrant/.rvm/gems/ruby-1.9.3-p327@rails3/gems/platidoma-0.0.1"
+gem 'multi_json', '~> 1.3.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -57,6 +59,7 @@ end
 group :test, :development do
   gem 'sqlite3'
   gem 'pre-commit'
+  gem 'mocha'
 end
 
 group :test do

@@ -2,6 +2,9 @@ ru:
   activerecord:
     models:
       hall: 'Зал'
+      afterparty_order: 'Билет на афтепати'
+      shirt_order: 'Футболка'
+
     attributes:
       lecture:
         state_event: 'Действие'
@@ -76,6 +79,14 @@ ru:
         start_time: 'Время начала'
         finish_time: 'Время окончания'
 
+      order:
+        order_id: 'Номер заказа'
+        count: 'Количество'
+        created_at: "Дата заказа"
+        payment_state: "Состояние платежа"
+        type: "Тип товара"
+        size: "Размер"
+
     errors:
       messages:
         blank: 'Поле не может быть пустым'
@@ -101,19 +112,3 @@ ru:
               taken: 'Данный Email уже зарегистрирован'
             process_personal_data:
               blank: "Необходимо дать согласие на обработку персональных данных"
-              #blank: 'Согласиться вы должны (с) Йода'
-
-    state_machines:
-      lecture:
-        state:
-          states:
-            in_schedule: 'В программе'
-            new: 'Новый'
-            voted: 'На голосовании'
-            rejected: 'Отклонен'
-
-      event:
-        state:
-          states:
-            inactive: 'Неактивен'
-            active: 'Активен'

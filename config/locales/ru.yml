@@ -46,6 +46,7 @@ ru:
             lectures: 'Пользовательские доклады'
             user_lectures: 'Доклады 2.0'
             events: 'События'
+            orders: 'Заказы'
             logout: 'Выйти'
 
   web:
@@ -57,11 +58,18 @@ ru:
         save: 'Сохранить'
         info: 'Мои данные'
         my_events: 'Мои доклады'
+        my_orders: 'Мои заказы'
         add_user_event_text: 'Вами пока не добавлено ни одного доклада.'
         add_user_event: 'Добавить доклад'
         link_twitter: 'Привязать аккаунт'
         unlink_twitter: 'Отключить'
         twitter_account: 'Твиттер'
+        buy_it_now: 'У Вас пока нет ни одной покупки.'
+        buy_afterparty_ticket: 'Купить билет на афтепати'
+        buy_shirt: 'Купить футболку'
+        buy_more: "Оформить еще один заказ"
+        cost: "Стоимость"
+
     account:
       lectures:
         form:
@@ -73,6 +81,22 @@ ru:
         edit:
           password_reset: "Изменение пароля"
           reset: "Изменить"
+
+      afterparty_orders:
+        new:
+          title: "Оформить заказ на афтепати"
+          buy: "Купить"
+          afterparty: "Афтепати"
+          shirt: "Футболка"
+          add_order: "Оформить заказ"
+
+      shirt_orders:
+        new:
+          title: "Оформить заказ на футболку"
+          buy: "Купить"
+          afterparty: "Афтепати"
+          shirt: "Футболка"
+          add_order: "Оформить заказ"
 
     users:
       form:
@@ -216,6 +240,12 @@ ru:
         form:
           cancel: 'Отменить'
 
+      orders:
+        index:
+          title: "Список заказов"
+          buyer: "Покупатель"
+          cost: "Стоимость"
+
       topics:
         index:
           title: 'Список топиков'
@@ -229,6 +259,7 @@ ru:
           title: 'Редактирование топика'
         form:
           cancel: 'Отменить'
+
       user_events: 
         index: 
           title: 'Пользовательские доклады'

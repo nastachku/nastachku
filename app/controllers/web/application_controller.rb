@@ -4,6 +4,7 @@ class Web::ApplicationController < ApplicationController
   include SocNetworkHelper
   include Web::WorkshopsHelper
   include CustomUrlHelper
+  include PlatidomaHelper
 
   #helper :all
   helper_method :edit_admin_event_cpath, :workshops

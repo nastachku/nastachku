@@ -54,9 +54,26 @@ Configus.build Rails.env do
       app_secret 'd196986f373c3fe86f79d881e270ae97'
     end
 
+    platidoma do
+      url 'https://pg-test.platidoma.ru/payment.php'
+      shop_id 7
+      login "nastachku"
+      gate_password "Emvexc234s"
+      afterparty_price 1500
+      shirt_price 500
+    end
+
   end
 
   env :test, parent: :production do
+    platidoma do
+      url "https://pg-test.platidoma.ru/"
+      shop_id 7
+      login "test"
+      gate_password "test"
+      afterparty_price 1500
+      shirt_price 500
+    end
   end
 
   env :staging, parent: :production do

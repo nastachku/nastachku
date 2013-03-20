@@ -26,20 +26,19 @@ Nastachku::Application.routes.draw do
   end
 
   scope :module => :web do
+    resources :users, only: [:new, :create, :index]
+    resources :lectures, only: [ :index ]
+    resources :pages, only: [:show]
+    resources :news, only: [:index]
+    resources :user_lectures, only: [:index]
+    resources :lectors, only: [:index]
+    resource :remind_password, only: [:new, :create]
+    resource :session, only: [:new, :create, :destroy]
+    resource :schedule, only: [:show]
+
     resource :user, only: [] do
       get :activate
     end
-    resources :users, only: [:new, :create, :index]
-
-    resources :lectures, only: [ :index ]
-
-    resource :schedule, only: [:show]
-
-    resources :pages, only: [:show]
-    resource :session, only: [:new, :create, :destroy]
-    resources :news, only: [:index]
-    resource :remind_password, only: [:new, :create]
-    resources :user_lectures, only: [:index]
 
     resource :account, only: [:edit, :update] do
       scope :module => :account do
@@ -49,7 +48,19 @@ Nastachku::Application.routes.draw do
           get :link_twitter
           put :unlink_twitter
         end
+
         resources :lectures, only: [ :new, :create, :update ]
+        resources :orders, only: [:update] do
+          put :pay, :on => :member
+
+          collection do
+            post :approve
+            post :cancel
+            post :decline
+          end
+        end
+        resources :afterparty_orders, only: [:new, :create]
+        resources :shirt_orders, only: [:new, :create]
       end
     end
 
@@ -57,14 +68,12 @@ Nastachku::Application.routes.draw do
       get :authorization, :on => :member
     end
 
-    resources :lectors, only: [ :index ]
-
     namespace :admin do
       resources :lectures
       resources :pages
       resources :news
       resources :users
-      resources :audits, only: [ :index ]
+      resources :audits, only: [:index]
       resources :topics
       resources :user_events do
         put :change_state
@@ -74,6 +83,7 @@ Nastachku::Application.routes.draw do
       resources :workshops
       resources :halls
       resources :event_breaks
+      resources :orders, only: [:index]
 
       root to: "welcome#index"
     end
