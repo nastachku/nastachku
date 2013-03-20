@@ -22,6 +22,11 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
 
+  desc "Symlinks the credentials.yml"
+  task :symlink_db, roles: :app do
+    run "ln -nfs #{shared_path}/config/credentials.yml #{release_path}/config/credentials.yml"
+  end
+
   desc "Symlinks the backup.rb"
   task :symlink_backup, roles: :app do
     run "ln -nfs #{shared_path}/config/backup.rb #{release_path}/config/backup.rb"
