@@ -12,6 +12,7 @@
     /%title= content_for?(:title) ? yield(:title) : "Стачка! Конференция"
     = analytics_init if Rails.env.production?
     = csrf_meta_tags
+    = include_gon
     = stylesheet_link_tag "application", :media => "all"
 
   %body

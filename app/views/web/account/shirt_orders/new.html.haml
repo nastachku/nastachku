@@ -8,6 +8,7 @@
 
 = simple_form_for [:account, @shirt_order], :html => { :class => 'form-horizontal profile-form' } do |f|
   .formy
-    = f.input :count, collection: 1..10
-    = f.input :size
+    = f.input :items_count, collection: 1..10, input_html: { class: "items-count-select" }
+    .cost
+    = f.input :item_size
     = f.button :submit, :value => t('.buy'), :class => 'btn btn-shine'

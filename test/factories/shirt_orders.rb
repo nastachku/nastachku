@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :shirt_order do
     user
-    count
-    size "XXL"
+    items_count
+    item_size "XXL"
   end
 end

@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :afterparty_order do
     user
-    count
+    items_count
   end
 end

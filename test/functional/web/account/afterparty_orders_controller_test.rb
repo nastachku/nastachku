@@ -14,11 +14,10 @@ class Web::Account::AfterpartyOrdersControllerTest < ActionController::TestCase
   end
 
   test "should post create" do
-    old_orders_count = Order.count
     post :create, afterparty_order: @attrs
 
     assert_response :redirect
-    order = current_user.orders.find_by_count(@attrs[:count])
+    order = current_user.orders.find_by_items_count(@attrs[:items_count])
     assert order
   end
 

@@ -4,7 +4,7 @@ FactoryGirl.define do
     "email_#{n}@mail.com"
   end
 
-  sequence :count do |n|
+  sequence :items_count do |n|
     n
   end
 
