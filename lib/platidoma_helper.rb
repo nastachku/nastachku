@@ -5,7 +5,6 @@ module PlatidomaHelper
       shop_id: configus.platidoma.shop_id,
       login: configus.platidoma.login,
       gate_password: configus.platidoma.gate_password,
-      url: configus.platidoma.url
     }
 
     @platidoma_client ||= Platidoma::Client.new params
