@@ -1,6 +1,9 @@
 # encoding: utf-8
 
 Configus.build Rails.env do
+  #TODO расширить configus
+  credentials_hash = YAML.load(File.read("config/credentials.yml"))
+
   env :production do
 
     pagination do
@@ -30,13 +33,22 @@ Configus.build Rails.env do
     end
 
     facebook do
-      app_id '223587801118877'
-      app_secret 'd196986f373c3fe86f79d881e270ae97'
+      app_id credentials_hash["production"]["facebook"]["app_id"]
+      app_secret credentials_hash["production"]["facebook"]["app_secret"]
     end
 
     twitter do
-       key 'xH0ui4CoEcH39X5ucFyk0w'
-       secret 'qqJwi8Nc3NQMHcm6IEbi4dYA8Z6eKpv8uSqm9VpMCEA'
+       key credentials_hash["production"]["twitter"]["key"]
+       secret credentials_hash["production"]["twitter"]["secret"]
+    end
+
+    platidoma do
+      host credentials_hash["production"]["platidoma"]["host"]
+      shop_id credentials_hash["production"]["platidoma"]["shop_id"]
+      login credentials_hash["production"]["platidoma"]["login"]
+      gate_password credentials_hash["production"]["platidoma"]["gate_password"]
+      afterparty_price 1500
+      shirt_price 500
     end
 
   end
@@ -50,15 +62,15 @@ Configus.build Rails.env do
     end
 
     facebook do
-      app_id '223587801118877'
-      app_secret 'd196986f373c3fe86f79d881e270ae97'
+      app_id credentials_hash["development"]["facebook"]["app_id"]
+      app_secret credentials_hash["development"]["facebook"]["app_secret"]
     end
 
     platidoma do
-      url 'https://pg-test.platidoma.ru/payment.php'
-      shop_id 7
-      login "nastachku"
-      gate_password "Emvexc234s"
+      host credentials_hash["development"]["platidoma"]["host"]
+      shop_id credentials_hash["development"]["platidoma"]["shop_id"]
+      login credentials_hash["development"]["platidoma"]["login"]
+      gate_password credentials_hash["development"]["platidoma"]["gate_password"]
       afterparty_price 1500
       shirt_price 500
     end
@@ -85,20 +97,20 @@ Configus.build Rails.env do
     end
 
     basic_auth do
-      username 'admin'
-      password '123654'
+      username credentials_hash["staging"]["basic_auth"]["username"]
+      password credentials_hash["staging"]["basic_auth"]["password"]
     end
 
     facebook do
-      app_id '136776063163691'
-      app_secret 'a17bec84850e3acd9e0b05bf0cafa878'
+      app_id credentials_hash["staging"]["facebook"]["app_id"]
+      app_secret credentials_hash["staging"]["facebook"]["app_secret"]
     end
 
     platidoma do
-      url 'https://pg-test.platidoma.ru/payment.php'
-      shop_id 7
-      login "nastachku"
-      gate_password "Emvexc234s"
+      host credentials_hash["staging"]["platidoma"]["host"]
+      shop_id credentials_hash["staging"]["platidoma"]["shop_id"]
+      login credentials_hash["staging"]["platidoma"]["login"]
+      gate_password credentials_hash["staging"]["platidoma"]["gate_password"]
       afterparty_price 1500
       shirt_price 500
     end
