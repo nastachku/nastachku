@@ -74,7 +74,7 @@
             %tr
               %th= Order.human_attribute_name :order_id
               %th= Order.human_attribute_name :type
-              %th= Order.human_attribute_name :count
+              %th= Order.human_attribute_name :items_count
               %th= t(".cost")
               %th= Order.human_attribute_name :payment_state
               %th= Order.human_attribute_name :created_at
@@ -84,7 +84,7 @@
               %tr
                 %td= order.id
                 %td= order
-                %td= order.count
+                %td= order.items_count
                 %td= order.cost
                 %td= order.human_payment_state_name
                 %td= l order.created_at

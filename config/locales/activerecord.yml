@@ -81,11 +81,11 @@ ru:
 
       order:
         order_id: 'Номер заказа'
-        count: 'Количество'
+        items_count: 'Количество'
         created_at: "Дата заказа"
         payment_state: "Состояние платежа"
         type: "Тип товара"
-        size: "Размер"
+        item_size: "Размер"
 
     errors:
       messages:

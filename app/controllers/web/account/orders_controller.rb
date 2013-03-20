@@ -53,7 +53,7 @@ class Web::Account::OrdersController < Web::ApplicationController
   def pay
     order = current_user.orders.find params[:id]
 
-    if order && (order.unpaid? || order.declined?)
+    if order.unpaid_or_declined?
       redirect_to build_payment_curl(order)
       return
     else
