@@ -12,6 +12,7 @@
  *= require chosen
  *= require select2
  *= require bootstrap-datetimepicker.min
+ *= require bootstrap-colorpicker
  */
 
 body {
