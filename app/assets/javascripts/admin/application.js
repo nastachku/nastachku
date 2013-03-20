@@ -23,3 +23,4 @@
 //= require admin/halls
 //= require admin/user_edit_form
 //= require admin/dates
+//= require admin/custom
