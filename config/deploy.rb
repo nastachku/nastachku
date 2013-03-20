@@ -23,7 +23,7 @@ namespace :deploy do
   end
 
   desc "Symlinks the credentials.yml"
-  task :symlink_db, roles: :app do
+  task :symlink_credentials, roles: :app do
     run "ln -nfs #{shared_path}/config/credentials.yml #{release_path}/config/credentials.yml"
   end
 
@@ -58,9 +58,9 @@ namespace :deploy do
   end
 end
 
-namespace :logs do    
+namespace :log do
   desc "Watch tailf env log"
-  task :watch do
+  task :tailf do
     stream("tailf /u/apps/#{application}/current/log/#{rails_env}.log")
   end
 end
@@ -70,5 +70,6 @@ before 'deploy:finalize_update', 'deploy:symlink_db'
 before 'deploy:finalize_update', 'deploy:assets:symlink'
 after 'deploy:update_code', 'deploy:assets:precompile'
 after 'deploy:symlink_db', 'deploy:symlink_backup'
+after 'deploy:symlink_backup', 'deploy:symlink_credentials'
 after "deploy:update", "deploy:cleanup"
 after 'deploy:restart', 'unicorn:stop'
