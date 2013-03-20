@@ -1,4 +1,4 @@
-class Web::Account::AfterpartyOrdersController < Web::ApplicationController
+class Web::Account::AfterpartyOrdersController < Web::Account::ApplicationController
 
   def new
     @afterparty_order = AfterpartyOrder.new
