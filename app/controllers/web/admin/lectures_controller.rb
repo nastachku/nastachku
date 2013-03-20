@@ -1,7 +1,7 @@
 class Web::Admin::LecturesController < Web::Admin::ApplicationController
   def index
     @search = Lecture.ransack(params[:q])
-    @lectures = @search.result.admin.page(params[:page]).per(5)
+    @lectures = @search.result.admin.page(params[:page]).per(20)
   end
 
   def new
