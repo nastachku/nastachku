@@ -4,7 +4,7 @@ FactoryGirl.define do
     "email_#{n}@mail.com"
   end
 
-  [:company, :slug, :title, :thesises, :body, :photo, :description, :about].each do |trait|
+  [:company, :slug, :title, :thesises, :body, :photo, :description, :about, :color].each do |trait|
     
     sequence trait do |n|
       "#{trait}_#{n}"
