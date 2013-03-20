@@ -12,8 +12,20 @@
  *= require chosen
  *= require select2
  *= require bootstrap-datetimepicker.min
+ *= require bootstrap-colorpicker
  */
 
 body {
     padding-top: 60px;
+}
+
+.colorpicker-saturation {
+  background-image: url(../images/saturation.png);
+}
+
+.colorpicker-hue {
+  background-image: url(../images/hue.png);
+}
+.colorpicker-alpha {
+  background-image: url(../images/alpha.png);
 }

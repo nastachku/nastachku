@@ -373,6 +373,7 @@ ru:
 
       workshop:
         title: 'Название'
+        color: 'Цвет'
       hall:
         title: 'Название'
         
