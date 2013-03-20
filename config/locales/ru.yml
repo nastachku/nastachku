@@ -85,7 +85,7 @@ ru:
       afterparty_orders:
         new:
           title: "Оформить заказ на афтепати"
-          buy: "Купить"
+          buy: "Оплатить"
           afterparty: "Афтепати"
           shirt: "Футболка"
           add_order: "Оформить заказ"
