@@ -1,23 +1,23 @@
 = simple_form_for @user, url: [:admin, @user], html: { class: 'form-horizontal admin-user-edit-form' } do |f|
   .row
     .span10
-      = f.input :state_event, :as => :state_event
-      = f.input :first_name
-      = f.input :last_name
-      = f.input :city
-      = f.input :company
-      = f.input :about, :as => :text, :input_html => { :cols => 50, :rows => 3 }
-      = f.input :in_carousel
-      = f.input :carousel_info, :as => :text, :input_html => { :cols => 50, :rows => 3 }
-      = f.input :position
-      = f.input :email
+      = f.input :state_event, as: :state_event, input_html: { class: 'span5' }
+      = f.input :first_name, input_html: { class: 'span5' }
+      = f.input :last_name, input_html: { class: 'span5' }
+      = f.input :city, input_html: { class: 'span5' }
+      = f.input :company, input_html: { class: 'span5' }
+      = f.input :about, as: :text, input_html: { cols: 50, rows: 3, class: 'span5' }
+      = f.input :in_carousel, input_html: { class: 'span5' }
+      = f.input :carousel_info, as: :text, input_html: { cols: 50, rows: 3, class: 'span5' }
+      = f.input :position, input_html: { class: 'span5' }
+      = f.input :email, input_html: { class: 'span5' }
       -#= f.input :password
       -#= f.input :password_confirmation
-      = f.input :photo, as: :image_preview
-      = f.input :show_as_participant
-      = f.input :admin
-      = f.input :role, include_blank: false
-      = f.association :topics, as: :chosen_select, input_html: { multiple: true }
+      = f.input :photo, as: :image_preview, input_html: { class: 'span5' }
+      = f.input :show_as_participant, input_html: { class: 'span5' }
+      = f.input :admin, input_html: { class: 'span5' }
+      = f.input :role, include_blank: false, input_html: { class: 'span5' }
+      = f.association :topics, as: :chosen_select, input_html: { multiple: true, class: 'span5' }
 
   .form-actions
     = f.button :submit, :class => 'btn btn-primary'
