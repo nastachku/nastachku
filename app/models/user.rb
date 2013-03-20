@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   has_many :lectures, dependent: :destroy
   has_many :lecture_votings
   has_many :listener_votings
+  has_many :orders
 
   accepts_nested_attributes_for :lectures, reject_if: :all_blank, allow_destroy: true
 
