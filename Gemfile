@@ -39,11 +39,11 @@ gem 'rack-rewrite'
 gem 'cocoon'
 gem 'gon'
 gem 'redcarpet'
+gem 'multi_json', '~> 1.3.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'platidoma'
-gem 'multi_json', '~> 1.3.0'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,5 +1,11 @@
 .page-header
-  %h1=t '.add_order'
+  %h1=t '.afterparty'
+
+  %p
+    Отдохнуть после насыщенного Стачко-дня, поделиться впечатлениями от докладов, потусоваться и пообщаться со спикерами и лучшими людьми сферы в неформальной обстановке? Добро пожаловать на афтепати «Стачки!» 12 апреля в 19.00 ждем вас в кафе-клубе «
+    %a{href: "http://dukeclub.ru/", target: "_blank"}
+      Дюк
+    ».  Успейте попасть на закрытую вечеринку, количество билетов ограничено.
 
 .tabbable
   %ul.nav.nav-tabs
@@ -8,7 +14,28 @@
 
 = simple_form_for [:account, @afterparty_order], :html => { :class => 'form-horizontal profile-form' } do |f|
   .formy
-    = f.input :items_count, collection: 1..10, input_html: { class: "items-count-select" }
-    .cost
+    .control-group
+      %label.control-label.center
+        Наименование
+      .controls
+        .row-fluid
+          .span4.center
+            Количество
+          .span4.center
+            Стоимость 1 билета
+          .span4.center
+            Итого
+    .control-group
+      %label.control-label.center
+        Входной билет
+      .controls
+        .row-fluid
+          .span4.center
+            = f.input_field :items_count, collection: 1..10, class: "items-count-select input-mini"
+          .span4.center
+            1 500 руб.
+          .span4.center
+            %big
+              .cost
 
-    = f.button :submit, :value => t('.buy'), :class => 'btn btn-shine'
+  = f.button :submit, :value => t('.buy'), :class => 'btn btn-shine'
