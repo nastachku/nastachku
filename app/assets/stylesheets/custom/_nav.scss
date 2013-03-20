@@ -23,7 +23,7 @@
 }
 .navbar .nav > li.active {
   a {
-    color: #7c7852 !important;
+    color: $main_color_2 !important;
     background: none !important;
     &:hover {
       text-decoration: underline;
@@ -75,8 +75,8 @@
 }
 .navbar-position-top .navbar-inner {
   background-color: transparent !important;
-  min-height: auto;
-  height: 28px;
+  min-height: 28px;
+  height: auto;
   line-height: 28px !important;
   padding-right: 0 !important;
 }
@@ -117,7 +117,10 @@
   color: #fff !important;
   padding-left: 10px !important;
   padding-right: 10px !important;
-  background-color: #7c7852 !important;
+  background-color: $main_color_2 !important;
+  &.prev_year {
+    font-size: 14px !important;
+  }
 }
 
 // dropdown menu

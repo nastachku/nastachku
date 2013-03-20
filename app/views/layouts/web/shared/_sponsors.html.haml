@@ -1,15 +1,14 @@
 .clearfix
-%br
-.border
 .sponsors
+  .border
   .left-column
-    %h4 Организаторы 
+    %h4 Организаторы
 
     %a{:href => "#", :target => "_blank"}
       %img{:src => "/images/logo-srit.jpg", :width => 440, :height => 48, :alt => "НП СРИТ", :class => "logo-srit"}
 
     .logo-wrapper
-      .line.first-line
+      .line
         %a{:href => "http://m-st.ru/", :target => "_blank"}
           %img{:src => "/images/logo-mst.jpg", :width => 108, :height => 78, :alt => "MST Digital Agency"}
         %a{:href => "http://i-dt.ru/", :target => "_blank"}
@@ -17,62 +16,70 @@
         %a{:href => "http://itmcompany.ru/", :target => "_blank"}
           %img{:src => "/images/logo-itm.jpg", :width => 124, :height => 78, :alt => "ITM Company"}
         %a{:href => "http://simtech.ru/", :target => "_blank"}
-          %img{:src => "/images/logo-simtech.jpg", :width => 131, :height => 78, :alt => "Simtech"}
-      .line.second-line
+          %img.simtech{:src => "/images/logo-simtech.jpg", :width => 131, :height => 78, :alt => "Simtech"}
         %a{:href => "http://kaize.ru/", :target => "_blank"}
           %img{:src => "/images/logo-kaize.jpg", :width => 130, :height => 42, :alt => "Кайдзен"}
         %a{:href => "http://simbirsoft.com/", :target => "_blank"}
           %img{:src => "/images/logo-simbirsoft.jpg", :width => 140, :height => 42, :alt => "SimbirSoft"}
         %a{:href => "http://mymediacompany.ru/", :target => "_blank"}
           %img{:src => "/images/logo-mymedia.jpg", :width => 147, :height => 42, :alt => "My Media Company"}
-      .line.third-line
         %a{:href => "http://turnkeye.com/", :target => "_blank"}
           %img{:src => "/images/logo-turnkey.jpg", :width => 155, :height => 51, :alt => "Turnkey"}
         %a{:href => "http://platidoma.ru/", :target => "_blank"}
           %img.platidoma{:src => "/images/logo-platidoma.jpg", :width => 118, :height => 55, :alt => "ПлатиДома"}
         %a{:href => "http://creater.ru/", :target => "_blank"}
           %img{:src => "/images/logo-creater.jpg", :width => 179, :height => 51, :alt => "Creater"}
-
     %br
+
+    %h4 Интернет-партнер
+    .logo-wrapper
+      %a{:href => "http://www.rt.ru/", :target => "_blank"}
+        %img{:src => "/images/logo-rostelecom.png", :width => 133, :height => 60, :alt => "Ростелеком"}
+    %br
+
     %h4 Информационные партнеры
     .logo-wrapper
-      .line.info-sponsors-first-line
+      .line
+        %a{:href => "http://rocid.ru/", :target => "_blank"}
+          %img.rocid{:src => "/images/logo-rocid.png", :width => 150, :height => 53, :alt => "ROCID"}
+        %a{:href => "http://in-numbers.ru/", :target => "_blank"}
+          %img{:src => "/images/logo-innumbers.png", :width => 150, :height => 36, :alt => "inNumbers"}
         %a{:href => "http://ultop.ru/", :target => "_blank"}
-          %img.ultop{:src => "/images/logo-ultop.jpg", :width => 160, :height => 40, :alt => "Ultop"}
+          %img{:src => "/images/logo-ultop.jpg", :width => 160, :height => 40, :alt => "Ultop"}
         %a{:href => "http://weblancer.net/", :target => "_blank"}
           %img{:src => "/images/logo-weblancer.jpg", :width => 119, :height => 62, :alt => "Weblancer"}
         %a{:href => "http://reg.ru/", :target => "_blank"}
-          %img{:src => "/images/logo-regru.jpg", :width => 174, :height => 62, :alt => "Reg.ru"}
-
-        -#%a{:href => "http://mkechinov.ru/", :target => "_blank"}
-          -#%img{:src => "/images/logo-kechinov.jpg", :width => 104, :height => 62, :alt => "Mkechinov"}
-
-      .line.info-sponsors-second-line
+          %img.regru{:src => "/images/logo-regru.jpg", :width => 174, :height => 62, :alt => "Reg.ru"}
+        %a{:href => "http://rubyflow.ru/", :target => "_blank"}
+          %img{:src => "/images/logo-rubyflow.png", :width => 160, :height => 78, :alt => "RubyFlow"}
         %a{:href => "http://www.cmsmagazine.ru/", :target => "_blank"}
           %img{:src => "/images/logo-cmsmagazine.jpg", :width => 230, :height => 57, :alt => "CMSmagazine"}
         %a{:href => "http://hackday.ru/", :target => "_blank"}
-          %img.hackday{:src => "/images/logo-hackday.jpg", :width => 178, :height => 54, :alt => "Hackday"}
-
-      .line.info-sponsors-third-line
+          %img{:src => "/images/logo-hackday.jpg", :width => 178, :height => 54, :alt => "Hackday"}
         %a{:href => "http://www.cnews.ru/", :target => "_blank"}
-          %img.cnews{:src => "/images/logo-cnews.jpg", :width => 144, :height => 54, :alt => "Cnews"}
+          %img{:src => "/images/logo-cnews.jpg", :width => 144, :height => 54, :alt => "Cnews"}
         %a{:href => "http://ul-people.ru/", :target => "_blank"}
           %img.ulpeople{:src => "/images/logo-ulpeople.jpg", :width => 160, :height => 36, :alt => "ul-people"}
-        %a{:href => "http://rubyflow.ru/", :target => "_blank"}
-          %img.rubyflow{:src => "/images/logo-rubyflow.png", :width => 160, :height => 78, :alt => "RubyFlow"}
-
-
-      .line.info-sponsors-4th-line
         %a{:href => "http://rubyjobs.ru/", :target => "_blank"}
           %img.rubyjobs{:src => "/images/logo-rubyjobs.png", :width => 77, :height => 67, :alt => "RubyJobs"}
         %a{:href => "http://softline.ru/", :target => "_blank"}
-          %img.softline{:src => "/images/logo-softline.png", :width => 143, :height => 28, :alt => "SoftLine"}
+          %img{:src => "/images/logo-softline.png", :width => 143, :height => 28, :alt => "SoftLine"}
         %a{:href => "http://www.allintop.ru/", :target => "_blank"}
           %img.allintop{:src => "/images/logo-allintop.png", :width => 155, :height => 60, :alt => "All-In-Top"}
-
-      .line.info-sponsors-5th-line
         %a{:href => "http://www.epochta.ru/", :target => "_blank"}
-          %img{:src => "/images/logo-epochta.png", :width => 100, :height => 100, :alt => "ePochta"}
+          %img{:src => "/images/logo-epochta.png", :width => 80, :height => 80, :alt => "ePochta"}
+        %a{:href => "http://www.free-lance.ru/", :target => "_blank"}
+          %img{:src => "/images/logo-freelanceru.png", :width => 200, :height => 24, :alt => "Free-lance.ru"}
+        %a{:href => "http://www.dailycomm.ru/", :target => "_blank"}
+          %img{:src => "/images/logo-dailycomm.jpeg", :width => 180, :height => 54, :alt => "DailyComm"}
+
+    %br
+    %h4 При поддержке
+    .logo-wrapper
+      .line
+        %a{:href => "http://raec.ru/commission/323/", :target => "_blank"}
+          %img{:src => "/images/logo-raec.png", :width => 160, :height => 29, :alt => "РАЭК"}
+
 
   .right-column
     %h4 Спонсоры
@@ -99,9 +106,6 @@
       Партнеры
     .star-sponsors
       .item
-        %a{:href => "http://it.ulgov.ru/", :target => "_blank"}
-          %img{:src => "/images/logo-ulgov.gif", :width => 73, :height => 62, :alt => "Министерство Ульяновской области по развитию информационных технологий и электронной демократии"}
-      .item
         %a{:href => "http://mosaica.ru/", :target => "_blank"}
           %img{:src => "/images/logo-mosaica.jpg", :width => 180, :height => 40, :alt => "Мозаика"}
         %sup
@@ -116,6 +120,14 @@
           %img{:src => "/images/logo-superjob.png", :width => 160, :height => 44, :alt => "SuperJob"}
         %sup
           %i.sponsor-star.green
+      .item
+        %a{:href => "http://it-sobytie.ru/", :target => "_blank"}
+          %img{:src => "/images/logo-itsobytiya.png", :width => 180, :height => 42, :alt => "Айти-Событие.рф"}
+        %sup
+          %i.sponsor-star.bordo
+      .item.cru
+        %a{:href => "http://www.pr73.ru/", :target => "_blank"}
+          %img{:src => "/images/logo-cru.png", :width => 181, :height => 30, :alt => "Ц.Р.У."}
 
     .legend
       %i.sponsor-star.red
@@ -126,3 +138,7 @@
       %br
       %i.sponsor-star.green
       — генеральный HR-партнер
+      %br
+      %i.sponsor-star.bordo
+      — событийный партнер
+  .clearfix

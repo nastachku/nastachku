@@ -1,41 +1,125 @@
 %h1 Программа
 
-%h3 Пятница, 12 апреля
-.awesome-timetable
-  = render 'halls'
-  .clearfix
-  = render 'timeline'
+.tabbable
+  %ul.nav.nav-tabs
+    %li.active= link_to 'Пятница, 12 апреля', '#conf-day-1', data: { toggle: 'tab' }
+    %li= link_to 'Суббота, 13 апреля', '#conf-day-2', data: { toggle: 'tab' }
 
-  .timepad
-    .event.full-event.area-1.start-10.long-30
-      Регистрация
-    .event.full-event.area-1.start-10.offset-30.long-30
-      Торжественное открытие
+.tab-content
+  .tab-pane.active#conf-day-1
+    %h3 Пятница, 12 апреля
+    .awesome-timetable
+      = render 'halls'
+      .clearfix
 
-    - @halls.each_with_index do |hall, i|
-      .area-container{ class: "area-#{i}-container" }
-        - hall.events.for_day(configus.schedule.first_day).asc_by_created_at.each do |event|
-          = render 'event', event: event, index: i
+      .timeline
+        .b-quart
+          .lined
+          9
+          %sup
+            00
+        .b-quart
+          .lined
+          10
+          %sup
+            00
 
-    .event.full-event.area-1.start-20.offset-30.long-30
-      Закрытие. Афтепати.
-  .clearfix
+      .timepad
+        .event.full-event.area-1.start-0.long-15
+          .time
+            %span.end-time
+              9
+              %sup 00
+              &minus;
+              10
+              %sup 00
+          Регистрация
+        .event.full-event.area-1.start-0.long-15.offset-15
+          .time
+            %span.end-time
+              10
+              %sup 00
+              &minus;
+              10
+              %sup 45
+          Торжественное открытие
+      .clearfix
 
+      = render 'timeline', start_hour: 11, end_hour: 19
 
+      .timepad
+        - @halls.each_with_index do |hall, i|
+          .area-container{ class: "area-#{i + 1}-container" }
+            .area-name #{hall}
+            - hall.slots.for_day(configus.schedule.first_day).asc_by_created_at.each do |slot|
+              = render slot.event_type.underscore, slot: slot, index: i + 1
 
-%h3 Суббота, 13 апреля
-.awesome-timetable
-  = render 'halls'
-  .clearfix
-  = render 'timeline'
+      .clearfix
+      .timeline
+        .b-quart
+          .lined
+          19
+          %sup
+            00
+      .timepad
+        .event.full-event.area-1.start-0.long-15
+          %small
+            .time
+              19
+              %sup 00
+              &minus;
+              02
+              %sup 00
+          Афтепати.
+      .clearfix
 
-  .timepad
+  .tab-pane#conf-day-2
+    %h3 Суббота, 13 апреля
+    .awesome-timetable
+      = render 'halls'
+      .clearfix
 
-    - @halls.each_with_index do |hall, i|
-      .area-container{ class: "area-#{i}-container" }
-        - hall.events.for_day(configus.schedule.second_day).asc_by_created_at.each do |event|
-          = render 'event', event: event, index: i
+      .timeline
+        .b-quart
+          .lined
+          10
+          %sup
+            00
+      .timepad
+        .event.full-event.area-1.start-0.long-15
+          .time
+            %span.end-time
+              10
+              %sup 00
+              &minus;
+              11
+              %sup 00
+          Выставка.
+      .clearfix
 
-    .event.full-event.area-1.start-20.offset-30.long-30
-      Закрытие. Афтепати.
-  .clearfix
+      = render 'timeline', start_hour: 11, end_hour: 17
+
+      .timepad
+        - @halls.each_with_index do |hall, i|
+          .area-container{ class: "area-#{i + 1}-container" }
+            - hall.slots.for_day(configus.schedule.second_day).asc_by_start_time.each do |slot|
+              = render slot.event_type.underscore, slot: slot, index: i + 1
+      .clearfix
+
+      .timeline
+        .b-quart
+          .lined
+          17
+          %sup
+            00
+      .timepad
+        .event.full-event.area-1.start-0.long-15
+          .time
+            %span.end-time
+              17
+              %sup 00
+              &minus;
+              17
+              %sup 30
+          Закрытие конференции.
+      .clearfix

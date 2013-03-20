@@ -4,7 +4,9 @@ class FileDownloadInput < SimpleForm::Inputs::FileInput
     out = super
     if object.persisted? 
       out << template.content_tag(:div) do
-        template.link_to( object.send("#{attribute_name}_identifier"), object.send("#{attribute_name}_url"))
+        if object.send("#{attribute_name}_url")
+          template.link_to( object.send("#{attribute_name}_identifier"), object.send("#{attribute_name}_url"))
+        end
       end
     end
     out

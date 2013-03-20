@@ -10,5 +10,10 @@
  *
  *= require bootstrap_and_overrides
  *= require chosen
+ *= require select2
  *= require bootstrap-datetimepicker.min
  */
+
+body {
+    padding-top: 60px;
+}

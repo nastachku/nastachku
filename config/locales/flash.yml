@@ -10,9 +10,12 @@ ru:
             success: 'Ваш аккаунт успешно активирован!'
 
         account:
-          events:
+          lectures:
             create:
               success: 'Ваш доклад отправлен на модерацию. Вам на почту придет письмо с результатами проверки.'
+              error: 'Есть ошибки в заполнении форм.'
+            update:
+              success: 'Ваш доклад успешно изменен.'
               error: 'Есть ошибки в заполнении форм.'
 
           passwords:
@@ -22,6 +25,14 @@ ru:
             edit:
               error: "Ссылка не действительна"
               success: "Введите новый пароль"
+
+          social_networks:
+            link_twitter:
+              success: "Twitter успешно связан с аккаунтом"
+              error: "Twitter не связан с аккаунтом"
+            unlink_twitter:
+              success: "Twitter успешно отвязан от аккаунта"
+              error: "Twitter не отвязан от аккаунта"
 
         accounts:
           update:
@@ -39,9 +50,11 @@ ru:
             error: "Пользователь с данным email не найден"
 
         social_networks:
-          authorization:
+          facebook:
             error: "Вход через социальную сеть не произведен"
             success: "Вход через социальную сеть успешно произведен"
+          twitter:
+            error: "Связывание с twitter аккаунтом не произведено"
           failure:
             error: 'Не предоставлено необходимых разрешений на доступ к аккаунту'
 

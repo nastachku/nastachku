@@ -1,10 +1,10 @@
 class Workshop < ActiveRecord::Base
   include WorkshopRepository
 
-  attr_accessible :title
+  attr_accessible :title, :color
 
-  has_many :events, class_name: :BaseEvent
-  has_many :user_events
+  has_many :lectures
+  #has_many :user_events
 
   audit :title
 

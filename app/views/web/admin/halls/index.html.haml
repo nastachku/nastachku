@@ -7,11 +7,14 @@
   %thead
     %tr
       %th= Hall.human_attribute_name :title
-      %th= t '.actions'
+      %th
   %tbody
     - @halls.each do |hall|
       %tr
         %td= link_to hall.title, edit_admin_hall_path(hall)
         %td
-          = link_to t('.edit'), edit_admin_hall_path(hall), class: 'btn btn-mini'
-          = link_to t('.delete'), admin_hall_path(hall), class: 'btn btn-mini', method: :delete
+          .pull-right.btn-group
+            = link_to edit_admin_hall_path(hall), class: 'btn btn-mini' do
+              %i.icon-pencil
+            = link_to admin_hall_path(hall), class: 'btn btn-mini', method: :delete do
+              %i.icon-trash

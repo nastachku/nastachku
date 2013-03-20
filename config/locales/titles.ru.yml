@@ -15,10 +15,10 @@ ru:
         title: 'Вход'
       create:
         title: 'Вход'
-    user_events:
+    user_lectures:
       index:
         title: "Доклады 2.0"
-    events:
+    lectures:
       index:
         title: "Доклады"
 
@@ -33,7 +33,7 @@ ru:
        title: 'Редактирование аккаунта'
 
     account:
-      events:
+      lectures:
         new:
           title: 'Добавить доклад'
         create:

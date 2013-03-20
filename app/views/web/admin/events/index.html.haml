@@ -1,29 +1,23 @@
 .page-header
   %h1=t '.title'
 
-.span9
-  = link_to t('.new'), new_admin_event_path, class: 'btn btn-primary'
-  = link_to t('.new_break'), new_admin_event_break_path, class: 'btn btn-danger'
-.span2
-  = link_to t('.workshops'), admin_workshops_path, class: 'btn btn-info'
-  = link_to t('.halls'), admin_halls_path, class: 'btn btn-success'
+.span4
+  = link_to t('.new'), new_admin_event_path, class: 'btn'
 
 %table.table.table-striped
   %thead
     %tr
-      %th= BaseEvent.human_attribute_name :title
-      %th= BaseEvent.human_attribute_name :start_time
-      %th= BaseEvent.human_attribute_name :state
-      %th= BaseEvent.human_attribute_name :workshop
-      %th= BaseEvent.human_attribute_name :hall
-      %th= t '.actions'
+      %th= Event.human_attribute_name :title
+      %th= Event.human_attribute_name :state
+      %th
   %tbody
     - @events.each do |event|
       %tr
         %td= event.title
-        %td= l event.start_time if event.start_time
         %td= event.human_state_name
-        %td= event.workshop.try(:title)
-        %td= event.hall.try(:title)
         %td
-          = link_to t('.edit'), edit_admin_event_cpath(event), :class => 'btn btn-mini'
+          .pull-right.btn-group
+            = link_to edit_admin_event_path(event), class: 'btn btn-mini' do
+              %i.icon-pencil
+            = link_to admin_event_path(event), method: :delete, class: 'btn btn-mini' do
+              %i.icon-trash

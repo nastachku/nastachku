@@ -1,6 +1,23 @@
 ru:
   activerecord:
+    models:
+      hall: 'Зал'
     attributes:
+      lecture:
+        state_event: 'Действие'
+        title: 'Название'
+        presentation: 'Добавить презентацию'
+        thesises: 'Тезисы'
+        user: 'Докладчик'
+        start_time: 'Время начала'
+        finish_time: 'Время окончания'
+        state: 'Статус'
+        workshop: 'Секция'
+        hall: 'Зал'
+        lecture_votings_count: 'Количество голосов'
+        listener_votings_count: 'Количество слушателей'
+        created_at: "Дата отправки"
+
       page:
         slug:  "slug"
         title: "Заголовок"
@@ -48,8 +65,16 @@ ru:
         action: 'Действие'
         created_at: 'Дата'
 
-      base_event:
+      event:
+        title: 'Название'
+        state: 'Состояние'
         created_at: "Дата отправки"
+
+      slot:
+        event_id: 'Событие'
+        hall: 'Зал'
+        start_time: 'Время начала'
+        finish_time: 'Время окончания'
 
     errors:
       messages:
@@ -79,10 +104,16 @@ ru:
               #blank: 'Согласиться вы должны (с) Йода'
 
     state_machines:
-      base_event:
+      lecture:
         state:
           states:
             in_schedule: 'В программе'
             new: 'Новый'
             voted: 'На голосовании'
             rejected: 'Отклонен'
+
+      event:
+        state:
+          states:
+            inactive: 'Неактивен'
+            active: 'Активен'

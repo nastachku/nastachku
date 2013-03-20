@@ -32,6 +32,7 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'ransack'
 gem 'chosen-rails'
+gem 'select2-rails'
 gem 'auditable', :github => 'harleyttd/auditable'
 gem 'enumerize'
 gem 'rack-rewrite'
@@ -40,6 +41,7 @@ gem 'gon'
 gem 'redcarpet'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -48,6 +50,8 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
+  gem 'compass-rails'
+  gem 'bootstrap-colorpicker-rails'
 end
 
 group :test, :development do

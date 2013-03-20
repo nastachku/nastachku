@@ -1,7 +1,9 @@
-- if event.type.eql? 'UserEvent'
-  .event{ class: "area-#{index} section-#{event.workshop_id} start-#{event.start_hour} offset-#{event.start_offset} long-#{event.duration}" }
-    .caption= event.title
-    .author= event.speaker.full_name
-- else
-  .event{ class: "area-#{index} start-#{event.start_hour} long-#{event.duration} break" }
-    .caption= event.title
+%a.event{ class: "area-#{index} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration} break" }
+  %span.time
+    = slot.start_hour
+    %sup= l slot.start_time, format: :minutes
+    %span.end-time
+      &minus;
+      = slot.finish_time.hour
+      %sup= l slot.finish_time, format: :minutes
+  %span.caption= slot.event.title

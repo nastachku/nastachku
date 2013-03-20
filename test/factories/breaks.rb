@@ -3,9 +3,6 @@
 FactoryGirl.define do
   factory :break, class: Event::Break do
     title
-    start_time
-    finish_time
-    association :hall
     association :workshop
   end
 end

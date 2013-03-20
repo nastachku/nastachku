@@ -1,0 +1,7 @@
+.row.nested-fields
+  .span9.well
+    = f.input :event_type, collection: Slot.event_type.options, include_blank: true, input_html: { class: 'span7 event-type-select' }
+    = f.input :event_id, as: :events,  include_blank: true, input_html: { class: 'span7 event-id-select' }
+    = f.input :start_time, as: :date_time_picker, input_html: { class: 'span7' }
+    = f.input :finish_time, as: :date_time_picker, input_html: { class: 'span7' }
+    = link_to_remove_association t('.delete'), f, class: 'btn btn-danger pull-right'

@@ -1,45 +1,15 @@
-.container.no-padding
+.container.no-padding#nav_main
   .navbar
     .navbar-inner.no-padding
-      %a.btn.btn-navbar{ class: "btn btn-navbar",  :'data-toggle' => "collapse",  :'data-target' => ".nav-collapse" }
-        %span Menu
+      %ul.nav.no-padding.main-menu{ role: "navigation" }
+        - unless signed_in?
+          = item :li, t(".i_will_go"), new_user_path
 
-      .nav-collapse.collapse
+        %li{ class: "#{'active' if current_page?(users_path)}" }
+          = navbar_link t(".participants"), users_path, with: User.activated.count
 
-        %ul.nav.no-padding.main-menu{ role: "navigation" }
-          - unless signed_in?
-            = item :li, t(".i_will_go"), new_user_path
-
-          %li{ class: "#{'active' if current_page?(users_path)}" }
-            = navbar_link t(".participants"), users_path, with: User.activated.count
-
-          -#FIXME написать хелпер для li.dropdown, по аналогии с "= item :li, ..."
-
-          %li.dropdown{ class: "#{'active' if current_page?(lectors_path)}" }
-            %a#lectors_link.dropdown-toggle{ href: "#", :"data-toggle" => "dropdown", role: "button" }
-              = t(".lectors")
-              %b.caret
-
-            %ul.dropdown-menu{ role: "menu", :'aria-labelledby' => "lectors_link" }
-              - topics.each do |topic|
-                %li{ role: "presentation" }
-                  = link_to topic, lectors_path(topics_id_eq: topic.id)
-
-          %li.dropdown{ class: "#{'active' if current_page?(events_path)}" }
-            %a#lectures_link.dropdown-toggle{:href => "#", :"data-toggle" => "dropdown", :role => "button"}
-              = t(".lectures")
-              %b.caret
-            %ul.dropdown-menu{:role => "menu", :'aria-labelledby' => "lectures_link"}
-              - workshops.each do |w|
-                %li= link_to w, events_path(workshop_id_eq: w.id)
-
-          = item :li, t('.lectures_20'), user_events_path
-          = item :li, t(".routes"), page_path(:routes)
-          = item :li, t(".contacts"), page_path(:contacts)
-          -# = item :li, t(".afterparty"), page_path(:afterparty)
-
-
-          -#%li{ class: "#{'active' if current_page?(schedule_path)}" }
-          -#  = link_to t(".schedule"), schedule_path
-          -# = item :li, t(".news"), news_index_path
-          -# = item :li, t('.lectors'), lectors_path
+        = item :li, t(".lectors"), lectors_path
+        = item :li, t(".lectures"), lectures_path
+        = item :li, t('.lectures_20'), user_lectures_path
+        = item :li, t(".routes"), page_path(:routes)
+        = item :li, t(".contacts"), page_path(:contacts)

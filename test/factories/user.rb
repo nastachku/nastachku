@@ -10,11 +10,12 @@ FactoryGirl.define do
     company
     show_as_participant
     email
+    twitter_name ""
 #    process_personal_data
 
     after(:create) do |user|
       user.activate
-      FactoryGirl.create_list(:user_event, 5, speaker: user)
+      FactoryGirl.create_list(:lecture, 5, user: user)
     end
     
   end

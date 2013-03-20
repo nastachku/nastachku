@@ -1,21 +1,25 @@
-%h1= @topic
+%h1=t(".lectors")
 
-.row
-  .span12.workshop
+.row.workshop
+  .span3
+    %ul.nav.nav-list.b-affix
+      - topics.each do |topic|
+        %li{ class: topic.id == params[:topics_id_eq].to_i ? 'active' : '' }
+          = link_to topic, lectors_path(topics_id_eq: topic.id)
+
+  .span9
     - @lectors.each do |lector|
       %div{ id: "#{lector.id}" }
-        .row
-          .span4
-            .pic
-              - if lector.photo.url
-                = image_tag(lector.photo.url)
+        .row-fluid
+          .span4.s-info
+            .col-l
+              .pic
+                - if lector.photo.url
+                  = image_tag(lector.photo.url)
           .span8
             %h5= lector.full_name
             %h6
               %strong= lector.company
             %p= lector.about
-            -#.social
-            -#  %a.tip{"data-original-title" => "Facebook", :href => "#"}
-            -#    %i.icon-facebook.facebook
           .clearfix
         %hr

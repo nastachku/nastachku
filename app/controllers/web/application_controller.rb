@@ -3,7 +3,7 @@ class Web::ApplicationController < ApplicationController
   include Web::LectorsHelper
   include SocNetworkHelper
   include Web::WorkshopsHelper
-  include ApplicationHelper
+  include CustomUrlHelper
 
   #helper :all
   helper_method :edit_admin_event_cpath, :workshops
