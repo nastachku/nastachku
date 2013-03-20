@@ -3,7 +3,7 @@ class AddPolymorphicToSlots < ActiveRecord::Migration
     add_column :slots, :event_type, :string
     Slot.transaction do
       Slot.includes(:event).find_each do |slot|
-        slot.event_type = slot.event.class.model_name
+        slot.event_type = slot.event.class.model_name if slot.event.present?
         slot.save!
       end
     end
