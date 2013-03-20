@@ -6,7 +6,7 @@ class AfterpartyOrder < Order
   end
 
   def cost
-    self.items_count * configus.platidoma.afterparty_price
+    self.items_count * configus.platidoma.afterparty_pricem
   end
 
 end
