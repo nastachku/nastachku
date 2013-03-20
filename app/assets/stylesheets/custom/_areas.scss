@@ -111,6 +111,7 @@
     cursor: pointer;
     display: inline-block;
     text-decoration: none;
+    border: 1px solid #666;
     z-index: 10;
     .summary {
       display: block;
@@ -158,19 +159,10 @@
 }
 
 // Areas coordinates
-$colors: $blue $red $green $orange $yellow $violin;
 
 @for $i from 1 through $areas_count {
   .event.area-#{$i} {
     left: $area_width * $i - $area_width + px;
-  }
-}
-
-// Areas sections
-@for $i from 1 through $areas_count {
-  .event.section-#{$i} {
-    background-color: desaturate(lighten(nth($colors, $i), 50), 50);
-    border: 1px solid nth($colors, $i);
   }
 }
 

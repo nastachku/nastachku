@@ -25,6 +25,10 @@ module ApplicationHelper
     render 'helpers/web/nl2br', lines: lines
   end
 
+  def dropdown(args)
+    render 'helpers/web/dropdown', name: args[:name], items: args[:items]
+  end
+
   def item(tag, name, path, link_options = {}, &block)
     options = {}
     options[:class] = :active if current_page?(path)

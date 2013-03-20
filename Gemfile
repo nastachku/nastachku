@@ -32,6 +32,7 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'ransack'
 gem 'chosen-rails'
+gem 'select2-rails'
 gem 'auditable', :github => 'harleyttd/auditable'
 gem 'enumerize'
 gem 'rack-rewrite'
@@ -50,6 +51,7 @@ group :assets do
   gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails'
+  gem 'bootstrap-colorpicker-rails'
 end
 
 group :test, :development do

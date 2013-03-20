@@ -15,12 +15,14 @@ Nastachku::Application.routes.draw do
     resources :companies
     resources :cities
 
-    resources :user_events do
-      scope module: :user_events do
+    resources :lectures do
+      scope module: :lectures do
         resources :lecture_votings, only: [:create]
         resources :listener_votings, only: [:create]
       end
     end
+    resources :events, only: [ :index ]
+
   end
 
   scope :module => :web do
@@ -29,7 +31,7 @@ Nastachku::Application.routes.draw do
     end
     resources :users, only: [:new, :create, :index]
 
-    resources :events, only: [ :index ]
+    resources :lectures, only: [ :index ]
 
     resource :schedule, only: [:show]
 
@@ -37,7 +39,7 @@ Nastachku::Application.routes.draw do
     resource :session, only: [:new, :create, :destroy]
     resources :news, only: [:index]
     resource :remind_password, only: [:new, :create]
-    resources :user_events, only: [:index]
+    resources :user_lectures, only: [:index]
 
     resource :account, only: [:edit, :update] do
       scope :module => :account do
@@ -47,7 +49,7 @@ Nastachku::Application.routes.draw do
           get :link_twitter
           put :unlink_twitter
         end
-        resources :events, only: [ :new, :create, :update ]
+        resources :lectures, only: [ :new, :create, :update ]
       end
     end
 
@@ -58,6 +60,7 @@ Nastachku::Application.routes.draw do
     resources :lectors, only: [ :index ]
 
     namespace :admin do
+      resources :lectures
       resources :pages
       resources :news
       resources :users

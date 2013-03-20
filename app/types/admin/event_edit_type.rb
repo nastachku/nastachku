@@ -1,11 +1,7 @@
-class Admin::EventEditType < UserEvent
+class Admin::EventEditType < Event
   include BasicType
 
-  validates :title, presence: true
-  validates :thesises, presence: true
-  # validates :start_time, presence: true
-  # validates :finish_time, presence: true
-  validates :speaker, presence: true
-  validates :workshop, presence: true
+  attr_accessible :state_event
 
+  validates :title, presence: true
 end

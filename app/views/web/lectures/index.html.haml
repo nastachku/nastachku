@@ -1,0 +1,34 @@
+%h1=t(".events")
+
+.row.workshop
+  .span3
+    %ul.nav.nav-list.b-affix
+      - workshops.each do |workshop|
+        %li{ class: workshop.id == params[:workshop_id_eq].to_i ? 'active' : '' }
+          = link_to workshop, lectures_path(workshop_id_eq: workshop.id)
+
+  .span9
+    - @lectures.each do |lecture|
+      .row-fluid.event-item
+        .span4.sinfo
+          .col-l
+            %h5= link_to lecture.user.reverse_full_name, lectors_path(anchor: lecture.user)
+            %h6
+              %strong= lecture.user.company
+            .pic
+              - if lecture.user.photo.url
+                = image_tag(lecture.user.photo.url)
+            .buttons-group{ data: { success: t('.already_going') } }
+              - if signed_in?
+                - if lecture.listener_votings.voted_by?(current_user)
+                  .btn.btn-no-clickable= t('.already_going')
+                - else
+                  = link_to t('.i_am_going'), api_lecture_listener_votings_path(lecture), remote: true,  method: :post, class: 'vote-event btn btn-shine'
+              - else
+                .btn.btn-no-clickable= t('.they_going')
+              %span.btn.votings-count.btn-no-clickable
+                = lecture.listener_votings.size
+        .span8
+          %h4= lecture.title
+          %p.ainfo= nl2br lecture.thesises
+        .clearfix

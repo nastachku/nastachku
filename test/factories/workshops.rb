@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :workshop do
     title
+    color
   end
 end

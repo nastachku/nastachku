@@ -63,7 +63,7 @@ ru:
         unlink_twitter: 'Отключить'
         twitter_account: 'Твиттер'
     account:
-      events:
+      lectures:
         form:
           add_event: 'Добавить доклад'
         event_fields:
@@ -97,7 +97,7 @@ ru:
         hero_unit_content: '<br>УЛЬЯНОВСК 12-13 АПРЕЛЯ 2013 МЕМЦЕНТР<br>Веб-технологии, менеджмент в IT, электронная коммерция, IT-стартапы, программирование, IT на службе в обществе'
         join: 'Я пойду!'
 
-    user_events:
+    user_lectures:
       index:
         title: 'Доклады 2.0'
         events20: 'Доклады 2.0'
@@ -107,7 +107,7 @@ ru:
         by_lecture_votings_count: 'По количеству голосов'
         by_created_at: 'По дате добавления'
         sort_by: 'Сортировать'
-    events:
+    lectures:
       index:
         i_am_going: 'Я пойду!'
         already_going: 'Вы пойдете'
@@ -244,15 +244,26 @@ ru:
         form:
           presentation_link: 'Ссылка на презентацию'
 
-      events:
+      lectures:
         index: 
-          title: 'События'
+          title: 'Доклады'
           actions: 'Действия'
           edit: 'Редактировать'
           new: 'Добавить доклад'
           workshops: 'Секции'
           halls: 'Залы'
-          new_break: 'Добавить перерыв'
+          search: 'Поиск'
+        new:
+          title: 'Добавить доклад'
+        edit:
+          title: 'Редактировать доклад'
+
+      events:
+        index:
+          title: 'Другие события'
+          actions: 'Действия'
+          edit: 'Редактировать'
+          new: 'Добавить событие'
         new:
           title: 'Добавить событие'
         edit:
@@ -362,6 +373,7 @@ ru:
 
       workshop:
         title: 'Название'
+        color: 'Цвет'
       hall:
         title: 'Название'
         
@@ -477,10 +489,10 @@ ru:
             update:
               success: 'Зал изменен'
               error: 'Не удалось изменить зал, есть ошибки в заполнении форм'
-          event_breaks:
+          lectures:
             create:
-              success: 'Перерыв добавлен'
-              error: 'Не удалось добавить перерыв, есть ошибки в заполнении форм'
+              success: 'Доклад добавлен'
+              error: 'Не удалось добавить доклад, есть ошибки в заполнении форм'
             update:
-              success: 'Перерыв изменен'
-              error: 'Не удалось изменить перерыв, есть ошибки в заполнении форм'
+              success: 'Доклад изменен'
+              error: 'Не удалось изменить доклад, есть ошибки в заполнении форм'

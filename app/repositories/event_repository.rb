@@ -4,6 +4,7 @@ module EventRepository
   include UsefullScopes
 
   included do
+    scope :admin, -> { by_created_at }
     scope :new_and_in_voting, -> { where(state: [:new, :voted]) }
     scope :web, ->{by_created_at}
     scope :scheduled, -> { where(state: :in_schedule) }
