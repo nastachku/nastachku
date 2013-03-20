@@ -21,10 +21,8 @@ Nastachku::Application.routes.draw do
         resources :listener_votings, only: [:create]
       end
     end
+    resources :events, only: [ :index ]
 
-    namespace :admin do
-      resources :events, only: [ :index ]
-    end
   end
 
   scope :module => :web do

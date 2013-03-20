@@ -2,7 +2,7 @@
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
     %h3{id: "#{dom_id(slot)}myModalLabel"}
-      = slot.event.speaker.full_name
+      = slot.event.user.full_name
   .modal-body
     %p= nl2br(slot.event.thesises)
 
@@ -17,4 +17,4 @@
         %sup= l slot.finish_time, format: :minutes
     %span.caption
       = slot.event.title
-    %span.author= slot.event.speaker.full_name
+    %span.author= slot.event.user.full_name

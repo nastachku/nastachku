@@ -33,8 +33,8 @@ class TimeSlotEditWidget
       if val is ''
         @reload_select @event_id_dropdown, []
       else
-        $.get Routes.api_admin_events_path(type: val), (data) =>
-          @reload_select @event_id_dropdown, data.items
+        $.get Routes.api_events_path(type: val), (data) =>
+          @reload_select @event_id_dropdown, data.root.events
 
   reload_select: (obj, data)->
     obj.select2("destroy")
