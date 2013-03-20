@@ -1,6 +1,11 @@
 .page-header
   %h1=t '.title'
 
+.row
+  .span4
+    = link_to t('.new'), new_admin_lecture_path, class: 'btn btn-primary'
+%br
+
 .container-fluid
   .row
     = simple_form_for @search, url: admin_lectures_path, method: :get do |f|
@@ -8,14 +13,9 @@
       .span2= f.input_field :user_id_in, as: :chosen_select, collection: User.web, placeholder: Lecture.human_attribute_name(:user), label: false, required: false, class: 'span2'
       .span2= f.input_field :state_in, as: :chosen_select, collection: Lecture.state_machine.states.map { |s| [s.human_name, s.name] }, placeholder: Lecture.human_attribute_name(:state), label: false, required: false, class: 'span2'
       .span3= f.input_field :workshop_id_in, as: :chosen_select, collection: Workshop.web,  placeholder: Lecture.human_attribute_name(:workshop), label: false, required: false, class: 'span2'
-      .span1= f.submit t(".search"), :class => 'btn btn-primary'
-
-
-.span4
-  = link_to t('.new'), new_admin_lecture_path, class: 'btn btn-primary'
+      .span1= f.submit t(".search"), :class => 'btn btn-info'
 
 = paginate @lectures
-
 %table.table.table-striped
   %thead
     %tr
@@ -39,5 +39,8 @@
           .pull-right.btn-group
             = link_to edit_admin_lecture_path(lecture), class: 'btn btn-mini' do
               %i.icon-pencil
-
 = paginate @lectures
+
+.row
+  .span4
+    = link_to t('.new'), new_admin_lecture_path, class: 'btn btn-primary'
