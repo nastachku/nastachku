@@ -93,6 +93,15 @@ Configus.build Rails.env do
       app_id '136776063163691'
       app_secret 'a17bec84850e3acd9e0b05bf0cafa878'
     end
+
+    platidoma do
+      url 'https://pg-test.platidoma.ru/payment.php'
+      shop_id 7
+      login "nastachku"
+      gate_password "Emvexc234s"
+      afterparty_price 1500
+      shirt_price 500
+    end
     
   end
 
