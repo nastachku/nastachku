@@ -18,6 +18,7 @@
 //= require cocoon
 //= require select2
 //= require bootstrap-datetimepicker.min
+//= require bootstrap-colorpicker
 //= require admin/chosen-selects
 //= require admin/dates
 //= require admin/halls
