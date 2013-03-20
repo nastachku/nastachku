@@ -42,7 +42,7 @@ gem 'redcarpet'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
-gem 'platidoma', path: "/home/vagrant/.rvm/gems/ruby-1.9.3-p327@rails3/gems/platidoma-0.0.1"
+gem 'platidoma'
 gem 'multi_json', '~> 1.3.0'
 
 # Gems used only for assets and not required
