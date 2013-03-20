@@ -54,15 +54,6 @@ class User < ActiveRecord::Base
     auth_tokens.create! :authentication_token => token, :expired_at => expired_at
   end
 
-  #FIXME вынести в декораторы
-  def full_name
-    "#{last_name} #{first_name}"
-  end
-
-  def reverse_full_name
-    "#{first_name} #{last_name}"
-  end
-
   def to_s
     full_name
   end
