@@ -17,3 +17,9 @@
 body {
     padding-top: 60px;
 }
+.span-nomargin {
+  margin-left: 0 !important;
+}
+.controls .datetimepicker .span7 {
+  width: 628px;
+}
