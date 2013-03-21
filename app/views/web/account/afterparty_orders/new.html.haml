@@ -3,41 +3,42 @@
   %h1=t '.afterparty'
 
   %p
-    Отдохнуть после насыщенного Стачко-дня, поделиться впечатлениями от докладов, потусоваться и пообщаться со спикерами и лучшими людьми сферы в неформальной обстановке? Добро пожаловать на афтепати «Стачки!» 12 апреля в 19.00 ждем вас в кафе-клубе «
-    %a{href: "http://dukeclub.ru/", target: "_blank"}
-      Дюк
-    ».  Успейте попасть на закрытую вечеринку, количество билетов ограничено.
+    =t '.afterparty_content_part_1'
+    %span.color «
+    = link_to t(".duke"), "http://dukeclub.ru/", :target => "_blank"
+    %span.color ».
+    =t '.afterparty_content_part_2'
 
 .tabbable
   %ul.nav.nav-tabs
     %li.active= link_to t('.afterparty'), new_account_afterparty_order_path
-    -#%li= link_to t('.shirt'),  new_account_shirt_order_path
+    %li= link_to t('.shirt'),  new_account_shirt_order_path
 
 = simple_form_for [:account, @afterparty_order], :html => { :class => 'form-horizontal profile-form' } do |f|
   .formy
     .control-group
       %label.control-label.center
-        Наименование
+        = t(".item_name")
       .controls
         .row-fluid
           .span4.center
-            Количество
+            = t(".item_count")
           .span4.center
-            Стоимость 1 билета
+            = t(".item_cost_title")
           .span4.center
-            Итого
+            = t(".item_total_title")
     .control-group
       %label.control-label.center
-        Входной билет
+        = t(".enter_ticket")
       .controls
         .row-fluid
           .span4.center
             = f.input_field :items_count, collection: 0..10, default: 1, class: "items-count-select input-mini"
           .span4.center
-            1 500 руб.
+            = t(".item_cost_value")
           .span4.center
             %big
               .cost
-                0 руб.
+                = t(".item_total_default")
 
   = f.button :submit, :value => t('.buy'), :class => 'btn btn-shine'
