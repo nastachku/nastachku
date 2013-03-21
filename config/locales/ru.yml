@@ -34,6 +34,7 @@ ru:
           admin: 'Админка'
           add_lecture: 'Добавить доклад'
           stachka_2012: 'Стачка! 2012'
+          buy: "Купить"
 
       admin:
         shared:
@@ -112,7 +113,7 @@ ru:
           add_order: "Оформить заказ"
           item_name: "Наименование"
           item_count: "Количество"
-          item_cost_title: "Цена"
+          item_cost_title: "Стоимость 1 футболки"
           item_total_title: "Итого"
           enter_ticket: "Футболка"
           item_cost_value: "500 руб."

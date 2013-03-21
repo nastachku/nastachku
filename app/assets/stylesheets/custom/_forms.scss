@@ -36,9 +36,16 @@
 }
 input[type="submit"].btn-shine,
 .btn.btn-shine,
-a.btn-shine {
+a.btn-shine,
+.navbar .nav > li > a.btn-shine:hover {
   color: #fff !important;
   background-color: $main_color_2 !important;
+}
+input[type="submit"].btn-shine-colored,
+.btn.btn-shine-colored,
+a.btn-shine-colored,
+.navbar .nav > li > a.btn-shine-colored:hover {
+  background-color: $main_color_1 !important;
 }
 .formy .help-inline {
   font-size: 12px;
