@@ -2,7 +2,25 @@ ru:
   activerecord:
     models:
       hall: 'Зал'
+      afterparty_order: 'Билет на афтепати'
+      shirt_order: 'Футболка'
+
     attributes:
+      lecture:
+        state_event: 'Действие'
+        title: 'Название'
+        presentation: 'Добавить презентацию'
+        thesises: 'Тезисы'
+        user: 'Докладчик'
+        start_time: 'Время начала'
+        finish_time: 'Время окончания'
+        state: 'Статус'
+        workshop: 'Секция'
+        hall: 'Зал'
+        lecture_votings_count: 'Количество голосов'
+        listener_votings_count: 'Количество слушателей'
+        created_at: "Дата отправки"
+
       page:
         slug:  "slug"
         title: "Заголовок"
@@ -50,9 +68,9 @@ ru:
         action: 'Действие'
         created_at: 'Дата'
 
-      base_event:
-        lecture_votings_count: 'Количество голосов'
-        listener_votings_count: 'Количество слушателей'
+      event:
+        title: 'Название'
+        state: 'Состояние'
         created_at: "Дата отправки"
 
       slot:
@@ -60,6 +78,14 @@ ru:
         hall: 'Зал'
         start_time: 'Время начала'
         finish_time: 'Время окончания'
+
+      order:
+        order_id: 'Номер заказа'
+        items_count: 'Количество'
+        created_at: "Дата заказа"
+        payment_state: "Состояние платежа"
+        type: "Тип товара"
+        item_size: "Размер"
 
     errors:
       messages:
@@ -86,13 +112,3 @@ ru:
               taken: 'Данный Email уже зарегистрирован'
             process_personal_data:
               blank: "Необходимо дать согласие на обработку персональных данных"
-              #blank: 'Согласиться вы должны (с) Йода'
-
-    state_machines:
-      base_event:
-        state:
-          states:
-            in_schedule: 'В программе'
-            new: 'Новый'
-            voted: 'На голосовании'
-            rejected: 'Отклонен'

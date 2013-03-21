@@ -32,7 +32,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
 
   def edit
     @user = ::Admin::UserEditType.find params[:id]
-    gon.user_events_count = @user.events.count
+    gon.user_events_count = @user.lectures.count
   end
 
   def update
@@ -44,7 +44,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
       redirect_to edit_admin_user_path(@user)
     else
       flash_error
-      gon.user_events_count = @user.events.count
+      gon.user_events_count = @user.lectures.count
       render :edit
     end
   end

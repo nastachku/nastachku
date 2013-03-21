@@ -10,7 +10,7 @@ ru:
             success: 'Ваш аккаунт успешно активирован!'
 
         account:
-          events:
+          lectures:
             create:
               success: 'Ваш доклад отправлен на модерацию. Вам на почту придет письмо с результатами проверки.'
               error: 'Есть ошибки в заполнении форм.'
@@ -33,6 +33,32 @@ ru:
             unlink_twitter:
               success: "Twitter успешно отвязан от аккаунта"
               error: "Twitter не отвязан от аккаунта"
+
+          orders:
+            update:
+              success: "Статус заказа успешно обновлен"
+              error: "Статус заказа не обновлен"
+
+            pay:
+              error: "Заказ не может быть оплачен"
+
+            decline:
+              notice: "Произошел отказ от платежа"
+
+            cancel:
+              notice: "Произошла отмена от платежа"
+
+            approve:
+              success: "Заказ успешно оплачен"
+
+          afterparty_orders:
+            create:
+              error: "Есть ошибки в заполнении формы"
+
+          shirt_orders:
+            create:
+              error: "Есть ошибки в заполнении формы"
+
 
         accounts:
           update:

@@ -10,10 +10,19 @@
         %ul.nav
           %li= link_to t('.pages'),  admin_pages_path
           %li= link_to t('.news'),   admin_news_index_path
-          %li= link_to t('.user_lectures'),   admin_user_events_path
-          %li= link_to t('.events'), admin_events_path
+          = dropdown name: 'Доклады',
+              items: [ { name: 'Доклады', url: admin_lectures_path },
+                       { name: 'Доклады 2.0', url: admin_lectures_path(q: { state_in: [:new, :voted] }) }]
+          = dropdown name: 'Расписание',
+              items: [ { name: 'Залы', url: admin_halls_path },
+                       { name: 'Секции', url: admin_workshops_path },
+                       { name: 'События', url: admin_events_path }, ]
+
+          -#%li= link_to t('.user_lectures'),   admin_user_events_path
+          -#%li= link_to t('.events'), admin_events_path
           %li= link_to t('.users'),   admin_users_path
           %li= link_to t('.audits'),   admin_audits_path
           %li= link_to t('.topics'), admin_topics_path
+          %li= link_to t('.orders'), admin_orders_path
         %ul.nav.nav-collapse.pull-right
           %li= link_to t('.logout'), session_path, :method => :delete

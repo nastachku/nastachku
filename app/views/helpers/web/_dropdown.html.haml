@@ -1,0 +1,7 @@
+%li.dropdown
+  %a.dropdown-toggle{ data: { toggle: 'dropdown'}, href: "#" }
+    = name
+    %b.caret
+  %ul.dropdown-menu
+    - items.each do |item|
+      %li= link_to item[:name], item[:url]

@@ -12,8 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
 //= require ckeditor/init
-//= require chosen-jquery
+//= require twitter/bootstrap
+//= require js-routes
+//= require cocoon
+//= require select2
 //= require bootstrap-datetimepicker.min
+//= require admin/chosen-selects
 //= require admin/dates
+//= require admin/halls
+//= require admin/user_edit_form
+//= require admin/dates
+//= require admin/custom

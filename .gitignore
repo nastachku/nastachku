@@ -10,6 +10,7 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /config/database.yml
+/config/credentials.yml
 /public/uploads/
 /public/system/uploads/
 

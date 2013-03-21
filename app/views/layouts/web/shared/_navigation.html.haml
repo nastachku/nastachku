@@ -10,7 +10,8 @@
           = navbar_link t(".participants"), users_path, with: User.activated.count
 
         = item :li, t(".lectors"), lectors_path
-        = item :li, t(".lectures"), events_path
-        = item :li, t('.lectures_20'), user_events_path
+        = item :li, t(".lectures"), lectures_path
+        = item :li, t('.lectures_20'), user_lectures_path
+        = item :li, t(".afterparty"), new_account_afterparty_order_path
         = item :li, t(".routes"), page_path(:routes)
         = item :li, t(".contacts"), page_path(:contacts)

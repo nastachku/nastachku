@@ -4,8 +4,11 @@ FactoryGirl.define do
     "email_#{n}@mail.com"
   end
 
-  [:company, :slug, :title, :body, :photo, :description, :about].each do |trait|
-    
+  sequence :items_count do |n|
+    n
+  end
+
+  [:company, :slug, :title, :thesises, :body, :photo, :description, :about, :color].each do |trait|
     sequence trait do |n|
       "#{trait}_#{n}"
     end
@@ -26,19 +29,19 @@ FactoryGirl.define do
     true
   end
 
-  sequence :events_attributes do |n|
-    { n => FactoryGirl.attributes_for(:user_event) }
+  sequence :lectures_attributes do |n|
+    { n => FactoryGirl.attributes_for(:lecture) }
   end
 
   sequence :image do |n|
     fixture_file_upload Rails.root.to_s + "/test/fixtures/photos/test.png", "image/png"
   end
 
-  sequence :user_with_events do |n|
+  sequence :user_with_lectures do |n|
     {
         about:             FactoryGirl.generate(:about),
         photo:             FactoryGirl.generate(:image),
-        events_attributes: FactoryGirl.generate(:events_attributes)
+        lectures_attributes: FactoryGirl.generate(:lectures_attributes)
     }
   end
 end

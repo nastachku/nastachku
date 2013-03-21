@@ -1,6 +1,8 @@
 = simple_form_for [:admin, @hall], html: { class: 'form-horizontal hall-form' } do |f|
 
-  = f.input :title, input_html: { class: 'span7' }
+  .row
+    .span9.well
+      = f.input :title, input_html: { class: 'span7' }
 
   %h3= t '.timeslots'
   #slots

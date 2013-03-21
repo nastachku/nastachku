@@ -1,7 +1,7 @@
 class Web::Admin::EventsController < Web::Admin::ApplicationController
 
   def index
-    @events = BaseEvent.without_votings_events.asc_by_workshop_id
+    @events = Event.admin
   end
 
   def new 
@@ -9,7 +9,7 @@ class Web::Admin::EventsController < Web::Admin::ApplicationController
   end
 
   def create
-    @event = ::Admin::EventEditType.new params[:user_event]
+    @event = ::Admin::EventEditType.new params[:event]
     @event.changed_by = current_user
     if @event.save
       flash_success
@@ -21,15 +21,13 @@ class Web::Admin::EventsController < Web::Admin::ApplicationController
   end
 
   def edit
-    user_event = UserEvent.find params[:id]
-    @event = user_event.becomes(::Admin::EventEditType)
+    @event = ::Admin::EventEditType.find params[:id]
   end
 
   def update
-    user_event = UserEvent.find params[:id]
-    @event = user_event.becomes(::Admin::EventEditType)
+    @event = ::Admin::EventEditType.find params[:id]
     @event.changed_by = current_user
-    if @event.update_attributes params[:user_event]
+    if @event.update_attributes params[:event]
       flash_success
       redirect_to admin_events_path
     else
@@ -39,7 +37,7 @@ class Web::Admin::EventsController < Web::Admin::ApplicationController
   end
 
   def destroy
-    @event = BaseEvent.find params[:id]
+    @event = Event.find params[:id]
     @event.destroy
     redirect_to admin_events_path
   end

@@ -9,6 +9,7 @@
     %ul.nav.nav-tabs
       %li.active= link_to t('.info'), '#info', data: { toggle: 'tab' }
       %li= link_to t('.my_events'), '#my_events', data: { toggle: 'tab' }
+      %li= link_to t('.my_orders'), '#my_orders', data: { toggle: 'tab' }
 
   .tab-content
     .tab-pane.active#info
@@ -42,19 +43,59 @@
 
 
     .tab-pane#my_events
-
-      - if @user.events.blank?
+      - if @user.lectures.empty?
         %p
           = t(".add_user_event_text")
-          = link_to t(".add_user_event"), new_account_event_path
+          = link_to t(".add_user_event"), new_account_lecture_path
       - else
         %table.table.table-participants
           %thead
             %tr
-              %th= BaseEvent.human_attribute_name(:title)
-              %th= BaseEvent.human_attribute_name(:created_at)
-              %th= BaseEvent.human_attribute_name(:state)
+              %th= Lecture.human_attribute_name(:title)
+              %th= Lecture.human_attribute_name(:created_at)
+              %th= Lecture.human_attribute_name(:state)
               %th
           %tbody
-            - @user.events.each do |event|
-              = render 'web/account/events/edit', event: event
+
+            - @user.lectures.each do |lecture|
+              = render 'web/account/lectures/edit', lecture: lecture
+
+    .tab-pane#my_orders
+
+      %p
+        - if @user.orders.web.empty?
+          = t(".buy_it_now")
+          = link_to t(".buy_afterparty_ticket"), new_account_afterparty_order_path
+          = link_to t(".buy_shirt"), new_account_shirt_order_path
+        - else
+          = link_to t(".buy_more"), new_account_afterparty_order_path
+        %br
+        %br
+
+        %table.table.table-participants
+          %thead
+            %tr
+              %th= Order.human_attribute_name :order_id
+              %th= Order.human_attribute_name :type
+              %th= Order.human_attribute_name :items_count
+              %th= t(".cost")
+              %th= Order.human_attribute_name :payment_state
+              %th= Order.human_attribute_name :created_at
+              %th
+          %tbody
+            - @user.orders.web.each do |order|
+              %tr
+                %td.center= order.id
+                %td.center= order
+                %td.center= order.items_count
+                %td.center= order.cost
+                %td.center= order.human_payment_state_name
+                %td.center= l order.created_at
+                %td
+                  .btn-group.pull-right
+                    - if order.transaction_id?
+                      = link_to account_order_path(order), method: :put, class: 'btn btn-mini' do
+                        %i.icon-refresh
+                    - if order.unpaid? || order.declined?
+                      = link_to pay_account_order_path(order), method: :put, class: 'btn btn-mini' do
+                        %i.icon-shopping-cart

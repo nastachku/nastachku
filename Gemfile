@@ -32,15 +32,19 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'ransack'
 gem 'chosen-rails'
+gem 'select2-rails'
 gem 'auditable', :github => 'harleyttd/auditable'
 gem 'enumerize'
 gem 'rack-rewrite'
 gem 'cocoon'
 gem 'gon'
 gem 'redcarpet'
+gem 'multi_json', '~> 1.3.0'
+gem 'platidoma', '>= 0.0.4'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -66,6 +70,7 @@ group :test do
   gem 'tconsole'
   gem "rake"
   gem 'coveralls', require: false
+  gem 'mocha', require: false
 end
 
 group :development do

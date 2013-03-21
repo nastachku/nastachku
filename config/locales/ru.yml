@@ -25,7 +25,7 @@ ru:
           lectures: 'Доклады'
           speakers: "Докладчики"
           lectures_20: 'Доклады 2.0'
-          afterpaty: "Афтепати"
+          afterparty: "Афтепати"
           schedule: 'Расписание'
 
         navbar:
@@ -34,6 +34,7 @@ ru:
           admin: 'Админка'
           add_lecture: 'Добавить доклад'
           stachka_2012: 'Стачка! 2012'
+          buy: "Купить"
 
       admin:
         shared:
@@ -47,6 +48,7 @@ ru:
             lectures: 'Пользовательские доклады'
             user_lectures: 'Доклады 2.0'
             events: 'События'
+            orders: 'Заказы'
             logout: 'Выйти'
 
   web:
@@ -58,13 +60,20 @@ ru:
         save: 'Сохранить'
         info: 'Мои данные'
         my_events: 'Мои доклады'
+        my_orders: 'Мои заказы'
         add_user_event_text: 'Вами пока не добавлено ни одного доклада.'
         add_user_event: 'Добавить доклад'
         link_twitter: 'Привязать аккаунт'
         unlink_twitter: 'Отключить'
         twitter_account: 'Твиттер'
+        buy_it_now: 'У Вас пока нет ни одной покупки.'
+        buy_afterparty_ticket: 'Купить билет на афтепати'
+        buy_shirt: 'Купить футболку'
+        buy_more: "Оформить еще один заказ"
+        cost: "Стоимость"
+
     account:
-      events:
+      lectures:
         form:
           add_event: 'Добавить доклад'
         event_fields:
@@ -74,6 +83,43 @@ ru:
         edit:
           password_reset: "Изменение пароля"
           reset: "Изменить"
+
+      afterparty_orders:
+        new:
+          title: "Оформить заказ на афтепати"
+          buy: "Оплатить"
+          afterparty: "Афтепати"
+          shirt: "Футболка"
+          add_order: "Оформить заказ"
+          duke: "Дюк"
+          item_name: "Наименование"
+          item_count: "Количество"
+          item_cost_title: "Стоимость 1 билета"
+          item_total_title: "Итого"
+          enter_ticket: "Входной билет"
+          item_cost_value: "1 500 руб."
+          item_total_default: "1500 руб."
+          afterparty_content_part_1: "Отдохнуть после насыщенного Стачко-дня, поделиться впечатлениями от докладов, потусоваться и пообщаться со спикерами и лучшими людьми сферы в неформальной обстановке? Добро пожаловать на афтепати «Стачки!» 12 апреля в 19.00 ждем вас в кафе-клубе"
+          afterparty_content_part_2: "Успейте попасть на закрытую вечеринку, количество билетов ограничено."
+        create:
+          title: "Оформить заказ на афтепати"
+
+      shirt_orders:
+        new:
+          title: "Оформить заказ на футболку"
+          buy: "Купить"
+          afterparty: "Афтепати"
+          shirt: "Футболка"
+          add_order: "Оформить заказ"
+          item_name: "Наименование"
+          item_count: "Количество"
+          item_cost_title: "Стоимость 1 футболки"
+          item_total_title: "Итого"
+          enter_ticket: "Футболка"
+          item_cost_value: "500 руб."
+          item_total_default: "500 руб."
+          item_size: "Размер"
+          t_shirt: "Футболка"
 
     users:
       form:
@@ -98,7 +144,7 @@ ru:
         hero_unit_content: '<br>УЛЬЯНОВСК 12-13 АПРЕЛЯ 2013 МЕМЦЕНТР<br>Веб-технологии, менеджмент в IT, электронная коммерция, IT-стартапы, программирование, IT на службе в обществе'
         join: 'Я пойду!'
 
-    user_events:
+    user_lectures:
       index:
         title: 'Доклады 2.0'
         events20: 'Доклады 2.0'
@@ -108,7 +154,7 @@ ru:
         by_lecture_votings_count: 'По количеству голосов'
         by_created_at: 'По дате добавления'
         sort_by: 'Сортировать'
-    events:
+    lectures:
       index:
         i_am_going: 'Я пойду!'
         already_going: 'Вы пойдете'
@@ -217,6 +263,12 @@ ru:
         form:
           cancel: 'Отменить'
 
+      orders:
+        index:
+          title: "Список заказов"
+          buyer: "Покупатель"
+          cost: "Стоимость"
+
       topics:
         index:
           title: 'Список топиков'
@@ -230,6 +282,7 @@ ru:
           title: 'Редактирование топика'
         form:
           cancel: 'Отменить'
+
       user_events: 
         index: 
           title: 'Пользовательские доклады'
@@ -245,15 +298,26 @@ ru:
         form:
           presentation_link: 'Ссылка на презентацию'
 
-      events:
+      lectures:
         index: 
-          title: 'События'
+          title: 'Доклады'
           actions: 'Действия'
           edit: 'Редактировать'
           new: 'Добавить доклад'
           workshops: 'Секции'
           halls: 'Залы'
-          new_break: 'Добавить перерыв'
+          search: 'Поиск'
+        new:
+          title: 'Добавить доклад'
+        edit:
+          title: 'Редактировать доклад'
+
+      events:
+        index:
+          title: 'Другие события'
+          actions: 'Действия'
+          edit: 'Редактировать'
+          new: 'Добавить событие'
         new:
           title: 'Добавить событие'
         edit:
@@ -363,9 +427,10 @@ ru:
 
       workshop:
         title: 'Название'
+        color: 'Цвет'
       hall:
         title: 'Название'
-        
+
     errors:
       models:
         page:
@@ -379,7 +444,7 @@ ru:
 
             body:
               blank: 'Тело страницы не может быть пустым'
-          
+
         news:
           attributes:
             slug:
@@ -478,10 +543,18 @@ ru:
             update:
               success: 'Зал изменен'
               error: 'Не удалось изменить зал, есть ошибки в заполнении форм'
-          event_breaks:
+          lectures:
             create:
-              success: 'Перерыв добавлен'
-              error: 'Не удалось добавить перерыв, есть ошибки в заполнении форм'
+              success: 'Доклад добавлен'
+              error: 'Не удалось добавить доклад, есть ошибки в заполнении форм'
             update:
-              success: 'Перерыв изменен'
-              error: 'Не удалось изменить перерыв, есть ошибки в заполнении форм'
+              success: 'Доклад изменен'
+              error: 'Не удалось изменить доклад, есть ошибки в заполнении форм'
+
+  enumerize:
+    shirt_order:
+      item_size:
+        S: "S"
+        M: "M"
+        L: "L"
+        XL: "XL"
