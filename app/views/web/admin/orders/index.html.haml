@@ -1,0 +1,23 @@
+.page-header
+  %h1=t '.title'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Order.human_attribute_name :order_id
+      %th= t(".buyer")
+      %th= Order.human_attribute_name :type
+      %th= Order.human_attribute_name :items_count
+      %th= t(".cost")
+      %th= Order.human_attribute_name :payment_state
+      %th= Order.human_attribute_name :created_at
+  %tbody
+    - @orders.each do |order|
+      %tr
+        %td= order.id
+        %td= link_to order.user, edit_admin_user_path(order.user)
+        %td= order
+        %td= order.items_count
+        %td= order.cost
+        %td= order.human_payment_state_name
+        %td= l order.created_at

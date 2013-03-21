@@ -9,6 +9,7 @@
     %ul.nav.nav-tabs
       %li.active= link_to t('.info'), '#info', data: { toggle: 'tab' }
       %li= link_to t('.my_events'), '#my_events', data: { toggle: 'tab' }
+      %li= link_to t('.my_orders'), '#my_orders', data: { toggle: 'tab' }
 
   .tab-content
     .tab-pane.active#info
@@ -42,8 +43,7 @@
 
 
     .tab-pane#my_events
-
-      - if @user.lectures.blank?
+      - if @user.lectures.empty?
         %p
           = t(".add_user_event_text")
           = link_to t(".add_user_event"), new_account_lecture_path
@@ -56,5 +56,43 @@
               %th= Lecture.human_attribute_name(:state)
               %th
           %tbody
+
             - @user.lectures.each do |lecture|
               = render 'web/account/lectures/edit', lecture: lecture
+
+    .tab-pane#my_orders
+
+      - if @user.orders.web.empty?
+        %p
+          = t(".buy_it_now")
+        = link_to t(".buy_afterparty_ticket"), new_account_afterparty_order_path
+        -# = link_to t(".buy_shirt"), new_account_shirt_order_path
+      - else
+        = link_to t(".buy_more"), new_account_afterparty_order_path
+        %table.table.table-striped
+          %thead
+            %tr
+              %th= Order.human_attribute_name :order_id
+              %th= Order.human_attribute_name :type
+              %th= Order.human_attribute_name :items_count
+              %th= t(".cost")
+              %th= Order.human_attribute_name :payment_state
+              %th= Order.human_attribute_name :created_at
+              %th
+          %tbody
+            - @user.orders.each do |order|
+              %tr
+                %td= order.id
+                %td= order
+                %td= order.items_count
+                %td= order.cost
+                %td= order.human_payment_state_name
+                %td= l order.created_at
+                %td
+                  .btn-group.pull-right
+                    - if order.transaction_id?
+                      = link_to account_order_path(order), method: :put, class: 'btn btn-mini' do
+                        %i.icon-refresh
+                    - if order.unpaid? || order.declined?
+                      = link_to pay_account_order_path(order), method: :put, class: 'btn btn-mini' do
+                        %i.icon-shopping-cart

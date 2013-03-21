@@ -1,0 +1,44 @@
+.page-header
+
+  %h1=t '.afterparty'
+
+  %p
+    =t '.afterparty_content_part_1'
+    %span.color «
+    = link_to t(".duke"), "http://dukeclub.ru/", :target => "_blank"
+    %span.color ».
+    =t '.afterparty_content_part_2'
+
+.tabbable
+  %ul.nav.nav-tabs
+    %li.active= link_to t('.afterparty'), new_account_afterparty_order_path
+    %li= link_to t('.shirt'),  new_account_shirt_order_path
+
+= simple_form_for [:account, @afterparty_order], :html => { :class => 'form-horizontal profile-form' } do |f|
+  .formy
+    .control-group
+      %label.control-label.center
+        = t(".item_name")
+      .controls
+        .row-fluid
+          .span4.center
+            = t(".item_count")
+          .span4.center
+            = t(".item_cost_title")
+          .span4.center
+            = t(".item_total_title")
+    .control-group
+      %label.control-label.center
+        = t(".enter_ticket")
+      .controls
+        .row-fluid
+          .span4.center
+            = f.input_field :items_count, collection: 1..10, default: 0, class: "items-count-select input-mini"
+          .span4.center
+            = t(".item_cost_value")
+          .span4.center
+            %big
+              .cost
+                = t(".item_total_default")
+
+  = f.button :submit, :value => t('.buy'), :class => 'btn btn-shine'

@@ -44,4 +44,8 @@ Nastachku::Application.configure do
     :authentication => :plain,
   }
 
+  ActionDispatch::Reloader.to_prepare do
+    load Rails.root.join('config/initializers/configus.rb')
+  end
+
 end

@@ -2,6 +2,12 @@ class Slot < ActiveRecord::Base
   include SlotRepository
   extend Enumerize
 
+  class << self
+    def available_events
+      [ "Lecture", "Event" ]
+    end
+  end
+
   attr_accessible :event_id, :event_type, :finish_time, :hall_id, :start_time
 
   belongs_to :hall
