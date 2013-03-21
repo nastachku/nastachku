@@ -80,7 +80,7 @@
               %th= Order.human_attribute_name :created_at
               %th
           %tbody
-            - @user.orders.each do |order|
+            - @user.orders.web.each do |order|
               %tr
                 %td= order.id
                 %td= order
