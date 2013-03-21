@@ -29,7 +29,7 @@ $(document).ready ->
 
   # timetable long events hover
   $('.event').mouseenter ->
-    heightSummary = $(this).find('.summary').outerHeight()
+    heightSummary = $(this).find('.summary').outerHeight() + parseInt($(this).css('padding'))
     heightEvent = $(this).outerHeight()
     if heightSummary > heightEvent
       $(this).addClass('expand')
