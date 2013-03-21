@@ -90,6 +90,7 @@ ru:
           afterparty: "Афтепати"
           shirt: "Футболка"
           add_order: "Оформить заказ"
+          duke: "Дюк"
           item_name: "Наименование"
           item_count: "Количество"
           item_cost_title: "Стоимость 1 билета"
@@ -109,6 +110,15 @@ ru:
           afterparty: "Афтепати"
           shirt: "Футболка"
           add_order: "Оформить заказ"
+          item_name: "Наименование"
+          item_count: "Количество"
+          item_cost_title: "Цена"
+          item_total_title: "Итого"
+          enter_ticket: "Футболка"
+          item_cost_value: "500 руб."
+          item_total_default: "0 руб."
+          item_size: "Размер"
+          t_shirt: "Футболка"
 
     users:
       form:
@@ -539,3 +549,11 @@ ru:
             update:
               success: 'Доклад изменен'
               error: 'Не удалось изменить доклад, есть ошибки в заполнении форм'
+
+  enumerize:
+    shirt_order:
+      item_size:
+        S: "S"
+        M: "M"
+        L: "L"
+        XL: "XL"
