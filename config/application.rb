@@ -82,6 +82,8 @@ module Nastachku
       r301 '/banners.html', 'http://2012.nastachku.ru/banners.html'
       r301 '/accreditation.html', 'http://2012.nastachku.ru/accreditation.html'
       r301 '/user/new', 'http://nastachku.ru/users/new'
+      r301 '/user_events', 'http://nastachku.ru/user_lectures'
+      r301 '/events', 'http://nastachku.ru/lectures'
     end
   end
 end
