@@ -9,7 +9,7 @@ class ShirtOrder < Order
 
   #FIXME найти другой вариант реализации перевода
   def to_s
-    "#{I18n.t("activerecord.models.shirt_order")}(#{item_size})"
+    "#{I18n.t("activerecord.models.shirt_order")} (#{item_size})"
   end
 
   def cost
