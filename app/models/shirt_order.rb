@@ -5,7 +5,7 @@ class ShirtOrder < Order
 
   validates :item_size, presence: true
 
-  enumerize :item_size, in: [:S, :M, :L, :XL, :XXL, :XXXL]
+  enumerize :item_size, in: [:S, :M, :L, :XL]
 
   #FIXME найти другой вариант реализации перевода
   def to_s
