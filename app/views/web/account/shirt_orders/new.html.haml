@@ -27,9 +27,9 @@
       .controls
         .row-fluid
           .span2.center
-            = f.input_field :item_size, collection: ShirtOrder.item_size.options, class: "input-mini"
+            = f.input_field :item_size, collection: ShirtOrder.item_size.options, default: 0, class: "input-mini"
           .span3.center
-            = f.input_field :items_count, collection: 0..10, default: 1, class: "items-count-select input-mini"
+            = f.input_field :items_count, collection: 1..10, default: 0, class: "items-count-select input-mini"
           .span4.center
             = t(".item_cost_value")
           .span3.center

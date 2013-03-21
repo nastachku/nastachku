@@ -90,8 +90,9 @@
                 %td= l order.created_at
                 %td
                   .btn-group.pull-right
-                    = link_to account_order_path(order), method: :put, class: 'btn btn-mini' do
-                      %i.icon-refresh
+                    - if order.transaction_id?
+                      = link_to account_order_path(order), method: :put, class: 'btn btn-mini' do
+                        %i.icon-refresh
                     - if order.unpaid? || order.declined?
                       = link_to pay_account_order_path(order), method: :put, class: 'btn btn-mini' do
                         %i.icon-shopping-cart
