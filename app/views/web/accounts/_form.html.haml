@@ -62,14 +62,17 @@
 
     .tab-pane#my_orders
 
-      - if @user.orders.web.empty?
-        %p
+      %p
+        - if @user.orders.web.empty?
           = t(".buy_it_now")
-        = link_to t(".buy_afterparty_ticket"), new_account_afterparty_order_path
-        -# = link_to t(".buy_shirt"), new_account_shirt_order_path
-      - else
-        = link_to t(".buy_more"), new_account_afterparty_order_path
-        %table.table.table-striped
+          = link_to t(".buy_afterparty_ticket"), new_account_afterparty_order_path
+          -# = link_to t(".buy_shirt"), new_account_shirt_order_path
+        - else
+          = link_to t(".buy_more"), new_account_afterparty_order_path
+        %br
+        %br
+
+        %table.table.table-participants
           %thead
             %tr
               %th= Order.human_attribute_name :order_id
@@ -82,12 +85,12 @@
           %tbody
             - @user.orders.web.each do |order|
               %tr
-                %td= order.id
-                %td= order
-                %td= order.items_count
-                %td= order.cost
-                %td= order.human_payment_state_name
-                %td= l order.created_at
+                %td.center= order.id
+                %td.center= order
+                %td.center= order.items_count
+                %td.center= order.cost
+                %td.center= order.human_payment_state_name
+                %td.center= l order.created_at
                 %td
                   .btn-group.pull-right
                     - if order.transaction_id?
