@@ -17,7 +17,7 @@
       = f.input :show_as_participant, input_html: { class: 'span5' }
       = f.input :admin, input_html: { class: 'span5' }
       = f.input :role, include_blank: false, input_html: { class: 'span5' }
-      = f.association :topics, as: :chosen_select, input_html: { multiple: true, class: 'span5' }
+      = f.association :topics, as: :chosen_select, input_html: { multiple: true, class: 'span5 span-nomargin' }
 
   .form-actions
     = f.button :submit, :class => 'btn btn-primary'
