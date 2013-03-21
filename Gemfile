@@ -59,7 +59,6 @@ end
 group :test, :development do
   gem 'sqlite3'
   gem 'pre-commit'
-  gem 'mocha'
 end
 
 group :test do
@@ -71,6 +70,7 @@ group :test do
   gem 'tconsole'
   gem "rake"
   gem 'coveralls', require: false
+  gem 'mocha', require: false
 end
 
 group :development do
