@@ -33,7 +33,7 @@
       .controls
         .row-fluid
           .span4.center
-            = f.input_field :items_count, collection: 0..10, default: 1, class: "items-count-select input-mini"
+            = f.input_field :items_count, collection: 1..10, default: 0, class: "items-count-select input-mini"
           .span4.center
             = t(".item_cost_value")
           .span4.center

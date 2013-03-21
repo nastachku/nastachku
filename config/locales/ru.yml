@@ -97,7 +97,7 @@ ru:
           item_total_title: "Итого"
           enter_ticket: "Входной билет"
           item_cost_value: "1 500 руб."
-          item_total_default: "0 руб."
+          item_total_default: "1500 руб."
           afterparty_content_part_1: "Отдохнуть после насыщенного Стачко-дня, поделиться впечатлениями от докладов, потусоваться и пообщаться со спикерами и лучшими людьми сферы в неформальной обстановке? Добро пожаловать на афтепати «Стачки!» 12 апреля в 19.00 ждем вас в кафе-клубе"
           afterparty_content_part_2: "Успейте попасть на закрытую вечеринку, количество билетов ограничено."
         create:
@@ -116,7 +116,7 @@ ru:
           item_total_title: "Итого"
           enter_ticket: "Футболка"
           item_cost_value: "500 руб."
-          item_total_default: "0 руб."
+          item_total_default: "500 руб."
           item_size: "Размер"
           t_shirt: "Футболка"
 
