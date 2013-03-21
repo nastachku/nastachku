@@ -21,6 +21,7 @@ Nastachku::Application.routes.draw do
         resources :listener_votings, only: [:create]
       end
     end
+  end
 
   scope :module => :web do
     resources :users, only: [:new, :create, :index]
