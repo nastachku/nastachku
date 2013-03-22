@@ -8,17 +8,14 @@
     = link_to t(".duke"), "http://dukeclub.ru/", :target => "_blank"
     %span.color ».
     =t '.afterparty_content_part_2'
+  %p
+    =t '.afterparty_content_part_3'
 
   %h5
     %br
     %span.color
       = @count_paid_afterparty
     = t (".participants_count")
-
-.tabbable
-  %ul.nav.nav-tabs
-    %li.active= link_to t('.afterparty'), new_account_afterparty_order_path
-    %li= link_to t('.shirt'),  new_account_shirt_order_path
 
 = simple_form_for [:account, @afterparty_order], :html => { :class => 'form-horizontal profile-form' } do |f|
   .formy
