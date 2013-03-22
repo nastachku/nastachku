@@ -1,5 +1,20 @@
-.page-header
-  %h1=t '.add_order'
+%h1=t '.add_order'
+
+%p= t('.tshirt_promo')
+
+%br
+
+.row-fluid
+  .span3.left
+    %img{:src => "/images/tshirt_1.png", :width => 233, :height => 253, :alt => "Футболка"}
+  .span3.center
+    %img{:src => "/images/tshirt_2.png", :width => 233, :height => 253, :alt => "Футболка"}
+  .span3.center
+    %img{:src => "/images/tshirt_3.png", :width => 233, :height => 253, :alt => "Футболка"}
+  .span3.right
+    %img{:src => "/images/tshirt_4.png", :width => 233, :height => 253, :alt => "Футболка"}
+
+%br
 
 = simple_form_for [:account, @shirt_order], :html => { :class => 'form-horizontal profile-form' } do |f|
   .formy

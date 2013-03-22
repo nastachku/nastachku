@@ -1,21 +1,28 @@
-.page-header
+%h1=t '.afterparty'
 
-  %h1=t '.afterparty'
+.row
+  .span9
+    %p
+      =t '.afterparty_content_part_1'
+      %span.color «
+      = link_to t(".duke"), "http://dukeclub.ru/", :target => "_blank"
+      %span.color ».
+      =t '.afterparty_content_part_2'
+    %p
+      = t '.afterparty_content_part_3'
 
-  %p
-    =t '.afterparty_content_part_1'
-    %span.color «
-    = link_to t(".duke"), "http://dukeclub.ru/", :target => "_blank"
-    %span.color ».
-    =t '.afterparty_content_part_2'
-  %p
-    =t '.afterparty_content_part_3'
-
-  %h5
     %br
-    %span.color
-      = @count_paid_afterparty
-    = t (".participants_count")
+    %h5
+      %span.color
+        = @count_paid_afterparty
+      = t (".participants_count")
+
+  .span3.center
+    %p
+      = link_to t(".tshirt_motivate_link"), new_account_shirt_order_path
+      = link_to new_account_shirt_order_path do
+        %img{:src => "/images/tshirt_1.png", :width => 233, :height => 253, :alt => "Футболка"}
+%br
 
 = simple_form_for [:account, @afterparty_order], :html => { :class => 'form-horizontal profile-form' } do |f|
   .formy
