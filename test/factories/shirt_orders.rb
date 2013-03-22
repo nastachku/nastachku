@@ -5,5 +5,6 @@ FactoryGirl.define do
     user
     items_count
     item_size "L"
+    item_color "white"
   end
 end
