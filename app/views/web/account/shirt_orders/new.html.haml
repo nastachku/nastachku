@@ -1,7 +1,12 @@
-%h1=t '.add_order'
+%h1=t '.buy_tshirt'
 
-%p= t('.tshirt_promo')
-
+%p
+  = t('.tshirt_promo')
+  %br
+  = t('.thisrt_promo_ps')
+  = t('.buy_afterparty_ticket_before')
+  = link_to t('.buy_afterparty_ticket_action'), new_account_afterparty_order_path
+  = t('.buy_afterparty_ticket_after')
 %br
 
 .row-fluid
@@ -21,9 +26,9 @@
     .row-fluid
       .span2.center
         = t(".item_name")
-      .span2.center
-        = t(".item_size")
       .span1.center
+        = t(".item_size")
+      .span2.center
         = t(".item_color")
       .span2.center
         = t(".item_count")
@@ -37,9 +42,9 @@
     .row-fluid
       .span2.center
         = t(".t_shirt")
-      .span2.center
-        = f.input_field :item_size, collection: ShirtOrder.item_size.options, default: 0, class: "input-mini"
       .span1.center
+        = f.input_field :item_size, collection: ShirtOrder.item_size.options, default: 0, class: "input-mini"
+      .span2.center
         = f.input_field :item_color, collection: ShirtOrder.item_color.options, default: 0, class: "input-small"
       .span2.center
         = f.input_field :items_count, collection: 1..10, default: 0, class: "items-count-select input-mini"
