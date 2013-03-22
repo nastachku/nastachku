@@ -112,6 +112,7 @@ ru:
           afterparty: "Афтепати"
           shirt: "Футболка"
           add_order: "Оформить заказ"
+          item_color: "Цвет"
           item_name: "Наименование"
           item_count: "Количество"
           item_cost_title: "Стоимость 1 футболки"
