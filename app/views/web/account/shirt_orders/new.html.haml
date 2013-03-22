@@ -8,33 +8,38 @@
 
 = simple_form_for [:account, @shirt_order], :html => { :class => 'form-horizontal profile-form' } do |f|
   .formy
-    .control-group
-      %label.control-label.center
+    .row-fluid
+      .span2.center
         = t(".item_name")
-      .controls
-        .row-fluid
-          .span2.center
-            = t(".item_size")
-          .span3.center
-            = t(".item_count")
-          .span4.center
-            = t(".item_cost_title")
-          .span3.center
-            = t(".item_total_title")
-    .control-group
-      %label.control-label.center
+      .span2.center
+        = t(".item_color")
+      .span1.center
+        = t(".item_size")
+      .span2.center
+        = t(".item_count")
+      .span3.center
+        = t(".item_cost_title")
+      .span2.center
+        = t(".item_total_title")
+
+    %br
+
+    .row-fluid
+      .span2.center
         = t(".t_shirt")
-      .controls
-        .row-fluid
-          .span2.center
-            = f.input_field :item_size, collection: ShirtOrder.item_size.options, default: 0, class: "input-mini"
-          .span3.center
-            = f.input_field :items_count, collection: 1..10, default: 0, class: "items-count-select input-mini"
-          .span4.center
-            = t(".item_cost_value")
-          .span3.center
-            %big
-              .cost
-                = t(".item_total_default")
+      .span2.center
+        %select.input-small
+          %option{selected: 'selected'} Белый
+          %option Красный
+      .span1.center
+        = f.input_field :item_size, collection: ShirtOrder.item_size.options, default: 0, class: "input-mini"
+      .span2.center
+        = f.input_field :items_count, collection: 1..10, default: 0, class: "items-count-select input-mini"
+      .span3.center
+        = t(".item_cost_value")
+      .span2.center
+        %big
+          .cost
+            = t(".item_total_default")
 
   = f.button :submit, :value => t('.buy'), :class => 'btn btn-shine'
