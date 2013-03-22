@@ -3,6 +3,7 @@ class Web::Account::AfterpartyOrdersController < Web::Account::ApplicationContro
   def new
     @afterparty_order = AfterpartyOrder.new
     gon.price = configus.platidoma.afterparty_price
+    @count_paid_afterparty = AfterpartyOrder.paid.count + User.as_lectors.count
   end
 
   def create
