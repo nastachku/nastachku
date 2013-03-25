@@ -322,6 +322,7 @@ ru:
           workshops: 'Секции'
           halls: 'Залы'
           search: 'Поиск'
+          lector: 'Докладчик'
         new:
           title: 'Добавить доклад'
         edit:
