@@ -1,4 +1,5 @@
 class Web::Admin::TopicsController < Web::Admin::ApplicationController
+  
   def index
     @topics = Topic.web
   end
