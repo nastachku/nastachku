@@ -4,7 +4,7 @@
   .span3
     %ul.nav.nav-list.b-affix
       - workshops.each do |workshop|
-        %li{ class: workshop.id == params[:workshop_id_eq].to_i ? 'active' : '' }
+        %li{ class: workshop.id == params[:lectures_workshop_id_eq].to_i ? 'active' : '' }
           = link_to workshop, lectors_path(lectures_workshop_id_eq: workshop.id)
 
   .span9
