@@ -9,7 +9,8 @@
       %th= News.human_attribute_name :slug
       %th= News.human_attribute_name :title
       %th= News.human_attribute_name :body
-      %th= News.human_attribute_name :created_at
+      %th
+        .nowrap= News.human_attribute_name :created_at
       %th= News.human_attribute_name :actions
   %tbody
     - @news.each do |news|
@@ -17,9 +18,11 @@
         %td= link_to news.slug, admin_news_path(news)
         %td= news.title
         %td= sanitize(news.body, :tags=>[]).truncate(240)
-        %td= l news.created_at
         %td
-          = link_to t('.edit'), edit_admin_news_path(news), :class => 'btn btn-mini'
-          = link_to t('.destroy'), admin_news_path(news), :method => :delete, :data => { :confirm => t('.confirm') }, :class => 'btn btn-mini btn-danger'
+          .nowrap= l news.created_at
+        %td
+          .btn-group.btn-group-vertical
+            = link_to t('.edit'), edit_admin_news_path(news), :class => 'btn btn-mini'
+            = link_to t('.destroy'), admin_news_path(news), :method => :delete, :data => { :confirm => t('.confirm') }, :class => 'btn btn-mini btn-danger'
 
 = link_to t('.new'), new_admin_news_path, :class => 'btn btn-primary'
