@@ -14,7 +14,7 @@ Nastachku::Application.routes.draw do
   namespace :api do
     resources :companies
     resources :cities
-
+    resources :events, only: [:index]
     resources :lectures do
       scope module: :lectures do
         resources :lecture_votings, only: [:create]
