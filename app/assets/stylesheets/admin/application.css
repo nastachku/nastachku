@@ -20,9 +20,15 @@ body {
 .span-nomargin {
   margin-left: 0 !important;
 }
+form.nomargin {
+  margin-bottom: 0;
+}
 .controls .datetimepicker .span7 {
   width: 628px;
 }
 .nowrap {
   white-space: nowrap;
+}
+label.checkbox {
+  min-height: auto;
 }
