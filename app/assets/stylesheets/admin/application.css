@@ -23,3 +23,6 @@ body {
 .controls .datetimepicker .span7 {
   width: 628px;
 }
+.nowrap {
+  white-space: nowrap;
+}
