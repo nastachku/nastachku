@@ -32,7 +32,7 @@
     - @lectures.each do |lecture|
       %tr
         %td= lecture.title
-        %td= lecture.user
+        %td= link_to lecture.user, edit_admin_user_path(lecture.user)
         %td= lecture.human_state_name
         %td= lecture.workshop.try(:title)
         %td= lecture.listener_votings.size
