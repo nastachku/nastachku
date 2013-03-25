@@ -1,4 +1,3 @@
-
 class Web::Admin::NewsController < Web::Admin::ApplicationController
 
   def new
@@ -23,12 +22,9 @@ class Web::Admin::NewsController < Web::Admin::ApplicationController
   end
 
   def index
-    @search = News.ransack(params[:q])
-    if params[:q]
-      @news = @search.result.page(params[:page]).per(configus.pagination.admin_per_page)
-    else
-      @news = @search.result.web.page(params[:page]).per(configus.pagination.admin_per_page)
-    end
+    query = { s: 'created_at desc' }.merge(params[:q] || {})
+    @search = News.ransack(query)
+    @news = @search.result.page(params[:page]).per(configus.pagination.admin_per_page)
   end
 
   def edit
