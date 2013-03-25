@@ -3,6 +3,8 @@
 
 = link_to t('.new'), new_admin_news_path, :class => 'btn btn-primary'
 
+= paginate @news
+
 %table.table.table-striped
   %thead
     %tr
@@ -24,5 +26,7 @@
           .btn-group.btn-group-vertical
             = link_to t('.edit'), edit_admin_news_path(news), :class => 'btn btn-mini'
             = link_to t('.destroy'), admin_news_path(news), :method => :delete, :data => { :confirm => t('.confirm') }, :class => 'btn btn-mini btn-danger'
+
+= paginate @news
 
 = link_to t('.new'), new_admin_news_path, :class => 'btn btn-primary'
