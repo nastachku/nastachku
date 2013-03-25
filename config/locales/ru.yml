@@ -183,6 +183,11 @@ ru:
         password_recovery: 'Восстановление пароля'
         recovery: 'Восстановить'
 
+    schedules:
+      lecture:
+        already_going: "Вы пойдёте"
+        i_am_going: "Я пойду"
+
     admin:
       welcome:
         index:

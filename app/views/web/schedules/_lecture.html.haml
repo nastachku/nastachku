@@ -6,8 +6,20 @@
   .modal-body
     %p= nl2br(slot.event.thesises)
 
-%a.event{ class: "area-#{index} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}", data: {toggle: 'modal'}, href: "##{dom_id(slot)}", role: "button", style: "background-color: #{slot.event.workshop.try(:color)}"}
+.event{ class: "area-#{index} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}", data: {toggle: 'modal'}, href: "##{dom_id(slot)}", role: "button", style: "background-color: #{slot.event.workshop.try(:color)}"}
   %span.summary
+
+    %span.buttons-group{ data: { success: t('.already_going') } }
+      - if signed_in?
+        - if slot.event.listener_votings.voted_by?(current_user)
+          .btn.btn-no-clickable= t('.already_going')
+        - else
+          = link_to t('.i_am_going'), api_lecture_listener_votings_path(slot.event), remote: true,  method: :post, class: 'vote-event btn btn-shine'
+      - else
+        .btn.btn-no-clickable= t('.they_going')
+      %span.btn.votings-count.btn-no-clickable
+        = slot.event.listener_votings.size
+
     %span.time
       = slot.start_hour
       %sup= l slot.start_time, format: :minutes
