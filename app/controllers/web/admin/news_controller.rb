@@ -23,7 +23,12 @@ class Web::Admin::NewsController < Web::Admin::ApplicationController
   end
 
   def index
-    @news = News.web
+    @search = News.ransack(params[:q])
+    if params[:q]
+      @news = @search.result.page(params[:page]).per(configus.pagination.admin_per_page)
+    else
+      @news = @search.result.web.page(params[:page]).per(configus.pagination.admin_per_page)
+    end
   end
 
   def edit
