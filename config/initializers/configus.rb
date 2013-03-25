@@ -7,6 +7,7 @@ Configus.build Rails.env do
   env :production do
 
     pagination do
+      admin_per_page 50
       audits_per_page 20
     end
 
