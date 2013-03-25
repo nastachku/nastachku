@@ -109,7 +109,7 @@
 // bootstrap-affix
 .b-affix {
   width: inherit;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
   background-color: #f4f4f4 !important;
   &.top {
     position: fixed;
