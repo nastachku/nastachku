@@ -2,8 +2,8 @@
   = f.input :title, input_html: { class: 'span7' }
   = f.input :state_event, as: :state_event, input_html: { class: 'span7' }
   = f.input :thesises, input_html: { class: 'span7' }
-  = f.association :workshop, as: :chosen_select, input_html: { class: 'span7' }
-  = f.association :user, collection: User.as_lectors.asc_by_last_name, as: :chosen_select, input_html: { class: 'span7' }
+  = f.association :workshop, as: :chosen_select, input_html: { class: 'span7 span-nomargin' }
+  = f.association :user, collection: User.as_lectors.asc_by_last_name, as: :chosen_select, input_html: { class: 'span7 span-nomargin' }
   = f.input :presentation, as: :file_download
 
   .form-actions
