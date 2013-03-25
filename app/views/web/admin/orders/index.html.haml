@@ -6,13 +6,13 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= sort_link(@search, :id, Order.human_attribute_name(:order_id))
+      %th= sort_link(@search, :id)
       %th= sort_link(@search, :user_id, t(".buyer"))
-      %th= sort_link(@search, :type, Order.human_attribute_name(:type))
-      %th= sort_link(@search, :items_count, Order.human_attribute_name(:items_count))
+      %th= sort_link(@search, :type)
+      %th= sort_link(@search, :items_count)
       %th= t(".cost")
-      %th= sort_link(@search, :payment_state, Order.human_attribute_name(:payment_state))
-      %th= sort_link(@search, :created_at, Order.human_attribute_name(:created_at))
+      %th= sort_link(@search, :payment_state)
+      %th= sort_link(@search, :created_at)
   %tbody
     - @orders.each do |order|
       %tr

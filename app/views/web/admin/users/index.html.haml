@@ -26,14 +26,14 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= sort_link(@search, :id, User.human_attribute_name(:id))
-      %th= sort_link(@search, :last_name, User.human_attribute_name(:last_name))
-      %th= sort_link(@search, :first_name, User.human_attribute_name(:first_name))
-      %th= sort_link(@search, :email, User.human_attribute_name(:email))
-      %th= sort_link(@search, :city, User.human_attribute_name(:city))
-      %th= sort_link(@search, :state, User.human_attribute_name(:state))
-      %th= sort_link(@search, :role, User.human_attribute_name(:role))
-      %th= sort_link(@search, :created_at, t(".created_at"))
+      %th= sort_link(@search, :id)
+      %th= sort_link(@search, :last_name)
+      %th= sort_link(@search, :first_name)
+      %th= sort_link(@search, :email)
+      %th= sort_link(@search, :city)
+      %th= sort_link(@search, :state)
+      %th= sort_link(@search, :role)
+      %th= sort_link(@search, :created_at)
       %th= t(".actions")
   %tbody
     - @users.each do |user|

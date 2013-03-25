@@ -8,10 +8,10 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= sort_link(@search, :slug, Page.human_attribute_name(:slug))
-      %th= sort_link(@search, :title, Page.human_attribute_name(:title))
-      %th= sort_link(@search, :body, Page.human_attribute_name(:body))
-      %th= sort_link(@search, :created_at, Page.human_attribute_name(:created_at))
+      %th= sort_link(@search, :slug)
+      %th= sort_link(@search, :title)
+      %th= sort_link(@search, :body)
+      %th= sort_link(@search, :created_at)
       %th= Page.human_attribute_name(:actions)
   %tbody
     - @pages.each do |page|

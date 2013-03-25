@@ -53,6 +53,7 @@ ru:
         admin: "Администратор"
         role: 'Роль'
         topics: 'Топики'
+        created_at: "Время создания"
 
       topic:
         title: 'Название'
