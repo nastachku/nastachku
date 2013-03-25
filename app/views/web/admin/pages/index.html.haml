@@ -3,14 +3,16 @@
 
 = link_to t('.new'), new_admin_page_path, :class => 'btn btn-primary'
 
+= paginate @pages
+
 %table.table.table-striped
   %thead
     %tr
-      %th= Page.human_attribute_name :slug
-      %th= Page.human_attribute_name :title
-      %th= Page.human_attribute_name :body
-      %th= Page.human_attribute_name :created_at
-      %th= Page.human_attribute_name :actions
+      %th= sort_link(@search, :slug, Page.human_attribute_name(:slug))
+      %th= sort_link(@search, :title, Page.human_attribute_name(:title))
+      %th= sort_link(@search, :body, Page.human_attribute_name(:body))
+      %th= sort_link(@search, :created_at, Page.human_attribute_name(:created_at))
+      %th= Page.human_attribute_name(:actions)
   %tbody
     - @pages.each do |page|
       %tr
@@ -23,3 +25,5 @@
           = link_to t('.destroy'), admin_page_path(page), :method => :delete, :data => { :confirm => t('.confirm') }, :class => 'btn btn-mini btn-danger'
 
 = link_to t('.new'), new_admin_page_path, :class => 'btn btn-primary'
+
+= paginate @pages
