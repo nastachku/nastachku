@@ -18,3 +18,14 @@
     %span.caption
       = slot.event.title
     %span.author= slot.event.user.full_name
+
+    .buttons-group{ data: { success: t('.already_going') } }
+      - if signed_in?
+        - if slot.event.listener_votings.voted_by?(current_user)
+          .btn.btn-no-clickable= t('.already_going')
+        - else
+          = link_to t('.i_am_going'), api_lecture_listener_votings_path(slot.event), remote: true,  method: :post, class: 'vote-event btn btn-shine'
+      - else
+        .btn.btn-no-clickable= t('.they_going')
+      %span.btn.votings-count.btn-no-clickable
+        = slot.event.listener_votings.size
