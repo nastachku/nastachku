@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
   has_many :lecture_votings
   has_many :listener_votings
   has_many :orders
+  has_many :shirt_orders
+  has_many :afterparty_orders
 
   accepts_nested_attributes_for :lectures, reject_if: :all_blank, allow_destroy: true
 
