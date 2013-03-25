@@ -3,6 +3,8 @@
 
 = link_to t('.new'), new_admin_page_path, :class => 'btn btn-primary'
 
+= paginate @pages
+
 %table.table.table-striped
   %thead
     %tr
@@ -26,3 +28,5 @@
             = link_to t('.destroy'), admin_page_path(page), :method => :delete, :data => { :confirm => t('.confirm') }, :class => 'btn btn-mini btn-danger'
 
 = link_to t('.new'), new_admin_page_path, :class => 'btn btn-primary'
+
+= paginate @pages
