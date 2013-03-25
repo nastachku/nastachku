@@ -3,12 +3,12 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= Auditable::Audit.human_attribute_name :auditable_id
-      %th= Auditable::Audit.human_attribute_name :auditable_type
-      %th= Auditable::Audit.human_attribute_name :user
-      %th= Auditable::Audit.human_attribute_name :modifications
-      %th= Auditable::Audit.human_attribute_name :action
-      %th= Auditable::Audit.human_attribute_name :created_at
+      %th= sort_link(@search, :auditable_id, Auditable::Audit.human_attribute_name(:auditable_id))
+      %th= sort_link(@search, :auditable_type, Auditable::Audit.human_attribute_name(:auditable_type))
+      %th= sort_link(@search, :user, Auditable::Audit.human_attribute_name(:user))
+      %th= sort_link(@search, :modifications, Auditable::Audit.human_attribute_name(:modifications))
+      %th= sort_link(@search, :action, Auditable::Audit.human_attribute_name(:action))
+      %th= sort_link(@search, :created_at, Auditable::Audit.human_attribute_name(:created_at))
   %tbody
     - @audits.each do |audit|
       %tr
