@@ -25,6 +25,10 @@
   %strong= User.human_attribute_name :show_as_participant
   %br= @user.show_as_participant
 
+  %strong= User.human_attribute_name :invisible_lector
+  %br= @user.invisible_lector
+
+
   - if @user.photo.present?
     %strong= User.human_attribute_name :photo
     .page-image
