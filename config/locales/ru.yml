@@ -45,11 +45,16 @@ ru:
             users: 'Пользователи'
             audits: 'Аудит'
             topics: 'Топики'
-            lectures: 'Пользовательские доклады'
+            lectures_dropdown: "Доклады (%{new_lectures_count})"
+            lectures: "Доклады"
             user_lectures: 'Доклады 2.0'
             events: 'События'
             orders: 'Заказы'
             logout: 'Выйти'
+            schedule: 'Расписание'
+            workshops: 'Секции'
+            halls: 'Залы'
+            events: 'События'
 
   web:
     accounts:
