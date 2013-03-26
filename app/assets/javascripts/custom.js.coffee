@@ -7,13 +7,15 @@ window.onload = ->
   if ($(".content > h5:first").size() > 0)
     affixTop += $(".content > h5:first").outerHeight() + parseInt($(".content > h5:first").css('marginTop')) + parseInt($(".content > h5:first").css('marginBottom'))
   affixBottom = $(".sponsors").outerHeight() + parseInt($("#main_container").css("padding-bottom"))+ parseInt($(".border").css('marginTop'))
-  affixHeight = $(".b-affix:first").outerHeight()
+  affixHeight = $(".b-affix:first").outerHeight() + parseInt($(".b-affix:first li").css('marginBottom'))
   docHeight = $(document).height()
   bottomLimit = docHeight - affixBottom - affixHeight
+  workshopHeight = $(".workshop").outerHeight()
 
-  setInterval (->
-    b_affix()
-  ), 1
+  if (workshopHeight > affixHeight)
+    setInterval (->
+      b_affix()
+    ), 1
 
   b_affix = ->
     curPos = $(window).scrollTop()
