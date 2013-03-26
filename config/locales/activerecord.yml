@@ -53,6 +53,7 @@ ru:
         admin: "Администратор"
         role: 'Роль'
         topics: 'Топики'
+        invisible_lector: "Скрыть из списка докладчиков"
 
       topic:
         title: 'Название'
