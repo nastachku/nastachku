@@ -1,19 +1,18 @@
 %h1=t('.events20')
-%h5 Если у вас в копилке есть сумасшедший доклад и вам есть о чем рассказать ИТ-общественности, предложите его и выступите на конференции.
+%h5=t('.user_lectures_title')
 %br
 
-- if @lectures.empty?
-  Пока не добавлено ни одного доклада. Вы можете
-  = link_to "стать первым докладчиком.", new_account_lecture_path
+.row.workshop
+  .span3
+    %ul.nav.nav-list.b-affix
+      - workshops.each do |workshop|
+        = item :li, workshop, user_lectures_path(workshop_id_eq: workshop.id)
 
-- else
-  .row.workshop
-    .span3
-      %ul.nav.nav-list.b-affix
-        - workshops.each do |workshop|
-          = item :li, workshop, user_lectures_path(workshop_id_eq: workshop.id)
-
-    .span9
+  .span9
+    - if @lectures.empty?
+      = t(".not_added_yet")
+      = link_to t(".first_speaker"), new_account_lecture_path
+    - else
       - @lectures.each do |lecture|
         .row-fluid.event-item
           .span4.sinfo
