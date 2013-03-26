@@ -27,7 +27,7 @@ ru:
           lectures_20: 'Доклады 2.0'
           afterparty: "Афтепати"
           schedule: 'Расписание'
-
+          menu: "Меню"
         navbar:
           logout: 'Выйти'
           login: 'Войти'
