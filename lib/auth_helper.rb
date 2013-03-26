@@ -53,7 +53,7 @@ module AuthHelper
     user.sign_in_count ||= 0
     user.sign_in_count += 1
 
-    # user.changed_by = current_user
+    user.changed_by = user
 
     #FIXME Скипаем валиадцию, так как в бд присутствуют невалидные пользователи 
     #(юзеры успели зарегаться до ввода некоторых валидаций)
