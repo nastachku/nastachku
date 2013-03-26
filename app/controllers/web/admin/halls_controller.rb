@@ -1,4 +1,5 @@
 class Web::Admin::HallsController < Web::Admin::ApplicationController
+  
   def index
     @halls = Hall.web
   end

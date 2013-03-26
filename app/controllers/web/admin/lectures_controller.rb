@@ -1,7 +1,9 @@
 class Web::Admin::LecturesController < Web::Admin::ApplicationController
+  
   def index
-    @search = Lecture.ransack(params[:q])
-    @lectures = @search.result.admin.page(params[:page]).per(20)
+    query = { s: 'created_at desc' }.merge(params[:q] || {})
+    @search = Lecture.ransack(query)
+    @lectures = @search.result.admin.page(params[:page]).per(configus.pagination.admin_per_page)
   end
 
   def new

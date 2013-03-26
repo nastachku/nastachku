@@ -1,16 +1,18 @@
 .page-header
   %h1=t '.title'
 
+= paginate @orders
+
 %table.table.table-striped
   %thead
     %tr
-      %th= Order.human_attribute_name :order_id
-      %th= t(".buyer")
-      %th= Order.human_attribute_name :type
-      %th= Order.human_attribute_name :items_count
+      %th= sort_link(@search, :id)
+      %th= sort_link(@search, :user_id, t(".buyer"))
+      %th= sort_link(@search, :type)
+      %th= sort_link(@search, :items_count)
       %th= t(".cost")
-      %th= Order.human_attribute_name :payment_state
-      %th= Order.human_attribute_name :created_at
+      %th= sort_link(@search, :payment_state)
+      %th= sort_link(@search, :created_at)
   %tbody
     - @orders.each do |order|
       %tr
@@ -21,3 +23,5 @@
         %td= order.cost
         %td= order.human_payment_state_name
         %td= l order.created_at
+
+= paginate @orders

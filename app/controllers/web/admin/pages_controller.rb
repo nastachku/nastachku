@@ -1,4 +1,3 @@
-
 class Web::Admin::PagesController < Web::Admin::ApplicationController
 
   def new
@@ -23,7 +22,9 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
   end
 
   def index
-    @pages = Page.web
+    query = { s: 'created_at desc' }.merge(params[:q] || {})
+    @search = Page.ransack(query)
+    @pages = @search.result.page(params[:page]).per(configus.pagination.admin_per_page)
   end
 
   def edit
