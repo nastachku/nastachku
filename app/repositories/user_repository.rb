@@ -5,18 +5,12 @@ module UserRepository
 
   included do
     scope :web, -> { by_created_at }
-
-    scope :shown_as_participants, -> {
-      where show_as_participant: true
-    }
-
+    scope :shown_as_participants, -> { where show_as_participant: true }
     scope :activated, -> { where state: :active }
-
     scope :as_lectors, -> { where role: :lector }
-
     scope :alphabetically, -> { asc_by_last_name }
-
     scope :in_carousel, -> { where in_carousel: :true }
+    scope :visible, -> { where invisible_lector: :false }
 
 
     def self.companies_by_term(company = nil)

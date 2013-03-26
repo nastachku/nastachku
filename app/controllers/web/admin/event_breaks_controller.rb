@@ -1,4 +1,5 @@
 class Web::Admin::EventBreaksController < Web::Admin::ApplicationController
+  
   def new
     @break = Event::Break.new
   end

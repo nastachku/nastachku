@@ -1,8 +1,11 @@
 .page-header
   %h1=t '.title'
 
-.span4
-  = link_to t('.new'), new_admin_event_path, class: 'btn'
+.row
+  .span4
+    = link_to t('.new'), new_admin_event_path, class: 'btn btn-primary'
+
+%br
 
 %table.table.table-striped
   %thead

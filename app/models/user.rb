@@ -4,11 +4,9 @@ class User < ActiveRecord::Base
   include UserRepository
   extend Enumerize
 
-  attr_accessible :email, :password,
-                  :first_name, :last_name, :city,
-                  :company, :position,
-                  :show_as_participant,
-                  :photo, :state_event, :about, :carousel_info, :in_carousel, :lectures_attributes, :twitter_name
+  attr_accessible :email, :password, :first_name, :last_name, :city, :company, :position,
+    :show_as_participant, :photo, :state_event, :about, :carousel_info, :in_carousel,
+    :lectures_attributes, :twitter_name, :invisible_lector
 
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
@@ -24,6 +22,8 @@ class User < ActiveRecord::Base
   has_many :lecture_votings
   has_many :listener_votings
   has_many :orders
+  has_many :shirt_orders
+  has_many :afterparty_orders
 
   accepts_nested_attributes_for :lectures, reject_if: :all_blank, allow_destroy: true
 

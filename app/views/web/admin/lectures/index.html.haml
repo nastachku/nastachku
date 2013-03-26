@@ -21,18 +21,18 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= Lecture.human_attribute_name :title
-      %th= Lecture.human_attribute_name :user
-      %th= Lecture.human_attribute_name :state
-      %th= Lecture.human_attribute_name :workshop
-      %th= Lecture.human_attribute_name :listener_votings_count
-      %th= Lecture.human_attribute_name :lecture_votings_count
+      %th= sort_link(@search, :title)
+      %th= sort_link(@search, :user_id, t(".lector"))
+      %th= sort_link(@search, :state)
+      %th= sort_link(@search, :workshop)
+      %th= sort_link(@search, :listener_votings_count)
+      %th= sort_link(@search, :lecture_votings_count)
       %th
   %tbody
     - @lectures.each do |lecture|
       %tr
         %td= lecture.title
-        %td= lecture.user
+        %td= link_to lecture.user, edit_admin_user_path(lecture.user)
         %td= lecture.human_state_name
         %td= lecture.workshop.try(:title)
         %td= lecture.listener_votings.size

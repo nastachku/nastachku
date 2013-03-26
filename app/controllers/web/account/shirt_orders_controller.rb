@@ -6,9 +6,8 @@ class Web::Account::ShirtOrdersController < Web::Account::ApplicationController
   end
 
   def create
-    @shirt_order = ShirtOrder.new params[:shirt_order]
-    @shirt_order.user = current_user
-    
+    @shirt_order = current_user.shirt_orders.build params[:shirt_order]
+
     gon.price = configus.platidoma.shirt_price
 
     if @shirt_order.save
