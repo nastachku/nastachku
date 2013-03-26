@@ -7,8 +7,7 @@ class Web::Account::AfterpartyOrdersController < Web::Account::ApplicationContro
   end
 
   def create
-    @afterparty_order = AfterpartyOrder.new params[:afterparty_order]
-    @afterparty_order.user = current_user
+    @afterparty_order = current_user.afterparty_orders.build params[:afterparty_order]
 
     gon.price = configus.platidoma.afterparty_price
 
