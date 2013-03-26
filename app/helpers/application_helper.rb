@@ -36,4 +36,9 @@ module ApplicationHelper
     content_tag(:li, link, options)
   end
 
+  #FIXME запросы из хелпера - плохая идея. придумать другое решение.
+  def new_lectures_count
+    @new_lectures = Lecture.new_lectures.count
+  end
+
 end

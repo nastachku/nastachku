@@ -10,13 +10,13 @@
         %ul.nav
           %li= link_to t('.pages'),  admin_pages_path
           %li= link_to t('.news'),   admin_news_index_path
-          = dropdown name: 'Доклады',
-              items: [ { name: 'Доклады', url: admin_lectures_path },
-                       { name: 'Доклады 2.0', url: admin_lectures_path(q: { state_in: [:new, :voted] }) }]
-          = dropdown name: 'Расписание',
-              items: [ { name: 'Залы', url: admin_halls_path },
-                       { name: 'Секции', url: admin_workshops_path },
-                       { name: 'События', url: admin_events_path }, ]
+          = dropdown name: t(".lectures_dropdown", new_lectures_count: new_lectures_count),
+              items: [ { name: t('.lectures'), url: admin_lectures_path },
+                       { name: t('.user_lectures'), url: admin_lectures_path(q: { state_in: [:new, :voted] }) }]
+          = dropdown name: t('.schedule'),
+              items: [ { name: t('.halls'), url: admin_halls_path },
+                       { name: t('.workshops'), url: admin_workshops_path },
+                       { name: t('.events'), url: admin_events_path }, ]
 
           -#%li= link_to t('.user_lectures'),   admin_user_events_path
           -#%li= link_to t('.events'), admin_events_path
