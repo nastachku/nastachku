@@ -7,15 +7,16 @@
       = f.input :city, input_html: { class: 'span5' }
       = f.input :company, input_html: { class: 'span5' }
       = f.input :about, as: :text, input_html: { cols: 50, rows: 3, class: 'span5' }
-      = f.input :in_carousel, input_html: { class: 'span5 checkbox' }
+      = f.input :in_carousel, input_html: { class: 'checkbox' }
+      = f.input :invisible_lector, input_html: { class: 'checkbox' }
       = f.input :carousel_info, as: :text, input_html: { cols: 50, rows: 3, class: 'span5' }
       = f.input :position, input_html: { class: 'span5' }
       = f.input :email, input_html: { class: 'span5' }
       -#= f.input :password
       -#= f.input :password_confirmation
       = f.input :photo, as: :image_preview, input_html: { class: 'span5' }
-      = f.input :show_as_participant, input_html: { class: 'span5 checkbox' }
-      = f.input :admin, input_html: { class: 'span5 checkbox' }
+      = f.input :show_as_participant, input_html: { class: 'checkbox' }
+      = f.input :admin, input_html: { class: 'checkbox' }
       = f.input :role, include_blank: false, input_html: { class: 'span5' }
       -#= f.association :topics, as: :chosen_select, input_html: { multiple: true, class: 'span5 span-nomargin' }
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130322112003) do
+ActiveRecord::Schema.define(:version => 20130326072839) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -190,6 +190,7 @@ ActiveRecord::Schema.define(:version => 20130322112003) do
     t.text     "carousel_info"
     t.boolean  "in_carousel"
     t.string   "twitter_name"
+    t.boolean  "invisible_lector"
   end
 
   create_table "votings", :force => true do |t|

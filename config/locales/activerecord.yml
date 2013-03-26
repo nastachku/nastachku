@@ -54,6 +54,7 @@ ru:
         role: 'Роль'
         topics: 'Топики'
         created_at: "Время создания"
+        invisible_lector: "Скрыть из списка докладчиков"
 
       topic:
         title: 'Название'
