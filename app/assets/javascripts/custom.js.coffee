@@ -4,6 +4,8 @@ window.onload = ->
 
   # side bar
   affixTop = $("#nav_top").outerHeight() + $("#nav_main").outerHeight() + $("header").outerHeight() + $(".content h1:first").outerHeight() + parseInt($(".content h1:first").css('marginTop')) + parseInt($(".content h1:first").css('marginBottom'))
+  if ($(".content > h5:first").size() > 0)
+    affixTop += $(".content > h5:first").outerHeight() + parseInt($(".content > h5:first").css('marginTop')) + parseInt($(".content > h5:first").css('marginBottom'))
   affixBottom = $(".sponsors").outerHeight() + parseInt($("#main_container").css("padding-bottom"))+ parseInt($(".border").css('marginTop'))
   affixHeight = $(".b-affix:first").outerHeight()
   docHeight = $(document).height()
