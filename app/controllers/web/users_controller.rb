@@ -1,8 +1,11 @@
 class Web::UsersController < Web::ApplicationController
+  respond_to :html, :json
 
   def index
     @search = User.ransack(params)
     @users = @search.result.activated.shown_as_participants.alphabetically
+
+    respond_with(@users)
   end
 
   def new
