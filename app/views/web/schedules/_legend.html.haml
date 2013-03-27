@@ -1,0 +1,7 @@
+.schedule-legend
+  .row
+    - @workshops.each do |workshop|
+      .item.span3
+        .color-box{style: "background-color: #{workshop.color};"}
+        .title
+          = workshop.title
