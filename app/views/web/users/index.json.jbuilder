@@ -1,0 +1,1 @@
+json.users(@users, :first_name, :last_name, :city, :company, :position, :created_at )
