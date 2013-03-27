@@ -20,7 +20,7 @@
             .buttons-group{ data: { success: t('.already_going') } }
               - if signed_in?
                 - if lecture.listener_votings.voted_by?(current_user)
-                  .btn.btn-no-clickable= t('.already_going')
+                  = link_to t('.i_am_not_going'), api_lecture_listener_voting_path(lecture), remote: true, method: :delete, class: 'vote-event btn btn-shine'
                 - else
                   = link_to t('.i_am_going'), api_lecture_listener_votings_path(lecture), remote: true,  method: :post, class: 'vote-event btn btn-shine'
               - else
