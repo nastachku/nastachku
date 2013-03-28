@@ -110,6 +110,7 @@ ru:
           participants_count: "человек уже идут с нами. Не отставай!"
           tshirt_motivate_link: "Хочешь быть в тренде? Жми!"
           another_pay_methods: "Другие способы оплаты"
+          payment_by_credit_card: "Оплата с помощью карт Visa, Master Card"
         create:
           title: "Оформить заказ на афтепати"
 
