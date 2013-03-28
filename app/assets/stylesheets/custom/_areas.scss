@@ -65,6 +65,23 @@
     }
   }
 }
+.schedule-legend__type2 {
+  margin-bottom: 40px;
+  .item {
+    .color-box {
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      h5 {
+        color: #333;
+      }
+    }
+  }
+  &.with-borders {
+    .color-box {
+      border: 1px solid #666;
+    }
+  }
+}
 
 // Timetable
 .awesome-timetable {

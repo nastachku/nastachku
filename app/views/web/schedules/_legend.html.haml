@@ -5,3 +5,17 @@
         .color-box{style: "background-color: #{workshop.color};"}
         .title
           = workshop.title
+
+.schedule-legend__type2
+  .row
+    - @workshops.each do |workshop|
+      .item.span4
+        .color-box{style: "background-color: #{workshop.color};"}
+          %h5= workshop.title
+
+.schedule-legend__type2.with-borders
+  .row
+    - @workshops.each do |workshop|
+      .item.span4
+        .color-box{style: "background-color: #{workshop.color};"}
+          %h5= workshop.title
