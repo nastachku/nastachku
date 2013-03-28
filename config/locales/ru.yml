@@ -92,7 +92,7 @@ ru:
       afterparty_orders:
         new:
           title: "Оформить заказ на афтепати"
-          buy: "Оплатить"
+          buy: "Оплатить картой"
           afterparty: "Афтепати"
           shirt: "Футболка"
           add_order: "Оформить заказ"
@@ -109,6 +109,7 @@ ru:
           afterparty_content_part_3: "P.S.: Билеты найдут своих законных обладателей в день конференции - 12 апреля."
           participants_count: "человек уже идут с нами. Не отставай!"
           tshirt_motivate_link: "Хочешь быть в тренде? Жми!"
+          another_pay_methods: "Другие способы оплаты"
         create:
           title: "Оформить заказ на афтепати"
 
