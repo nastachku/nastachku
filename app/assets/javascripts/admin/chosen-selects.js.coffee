@@ -10,7 +10,8 @@ changeUserEditLink = (id) ->
 
 $(document).ready ->
   user_id = $("#lecture_user_id option:selected").attr("value")
-  changeUserEditLink(user_id)
+  if(typeof user_id != "undefined")
+    changeUserEditLink(user_id)
 
   $("#lecture_user_id").on "change", (e) ->
     changeUserEditLink(e.val)
