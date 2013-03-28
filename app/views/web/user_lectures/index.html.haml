@@ -6,13 +6,24 @@
   .span3
     %ul.nav.nav-list.b-affix
       - workshops.each do |workshop|
-        = item :li, workshop, user_lectures_path(workshop_id_eq: workshop.id)
+        = item :li, workshop, user_lectures_path(s: params[:s], workshop_id_eq: workshop.id)
 
   .span9
     - if @lectures.empty?
       = t(".not_added_yet")
       = link_to t(".first_speaker"), new_account_lecture_path
     - else
+      .span12
+        #{ t '.sort_by' }:&nbsp;
+        -#FIXME решение в лоб. Наверняка есть более элегантное решение
+        = sort_clink(@search, :lecture_votings_count, t('.by_lecture_votings_count'), { workshop_id_eq: params[:workshop_id_eq] })
+        &nbsp;&nbsp;
+        = sort_clink(@search, :created_at, t('.by_created_at'), { workshop_id_eq: params[:workshop_id_eq] })
+        %br
+        %br
+        .clearfix
+      .row
+
       - @lectures.each do |lecture|
         .row-fluid.event-item
           .span4.sinfo

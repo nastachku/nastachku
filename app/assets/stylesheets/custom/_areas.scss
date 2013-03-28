@@ -44,6 +44,21 @@
   background-color: $disabled;
 }
 
+// Schedule legend
+.schedule-legend {
+  margin-bottom: 40px;
+  .item {
+    .color-box {
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      border: 1px solid #666;
+      h5 {
+        color: #333;
+      }
+    }
+  }
+}
+
 // Timetable
 .awesome-timetable {
   width: 940px;

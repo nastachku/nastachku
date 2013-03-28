@@ -1,7 +1,9 @@
 class Web::UserLecturesController < Web::ApplicationController
 
   def index
-    @lectures = Lecture.voted.with_active_speaker.by_created_at.ransack(params).result
+    conditions = { s: 'created_at desc' }.merge(params || {})
+    @search = Lecture.ransack conditions
+    @lectures = @search.result.voted.with_active_speaker.by_created_at
     @workshops = Workshop.web
   end
 

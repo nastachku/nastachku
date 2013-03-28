@@ -1,6 +1,6 @@
 class Api::Admin::EventsController < Api::Admin::ApplicationController
   def index
     type = params[:type]
-    @items = type.constantize.admin
+    @items = type.scheduled.constantize.admin
   end
 end
