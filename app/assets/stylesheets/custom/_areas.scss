@@ -48,37 +48,13 @@
 .schedule-legend {
   margin-bottom: 40px;
   .item {
-    font-size: 14px;
-    line-height: 18px;
-    margin-bottom: 20px;
-    .color-box {
-      display: inline-block;
-      width: 30px;
-      height: 15px;
-      border: 1px solid #666;
-      float: left;
-    }
-    .title {
-      margin-left: 40px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
-}
-.schedule-legend__type2 {
-  margin-bottom: 40px;
-  .item {
     .color-box {
       padding: 10px 20px;
       margin-bottom: 20px;
+      border: 1px solid #666;
       h5 {
         color: #333;
       }
-    }
-  }
-  &.with-borders {
-    .color-box {
-      border: 1px solid #666;
     }
   }
 }
