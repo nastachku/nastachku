@@ -1,0 +1,6 @@
+.schedule-legend
+  .row
+    - @workshops.each do |workshop|
+      .item.span4
+        .color-box{style: "background-color: #{workshop.color};"}
+          %h5= workshop.title
