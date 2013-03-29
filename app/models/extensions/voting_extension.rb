@@ -11,5 +11,12 @@ module Extensions
       voting = proxy_association.build(user: user)
       voting.save
     end
+
+    def unvote_by(user)
+      return false unless voted_by? user
+      voting = where(user_id: user.id).first
+      voting.destroy
+    end
+
   end
 end

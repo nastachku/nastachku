@@ -48,6 +48,7 @@
 .buttons-group {
   a {
     margin-top: 0 !important;
+    text-decoration: none;
   }
   .votings-count,
   .btn {
@@ -55,6 +56,60 @@
     &:active {
       box-shadow: none;
     }
+  }
+  .btn-pending {
+    display: none;
+  }
+  .vote-link {
+    .btn-unvote-hover {
+      background-color: $main_color_1 !important;
+      color: #fff;
+    }
+  }
+  .action-vote {
+    .btn-vote-hover,
+    .btn-unvote,
+    .btn-unvote-hover {
+      display: none;
+    }
+    &:hover {
+      .btn-vote-hover {
+        display: inline-block;
+      }
+      .btn-vote {
+        display: none;
+      }
+    }
+  }
+  .action-unvote {
+    .btn-unvote-hover,
+    .btn-vote,
+    .btn-vote-hover {
+      display: none;
+    }
+    &:hover {
+      .btn-unvote-hover {
+        display: inline-block;
+      }
+      .btn-unvote {
+        display: none;
+      }
+    }
+  }
+}
+.lectures20 {
+  .btn-state {
+    width: 150px;
+  }
+}
+.lectures {
+  .btn-state {
+    width: 90px;
+  }
+}
+.lectures-at-schedule {
+  .btn-state {
+    width: 64px;
   }
 }
 

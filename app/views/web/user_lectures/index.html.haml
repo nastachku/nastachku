@@ -34,14 +34,18 @@
               .pic
                 - if lecture.user.photo.url
                   = image_tag(lecture.user.photo.url)
-              .buttons-group{ data: { success: t('.already_voted') } }
-                -if signed_in?
-                  - if lecture.lecture_votings.voted_by?(current_user)
-                    .btn.btn-no-clickable= t('.already_voted')
-                  - else
-                    = link_to t('.vote_this_lecture'), api_lecture_lecture_votings_path(lecture), remote: true, method: :post, class: 'vote-event btn btn-shine'
+
+              .buttons-group.lectures20
+                - if signed_in?
+                  = link_to api_lecture_lecture_votings_path(lecture), class: (lecture.lecture_votings.voted_by?(current_user)) ?  "vote-link action-unvote" : "vote-link action-vote", remote: true, method: (lecture.lecture_votings.voted_by?(current_user)) ? "delete" : "post" do
+                    %span.btn.btn-state.btn-vote.btn-shine= t('.vote_this_lecture')
+                    %span.btn.btn-state.btn-vote-hover.btn-shine= t('.vote_this_lecture')
+                    %span.btn.btn-state.btn-pending.btn-no-clickable= t('.pending')
+                    %span.btn.btn-state.btn-unvote= t('.already_voted')
+                    %span.btn.btn-state.btn-unvote-hover= t('.unvote')
                 -else
-                  .btn.btn-no-clickable= t('.they_voted')
+                  %span.btn.btn-no-clickable= t('.they_voted')
+
                 %span.btn.votings-count.btn-no-clickable
                   = lecture.lecture_votings.size
           .span8
