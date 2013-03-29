@@ -175,10 +175,11 @@ ru:
 
     lectures:
       index:
-        i_am_going: 'Я пойду!'
+        i_am_going: 'Я пойду'
         i_am_not_going: 'Передумал идти'
         pending: 'Ждём...'
-        already_going: 'Вы пойдете'
+        you_are_voted: 'Вы пойдете'
+        unvote: "Не пойду"
         they_going: 'Пойдут'
         events: 'Доклады'
     lectors:
