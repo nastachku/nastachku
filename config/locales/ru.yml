@@ -166,6 +166,8 @@ ru:
         vote_this_lecture: 'Голосовать за доклад'
         already_voted: 'Вы проголосовали'
         they_voted: 'Проголосовали'
+        unvote: "Отменить голос"
+        pending: 'Ждём...'
         by_lecture_votings_count: 'По количеству голосов'
         by_created_at: 'По дате добавления'
         sort_by: 'Сортировать'
