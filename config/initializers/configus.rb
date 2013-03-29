@@ -52,6 +52,10 @@ Configus.build Rails.env do
       shirt_price 500
     end
 
+    cache do
+      expires_in 5.minutes
+    end
+
   end
 
   env :development, parent: :production do
