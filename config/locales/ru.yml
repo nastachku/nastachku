@@ -200,8 +200,12 @@ ru:
 
     schedules:
       lecture:
-        already_going: "Вы пойдёте"
         i_am_going: "Я пойду"
+        i_am_not_going: 'Передумал идти'
+        pending: 'Ждём...'
+        you_are_voted: 'Вы пойдете'
+        unvote: "Не пойду"
+        they_going: 'Пойдут'
 
     admin:
       welcome:
