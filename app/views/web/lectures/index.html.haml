@@ -19,10 +19,10 @@
                 = image_tag(lecture.user.photo.url)
             .buttons-group
               - if signed_in?
-                = link_to api_lecture_listener_votings_path(lecture), class: (lecture.listener_votings.voted_by?(current_user)) ?  "vote-link action-vote" : "vote-link action-unvote", remote: true, method: (lecture.listener_votings.voted_by?(current_user)) ? "delete" : "post" do
+                = link_to api_lecture_listener_votings_path(lecture), class: (lecture.listener_votings.voted_by?(current_user)) ?  "vote-link action-unvote" : "vote-link action-vote", remote: true, method: (lecture.listener_votings.voted_by?(current_user)) ? "delete" : "post" do
                   %span.btn.btn-vote.btn-shine= t('.i_am_going')
                   %span.btn.btn-vote-hover= t('.i_am_going')
-                  %span.btn.btn-pending= t('.pending')
+                  %span.btn.btn-pending.btn-no-clickable= t('.pending')
                   %span.btn.btn-unvote.btn-shine= t('.i_am_not_going')
                   %span.btn.btn-unvote-hover= t('.i_am_not_going')
               -else
