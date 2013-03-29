@@ -2,7 +2,7 @@ $(document).ready ->
   $('a.vote-link[data-remote]').on 'ajax:beforeSend', (evt, data, status, xhr) ->
     $this = $(this)
     $this.children(".btn").hide()
-    $this.children(".btn-pending").show()
+    $this.children(".btn-pending").css("display", "inline-block")
 
   $('a.vote-link[data-remote]').on 'ajax:success', (evt, data, status, xhr) ->
     $this = $(this)
