@@ -19,8 +19,8 @@ Nastachku::Application.routes.draw do
     resources :events, only: [:index]
     resources :lectures do
       scope module: :lectures do
-        resources :lecture_votings, only: [:create]
-        resources :listener_votings, only: [:create]
+        resource :lecture_votings, only: [:create, :destroy]
+        resource :listener_votings, only: [:create, :destroy]
       end
     end
   end

@@ -20,39 +20,42 @@
     %img{:src => "/images/tshirt_4.png", :width => 233, :height => 253, :alt => "Футболка"}
 
 %br
+-if signed_in?
+  = simple_form_for [:account, @shirt_order], :html => { :class => 'form-horizontal profile-form' } do |f|
+    .formy
+      .row-fluid
+        .span2.center
+          = t(".item_name")
+        .span1.center
+          = t(".item_size")
+        .span2.center
+          = t(".item_color")
+        .span2.center
+          = t(".item_count")
+        .span3.center
+          = t(".item_cost_title")
+        .span2.center
+          = t(".item_total_title")
 
-= simple_form_for [:account, @shirt_order], :html => { :class => 'form-horizontal profile-form' } do |f|
-  .formy
-    .row-fluid
-      .span2.center
-        = t(".item_name")
-      .span1.center
-        = t(".item_size")
-      .span2.center
-        = t(".item_color")
-      .span2.center
-        = t(".item_count")
-      .span3.center
-        = t(".item_cost_title")
-      .span2.center
-        = t(".item_total_title")
+      %br
 
-    %br
+      .row-fluid
+        .span2.center
+          = t(".t_shirt")
+        .span1.center
+          = f.input_field :item_size, collection: ShirtOrder.item_size.options, default: 0, class: "input-mini"
+        .span2.center
+          = f.input_field :item_color, collection: ShirtOrder.item_color.options, default: 0, class: "input-small"
+        .span2.center
+          = f.input_field :items_count, collection: 1..10, default: 0, class: "items-count-select input-mini"
+        .span3.center
+          = t(".item_cost_value")
+        .span2.center
+          %big
+            .cost
+              = t(".item_total_default")
 
-    .row-fluid
-      .span2.center
-        = t(".t_shirt")
-      .span1.center
-        = f.input_field :item_size, collection: ShirtOrder.item_size.options, default: 0, class: "input-mini"
-      .span2.center
-        = f.input_field :item_color, collection: ShirtOrder.item_color.options, default: 0, class: "input-small"
-      .span2.center
-        = f.input_field :items_count, collection: 1..10, default: 0, class: "items-count-select input-mini"
-      .span3.center
-        = t(".item_cost_value")
-      .span2.center
-        %big
-          .cost
-            = t(".item_total_default")
+    = f.button :submit, :value => t('.buy'), :class => 'btn btn-shine'
 
-  = f.button :submit, :value => t('.buy'), :class => 'btn btn-shine'
+-else
+  = link_to t(".sign_in"), new_session_path(from: new_account_shirt_order_path)

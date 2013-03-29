@@ -12,4 +12,12 @@ class Api::Lectures::ListenerVotingsControllerTest < ActionController::TestCase
     assert_response :success
     assert @lecture.listener_votings.voted_by?(@user)
   end
+
+  test "should delete destroy" do
+    @lecture.listener_votings.vote_by @user
+
+    delete :destroy, format: :json, lecture_id: @lecture.id
+    assert_response :success
+    assert !@lecture.listener_votings.voted_by?(@user)
+  end
 end

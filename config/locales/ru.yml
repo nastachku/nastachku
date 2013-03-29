@@ -111,6 +111,7 @@ ru:
           tshirt_motivate_link: "Хочешь быть в тренде? Жми!"
           another_pay_methods: "Другие способы оплаты"
           payment_by_credit_card: "Оплата с помощью карт Visa, Master Card"
+          sign_in: "Для того, чтобы оплатить билет на афтепати авторизуйтесь"
         create:
           title: "Оформить заказ на афтепати"
 
@@ -137,6 +138,8 @@ ru:
           buy_afterparty_ticket_before: "И не забудь"
           buy_afterparty_ticket_after: "билет на афтепати! ;)"
           buy_afterparty_ticket_action: "купить"
+          sign_in: "Для того, чтобы оплатить футболку авторизуйтесь"
+
 
     users:
       form:
@@ -168,6 +171,8 @@ ru:
         vote_this_lecture: 'Голосовать за доклад'
         already_voted: 'Вы проголосовали'
         they_voted: 'Проголосовали'
+        unvote: "Отменить голос"
+        pending: 'Ждём...'
         by_lecture_votings_count: 'По количеству голосов'
         by_created_at: 'По дате добавления'
         sort_by: 'Сортировать'
@@ -177,8 +182,11 @@ ru:
 
     lectures:
       index:
-        i_am_going: 'Я пойду!'
-        already_going: 'Вы пойдете'
+        i_am_going: 'Я пойду'
+        i_am_not_going: 'Передумал идти'
+        pending: 'Ждём...'
+        you_are_voted: 'Вы пойдете'
+        unvote: "Не пойду"
         they_going: 'Пойдут'
         events: 'Доклады'
     lectors:
@@ -197,8 +205,12 @@ ru:
 
     schedules:
       lecture:
-        already_going: "Вы пойдёте"
         i_am_going: "Я пойду"
+        i_am_not_going: 'Передумал идти'
+        pending: 'Ждём...'
+        you_are_voted: 'Вы пойдете'
+        unvote: "Не пойду"
+        they_going: 'Пойдут'
 
     admin:
       welcome:
