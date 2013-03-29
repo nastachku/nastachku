@@ -111,6 +111,7 @@ ru:
           tshirt_motivate_link: "Хочешь быть в тренде? Жми!"
           another_pay_methods: "Другие способы оплаты"
           payment_by_credit_card: "Оплата с помощью карт Visa, Master Card"
+          sign_in: "Для того, чтобы оплатить билет на афтепати авторизуйтесь"
         create:
           title: "Оформить заказ на афтепати"
 
@@ -137,6 +138,8 @@ ru:
           buy_afterparty_ticket_before: "И не забудь"
           buy_afterparty_ticket_after: "билет на афтепати! ;)"
           buy_afterparty_ticket_action: "купить"
+          sign_in: "Для того, чтобы оплатить футболку авторизуйтесь"
+
 
     users:
       form:
