@@ -16,7 +16,7 @@
       .span12
         #{ t '.sort_by' }:&nbsp;
         -#FIXME решение в лоб. Наверняка есть более элегантное решение
-        = sort_clink(@search, :lecture_votings_count, t('.by_lecture_votings_count'), { workshop_id_eq: params[:workshop_id_eq] })
+        = sort_clink(@search, :lecture_votings_count, t('.by_lecture_votings_count'), {default_order: :desc, workshop_id_eq: params[:workshop_id_eq] })
         &nbsp;&nbsp;
         = sort_clink(@search, :created_at, t('.by_created_at'), { workshop_id_eq: params[:workshop_id_eq] })
         %br
