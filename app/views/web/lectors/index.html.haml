@@ -3,21 +3,23 @@
 .row.workshop
   .span3
     %ul.nav.nav-list.b-affix
-      - workshops.each do |workshop|
-        = item :li, workshop, lectors_path(lectures_workshop_id_eq: workshop.id)
+      - cache(:action_suffix => 'lectors_workshops', :expires_in => configus.cache.expires_in) do
+        - workshops.each do |workshop|
+          = item :li, workshop, lectors_path(lectures_workshop_id_eq: workshop.id)
   .span9
-    - @lectors.each do |lector|
-      %div{ id: "#{lector.id}" }
-        .row-fluid
-          .span4.s-info
-            .col-l
-              .pic
-                - if lector.photo.url
-                  = image_tag(lector.photo.url)
-          .span8
-            %h5= lector.full_name
-            %h6
-              %strong= lector.company
-            %p= lector.about
-          .clearfix
-        %hr
+    - cache(:action_suffix => 'lectors', :expires_in => configus.cache.expires_in) do
+      - @lectors.each do |lector|
+        %div{ id: "#{lector.id}" }
+          .row-fluid
+            .span4.s-info
+              .col-l
+                .pic
+                  - if lector.photo.url
+                    = image_tag(lector.photo.url)
+            .span8
+              %h5= lector.full_name
+              %h6
+                %strong= lector.company
+              %p= lector.about
+            .clearfix
+          %hr
