@@ -28,9 +28,9 @@
                 - if signed_in?
                   = link_to api_lecture_lecture_votings_path(lecture), class: (lecture.lecture_votings.voted_by?(current_user)) ?  "vote-link action-unvote" : "vote-link action-vote", remote: true, method: (lecture.lecture_votings.voted_by?(current_user)) ? "delete" : "post" do
                     %span.btn.btn-state.btn-vote.btn-shine= t('.vote_this_lecture')
-                    %span.btn.btn-state.btn-vote-hover= t('.vote_this_lecture')
+                    %span.btn.btn-state.btn-vote-hover.btn-shine= t('.vote_this_lecture')
                     %span.btn.btn-state.btn-pending.btn-no-clickable= t('.pending')
-                    %span.btn.btn-state.btn-unvote.btn-shine= t('.already_voted')
+                    %span.btn.btn-state.btn-unvote= t('.already_voted')
                     %span.btn.btn-state.btn-unvote-hover= t('.unvote')
                 -else
                   %span.btn.btn-no-clickable= t('.they_voted')
