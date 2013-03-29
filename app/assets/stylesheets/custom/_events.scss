@@ -48,12 +48,56 @@
 .buttons-group {
   a {
     margin-top: 0 !important;
+    text-decoration: none;
   }
   .votings-count,
   .btn {
     color: #000;
     &:active {
       box-shadow: none;
+    }
+  }
+  .btn-pending {
+    display: none;
+  }
+  .vote-link {
+    .btn-vote-hover {
+      background-color: #3fb618 !important;
+      color: #fff;
+    }
+    .btn-unvote-hover {
+      background-color: #ff0039 !important;
+      color: #fff;
+    }
+  }
+  .action-vote {
+    .btn-vote-hover,
+    .btn-unvote,
+    .btn-unvote-hover {
+      display: none;
+    }
+    &:hover {
+      .btn-vote-hover {
+        display: inline-block;
+      }
+      .btn-vote {
+        display: none;
+      }
+    }
+  }
+  .action-unvote {
+    .btn-unvote-hover,
+    .btn-vote,
+    .btn-vote-hover {
+      display: none;
+    }
+    &:hover {
+      .btn-unvote-hover {
+        display: inline-block;
+      }
+      .btn-unvote {
+        display: none;
+      }
     }
   }
 }
