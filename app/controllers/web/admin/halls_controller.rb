@@ -18,7 +18,7 @@ class Web::Admin::HallsController < Web::Admin::ApplicationController
     @hall.changed_by = current_user
     if @hall.save
       flash_success
-      redirect_to admin_halls_path
+      redirect_to edit_admin_hall_path(@hall)
     else
       flash_error
       render :new
@@ -30,7 +30,7 @@ class Web::Admin::HallsController < Web::Admin::ApplicationController
     @hall.changed_by = current_user
     if @hall.update_attributes params[:hall]
       flash_success
-      redirect_to admin_halls_path
+      redirect_to edit_admin_hall_path(@hall)
     else
       flash_error
       render :edit
