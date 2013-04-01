@@ -19,6 +19,7 @@ class Web::Account::LecturesController < Web::Account::ApplicationController
 
   def update
     @lecture = current_user.lectures.find params[:id]
+    @lecture.changed_by = current_user
     @updated = @lecture.update_attributes params[:lecture]
     render :edit, layout: false
   end
