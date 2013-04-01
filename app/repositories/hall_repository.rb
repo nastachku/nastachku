@@ -5,6 +5,7 @@ module HallRepository
 
   included do
     scope :web, -> { asc_by_created_at }
+    scope :activated, -> { where state: :active }
   end
 
 end
