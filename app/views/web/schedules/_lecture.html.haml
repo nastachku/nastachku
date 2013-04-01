@@ -16,7 +16,7 @@
       - if slot.event.user.photo?
         .pull-left.userpic
           = image_tag(slot.event.user.photo.url)
-      = slot.event.user.about
+      %p.userabout= slot.event.user.about
       .clearfix
 
 .event{ class: "area-#{index} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}", style: "background-color: #{slot.event.workshop.try(:color)}"}
