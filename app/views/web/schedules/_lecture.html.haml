@@ -6,8 +6,16 @@
   .modal-body
     %p= nl2br(slot.event.thesises)
 
-.event{ class: "area-#{index} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}", data: {toggle: 'modal'}, href: "##{dom_id(slot)}", role: "button", style: "background-color: #{slot.event.workshop.try(:color)}"}
+.event{ class: "area-#{index} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}", style: "background-color: #{slot.event.workshop.try(:color)}"}
   %span.summary
+
+    %span.time
+      = slot.start_hour
+      %sup= l slot.start_time, format: :minutes
+      %span.end-time
+        &minus;
+        = slot.finish_time.hour
+        %sup= l slot.finish_time, format: :minutes
 
     %span.buttons-group.lectures-at-schedule
       - if signed_in?
@@ -23,13 +31,6 @@
       %span.btn.votings-count.btn-no-clickable
         = slot.event.listener_votings.size
 
-    %span.time
-      = slot.start_hour
-      %sup= l slot.start_time, format: :minutes
-      %span.end-time
-        &minus;
-        = slot.finish_time.hour
-        %sup= l slot.finish_time, format: :minutes
-    %span.caption
+    %a.caption{data: {toggle: 'modal'}, href: "##{dom_id(slot)}", role: "button"}
       = slot.event.title
     %span.author= slot.event.user.full_name

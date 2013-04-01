@@ -22,5 +22,5 @@
           .pull-right.btn-group
             = link_to edit_admin_event_path(event), class: 'btn btn-mini' do
               %i.icon-pencil
-            = link_to admin_event_path(event), method: :delete, class: 'btn btn-mini' do
+            = link_to admin_event_path(event), method: :delete, :data => { :confirm => t('.confirm') },class: 'btn btn-mini' do
               %i.icon-trash
