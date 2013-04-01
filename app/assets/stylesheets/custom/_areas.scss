@@ -123,7 +123,6 @@
     font-family: Arial;
     line-height: 18px;
     overflow: hidden;
-    cursor: pointer;
     display: inline-block;
     text-decoration: none;
     border: 1px solid #666;
@@ -150,11 +149,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       display: inline;
-    }
-    &:hover {
-      .caption {
-        text-decoration: underline;
-      }
+      color: #000 !important;
     }
     &.expand {
       height: auto !important;
