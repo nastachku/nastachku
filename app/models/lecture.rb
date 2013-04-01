@@ -31,7 +31,7 @@ class Lecture < ActiveRecord::Base
     end
 
     event :move_to_voting do
-      transition [:new, :rejected] => :voted
+      transition [:new, :in_schedule, :rejected] => :voted
     end
 
     event :reject do
