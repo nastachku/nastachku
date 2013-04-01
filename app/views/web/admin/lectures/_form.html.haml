@@ -3,7 +3,7 @@
   = f.input :state_event, as: :state_event, input_html: { class: 'span7' }
   = f.input :thesises, input_html: { class: 'span7' }
   = f.association :workshop, as: :chosen_select, input_html: { class: 'span7 span-nomargin' }
-  = f.association :user, collection: User.asc_by_last_name, as: :chosen_select, input_html: { class: 'span7 span-nomargin' }
+  = f.association :user, collection: User.activated.asc_by_last_name, as: :chosen_select, input_html: { class: 'span7 span-nomargin' }
   .control-group
     .controls
       %a#lector-name{target: '_blank'}
