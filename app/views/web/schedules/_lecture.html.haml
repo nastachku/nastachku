@@ -14,7 +14,7 @@
   .modal-body
     .userinfo
       .pull-left.userpic
-      - if user.photo?
+      - if slot.event.user.photo?
         = image_tag(slot.event.user.photo.url)
       = slot.event.user.about
       .clearfix
