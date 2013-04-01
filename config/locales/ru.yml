@@ -19,20 +19,18 @@ ru:
           participants: 'Участники'
           i_will_go: 'Я пойду'
           contacts: "Контакты"
-          routes: "Как доехать и где жить?"
+          routes: "Как доехать?"
           news: "Пресс-центр"
           lectors: 'Докладчики'
           lectures: 'Доклады'
-          speakers: "Докладчики"
           lectures_20: 'Доклады 2.0'
-          afterparty: "Афтепати"
           schedule: 'Расписание'
           menu: "Меню"
         navbar:
           logout: 'Выйти'
           login: 'Войти'
           admin: 'Админка'
-          add_lecture: 'Добавить доклад'
+          afterparty: "Афтепати"
           stachka_2012: 'Стачка! 2012'
           buy: "Купить футболку"
 
