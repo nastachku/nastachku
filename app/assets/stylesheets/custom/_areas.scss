@@ -297,3 +297,31 @@ $i : $min_speech_time;
     color: #fff;
   }
 }
+
+// Tabs
+.nav-schedule-tabs {
+  border-bottom: none;
+  margin-bottom: 0;
+  >li {
+    margin-right: 20px;
+    >a {
+      border: none !important;
+      background-color: none  !important;
+      color: $main_color_1;
+      font-size: 36px;
+      padding-left: 0 !important;
+      text-decoration: underline;
+      &:hover {
+        background: none !important;
+        border: none !important;
+        text-decoration: underline;
+      }
+    }
+    &.active {
+      a {
+        color: #000  !important;
+        text-decoration: none;
+      }
+    }
+  }
+}
