@@ -26,6 +26,15 @@ class TimeSlotEditWidget
     @event_type_dropdown.select2 @select2_options
     @event_id_dropdown.select2 @select2_options
     @item.find('.datetimepicker').datetimepicker format: "yyyy-MM-dd hh:mm:ss"
+    @start_time_picker = @item.find('.start_time').closest('.datetimepicker')
+    @start_time_picker.on 'changeDate', (e) =>
+      start_date = e.localDate
+      console.log(start_date)
+      finish_date = new Date(Date.parse(start_date))
+      finish_date = finish_date.setHours(finish_date.getHours() + 1)
+      console.log(finish_date)
+      picker = @item.find('.finish_time').closest('.datetimepicker').data('datetimepicker')
+      picker.setLocalDate(new Date(finish_date))
 
   bind: ->
     @event_type_dropdown.on 'change', (e) =>
