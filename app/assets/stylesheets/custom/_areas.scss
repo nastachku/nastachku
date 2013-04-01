@@ -64,6 +64,21 @@
   width: 940px;
   padding: 30px 0;
 
+  .userpic {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    img {
+      width: 128px;
+      height: 128px;
+    }
+  }
+  .userinfo {
+    p {
+      position: relative;
+      top: -10px;
+    }
+  }
+
   .area {
     float: left;
     height: $b_height * $timing_step;
@@ -166,6 +181,7 @@
       display: block;
       padding: 0 3px;
       line-height: 12px;
+      color: #000 !important;
     }
     .company {
       overflow: hidden;
