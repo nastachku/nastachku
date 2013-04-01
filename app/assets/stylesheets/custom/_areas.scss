@@ -118,7 +118,7 @@
     top: 0;
     color: #333 !important;
     @include box-sizing(border-box);
-    padding: 6px;
+    padding: 6px 3px;
     font-size: 12px;
     font-family: Arial;
     line-height: 18px;
@@ -131,8 +131,9 @@
       display: block;
     }
     .buttons-group {
-      display: block;
+      display: inline-block;
       margin-bottom: 6px;
+      margin-left: 2px;
     }
     .btn {
       padding: 0 6px;
@@ -148,7 +149,8 @@
     .caption {
       overflow: hidden;
       text-overflow: ellipsis;
-      display: inline;
+      display: inline-block;
+      padding: 0 3px;
       color: #000 !important;
     }
     &.expand {
@@ -161,6 +163,7 @@
       font-weight: bold;
       text-align: right;
       display: block;
+      padding: 0 3px;
     }
     &.break {
       background-color: #eee;
@@ -234,6 +237,11 @@ $i : $min_speech_time;
       .caption,
       .author {
         display: inline;
+      }
+      .caption,
+      .author {
+        position: relative;
+        top: 2px;
       }
       &:hover {
         .caption {
