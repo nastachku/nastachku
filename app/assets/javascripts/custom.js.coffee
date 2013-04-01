@@ -18,16 +18,21 @@ window.onload = ->
     ), 1
 
   b_affix = ->
-    curPos = $(window).scrollTop()
-    if curPos > affixTop and curPos < bottomLimit
-      $(".b-affix").addClass("top")
-    else
-      $(".b-affix").removeClass("top")
+    winWidth = $(window).width()
+    if (winWidth > 760)
+      curPos = $(window).scrollTop()
+      if curPos > affixTop and curPos < bottomLimit
+        $(".b-affix").addClass("top")
+      else
+        $(".b-affix").removeClass("top")
 
-    if curPos > bottomLimit
-      $(".b-affix").addClass("bottom")
+      if curPos > bottomLimit
+        $(".b-affix").addClass("bottom")
+      else
+        $(".b-affix").removeClass("bottom")
     else
       $(".b-affix").removeClass("bottom")
+      $(".b-affix").removeClass("top")
 
 $(document).ready ->
 
