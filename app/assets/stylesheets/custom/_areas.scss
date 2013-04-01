@@ -152,6 +152,7 @@
       display: inline-block;
       padding: 0 3px;
       color: #000 !important;
+      padding-bottom: 4px;
     }
     &.expand {
       height: auto !important;
@@ -164,6 +165,16 @@
       text-align: right;
       display: block;
       padding: 0 3px;
+      line-height: 12px;
+    }
+    .company {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: right;
+      display: block;
+      padding: 0 3px;
+      font-weight: bold;
+      font-size: 11px;
     }
     &.break {
       background-color: #eee;
@@ -235,11 +246,13 @@ $i : $min_speech_time;
       .time .end-time,
       .summary,
       .caption,
-      .author {
+      .author,
+      .company {
         display: inline;
       }
       .caption,
-      .author {
+      .author,
+      .company {
         position: relative;
         top: 2px;
       }
