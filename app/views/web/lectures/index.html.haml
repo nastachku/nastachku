@@ -17,19 +17,19 @@
             .pic
               - if lecture.user.photo.url
                 = image_tag(lecture.user.photo.url)
-            -# .buttons-group.lectures
-            -#   - if signed_in?
-            -#     = link_to api_lecture_listener_votings_path(lecture), class: (lecture.listener_votings.voted_by?(current_user)) ?  "vote-link action-unvote" : "vote-link action-vote", remote: true, method: (lecture.listener_votings.voted_by?(current_user)) ? "delete" : "post" do
-            -#       %span.btn.btn-state.btn-vote.btn-shine= t('.i_am_going')
-            -#       %span.btn.btn-state.btn-vote-hover.btn-shine= t('.i_am_going')
-            -#       %span.btn.btn-state.btn-pending.btn-no-clickable= t('.pending')
-            -#       %span.btn.btn-state.btn-unvote= t('.you_are_voted')
-            -#       %span.btn.btn-state.btn-unvote-hover= t('.unvote')
-            -#   -else
-            -#     %span.btn.btn-no-clickable= t('.they_going')
+              .buttons-group.lectures
+                - if signed_in?
+                  = link_to api_lecture_listener_votings_path(lecture), class: (lecture.listener_votings.voted_by?(current_user)) ?  "vote-link action-unvote" : "vote-link action-vote", remote: true, method: (lecture.listener_votings.voted_by?(current_user)) ? "delete" : "post" do
+                    %span.btn.btn-state.btn-vote.btn-shine= t('.i_am_going')
+                    %span.btn.btn-state.btn-vote-hover.btn-shine= t('.i_am_going')
+                    %span.btn.btn-state.btn-pending.btn-no-clickable= t('.pending')
+                    %span.btn.btn-state.btn-unvote= t('.you_are_voted')
+                    %span.btn.btn-state.btn-unvote-hover= t('.unvote')
+                -else
+                  %span.btn.btn-no-clickable= t('.they_going')
 
-            -#   %span.btn.votings-count.btn-no-clickable
-            -#     = lecture.listener_votings.size
+                %span.btn.votings-count.btn-no-clickable
+                  = lecture.listener_votings.size
         .span8
           %h4= lecture.title
           %p.ainfo= nl2br lecture.thesises
