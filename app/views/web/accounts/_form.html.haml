@@ -47,7 +47,11 @@
         %p
           = t(".add_user_event_text")
           = link_to t(".add_user_event"), new_account_lecture_path
-      - else 
+      - else
+        %p
+          = t(".add_more_user_event_text")
+          = link_to t(".add_more_user_event_link"), new_account_lecture_path
+        %br
         %table.table.table-participants
           %thead
             %tr
