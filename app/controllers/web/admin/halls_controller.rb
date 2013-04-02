@@ -1,7 +1,9 @@
 class Web::Admin::HallsController < Web::Admin::ApplicationController
   
   def index
-    @halls = Hall.web
+    query = { s: 'created_at desc' }.merge(params[:q] || {})
+    @search = Hall.ransack(query)
+    @halls = @search.result.page(params[:page]).per(configus.pagination.admin_per_page)
   end
 
   def new

@@ -13,11 +13,15 @@
       %th= Hall.human_attribute_name :title
       %th=t(".count_slots")
       %th
+        .nowrap= News.human_attribute_name :created_at
+      %th
   %tbody
     - @halls.each do |hall|
       %tr
         %td= link_to hall.title, edit_admin_hall_path(hall)
         %td= hall.slots.count
+        %td
+          .nowrap= l hall.created_at
         %td
           .pull-right.btn-group
             = link_to edit_admin_hall_path(hall), class: 'btn btn-mini' do

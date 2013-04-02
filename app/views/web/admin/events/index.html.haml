@@ -13,11 +13,15 @@
       %th= Event.human_attribute_name :title
       %th= Event.human_attribute_name :state
       %th
+        .nowrap= Event.human_attribute_name :created_at
+      %th
   %tbody
     - @events.each do |event|
       %tr
         %td= event.title
         %td= event.human_state_name
+        %td
+          .nowrap= l event.created_at
         %td
           .pull-right.btn-group
             = link_to edit_admin_event_path(event), class: 'btn btn-mini' do
