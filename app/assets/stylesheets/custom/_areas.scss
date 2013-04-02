@@ -64,6 +64,22 @@
   width: 940px;
   padding: 30px 0;
 
+  .userpic {
+    margin-right: 15px;
+    margin-bottom: 15px;
+    img {
+      width: 128px;
+      height: 128px;
+    }
+  }
+  .userinfo {
+    p {
+      position: relative;
+      top: -10px;
+      margin-left: 143px;
+    }
+  }
+
   .area {
     float: left;
     height: $b_height * $timing_step;
@@ -152,6 +168,7 @@
       display: inline-block;
       padding: 0 3px;
       color: #000 !important;
+      padding-bottom: 4px;
     }
     &.expand {
       height: auto !important;
@@ -164,6 +181,17 @@
       text-align: right;
       display: block;
       padding: 0 3px;
+      line-height: 12px;
+      color: #000 !important;
+    }
+    .company {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: right;
+      display: block;
+      padding: 0 3px;
+      font-weight: bold;
+      font-size: 11px;
     }
     &.break {
       background-color: #eee;
@@ -235,11 +263,13 @@ $i : $min_speech_time;
       .time .end-time,
       .summary,
       .caption,
-      .author {
+      .author,
+      .company {
         display: inline;
       }
       .caption,
-      .author {
+      .author,
+      .company {
         position: relative;
         top: 2px;
       }
@@ -266,5 +296,33 @@ $i : $min_speech_time;
   .modal-body {
     background-color: #d4724b;
     color: #fff;
+  }
+}
+
+// Tabs
+.nav-schedule-tabs {
+  border-bottom: none;
+  margin-bottom: 0;
+  >li {
+    margin-right: 20px;
+    >a {
+      border: none !important;
+      background-color: none  !important;
+      color: $main_color_1;
+      font-size: 36px;
+      padding-left: 0 !important;
+      text-decoration: underline;
+      &:hover {
+        background: none !important;
+        border: none !important;
+        text-decoration: underline;
+      }
+    }
+    &.active {
+      a {
+        color: #000  !important;
+        text-decoration: none;
+      }
+    }
   }
 }

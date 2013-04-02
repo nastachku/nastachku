@@ -2,7 +2,8 @@ class Helpers
   @setSelectOptions: (selectElement, values, valueKey, textKey) ->
     selectElement.empty()
     if values.length > 0
-      html = ("<option value='#{item[valueKey]}'>#{item[textKey]}</option>" for item in values)
+      html = ("<option></option>")
+      html += ("<option value='#{item[valueKey]}'>#{item[textKey]}</option>" for item in values)
       selectElement.append(html)
 
 class TimeSlotEditWidget

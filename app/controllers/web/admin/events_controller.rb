@@ -1,7 +1,9 @@
 class Web::Admin::EventsController < Web::Admin::ApplicationController
 
   def index
-    @events = Event.admin
+    query = { s: 'created_at desc' }.merge(params[:q] || {})
+    @search = Event.ransack(query)
+    @events = @search.result.page(params[:page]).per(configus.pagination.admin_per_page)
   end
 
   def new 

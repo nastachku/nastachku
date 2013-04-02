@@ -1,5 +1,9 @@
 %h1=t('.events20')
-%h5=t('.user_lectures_title')
+%h5
+  = t('.user_lectures_title_before_link')
+  = succeed ',' do
+    = link_to t(".user_lectures_title_link"), new_account_lecture_path
+  = t('.user_lectures_title_after_link')
 %br
 
 .row.workshop

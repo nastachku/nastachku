@@ -74,6 +74,8 @@ ru:
         buy_shirt: 'Купить футболку'
         buy_more: "Оформить еще один заказ"
         cost: "Стоимость"
+        add_more_user_event_text: 'Есть еще один умопомрачительный доклад?'
+        add_more_user_event_link: 'Добавляй!'
 
     account:
       lectures:
@@ -174,13 +176,15 @@ ru:
         by_lecture_votings_count: 'По количеству голосов'
         by_created_at: 'По дате добавления'
         sort_by: 'Сортировать'
-        user_lectures_title: 'Если у вас в копилке есть сумасшедший доклад и вам есть о чем рассказать ИТ-общественности, предложите его и выступите на конференции.'
+        user_lectures_title_before_link: 'Если у вас в копилке есть сумасшедший доклад и вам есть о чем рассказать ИТ-общественности, '
+        user_lectures_title_link: 'предложите его'
+        user_lectures_title_after_link: 'и выступите на конференции.'
         not_added_yet: 'Пока не добавлено ни одного доклада. Вы можете'
         first_speaker: 'стать первым докладчиком.'
 
     lectures:
       index:
-        i_am_going: 'Я пойду'
+        i_am_going: 'Пойти'
         i_am_not_going: 'Передумал идти'
         pending: 'Ждём...'
         you_are_voted: 'Вы пойдете'
@@ -203,7 +207,7 @@ ru:
 
     schedules:
       lecture:
-        i_am_going: "Я пойду"
+        i_am_going: "Пойти"
         i_am_not_going: 'Передумал идти'
         pending: 'Ждём...'
         you_are_voted: 'Вы пойдете'
@@ -382,6 +386,7 @@ ru:
           new: 'Добавить зал'
           edit: 'Редактировать'
           delete: 'Удалить'
+          count_slots: 'Количество слотов'
         new:
           title: 'Добавление нового зала'
         edit:

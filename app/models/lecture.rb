@@ -27,11 +27,11 @@ class Lecture < ActiveRecord::Base
     state :rejected
 
     event :move_to_schedule do
-      transition [:new, :voted] => :in_schedule
+      transition [:new, :voted, :rejected] => :in_schedule
     end
 
     event :move_to_voting do
-      transition :new => :voted
+      transition [:new, :in_schedule, :rejected] => :voted
     end
 
     event :reject do
@@ -42,4 +42,9 @@ class Lecture < ActiveRecord::Base
   def to_s
     title
   end
+
+  def full_title
+    "#{self.title} (#{self.user.full_name})"
+  end
+
 end

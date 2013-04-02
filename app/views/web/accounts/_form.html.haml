@@ -48,6 +48,10 @@
           = t(".add_user_event_text")
           = link_to t(".add_user_event"), new_account_lecture_path
       - else
+        %p
+          = t(".add_more_user_event_text")
+          = link_to t(".add_more_user_event_link"), new_account_lecture_path
+        %br
         %table.table.table-participants
           %thead
             %tr
@@ -59,6 +63,7 @@
 
             - @user.lectures.each do |lecture|
               = render 'web/account/lectures/edit', lecture: lecture
+
     .tab-pane#my_orders
 
       %p

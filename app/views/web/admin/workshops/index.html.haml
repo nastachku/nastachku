@@ -8,10 +8,14 @@
     %tr
       %th= Workshop.human_attribute_name :title
       %th
+        .nowrap= Workshop.human_attribute_name :created_at
+      %th
   %tbody
     - @workshops.each do |workshop|
       %tr
         %td= link_to workshop.title, edit_admin_workshop_path(workshop)
+        %td
+          .nowrap= l workshop.created_at
         %td
           .pull-right.btn-group
             = link_to edit_admin_workshop_path(workshop), class: 'btn btn-mini' do
