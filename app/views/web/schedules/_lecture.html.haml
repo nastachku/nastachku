@@ -46,9 +46,11 @@
 
     %a.caption{data: {toggle: 'modal'}, href: "##{dom_id(slot)}", role: "button"}
       = slot.event.title
-    %a.author{data: {toggle: 'modal'}, href: "##{dom_id(slot)}__author_info", role: "button"}
-      = slot.event.user.full_name
+    - if slot.event.user.about?
+      %a.author{data: {toggle: 'modal'}, href: "##{dom_id(slot)}__author_info", role: "button"}
+        = slot.event.user.full_name
+    - else
+      .author= slot.event.user.full_name
     %span.company
-      (
-      = slot.event.user.company
-      )
+      = surround '(', ')' do
+        = slot.event.user.company
