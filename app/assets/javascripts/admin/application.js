@@ -24,3 +24,5 @@
 //= require admin/user_edit_form
 //= require admin/dates
 //= require admin/custom
+//= require jquery.ui.all
+//= require admin/sortable
