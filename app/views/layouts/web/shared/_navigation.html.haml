@@ -11,7 +11,7 @@
           %li{ class: "#{'active' if current_page?(users_path)}" }
             = navbar_link t(".participants"), users_path, with: User.activated.count
 
-          / = item :li, t(".schedule"), schedule_path
+          = item :li, t(".schedule"), schedule_path
           = item :li, t(".lectors"), lectors_path
           = item :li, t(".lectures"), lectures_path
           = item :li, t('.lectures_20'), user_lectures_path
