@@ -15,6 +15,10 @@ Nastachku::Application.routes.draw do
     resources :companies
     resources :cities
     resources :events, only: [:index]
+    resources :halls, only: [] do
+      put :sort, on: :collection
+    end
+
     resources :lectures do
       scope module: :lectures do
         resource :lecture_votings, only: [:create, :destroy]

@@ -10,14 +10,18 @@
 %table.table.table-striped
   %thead
     %tr
+      %th
       %th= Hall.human_attribute_name :title
       %th=t(".count_slots")
       %th
         .nowrap= News.human_attribute_name :created_at
       %th
-  %tbody
+  %tbody.sortable{ :"data-update-url" => sort_api_halls_path }
     - @halls.each do |hall|
-      %tr
+      %tr{ data: { id: hall.id } }
+        %td.element_move_cursor
+          %i.icon-resize-vertical
+
         %td= link_to hall.title, edit_admin_hall_path(hall)
         %td= hall.slots.count
         %td
