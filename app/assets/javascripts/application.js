@@ -14,7 +14,7 @@
 //#= require jquery_ujs
 //#= require twitter/bootstrap
 //= require cocoon
-//= require ../../../vendor/assets/javascripts/jquery.hammer.min.js
+//= require jquery.hammer.min.js
 //= require_tree .
 //= require jquery.ui.all
 //= require ckeditor/init
