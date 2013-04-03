@@ -1,4 +1,11 @@
 $(document).ready ->
+
+  if (Modernizr.touch)
+    $(".btn-vote-hover").remove()
+    $(".btn-unvote-hover").remove()
+    $('a.vote-link[data-remote]').hammer().on 'tap', (e) ->
+      $(this).trigger('click')
+
   $('a.vote-link[data-remote]').on 'ajax:beforeSend', (evt, data, status, xhr) ->
     $this = $(this)
     $this.children(".btn").hide()
