@@ -24,7 +24,7 @@ ru:
           lectors: 'Докладчики'
           lectures: 'Доклады'
           lectures_20: 'Доклады 2.0'
-          schedule: 'Расписание'
+          schedule: 'Программа'
           menu: "Меню"
         navbar:
           logout: 'Выйти'
@@ -49,7 +49,7 @@ ru:
             events: 'События'
             orders: 'Заказы'
             logout: 'Выйти'
-            schedule: 'Расписание'
+            schedule: 'Программа'
             workshops: 'Секции'
             halls: 'Залы'
             events: 'События'
