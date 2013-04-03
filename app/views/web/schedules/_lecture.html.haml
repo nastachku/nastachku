@@ -2,9 +2,16 @@
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
     %h3{id: "#{dom_id(slot)}myModalLabel"}
-      = slot.event.user.full_name
+      = slot.event.title
   .modal-body
     %p= nl2br(slot.event.thesises)
+    %p.right
+      %big
+        = slot.event.user.full_name
+        %br
+        - if slot.event.user.company?
+          = surround '(', ')' do
+            = slot.event.user.company
 
 .modal.hide.fade{id: "#{dom_id(slot)}__author_info", "aria-hidden" => "true", "aria-labelledby" => "#{dom_id(slot)}myModalLabel__author_info", :role => "dialog", :tabindex => "-1"}
   .modal-header
@@ -51,6 +58,7 @@
         = slot.event.user.full_name
     - else
       .author= slot.event.user.full_name
-    %span.company
-      = surround '(', ')' do
-        = slot.event.user.company
+    - if slot.event.user.company?
+      %span.company
+        = surround '(', ')' do
+          = slot.event.user.company
