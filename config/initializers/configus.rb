@@ -56,6 +56,13 @@ Configus.build Rails.env do
       expires_in 5.minutes
     end
 
+    timepad do
+      maillist_add_items_url credentials_hash["production"]["timepad"]["maillist_add_items_url"]
+      organization_id credentials_hash["production"]["timepad"]["organization_id"]
+      maillist_id credentials_hash["production"]["timepad"]["maillist_id"]
+      api_key credentials_hash["production"]["timepad"]["api_key"]
+    end
+
   end
 
   env :development, parent: :production do
@@ -78,6 +85,13 @@ Configus.build Rails.env do
       gate_password credentials_hash["development"]["platidoma"]["gate_password"]
       afterparty_price 1500
       shirt_price 500
+    end
+
+    timepad do
+      maillist_add_items_url credentials_hash["development"]["timepad"]["maillist_add_items_url"]
+      organization_id credentials_hash["development"]["timepad"]["organization_id"]
+      maillist_id credentials_hash["development"]["timepad"]["maillist_id"]
+      api_key credentials_hash["development"]["timepad"]["api_key"]
     end
 
   end
@@ -118,6 +132,13 @@ Configus.build Rails.env do
       gate_password credentials_hash["staging"]["platidoma"]["gate_password"]
       afterparty_price 1500
       shirt_price 500
+    end
+
+    timepad do
+      maillist_add_items_url credentials_hash["staging"]["timepad"]["maillist_add_items_url"]
+      organization_id credentials_hash["staging"]["timepad"]["organization_id"]
+      maillist_id credentials_hash["staging"]["timepad"]["maillist_id"]
+      api_key credentials_hash["staging"]["timepad"]["api_key"]
     end
     
   end
