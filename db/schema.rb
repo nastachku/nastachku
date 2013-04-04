@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130402063350) do
+ActiveRecord::Schema.define(:version => 20130403135041) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -69,11 +69,22 @@ ActiveRecord::Schema.define(:version => 20130402063350) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
+  create_table "event_users", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "events", :force => true do |t|
     t.string   "title"
     t.string   "state"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.text     "description"
+    t.string   "color"
+    t.integer  "event_votings_count", :default => 0
+    t.boolean  "show_voting"
   end
 
   create_table "halls", :force => true do |t|

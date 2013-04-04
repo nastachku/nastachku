@@ -74,7 +74,7 @@
 
   .userpic {
     margin-right: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     img {
       width: 128px;
       height: 128px;
@@ -85,6 +85,11 @@
       position: relative;
       top: -10px;
       margin-left: 143px;
+    }
+    .user-full-name {
+      margin-top: -10px;
+      font-size: 12px;
+      margin-bottom: 6px;
     }
   }
 
@@ -189,7 +194,7 @@
       text-align: right;
       display: block;
       padding: 0 3px;
-      line-height: 12px;
+      line-height: 16px;
       color: #000 !important;
     }
     .company {
@@ -200,6 +205,9 @@
       padding: 0 3px;
       font-weight: bold;
       font-size: 11px;
+    }
+    .round-table-user {
+      display: block;
     }
     &.break {
       background-color: #eee;
@@ -272,7 +280,8 @@ $i : $min_speech_time;
       .summary,
       .caption,
       .author,
-      .company {
+      .company,
+      .round-table-user {
         display: inline;
       }
       .caption,
@@ -280,6 +289,9 @@ $i : $min_speech_time;
       .company {
         position: relative;
         top: 2px;
+      }
+      .author {
+        line-height: 12px;
       }
       &:hover {
         .caption {

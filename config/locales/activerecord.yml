@@ -74,6 +74,11 @@ ru:
         title: 'Название'
         state: 'Состояние'
         created_at: "Дата отправки"
+        description: 'Описание'
+        color: 'Цвет'
+        show_voting: 'Показывать голосование'
+        users: 'Пользователи'
+        state_event: 'Изменить состояние'
 
       slot:
         event_id: 'Событие'

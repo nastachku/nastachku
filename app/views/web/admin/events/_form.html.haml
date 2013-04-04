@@ -1,7 +1,11 @@
 = simple_form_for [:admin, @event], html: { class: 'form-horizontal' } do |f|
 
-  = f.input :title, input_html: { class: 'span7' }
   = f.input :state_event, as: :state_event, input_html: { class: 'span7' }
+  = f.input :title, input_html: { class: 'span7' }
+  = f.input :description, input_html: { class: 'span7' }
+  = f.input :color, input_html: { class: 'span7' }
+  = f.association :users, as: :chosen_select, input_html: { multiple: true, class: 'span5 span-nomargin' }
+  = f.input :show_voting, input_html: { class: 'checkbox' }
 
   .form-actions
     = f.submit class: 'btn btn-primary'

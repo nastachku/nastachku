@@ -3,5 +3,7 @@
 FactoryGirl.define do
   factory :event do
     title
+    description
+    color
   end
 end
