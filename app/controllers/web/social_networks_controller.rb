@@ -4,7 +4,14 @@ class Web::SocialNetworksController < Web::ApplicationController
 
     authorization = Authorization.find_by_provider_and_uid(auth_hash[:provider], auth_hash[:uid])
 
-    if authorization && !authorization.user.inactive?
+    if authorization
+
+      if authorization.user.inactive?
+        flash_error
+        redirect_to root_path
+        return
+      end
+
       sign_in authorization.user
       flash_success
     else
