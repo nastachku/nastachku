@@ -4,7 +4,7 @@ class Web::SocialNetworksController < Web::ApplicationController
 
     authorization = Authorization.find_by_provider_and_uid(auth_hash[:provider], auth_hash[:uid])
 
-    if authorization
+    if authorization && !authorization.user.inactive?
       sign_in authorization.user
       flash_success
     else
@@ -18,7 +18,7 @@ class Web::SocialNetworksController < Web::ApplicationController
         
       user.authorizations << build_authorization(auth_hash)
 
-      if user.save
+      if !user.inactive? && user.save
         user.activate
         sign_in user
         flash_success
