@@ -1,8 +1,0 @@
-= simple_form_for @break, url: [:admin, @break], html: { class: 'form-horizontal' } do |f|
-
-  = f.input :title, input_html: { class: 'span6' }
-  = f.association :workshop, as: :chosen_select, input_html: { class: 'span6' }
-
-  .form-actions
-    = f.submit class: 'btn btn-primary'
-    = link_to t('.cancel'), admin_events_path, :class => 'btn'

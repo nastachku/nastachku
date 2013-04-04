@@ -12,6 +12,7 @@ class Web::Admin::EventsController < Web::Admin::ApplicationController
 
   def create
     @event = ::Admin::EventEditType.new params[:event]
+    @event.event_votings_count = 0
     @event.changed_by = current_user
     if @event.save
       flash_success
@@ -31,7 +32,7 @@ class Web::Admin::EventsController < Web::Admin::ApplicationController
     @event.changed_by = current_user
     if @event.update_attributes params[:event]
       flash_success
-      redirect_to admin_events_path
+      redirect_to edit_admin_event_path
     else
       flash_error
       render :edit

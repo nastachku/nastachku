@@ -214,6 +214,14 @@ ru:
         unvote: "Не пойду"
         they_going: 'Пойдут'
 
+      event:
+        i_am_going: "Пойти"
+        i_am_not_going: 'Передумал идти'
+        pending: 'Ждём...'
+        you_are_voted: 'Вы пойдете'
+        unvote: "Не пойду"
+        they_going: 'Пойдут'
+
     admin:
       welcome:
         index:

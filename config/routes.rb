@@ -14,7 +14,6 @@ Nastachku::Application.routes.draw do
   namespace :api do
     resources :companies
     resources :cities
-    resources :events, only: [:index]
     resources :halls, only: [] do
       put :sort, on: :collection
     end
@@ -25,6 +24,13 @@ Nastachku::Application.routes.draw do
         resource :listener_votings, only: [:create, :destroy]
       end
     end
+
+    resources :events, only: [:index] do
+      scope module: :events do
+        resource :event_votings, only: [:create, :destroy]
+      end
+    end
+
   end
 
   scope :module => :web do
