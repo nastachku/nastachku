@@ -79,7 +79,7 @@
           = slot.event.user.full_name
       - else
         %a.author{data: {toggle: 'modal'}, href: "##{dom_id(slot)}__author_info", role: "button"}
-        = slot.event.user.full_name
+          = slot.event.user.full_name
     - else
       .author= slot.event.user.full_name
     - if slot.event.user.company?
