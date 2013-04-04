@@ -1,7 +1,7 @@
 .clearfix
 .sponsors
   .border
-  .left-column
+  .left-column.column
     %h4 Организаторы
 
     %a{:href => "#", :target => "_blank"}
@@ -79,7 +79,7 @@
         %a{:href => "http://ulv.rabota.ru/", :target => "_blank"}
           %img{:src => "/images/logo-rabotaru.png", :width => 164, :height => 30, :alt => "RabotaRU"}
 
-  .right-column
+  .right-column.column
     %h4 Генеральный спонсор
     .star-sponsors
       .item
@@ -140,6 +140,9 @@
       .item
         %a{:href => "http://netcat.ru/", :target => "_blank"}
           %img{:src => "/images/logo-netcat.png", :width => 180, :height => 40, :alt => "Netcat"}
+      .item
+        %a{:href => "http://about.tagline.ru/", :target => "_blank"}
+          %img{:src => "/images/logo-tagline.png", :width => 180, :height => 87, :alt => "Tagline"}
 
     .legend
       %i.sponsor-star.red
