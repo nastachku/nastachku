@@ -33,6 +33,7 @@
       %th= sort_link(@search, :email)
       %th= sort_link(@search, :city)
       %th= sort_link(@search, :state)
+      %th= sort_link(@search, :timepad_state)
       %th= sort_link(@search, :role)
       %th= sort_link(@search, :created_at)
       %th= t(".actions")
@@ -45,6 +46,7 @@
         %td= user.email
         %td= user.city
         %td= user.state
+        %td= user.timepad_state
         %td= user.role
         %td= l user.created_at
         %td
