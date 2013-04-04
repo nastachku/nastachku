@@ -4,7 +4,7 @@
     %h3{id: "#{dom_id(slot)}myModalLabel"}
       = slot.event.title
   .modal-body
-    %p= nl2br(slot.event.description)
+    %p= slot.event.description
 
 
 .modal.hide.fade{id: "#{dom_id(slot)}__author_info", "aria-hidden" => "true", "aria-labelledby" => "#{dom_id(slot)}myModalLabel__author_info", :role => "dialog", :tabindex => "-1"}
