@@ -27,6 +27,6 @@ every 4.hours do
   bundle_command "backup perform -t nastachku_#{environment} -c config/backup.rb --root_path ."
 end
 
-every 4.hours do
+every 1.hours do
   rake "app:timepad_user_synchronization"
 end
