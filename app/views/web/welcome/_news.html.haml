@@ -4,13 +4,12 @@
     %h4 Что нового?
     .blog
       .posts
-        - cache(:action_suffix => 'welcome_news', :expires_in => configus.cache.expires_in) do
-          - @news.each do |news|
-            .entry
-              .meta
-                %i.icon-calendar
-                = l news.created_at
-              %p= raw markdown news.body
+        - @news.each do |news|
+          .entry
+            .meta
+              %i.icon-calendar
+              = l news.created_at
+            %p= raw markdown news.body
 
   .span4.social-widget
     = render "web/news/facebook_widget"
