@@ -1,30 +1,50 @@
-.modal.hide.fade{id: dom_id(slot), "aria-hidden" => "true", "aria-labelledby" => "#{dom_id(slot)}myModalLabel", :role => "dialog", :tabindex => "-1"}
-  .modal-header
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-    %h3{id: "#{dom_id(slot)}myModalLabel"}
-      = slot.event.title
-  .modal-body
-    %p= nl2br(slot.event.thesises)
-    %p.right
-      %big
+- if is_mobile_request?
+  .modal.hide.fade{id: dom_id(slot), "aria-hidden" => "true", "aria-labelledby" => "#{dom_id(slot)}myModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+      %h3{id: "#{dom_id(slot)}myModalLabel__author_info"}
         = slot.event.user.full_name
-        %br
-        - if slot.event.user.company?
-          = surround '(', ')' do
-            = slot.event.user.company
+    .modal-body
+      .userinfo
+        - if slot.event.user.photo?
+          .pull-left.userpic
+            = image_tag(slot.event.user.photo.url)
+        %p.userabout= slot.event.user.about
+        .clearfix
+    .modal-header
+      %h3{id: "#{dom_id(slot)}myModalLabel"}
+        = slot.event.title
+    .modal-body
+      %p= nl2br(slot.event.thesises)
 
-.modal.hide.fade{id: "#{dom_id(slot)}__author_info", "aria-hidden" => "true", "aria-labelledby" => "#{dom_id(slot)}myModalLabel__author_info", :role => "dialog", :tabindex => "-1"}
-  .modal-header
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-    %h3{id: "#{dom_id(slot)}myModalLabel__author_info"}
-      = slot.event.user.full_name
-  .modal-body
-    .userinfo
-      - if slot.event.user.photo?
-        .pull-left.userpic
-          = image_tag(slot.event.user.photo.url)
-      %p.userabout= slot.event.user.about
-      .clearfix
+- else
+  .modal.hide.fade{id: dom_id(slot), "aria-hidden" => "true", "aria-labelledby" => "#{dom_id(slot)}myModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+      %h3{id: "#{dom_id(slot)}myModalLabel"}
+        = slot.event.title
+    .modal-body
+      %p= nl2br(slot.event.thesises)
+      %p.right
+        %big
+          = slot.event.user.full_name
+          %br
+          - if slot.event.user.company?
+            = surround '(', ')' do
+              = slot.event.user.company
+
+  .modal.hide.fade{id: "#{dom_id(slot)}__author_info", "aria-hidden" => "true", "aria-labelledby" => "#{dom_id(slot)}myModalLabel__author_info", :role => "dialog", :tabindex => "-1"}
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+      %h3{id: "#{dom_id(slot)}myModalLabel__author_info"}
+        = slot.event.user.full_name
+    .modal-body
+      .userinfo
+        - if slot.event.user.photo?
+          .pull-left.userpic
+            = image_tag(slot.event.user.photo.url)
+        %p.userabout= slot.event.user.about
+        .clearfix
 
 .event{ class: "area-#{index} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}", style: "background-color: #{slot.event.workshop.try(:color)}"}
   %span.summary
@@ -54,8 +74,12 @@
     %a.caption{data: {toggle: 'modal'}, href: "##{dom_id(slot)}", role: "button"}
       = slot.event.title
     - if slot.event.user.about?
-      %a.author{data: {toggle: 'modal'}, href: "##{dom_id(slot)}__author_info", role: "button"}
-        = slot.event.user.full_name
+      - if is_mobile_request?
+        %a.author{data: {toggle: 'modal'}, href: "##{dom_id(slot)}", role: "button"}
+          = slot.event.user.full_name
+      - else
+        %a.author{data: {toggle: 'modal'}, href: "##{dom_id(slot)}__author_info", role: "button"}
+          = slot.event.user.full_name
     - else
       .author= slot.event.user.full_name
     - if slot.event.user.company?
