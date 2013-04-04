@@ -1,13 +1,16 @@
 class MoveBreaksToEvents < ActiveRecord::Migration
   def up
-    Event::Break.transaction do
-      Event::Break.find_each do |event_break|
-        event = Event.new do |e|
-          e.title = event_break.title
+    if defined?(Event::Break)
+      Event::Break.transaction do
+        Event::Break.find_each do |event_break|
+          event = Event.new do |e|
+            e.title = event_break.title
+          end
+          event.save!
         end
-        event.save!
       end
     end
+
   end
 
   def down
