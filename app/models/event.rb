@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   include EventRepository
 
-  attr_accessible :title, :state_event, :state, :description, :color, :user_ids, :event_votings_count,
+  attr_accessible :title, :state_event, :description, :color, :user_ids, :event_votings_count,
     :show_voting
 
   validates :title, presence: true
