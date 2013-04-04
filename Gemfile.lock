@@ -171,6 +171,8 @@ GEM
     mini_magick (3.5.0)
       subexec (~> 0.2.1)
     minitest (4.3.3)
+    mobylette (3.3.2)
+      actionpack (>= 3.0)
     mocha (0.13.3)
       metaclass (~> 0.0.1)
     modernizr-rails (2.6.2)
@@ -368,6 +370,7 @@ DEPENDENCIES
   less-rails
   mini_magick
   minitest
+  mobylette
   mocha
   modernizr-rails
   multi_json (~> 1.3.0)

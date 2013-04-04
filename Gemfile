@@ -45,6 +45,7 @@ gem 'platidoma', '>= 0.0.4'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'mobylette'
 
 
 # Gems used only for assets and not required
