@@ -2,7 +2,7 @@
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
     %h3{id: "#{dom_id(slot)}myModalLabel"}
-      = slot.event.user.full_name
+      = slot.event.title
   .modal-body
     %p= nl2br(slot.event.thesises)
 
