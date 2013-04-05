@@ -20,6 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 job_type :bundle_command, "cd :path && RAILS_ENV=#{environment} bundle exec :task"
+job_type :rake, "cd :path && RAILS_ENV=#{environment} rake :task"
 
 set :path, "/u/apps/nastachku/current"
 
