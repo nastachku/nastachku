@@ -322,6 +322,20 @@ $i : $min_speech_time;
   .modal-body {
     background-color: #d4724b;
     color: #fff;
+    &.parent {
+      padding: 0;
+      .userinfo {
+        padding: 15px;
+      }
+      .child-content {
+        padding: 15px;
+      }
+    }
+  }
+}
+@media (max-width: 400px) {
+  .modal-body {
+    max-height: 300px;
   }
 }
 
@@ -341,6 +355,7 @@ $i : $min_speech_time;
       font-size: 36px;
       padding-left: 0 !important;
       text-decoration: underline;
+      line-height: 100% !important;
       &:hover {
         background: none !important;
         border: none !important;
