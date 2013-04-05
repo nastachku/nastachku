@@ -47,12 +47,15 @@
 // Schedule legend
 .schedule-legend {
   margin-bottom: 40px;
+  .row {
+    margin-left: 0;
+  }
   .item {
     display: inline-block;
     vertical-align: top;
     float: none;
     margin-left: 0;
-    margin-right: 20px;
+    margin-right: 16px;
     &:nth-child(3n) {
       margin-right: 0;
     }
