@@ -48,7 +48,7 @@
 
       = render 'timeline', start_hour: 11, end_hour: 19
 
-      .timepad
+      .timepad.timepad-offsetable
         - @halls.each_with_index do |hall, i|
           .area-container{ class: "area-#{i + 1}-container" }
             .area-name #{hall}

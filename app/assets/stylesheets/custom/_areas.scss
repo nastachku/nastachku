@@ -239,6 +239,9 @@
   .event.start-#{$i} {
     top: $b_height * 60 * ($i - $hour_start);
   }
+  .timepad-offsetable .event.start-#{$i} {
+    top: $b_height * 60 * ($i - $hour_start - 1);
+  }
 }
 
 $start_offset : 1;
