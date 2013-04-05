@@ -10,15 +10,15 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
 //= require modernizr
+//= require jquery
+//= require jquery.ui.all
 //= require jquery_ujs
 //= require twitter/bootstrap
 //
 //= require cocoon
 //= require jquery.hammer.min.js
 //
-//= require jquery.ui.all
 //= require ckeditor/init
 //= require js-routes
 //

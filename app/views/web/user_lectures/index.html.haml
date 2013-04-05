@@ -45,7 +45,8 @@
                     %span.btn.btn-state.btn-unvote= t('.already_voted')
                     %span.btn.btn-state.btn-unvote-hover= t('.unvote')
                 -else
-                  %span.btn.btn-no-clickable= t('.they_voted')
+                  %span.btn.btn-no-clickable.vote-tooltip{title: "#{t('.auth_for_vote')}", data: {toggle: 'tooltip'}}
+                    = t('.they_voted')
 
                 %span.btn.votings-count.btn-no-clickable
                   = lecture.lecture_votings.size
