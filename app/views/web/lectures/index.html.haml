@@ -18,21 +18,8 @@
               - if lecture.user.photo.url
                 = image_tag(lecture.user.photo.url)
 
-            %a{ :href => "https://twitter.com/share?text=#{t(".twitter_i_am_going")} '#{lecture.title.truncate(90)}'&lang=ru&hashtags=nastachku", :target => "_blank" }
-              %i.ficon-twitter-bird
-
-              -# .buttons-group.lectures
-              -#   - if signed_in?
-              -#     = link_to api_lecture_listener_votings_path(lecture), class: (lecture.listener_votings.voted_by?(current_user)) ?  "vote-link action-unvote" : "vote-link action-vote", remote: true, method: (lecture.listener_votings.voted_by?(current_user)) ? "delete" : "post" do
-              -#       %span.btn.btn-state.btn-vote.btn-shine= t('.i_am_going')
-              -#       %span.btn.btn-state.btn-vote-hover.btn-shine= t('.i_am_going')
-              -#       %span.btn.btn-state.btn-pending.btn-no-clickable= t('.pending')
-              -#       %span.btn.btn-state.btn-unvote= t('.you_are_voted')
-              -#       %span.btn.btn-state.btn-unvote-hover= t('.unvote')
-              -#   -else
-              -#     %span.btn.btn-no-clickable= t('.they_going')
-              -#   %span.btn.votings-count.btn-no-clickable
-              -#     = lecture.listener_votings.size
+            %a.twitter-share-button{href: "https://twitter.com/share", data: {lang: "ru", text: "#{t(".twitter_i_am_going")} '#{lecture.title.truncate(90)}'", count: 'none', hashtags: 'nastachku'}}
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
         .span8
           %h4= lecture.title
