@@ -6,11 +6,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :first_name, :last_name, :city, :company, :position,
     :show_as_participant, :photo, :state_event, :about, :carousel_info, :in_carousel,
-<<<<<<< HEAD
-    :lectures_attributes, :twitter_name, :invisible_lector, :not_going_to_conference
-=======
-    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event
->>>>>>> add sync with timepad
+    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :not_going_to_conference
 
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
