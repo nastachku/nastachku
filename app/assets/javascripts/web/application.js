@@ -10,14 +10,20 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//#= require jquery
-//#= require jquery_ujs
-//#= require twitter/bootstrap
+//= require modernizr
+//= require jquery
+//= require jquery.ui.all
+//= require jquery_ujs
+//= require twitter/bootstrap
+//
 //= require cocoon
 //= require jquery.hammer.min.js
-//= require_tree .
-//= require jquery.ui.all
+//
 //= require ckeditor/init
 //= require js-routes
-//= require_tree ./mania-js
-//= require modernizr
+//
+//= require mania-js/cycle
+//= require mania-js/jquery.cslider
+//= require mania-js/custom
+//
+//= require_tree .

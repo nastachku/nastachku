@@ -8,8 +8,12 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require  ../../../vendor/assets/stylesheets/mania-style/bootstrap.css
- *= require_directory ../../../vendor/assets/stylesheets/mania-style
+ *= require mania-style/font-awesome
+ *= require mania-style/bootstrap
+ *= require mania-style/bootstrap-responsive
+ *= require mania-style/orange
+ *= require mania-style/style
+ *= require mania-style/slider
  *= require jquery.ui.datepicker
- *= require screen.css.scss
+ *= require ./screen.css.scss
  */

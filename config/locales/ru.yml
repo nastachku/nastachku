@@ -183,6 +183,7 @@ ru:
         user_lectures_title_after_link: 'и выступите на конференции.'
         not_added_yet: 'Пока не добавлено ни одного доклада. Вы можете'
         first_speaker: 'стать первым докладчиком.'
+        auth_for_vote: 'Авторизуйтесь, чтобы проголосовать'
 
     lectures:
       index:
@@ -215,6 +216,7 @@ ru:
         you_are_voted: 'Вы пойдете'
         unvote: "Не пойду"
         they_going: 'Пойдут'
+        auth_for_vote: 'Авторизуйтесь, чтобы проголосовать'
 
       event:
         i_am_going: "Пойти"
@@ -223,6 +225,7 @@ ru:
         you_are_voted: 'Вы пойдете'
         unvote: "Не пойду"
         they_going: 'Пойдут'
+        auth_for_vote: 'Авторизуйтесь, чтобы проголосовать'
 
     admin:
       welcome:
