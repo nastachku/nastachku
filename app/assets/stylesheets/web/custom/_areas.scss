@@ -165,7 +165,6 @@
     .buttons-group {
       display: inline-block;
       margin-bottom: 6px;
-      margin-left: 16px;
     }
     .btn {
       padding: 0 6px;
@@ -302,6 +301,9 @@ $i : $min_speech_time;
       .author {
         line-height: 12px;
       }
+      .vote-tooltip {
+        margin-left: 0;
+      }
       &:hover {
         .caption {
           text-decoration: none;
@@ -372,4 +374,9 @@ $i : $min_speech_time;
       }
     }
   }
+}
+
+// Tooltips
+.vote-tooltip {
+  margin-left: 16px;
 }

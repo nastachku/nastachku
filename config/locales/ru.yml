@@ -216,6 +216,7 @@ ru:
         you_are_voted: 'Вы пойдете'
         unvote: "Не пойду"
         they_going: 'Пойдут'
+        auth_for_vote: 'Авторизуйтесь, чтобы проголосовать'
 
       event:
         i_am_going: "Пойти"
