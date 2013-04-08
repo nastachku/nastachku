@@ -194,6 +194,7 @@ ru:
         unvote: "Не пойду"
         they_going: 'Пойдут'
         events: 'Доклады'
+        twitter_i_am_going: 'Я иду на доклад'
     lectors:
       index:
         lectors: 'Докладчики'
