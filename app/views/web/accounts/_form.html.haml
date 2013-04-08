@@ -37,6 +37,7 @@
                     = link_to t(".unlink_twitter"), unlink_twitter_account_social_networks_path, method: :put
 
           = f.input :show_as_participant, :wrapper => :inline_checkbox
+          = f.input :not_going_to_conference, :wrapper => :inline_checkbox
         = f.button :submit, :value => t('.save'), :class => 'btn btn-shine'
 
 

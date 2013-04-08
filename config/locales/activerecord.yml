@@ -56,6 +56,7 @@ ru:
         topics: 'Топики'
         invisible_lector: "Скрыть из списка докладчиков"
         created_at: "Время создания"
+        not_going_to_conference: "Я не пойду на Стачку"
 
       topic:
         title: 'Название'
