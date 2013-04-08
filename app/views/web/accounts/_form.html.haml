@@ -33,7 +33,7 @@
                 - else
                   = link_to twitter_account_curl(@user.twitter_name), target: "_blank" do
                     = @user.twitter_name
-                  = succeed '(',')' do
+                  = surround '(', ')' do
                     = link_to t(".unlink_twitter"), unlink_twitter_account_social_networks_path, method: :put
 
           = f.input :show_as_participant, :wrapper => :inline_checkbox
