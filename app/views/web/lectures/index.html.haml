@@ -17,6 +17,10 @@
             .pic
               - if lecture.user.photo.url
                 = image_tag(lecture.user.photo.url)
+
+            %a{ :href => "https://twitter.com/share?text=#{t(".twitter_i_am_going")} '#{lecture.title.truncate(90)}'&lang=ru&hashtags=nastachku", :target => "_blank" }
+              %i.ficon-twitter-bird
+
               -# .buttons-group.lectures
               -#   - if signed_in?
               -#     = link_to api_lecture_listener_votings_path(lecture), class: (lecture.listener_votings.voted_by?(current_user)) ?  "vote-link action-unvote" : "vote-link action-vote", remote: true, method: (lecture.listener_votings.voted_by?(current_user)) ? "delete" : "post" do
@@ -29,6 +33,7 @@
               -#     %span.btn.btn-no-clickable= t('.they_going')
               -#   %span.btn.votings-count.btn-no-clickable
               -#     = lecture.listener_votings.size
+
         .span8
           %h4= lecture.title
           %p.ainfo= nl2br lecture.thesises
