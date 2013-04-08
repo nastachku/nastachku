@@ -82,4 +82,5 @@ group :development do
   gem 'capistrano_colors'
   gem 'capi'
   gem 'capistrano-unicorn', require: false
+  gem 'capistrano-maintenance'
 end
