@@ -6,16 +6,21 @@
 %table.table-participants.table-participants-header
   %thead
     %tr
-      %th{:width => "30%"}= sort_clink(@search, :last_name, User.human_attribute_name(:first_name))
+      %th{:width => "20%"}= sort_clink(@search, :last_name, User.human_attribute_name(:first_name))
+      %th{:width => "20%"}= sort_clink(@search, :twitter_name, User.human_attribute_name(:twitter_name))
       %th{:width => "20%"}= sort_clink(@search, :city, User.human_attribute_name(:city))
-      %th{:width => "25%"}= sort_clink(@search, :company, User.human_attribute_name(:company))
-      %th{:width => "25%"}= sort_clink(@search, :position, User.human_attribute_name(:position))
+      %th{:width => "20%"}= sort_clink(@search, :company, User.human_attribute_name(:company))
+      %th{:width => "20%"}= sort_clink(@search, :position, User.human_attribute_name(:position))
 
 %table.table-participants
   %tbody
     - @users.each do |user|
       %tr
-        %td{:width => "30%"}= user
+        %td{:width => "20%"}= user
+        %td{:width => "20%"}
+          - if user.twitter_name?
+            = link_to twitter_account_curl(user.twitter_name), target: "_blank" do
+              @#{user.twitter_name}
         %td{:width => "20%"}= user.city.mb_chars.capitalize if user.city
-        %td{:width => "25%"}= user.company
-        %td{:width => "25%"}= user.position
+        %td{:width => "20%"}= user.company
+        %td{:width => "20%"}= user.position
