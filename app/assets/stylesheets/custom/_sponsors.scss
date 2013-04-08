@@ -125,6 +125,10 @@
 
 @media (max-width: 960px) {
   .sponsors {
+    .column {
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
     .left-column {
       width: 100%;
       float: none;
