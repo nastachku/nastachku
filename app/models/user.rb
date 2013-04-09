@@ -56,11 +56,11 @@ class User < ActiveRecord::Base
     state :failed
 
     event :synchronize do
-      transition [:new, :failed] => :synchronized
+      transition [:unsynchronized, :failed] => :synchronized
     end
 
     event :failure do
-      transition [:new] => :failed
+      transition [:unsynchronized] => :failed
     end
   end
 
