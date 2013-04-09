@@ -6,6 +6,10 @@ Configus.build Rails.env do
 
   env :production do
 
+    rails do
+      secret_token credentials_hash["production"]["rails"]["secret_token"]
+    end
+
     pagination do
       admin_per_page 50
       audits_per_page 20
@@ -66,6 +70,11 @@ Configus.build Rails.env do
   end
 
   env :development, parent: :production do
+
+    rails do
+      secret_token credentials_hash["development"]["rails"]["secret_token"]
+    end
+
     admin do
       email "admin@np.kaize.ru"
       password "123456"
@@ -108,6 +117,11 @@ Configus.build Rails.env do
   end
 
   env :staging, parent: :production do
+
+    rails do
+      secret_token credentials_hash["staging"]["rails"]["secret_token"]
+    end
+
     admin do
       email "admin@np.kaize.ru"
       password "123456"
@@ -140,7 +154,7 @@ Configus.build Rails.env do
       maillist_id credentials_hash["staging"]["timepad"]["maillist_id"]
       api_key credentials_hash["staging"]["timepad"]["api_key"]
     end
-    
+
   end
 
 end

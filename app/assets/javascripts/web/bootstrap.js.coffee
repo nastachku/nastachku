@@ -8,7 +8,6 @@ jQuery ->
     source: Routes.api_cities_path()
     minLength: 2
 
-#  $("a[rel=popover]").popover()
-#  $(".tooltip").tooltip()
-#  $("a[rel=tooltip]").tooltip()
-
+  $(".vote-tooltip").tooltip
+    trigger: 'click'
+    placement: 'bottom'

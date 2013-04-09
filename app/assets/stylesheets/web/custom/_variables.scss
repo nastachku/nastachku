@@ -21,7 +21,7 @@ $tp_width : $tt_width - $tl_width; // timepad column width
 $areas_count : 6; // Number of rooms
 $area_width : $tp_width / $areas_count;
 
-$b_height : 2px; // height of 1-minute block
+$b_height : 3px; // height of 1-minute block
 $timing_step: 15; // step for drawing timeline (min)
 $td_color : #ccc; // Time delimiters color
 $hour_start : 10; // Event begin at

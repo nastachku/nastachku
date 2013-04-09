@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :first_name, :last_name, :city, :company, :position,
     :show_as_participant, :photo, :state_event, :about, :carousel_info, :in_carousel,
-    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event
+    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :not_going_to_conference
 
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
@@ -50,17 +50,17 @@ class User < ActiveRecord::Base
     end
   end
 
-  state_machine :timepad_state, initial: :new do
-    state :new
+  state_machine :timepad_state, initial: :unsynchronized do
+    state :unsynchronized
     state :synchronized
     state :failed
 
     event :synchronize do
-      transition [:new, :failed] => :synchronized
+      transition [:unsynchronized, :failed] => :synchronized
     end
 
     event :failure do
-      transition [:new] => :failed
+      transition [:unsynchronized] => :failed
     end
   end
 

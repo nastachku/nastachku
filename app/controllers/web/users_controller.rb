@@ -37,13 +37,17 @@ class Web::UsersController < Web::ApplicationController
       
       if registration_by_soc_network?
         @user.authorizations << build_authorization(session_auth_hash)
+        @user.activate
         clear_session_auth_hash
+        sign_in @user
+        redirect_to root_path
+      else
+        token = @user.create_auth_token
+        UserMailer.confirm_registration(@user, token).deliver
+        flash_success
+        redirect_to new_session_path
       end
 
-      token = @user.create_auth_token
-      UserMailer.confirm_registration(@user, token).deliver
-      flash_success
-      redirect_to new_session_path
     else
       flash_error
       render action: "new"

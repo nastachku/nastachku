@@ -77,17 +77,16 @@
 
   .userpic {
     margin-right: 15px;
-    margin-bottom: 30px;
     img {
       width: 128px;
       height: 128px;
     }
   }
   .userinfo {
+    margin-bottom: 35px;
     p {
       position: relative;
       top: -10px;
-      margin-left: 143px;
     }
     .user-full-name {
       margin-top: -10px;
@@ -165,7 +164,6 @@
     .buttons-group {
       display: inline-block;
       margin-bottom: 6px;
-      margin-left: 2px;
     }
     .btn {
       padding: 0 6px;
@@ -282,6 +280,9 @@ $i : $min_speech_time;
       margin-bottom: 10px;
       width: 100% !important;
       cursor: default;
+      .buttons-group {
+        margin-left: 2px;
+      }
       .time .end-time,
       .summary,
       .caption,
@@ -298,6 +299,9 @@ $i : $min_speech_time;
       }
       .author {
         line-height: 12px;
+      }
+      .vote-tooltip {
+        margin-left: 0;
       }
       &:hover {
         .caption {
@@ -369,4 +373,9 @@ $i : $min_speech_time;
       }
     }
   }
+}
+
+// Tooltips
+.vote-tooltip {
+  margin-left: 16px;
 }

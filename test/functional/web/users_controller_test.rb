@@ -35,7 +35,7 @@ class Web::UsersControllerTest < ActionController::TestCase
     assert user
   end
 
-  test "should create user by social network" do
+  test "should create/activate/sign in user by social network" do
     attrs = attributes_for :user
     attrs[:password_confirmation] = attrs[:password]
     attrs[:process_personal_data] = "1"
@@ -50,6 +50,8 @@ class Web::UsersControllerTest < ActionController::TestCase
     user = User.find_by_email(attrs[:email])
     assert user
     assert user.authorizations
+    assert user.active?
+    assert signed_in?
   end
 
 end
