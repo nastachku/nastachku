@@ -149,7 +149,7 @@
     top: 0;
     color: #333 !important;
     @include box-sizing(border-box);
-    padding: 6px 3px;
+    padding: 6px;
     font-size: 12px;
     font-family: Arial;
     line-height: 18px;
@@ -161,14 +161,6 @@
     .summary {
       display: block;
     }
-    .buttons-group {
-      display: inline-block;
-      margin-bottom: 6px;
-    }
-    .btn {
-      padding: 0 6px;
-      font-size: 11px;
-    }
     .time {
       font-weight: bold;
       display: inline;
@@ -179,8 +171,8 @@
     .caption {
       overflow: hidden;
       text-overflow: ellipsis;
-      display: inline-block;
-      padding: 0 3px;
+      display: inline;
+      padding: 0 6px;
       color: #000 !important;
       padding-bottom: 4px;
     }

@@ -40,6 +40,8 @@ $(document).ready ->
   $('.event').mouseenter ->
     heightSummary = $(this).find('.summary').outerHeight() + parseInt($(this).css('paddingTop'))
     heightEvent = $(this).outerHeight()
+    console.log heightSummary
+    console.log heightEvent
     if heightSummary > heightEvent
       $(this).addClass('expand')
   .mouseleave ->
