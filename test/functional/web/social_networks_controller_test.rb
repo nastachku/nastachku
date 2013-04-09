@@ -21,6 +21,18 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     assert_equal current_user, @user
   end
 
+  test "should fail authorization with facebook" do
+    @user.deactivate
+    @user.authorizations << build_authorization(@auth_hash)
+    @user.save
+
+    request.env['omniauth.auth'] = @auth_hash
+    get :facebook
+
+    assert_response :redirect
+    assert !signed_in?
+  end
+
   test "should get authorization with facebook on existing user" do
     @user.email = @auth_hash[:info][:email] 
     @user.save
@@ -42,6 +54,20 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     assert_response :redirect
     assert session_auth_hash
   end
+
+  test "should fail authorization with facebook on inactive user" do
+    @user.email = @auth_hash[:info][:email]
+    @user.deactivate
+
+    request.env['omniauth.auth'] = @auth_hash
+    get :facebook
+
+    assert_response :redirect
+    @user.reload
+    assert @user.inactive?
+    assert !signed_in?
+  end
+
 
   test "should get save auth_hash to session " do
     @user.activate
