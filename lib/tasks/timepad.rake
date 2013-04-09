@@ -1,4 +1,4 @@
-require 'timepad_synchronization'
+require 'timepad'
 
 namespace :app do
 
