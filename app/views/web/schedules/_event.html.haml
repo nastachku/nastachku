@@ -1,10 +1,11 @@
-.modal.hide.fade{id: dom_id(slot), "aria-hidden" => "true", "aria-labelledby" => "#{dom_id(slot)}myModalLabel", :role => "dialog", :tabindex => "-1"}
-  .modal-header
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-    %h3{id: "#{dom_id(slot)}myModalLabel"}
-      = slot.event.title
-  .modal-body
-    %p= slot.event.description
+- if slot.event.description?
+  .modal.hide.fade{id: dom_id(slot), "aria-hidden" => "true", "aria-labelledby" => "#{dom_id(slot)}myModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+      %h3{id: "#{dom_id(slot)}myModalLabel"}
+        = slot.event.title
+    .modal-body
+      %p= slot.event.description
 
 
 .modal.hide.fade{id: "#{dom_id(slot)}__author_info", "aria-hidden" => "true", "aria-labelledby" => "#{dom_id(slot)}myModalLabel__author_info", :role => "dialog", :tabindex => "-1"}
@@ -50,8 +51,13 @@
         %span.btn.votings-count.btn-no-clickable
           = slot.event.event_votings.size
 
-    %a.caption{data: {toggle: 'modal'}, href: "##{dom_id(slot)}", role: "button"}
-      = slot.event.title
+    - if slot.event.description?
+      %a.caption{data: {toggle: 'modal'}, href: "##{dom_id(slot)}", role: "button"}
+        = slot.event.title
+    - else
+      %span.caption
+        = slot.event.title
+
     %a.author{data: {toggle: 'modal'}, href: "##{dom_id(slot)}__author_info", role: "button"}
       - slot.event.users.each do |user|
         %span.round-table-user
