@@ -11,7 +11,7 @@ module UserRepository
     scope :alphabetically, -> { asc_by_last_name }
     scope :in_carousel, -> { where in_carousel: :true }
     scope :visible, -> { where invisible_lector: :false }
-    scope :nonsynchronized, -> { where timepad_state: [:new, :failed] }
+    scope :nonsynchronized, -> { where timepad_state: [:unsynchronized, :failed] }
 
 
     def self.companies_by_term(company = nil)

@@ -50,8 +50,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  state_machine :timepad_state, initial: :new do
-    state :new
+  state_machine :timepad_state, initial: :unsynchronized do
+    state :unsynchronized
     state :synchronized
     state :failed
 
