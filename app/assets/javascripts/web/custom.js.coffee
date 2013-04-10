@@ -1,3 +1,9 @@
+setModalHeight = ->
+  if Modernizr.mq('only screen and (max-width: 768px) and (orientation: landscape)')
+    $('.modal-body').css({maxHeight: 150+"px"})
+  if Modernizr.mq('only screen and (max-width: 768px) and (orientation: portrait)')
+    $('.modal-body').css({maxHeight: 300+"px"})
+
 window.onload = ->
   delay = (ms, func) -> setTimeout func, ms
   delay 4000, -> $('.alert').fadeOut('slow')
@@ -88,6 +94,10 @@ $(document).ready ->
   # Update hash based on tab, basically restores browser default behavior to fix bootstrap tabs
   $(document.body).on "click", "a[data-toggle=tab]", (event) ->
     location.hash = @getAttribute("href")
+
+  setModalHeight()
+  $(window).resize ->
+    setModalHeight()
 
 # on history back activate the tab of the location hash if exists or the default tab if no hash exists
 $(window).on "popstate", ->
