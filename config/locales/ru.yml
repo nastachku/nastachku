@@ -425,6 +425,12 @@ ru:
         form:
           cancel: 'Отменить'
 
+    errors:
+      banned:
+        banned: 'Ваш аккаунт заблокирован.'
+        info: 'Для возобновления работы аккаунта обратитесь в оргкомитет сайта info@nastachku.ru'
+        home: 'Перейти на домашнюю страницу'
+
   helpers:
     submit:
       session:

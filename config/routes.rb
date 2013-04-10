@@ -2,6 +2,7 @@ Nastachku::Application.routes.draw do
 
   match "/404", :to => "web/errors#not_found"
   match "/500", :to => "web/errors#internal_server_error"
+  match "/banned", :to => "web/errors#banned"
 
   root to: "web/welcome#index"
 
