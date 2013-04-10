@@ -21,15 +21,34 @@ window.onload = ->
     winWidth = $(window).width()
     if (winWidth > 760)
       curPos = $(window).scrollTop()
-      if curPos > affixTop and curPos < bottomLimit
-        $(".b-affix").addClass("top")
+      if Modernizr.touch
+        if curPos > affixTop and curPos < bottomLimit
+          $(".b-affix").css({
+            position: 'absolute',
+            top: curPos - affixTop + "px",
+            height: affixHeight + "px"
+          })
+        else
+          $(".b-affix").css({
+            position: 'static'
+          })
+        if curPos > bottomLimit
+          $(".b-affix").css({
+            position: 'absolute'
+          })
+          $(".b-affix").addClass("bottom")
+        else
+          $(".b-affix").removeClass("bottom")
       else
-        $(".b-affix").removeClass("top")
+        if curPos > affixTop and curPos < bottomLimit
+          $(".b-affix").addClass("top")
+        else
+          $(".b-affix").removeClass("top")
 
-      if curPos > bottomLimit
-        $(".b-affix").addClass("bottom")
-      else
-        $(".b-affix").removeClass("bottom")
+        if curPos > bottomLimit
+          $(".b-affix").addClass("bottom")
+        else
+          $(".b-affix").removeClass("bottom")
     else
       $(".b-affix").removeClass("bottom")
       $(".b-affix").removeClass("top")
