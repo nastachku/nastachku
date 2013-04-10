@@ -7,7 +7,7 @@ class Web::SocialNetworksController < Web::ApplicationController
     if authorization
 
       if authorization.user.inactive?
-        flash_error
+        flash_notice
         redirect_to root_path
         return
       end

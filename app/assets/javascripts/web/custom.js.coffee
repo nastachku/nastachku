@@ -1,3 +1,9 @@
+setModalHeight = ->
+  if Modernizr.mq('only screen and (max-width: 768px) and (orientation: landscape)')
+    $('.modal-body').css({maxHeight: 150+"px"})
+  if Modernizr.mq('only screen and (max-width: 768px) and (orientation: portrait)')
+    $('.modal-body').css({maxHeight: 300+"px"})
+
 window.onload = ->
   delay = (ms, func) -> setTimeout func, ms
   delay 4000, -> $('.alert').fadeOut('slow')
@@ -21,15 +27,34 @@ window.onload = ->
     winWidth = $(window).width()
     if (winWidth > 760)
       curPos = $(window).scrollTop()
-      if curPos > affixTop and curPos < bottomLimit
-        $(".b-affix").addClass("top")
+      if Modernizr.touch
+        if curPos > affixTop and curPos < bottomLimit
+          $(".b-affix").css({
+            position: 'absolute',
+            top: curPos - affixTop + "px",
+            height: affixHeight + "px"
+          })
+        else
+          $(".b-affix").css({
+            position: 'static'
+          })
+        if curPos > bottomLimit
+          $(".b-affix").css({
+            position: 'absolute'
+          })
+          $(".b-affix").addClass("bottom")
+        else
+          $(".b-affix").removeClass("bottom")
       else
-        $(".b-affix").removeClass("top")
+        if curPos > affixTop and curPos < bottomLimit
+          $(".b-affix").addClass("top")
+        else
+          $(".b-affix").removeClass("top")
 
-      if curPos > bottomLimit
-        $(".b-affix").addClass("bottom")
-      else
-        $(".b-affix").removeClass("bottom")
+        if curPos > bottomLimit
+          $(".b-affix").addClass("bottom")
+        else
+          $(".b-affix").removeClass("bottom")
     else
       $(".b-affix").removeClass("bottom")
       $(".b-affix").removeClass("top")
@@ -40,6 +65,8 @@ $(document).ready ->
   $('.event').mouseenter ->
     heightSummary = $(this).find('.summary').outerHeight() + parseInt($(this).css('paddingTop'))
     heightEvent = $(this).outerHeight()
+    console.log heightSummary
+    console.log heightEvent
     if heightSummary > heightEvent
       $(this).addClass('expand')
   .mouseleave ->
@@ -67,6 +94,10 @@ $(document).ready ->
   # Update hash based on tab, basically restores browser default behavior to fix bootstrap tabs
   $(document.body).on "click", "a[data-toggle=tab]", (event) ->
     location.hash = @getAttribute("href")
+
+  setModalHeight()
+  $(window).resize ->
+    setModalHeight()
 
 # on history back activate the tab of the location hash if exists or the default tab if no hash exists
 $(window).on "popstate", ->

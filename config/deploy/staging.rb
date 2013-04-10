@@ -1,4 +1,6 @@
 set :rails_env, "staging"
+set :unicorn_env, "staging"
+set :unicorn_pid, "#{shared_path}/pids/unicorn.pid"
 set :branch, 'staging'
 set :user, 'nastachku_staging'
 set :keep_releases, 5
