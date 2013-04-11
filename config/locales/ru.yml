@@ -229,6 +229,9 @@ ru:
         they_going: 'Пойдут'
         auth_for_vote: 'Авторизуйтесь, чтобы проголосовать'
 
+      show:
+        show_scheme: 'Схема залов'
+
     admin:
       welcome:
         index:

@@ -1,3 +1,12 @@
+.accordion#accordion2
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{href: "#collapseOne", data: {parent: "#accordion2", toggle: "collapse"}}
+        = t('.show_scheme')
+    #collapseOne.accordion-body.collapse
+      .accordion-inner
+        %img{src: "/images/areas-scheme.jpg", alt: "Scheme"}
+
 %h1 Программа
 
 = render 'legend'
