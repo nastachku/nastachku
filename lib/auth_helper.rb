@@ -60,4 +60,11 @@ module AuthHelper
     user.save(validate: false)
   end
 
+  def deny_banned_user!
+    if signed_in? && current_user.inactive?
+      sign_out
+      redirect_to banned_path
+    end
+  end
+
 end

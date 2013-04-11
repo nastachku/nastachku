@@ -8,4 +8,9 @@ class Web::ErrorsController < Web::ApplicationController
   def internal_server_error
     render :internal_server_error, :status => 500
   end
+
+  def banned
+    render :banned
+  end
+
 end

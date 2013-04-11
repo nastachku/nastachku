@@ -44,6 +44,26 @@
   background-color: $disabled;
 }
 
+// Scheme image
+.accordion-scheme {
+  font-size: 30px;
+  .accordion-group {
+    border: none;
+  }
+  .accordion-toggle {
+    margin-left: 0;
+    margin-right: 0;
+    text-decoration: underline;
+    &:hover {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  .accordion-inner {
+    border: none;
+  }
+}
+
 // Schedule legend
 .schedule-legend {
   margin-bottom: 40px;

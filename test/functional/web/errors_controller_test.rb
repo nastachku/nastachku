@@ -11,4 +11,9 @@ class Web::ErrorsControllerTest < ActionController::TestCase
     assert_response 500
   end
 
+  test "should get banned" do
+    get :banned
+    assert_response :success
+  end
+
 end
