@@ -2,8 +2,14 @@
   .span9.well
     = f.input :event_type, collection: Slot.event_type.options, include_blank: true, input_html: { class: 'span7 event-type-select span-nomargin' }
     = f.input :event_id, as: :events,  include_blank: true, input_html: { class: 'span7 event-id-select span-nomargin' }
-    = f.input :start_time, as: :date_time_picker, input_html: { class: 'span2 start_time' }
-    = f.input :finish_time, as: :date_time_picker, input_html: { class: 'span2 finish_time' }
-    .controls
-      .span7.span-nomargin
-        = link_to_remove_association t('.delete'), f, class: 'btn btn-danger pull-right'
+    .control-group
+      .control-label
+        = t('.time_from_till')
+      .controls
+        .row-fluid
+          .span4
+            = f.input_field :start_time, as: :date_time_picker, class: 'span8 start_time'
+          .span4
+            = f.input_field :finish_time, as: :date_time_picker, class: 'span8 finish_time'
+          .span4
+            = link_to_remove_association t('.delete'), f, class: 'btn btn-danger'

@@ -393,6 +393,7 @@ ru:
           cancel: 'Отменить'
         slot_fields:
           delete: 'Удалить таймслот'
+          time_from_till: 'Время «От» и «До»'
 
       event_breaks:
         new:
