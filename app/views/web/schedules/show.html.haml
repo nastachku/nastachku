@@ -93,6 +93,7 @@
       .timepad
         - @halls.each_with_index do |hall, i|
           .area-container{ class: "area-#{i + 1}-container" }
+            .area-name #{hall}
             - hall.slots.for_day(configus.schedule.second_day).asc_by_start_time.each do |slot|
               = render slot.event_type.underscore, slot: slot, index: i + 1
       .clearfix
