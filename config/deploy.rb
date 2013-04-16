@@ -78,4 +78,4 @@ after 'deploy:update_code', 'deploy:assets:precompile'
 after 'deploy:symlink_db', 'deploy:symlink_backup'
 after 'deploy:symlink_backup', 'deploy:symlink_credentials'
 after "deploy:update", "deploy:cleanup"
-after 'deploy:restart', 'unicorn:stop'
+after "deploy:restart", "unicorn:stop"
