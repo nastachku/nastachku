@@ -13,7 +13,6 @@ module UserRepository
     scope :visible, -> { where invisible_lector: :false }
     scope :nonsynchronized, -> { where timepad_state: [:unsynchronized, :failed] }
 
-
     def self.companies_by_term(company = nil)
       if company
         company = company.downcase

@@ -54,8 +54,8 @@ ru:
         admin: "Администратор"
         role: 'Роль'
         topics: 'Топики'
-        invisible_lector: "Скрыть из списка докладчиков"
         created_at: "Время создания"
+        invisible_lector: "Скрыть из списка докладчиков"
         not_going_to_conference: "Я не пойду на Стачку"
 
       topic:

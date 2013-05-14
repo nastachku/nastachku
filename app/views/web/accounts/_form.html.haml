@@ -45,6 +45,7 @@
       - if @user.lectures.empty?
         %p
           = t(".add_user_event_text")
+          = link_to t(".add_user_event"), new_account_lecture_path
       - else
         %p
           = t(".add_more_user_event_text")
@@ -61,9 +62,6 @@
 
             - @user.lectures.each do |lecture|
               = render 'web/account/lectures/edit', lecture: lecture
-
-      = link_to t(".add_user_event"), new_account_lecture_path
-
 
     .tab-pane#my_orders
 
