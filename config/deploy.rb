@@ -31,7 +31,7 @@ namespace :deploy do
   task :symlink_backup, roles: :app do
     run "ln -nfs #{shared_path}/config/backup.rb #{release_path}/config/backup.rb"
   end
-  
+
   desc "Seed database data"
   task :seed_data do
     run "cd #{current_path} && RAILS_ENV=#{rails_env} #{rake} db:seed"
@@ -41,17 +41,23 @@ namespace :deploy do
 
     desc "Local precompile assets and upload to server"
     task :precompile, roles: :app do
-      from = source.next_revision(current_revision)
-      if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ lib/assets/ app/assets/ | wc -l").to_i > 0
-        run_locally "RAILS_ENV=#{rails_env} #{rake} assets:clean && RAILS_ENV=#{rails_env} #{rake} assets:precompile"
-        run_locally "cd public && tar -jcf assets.tar.bz2 assets"
-        top.upload "public/assets.tar.bz2", "#{shared_path}", via: :scp
-        run "cd #{shared_path} && tar -jxf assets.tar.bz2 && rm assets.tar.bz2"
-        run_locally "rm public/assets.tar.bz2"
-        run_locally "#{rake} assets:clean"
-      else
-        logger.info "Skipping asset precompilation because there were no asset changes"
-      end
+      run_locally "RAILS_ENV=#{rails_env} #{rake} assets:clean && RAILS_ENV=#{rails_env} #{rake} assets:precompile"
+      run_locally "cd public && tar -jcf assets.tar.bz2 assets"
+      top.upload "public/assets.tar.bz2", "#{shared_path}", via: :scp
+      run "cd #{shared_path} && tar -jxf assets.tar.bz2 && rm assets.tar.bz2"
+      run_locally "rm public/assets.tar.bz2"
+      run_locally "#{rake} assets:clean"
+      #from = source.next_revision(current_revision)
+      #if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ lib/assets/ app/assets/ | wc -l").to_i > 0
+      #  run_locally "RAILS_ENV=#{rails_env} #{rake} assets:clean && RAILS_ENV=#{rails_env} #{rake} assets:precompile"
+      #  run_locally "cd public && tar -jcf assets.tar.bz2 assets"
+      #  top.upload "public/assets.tar.bz2", "#{shared_path}", via: :scp
+      #  run "cd #{shared_path} && tar -jxf assets.tar.bz2 && rm assets.tar.bz2"
+      #  run_locally "rm public/assets.tar.bz2"
+      #  run_locally "#{rake} assets:clean"
+      #else
+      #  logger.info "Skipping asset precompilation because there were no asset changes"
+      #end
     end
 
     desc "Symlink local precompile assets"
