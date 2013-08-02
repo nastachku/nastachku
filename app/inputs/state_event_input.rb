@@ -1,14 +1,12 @@
 class StateEventInput < SimpleForm::Inputs::CollectionSelectInput
   def collection
-    clean_attribute_name = attribute_name.to_s.gsub '_event', ''
-    transitions = "#{clean_attribute_name}_transitions"
     object.send(transitions)
   end
 
   def input
     label_method = :human_event
     value_method = :event
-    current_state = template.content_tag(:div, template.content_tag(:span, "Current state: #{object.human_state_name}", :class => "label label-info")  )
+    current_state = template.content_tag(:div, template.content_tag(:span, "Current state: #{object.send(human_name)}", :class => "label label-info")  )
 
     out = @builder.collection_select(
       attribute_name, collection, value_method, label_method,
@@ -17,7 +15,16 @@ class StateEventInput < SimpleForm::Inputs::CollectionSelectInput
     (out << current_state).html_safe
   end
 
-  def human_state_name
-    template.content_tag(:span, object.human_state_name, class: 'label pull-right')
+  private
+  def machine_name
+    attribute_name.to_s.gsub "_event", ""
+  end
+
+  def transitions
+    "#{machine_name}_transitions"
+  end
+
+  def human_name
+    "human_#{machine_name}_name"
   end
 end
