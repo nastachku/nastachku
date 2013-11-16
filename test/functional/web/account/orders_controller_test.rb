@@ -23,7 +23,7 @@ class Web::Account::OrdersControllerTest < ActionController::TestCase
       pd_trans_id: 1
     }
 
-    put :approve, params
+    post :approve, params
 
     assert_response :redirect
     @order.reload
@@ -38,7 +38,7 @@ class Web::Account::OrdersControllerTest < ActionController::TestCase
       pd_trans_id: 1
     }
 
-    put :cancel, params
+    post :cancel, params
 
     assert_response :redirect
     @order.reload
@@ -53,14 +53,14 @@ class Web::Account::OrdersControllerTest < ActionController::TestCase
       pd_trans_id: 1
     }
 
-    put :decline, params
+    post :decline, params
 
     assert_response :redirect
     @order.reload
     assert @order.declined?
   end
 
-  test "should post update" do
+  test "should put update" do
     Platidoma::Client.any_instance.expects(:get_status).returns("paid")
 
     put :update, id: @order

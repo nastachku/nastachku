@@ -7,7 +7,7 @@ class Api::Lectures::LectureVotingsControllerTest < ActionController::TestCase
     @lecture = create :lecture
   end
 
-  test "should post :create" do
+  test "should post create" do
     post :create, format: :json, lecture_id: @lecture.id
     assert_response :success
     assert @lecture.lecture_votings.voted_by?(@user)
