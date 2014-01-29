@@ -37,7 +37,11 @@ Nastachku::Application.routes.draw do
   end
 
   scope :module => :web do
-    resources :users, only: [:new, :create, :index]
+    resources :users, only: [:new, :create, :index] do
+      member do
+        put :attend
+      end
+    end
     resources :lectures, only: [ :index ]
     resources :pages, only: [:show]
     resources :news, only: [:index]
@@ -76,7 +80,7 @@ Nastachku::Application.routes.draw do
       end
     end
 
-    resource :social_networks, :only => [] do 
+    resource :social_networks, :only => [] do
       get :authorization, :on => :member
     end
 

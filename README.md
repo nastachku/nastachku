@@ -1,7 +1,5 @@
-[![Build Status](https://secure.travis-ci.org/kaize/nastachku.png?branch=develop)](http://travis-ci.org/kaize/nastachku)
-[![Coverage develop status](https://coveralls.io/repos/kaize/nastachku/badge.png?branch=develop)](https://coveralls.io/r/kaize/nastachku/)
-[![Coverage master status](https://coveralls.io/repos/kaize/nastachku/badge.png?branch=master)](https://coveralls.io/r/kaize/nastachku/)
-
+[![Build Status](https://travis-ci.org/ulmic/nastachku.png?branch=develop)](https://travis-ci.org/ulmic/nastachku)
+[![Coverage Status](https://coveralls.io/repos/ulmic/nastachku/badge.png?branch=2013-master)](https://coveralls.io/r/ulmic/nastachku?branch=2013-master)
 ## Installation and running way
 ```sh
   git clone https://github.com/kaize/nastachku.git
