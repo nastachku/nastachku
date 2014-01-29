@@ -18,9 +18,9 @@ class Web::Admin::UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get create" do
-    get :create, user: @attrs
-    user = User.find_by_email @attrs[:email] 
+  test "should post create" do
+    post :create, user: @attrs
+    user = User.find_by_email @attrs[:email]
     assert user
     assert_response :redirect
   end
@@ -35,15 +35,15 @@ class Web::Admin::UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get update" do   
-    get :update, id: @user, user: @attrs
-    user = User.find_by_email @attrs[:email] 
+  test "should put update" do
+    put :update, id: @user, user: @attrs
+    user = User.find_by_email @attrs[:email]
     assert user
     assert_response :redirect
   end
 
-  test "should get destroy" do
-    get :destroy, id: @user
+  test "should delete destroy" do
+    delete :destroy, id: @user
     assert_response :redirect
     assert !User.exists?(@user)
   end
