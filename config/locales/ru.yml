@@ -26,7 +26,6 @@ ru:
           lectures_20: 'Доклады 2.0'
           schedule: 'Программа'
           menu: "Меню"
-          broadcast: "Стачка ON-LINE"
         navbar:
           logout: 'Выйти'
           login: 'Войти'
