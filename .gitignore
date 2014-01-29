@@ -20,3 +20,4 @@
 /config/credentials.yml
 nastachku_development
 nastachku_test
+/log/untranslated.*.yml
