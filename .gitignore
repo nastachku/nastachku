@@ -16,3 +16,7 @@
 .vagrant
 *.sqlite3-journal
 .directory
+/config/database.yml
+/config/credentials.yml
+nastachku_development
+nastachku_test
