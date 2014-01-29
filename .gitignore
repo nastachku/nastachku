@@ -19,3 +19,6 @@
 /config/database.yml
 /config/credentials.yml
 /log/untranslated.*.yml
+nastachku_development
+nastachku_production
+nastachku_test

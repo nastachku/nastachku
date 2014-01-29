@@ -46,6 +46,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'mobylette'
+gem 'draper'
 
 
 # Gems used only for assets and not required

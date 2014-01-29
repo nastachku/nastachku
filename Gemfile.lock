@@ -102,6 +102,10 @@ GEM
       simplecov (>= 0.7)
       thor
     descendants_tracker (0.0.1)
+    draper (1.2.1)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      request_store (~> 1.0.3)
     enumerize (0.5.1)
       activesupport (>= 3.2)
     erubis (2.7.0)
@@ -252,6 +256,7 @@ GEM
       json (~> 1.4)
     redcarpet (2.2.2)
     ref (1.0.3)
+    request_store (1.0.5)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     russian (0.6.0)
@@ -356,6 +361,7 @@ DEPENDENCIES
   compass-rails
   configus
   coveralls
+  draper
   enumerize
   factory_girl_rails
   gon
