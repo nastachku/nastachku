@@ -26,13 +26,13 @@ ru:
           lectures_20: 'Доклады 2.0'
           schedule: 'Программа'
           menu: "Меню"
-          broadcast: "Стачка ON-LINE"
         navbar:
           logout: 'Выйти'
           login: 'Войти'
           admin: 'Админка'
           afterparty: "Афтепати"
           stachka_2012: 'Стачка! 2012'
+          stachka_2013: 'Стачка! 2013'
           buy: "Купить футболку"
 
       admin:
