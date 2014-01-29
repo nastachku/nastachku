@@ -21,3 +21,6 @@
 nastachku_development
 nastachku_test
 /log/untranslated.*.yml
+nastachku_development
+nastachku_production
+nastachku_test

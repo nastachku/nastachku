@@ -11,7 +11,7 @@
       .row-fluid.event-item
         .span4.sinfo
           .col-l
-            %h5= link_to lecture.user.reverse_full_name, lectors_path(anchor: lecture.user)
+            %h5= link_to lecture.user.decorate.reverse_full_name, lectors_path(anchor: lecture.user)
             %h6
               %strong= lecture.user.company
             .pic

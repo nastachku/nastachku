@@ -1,5 +1,5 @@
 FactoryGirl.define do
-
+  
   sequence :email do |n|
     "email_#{n}@mail.com"
   end
@@ -33,7 +33,7 @@ FactoryGirl.define do
     { n => FactoryGirl.attributes_for(:lecture) }
   end
 
-  sequence :image do |n|
+  sequence :image, aliases: [:presentation] do |n|
     fixture_file_upload Rails.root.to_s + "/test/fixtures/photos/test.png", "image/png"
   end
 
@@ -44,4 +44,5 @@ FactoryGirl.define do
         lectures_attributes: FactoryGirl.generate(:lectures_attributes)
     }
   end
+
 end

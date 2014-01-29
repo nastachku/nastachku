@@ -7,12 +7,12 @@ class Web::LecturesControllerTest < ActionController::TestCase
     @lecture.move_to_schedule
   end
 
-  test "should get :index" do
+  test "should get index" do
     get :index
     assert_response :success
   end
 
-  test "should get :index with params" do
+  test "should get index with params" do
     get :index, q: { workshop_id_eq: @lecture.workshop.id }
     assert_response :success
   end

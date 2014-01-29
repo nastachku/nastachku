@@ -19,7 +19,7 @@ class UserSignInType
       record.errors.add(attr, :user_inactive)
     end
 
-    if !user.try(:authenticate, record.password)
+    if !user.decorate.try(:authenticate, record.password)
       record.errors.add(attr, :user_or_password_invalid)
     end
   end
