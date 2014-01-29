@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/ulmic/nastachku.png?branch=develop)](https://travis-ci.org/ulmic/nastachku)
-
+[![Coverage Status](https://coveralls.io/repos/ulmic/nastachku/badge.png?branch=2013-master)](https://coveralls.io/r/ulmic/nastachku?branch=2013-master)
 ## Installation and running way
 ```sh
   git clone https://github.com/kaize/nastachku.git
