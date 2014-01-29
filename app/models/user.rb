@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :lectures, reject_if: :all_blank, allow_destroy: true
 
-  mount_uploader :photo, UsersPhotoUploader 
+  mount_uploader :photo, UsersPhotoUploader
 
   has_many :auth_tokens
   has_many :topics, through: :user_topics
@@ -71,19 +71,6 @@ class User < ActiveRecord::Base
     auth_tokens.create! :authentication_token => token, :expired_at => expired_at
   end
 
-  #FIXME вынести в декораторы
-  def full_name
-    "#{last_name} #{first_name}"
-  end
-
-  def reverse_full_name
-    "#{first_name} #{last_name}"
-  end
-
-  def to_s
-    full_name
-  end
-
   def authenticate(password)
     self.password_digest == Digest::MD5.hexdigest(password)
   end
@@ -98,5 +85,4 @@ class User < ActiveRecord::Base
   def password
     @real_password
   end
-
 end
