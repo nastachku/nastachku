@@ -66,15 +66,10 @@ class User < ActiveRecord::Base
 
   state_machine :attending_conference_state, initial: :not_decided do
     state :attended
-    state :not_attended
     state :not_decided
 
     event :attend do
-      transition [:not_attended, :not_decided] => :attended
-    end
-
-    event :not_attend do
-      transition [:attended, :not_decided] => :not_attended
+      transition not_decided: :attended
     end
   end
 
