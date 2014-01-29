@@ -1,6 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/kaize/nastachku.png?branch=develop)](http://travis-ci.org/kaize/nastachku)
-[![Coverage develop status](https://coveralls.io/repos/kaize/nastachku/badge.png?branch=develop)](https://coveralls.io/r/kaize/nastachku/)
-[![Coverage master status](https://coveralls.io/repos/kaize/nastachku/badge.png?branch=master)](https://coveralls.io/r/kaize/nastachku/)
+[![Build Status](https://travis-ci.org/ulmic/nastachku.png?branch=develop)](https://travis-ci.org/ulmic/nastachku)
 
 ## Installation and running way
 ```sh
