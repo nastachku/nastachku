@@ -18,6 +18,8 @@
 .directory
 /config/database.yml
 /config/credentials.yml
+nastachku_development
+nastachku_test
 /log/untranslated.*.yml
 nastachku_development
 nastachku_production
