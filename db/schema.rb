@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409054525) do
+ActiveRecord::Schema.define(:version => 20140129213054) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -181,8 +181,8 @@ ActiveRecord::Schema.define(:version => 20130409054525) do
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.string   "city"
     t.string   "company"
     t.boolean  "show_as_participant"
@@ -206,6 +206,7 @@ ActiveRecord::Schema.define(:version => 20130409054525) do
     t.boolean  "invisible_lector"
     t.string   "timepad_state"
     t.boolean  "not_going_to_conference"
+    t.string   "attending_conference_state"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Web::UsersControllerTest < ActionController::TestCase
   setup do
-    create :user
+    @user = create :user
   end
 
   test "should get index" do
@@ -52,6 +52,14 @@ class Web::UsersControllerTest < ActionController::TestCase
     assert user.authorizations
     assert user.active?
     assert signed_in?
+  end
+
+  test "should put attend on conference" do
+    put :attend, id: @user
+    assert_response :redirect
+
+    @user.reload
+    assert_equal true, @user.attended?
   end
 
 end

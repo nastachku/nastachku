@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :first_name, :last_name, :city, :company, :position,
     :show_as_participant, :photo, :state_event, :about, :carousel_info, :in_carousel,
-    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :not_going_to_conference
+    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event
 
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
@@ -64,6 +64,19 @@ class User < ActiveRecord::Base
     end
   end
 
+  state_machine :attending_conference_state, initial: :not_decided do
+    state :attended
+    state :not_attended
+    state :not_decided
+
+    event :attend do
+      transition [:not_attended, :not_decided] => :attended
+    end
+
+    event :not_attend do
+      transition [:attended, :not_decided] => :not_attended
+    end
+  end
 
   def create_auth_token
     token = SecureHelper.generate_token
