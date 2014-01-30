@@ -13,4 +13,17 @@ class UserMailer < ActionMailer::Base
     @token = token
     mail :to => @user.email
   end
+
+  def conference_is_open(user, token, params)
+    @user = user
+    @token = token
+    @subject = params[:subject]
+    @begin_of_greetings = params[:begin_of_greetings],
+    @end_of_greetings = params[:end_of_greetings],
+    @mail_content = params[:mail_content],
+    @before_link = params[:before_link],
+    @after_link = params[:after_link],
+    @goodbye = params[:goodbye]
+    mail :to => @user.email, subject: @subject
+  end
 end

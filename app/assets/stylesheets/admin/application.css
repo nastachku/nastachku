@@ -32,3 +32,7 @@ form.nomargin {
 label.checkbox {
   min-height: auto;
 }
+
+.wide-input {
+  width: 100%;
+}

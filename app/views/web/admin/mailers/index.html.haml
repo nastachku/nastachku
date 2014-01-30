@@ -1,0 +1,33 @@
+.page-header
+  %h1=t('.title')
+  
+.well
+  = form_tag deliver_admin_mailers_path, html: { class: 'nomargin' } do |f|
+    .row-fluid
+      .span4
+        = text_field_tag :subject, nil, placeholder: t(".subject"), class: "wide-input"
+    .row-fluid
+      .span4
+        = text_field_tag :begin_of_greetings, nil, placeholder: t(".begin_of_greetings"), class: "wide-input"
+      .span4
+        %h4.text-center
+          \%username%
+      .span4
+        = text_field_tag :end_of_greetings, nil, placeholder: t(".end_of_greetings"), class: "wide-input"
+    .row-fluid
+      .span12
+        = text_area_tag :mail_content, nil, rows: 5, placeholder: t(".mail_content"), class: "wide-input"
+    .row-fluid
+      .span4
+        = text_field_tag :before_link, nil, placeholder: t(".before_link"), class: "wide-input"
+      .span4
+        %h4.text-center
+          \%link%
+      .span4
+        = text_field_tag :after_link, nil, placeholder: t(".after_link"), class: "wide-input"
+    .row-fluid
+      .span8
+        = text_field_tag :goodbye, nil, placeholder: t(".goodbye"), class: "wide-input"
+      .span4
+        = submit_tag t(".send"), class: "btn btn-primary"
+        
