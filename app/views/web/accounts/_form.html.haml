@@ -13,9 +13,12 @@
 
   .tab-content
     .tab-pane.active#info
-      = simple_form_for @user, :url => account_path, :html => { :class => 'form-horizontal profile-form' } do |f|
+      - unless @user.attended?
+        = link_to t('.i_will_come_to_stachka'), attend_user_path(@user), method: :put, class: 'btn btn-shine'
+      - else
+        = t('.i_will_come_to_stachka')
+      = simple_form_for @user, url: account_path, html: { class: 'form-horizontal profile-form' } do |f|
         .formy
-          = f.input :not_going_to_conference, :wrapper => :inline_checkbox
           = f.input :first_name
           = f.input :last_name
           = f.input :city
@@ -36,8 +39,8 @@
                   = surround '(', ')' do
                     = link_to t(".unlink_twitter"), unlink_twitter_account_social_networks_path, method: :put
 
-          = f.input :show_as_participant, :wrapper => :inline_checkbox
-        = f.button :submit, :value => t('.save'), :class => 'btn btn-shine'
+          = f.input :show_as_participant, wrapper: :inline_checkbox
+        = f.button :submit, value: t('.save'), class: 'btn btn-shine'
 
 
 

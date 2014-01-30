@@ -31,10 +31,9 @@ class Web::UsersController < Web::ApplicationController
   end
 
   def create
-    @user = UserRegistrationType.new(params[:user])
-
+    @user = UserRegistrationType.new params[:user]
     if @user.save
-      
+      @user.attend
       if registration_by_soc_network?
         @user.authorizations << build_authorization(session_auth_hash)
         @user.activate
@@ -47,11 +46,15 @@ class Web::UsersController < Web::ApplicationController
         flash_success
         redirect_to new_session_path
       end
-
     else
       flash_error
       render action: "new"
     end
   end
 
+  def attend
+    @user = User.find params[:id]
+    @user.attend
+    redirect_to edit_account_path
+  end
 end

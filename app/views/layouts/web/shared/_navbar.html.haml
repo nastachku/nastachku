@@ -4,27 +4,25 @@
       %nav.social-public-links.pull-left
         %ul
           %li
-            %a{:href => "http://www.facebook.com/nastachku?ref=stream", :target => "_blank"}
+            %a{ href: "http://www.facebook.com/nastachku?ref=stream", target: "_blank" }
               %i.ficon-facebook-rect
           %li
-            %a{:href => "https://twitter.com/nastachku", :target => "_blank"}
+            %a{ href: "https://twitter.com/nastachku", target: "_blank" }
               %i.ficon-twitter-bird
           %li
-            %a{:href => "http://vk.com/nastachku", :target => "_blank"}
+            %a{ href: "http://vk.com/nastachku", target: "_blank" }
               %i.ficon-vkontakte-rect
 
       %ul.nav.pull-left
         %li= link_to t('.stachka_2012'), 'http://2012.nastachku.ru', class: 'btn-shine add_lecture prev_year', target: "_blank"
+        %li= link_to t('.stachka_2013'), 'http://2013.nastachku.ru', class: 'btn-shine add_lecture prev_year', target: "_blank"
         %li= link_to t('.buy'), new_account_shirt_order_path, class: 'btn-shine btn-shine-colored add_lecture prev_year'
-        %li= link_to t('.afterparty'), new_account_afterparty_order_path, class: 'btn-shine add_lecture'
 
       %ul.nav.pull-right
-        - unless signed_in?
-          = item :li, t(".login"), new_session_path
         - if signed_in?
-          = item :li, current_user.full_name, edit_account_path
+          = item :li, current_user.decorate.full_name, edit_account_path
           %li= link_to '/', '#'
-          %li= link_to t('.logout'), session_path, :method => :delete
+          %li= link_to t('.logout'), session_path, method: :delete
           - if signed_as_admin?
             %li= link_to '/', '#'
             %li= link_to t(".admin"), admin_root_path
