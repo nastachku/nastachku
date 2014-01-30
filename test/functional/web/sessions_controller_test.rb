@@ -18,6 +18,15 @@ class Web::SessionsControllerTest < ActionController::TestCase
     get :new
     assert_response :success
   end
+  
+  test "should get new with auth_token" do
+    auth_token = @user.create_auth_token
+    get :new, auth_token: auth_token.authentication_token
+    assert_select '#user_sign_in_type_email' do
+      assert_select "[value=?]", @user.email
+    end
+    assert_response :success
+  end
 
   test "should delete destroy" do
     sign_in @user
