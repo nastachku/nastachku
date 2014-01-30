@@ -24,3 +24,7 @@
 
 #ignore idea project files
 .idea
+*~
+\#*\#
+.\#*
+/db/schema.rb
