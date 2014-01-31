@@ -31,3 +31,11 @@
       .span4
         = submit_tag t(".send"), class: "btn btn-primary"
         
+  %h3= t(".preview")
+  %strong
+    = t(".subject")
+    \:
+  %span#subject_preview
+    
+  = render file: "./user_mailer/conference_is_open"
+        

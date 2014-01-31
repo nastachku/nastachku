@@ -342,6 +342,7 @@ ru:
           after_link: "После ссылки"
           goodbye: "Прощание"
           send: "Отправить"
+          preview: "Предпросмотр"
 
       topics:
         index:

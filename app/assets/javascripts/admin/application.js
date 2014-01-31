@@ -26,3 +26,4 @@
 //= require admin/custom
 //= require jquery.ui.all
 //= require admin/sortable
+//= require admin/mail_preview

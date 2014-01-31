@@ -1,9 +1,11 @@
 class Web::Admin::MailersController < Web::Admin::ApplicationController
   def index
+    @user = UserDecorator.decorate(User.first)
+    @token = @user.create_auth_token
   end
 
   def deliver
-    users = User.all
+    users = UserDecorator.decorate_collection(User.all)
     users.each do |user|
       token = SecureHelper.generate_token
       expired_at = Time.current + 1.year
