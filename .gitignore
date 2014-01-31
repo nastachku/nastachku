@@ -7,6 +7,12 @@
 /public/*
 !fonts/
 /coverage
+
+#ignore idea project files
+.idea
+*~
+\#*\#
+.\#*
 *.swn
 *.swp
 *.swo

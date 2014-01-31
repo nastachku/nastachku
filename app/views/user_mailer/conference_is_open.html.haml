@@ -1,0 +1,18 @@
+%p<
+  %span#begin_of_greetings_preview
+    = @begin_of_greetings
+  =@user.decorate.full_name
+  %span#end_of_greetings_preview
+    = @end_of_greetings
+%p
+  #mail_content_preview
+    = @mail_content
+%p<
+  %span#before_link_preview
+    = @before_link
+  = link_to new_session_url, new_session_url(auth_token: @token)
+  %span#after_link_preview
+    = @after_link
+%p<
+  %span#goodbye_preview
+    = @goodbye

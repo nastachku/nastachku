@@ -49,6 +49,7 @@ ru:
             user_lectures: 'Доклады 2.0'
             events: 'События'
             orders: 'Заказы'
+            mailers: 'Рассылки'
             logout: 'Выйти'
             schedule: 'Программа'
             workshops: 'Секции'
@@ -329,6 +330,19 @@ ru:
           title: "Список заказов"
           buyer: "Покупатель"
           cost: "Стоимость"
+          
+      mailers:
+        index:
+          title: "Рассылки"
+          subject: "Тема"
+          begin_of_greetings: "Начало приветствия"
+          end_of_greetings: "Конец приветствия"
+          mail_content: "Содержимое письма"
+          before_link: "Перед ссылкой"
+          after_link: "После ссылки"
+          goodbye: "Прощание"
+          send: "Отправить"
+          preview: "Предпросмотр"
 
       topics:
         index:
@@ -622,6 +636,10 @@ ru:
             update:
               success: 'Доклад изменен'
               error: 'Не удалось изменить доклад, есть ошибки в заполнении форм'
+          mailers:
+            deliver:
+              success: "Письма успешно разосланы"
+              error: "Рассылка не удалась"
 
   enumerize:
     shirt_order:

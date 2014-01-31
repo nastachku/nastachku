@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 Nastachku::Application.routes.draw do
 
   get "audits/index"
@@ -100,6 +101,10 @@ Nastachku::Application.routes.draw do
       resources :halls
       resources :event_breaks
       resources :orders, only: [:index]
+      resource :mailers, only: [] do
+        get :index
+        post :deliver
+      end
 
       root to: "welcome#index"
     end
