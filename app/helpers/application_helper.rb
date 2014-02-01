@@ -1,5 +1,6 @@
 module ApplicationHelper
   include CustomUrlHelper
+  include AuthHelper
 
   def navbar_link(label, path, options = {})
     patch = options[:with]
@@ -33,6 +34,10 @@ module ApplicationHelper
     options[:class] = :active if current_page?(path)
     link = link_to(name, path, link_options)
     content_tag(:li, link, options)
+  end
+
+  def current_user_decorate
+    current_user.decorate
   end
 
   #FIXME запросы из хелпера - плохая идея. придумать другое решение.
