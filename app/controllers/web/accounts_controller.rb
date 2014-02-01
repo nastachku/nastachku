@@ -3,7 +3,7 @@ class Web::AccountsController < Web::ApplicationController
   before_filter :authenticate_user!
 
   def edit
-    @user = AccountEditType.find current_user    
+    @user = AccountEditType.find current_user
   end
 
   def update
