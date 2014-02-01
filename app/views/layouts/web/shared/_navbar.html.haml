@@ -20,7 +20,7 @@
 
       %ul.nav.pull-right
         - if signed_in?
-          = item :li, current_user.decorate.full_name, edit_account_path
+          = item :li, current_user_decorate.full_name, edit_account_path
           %li= link_to '/', '#'
           %li= link_to t('.logout'), session_path, method: :delete
           - if signed_as_admin?
