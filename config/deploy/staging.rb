@@ -2,7 +2,7 @@ set :rails_env, "staging"
 set :unicorn_env, "staging"
 set :unicorn_pid, "#{shared_path}/pids/unicorn.pid"
 set :branch, 'staging'
-set :user, 'nastachku_staging'
+set :user, 'nastachku_staging_2014'
 set :keep_releases, 5
 
 role :web, '62.76.190.226'
