@@ -639,7 +639,7 @@ ru:
           mailers:
             deliver:
               success: "Письма успешно разосланы"
-              error: "Рассылка не удалась"
+              error: "Рассылка не удалась, доп.информация: "
 
   enumerize:
     shirt_order:
