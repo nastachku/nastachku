@@ -64,10 +64,14 @@ class User < ActiveRecord::Base
     end
   end
 
-  state_machine :attending_conference_state, initial: :not_decided do
+  state_machine :attending_conference_state, initial: :attended do
     state :attended
     state :not_decided
 
+    event :not_decide do
+      transition attended: :not_decided # for testing
+    end
+    
     event :attend do
       transition not_decided: :attended
     end

@@ -6,7 +6,7 @@ setModalHeight = ->
 
 window.onload = ->
   delay = (ms, func) -> setTimeout func, ms
-  delay 4000, -> $('.alert').fadeOut('slow')
+  delay 10000, -> $('.alert').fadeOut('slow')
 
   # side bar
   affixTop = $("#nav_top").outerHeight() + $("#nav_main").outerHeight() + $("header").outerHeight() + $(".content h1:first").outerHeight() + parseInt($(".content h1:first").css('marginTop')) + parseInt($(".content h1:first").css('marginBottom'))

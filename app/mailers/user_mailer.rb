@@ -14,6 +14,12 @@ class UserMailer < ActionMailer::Base
     mail :to => @user.email
   end
 
+  def payment_successful(user, token)
+    @user = user
+    @token = token
+    mail :to => @user.email
+  end
+
   def conference_is_open(user, token, params)
     @user = user
     @token = token
