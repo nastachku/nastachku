@@ -5,7 +5,7 @@ class Web::Admin::MailersController < Web::Admin::ApplicationController
   end
 
   def deliver
-    users = UserDecorator.decorate_collection(User.where(attending_conference_state: nil)
+    users = UserDecorator.decorate_collection(User.where(attending_conference_state: nil))
     begin
       users.each do |user|
         token = SecureHelper.generate_token
