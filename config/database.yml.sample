@@ -54,4 +54,5 @@ staging:
   encoding: unicode
   database: nastachku_staging_2014
   pool: 5
-  username: nastachku_staging
+  username: nastachku_staging_2014
+
