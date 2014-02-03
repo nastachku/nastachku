@@ -21,8 +21,8 @@ Configus.build Rails.env do
     end
 
     mailer do
-      default_host "2013.nastachku.ru"
-      default_from "noreply@2013.nastachku.ru"
+      default_host "nastachku.ru"
+      default_from "noreply@nastachku.ru"
     end
 
     admin do
@@ -130,8 +130,8 @@ Configus.build Rails.env do
     end
 
     mailer do
-      default_host "2013.nastachku.ru"
-      default_from "info@2013.nastachku.ru"
+      default_host "stg.nastachku.ru"
+      default_from "info@stg.nastachku.ru"
     end
 
     basic_auth do
