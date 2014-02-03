@@ -17,8 +17,8 @@
     - slot.event.users.each do |user|
       .userinfo
         .pull-left.userpic
-          .user-full-name
-            = user.full_name
+          .user.decorate.full-name
+            = user.decorate.full_name
           - if user.photo?
             = image_tag(user.photo.url)
         %p.userabout= user.about
@@ -45,4 +45,4 @@
     %a.author{data: {toggle: 'modal'}, href: "##{dom_id(slot)}__author_info", role: "button"}
       - slot.event.users.each do |user|
         %span.round-table-user
-          = user.full_name
+          = user.decorate.full_name
