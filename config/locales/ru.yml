@@ -240,6 +240,13 @@ ru:
       welcome:
         index:
           title: 'Админка стачки'
+      users:
+        form:
+          attending_conference_state: "Идёт ли пользователь на СТАЧКУ 2014"
+          attended: "Идёт"
+          not_decided: "Не идёт"
+          attended: "Пойдёт"
+          not_decided: "Не пойдёт"
 
       pages:
         index:
@@ -639,7 +646,7 @@ ru:
           mailers:
             deliver:
               success: "Письма успешно разосланы"
-              error: "Рассылка не удалась"
+              error: "Рассылка не удалась, доп.информация: "
 
   enumerize:
     shirt_order:

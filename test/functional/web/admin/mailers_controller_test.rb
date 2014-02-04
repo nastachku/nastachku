@@ -21,8 +21,9 @@ class Web::Admin::MailersControllerTest < ActionController::TestCase
   end
 
   test "should mail sent" do
+    @user.not_decide
     post :deliver
-    assert_equal ActionMailer::Base.deliveries.size, 2
+    assert_equal ActionMailer::Base.deliveries.size, 1
   end
 
 end
