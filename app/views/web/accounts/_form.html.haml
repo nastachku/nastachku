@@ -8,7 +8,6 @@
   .tabbable
     %ul.nav.nav-tabs
       %li.active= link_to t('.info'), '#info', data: { toggle: 'tab' }
-      %li= link_to t('.my_events'), '#my_events', data: { toggle: 'tab' }
       %li= link_to t('.my_orders'), '#my_orders', data: { toggle: 'tab' }
 
   .tab-content
@@ -42,39 +41,12 @@
           = f.input :show_as_participant, wrapper: :inline_checkbox
         = f.button :submit, value: t('.save'), class: 'btn btn-shine'
 
-
-
-    .tab-pane#my_events
-      - if @user.lectures.empty?
-        %p
-          = t(".add_user_event_text")
-          = link_to t(".add_user_event"), new_account_lecture_path
-      - else
-        %p
-          = t(".add_more_user_event_text")
-          = link_to t(".add_more_user_event_link"), new_account_lecture_path
-        %br
-        %table.table.table-participants
-          %thead
-            %tr
-              %th= Lecture.human_attribute_name(:title)
-              %th= Lecture.human_attribute_name(:created_at)
-              %th= Lecture.human_attribute_name(:state)
-              %th
-          %tbody
-
-            - @user.lectures.each do |lecture|
-              = render 'web/account/lectures/edit', lecture: lecture
-
     .tab-pane#my_orders
 
       %p
         - if @user.orders.web.empty?
           = t(".buy_it_now")
-          = link_to t(".buy_afterparty_ticket"), new_account_afterparty_order_path
-          -# = link_to t(".buy_shirt"), new_account_shirt_order_path
-        - else
-          = link_to t(".buy_more"), new_account_afterparty_order_path
+          = link_to t(".buy_shirt"), new_account_shirt_order_path
         %br
         %br
 
