@@ -76,7 +76,6 @@ Nastachku::Application.routes.draw do
             post :decline
           end
         end
-        resources :afterparty_orders, only: [:new, :create]
         resources :shirt_orders, only: [:new, :create]
       end
     end
