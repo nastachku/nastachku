@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
   has_many :authorizations
   has_many :event_users
   has_many :events, through: :event_users
+  has_one :promo_code
 
   state_machine :state, initial: :new do
     state :new
@@ -71,7 +72,7 @@ class User < ActiveRecord::Base
     event :not_decide do
       transition attended: :not_decided # for testing
     end
-    
+
     event :attend do
       transition not_decided: :attended
     end
