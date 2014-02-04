@@ -26,7 +26,7 @@
 /config/credentials.yml
 nastachku_development
 nastachku_test
-/log/untranslated.*.yml
+log/untranslated.*.yml
 nastachku_development
 nastachku_production
 nastachku_test
