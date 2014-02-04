@@ -46,6 +46,6 @@ FactoryGirl.define do
   end
 
   sequence :code do |n|
-    (100000 + n).to_s
+    (100000000 + n).to_s
   end
 end

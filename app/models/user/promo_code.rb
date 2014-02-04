@@ -4,7 +4,7 @@ class User::PromoCode < ActiveRecord::Base
   belongs_to :user
 
   validates :code, presence: true,
-                   length: { is: 6 }
+                   length: { is: 9 }
   validates :accepted_state, presence: true
   validates :user_id, presence: true
 
