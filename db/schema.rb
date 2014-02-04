@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140129213054) do
+ActiveRecord::Schema.define(:version => 20140204205845) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -169,6 +169,14 @@ ActiveRecord::Schema.define(:version => 20140129213054) do
     t.datetime "expired_at"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+  end
+
+  create_table "user_promo_codes", :force => true do |t|
+    t.string   "code"
+    t.integer  "user_id"
+    t.string   "accepted_state"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "user_topics", :force => true do |t|

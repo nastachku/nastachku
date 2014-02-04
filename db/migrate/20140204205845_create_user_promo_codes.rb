@@ -1,9 +1,9 @@
 class CreateUserPromoCodes < ActiveRecord::Migration
   def change
     create_table :user_promo_codes do |t|
-      t.integer :code
+      t.string :code
       t.integer :user_id
-      t.boolean :accepted
+      t.string :accepted_state
 
       t.timestamps
     end
