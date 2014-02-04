@@ -342,6 +342,7 @@ ru:
       mailers:
         index:
           title: "Рассылки"
+          count_of_receiving_mail: "Количество участников, которые получат письмо: %{users_count}"
           subject: "Тема"
           begin_of_greetings: "Начало приветствия"
           end_of_greetings: "Конец приветствия"

@@ -2,6 +2,8 @@
   %h1=t('.title')
   
 .well
+  %h4
+    = t '.count_of_receiving_mail', users_count: @users_size
   = form_tag deliver_admin_mailers_path, html: { class: 'nomargin' } do |f|
     .row-fluid
       .span4

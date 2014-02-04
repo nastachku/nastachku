@@ -2,6 +2,7 @@ class Web::Admin::MailersController < Web::Admin::ApplicationController
   def index
     @user = UserDecorator.decorate(User.first)
     @token = @user.create_auth_token
+    @users_size = User.where(attending_conference_state: :not_decided).size
   end
 
   def deliver
