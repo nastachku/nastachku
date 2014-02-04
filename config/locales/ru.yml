@@ -154,10 +154,8 @@ ru:
         authentication: 'Данные для входа'
         already_registered?: 'Уже зарегистрированы?'
         login: 'Войти'
-
       new:
         title: 'Регистрация'
-
       index:
         title: 'Пойдут на стачку'
         registred_title: "Зарегистрировалось – %{activated_count} %{participant}. Ниже %{participants_count}, кто согласился рассказать о себе."
@@ -165,6 +163,7 @@ ru:
         one_participant: 'участник'
         two_participant: 'участника'
         many_participant: 'участников'
+        be_the_first: 'Станьте первым!'
 
     welcome:
       index:
@@ -338,7 +337,7 @@ ru:
           title: "Список заказов"
           buyer: "Покупатель"
           cost: "Стоимость"
-          
+
       mailers:
         index:
           title: "Рассылки"
