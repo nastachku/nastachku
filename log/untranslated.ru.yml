@@ -1,0 +1,5 @@
+ru:
+  web:
+    users:
+      index:
+        zero_participant: ''

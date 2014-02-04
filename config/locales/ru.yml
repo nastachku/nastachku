@@ -161,7 +161,8 @@ ru:
       index:
         title: 'Пойдут на стачку'
         registred_title: "Зарегистрировалось – %{activated_count} %{participant}. Ниже %{participants_count}, кто согласился рассказать о себе."
-        one_participant: 'Участник'
+        zero_participants: "Пока не зарегистрировалось ни одного участника международной конференции СТАЧКА 2014."
+        one_participant: 'участник'
         two_participant: 'участника'
         many_participant: 'участников'
 
@@ -341,6 +342,7 @@ ru:
       mailers:
         index:
           title: "Рассылки"
+          count_of_receiving_mail: "Количество участников, которые получат письмо: %{users_count}"
           subject: "Тема"
           begin_of_greetings: "Начало приветствия"
           end_of_greetings: "Конец приветствия"

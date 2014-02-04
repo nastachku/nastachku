@@ -3,7 +3,7 @@ Nastachku::Application.routes.draw do
 
   get "audits/index"
 
-  match "/404", :to => "web/errors#not_found"
+  match "/404", to: "web/errors#not_found"
   match "/500", :to => "web/errors#internal_server_error"
   match "/banned", :to => "web/errors#banned"
 
@@ -76,7 +76,6 @@ Nastachku::Application.routes.draw do
             post :decline
           end
         end
-        resources :afterparty_orders, only: [:new, :create]
         resources :shirt_orders, only: [:new, :create]
       end
     end
@@ -110,4 +109,5 @@ Nastachku::Application.routes.draw do
     end
   end
 
+  match '*unmatched_route', to: "web/errors#not_found"
 end

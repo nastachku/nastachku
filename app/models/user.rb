@@ -87,6 +87,10 @@ class User < ActiveRecord::Base
     self.password_digest == Digest::MD5.hexdigest(password)
   end
 
+  def to_s
+    UserDecorator.decorate(self).full_name
+  end
+
   def password=(password)
     if password.present?
       @real_password = password

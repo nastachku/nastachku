@@ -3,7 +3,7 @@ class Web::UsersController < Web::ApplicationController
 
   def index
     @search = User.ransack(params)
-    @users = @search.result.activated.shown_as_participants.alphabetically
+    @users = @search.result.activated.attended.alphabetically
 
     respond_with(@users)
   end
