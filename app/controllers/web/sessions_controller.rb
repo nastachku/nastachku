@@ -20,11 +20,7 @@ class Web::SessionsController < Web::ApplicationController
       user = @type.user
       flash_success
       sign_in user
-      unless user.attended?
-        redirect_to edit_account_path
-      else
-        redirect_to params[:from] || root_path
-      end
+      redirect_to edit_account_path
     else
       render :new
     end
