@@ -4,7 +4,6 @@ class Web::AccountsController < Web::ApplicationController
 
   def edit
     @user = AccountEditType.find current_user
-    @promo_code = User::PromoCode.new
   end
 
   def update
