@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta content='IE=Edge,chrome=1' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <link href='/favicon.ico' rel='icon' type='image/x-icon'>
+    <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <meta content='http://2013.nastachku.ru/assets/fb_logo.png' property='og:image'>
+    <meta content='Digital-коммуникации, Программирование, IT-стартапы, Электронная коммерция, Менеджмент в IT, IT на службе общества'
+    property='og:description'>
+    <title>Главная | Стачка!</title>
+
+    <script src="js/jquery-1.9.1.js"></script>
+
+
+    <meta content="authenticity_token" name="csrf-param"/>
+    <meta content="SBj1t0v7b1dlPuarSOPf9wzIiUEYey1GmSP9qQJiwsU=" name="csrf-token"/>
+
+    <link href="http://2013.nastachku.ru/assets/web/application-963ba33359fbb6ccaabf74ee196285e4.css" media="all"
+    rel="stylesheet" type="text/css"/>
+    <link href="less/stach.less" rel="stylesheet/less">
+    <script src="js/less-1.3.3.min.js"></script>
+    <script>
+        $(window).load(function(){
+            $("#orgs > ul > li > a > img").each(function(){
+                var imgH = $(this).height();
+                $(this).css('padding-top', (104 - imgH)/2 + 'px');
+            });
+            $(document).ready(function(){
+                $('#video_b > h3').click(function(){
+                    $('#st_vid').slideToggle(500);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div class='main'>
+<div class='navbar navbar-position-top' id='nav_top'>
+    <div class='navbar-inner'>
+        <div class='container'>
+
+            <nav class='social-public-links pull-left'>
+                <ul>
+                    <li>
+                        <a href='http://2012.nastachku.ru/' target='_blank'>
+                            <!--<i class='ficon-facebook-rect'></i>-->
+                            2012
+                        </a>
+                    </li>
+                    <li>
+                        <a href='http://2013.nastachku.ru/' target='_blank'>
+                            <!--<i class='ficon-twitter-bird'></i>-->
+                            2013
+                        </a>
+                    </li>
+                    <!--li>
+                        <a href='http://nastachku.ru/account/afterparty_orders/new' target='_blank'>
+                            <i class='ficon-vkontakte-rect'></i>
+                            Купить футболку
+                        </a--!>
+                    </li-->
+                </ul>
+            </nav>
+            <nav class='our_social'>
+                <ul>
+                    <li>
+                        <a href='http://www.facebook.com/nastachku?ref=stream' target='_blank'>
+                            <i class='fb'></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='https://twitter.com/nastachku' target='_blank'>
+                            <i class='tw'></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='http://vk.com/nastachku' target='_blank'>
+                            <i class='vk'></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</div>
+
+<!-- Header Starts -->
+<header>
+    <div class='container'>
+        <div class='row'>
+            <div class='span2'>
+                <div class='logo'>
+                    <h1>
+                        <a href='/'>
+                            <img alt="" height="80" src="http://2013.nastachku.ru/assets/stachka_new_logo.png" width="180"/>
+                        </a>
+                    </h1>
+                </div>
+            </div>
+            <div class='span10 right'>
+                <div class='info'>
+                    <h3>
+                        <img src="img/reg.png" alt="регистрация">
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div id="map">
+
+</div>
+<div id="w_i_stach">
+    <h3>Что такое Стачка?</h3>
+    <ul class="w_i_links">
+        <li>
+            <a href="http://nastachku.ru/presentations/for_participants.pdf">
+                Для участников
+                <span></span>
+            </a>
+        </li>
+        <li>
+            <a href="http://nastachku.ru/presentations/for_speakersRU.pdf">
+                Для докладчиков (RU)
+                <span></span>
+            </a>
+        </li>
+        <li>
+            <a href="http://nastachku.ru/presentations/for_speakersEN.pdf">
+                For speakers (EN)
+                <span></span>
+            </a>
+        </li>
+        <li id="w_i_l_dropdown">
+            <span>
+                Для спонсоров
+            </span>
+            <ul id="w_i_sponsors">
+                <li>
+                    <span></span>
+                    <a href="http://nastachku.ru/presentations/for_sponsors_from_Ulyanovsk.pdf">Спосорам из Ульяновска</a>
+                </li>
+                <li>
+                    <span></span>
+                    <a href="http://nastachku.ru/presentations/for_sponsors_from_other_regions.pdf">Спонсорам из других регионов</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+<div id="video_b">
+    <h3>Видео: «Стачка 2013: Как это было?»</h3>
+    <div id="st_vid">
+        <iframe width="853" height="480" src="//www.youtube.com/embed/bt-Xy0F0Fds" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+<div id="orgs">
+    <h3>Организаторы</h3>
+    <h4>Некоммерческое партнерство содействия развитию IT</h4>
+    <ul>
+        <li><a href="http://i-dt.ru/"><img src="img/logos/interra.jpg"></a></li>
+        <li><a href="http://m-st.ru/"><img src="img/logos/mst1.jpg"></a></li>
+        <li><a href="http://www.simtech.ru/"><img src="img/logos/simtech.jpg"></a></li>
+        <li><a href="http://platidoma.ru/"><img src="img/logos/platidoma.jpg"></a></li>
+        <li><a href="http://www.simbirsoft.com/ruru/"><img src="img/logos/simbirsoft.png"></a></li>
+        <li><a href="http://mymediacompany.ru/"><img src="img/logos/mymedia.jpg"></a></li>
+        <li><a href="http://itmcompany.ru/"><img src="img/logos/itm.jpg"></a></li>
+       <!-- <li><a href="http://www.creater.ru/"><img src="img/logos/creater.jpg"></a></li>-->
+        <li><a href="http://turnkeye.ru/"><img src="img/logos/turnkey.jpg"></a></li>
+    </ul>
+    <div class='clearfix'></div>
+</div>
+
+
+</div>
+<script>
+    var reformalOptions = {
+        project_id: 89699,
+        project_host: "nastachku.reformal.ru",
+        tab_orientation: "right",
+        tab_indent: "50%",
+        tab_bg_color: "#fe781e",
+        tab_border_color: "#FFFFFF",
+        tab_image_url: "http://tab.reformal.ru/0JLQvtC%252F0YDQvtGB0Ysg0Lgg0L%252FRgNC10LTQu9C%252B0LbQtdC90LjRjw==/FFFFFF/1f885d8089dc5f859d0ce25bd9769cb4/right/1/tab.png",
+        tab_border_width: 2
+    };
+
+    (function () {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.reformal.ru/widgets/v3/reformal.js';
+        document.getElementsByTagName('head')[0].appendChild(script);
+    })();
+</script>
+<noscript>
+    <a href="http://reformal.ru"><img alt="Reformal" src="http://media.reformal.ru/reformal.png"/>
+    </a><a href="/">http://nastachku.reformal.ru</a>
+
+    <div>
+        <img alt='' src='//mc.yandex.ru/watch/20139103' style='position:absolute; left:-9999px;'>
+    </div>
+</noscript>
+
+<footer>
+    <div class='container'>
+        <div class='row'>
+            <div class='span4'>
+                <div class='copy'>
+                    <h5>
+                        <span class='color'>© Стачка 2012-2014</span> <a href="mailto:info@nastachku.ru">info@nastachku.ru</a>
+                    </h5>
+                </div>
+            </div>
+            <div id="st_soc">
+                <span>Поделиться с друзьями:</span>
+                <script type="text/javascript">(function() {
+                    if (window.pluso)if (typeof window.pluso.start == "function") return;
+                    if (window.ifpluso==undefined) { window.ifpluso = 1;
+                        var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+                        s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+                        s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+                        var h=d[g]('body')[0];
+                        h.appendChild(s);
+                    }})();</script>
+                <div class="pluso" data-background="transparent" data-options="big,round,line,horizontal,nocounter,theme=04" data-services="facebook,twitter,vkontakte,google"></div>
+
+            </div>
+
+        </div>
+        <div class='clearfix'></div>
+    </div>
+</footer>
+<!--<script src="/assets/web/application-002de8bc0ed501132f3313cf950a7e37.js" type="text/javascript"></script>-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-47395104-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
+
