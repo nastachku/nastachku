@@ -6,6 +6,10 @@
 *~
 /public/*
 !public/index.html
+!public/font
+!public/less
+!public/img
+!public/js
 !fonts/
 /coverage
 
