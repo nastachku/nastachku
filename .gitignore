@@ -5,6 +5,7 @@
 /tmp
 *~
 /public/*
+!public/index.html
 !fonts/
 /coverage
 
