@@ -58,6 +58,10 @@ ru:
           shirt_orders:
             create:
               error: "Есть ошибки в заполнении формы"
+          promo_codes:
+            accept:
+              success: 'Промо-код принят! Участие в конференции оплачено'
+              error: 'Вы ввели неправильный промо-код!'
 
 
         accounts:

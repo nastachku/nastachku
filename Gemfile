@@ -48,7 +48,6 @@ gem 'omniauth-twitter'
 gem 'mobylette'
 gem 'draper'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -74,6 +73,7 @@ group :test do
   gem "rake"
   gem 'coveralls', require: false
   gem 'mocha', require: false
+  gem 'pry'
 end
 
 group :development do

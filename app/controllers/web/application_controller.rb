@@ -5,6 +5,7 @@ class Web::ApplicationController < ApplicationController
   include Web::WorkshopsHelper
   include CustomUrlHelper
   include PlatidomaHelper
+  include SecureHelper
 
   #helper :all
   helper_method :edit_admin_event_cpath, :workshops
