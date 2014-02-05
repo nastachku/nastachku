@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  
+
   sequence :email do |n|
     "email_#{n}@mail.com"
   end
@@ -8,7 +8,7 @@ FactoryGirl.define do
     n
   end
 
-  [:company, :slug, :title, :thesises, :body, :photo, :description, :about, :color].each do |trait|   
+  [:company, :slug, :title, :thesises, :body, :photo, :description, :about, :color].each do |trait|
     sequence trait do |n|
       "#{trait}_#{n}"
     end
@@ -16,11 +16,11 @@ FactoryGirl.define do
   end
 
   [:start_time, :finish_time].each do |trait|
-    sequence trait do |n| 
+    sequence trait do |n|
       n.year.ago
     end
   end
-  
+
   sequence :show_as_participant do |n|
     n % 2
   end
@@ -45,4 +45,7 @@ FactoryGirl.define do
     }
   end
 
+  sequence :code do |n|
+    (100000000 + n).to_s
+  end
 end
