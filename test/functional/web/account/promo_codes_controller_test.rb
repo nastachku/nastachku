@@ -9,7 +9,7 @@ class Web::Account::PromoCodesControllerTest < ActionController::TestCase
     put :accept, id: @promo_code, code: @promo_code.code
 
     @promo_code.reload
-    assert_equal true, @promo_code.accepted?
+    assert_equal true, @promo_code.user.paid_part?
     assert_redirected_to root_path
   end
 

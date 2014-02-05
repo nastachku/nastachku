@@ -3,7 +3,6 @@ class CreateUserPromoCodes < ActiveRecord::Migration
     create_table :user_promo_codes do |t|
       t.string :code
       t.integer :user_id
-      t.string :accepted_state
 
       t.timestamps
     end

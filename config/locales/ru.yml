@@ -80,6 +80,8 @@ ru:
         cost: "Стоимость"
         add_more_user_event_text: 'Есть еще один умопомрачительный доклад?'
         add_more_user_event_link: 'Добавляй!'
+        pay: Оплата участия
+        enter_promo_code: Ввести промо-код
 
     account:
       lectures:

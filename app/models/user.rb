@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :first_name, :last_name, :city, :company, :position,
     :show_as_participant, :photo, :state_event, :about, :carousel_info, :in_carousel,
-    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event
+    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event, :pay_state
 
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
@@ -49,6 +49,7 @@ class User < ActiveRecord::Base
     event :deactivate do
       transition [:active, :new] => :inactive
     end
+
   end
 
   state_machine :timepad_state, initial: :unsynchronized do
@@ -75,6 +76,15 @@ class User < ActiveRecord::Base
 
     event :attend do
       transition not_decided: :attended
+    end
+  end
+
+  state_machine :pay_state, initial: :not_paid_part do
+    state :not_paid_part
+    state :paid_part
+
+    event :pay_part do
+      transition not_paid_part: :paid_part
     end
   end
 

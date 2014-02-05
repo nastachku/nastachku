@@ -8,6 +8,8 @@
   .tabbable
     %ul.nav.nav-tabs
       %li.active= link_to t('.info'), '#info', data: { toggle: 'tab' }
+      - if @user.not_paid_part?
+        %li= link_to t('.pay'), '#pay', data: { toggle: 'tab' }
       %li= link_to t('.my_orders'), '#my_orders', data: { toggle: 'tab' }
 
   .tab-content
@@ -40,7 +42,12 @@
 
           = f.input :show_as_participant, wrapper: :inline_checkbox
         = f.button :submit, value: t('.save'), class: 'btn btn-shine'
-
+    - if @user.not_paid_part?
+      .tab-pane#pay
+        = form_tag  accept_account_promo_code_path(@user.promo_code), method: :put, html: { class: 'form-horizontal' } do |f|
+          = text_field_tag :code
+          %br
+          = submit_tag t('.enter_promo_code'), class: 'btn btn-shine'
     .tab-pane#my_orders
 
       %p
