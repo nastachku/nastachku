@@ -33,6 +33,7 @@ class Web::UsersController < Web::ApplicationController
   def create
     @user = UserRegistrationType.new params[:user]
     if @user.save
+      User::PromoCode.create({ code: generate_promo_code, user_id: @user.id })
       if registration_by_soc_network?
         @user.authorizations << build_authorization(session_auth_hash)
         @user.activate

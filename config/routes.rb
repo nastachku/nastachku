@@ -37,7 +37,7 @@ Nastachku::Application.routes.draw do
 
   end
 
-  scope :module => :web do
+  scope module: :web do
     resources :users, only: [:new, :create, :index] do
       member do
         put :attend
@@ -58,9 +58,9 @@ Nastachku::Application.routes.draw do
     end
 
     resource :account, only: [:edit, :update] do
-      scope :module => :account do
+      scope module: :account do
         resource :password, only: [:edit, :update]
-        resource :social_networks, :only => [] do
+        resource :social_networks, only: [] do
           #FIXME по REST тут должен быть put. Решить проблему вызова экшена из другого контроллера
           get :link_twitter
           put :unlink_twitter
@@ -68,7 +68,7 @@ Nastachku::Application.routes.draw do
 
         resources :lectures, only: [ :new, :create, :update ]
         resources :orders, only: [:update] do
-          put :pay, :on => :member
+          put :pay, on: :member
 
           collection do
             post :approve
@@ -77,11 +77,16 @@ Nastachku::Application.routes.draw do
           end
         end
         resources :shirt_orders, only: [:new, :create]
+        resources :promo_codes, only: []  do
+          member do
+            put :accept
+          end
+        end
       end
     end
 
-    resource :social_networks, :only => [] do
-      get :authorization, :on => :member
+    resource :social_networks, only: [] do
+      get :authorization, on: :member
     end
 
     namespace :admin do
