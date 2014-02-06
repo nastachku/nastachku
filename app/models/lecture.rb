@@ -39,12 +39,4 @@ class Lecture < ActiveRecord::Base
     end
   end
 
-  def to_s
-    title
-  end
-
-  def full_title
-    "#{self.title} (#{UserDecorator.decorate(self.user).full_name})"
-  end
-
 end
