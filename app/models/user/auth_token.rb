@@ -8,10 +8,6 @@ class User::AuthToken < ActiveRecord::Base
   validates :authentication_token, :presence => true, :uniqueness => true
   validates :expired_at, :presence => true
 
-  def to_s
-    authentication_token
-  end
-
   def expired?
     expired_at < Time.current
   end
