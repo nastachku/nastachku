@@ -15,8 +15,8 @@ class Web::Admin::MailersController < Web::Admin::ApplicationController
         UserMailer.conference_is_open(user, token, params).deliver
       end
       flash_success
-    redirect_to admin_mailers_path
-    rescue Net::SMTPAuthenticationError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
+      redirect_to admin_mailers_path
+    rescue Net::SMTPAuthenticationError, SocketError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
       flash[:error] = t(".flash.controllers.web.admin.mailers.deliver.error") + e.message
     end
   end
