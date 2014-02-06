@@ -10,8 +10,4 @@ class Topic < ActiveRecord::Base
   has_many :user_topics
 
   audit :title, :description
-
-  def to_s
-    title
-  end
 end

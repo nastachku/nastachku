@@ -1,8 +1,8 @@
 class Hall < ActiveRecord::Base
   include HallRepository
-  
+
   attr_accessible :title, :slots_attributes, :state_event
-  
+
   validates :title, presence: true
   validates_associated :slots
 
@@ -26,8 +26,4 @@ class Hall < ActiveRecord::Base
   end
 
   audit :title
-
-  def to_s
-    title
-  end
 end

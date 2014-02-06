@@ -17,15 +17,12 @@ class Event < ActiveRecord::Base
     state :active
 
     event :activate do
-      transition :inactive => :active
+      transition inactive: :active
     end
 
     event :deactivate do
-      transition :active => :inactive
+      transition active: :inactive
     end
   end
 
-  def full_title
-    title
-  end
 end
