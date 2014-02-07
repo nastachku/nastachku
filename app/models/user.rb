@@ -83,6 +83,10 @@ class User < ActiveRecord::Base
     state :not_paid_part
     state :paid_part
 
+    event :not_pay_part do
+      transition paid_part: :not_paid_part
+    end
+
     event :pay_part do
       transition not_paid_part: :paid_part
     end
