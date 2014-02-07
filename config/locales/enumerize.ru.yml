@@ -4,3 +4,8 @@ ru:
       role:
         lector: 'Докладчик'
         user: 'Участник'
+    ticket_order:
+      day:
+        first: Первый день
+        second: Второй день
+        full: Все дни конференции

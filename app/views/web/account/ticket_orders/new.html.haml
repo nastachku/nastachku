@@ -1,4 +1,5 @@
-= form_tag buy_ticket_orders_path do
-  = check_box_tag t('.first_day')
-  = check_box_tag t('.second_day')
-= link_to  t('.buy'), class: 'btn btn-shine'
+= simple_form_for [:account, @ticket_order], html: { class: 'form-horizontal profile-form' } do |f|
+  = f.input :day, as: :radio_buttons
+  = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+  = f.input :items_count, as: :hidden, input_html: { value: 1 }
+  = f.submit t('.buy'), class: 'btn btn-shine'

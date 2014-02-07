@@ -4,8 +4,11 @@ ru:
       hall: 'Зал'
       afterparty_order: 'Билет на афтепати'
       shirt_order: 'Футболка'
+      ticket_order: Билет на Стачку
 
     attributes:
+      ticket_order:
+        day: Тип билета
       lecture:
         state_event: 'Действие'
         title: 'Название'
@@ -114,7 +117,7 @@ ru:
             slug:
               taken: 'Такой слаг уже есть, выберите другой'
 
-        user: 
+        user:
           attributes:
             email:
               email: 'Введен некорректный email'

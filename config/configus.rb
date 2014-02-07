@@ -54,6 +54,7 @@ Configus.build Rails.env do
       gate_password credentials_hash["production"]["platidoma"]["gate_password"]
       shirt_price 500
       ticket_price 500
+      full_ticket_price 1000
     end
 
     cache do
