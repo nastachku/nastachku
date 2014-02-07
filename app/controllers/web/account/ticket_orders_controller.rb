@@ -3,13 +3,17 @@ class Web::Account::TicketOrdersController < Web::Account::ApplicationController
 
   def new
     @ticket_order = TicketOrder.new
-    gon.price = configus.platidoma.ticket_price
   end
 
   def create
     @ticket_order = current_user.ticket_orders.build params[:ticket_order]
-    gon.price = configus.platidoma.ticket_price
+    if @ticket_order.day.full?
+      gon.price = configus.platidoma.full_ticket_price
+    else
+      gon.price = configus.platidoma.ticket_price
+    end
     if @ticket_order.save
+      @ticket_order.user.pay_part
       redirect_to build_payment_curl @ticket_order
     else
       flash_error
