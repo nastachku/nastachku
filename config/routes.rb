@@ -67,7 +67,6 @@ Nastachku::Application.routes.draw do
           put :unlink_twitter
         end
 
-        resources :lectures, only: [ :new, :create, :update ]
         resources :orders, only: [:update] do
           put :pay, on: :member
 
