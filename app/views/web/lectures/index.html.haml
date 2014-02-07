@@ -1,14 +1,17 @@
 %h1=t(".events")
 
 .row.workshop
+  - if @lectures.empty?
+    .span12
+      = t(".not_added_yet")
   .span3
     %ul.nav.nav-list.b-affix
       - workshops.each do |workshop|
         = item :li, workshop, lectures_path(workshop_id_eq: workshop.id)
 
   .span9
-    - @lectures.each do |lecture|
-      .row-fluid.event-item
+    .row-fluid.event-item
+      - @lectures.each do |lecture|
         .span4.sinfo
           .col-l
             %h5= link_to lecture.user.decorate.reverse_full_name, lectors_path(anchor: lecture.user)

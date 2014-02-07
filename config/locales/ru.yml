@@ -194,6 +194,7 @@ ru:
 
     lectures:
       index:
+        not_added_yet: 'Пока не добавлено ни одного доклада. Вы можете стать первым докладчиком! Все подробности на pr@nastachku.ru' 
         i_am_going: 'Пойти'
         i_am_not_going: 'Передумал идти'
         pending: 'Ждём...'
