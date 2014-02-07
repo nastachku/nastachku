@@ -27,7 +27,7 @@ class Web::UsersController < Web::ApplicationController
     else
       flash_error
     end
-    redirect_to root_path
+    redirect_to welcome_index_path
   end
 
   def create
@@ -39,7 +39,7 @@ class Web::UsersController < Web::ApplicationController
         @user.activate
         clear_session_auth_hash
         sign_in @user
-        redirect_to root_path
+        redirect_to welcome_index_path
       else
         token = @user.create_auth_token
         UserMailer.confirm_registration(@user, token).deliver

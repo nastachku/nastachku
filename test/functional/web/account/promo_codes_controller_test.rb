@@ -10,7 +10,7 @@ class Web::Account::PromoCodesControllerTest < ActionController::TestCase
 
     @promo_code.reload
     assert_equal true, @promo_code.user.paid_part?
-    assert_redirected_to root_path
+    assert_redirected_to welcome_index_path
   end
 
   test "should not put accept" do

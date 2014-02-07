@@ -28,7 +28,7 @@ class Web::SessionsController < Web::ApplicationController
 
   def destroy
     sign_out
-    redirect_to root_path
+    redirect_to welcome_index_path
   end
 
 end
