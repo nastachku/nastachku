@@ -1,4 +1,4 @@
-class Web::Account::PromoCodesController < Web::ApplicationController
+class Web::Account::PromoCodesController < Web::Account::ApplicationController
   def accept
     @promo_code = User::PromoCode.find params[:id]
     if @promo_code.code == params[:code]

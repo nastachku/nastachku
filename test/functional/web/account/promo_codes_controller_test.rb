@@ -3,6 +3,8 @@ require 'test_helper'
 class Web::Account::PromoCodesControllerTest < ActionController::TestCase
   setup do
     @promo_code = create :user_promo_code
+    @user = create :user
+    sign_in @user
   end
 
   test "should put accept" do

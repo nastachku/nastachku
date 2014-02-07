@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :afterparty_order do
+  factory :ticket_order do
     user
     items_count
   end
