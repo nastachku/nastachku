@@ -16,8 +16,6 @@
     .tab-pane.active#info
       - unless @user.attended?
         = link_to t('.i_will_come_to_stachka'), attend_user_path(@user), method: :put, class: 'btn btn-shine'
-      - else
-        = t('.i_will_come_to_stachka')
       = simple_form_for @user, url: account_path, html: { class: 'form-horizontal profile-form' } do |f|
         .formy
           = f.input :first_name
