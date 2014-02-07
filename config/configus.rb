@@ -52,8 +52,8 @@ Configus.build Rails.env do
       shop_id credentials_hash["production"]["platidoma"]["shop_id"]
       login credentials_hash["production"]["platidoma"]["login"]
       gate_password credentials_hash["production"]["platidoma"]["gate_password"]
-      afterparty_price 1500
       shirt_price 500
+      ticket_price 1000
     end
 
     cache do
