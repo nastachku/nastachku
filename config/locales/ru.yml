@@ -506,7 +506,6 @@ ru:
         position: "Должность"
         show_as_participant: "Показывать как участника"
         photo: "Фото"
-        state_event: "Изменить состояние"
         state: "Состояние"
         timepad_state: "Состояние timepad.ru"
         about: "О себе"
