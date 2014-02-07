@@ -43,6 +43,7 @@ Nastachku::Application.routes.draw do
         put :attend
       end
     end
+    resources :welcome, only: [ :index ]
     resources :lectures, only: [ :index ]
     resources :pages, only: [:show]
     resources :news, only: [:index]
