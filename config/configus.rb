@@ -53,7 +53,6 @@ Configus.build Rails.env do
       login credentials_hash["production"]["platidoma"]["login"]
       gate_password credentials_hash["production"]["platidoma"]["gate_password"]
       shirt_price 500
-<<<<<<< HEAD
       if Time.current.month == 2
         ticket_price_first_day 500
         ticket_price_second_day 250
@@ -64,10 +63,6 @@ Configus.build Rails.env do
         ticket_price_first_day 1000
         ticket_price_second_day 500
       end
-=======
-      ticket_price 500
-      full_ticket_price 1000
->>>>>>> 940c36cc6eab2279d083dac39d5d976c4827fac5
     end
 
     cache do
