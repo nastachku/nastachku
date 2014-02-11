@@ -24,8 +24,8 @@ ru:
           events:
             pay_part: "Оплатить участие"
             not_pay_part: "Не оплачивать участие"
-              
-    
+
+
     models:
       hall: 'Зал'
       afterparty_order: 'Билет на афтепати'
@@ -34,7 +34,7 @@ ru:
 
     attributes:
       ticket_order:
-        day: Тип билета
+        ticket_type: Тип билета
       lecture:
         state_event: 'Действие'
         title: 'Название'

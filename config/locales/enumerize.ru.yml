@@ -5,7 +5,7 @@ ru:
         lector: 'Докладчик'
         user: 'Участник'
     ticket_order:
-      day:
+      ticket_type:
         first: Первый день
         second: Второй день
-        full: Все дни конференции
+        full: Оба дня
