@@ -1,5 +1,6 @@
 class TicketOrder < Order
   extend Enumerize
+  extend ActiveModel::Naming
 
   attr_accessible :ticket_type, :order_option_id
   belongs_to :order_option

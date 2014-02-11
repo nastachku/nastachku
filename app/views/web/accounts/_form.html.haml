@@ -51,7 +51,9 @@
       - unless user_has_full_ticket?(current_user)
         Билет на конференцию
         = simple_form_for @ticket_order, url: account_ticket_orders_path do |f|
-          = f.input :ticket_type
+          = f.input :ticket_type if user_has_not_tickets(current_user)
+          = f.input :ticket_type, collection: ticket_type_collection_part(1) if user_has_first_day?(current_user)
+          = f.input :ticket_type, collection: ticket_type_collection_part(0) if user_has_second_day?(current_user)
           = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
           = f.input :items_count, as: :hidden, input_html: { value: 1 }
           = f.button :submit, t('add_to_cart')
