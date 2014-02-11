@@ -50,9 +50,16 @@
           %br
           = submit_tag t('.enter_promo_code'), class: 'btn btn-shine'
     .tab-pane#my_orders
-      = simple_form_for @order_option url: account_order_options do |f|
+      = simple_form_for @order_option, url: account_order_options do |f|
         = f.input :cost, as: :hidden
-        = f.simple_fields_for
+        = f.simple_fields_for :ticket_order do |ticket|
+          = ticket.type
+          = ticket.items_count
+        = f.simple_fields_for :shirt_order do |shirt|
+          = shirt.item_size
+          = shirt.item_color
+          = shirt.items_count
+        = f.button :submit
 
       %p
         - if @user.orders.web.empty?

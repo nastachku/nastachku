@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140211041743) do
+ActiveRecord::Schema.define(:version => 20140211041744) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -129,10 +129,11 @@ ActiveRecord::Schema.define(:version => 20140211041743) do
     t.string   "item_size"
     t.string   "payment_state"
     t.string   "transaction_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "item_color"
     t.string   "ticket_type"
+    t.integer  "order_option_id"
   end
 
   create_table "pages", :force => true do |t|

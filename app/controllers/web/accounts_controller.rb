@@ -4,9 +4,10 @@ class Web::AccountsController < Web::ApplicationController
 
   def edit
     @user = AccountEditType.find current_user
+    binding.pry
     @order_option = OrderOption.new
-    @order_option.shirt_order.build
-    @order_option.ticket_order.build
+    @order_option.shirt_orders.build
+    @order_option.ticket_orders.build
   end
 
   def update
