@@ -48,12 +48,13 @@
           %br
           = submit_tag t('.enter_promo_code'), class: 'btn btn-shine'
     .tab-pane#my_orders
-      Билет на конференцию
-      = simple_form_for @ticket_order, url: account_ticket_orders_path do |f|
-        = f.input :ticket_type
-        = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
-        = f.input :items_count, as: :hidden, input_html: { value: 1 }
-        = f.button :submit, t('add_to_cart')
+      - unless user_has_full_ticket?(current_user)
+        Билет на конференцию
+        = simple_form_for @ticket_order, url: account_ticket_orders_path do |f|
+          = f.input :ticket_type
+          = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+          = f.input :items_count, as: :hidden, input_html: { value: 1 }
+          = f.button :submit, t('add_to_cart')
 
       Купить футболки
       = simple_form_for @shirt_order, url: account_shirt_orders_path do |f|
