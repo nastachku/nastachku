@@ -1,11 +1,6 @@
 class Web::Account::ShirtOrdersController < Web::Account::ApplicationController
   skip_before_filter :authenticate_user!, only: [:new]
 
-  def new
-    @shirt_order = ShirtOrder.new
-    gon.price = configus.platidoma.shirt_price
-  end
-
   def create
     @shirt_order = ShirtOrder.new params[:shirt_order]
     if @shirt_order.save

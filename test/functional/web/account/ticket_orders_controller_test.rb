@@ -12,7 +12,6 @@ class Web::Account::TicketOrdersControllerTest < ActionController::TestCase
     post :create, ticket_order: attributes
 
     assert_response :redirect
-    order = current_user.orders.find_by_items_count attributes[:items_count]
-    assert order
+    assert_equal attributes[:ticket_type], TicketOrder.last.ticket_type
   end
 end
