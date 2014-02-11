@@ -5,5 +5,4 @@ class User::PromoCode < ActiveRecord::Base
 
   validates :code, presence: true,
                    length: { is: 9 }
-  validates :user_id, presence: true
 end

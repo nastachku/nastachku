@@ -1,7 +1,8 @@
 class ShirtOrder < Order
   extend Enumerize
 
-  attr_accessible :item_size, :item_color
+  attr_accessible :item_size, :item_color, :order_option_id
+  belongs_to :order_option
 
   validates :item_size, presence: true
   validates :item_color, presence: true

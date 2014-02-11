@@ -1,4 +1,5 @@
 ru:
+  rub: рублей
   personal_data: "Личные данные"
 
   errors:
@@ -250,6 +251,7 @@ ru:
       welcome:
         index:
           title: 'Админка стачки'
+          prices_for_ticket: Цены за билет
       users:
         form:
           attending_conference_state: "Идёт ли пользователь на СТАЧКУ 2014"
