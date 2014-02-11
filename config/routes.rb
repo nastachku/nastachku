@@ -78,8 +78,12 @@ Nastachku::Application.routes.draw do
           end
         end
         resources :shirt_orders, only: [:new, :create]
+<<<<<<< HEAD
         resources :ticket_orders, only: :create
         resources :order_options, only: :create
+=======
+        resources :ticket_orders, only: [:new, :create]
+>>>>>>> 940c36cc6eab2279d083dac39d5d976c4827fac5
         resources :promo_codes, only: []  do
           member do
             put :accept

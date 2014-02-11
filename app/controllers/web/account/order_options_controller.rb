@@ -4,6 +4,8 @@ class Web::Account::OrderOptionsController < Web::Account::ApplicationController
   def create
     @order_option = OrderOption.new params[:order_option]
     if @order_option.save
+      @order_option.cost = @order_option.ticket_orders.first.cost + @order_option.shirt_orders.first.cost
+      @order_option.save
       flash_success
       redirect_to edit_account_path
     else

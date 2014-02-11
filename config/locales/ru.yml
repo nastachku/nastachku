@@ -149,6 +149,13 @@ ru:
           buy_afterparty_ticket_after: "билет на афтепати! ;)"
           buy_afterparty_ticket_action: "купить"
           sign_in: "Для того, чтобы оплатить футболку авторизуйтесь"
+      ticket_orders:
+        new:
+          ticket: Билет на Стачку
+          item_cost_value: Стоимость билета
+          item_total_default: Общая стоимость
+          buy: Купить
+
 
 
     users:

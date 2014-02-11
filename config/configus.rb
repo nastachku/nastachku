@@ -16,8 +16,8 @@ Configus.build Rails.env do
     end
 
     schedule do
-      first_day Time.utc(2013, 4, 12)
-      second_day Time.utc(2013, 4, 13)
+      first_day Time.utc(2014, 4, 11)
+      second_day Time.utc(2014, 4, 12)
     end
 
     mailer do
@@ -52,8 +52,8 @@ Configus.build Rails.env do
       shop_id credentials_hash["production"]["platidoma"]["shop_id"]
       login credentials_hash["production"]["platidoma"]["login"]
       gate_password credentials_hash["production"]["platidoma"]["gate_password"]
-      afterparty_price 1500
       shirt_price 500
+<<<<<<< HEAD
       if Time.current.month == 2
         ticket_price_first_day 500
         ticket_price_second_day 250
@@ -64,6 +64,10 @@ Configus.build Rails.env do
         ticket_price_first_day 1000
         ticket_price_second_day 500
       end
+=======
+      ticket_price 500
+      full_ticket_price 1000
+>>>>>>> 940c36cc6eab2279d083dac39d5d976c4827fac5
     end
 
     cache do
