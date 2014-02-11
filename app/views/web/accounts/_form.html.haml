@@ -48,17 +48,18 @@
           %br
           = submit_tag t('.enter_promo_code'), class: 'btn btn-shine'
     .tab-pane#my_orders
-      = simple_form_for @order_option, url: account_order_options_path do |f|
-        = f.input :cost, as: :hidden, input_html: { value: 100 }
-        Билет
-        = f.simple_fields_for :ticket_orders do |ticket|
-          = ticket.input :ticket_type, as: :select, collection: ticket_type_collection
-          = ticket.input :items_count, as: :hidden, input_html: { value: 1 }
-          = ticket.input :user_id, as: :hidden, input_html: { value: current_user.id }
-        = f.simple_fields_for :after_party do |party|
-          = party.input :user_id, as: :hidden, input_html: { value: current_user.id }
+      = simple_form_for @ticket_order, url: account_ticket_orders_path do |f|
+        = f.input :ticket_type
+        = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+        = f.input :items_count, as: :hidden, input_html: { value: 1 }
         = f.button :submit
 
+      = simple_form_for @shirt_order, url: account_shirt_orders_path do |f|
+        = f.input :items_count
+        = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+        = f.input :item_color
+        = f.input :item_size
+        = f.button :submit
       %p
         - if @user.orders.web.empty?
           = t(".buy_it_now")

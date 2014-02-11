@@ -7,12 +7,10 @@ class Web::Account::ShirtOrdersController < Web::Account::ApplicationController
   end
 
   def create
-    @shirt_order = current_user.shirt_orders.build params[:shirt_order]
-
-    gon.price = configus.platidoma.shirt_price
-
+    @shirt_order = ShirtOrder.new params[:shirt_order]
     if @shirt_order.save
-      redirect_to build_payment_curl(@shirt_order)
+      flash_success
+      redirect_to edit_account_path
     else
       flash_error
       render :new
