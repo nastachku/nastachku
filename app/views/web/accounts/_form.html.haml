@@ -51,14 +51,16 @@
           = submit_tag t('.enter_promo_code'), class: 'btn btn-shine'
     .tab-pane#my_orders
       = simple_form_for @order_option, url: account_order_options_path do |f|
-        = f.input :cost, as: :hidden
-        = f.simple_fields_for :ticket_order do |ticket|
-          = ticket.input :ticket_type, as: :check_boxes, collection: ticket_type_collection
+        = f.input :cost, as: :hidden, input_html: { value: 100 }
+        = f.simple_fields_for :ticket_orders do |ticket|
+          = ticket.input :ticket_type, as: :select, collection: ticket_type_collection
           = ticket.input :items_count, as: :hidden, input_html: { value: 1 }
-        = f.simple_fields_for :shirt_order do |shirt|
+          = ticket.input :user_id, as: :hidden, input_html: { value: current_user.id }
+        = f.simple_fields_for :shirt_orders do |shirt|
           = shirt.input :item_size, as: :select, collection: item_size_collection
           = shirt.input :item_color, as: :select, collection: item_color_collection
           = shirt.input :items_count, as: :integer
+          = shirt.input :user_id, as: :hidden, input_html: { value: current_user.id }
         = f.button :submit
 
       %p
