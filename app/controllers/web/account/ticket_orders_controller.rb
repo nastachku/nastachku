@@ -8,7 +8,7 @@ class Web::Account::TicketOrdersController < Web::Account::ApplicationController
       redirect_to edit_account_path
     else
       flash_error
-      render :new
+      redirect_to edit_account_path
     end
   end
 end
