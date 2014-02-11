@@ -8,3 +8,5 @@ user.city = configus.admin.city
 user.admin = true
 user.save!
 user.activate
+user.attend
+user.pay_part
