@@ -2,6 +2,7 @@ class TicketOrder < Order
   extend Enumerize
 
   attr_accessible :ticket_type
+  belongs_to :order_option
 
   enumerize :ticket_type, in: [:first, :second, :full], default: :full
 

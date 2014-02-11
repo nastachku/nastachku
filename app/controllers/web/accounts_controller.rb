@@ -4,6 +4,9 @@ class Web::AccountsController < Web::ApplicationController
 
   def edit
     @user = AccountEditType.find current_user
+    @order_option = OrderOption.new
+    @order_option.shirt_order.build
+    @order_option.ticket_order.build
   end
 
   def update
