@@ -1,8 +1,6 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :shirt_order do
-    user
+    user_id 1
     items_count
     item_size "L"
     item_color "white"

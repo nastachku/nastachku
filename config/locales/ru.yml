@@ -1,5 +1,7 @@
 ru:
+  rub: рублей
   personal_data: "Личные данные"
+  add_to_cart: Добавить в корзину
 
   errors:
     messages:
@@ -148,6 +150,13 @@ ru:
           buy_afterparty_ticket_after: "билет на афтепати! ;)"
           buy_afterparty_ticket_action: "купить"
           sign_in: "Для того, чтобы оплатить футболку авторизуйтесь"
+      ticket_orders:
+        new:
+          ticket: Билет на Стачку
+          item_cost_value: Стоимость билета
+          item_total_default: Общая стоимость
+          buy: Купить
+
 
 
     users:
@@ -194,6 +203,7 @@ ru:
 
     lectures:
       index:
+        not_added_yet: 'Пока не добавлено ни одного доклада. Вы можете стать первым докладчиком! Все подробности на pr@nastachku.ru'
         i_am_going: 'Пойти'
         i_am_not_going: 'Передумал идти'
         pending: 'Ждём...'
@@ -242,6 +252,7 @@ ru:
       welcome:
         index:
           title: 'Админка стачки'
+          prices_for_ticket: Цены за билет
       users:
         form:
           attending_conference_state: "Идёт ли пользователь на СТАЧКУ 2014"
@@ -505,7 +516,6 @@ ru:
         position: "Должность"
         show_as_participant: "Показывать как участника"
         photo: "Фото"
-        state_event: "Изменить состояние"
         state: "Состояние"
         timepad_state: "Состояние timepad.ru"
         about: "О себе"

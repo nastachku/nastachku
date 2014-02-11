@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :shirt_orders
   has_many :afterparty_orders
+  has_many :ticket_orders
 
   accepts_nested_attributes_for :lectures, reject_if: :all_blank, allow_destroy: true
 
@@ -82,6 +83,10 @@ class User < ActiveRecord::Base
   state_machine :pay_state, initial: :not_paid_part do
     state :not_paid_part
     state :paid_part
+
+    event :not_pay_part do
+      transition paid_part: :not_paid_part
+    end
 
     event :pay_part do
       transition not_paid_part: :paid_part

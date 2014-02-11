@@ -16,8 +16,6 @@
     .tab-pane.active#info
       - unless @user.attended?
         = link_to t('.i_will_come_to_stachka'), attend_user_path(@user), method: :put, class: 'btn btn-shine'
-      - else
-        = t('.i_will_come_to_stachka')
       = simple_form_for @user, url: account_path, html: { class: 'form-horizontal profile-form' } do |f|
         .formy
           = f.input :first_name
@@ -50,7 +48,27 @@
           %br
           = submit_tag t('.enter_promo_code'), class: 'btn btn-shine'
     .tab-pane#my_orders
+      - unless user_has_full_ticket?(current_user)
+        Билет на конференцию
+        = simple_form_for @ticket_order, url: account_ticket_orders_path do |f|
+          = f.input :ticket_type if user_has_not_tickets(current_user)
+          = f.input :ticket_type, collection: ticket_type_collection_part(1) if user_has_first_day?(current_user)
+          = f.input :ticket_type, collection: ticket_type_collection_part(0) if user_has_second_day?(current_user)
+          = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+          = f.input :items_count, as: :hidden, input_html: { value: 1 }
+          = f.button :submit, t('add_to_cart')
+      - else
+        %b
+          Билет куплен на все дни конференции!
+        %br
 
+      Купить футболки
+      = simple_form_for @shirt_order, url: account_shirt_orders_path do |f|
+        = f.input :items_count
+        = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+        = f.input :item_color
+        = f.input :item_size
+        = f.button :submit, t('add_to_cart')
       %p
         - if @user.orders.web.empty?
           = t(".buy_it_now")

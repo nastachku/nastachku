@@ -12,7 +12,7 @@ class Web::RemindPasswordsController < Web::ApplicationController
         token = user.create_auth_token
         UserMailer.remind_password(user, token).deliver
         flash_success
-        return redirect_to root_path
+        return redirect_to welcome_index_path
       end
     end
 

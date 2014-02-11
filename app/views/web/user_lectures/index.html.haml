@@ -2,7 +2,7 @@
 %h5
   = t('.user_lectures_title_before_link')
   = succeed ',' do
-    = link_to t(".user_lectures_title_link"), new_account_lecture_path
+    = link_to t(".user_lectures_title_link"), 'mailto:pr@nastachku.ru'
   = t('.user_lectures_title_after_link')
 %br
 
@@ -15,7 +15,7 @@
   .span9
     - if @lectures.empty?
       = t(".not_added_yet")
-      = link_to t(".first_speaker"), new_account_lecture_path
+      = link_to t(".first_speaker"), 'mailto:pr@nastachku.ru' 
     - else
       #{ t '.sort_by' }:&nbsp;
       -#FIXME решение в лоб. Наверняка есть более элегантное решение

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Web::SocialNetworksController < Web::ApplicationController
 
   def facebook
@@ -8,7 +9,7 @@ class Web::SocialNetworksController < Web::ApplicationController
 
       if authorization.user.inactive?
         flash_notice
-        redirect_to root_path
+        redirect_to welcome_index_path
         return
       end
 
@@ -34,7 +35,7 @@ class Web::SocialNetworksController < Web::ApplicationController
       end
 
     end    
-    redirect_to root_path
+    redirect_to welcome_index_path
   end
 
   def twitter
@@ -45,14 +46,14 @@ class Web::SocialNetworksController < Web::ApplicationController
       redirect_to link_twitter_account_social_networks_path if twitter_provider?
     else
       flash_error
-      redirect_to root_path
+      redirect_to welcome_index_path
     end
 
   end
 
   def failure
     flash_error
-    redirect_to root_path
+    redirect_to welcome_index_path
   end
 
 end
