@@ -1,5 +1,5 @@
 class OrderOption < ActiveRecord::Base
-  attr_accessible :cost, :ticket_order_attributes, :shirt_order_attributes
+  attr_accessible :cost, :ticket_orders_attributes, :shirt_orders_attributes
 
   has_many :ticket_orders
   has_many :shirt_orders
