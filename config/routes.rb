@@ -4,8 +4,8 @@ Nastachku::Application.routes.draw do
   get "audits/index"
 
   match "/404", to: "web/errors#not_found"
-  match "/500", :to => "web/errors#internal_server_error"
-  match "/banned", :to => "web/errors#banned"
+  match "/500", to: "web/errors#internal_server_error"
+  match "/banned", to: "web/errors#banned"
 
   root to: "web/welcome#index"
 
@@ -78,6 +78,7 @@ Nastachku::Application.routes.draw do
           end
         end
         resources :shirt_orders, only: [:new, :create]
+        resources :ticket_orders, only: [:new, :create]
         resources :promo_codes, only: []  do
           member do
             put :accept

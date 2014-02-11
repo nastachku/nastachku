@@ -10,7 +10,7 @@ class Web::Account::TicketOrdersControllerTest < ActionController::TestCase
 
   test "should get new" do
     get :new
-    assert_response :success
+    assert_redirected_to root_path
   end
 
   test "should post create" do

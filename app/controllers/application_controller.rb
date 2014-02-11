@@ -6,10 +6,10 @@ class ApplicationController < ActionController::Base
 
   before_filter :deny_banned_user!
 
-  unless (Rails.env.development?)
+  # FIXME запхать это в конфигас как-нить
+  if Rails.env.production? or Rails.env.staging?
     rescue_from ActionController::RoutingError, ActionView::MissingTemplate, ActiveRecord::RecordNotFound do |exception|
       redirect_to "/404"
     end
   end
 end
-
