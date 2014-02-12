@@ -10,9 +10,9 @@ ru:
             success: 'Ваш аккаунт успешно активирован!'
 
         account:
-          order_options:
+          ticket_orders:
             create:
-              success: Заказ успешно добавлен
+              success: Билет добавлен в корзину
           lectures:
             create:
               success: 'Ваш доклад отправлен на модерацию. Вам на почту придет письмо с результатами проверки.'
