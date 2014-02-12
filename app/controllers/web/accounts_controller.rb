@@ -15,8 +15,8 @@ class Web::AccountsController < Web::ApplicationController
       flash_success
       redirect_to edit_account_path
     else
-      flash_error
-      render action: "edit"
+      flash[:error] = @user.errors.full_messages
+      redirect_to action: "edit"
     end
   end
 

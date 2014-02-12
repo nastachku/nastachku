@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'digest/md5'
 
 class User < ActiveRecord::Base
@@ -6,16 +7,16 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :first_name, :last_name, :city, :company, :position,
     :show_as_participant, :photo, :state_event, :about, :carousel_info, :in_carousel,
-    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event, :pay_state
+    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event, :pay_state_event
 
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
   validates :email, presence: true, uniqueness: {case_sensitive: false}, email: true
-  validates :first_name, length: { maximum: 255 }, russian: true
-  validates :last_name, length: { maximum: 255 }, russian: true
-  validates :city, length: { maximum: 255 }, russian: true
-  validates :company, length: { maximum: 255 }
-  validates :position, length: { maximum: 255 }
+  validates_format_of :first_name, with: /^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я '`-]{0,253}[a-zA-Zа-яА-Я]$/
+  validates_format_of :last_name, with: /^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я '`-]{0,253}[a-zA-Zа-яА-Я]$/
+  validates_format_of :city, with: /^[a-zA-Zа-яА-Я0-9 '`-]{0,255}$/
+  validates_format_of :company, with: /^[a-zA-Zа-яА-Я0-9 '`~!@#$%^&*()_+=\-"{}\[\]\/\\|;:,.?<>-]{0,255}$/
+  validates_format_of :position, with: /^[a-zA-Zа-яА-Я0-9 '`-]{0,255}$/
 
   enumerize :role, in: [ :lector, :user ], default: :user
   has_many :lectures, dependent: :destroy
@@ -94,8 +95,20 @@ class User < ActiveRecord::Base
   end
 
   def create_auth_token
+    create_token(configus.token.auth_lifetime)
+  end
+
+  def create_remind_password_token
+    create_token(configus.token.remind_password_lifetime)
+  end
+
+  def create_user_welcome_token
+    create_token(configus.token.old_user_welcome_lifetime)
+  end
+  
+  def create_token(lifetime)
     token = SecureHelper.generate_token
-    expired_at = Time.current + configus.token.lifetime
+    expired_at = Time.current + lifetime
     auth_tokens.create! :authentication_token => token, :expired_at => expired_at
   end
 
