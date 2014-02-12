@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   validates_format_of :first_name, with: /^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я '`-]{0,253}[a-zA-Zа-яА-Я]$/
   validates_format_of :last_name, with: /^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я '`-]{0,253}[a-zA-Zа-яА-Я]$/
   validates_format_of :city, with: /^[a-zA-Zа-яА-Я0-9 '`-]{0,255}$/
-  validates_format_of :company, with: /^[a-zA-Zа-яА-Я0-9 '`~!@#$%^&*()_+=\-"{}\[\]\/\\|;:,.?<>-]{0,255}$/
+  validates_format_of :company, with: /^[a-zA-Zа-яА-Я0-9 '`~\!@#\$\%\^\&\*\(\)_+=\-"\{\}\[\]\/\\|;:,.?<>]{0,255}$/
   validates_format_of :position, with: /^[a-zA-Zа-яА-Я0-9 '`-]{0,255}$/
 
   enumerize :role, in: [ :lector, :user ], default: :user
