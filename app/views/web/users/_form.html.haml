@@ -6,13 +6,13 @@
       .formy
         .row-fluid
           .span4
-            = f.input :email
+            = f.input :email, label_html: {style: "line-height: 40px;" }
 
           .span4
             = f.input :password
 
           .span4
-            = f.input :password_confirmation, :required => true
+            = f.input :password_confirmation, :required => true, label_html: {style: "line-height: 40px;" }
 
         .row-fluid
           .span4

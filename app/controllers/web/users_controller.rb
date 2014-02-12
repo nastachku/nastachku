@@ -18,7 +18,11 @@ class Web::UsersController < Web::ApplicationController
   end
 
   def activate
-    token = User::AuthToken.find_by_authentication_token!(params[:auth_token])
+    token = User::AuthToken.find_by_authentication_token(params[:auth_token])
+    unless token
+      flash[:error] = t :error, scope: [:flash, :controllers, :web, :users, :activate]
+      return redirect_to welcome_index_path
+    end
     user = token.user
     if token && user
       user.activate!
