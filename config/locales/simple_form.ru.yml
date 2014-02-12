@@ -5,4 +5,4 @@ ru:
     labels:
       defaults:
         email: 'Email'
-        password: 'Пароль'
+        password: "Пароль"

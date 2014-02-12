@@ -66,7 +66,7 @@ ru:
         email: "Email"
         first_name: "Имя"
         last_name: "Фамилия"
-        password: "Пароль"
+        password: "Пароль (латиница, хотя бы 1 строчная, заглавная, цифра и спец.символ)"
         password_confirmation: "Подтверждение пароля"
         city: "Город"
         twitter_name: "Твиттер-аккаунт"
@@ -129,6 +129,7 @@ ru:
 
     errors:
       messages:
+        password_not_valid: 'Пароль не соответствует требованиям'
         blank: 'Поле не может быть пустым'
         confirmation: 'Не совпадает с подтверждением'
         user_should_not_exists: 'Пользователь с таким email не найден!'

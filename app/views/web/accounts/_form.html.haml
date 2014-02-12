@@ -49,6 +49,8 @@
           = submit_tag t('.enter_promo_code'), class: 'btn btn-shine'
     .tab-pane#my_orders
       - unless user_has_full_ticket?(current_user)
+        %script{"data-timepad-widget" => "event_register", :defer => "defer", :src => "//timepad.ru/js/tpwf/loader.min.js"}
+          (function(){return {"event":{"id":"105416","org":"10509","subdomain":"srit"},"oldWidgetOptions":{"urlAppend":"","QSAppend":""}}; })();
         Билет на конференцию
         = simple_form_for @ticket_order, url: account_ticket_orders_path do |f|
           = f.input :ticket_type if user_has_not_tickets(current_user)
