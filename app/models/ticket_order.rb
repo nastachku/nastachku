@@ -18,4 +18,9 @@ class TicketOrder < Order
       configus.platidoma.ticket_price_first_day + configus.platidoma.ticket_price_second_day
     end
   end
+
+  #FIXME найти другой вариант реализации перевода
+  def to_s
+    "#{I18n.t("activerecord.models.ticket_order")} (#{ticket_type})"
+  end
 end
