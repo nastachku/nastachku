@@ -8,3 +8,6 @@ user.city = configus.admin.city
 user.admin = true
 user.save!
 user.activate
+user.attend
+user.pay_part
+User::PromoCode.create({ code: Array.new(9){ rand(36).to_s(36) }.join, user_id: user.id })
