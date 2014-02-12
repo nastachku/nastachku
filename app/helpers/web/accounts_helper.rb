@@ -1,16 +1,10 @@
 module Web::AccountsHelper
-  def ticket_type_collection_part(index)
-    value = TicketOrder.ticket_type.values[index]
-    t_value = I18n.t("enumerize.ticket_order.ticket_type.#{value}")
-    [ t_value ]
+  def first_day_and_both
+    [TicketOrder.ticket_type.values.first, TicketOrder.ticket_type.values.last]
   end
 
-  def item_size_collection
-    ShirtOrder.item_size.values
-  end
-
-  def item_color_collection
-    ShirtOrder.item_color.values
+  def second_day_and_both
+    [TicketOrder.ticket_type.values.second, TicketOrder.ticket_type.values.last]
   end
 
   def user_has_not_tickets(user)
