@@ -18,6 +18,8 @@
         %li= link_to t('.buy'), new_account_shirt_order_path, class: 'btn-shine btn-shine-colored add_lecture prev_year'
 
       %ul.nav.pull-right
+        - unless signed_in?
+          = item :li, t(".login"), new_session_path
         - if signed_in?
           = item :li, current_user_decorate.full_name, edit_account_path
           %li= link_to '/', '#'
