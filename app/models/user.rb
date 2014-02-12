@@ -12,11 +12,11 @@ class User < ActiveRecord::Base
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
   validates :email, presence: true, uniqueness: {case_sensitive: false}, email: true
-  validates_format_of :first_name, with: /^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я '`-]{0,253}[a-zA-Zа-яА-Я]$/
-  validates_format_of :last_name, with: /^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я '`-]{0,253}[a-zA-Zа-яА-Я]$/
-  validates_format_of :city, with: /^[a-zA-Zа-яА-Я0-9 '`-]{0,255}$/
-  validates_format_of :company, with: /^[a-zA-Zа-яА-Я0-9 '`~!@#$%^&*()_+=\-"{}\[\]\/\\|;:,.?<>-]{0,255}$/
-  validates_format_of :position, with: /^[a-zA-Zа-яА-Я0-9 '`-]{0,255}$/
+  #validates_format_of :first_name, with: /^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я '`-]{0,253}[a-zA-Zа-яА-Я]$/
+  #validates_format_of :last_name, with: /^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я '`-]{0,253}[a-zA-Zа-яА-Я]$/
+  #validates_format_of :city, with: /^[a-zA-Zа-яА-Я0-9 '`-]{0,255}$/
+  #validates_format_of :company, with: /^[a-zA-Zа-яА-Я0-9 '`~!@#$%^&*()_+=\-"{}\[\]\/\\|;:,.?<>-]{0,255}$/
+  #validates_format_of :position, with: /^[a-zA-Zа-яА-Я0-9 '`-]{0,255}$/
 
   enumerize :role, in: [ :lector, :user ], default: :user
   has_many :lectures, dependent: :destroy
@@ -105,7 +105,7 @@ class User < ActiveRecord::Base
   def create_user_welcome_token
     create_token(configus.token.old_user_welcome_lifetime)
   end
-  
+
   def create_token(lifetime)
     token = SecureHelper.generate_token
     expired_at = Time.current + lifetime
