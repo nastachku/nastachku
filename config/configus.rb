@@ -34,7 +34,7 @@ Configus.build Rails.env do
     end
 
     token do
-      lifetime 1.hour
+      lifetime 24.hour
     end
 
     facebook do
