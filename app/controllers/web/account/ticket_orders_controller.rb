@@ -3,7 +3,6 @@ class Web::Account::TicketOrdersController < Web::Account::ApplicationController
 
   def create
     @ticket_order = TicketOrder.new params[:ticket_order]
-    raise params[:ticket_order][:ticket_type].inspect
     if @ticket_order.save
       flash_success
       redirect_to edit_account_path
