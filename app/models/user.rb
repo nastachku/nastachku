@@ -95,8 +95,20 @@ class User < ActiveRecord::Base
   end
 
   def create_auth_token
+    create_token(configus.token.auth_lifetime)
+  end
+
+  def create_remind_password_token
+    create_token(configus.token.remind_password_lifetime)
+  end
+
+  def create_user_welcome_token
+    create_token(configus.token.old_user_welcome_lifetime)
+  end
+  
+  def create_token(lifetime)
     token = SecureHelper.generate_token
-    expired_at = Time.current + configus.token.lifetime
+    expired_at = Time.current + lifetime
     auth_tokens.create! :authentication_token => token, :expired_at => expired_at
   end
 

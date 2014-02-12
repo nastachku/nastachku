@@ -9,7 +9,7 @@ class Web::RemindPasswordsController < Web::ApplicationController
       user = @type.user
       user.changed_by = current_user
       if user && user.active?
-        token = user.create_auth_token
+        token = user.create_remind_password_token
         UserMailer.remind_password(user, token).deliver
         flash_success
         return redirect_to welcome_index_path
