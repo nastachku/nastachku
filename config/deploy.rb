@@ -4,7 +4,7 @@ set :default_stage, "staging"
 require 'capistrano/ext/multistage'
 require 'airbrake/capistrano'
 
-set :application, "nastachku"
+set :application, "nastachku_2014"
 set :rvm_type, :system
 
 set :scm, :git
