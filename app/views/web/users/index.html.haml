@@ -1,26 +1,33 @@
-%h1=t '.title'
-%h5
-  =t '.registred_title', activated_count: User.activated.count, participant: Russian.p(User.activated.shown_as_participants.count, t('.one_participant'), t('.two_participant'), t('.many_participant')), participants_count: User.activated.shown_as_participants.count
-%br
+%h1
+  = t '.title'
+- unless @users.empty?
+  %h5
+    =t '.registred_title', activated_count: User.activated.attended.count, participant: Russian.p(User.activated.attended.shown_as_participants.count, t('.one_participant'), t('.two_participant'), t('.many_participant')), participants_count: User.activated.attended.shown_as_participants.count
+  %br
 
-%table.table-participants.table-participants-header
-  %thead
-    %tr
-      %th{:width => "20%"}= sort_clink(@search, :last_name, User.human_attribute_name(:first_name))
-      %th{:width => "20%"}= sort_clink(@search, :twitter_name, User.human_attribute_name(:twitter_name))
-      %th{:width => "20%"}= sort_clink(@search, :city, User.human_attribute_name(:city))
-      %th{:width => "20%"}= sort_clink(@search, :company, User.human_attribute_name(:company))
-      %th{:width => "20%"}= sort_clink(@search, :position, User.human_attribute_name(:position))
-
-%table.table-participants
-  %tbody
-    - @users.each do |user|
+  %table.table-participants.table-participants-header
+    %thead
       %tr
-        %td{:width => "20%"}= user
-        %td{:width => "20%"}
-          - if user.twitter_name?
-            = link_to twitter_account_curl(user.twitter_name), target: "_blank" do
-              @#{user.twitter_name}
-        %td{:width => "20%"}= user.city.mb_chars.capitalize if user.city
-        %td{:width => "20%"}= user.company
-        %td{:width => "20%"}= user.position
+        %th{ width: "20%" }= sort_clink(@search, :last_name, User.human_attribute_name(:first_name))
+        %th{ width: "20%" }= sort_clink(@search, :twitter_name, User.human_attribute_name(:twitter_name))
+        %th{ width: "20%" }= sort_clink(@search, :city, User.human_attribute_name(:city))
+        %th{ width: "20%" }= sort_clink(@search, :company, User.human_attribute_name(:company))
+        %th{ width: "20%" }= sort_clink(@search, :position, User.human_attribute_name(:position))
+
+  %table.table-participants
+    %tbody
+      - @users.shown_as_participants.each do |user|
+        %tr
+          %td{ width: "20%" }
+            = user
+          %td{ width: "20%" }
+            - if user.twitter_name?
+              = link_to twitter_account_curl(user.twitter_name), target: "_blank" do
+                @#{ user.twitter_name }
+          %td{ width: "20%" }= user.city.mb_chars.capitalize if user.city
+          %td{ width: "20%" }= user.company
+          %td{ width: "20%" }= user.position
+- else
+  %h5
+    = t '.zero_participants'
+  = link_to t('.be_the_first'), new_user_path, class: 'btn btn-shine'

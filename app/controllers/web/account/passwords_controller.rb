@@ -2,6 +2,11 @@ class Web::Account::PasswordsController < Web::ApplicationController
 
   def edit
     @user = UserPasswordConfirmationType.new
+    token = User::AuthToken.find_by_authentication_token(params[:auth_token])
+    unless token
+      flash[:error] = t :error, scope: [:flash, :controllers, :web, :account, :passwords, :edit]
+      return redirect_to welcome_index_path 
+    end
   end
 
   def update
@@ -12,7 +17,7 @@ class Web::Account::PasswordsController < Web::ApplicationController
       if @user.update_attributes(params[:user])
         sign_in @user
         flash_success
-        return redirect_to root_path
+        return redirect_to welcome_index_path
       end
     end
 

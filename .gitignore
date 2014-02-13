@@ -5,7 +5,13 @@
 /tmp
 *~
 /public/*
+!public/index.html
+!public/font
+!public/less
+!public/img
+!public/js
 !fonts/
+!public/presentations
 /coverage
 
 #ignore idea project files
@@ -26,7 +32,8 @@
 /config/credentials.yml
 nastachku_development
 nastachku_test
-/log/untranslated.*.yml
+log/untranslated.*.yml
 nastachku_development
 nastachku_production
 nastachku_test
+nastachku_staging_2014

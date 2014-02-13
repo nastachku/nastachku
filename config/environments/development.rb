@@ -13,8 +13,7 @@ Nastachku::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -37,8 +36,8 @@ Nastachku::Application.configure do
 
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    :user_name => 'nastachku-d251116be64dd9a7',
-    :password => '0470946bc4830693',
+    :user_name => 'nastachku-staging123-726c284e131f6298',
+    :password => '201be72c787fb008',
     :address => 'mailtrap.io',
     :port => '2525',
     :authentication => :plain,

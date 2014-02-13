@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'digest/md5'
 
 class User < ActiveRecord::Base
@@ -6,16 +7,16 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :first_name, :last_name, :city, :company, :position,
     :show_as_participant, :photo, :state_event, :about, :carousel_info, :in_carousel,
-    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event
+    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event, :pay_state_event
 
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
   validates :email, presence: true, uniqueness: {case_sensitive: false}, email: true
-  validates :first_name, length: { maximum: 255 }, russian: true
-  validates :last_name, length: { maximum: 255 }, russian: true
-  validates :city, length: { maximum: 255 }, russian: true
-  validates :company, length: { maximum: 255 }
-  validates :position, length: { maximum: 255 }
+  validates_format_of :first_name, with: /^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я '`-]{0,253}[a-zA-Zа-яА-Я]$/
+  validates_format_of :last_name, with: /^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я '`-]{0,253}[a-zA-Zа-яА-Я]$/
+  validates_format_of :city, with: /^[a-zA-Zа-яА-Я0-9 '`-]{0,255}$/
+  validates_format_of :company, with: /^[a-zA-Zа-яА-Я0-9 '`~\!@#\$\%\^\&\*\(\)_+=\-"\{\}\[\]\/\\|;:,.?<>]{0,255}$/
+  validates_format_of :position, with: /^[a-zA-Zа-яА-Я0-9 '`-]{0,255}$/
 
   enumerize :role, in: [ :lector, :user ], default: :user
   has_many :lectures, dependent: :destroy
@@ -24,6 +25,7 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :shirt_orders
   has_many :afterparty_orders
+  has_many :ticket_orders
 
   accepts_nested_attributes_for :lectures, reject_if: :all_blank, allow_destroy: true
 
@@ -35,6 +37,7 @@ class User < ActiveRecord::Base
   has_many :authorizations
   has_many :event_users
   has_many :events, through: :event_users
+  has_one :promo_code
 
   state_machine :state, initial: :new do
     state :new
@@ -48,6 +51,7 @@ class User < ActiveRecord::Base
     event :deactivate do
       transition [:active, :new] => :inactive
     end
+
   end
 
   state_machine :timepad_state, initial: :unsynchronized do
@@ -64,23 +68,56 @@ class User < ActiveRecord::Base
     end
   end
 
-  state_machine :attending_conference_state, initial: :not_decided do
+  state_machine :attending_conference_state, initial: :attended do
     state :attended
     state :not_decided
+
+    event :not_decide do
+      transition attended: :not_decided # for testing
+    end
 
     event :attend do
       transition not_decided: :attended
     end
   end
 
+  state_machine :pay_state, initial: :not_paid_part do
+    state :not_paid_part
+    state :paid_part
+
+    event :not_pay_part do
+      transition paid_part: :not_paid_part
+    end
+
+    event :pay_part do
+      transition not_paid_part: :paid_part
+    end
+  end
+
   def create_auth_token
+    create_token(configus.token.auth_lifetime)
+  end
+
+  def create_remind_password_token
+    create_token(configus.token.remind_password_lifetime)
+  end
+
+  def create_user_welcome_token
+    create_token(configus.token.old_user_welcome_lifetime)
+  end
+
+  def create_token(lifetime)
     token = SecureHelper.generate_token
-    expired_at = Time.current + configus.token.lifetime
+    expired_at = Time.current + lifetime
     auth_tokens.create! :authentication_token => token, :expired_at => expired_at
   end
 
   def authenticate(password)
     self.password_digest == Digest::MD5.hexdigest(password)
+  end
+
+  def to_s
+    UserDecorator.decorate(self).full_name
   end
 
   def password=(password)

@@ -3,9 +3,9 @@ Nastachku::Application.routes.draw do
 
   get "audits/index"
 
-  match "/404", :to => "web/errors#not_found"
-  match "/500", :to => "web/errors#internal_server_error"
-  match "/banned", :to => "web/errors#banned"
+  match "/404", to: "web/errors#not_found"
+  match "/500", to: "web/errors#internal_server_error"
+  match "/banned", to: "web/errors#banned"
 
   root to: "web/welcome#index"
 
@@ -37,12 +37,13 @@ Nastachku::Application.routes.draw do
 
   end
 
-  scope :module => :web do
+  scope module: :web do
     resources :users, only: [:new, :create, :index] do
       member do
         put :attend
       end
     end
+    resources :welcome, only: [ :index ]
     resources :lectures, only: [ :index ]
     resources :pages, only: [:show]
     resources :news, only: [:index]
@@ -58,17 +59,16 @@ Nastachku::Application.routes.draw do
     end
 
     resource :account, only: [:edit, :update] do
-      scope :module => :account do
+      scope module: :account do
         resource :password, only: [:edit, :update]
-        resource :social_networks, :only => [] do
+        resource :social_networks, only: [] do
           #FIXME по REST тут должен быть put. Решить проблему вызова экшена из другого контроллера
           get :link_twitter
           put :unlink_twitter
         end
 
-        resources :lectures, only: [ :new, :create, :update ]
         resources :orders, only: [:update] do
-          put :pay, :on => :member
+          put :pay, on: :member
 
           collection do
             post :approve
@@ -76,13 +76,19 @@ Nastachku::Application.routes.draw do
             post :decline
           end
         end
-        resources :afterparty_orders, only: [:new, :create]
         resources :shirt_orders, only: [:new, :create]
+        resources :ticket_orders, only: :create
+        resources :order_options, only: :create
+        resources :promo_codes, only: []  do
+          member do
+            put :accept
+          end
+        end
       end
     end
 
-    resource :social_networks, :only => [] do
-      get :authorization, :on => :member
+    resource :social_networks, only: [] do
+      get :authorization, on: :member
     end
 
     namespace :admin do
@@ -110,4 +116,5 @@ Nastachku::Application.routes.draw do
     end
   end
 
+  match '*unmatched_route', to: "web/errors#not_found"
 end

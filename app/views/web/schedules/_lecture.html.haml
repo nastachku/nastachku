@@ -3,7 +3,7 @@
     .modal-header
       %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
       %h3{id: "#{dom_id(slot)}myModalLabel__author_info"}
-        = slot.event.user.full_name
+        = slot.event.user.decorate.full_name
     .modal-body.parent
       .userinfo
         - if slot.event.user.photo?
@@ -27,7 +27,7 @@
       %p= nl2br(slot.event.thesises)
       %p.right
         %big
-          = slot.event.user.full_name
+          = slot.event.user.decorate.full_name
           %br
           - if slot.event.user.company?
             = surround '(', ')' do
@@ -37,7 +37,7 @@
     .modal-header
       %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
       %h3{id: "#{dom_id(slot)}myModalLabel__author_info"}
-        = slot.event.user.full_name
+        = slot.event.user.decorate.full_name
     .modal-body
       .userinfo
         - if slot.event.user.photo?
@@ -62,12 +62,12 @@
     - if slot.event.user.about?
       - if is_mobile_request?
         %a.author{data: {toggle: 'modal'}, href: "##{dom_id(slot)}", role: "button"}
-          = slot.event.user.full_name
+          = slot.event.user.decorate.full_name
       - else
         %a.author{data: {toggle: 'modal'}, href: "##{dom_id(slot)}__author_info", role: "button"}
-          = slot.event.user.full_name
+          = slot.event.user.decorate.full_name
     - else
-      .author= slot.event.user.full_name
+      .author= slot.event.user.decorate.full_name
     - if slot.event.user.company?
       %span.company
         = surround '(', ')' do

@@ -1,4 +1,6 @@
 class AfterpartyOrder < Order
+  attr_accessible :order_option_id
+  belongs_to :order_option
 
   #FIXME найти другой вариант реализации перевода
   def to_s

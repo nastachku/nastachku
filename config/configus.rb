@@ -16,13 +16,13 @@ Configus.build Rails.env do
     end
 
     schedule do
-      first_day Time.utc(2013, 4, 12)
-      second_day Time.utc(2013, 4, 13)
+      first_day Time.utc(2014, 4, 11)
+      second_day Time.utc(2014, 4, 12)
     end
 
     mailer do
-      default_host "2013.nastachku.ru"
-      default_from "noreply@2013.nastachku.ru"
+      default_host "nastachku.ru"
+      default_from "noreply@nastachku.ru"
     end
 
     admin do
@@ -34,7 +34,9 @@ Configus.build Rails.env do
     end
 
     token do
-      lifetime 1.hour
+      auth_lifetime 24.hour
+      old_user_welcome_lifetime 3.month
+      remind_password_lifetime 1.hour
     end
 
     facebook do
@@ -52,8 +54,17 @@ Configus.build Rails.env do
       shop_id credentials_hash["production"]["platidoma"]["shop_id"]
       login credentials_hash["production"]["platidoma"]["login"]
       gate_password credentials_hash["production"]["platidoma"]["gate_password"]
-      afterparty_price 1500
       shirt_price 500
+      if Time.current.month == 2
+        ticket_price_first_day 500
+        ticket_price_second_day 250
+      elsif Time.current.month == 3
+        ticket_price_first_day 750
+        ticket_price_second_day 350
+      elsif Time.current.month == 4
+        ticket_price_first_day 1000
+        ticket_price_second_day 500
+      end
     end
 
     cache do
@@ -130,8 +141,8 @@ Configus.build Rails.env do
     end
 
     mailer do
-      default_host "2013.nastachku.ru"
-      default_from "info@2013.nastachku.ru"
+      default_host "stg.nastachku.ru"
+      default_from "info@stg.nastachku.ru"
     end
 
     basic_auth do

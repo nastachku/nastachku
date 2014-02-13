@@ -6,4 +6,8 @@ module SecureHelper
     end
   end
 
+  def generate_promo_code
+    Array.new(9){ rand(36).to_s(36) }.join
+  end
+
 end

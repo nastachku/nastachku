@@ -4,3 +4,8 @@ ru:
       role:
         lector: 'Докладчик'
         user: 'Участник'
+    ticket_order:
+      ticket_type:
+        first: Первый день
+        second: Второй день
+        full: Оба дня

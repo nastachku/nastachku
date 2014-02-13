@@ -7,6 +7,7 @@ module UserRepository
     scope :web, -> { by_created_at }
     scope :shown_as_participants, -> { where show_as_participant: true }
     scope :activated, -> { where state: :active }
+    scope :attended, -> { where attending_conference_state: :attended }
     scope :as_lectors, -> { where role: :lector }
     scope :alphabetically, -> { asc_by_last_name }
     scope :in_carousel, -> { where in_carousel: :true }

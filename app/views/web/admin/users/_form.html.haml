@@ -2,6 +2,8 @@
   .row
     .span10
       = f.input :state_event, as: :state_event, input_html: { class: 'span5' }
+      = f.input :attending_conference_state_event, as: :state_event,  input_html: { class: 'span5' }
+      = f.input :pay_state_event, as: :state_event,  input_html: { class: 'span5' }
       = f.input :first_name, input_html: { class: 'span5' }
       = f.input :last_name, input_html: { class: 'span5' }
       = f.input :city, input_html: { class: 'span5' }

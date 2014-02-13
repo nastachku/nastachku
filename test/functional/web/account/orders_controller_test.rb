@@ -70,5 +70,4 @@ class Web::Account::OrdersControllerTest < ActionController::TestCase
     assert @order.paid?
   end
 
-
 end

@@ -10,7 +10,7 @@ class Web::Account::LecturesController < Web::Account::ApplicationController
     @user.changed_by = current_user
     if @user.update_attributes params[:user]
       flash_success
-      redirect_to root_path
+      redirect_to welcome_index_path
     else
       flash_error
       render :new

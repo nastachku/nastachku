@@ -1,11 +1,40 @@
 ru:
   activerecord:
+    state_machines:
+      user:
+        attending_conference_state:
+          states:
+            attended: "Идёт"
+            not_decided: "Не идёт"
+          events:
+            attend: "Пойдёт"
+            not_decide: "Не пойдёт"
+        state:
+          states:
+            new: "Новый"
+            active: "Активирован"
+            inactive: "Не активирован"
+          events:
+            activate: "Активировать"
+            deactivate: "Дезактивировать"
+        pay_state:
+          states:
+            not_paid_part: "Участие не оплачено"
+            paid_part: "Участие оплачено"
+          events:
+            pay_part: "Оплатить участие"
+            not_pay_part: "Не оплачивать участие"
+
+
     models:
       hall: 'Зал'
       afterparty_order: 'Билет на афтепати'
       shirt_order: 'Футболка'
+      ticket_order: Билет на Стачку
 
     attributes:
+      ticket_order:
+        ticket_type: Тип билета
       lecture:
         state_event: 'Действие'
         title: 'Название'
@@ -37,7 +66,7 @@ ru:
         email: "Email"
         first_name: "Имя"
         last_name: "Фамилия"
-        password: "Пароль"
+        password: "Пароль (латиница, хотя бы 1 строчная, заглавная, цифра и спец.символ)"
         password_confirmation: "Подтверждение пароля"
         city: "Город"
         twitter_name: "Твиттер-аккаунт"
@@ -46,7 +75,9 @@ ru:
         show_as_participant: "Показывать на странице участников"
         process_personal_data: "Согласен на обработку моих персональных данных"
         photo: "Фото"
-        state_event: "Изменить состояние"
+        state_event: "Состояние аккаунта"
+        pay_state: "Состояние оплаты"
+        attending_conference_state_event: "Состояние пользователя с прошлой стачки"
         state: "Состояние"
         about: "О себе"
         in_carousel: "Отображать в карусели"
@@ -98,6 +129,7 @@ ru:
 
     errors:
       messages:
+        password_not_valid: 'Пароль не соответствует требованиям'
         blank: 'Поле не может быть пустым'
         confirmation: 'Не совпадает с подтверждением'
         user_should_not_exists: 'Пользователь с таким email не найден!'
@@ -114,7 +146,7 @@ ru:
             slug:
               taken: 'Такой слаг уже есть, выберите другой'
 
-        user: 
+        user:
           attributes:
             email:
               email: 'Введен некорректный email'

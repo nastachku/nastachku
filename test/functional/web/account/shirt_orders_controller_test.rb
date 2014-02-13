@@ -1,25 +1,17 @@
 require 'test_helper'
 
 class Web::Account::ShirtOrdersControllerTest < ActionController::TestCase
-
   setup do
     @user = create :user
     sign_in @user
-    @attrs = attributes_for :shirt_order
     @order = create :shirt_order
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
   test "should post create" do
-    post :create, shirt_order: @attrs
+    attributes = attributes_for :shirt_order
+    post :create, shirt_order: attributes
 
     assert_response :redirect
-    order = current_user.orders.find_by_items_count(@attrs[:items_count])
-    assert order
+    assert_equal attributes[:item_size], ShirtOrder.last.item_size
   end
-
 end

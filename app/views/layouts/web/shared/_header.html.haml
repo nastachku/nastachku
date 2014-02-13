@@ -5,7 +5,7 @@
       .span2
         .logo
           %h1
-            %a{ href: root_path }
+            %a{ href: welcome_index_path }
               = image_tag "/assets/stachka_logo.png", alt: "", width: "136", height: "69"
 
       .span10.right
@@ -15,4 +15,13 @@
             %span{ class: "color" }
               11-12 апреля 2014
             Ленинский мемориал
+          %h3.bender
+            СТАЧКА в 2014 году вышла на международный уровень!
+          %h3.bender
+            СТОИМОСТЬ УЧАСТИЯ ЗА 2 ДНЯ СЕЙЧАС -
+            %span.color
+              = configus.platidoma.ticket_price_first_day + configus.platidoma.ticket_price_second_day
+              = t('rub')
+
+
 

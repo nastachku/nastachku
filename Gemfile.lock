@@ -78,6 +78,7 @@ GEM
       mime-types
       orm_adapter
     cocoon (1.1.2)
+    coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -171,6 +172,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     metaclass (0.0.1)
+    method_source (0.8.2)
     mime-types (1.21)
     mini_magick (3.5.0)
       subexec (~> 0.2.1)
@@ -223,6 +225,10 @@ GEM
     pre-commit (0.7.0)
       execjs
     promise (0.3.0)
+    pry (0.9.12.4)
+      coderay (~> 1.0)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -279,6 +285,7 @@ GEM
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
+    slop (3.4.7)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -386,6 +393,7 @@ DEPENDENCIES
   pg
   platidoma (>= 0.0.4)
   pre-commit
+  pry
   rack-rewrite
   rails
   rake

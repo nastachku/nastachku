@@ -1,5 +1,7 @@
 ru:
+  rub: рублей
   personal_data: "Личные данные"
+  add_to_cart: Добавить в корзину
 
   errors:
     messages:
@@ -80,6 +82,8 @@ ru:
         cost: "Стоимость"
         add_more_user_event_text: 'Есть еще один умопомрачительный доклад?'
         add_more_user_event_link: 'Добавляй!'
+        pay: Оплата участия
+        enter_promo_code: Ввести промо-код
 
     account:
       lectures:
@@ -146,6 +150,13 @@ ru:
           buy_afterparty_ticket_after: "билет на афтепати! ;)"
           buy_afterparty_ticket_action: "купить"
           sign_in: "Для того, чтобы оплатить футболку авторизуйтесь"
+      ticket_orders:
+        new:
+          ticket: Билет на Стачку
+          item_cost_value: Стоимость билета
+          item_total_default: Общая стоимость
+          buy: Купить
+
 
 
     users:
@@ -154,16 +165,16 @@ ru:
         authentication: 'Данные для входа'
         already_registered?: 'Уже зарегистрированы?'
         login: 'Войти'
-
       new:
         title: 'Регистрация'
-
       index:
         title: 'Пойдут на стачку'
         registred_title: "Зарегистрировалось – %{activated_count} %{participant}. Ниже %{participants_count}, кто согласился рассказать о себе."
-        one_participant: 'Участник'
+        zero_participants: "Пока не зарегистрировалось ни одного участника международной конференции СТАЧКА 2014."
+        one_participant: 'участник'
         two_participant: 'участника'
         many_participant: 'участников'
+        be_the_first: 'Станьте первым!'
 
     welcome:
       index:
@@ -192,6 +203,7 @@ ru:
 
     lectures:
       index:
+        not_added_yet: 'Пока не добавлено ни одного доклада. Вы можете стать первым докладчиком! Все подробности на pr@nastachku.ru'
         i_am_going: 'Пойти'
         i_am_not_going: 'Передумал идти'
         pending: 'Ждём...'
@@ -240,6 +252,14 @@ ru:
       welcome:
         index:
           title: 'Админка стачки'
+          prices_for_ticket: Цены за билет
+      users:
+        form:
+          attending_conference_state: "Идёт ли пользователь на СТАЧКУ 2014"
+          attended: "Идёт"
+          not_decided: "Не идёт"
+          attended: "Пойдёт"
+          not_decided: "Не пойдёт"
 
       pages:
         index:
@@ -330,10 +350,11 @@ ru:
           title: "Список заказов"
           buyer: "Покупатель"
           cost: "Стоимость"
-          
+
       mailers:
         index:
           title: "Рассылки"
+          count_of_receiving_mail: "Количество участников, которые получат письмо: %{users_count}"
           subject: "Тема"
           begin_of_greetings: "Начало приветствия"
           end_of_greetings: "Конец приветствия"
@@ -488,14 +509,13 @@ ru:
         email: "Email"
         first_name: "Имя"
         last_name: "Фамилия"
-        password: "Пароль"
+        password: "Пароль (от 8 до 30, латиница, хотя бы 1 строчная, заглавная, цифра и спец.символ)"
         password_confirmation: "Подтверждение пароля"
         city: "Город"
         company: "Компания"
         position: "Должность"
         show_as_participant: "Показывать как участника"
         photo: "Фото"
-        state_event: "Изменить состояние"
         state: "Состояние"
         timepad_state: "Состояние timepad.ru"
         about: "О себе"
@@ -553,7 +573,7 @@ ru:
     labels:
       user:
         email: "Email"
-        password: "Пароль"
+        password: "Пароль (от 8 до 30, латиница, хотя бы 1 строчная, заглавная, цифра и спец.символ)"
 
   flash:
     controllers:
@@ -573,6 +593,7 @@ ru:
           create:
             success: 'Вы вошли на сайт.'
             error:   'Аутентификация не удалась. Проверьте логин/пароль.'
+
 
         admin:
           pages:
@@ -639,7 +660,7 @@ ru:
           mailers:
             deliver:
               success: "Письма успешно разосланы"
-              error: "Рассылка не удалась"
+              error: "Рассылка не удалась, доп.информация: "
 
   enumerize:
     shirt_order:

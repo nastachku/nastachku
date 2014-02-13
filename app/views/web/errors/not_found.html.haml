@@ -10,13 +10,13 @@
     %title= content_for?(:title) ? yield(:title) : "Nastachku"
     = analytics_init if Rails.env.production?
     = csrf_meta_tags
-    = stylesheet_link_tag "application", :media => "all"
+    = stylesheet_link_tag "web/application", :media => "all"
 
   %body
     .container
       .content
         %br
-        %a{ href: root_path }
+        %a{ href: welcome_index_path }
           = image_tag "/assets/stachka_logo.png", alt: "", width: "136", height: "69"
         %br
         %br
@@ -29,6 +29,6 @@
             %a{:href => "javascript:window.history.back();"}
               Назад
           %li
-            %a{ href: root_path }
+            %a{ href: welcome_index_path }
               Перейти на домашнюю страницу 
         

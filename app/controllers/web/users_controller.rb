@@ -3,7 +3,7 @@ class Web::UsersController < Web::ApplicationController
 
   def index
     @search = User.ransack(params)
-    @users = @search.result.activated.shown_as_participants.alphabetically
+    @users = @search.result.activated.attended.alphabetically
 
     respond_with(@users)
   end
@@ -18,7 +18,11 @@ class Web::UsersController < Web::ApplicationController
   end
 
   def activate
-    token = User::AuthToken.find_by_authentication_token!(params[:auth_token])
+    token = User::AuthToken.find_by_authentication_token(params[:auth_token])
+    unless token
+      flash[:error] = t :error, scope: [:flash, :controllers, :web, :users, :activate]
+      return redirect_to welcome_index_path
+    end
     user = token.user
     if token && user
       user.activate!
@@ -27,19 +31,19 @@ class Web::UsersController < Web::ApplicationController
     else
       flash_error
     end
-    redirect_to root_path
+    redirect_to welcome_index_path
   end
 
   def create
     @user = UserRegistrationType.new params[:user]
     if @user.save
-      @user.attend
+      User::PromoCode.create({ code: generate_promo_code, user_id: @user.id })
       if registration_by_soc_network?
         @user.authorizations << build_authorization(session_auth_hash)
         @user.activate
         clear_session_auth_hash
         sign_in @user
-        redirect_to root_path
+        redirect_to welcome_index_path
       else
         token = @user.create_auth_token
         UserMailer.confirm_registration(@user, token).deliver
@@ -50,6 +54,8 @@ class Web::UsersController < Web::ApplicationController
       flash_error
       render action: "new"
     end
+  rescue Net::SMTPAuthenticationError, SocketError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
+    flash[:error] = t(".flash.controllers.web.users.create.net_error") + e.message
   end
 
   def attend

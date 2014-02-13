@@ -2,7 +2,7 @@
 %h5
   = t('.user_lectures_title_before_link')
   = succeed ',' do
-    = link_to t(".user_lectures_title_link"), new_account_lecture_path
+    = link_to t(".user_lectures_title_link"), 'mailto:pr@nastachku.ru'
   = t('.user_lectures_title_after_link')
 %br
 
@@ -15,7 +15,7 @@
   .span9
     - if @lectures.empty?
       = t(".not_added_yet")
-      = link_to t(".first_speaker"), new_account_lecture_path
+      = link_to t(".first_speaker"), 'mailto:pr@nastachku.ru' 
     - else
       #{ t '.sort_by' }:&nbsp;
       -#FIXME решение в лоб. Наверняка есть более элегантное решение
@@ -38,7 +38,8 @@
 
               .buttons-group.lectures20
                 - if signed_in?
-                  = link_to api_lecture_lecture_votings_path(lecture), class: (lecture.lecture_votings.voted_by?(current_user)) ?  "vote-link action-unvote" : "vote-link action-vote", remote: true, method: (lecture.lecture_votings.voted_by?(current_user)) ? "delete" : "post" do
+                  - voted_link_attrs = (lecture.lecture_votings.voted_by?(current_user)) ?  {class: "vote-link action-unvote", method: "delete"} : {class: "vote-link action-vote", method: "post"} 
+                  = link_to api_lecture_lecture_votings_path(lecture), class: voted_link_attrs[:class], remote: true, method: voted_link_attrs[:method] do
                     %span.btn.btn-state.btn-vote.btn-shine= t('.vote_this_lecture')
                     %span.btn.btn-state.btn-vote-hover.btn-shine= t('.vote_this_lecture')
                     %span.btn.btn-state.btn-pending.btn-no-clickable= t('.pending')
