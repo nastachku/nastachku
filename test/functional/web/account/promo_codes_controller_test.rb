@@ -2,8 +2,8 @@ require 'test_helper'
 
 class Web::Account::PromoCodesControllerTest < ActionController::TestCase
   setup do
-    @promo_code = create :user_promo_code
     @user = create :user
+    @promo_code = create :user_promo_code, user_id: @user.id
     sign_in @user
   end
 
