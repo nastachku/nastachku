@@ -21,7 +21,7 @@ class Web::RemindPasswordsController < Web::ApplicationController
     end
     
     return redirect_to new_remind_password_path
-  rescue Net::SMTPAuthenticationError, SocketError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
+  rescue Net::SMTPAuthenticationError, SocketError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError, Errno::ECONNREFUSED => e
     flash[:error] = t(".flash.controllers.web.remind_passwords.create.net_error") + e.message
     return redirect_to new_remind_password_path
   end
