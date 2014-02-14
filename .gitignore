@@ -12,6 +12,7 @@
 !public/js
 !fonts/
 !public/presentations
+!public/images
 /coverage
 
 #ignore idea project files
