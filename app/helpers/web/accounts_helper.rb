@@ -12,15 +12,15 @@ module Web::AccountsHelper
   end
 
   def user_has_bought_full_ticket?(user)
-    user.ticket_orders.any? { |t| t.ticket_type.full? }
+    user.ticket_orders.any? { |t| t.ticket_type == "full" }
   end
 
   def user_has_first_day?(user)
-    user.ticket_orders.any? { |t| t.ticket_type.first? }
+    user.ticket_orders.any? { |t| t.ticket_type == "first" }
   end
 
   def user_has_second_day?(user)
-    user.ticket_orders.any? { |t| t.ticket_type.second? }
+    user.ticket_orders.any? { |t| t.ticket_type == "second" }
   end
 
   def user_has_bought_first_and_second_days_tickets?(user)
