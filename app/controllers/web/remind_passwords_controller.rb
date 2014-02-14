@@ -13,9 +13,11 @@ class Web::RemindPasswordsController < Web::ApplicationController
         UserMailer.remind_password(user, token).deliver
         flash_success
         return redirect_to welcome_index_path
+      else
+        flash[:error] = t :inactive, scope: [:activemodel, :errors, :models, :user_password_remind_type]
       end
     else
-      flash[:error] = @type.errors.messages.values.flatten.to_sentence
+      flash[:error] = @type.errors.messages.values.flatten.first
     end
     
     return redirect_to new_remind_password_path

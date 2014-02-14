@@ -3,8 +3,10 @@ ru:
     errors:
       models:
         user_password_remind_type:
+          inactive: 'Ваш аккаунт еще не активирован. Перейдите по ссылке из посланного вам письма, или обратитесь в оргкомитет сайта info@nastachku.ru'
           attributes:
             email:
+              blank: 'Email не может быть пустым'
               email: 'Введите корректный email!'
               user_should_not_exists: 'Пользователь с таким email не существует!'
         user_sign_in_type:
