@@ -3,7 +3,7 @@
 FactoryGirl.define do
   #TODO  first_name, first_name, city to russian sequence
   factory :user do
-    password              "sekret"
+    password              "ashQDR123!@#"
     first_name "Строка"
     last_name "Строка"
     city "Строка"
