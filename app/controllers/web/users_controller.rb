@@ -54,7 +54,7 @@ class Web::UsersController < Web::ApplicationController
       flash_error
       render action: "new"
     end
-  rescue Net::SMTPAuthenticationError, SocketError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
+  rescue Net::SMTPAuthenticationError, SocketError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError, Errno::ECONNREFUSED => e
     flash[:error] = t(".flash.controllers.web.users.create.net_error") + e.message
   end
 

@@ -14,7 +14,7 @@ class Web::Admin::MailersController < Web::Admin::ApplicationController
       end
       flash_success
       redirect_to admin_mailers_path
-    rescue Net::SMTPAuthenticationError, SocketError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
+    rescue Net::SMTPAuthenticationError, SocketError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError, Errno::ECONNREFUSED => e
       flash[:error] = t(".flash.controllers.web.admin.mailers.deliver.error") + e.message
     end
   end
