@@ -48,8 +48,4 @@ FactoryGirl.define do
   sequence :code do |n|
     (100000000 + n).to_s
   end
-
-  sequence :auth_token do |n|
-    "111111111111111111111111111111111111111#{n}"
-  end
 end
