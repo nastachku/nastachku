@@ -63,8 +63,8 @@ class Web::UsersControllerTest < ActionController::TestCase
   end
 
   test "should activate user" do
-    auth_token = create :user_auth_token
-    auth_token.user.deactivate
+    @user.deactivate
+    auth_token = @user.create_auth_token
     get :activate, auth_token: auth_token.authentication_token
   end
 
