@@ -33,11 +33,25 @@ class Web::Admin::LecturesControllerTest < ActionController::TestCase
     assert lecture
   end
 
+  test "should not post create" do
+    attrs = attributes_for :lecture, workshop_id: @workshop.id, user_id: @user.id
+    attrs[:title] = nil
+    post :create, lecture: attrs
+    assert_response :success
+  end
+
   test "should put update" do
     attrs = attributes_for :lecture, workshop_id: @workshop.id, user_id: @user.id
     put :update, id: @lecture.id, lecture: attrs
     assert_response :redirect
     lecture = Lecture.find_by_title attrs[:title]
     assert lecture
+  end
+
+  test "should not put update" do
+    attrs = attributes_for :lecture, workshop_id: @workshop.id, user_id: @user.id
+    attrs[:title] = nil
+    put :update, id: @lecture.id, lecture: attrs
+    assert_response :success
   end
 end

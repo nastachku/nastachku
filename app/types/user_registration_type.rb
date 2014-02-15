@@ -5,8 +5,6 @@ class UserRegistrationType < User
 
   #has_secure_password
 
-  validates :first_name,  presence: true
-  validates :last_name,  presence: true
   validates :city, presence: true
   validates_each :password do |record, attr, value|
     unless value =~ /^.{8,30}$/ and value =~ /^.*[a-z]+.*$/ and
