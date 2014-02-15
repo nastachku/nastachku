@@ -68,4 +68,8 @@ class Web::UsersControllerTest < ActionController::TestCase
     get :activate, auth_token: auth_token.authentication_token
   end
 
+  test "should not activate user with nil token" do
+    get :activate, auth_token: nil
+  end
+
 end
