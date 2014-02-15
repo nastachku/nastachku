@@ -62,4 +62,10 @@ class Web::UsersControllerTest < ActionController::TestCase
     assert_equal true, @user.attended?
   end
 
+  test "should activate user" do
+    auth_token = create :user_auth_token
+    auth_token.user.deactivate
+    get :activate, auth_token: auth_token.authentication_token
+  end
+
 end
