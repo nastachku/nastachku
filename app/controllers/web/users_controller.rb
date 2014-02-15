@@ -23,10 +23,9 @@ class Web::UsersController < Web::ApplicationController
       flash[:error] = t :error, scope: [:flash, :controllers, :web, :users, :activate]
       return redirect_to welcome_index_path
     end
-    user = token.user
-    if token && user
-      user.activate!
-      sign_in user
+    if token.user
+      token.user.activate!
+      sign_in token.user
       flash_success
     else
       flash_error

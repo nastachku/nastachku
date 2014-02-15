@@ -11,6 +11,11 @@ class Web::Account::PasswordsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should not get edit" do
+    get :edit, auth_token: nil
+    assert_response :redirect
+  end
+
   test "should put update password" do
     old_password = @user.password_digest
     new_password = "tgyWBJ123$%^"
