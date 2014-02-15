@@ -9,6 +9,7 @@ class Web::Account::ShirtOrdersControllerTest < ActionController::TestCase
 
   test "should post create" do
     attributes = attributes_for :shirt_order
+    attributes[:user_id] = @user.id
     post :create, shirt_order: attributes
 
     assert_response :redirect
