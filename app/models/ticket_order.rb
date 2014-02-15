@@ -8,6 +8,6 @@ class TicketOrder < Order
 
   #FIXME найти другой вариант реализации перевода
   def to_s
-    "#{I18n.t("activerecord.models.ticket_order")} (#{ticket_type})"
+    "#{I18n.t("activerecord.models.ticket_order")}"
   end
 end
