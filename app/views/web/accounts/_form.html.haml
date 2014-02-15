@@ -52,8 +52,8 @@
             %td 750 руб.
             %td 1100 руб.
             %td 1500 руб.
-        Участие в конференции для докладчиков - бесплатно. 
+        Участие в конференции для докладчиков - бесплатно.
         Дополнительную информацию об оплате участия можно узнать у организаторов конференции: info@nastachku.ru
-      - unless user_has_full_ticket?(current_user)
+      - if user_has_no_tickets?(current_user)
         %script{"data-timepad-widget" => "event_register", defer: "defer", src: "//timepad.ru/js/tpwf/loader.min.js"}
           (function(){return {"event":{"id":"105416","org":"10509","subdomain":"srit"},"oldWidgetOptions":{"urlAppend":"","QSAppend":""}}; })();
