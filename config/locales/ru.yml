@@ -84,6 +84,8 @@ ru:
         add_more_user_event_link: 'Добавляй!'
         pay: Оплата участия
         enter_promo_code: Ввести промо-код
+        stachka_ticket: Билет на Стачку
+        pay_orders: Оплатить заказ
 
     account:
       lectures:
