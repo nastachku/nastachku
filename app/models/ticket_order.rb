@@ -3,7 +3,7 @@ class TicketOrder < Order
   extend ActiveModel::Naming
 
   def cost
-    configus.ticket_price
+    configus.platidoma.ticket_price
   end
 
   #FIXME найти другой вариант реализации перевода
