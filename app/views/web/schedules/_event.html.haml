@@ -24,11 +24,11 @@
         %p.userabout= user.about
         .clearfix
 
-.event{ class: "area-#{index} start-#{slot.start_hour} offset-#{slot.start_offset} long-#{slot.duration}", style: "background-color: #{slot.event.try(:color)}"}
+.event{ class: "area-#{index} start-#{slot.decorate.start_hour} offset-#{slot.decorate.start_offset} long-#{slot.decorate.duration}", style: "background-color: #{slot.event.try(:color)}"}
   %span.summary
 
     %span.time
-      = slot.start_hour
+      = slot.decorate.start_hour
       %sup= l slot.start_time, format: :minutes
       %span.end-time
         &minus;

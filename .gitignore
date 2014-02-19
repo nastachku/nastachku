@@ -12,6 +12,7 @@
 !public/js
 !fonts/
 !public/presentations
+!public/images
 /coverage
 
 #ignore idea project files
@@ -37,3 +38,4 @@ nastachku_development
 nastachku_production
 nastachku_test
 nastachku_staging_2014
+nastachku_test-journal

@@ -56,14 +56,11 @@ Configus.build Rails.env do
       gate_password credentials_hash["production"]["platidoma"]["gate_password"]
       shirt_price 500
       if Time.current.month == 2
-        ticket_price_first_day 500
-        ticket_price_second_day 250
+        ticket_price 750
       elsif Time.current.month == 3
-        ticket_price_first_day 750
-        ticket_price_second_day 350
+        ticket_price 1100
       elsif Time.current.month == 4
-        ticket_price_first_day 1000
-        ticket_price_second_day 500
+        ticket_price 1500
       end
     end
 

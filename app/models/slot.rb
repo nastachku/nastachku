@@ -19,16 +19,4 @@ class Slot < ActiveRecord::Base
   validates :finish_time, presence: true
   validates :event_id, presence: true
   validates :event, presence: true
-
-  def start_hour
-    start_time.hour
-  end
-
-  def start_offset
-    start_time.min
-  end
-
-  def duration
-    (finish_time - start_time).to_int / 60
-  end
 end

@@ -23,20 +23,32 @@ class Web::Admin::TopicsControllerTest < ActionController::TestCase
   end
 
   test "should post create" do
-    attrs = attributes_for :topic
-    post :create, topic: attrs
+    attributes = attributes_for :topic
+    post :create, topic: attributes
     assert_response :redirect
-    topic = Topic.find_by_title(attrs[:title])
-    assert topic
+    assert_equal attributes[:title], Topic.last.title
+  end
+
+  test "should not post create" do
+    attributes = attributes_for :topic
+    attributes[:title] = nil
+    post :create, topic: attributes
+    assert_response :success
   end
 
   test "should put update" do
-    attrs = attributes_for :topic
-    put :update, id: @topic.id, topic: attrs
+    attributes = attributes_for :topic
+    put :update, id: @topic.id, topic: attributes
     assert_response :redirect
-    topic = Topic.find_by_title(attrs[:title])
-    assert @topic.id == topic.id
-    assert topic
+    @topic.reload
+    assert_equal attributes[:title], @topic.title
+  end
+
+  test "should not put update" do
+    attributes = attributes_for :topic
+    attributes[:title] = nil
+    put :update, id: @topic.id, topic: attributes
+    assert_response :success
   end
 
   test "should delete destroy" do
