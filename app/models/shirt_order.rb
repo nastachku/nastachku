@@ -2,7 +2,6 @@ class ShirtOrder < Order
   extend Enumerize
 
   attr_accessible :item_size, :item_color
-  belongs_to :order_option
 
   validates :item_size, presence: true
   validates :item_color, presence: true
@@ -15,7 +14,7 @@ class ShirtOrder < Order
     "#{I18n.t("activerecord.models.shirt_order")} (#{item_size}, #{item_color})"
   end
 
-  def cost
+  def its_cost
     self.items_count * configus.platidoma.shirt_price
   end
 
