@@ -10,7 +10,7 @@ class Web::Admin::MailersController < Web::Admin::ApplicationController
     begin
       users.each do |user|
         token = user.create_user_welcome_token
-        UserMailer.conference_is_open(user, token, params).deliver
+        UserMailer.delay.conference_is_open(user, token, params)
       end
       flash_success
       redirect_to admin_mailers_path

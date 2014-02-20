@@ -47,6 +47,9 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'mobylette'
 gem 'draper'
+gem 'sidekiq'
+gem 'sprockets'
+gem 'sinatra', '>= 1.3.0', :require => nil
 
 # Gems used only for assets and not required
 # in production environments by default.

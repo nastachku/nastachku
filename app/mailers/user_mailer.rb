@@ -24,6 +24,8 @@ class UserMailer < ActionMailer::Base
     @user = user
     @token = token
     @subject = params[:subject]
+
+    raise params[:begin_of_greetings].inspect
     @begin_of_greetings = params[:begin_of_greetings],
     @end_of_greetings = params[:end_of_greetings],
     @mail_content = params[:mail_content],
