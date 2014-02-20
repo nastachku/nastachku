@@ -1,11 +1,11 @@
 class TicketOrder < Order
   extend Enumerize
 
-  attr_accessible :type
+  attr_accessible :ticket_type
 
-  enumerize :type, in: [:first, :second, :full], default: :full
+  enumerize :ticket_type, in: [:first, :second, :full], default: :full
 
-  validates :type, presence: true
+  validates :ticket_type, presence: true
 
   def cost
     self.items_count * configus.platidoma.ticket_price
