@@ -3,8 +3,6 @@
   %span.color
     = @user.id
 %br
-
-
   .tabbable
     %ul.nav.nav-tabs
       %li.active= link_to t('.info'), '#info', data: { toggle: 'tab' }
@@ -58,7 +56,7 @@
           %br
           %br
 
-          = simple_form_for @shirt_order, url: account_buy_path do |f|
+          = simple_form_for @shirt_order, url: pay_account_buy_path, method: :put do |f|
             %label
               = check_box_tag :ticket_order
               = t('.stachka_ticket')
@@ -66,9 +64,9 @@
             %br
             Приобрести фирменные футболки "Стачка 2014!"
             %br
-            = f.input :items_count
-            = f.input :item_color
-            = f.input :item_size
+            = f.input :items_count, required: false
+            = f.input :item_color, required: false
+            = f.input :item_size, required: false
             = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
             = f.submit t('.pay_orders')
         .offset1.span5
