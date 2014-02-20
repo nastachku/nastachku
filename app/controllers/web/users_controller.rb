@@ -46,7 +46,7 @@ class Web::UsersController < Web::ApplicationController
         redirect_to welcome_index_path
       else
         token = @user.create_auth_token
-        UserMailer.delay.confirm_registration(@user, token)
+        UserMailer.confirm_registration(@user, token).deliver
         flash_success
         redirect_to new_session_path
       end

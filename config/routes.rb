@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 Nastachku::Application.routes.draw do
-  require 'sidekiq/web'
   require 'admin_constraint'
   
   get "audits/index"
@@ -113,7 +112,7 @@ Nastachku::Application.routes.draw do
         get :index
         post :deliver
       end
-      mount Sidekiq::Web => 'sidekiq', constraints: AdminConstraint.new
+      mount Resque::Server, at: "resque", constraints: AdminConstraint.new, as: 'resque'
 
       root to: "welcome#index"
     end

@@ -47,7 +47,9 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'mobylette'
 gem 'draper'
-gem 'sidekiq'
+gem 'resque', :require => 'resque/server'
+gem 'resque_mailer'
+gem 'resque-scheduler'
 gem 'sprockets'
 gem 'sinatra', '>= 1.3.0', :require => nil
 
