@@ -62,5 +62,4 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
 
     redirect_to edit_account_path anchor: :my_orders
   end
-
 end

@@ -2,8 +2,8 @@ class TicketOrder < Order
   extend Enumerize
   extend ActiveModel::Naming
 
-  def cost
-    configus.ticket_price
+  def its_cost
+    configus.platidoma.ticket_price
   end
 
   #FIXME найти другой вариант реализации перевода
