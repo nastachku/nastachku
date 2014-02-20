@@ -3,8 +3,6 @@
   %span.color
     = @user.id
 %br
-
-
   .tabbable
     %ul.nav.nav-tabs
       %li.active= link_to t('.info'), '#info', data: { toggle: 'tab' }
@@ -39,21 +37,42 @@
           = f.input :show_as_participant, wrapper: :inline_checkbox
         = f.button :submit, value: t('.save'), class: 'btn btn-shine'
     .tab-pane#pay
-      .span6
-        Стоимость участия в конференции СТАЧКА 2014:
-        %table.table.table-stripped.table-bordered
-          %thead
-            %th Месяц
-            %th Февраль
-            %th Март
-            %th Апрель
-          %tr
-            %td Цена
-            %td 750 руб.
-            %td 1100 руб.
-            %td 1500 руб.
-        Участие в конференции для докладчиков - бесплатно.
-        Дополнительную информацию об оплате участия можно узнать у организаторов конференции: info@nastachku.ru
-      - if user_has_no_tickets?(current_user)
-        %script{"data-timepad-widget" => "event_register", defer: "defer", src: "//timepad.ru/js/tpwf/loader.min.js"}
-          (function(){return {"event":{"id":"105416","org":"10509","subdomain":"srit"},"oldWidgetOptions":{"urlAppend":"","QSAppend":""}}; })();
+      .row-fluid
+        .span6
+          Стоимость участия в конференции СТАЧКА 2014:
+          %table.table.table-stripped.table-bordered
+            %thead
+              %th Месяц
+              %th Февраль
+              %th Март
+              %th Апрель
+            %tr
+              %td Цена
+              %td 750 руб.
+              %td 1100 руб.
+              %td 1500 руб.
+          Участие в конференции для докладчиков - бесплатно.
+          Дополнительную информацию об оплате участия можно узнать у организаторов конференции: info@nastachku.ru
+          %br
+          %br
+
+          = simple_form_for @shirt_order, url: pay_account_buy_path, method: :put do |f|
+            %label
+              = check_box_tag :ticket_order
+              = t('.stachka_ticket')
+
+            %br
+            Приобрести фирменные футболки "Стачка 2014!"
+            %br
+            = f.input :items_count, required: false
+            = f.input :item_color, required: false
+            = f.input :item_size, required: false
+            = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
+            = f.submit t('.pay_orders')
+        .offset1.span5
+          Если у вас есть промо-код, то вы можете оплатить участие промо-кодом.
+          -# FIXME заменить на simple_form. В противном случае тест не проходит
+          = form_tag accept_account_promo_code_path(@user.promo_code), method: :put, html: { class: 'form-horizontal' } do |f|
+            = text_field_tag :code
+            %br
+            = submit_tag t('.enter_promo_code'), class: 'btn btn-shine'
