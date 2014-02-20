@@ -62,4 +62,18 @@ class Web::UsersControllerTest < ActionController::TestCase
     assert_equal true, @user.attended?
   end
 
+  test "should activate user" do
+    @user.deactivate
+    auth_token = @user.create_auth_token
+    get :activate, auth_token: auth_token.authentication_token
+    @user.reload
+    assert_equal true, @user.active?
+    assert_redirected_to welcome_index_path
+  end
+
+  test "should not activate user with nil token" do
+    get :activate, auth_token: nil
+    assert_redirected_to welcome_index_path
+  end
+
 end

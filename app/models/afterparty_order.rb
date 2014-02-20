@@ -7,7 +7,7 @@ class AfterpartyOrder < Order
     "#{I18n.t("activerecord.models.afterparty_order")}"
   end
 
-  def cost
+  def its_cost
     self.items_count * configus.platidoma.afterparty_price
   end
 

@@ -12,9 +12,17 @@ class Web::RemindPasswordsControllerTest < ActionController::TestCase
   end
 
   test "should post create" do
-    attrs = {:email => @user.email}
+    attrs = { email: @user.email }
 
-    post :create, :user_password_remind_type => attrs
+    post :create, user_password_remind_type: attrs
+    assert_response :redirect
+  end
+
+  test "should not post create" do
+    attrs = { email: @user.email }
+    @user.deactivate
+
+    post :create, user_password_remind_type: attrs
     assert_response :redirect
   end
 end

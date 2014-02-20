@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
   include OrderRepository
 
-  attr_accessible :user_id, :items_count, :payment_state
+  attr_accessible :user_id, :items_count, :payment_state, :cost
 
   validates :user, presence: true
   validates :items_count, presence: true, numericality: { only_integer: true, greater_than: 0 }
