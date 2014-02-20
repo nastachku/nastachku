@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 module AuthHelper
 
   def sign_in(user)
@@ -28,6 +29,7 @@ module AuthHelper
   end
 
   def current_user
+    session ||= request.session
     @current_user ||= User.find_by_id(session[:user_id])
   end
 

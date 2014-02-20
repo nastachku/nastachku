@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 Nastachku::Application.routes.draw do
-
+  require 'admin_constraint'
+  
   get "audits/index"
 
   match "/404", to: "web/errors#not_found"
@@ -114,6 +115,7 @@ Nastachku::Application.routes.draw do
         get :index
         post :deliver
       end
+      mount Resque::Server, at: "resque", constraints: AdminConstraint.new, as: 'resque'
 
       root to: "welcome#index"
     end
