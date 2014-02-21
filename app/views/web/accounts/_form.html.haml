@@ -61,6 +61,8 @@
               %label
                 = check_box_tag :ticket_order
                 = t('.stachka_ticket')
+            - else
+              = t('.you_have_bought_stachka_ticket')
 
             %br
             Приобрести фирменные футболки "Стачка 2014!"
