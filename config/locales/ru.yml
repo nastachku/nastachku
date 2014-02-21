@@ -86,7 +86,6 @@ ru:
         enter_promo_code: Ввести промо-код
         stachka_ticket: Билет на Стачку
         pay_orders: Оплатить заказ
-        you_have_bought_stachka_ticket: Вы уже купили билет на Стачку
 
     account:
       lectures:
