@@ -57,9 +57,10 @@
           %br
 
           = simple_form_for @shirt_order, url: pay_account_buy_path, method: :put do |f|
-            %label
-              = check_box_tag :ticket_order
-              = t('.stachka_ticket')
+            - unless user_has_paid_ticket?(current_user)
+              %label
+                = check_box_tag :ticket_order
+                = t('.stachka_ticket')
 
             %br
             Приобрести фирменные футболки "Стачка 2014!"
