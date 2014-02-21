@@ -8,9 +8,9 @@ class Web::Admin::MailersController < Web::Admin::ApplicationController
   def deliver
     users = UserDecorator.decorate_collection(User.where(attending_conference_state: :not_decided))
     begin
-      users.each do |user|
+      users.each_with_index do |user, i|
         token = user.create_user_welcome_token
-        UserMailer.conference_is_open(user, token, params).deliver
+        UserMailer.conference_is_open(user, token, params).deliver_in((10 * (i + 1)).seconds)
       end
       flash_success
       redirect_to admin_mailers_path
