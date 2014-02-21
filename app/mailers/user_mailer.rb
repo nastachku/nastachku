@@ -2,37 +2,35 @@ class UserMailer < AsyncMailer
   default_url_options[:host] = configus.mailer.default_host
   default from: configus.mailer.default_from
 
-  def confirm_registration(user, token)
-    @user = user
-    @token = token
+  def confirm_registration(user_id, token_id)
+    @user = User.find_by_id user_id
+    @token = User::AuthToken.find_by_id token_id
     mail :to => @user.email
   end
 
-  def remind_password(user, token)
-    @user = user
-    @token = token
+  def remind_password(user_id, token_id)
+    @user = User.find_by_id user_id
+    @token = User::AuthToken.find_by_id token_id
     mail :to => @user.email
   end
 
-  def payment_successful(user, token)
-    @user = user
-    @token = token
+  def payment_successful(user_id, token_id)
+    @user = User.find_by_id user_id
+    @token = User::AuthToken.find_by_id token_id
     mail :to => @user.email
   end
 
-  def conference_is_open(user, token, params)
-    user = user["user"].symbolize_keys!
-    token = token.symbolize_keys!
-    params = params.symbolize_keys!
-    @full_name = "#{user[:last_name]} #{user[:first_name]}"
-    @token = token[:authentication_token]
-    @subject = params[:subject]
-    @begin_of_greetings = params[:begin_of_greetings]
-    @end_of_greetings = params[:end_of_greetings]
-    @mail_content = params[:mail_content]
-    @before_link = params[:before_link]
-    @after_link = params[:after_link]
-    @goodbye = params[:goodbye]
-    mail :to => user[:email], subject: @subject
+  def conference_is_open(user_id, token_id, mail_params_id)
+    params = MailParams.find_by_id mail_params_id
+    @user = UserDecorator.decorate(User.find_by_id user_id)
+    @token = User::AuthToken.find_by_id token_id
+    @subject = params.subject
+    @begin_of_greetings = params.begin_of_greetings
+    @end_of_greetings = params.end_of_greetings
+    @mail_content = params.mail_content
+    @before_link = params.before_link
+    @after_link = params.after_link
+    @goodbye = params.goodbye
+    mail :to => @user.email, subject: @subject
   end
 end

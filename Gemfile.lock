@@ -6,6 +6,15 @@ GIT
       activerecord (>= 3.0)
       activesupport (>= 3.0)
 
+GIT
+  remote: git://github.com/sshingler/capistrano-resque.git
+  revision: d5bc43bdd31923addcd217c9804db67b74cc6274
+  specs:
+    capistrano-resque (0.1.0)
+      capistrano
+      resque
+      resque-scheduler
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -384,6 +393,7 @@ DEPENDENCIES
   capistrano
   capistrano-ext
   capistrano-maintenance
+  capistrano-resque!
   capistrano_colors
   carrierwave
   chosen-rails

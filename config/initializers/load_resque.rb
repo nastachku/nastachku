@@ -7,6 +7,8 @@ Resque.redis = 'localhost:6379'
 
 Resque::Mailer.excluded_environments = [:test, :cucumber]
 
+Dir["#{Rails.root}/app/jobs/*.rb"].each { |file| require file }
+
 class AsyncMailer < ActionMailer::Base
   include Resque::Mailer
 end
