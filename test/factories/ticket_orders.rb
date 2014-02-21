@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :ticket_order do
     items_count
-    association :user
+    user_id 1
   end
 end

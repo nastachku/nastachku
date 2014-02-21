@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140220003814) do
+ActiveRecord::Schema.define(:version => 20140221090047) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -69,6 +69,22 @@ ActiveRecord::Schema.define(:version => 20140220003814) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0, :null => false
+    t.integer  "attempts",   :default => 0, :null => false
+    t.text     "handler",                   :null => false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
   create_table "event_users", :force => true do |t|
     t.integer  "event_id"
     t.integer  "user_id"
@@ -106,6 +122,20 @@ ActiveRecord::Schema.define(:version => 20140220003814) do
     t.integer  "workshop_id"
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
+  end
+
+  create_table "mail_params", :force => true do |t|
+    t.text     "subject"
+    t.text     "begin_of_greetings"
+    t.text     "end_of_greetings"
+    t.text     "mail_content"
+    t.text     "before_link"
+    t.text     "after_link"
+    t.text     "goodbye"
+    t.string   "email"
+    t.text     "recipient_name"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "news", :force => true do |t|
