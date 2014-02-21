@@ -83,6 +83,7 @@ end
 
 group :development do
   gem 'capistrano'
+  gem "capistrano-resque", github: "sshingler/capistrano-resque", require: false
   gem 'rvm-capistrano'
   gem 'capistrano-ext'
   gem 'capistrano_colors'

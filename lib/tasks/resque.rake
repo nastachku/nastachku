@@ -27,5 +27,6 @@ namespace :resque do
     # project, it's usually easier to just include you job classes here.
     # So, something like this:
     # require 'jobs'
+    Resque.before_fork = Proc.new { ActiveRecord::Base.establish_connection }
   end
 end
