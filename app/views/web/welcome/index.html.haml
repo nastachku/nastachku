@@ -1,3 +1,287 @@
+#layout
+  %header{ itemscope: "", itemtype: "http://schema.org/LocalBusiness" }
+    .layout-line
+      .header__logo
+        .header__logo__cont
+          .header__logo__cont-logo
+            %a{ href: "/", title: "Стачка!" }
+              = image_tag "logo.png", alt: "Стачка!"
+            %span
+          .header__logo__cont-prev
+            %a{ href: "#2012", title: "2012" } 2012
+            %a{ href: "#2013", title: "2013" } 2013
+      %span.btn_main-menu
+      %nav.header__nav
+        %a{ href: "stachka.html", title: "Стачка" } Стачка
+        %a{ href: "lectures.html", title: "Доклады" } Доклады
+        %a{ href: "user_lectures.html", title: "Доклады 2.0" } Доклады 2.0
+        %a{ href: "program.html", title: "Программа" } Программа
+        %a{ href: "members.html", title: "Участники" } Участники
+        %a{ href: "contacts.html", title: "Контакты" } Контакты
+      .header__login
+        %span.btn_main.btn_main-auth.open_popup{ "data-popup" => "auth" } Войти на сайт
+  .infoline
+    .layout-line
+      %p.infoline__left
+        %b 12-13 апреля,
+        Ленинский мемориал, Ульяновск
+      %p.infoline__right
+        Стоимость участия до 1.03.14г.-
+        %b 1000р
+  .mainadv
+    .mainadv__banner
+      %h2 Stop working!
+      %p
+        Все работы приостановлены с 12 по 13 апреля!
+        %br/
+        %b Стачка началась!
+        Все на регистрацию!
+      %a{ href: "#", title: "Зарегистрироваться" } Зарегистрироваться
+  .pagetitle.mainpage__title
+    .layout-line
+      %h1.pagetitle__title Основные секции
+  .mainpage__sections
+    .mainpage__social
+      %a.social__icon.social__icon-tw{ href: "#" }
+      %a.social__icon.social__icon-fb{ href: "#" }
+      %a.social__icon.social__icon-vk{ href: "#" }
+    .layout-line
+      %ul
+        %li
+          .mainpage__sections__cont
+            .mainpage__sections-img
+              = image_tag "section-d_big.png", alt: "Digital-коммуникации"
+            .mainpage__sections-desc
+              %h4.open_this Digital-коммуникации
+              %p
+                Это современные инструменты маркетинговых коммуникаций и продвижения торговой марки или
+                бренда с применением цифровых каналов.
+        %li
+          .mainpage__sections__cont
+            .mainpage__sections-img
+              = image_tag "section-t_big.png", alt: "Техническая"
+            .mainpage__sections-desc
+              %h4.open_this Техническая
+              %p
+                Это современные инструменты маркетинговых коммуникаций и продвижения торговой марки или
+                бренда с применением цифровых каналов.
+        %li
+          .mainpage__sections__cont
+            .mainpage__sections-img
+              = image_tag "section-m_big.png", alt: "Менеджмент"
+            .mainpage__sections-desc
+              %h4.open_this Менеджмент
+              %p
+                Это современные инструменты маркетинговых коммуникаций и продвижения торговой марки или
+                бренда с применением цифровых каналов.
+        %li
+          .mainpage__sections__cont
+            .mainpage__sections-img
+              = image_tag "section-mob_big.png"
+            .mainpage__sections-desc
+              %h4.open_this Мобильная разработка
+              %p
+                Это современные инструменты маркетинговых коммуникаций и продвижения торговой марки или
+                бренда с применением цифровых каналов.
+        %li
+          .mainpage__sections__cont
+            .mainpage__sections-img
+              = image_tag "section-i_big.png"
+            .mainpage__sections-desc
+              %h4.open_this IT-государтсво
+              %p
+                Это современные инструменты маркетинговых коммуникаций и продвижения торговой марки или
+                бренда с применением цифровых каналов.
+        %li
+          .mainpage__sections__cont
+            .mainpage__sections-img
+              = image_tag "section-s_big.png"
+            .mainpage__sections-desc
+              %h4.open_this Стартап
+              %p
+                Это современные инструменты маркетинговых коммуникаций и продвижения торговой марки или
+                бренда с применением цифровых каналов.
+  .pagetitle.mainpage__title
+    .layout-line
+      %h1.pagetitle__title Самые лучшие спикеры
+  .mainpage__speakers
+    .layout-line
+      %ul
+        %li
+          .mainpage__speakers-img
+            = image_tag "main-speakers-1.jpg"
+            %span.icon_mainsection.icon_section-purple
+          .mainpage__speakers__about-mini
+            %h4
+              %b Билл Гейтс
+              СЕО Microsoft
+          .mainpage__speakers__about
+            %h4 Компания, о которой вы и не мечтали!
+            %h5 СЕО Microsoft, Билл Гейтс
+          .mainpage__speakers__desc
+            %p.open_this
+              “БИЗНЕС — отличная игра: постоянное соревнование
+              и минимум правил. А счет в этой игре
+              ведется в деньгах”
+        %li
+          .mainpage__speakers-img
+            = image_tag "main-speakers-2.jpg"
+            %span.icon_mainsection.icon_section-orange
+          .mainpage__speakers__about-mini
+            %h4
+              %b Вика Газинская
+              PR  KupiVIP
+          .mainpage__speakers__about
+            %h4 «Командовать парадом буду я!». Секреты управления.
+            %h5 PR  KupiVIP, Вика Газинская
+          .mainpage__speakers__desc
+            %p.open_this
+              “БИЗНЕС — отличная игра: постоянное соревнование
+              и минимум правил. А счет в этой игре
+              ведется в деньгах”
+        %li
+          .mainpage__speakers-img
+            = image_tag "main-speakers-3.jpg"
+            %span.icon_mainsection.icon_section-green
+          .mainpage__speakers__about-mini
+            %h4
+              %b Ларри Пейдж
+              CEO Google
+          .mainpage__speakers__about
+            %h4 «Пилите, Шура, пилите!». Золотые надежды нашего века.
+            %h5 CEO Google, Ларри Пейдж
+          .mainpage__speakers__desc
+            %p.open_this
+              “БИЗНЕС — отличная игра: постоянное соревнование
+              и минимум правил. А счет в этой игре
+              ведется в деньгах”
+        %li
+          .mainpage__speakers-img
+            = image_tag "main-speakers-4.jpg"
+            %span.icon_mainsection.icon_section-blue
+          .mainpage__speakers__about-mini
+            %h4
+              %b Олеся Керенская
+              QA Skype
+          .mainpage__speakers__about
+            %h4 «Жизнь прекрасна, невзирая на недочёты».
+            %h5 QA Skype, Олеся Керенская
+          .mainpage__speakers__desc
+            %p.open_this
+              “БИЗНЕС — отличная игра: постоянное соревнование
+              и минимум правил. А счет в этой игре
+              ведется в деньгах”
+  .pagetitle.mainpage__title.pagetitle__withoutborder
+    .layout-line
+      %h1.pagetitle__title А вот и мы - организаторы
+  .mainpage__org
+    .layout-line
+      #org_logos.company__logos.logos_carousel.touchcarousel
+        %ul.touchcarousel-container
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/mst.jpg"
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/interra.jpg"
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/simtech.jpg"
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/hackday.jpg"
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/platidoma.jpg"
+  .pagetitle.mainpage__title.pagetitle__withoutborder
+    .layout-line
+      %h1.pagetitle__title Спасибо спонсорам
+  .mainpage__sponsors
+    .layout-line
+      #sponsors_logos.company__logos.logos_carousel.touchcarousel
+        %ul.touchcarousel-container
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/mst.jpg"
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/interra.jpg"
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/simtech.jpg"
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/hackday.jpg"
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/platidoma.jpg"
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/aviasales.jpg"
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/rostelecom.jpg"
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/ruby-jobs.jpg"
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/my-media-company.jpg"
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/simbirsoft.jpg"
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/itm.jpg"
+            %img{ alt: "", src: "/images/logos/itm.jpg" }
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/turnkey.jpg"
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/interra.jpg"
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/turnkey.jpg"
+          %li.touchcarousel-item
+            %div
+            = image_tag "logos/rostelecom.jpg"
+  %footer
+    .footer__topbar
+      %p Если Вы хотите стать спонсором или выступить с докладом, пожалуйста, свяжитесь с нами.
+      %a{ href: "#", title: "Отправить предложение" } Отправить предложение
+    .layout-line
+      .footer__madeby
+        Разработка дизайна
+        %a{ href: "http://m-st.ru/", target: "_blank" } MST Digital Agency
+      .footer__social
+        %p Следи за Стачкой:
+        %a.social__icon.social__icon-tw{ href: "#" }
+        %a.social__icon.social__icon-fb{ href: "#" }
+        %a.social__icon.social__icon-vk{ href: "#" }
+#overlay.overlay
+#popup_auth.popup.popup__auth
+  .popup__content
+    %form.popup__auth__form
+      %h2.popup__title Войти на сайт
+      %input.input_type-1{ placeholder: "E-mail", type: "email", value: "" }
+      %input.input_type-1{ placeholder: "Пароль", type: "password", value: "" }
+      .popup__auth__form-forgot
+        %a{ href: "#", title: "Забыли пароль?" } Забыли пароль?
+      .popup__auth__form-remember
+        %input#popup__auth__form-remember{ checked: "checked", name: "remember", type: "checkbox", value: "Y" }
+        %label{ for: "popup__auth__form-remember" } Запомнить
+      .popup__auth__form-enter
+        %button.btn_main.btn_main-auth{ type: "submit" } Войти на сайт
+    .popup__auth__form-social
+      %p Авторизируйтесь с помощью социальной сети:
+      %a.social__icon.social__icon-tw{ href: "#" }
+      %a.social__icon.social__icon-fb{ href: "#" }
+      %a.social__icon.social__icon-vk{ href: "#" }
+    .popup__auth__form-reg
+      %p Еще не зарегестрировались? Сейчас самое время!
+      %a{ href: "#", title: "Регистрация" } Регистрация
+  %span.popup__close.close_popup
 = render "themes"
 = render "lectors_carousel"
 = render "want_to_do"
