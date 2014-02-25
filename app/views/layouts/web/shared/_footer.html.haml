@@ -1,15 +1,13 @@
 %footer
-  .container
-    .row
-      .span3
-        .copy
-          %h5
-            %span.color «Стачка»
-          %p
-            Copyright ©
-            = copyright_notice_year_range(2012)
-      .span9
-        = render 'layouts/web/shared/social'
-    .clearfix
-
-= javascript_include_tag "web/application"
+  .footer__topbar
+    %p Если Вы хотите стать спонсором или выступить с докладом, пожалуйста, свяжитесь с нами.
+    %a{ href: "#", title: "Отправить предложение" } Отправить предложение
+  .layout-line
+    .footer__madeby
+      Разработка дизайна
+      %a{ href: "http://m-st.ru/", target: "_blank" } MST Digital Agency
+    .footer__social
+      %p Следи за Стачкой:
+      %a.social__icon.social__icon-tw{ href: "#" }
+      %a.social__icon.social__icon-fb{ href: "#" }
+      %a.social__icon.social__icon-vk{ href: "#" }

@@ -1,29 +1,64 @@
-%h1.title Какие будут секции?
-%br
-.themes-talk
-  .row
-    .span4
-      .theme-block.g-blue
-        %h4 Digital-коммуникации
-        %p Веб-дизайн, юзабилити, интернет-маркетинг, SEO, SMM, креатив, PR, управление проектами
-    .span4
-      .theme-block.g-red
-        %h4 Техническая 
-        %p Методологии, devops, big data, highload, языки, архитектура кода и проектов, client-side и облачные технологии
-    .span4
-      .theme-block.g-green
-        %h4 Стартапы
-        %p Истории успеха, где брать деньги, как начинать
-  .row
-    .span4
-      .theme-block.g-orange
-        %h4 Мобильная разработка
-        %p Обо всех Что? Как? и Почему? разработки мобильных приложений
-    .span4
-      .theme-block.g-yellow
-        %h4 Менеджмент
-        %p Организация IT-компании, кадры для IT, куда пойти работать
-    .span4
-      .theme-block.g-violin
-        %h4 IT-государство
-        %p Развитие IT в Ульяновске, государство и IT,  польза от IT
+.pagetitle.mainpage__title
+  .layout-line
+    %h1.pagetitle__title Основные секции
+.mainpage__sections
+  .mainpage__social
+    %a.social__icon.social__icon-tw{ href: "#" }
+    %a.social__icon.social__icon-fb{ href: "#" }
+    %a.social__icon.social__icon-vk{ href: "#" }
+  .layout-line
+    %ul
+      %li
+        .mainpage__sections__cont
+          .mainpage__sections-img
+            = image_tag "section-d_big.png", alt: "Digital-коммуникации"
+          .mainpage__sections-desc
+            %h4.open_this Digital-коммуникации
+            %p
+              Это современные инструменты маркетинговых коммуникаций и продвижения торговой марки или
+              бренда с применением цифровых каналов.
+      %li
+        .mainpage__sections__cont
+          .mainpage__sections-img
+            = image_tag "section-t_big.png", alt: "Техническая"
+          .mainpage__sections-desc
+            %h4.open_this Техническая
+            %p
+              Это современные инструменты маркетинговых коммуникаций и продвижения торговой марки или
+              бренда с применением цифровых каналов.
+      %li
+        .mainpage__sections__cont
+          .mainpage__sections-img
+            = image_tag "section-m_big.png", alt: "Менеджмент"
+          .mainpage__sections-desc
+            %h4.open_this Менеджмент
+            %p
+              Это современные инструменты маркетинговых коммуникаций и продвижения торговой марки или
+              бренда с применением цифровых каналов.
+      %li
+        .mainpage__sections__cont
+          .mainpage__sections-img
+            = image_tag "section-mob_big.png"
+          .mainpage__sections-desc
+            %h4.open_this Мобильная разработка
+            %p
+              Это современные инструменты маркетинговых коммуникаций и продвижения торговой марки или
+              бренда с применением цифровых каналов.
+      %li
+        .mainpage__sections__cont
+          .mainpage__sections-img
+            = image_tag "section-i_big.png"
+          .mainpage__sections-desc
+            %h4.open_this IT-государтсво
+            %p
+              Это современные инструменты маркетинговых коммуникаций и продвижения торговой марки или
+              бренда с применением цифровых каналов.
+      %li
+        .mainpage__sections__cont
+          .mainpage__sections-img
+            = image_tag "section-s_big.png"
+          .mainpage__sections-desc
+            %h4.open_this Стартап
+            %p
+              Это современные инструменты маркетинговых коммуникаций и продвижения торговой марки или
+              бренда с применением цифровых каналов.
