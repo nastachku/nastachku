@@ -41,7 +41,7 @@ namespace :deploy do
 
     desc "Local precompile assets and upload to server"
     task :precompile, roles: :app do
-      run_locally "RAILS_ENV=#{rails_env} #{rake} assets:clean && RAILS_ENV=#{rails_env} #{rake} assets:precompile"
+      run_locally "git checkout #{ENV['COMMIT']} . && RAILS_ENV=#{rails_env} #{rake} assets:clean && RAILS_ENV=#{rails_env} #{rake} assets:precompile"
       run_locally "cd public && tar -jcf assets.tar.bz2 assets"
       top.upload "public/assets.tar.bz2", "#{shared_path}", via: :scp
       run "cd #{shared_path} && tar -jxf assets.tar.bz2 && rm assets.tar.bz2"
@@ -68,6 +68,11 @@ namespace :deploy do
             ln -s #{shared_path}/assets #{latest_release}/public/assets"
     end
   end
+
+  desc "Checkout special commit"
+  task :checkout, roles: :app do
+    run "cd #{latest_release} && git checkout #{ENV['COMMIT']} ."
+  end
 end
 
 namespace :log do
@@ -80,7 +85,7 @@ end
 
 before 'deploy:finalize_update', 'deploy:symlink_db'
 before 'deploy:finalize_update', 'deploy:assets:symlink'
-after 'deploy:update_code', 'deploy:assets:precompile'
+after 'deploy:update_code', 'deploy:checkout', 'deploy:assets:precompile'
 after 'deploy:symlink_db', 'deploy:symlink_backup'
 after 'deploy:symlink_backup', 'deploy:symlink_credentials'
 after "deploy:update", "deploy:cleanup"

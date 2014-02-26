@@ -54,14 +54,12 @@
           Участие в конференции для докладчиков - бесплатно.
           Дополнительную информацию об оплате участия можно узнать у организаторов конференции: info@nastachku.ru
           %br
+          %br
 
           = simple_form_for @shirt_order, url: pay_account_buy_path, method: :put do |f|
-            - unless user_has_paid_ticket?(current_user)
-              %label
-                = check_box_tag :ticket_order
-                = t('.stachka_ticket')
-            - else
-              = t('.you_have_bought_stachka_ticket')
+            %label
+              = check_box_tag :ticket_order
+              = t('.stachka_ticket')
 
             %br
             Приобрести фирменные футболки "Стачка 2014!"
@@ -72,10 +70,9 @@
             = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
             = f.submit t('.pay_orders')
         .offset1.span5
-          - unless user_has_paid_ticket?(current_user)
-            Если у вас есть промо-код, то вы можете оплатить участие промо-кодом.
-            -# FIXME заменить на simple_form. В противном случае тест не проходит
-            = form_tag accept_account_promo_code_path(@user.promo_code), method: :put, html: { class: 'form-horizontal' } do |f|
-              = text_field_tag :code
-              %br
-              = submit_tag t('.enter_promo_code'), class: 'btn btn-shine'
+          Если у вас есть промо-код, то вы можете оплатить участие промо-кодом.
+          -# FIXME заменить на simple_form. В противном случае тест не проходит
+          = form_tag accept_account_promo_code_path(@user.promo_code), method: :put, html: { class: 'form-horizontal' } do |f|
+            = text_field_tag :code
+            %br
+            = submit_tag t('.enter_promo_code'), class: 'btn btn-shine'

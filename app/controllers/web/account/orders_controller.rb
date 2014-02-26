@@ -2,15 +2,12 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
 
   skip_before_filter :verify_authenticity_token, only: [:approve, :cancel, :decline]
 
-  include PayConferenceHelper
-
   def approve
     order = Order.find params[:pd_order_id]
 
     order.transaction_id = params[:pd_trans_id]
     order.save
 
-    update_user_pay_conference_state order.user
     update_payment_state(order)
     flash_success
 
