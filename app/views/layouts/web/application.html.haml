@@ -1,31 +1,29 @@
-!!! 5
-%html(lang="en")
+!!!
+%html{ lang: "ru" }
   %head
-    %meta(charset="utf-8")
-    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
-    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    %link{:href => "/favicon.ico", :rel => "icon", :type => "image/x-icon"}/
-    %link{:href => "/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
-    %meta{:content => "http://nastachku.ru/assets/fb_logo.png", :property => "og:image"}
-    %meta{:content => "Digital-коммуникации, Программирование, IT-стартапы, Электронная коммерция, Менеджмент в IT, IT на службе общества", :property => "og:description"}
-    %title= title
-    /%title= content_for?(:title) ? yield(:title) : "Стачка! Конференция"
-    = analytics_init if Rails.env.production?
-    = csrf_meta_tags
-    = include_gon
-    = stylesheet_link_tag "web/application", :media => "all"
-
+    %meta{ content: "IE=edge", "http-equiv" => "X-UA-Compatible" }
+    %meta{ content: "width=device-width, initial-scale=1.0", name: "viewport" }
+    %title Главная | Стачка!
+    = favicon_link_tag "favicon.ico"
+    %meta{ charset: "utf-8" }
+    %meta{ content: "Digital-коммуникации, Программирование, IT-стартапы, Электронная коммерция, Менеджмент в IT, IT на службе общества", name: "description" }
+    %meta{ content: "Главная | Стачка!", name: "keywords" }
+    %meta{ content: "http://nastachku.ru/", property: "og:url" }
+    %meta{ content: "Главная | Стачка!", property: "og:title" }
+    %meta{ content: "Digital-коммуникации, Программирование, IT-стартапы, Электронная коммерция, Менеджмент в IT, IT на службе общества", property: "og:description" }
+    %meta{ content: "website", property: "og:type" }
+    %meta{ content: "Стачка!", property: "og:site_name" }
+    %meta{ content: "i/og_image.png", property: "og:image" }
+    = stylesheet_link_tag "web/styles"
+    = javascript_include_tag "web/jquery.touchcarousel-1.2.min.js"
+    = javascript_include_tag "web/script.js"
+    %script{ src: "http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js", type: "text/javascript" }
   %body
-    .main
-      = render "layouts/web/shared/navbar"
+    #layout
       = render "layouts/web/shared/header"
-      = render "layouts/web/shared/navigation"
-      .container#main_container
-        .content
-          = bootstrap_flash
-          = yield
-        = render 'layouts/web/shared/sponsors'
-        = render 'layouts/web/shared/partners'
-
-    = render "layouts/web/shared/counters"
-    = render "layouts/web/shared/footer"
+      = bootstrap_flash
+      = yield
+      = render "layouts/web/shared/organizers"
+      = render "layouts/web/shared/sponsors"
+      = render "layouts/web/shared/footer"
+      = render "layouts/web/shared/popup_auth"
