@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140221090047) do
+ActiveRecord::Schema.define(:version => 20140226004446) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -68,22 +68,6 @@ ActiveRecord::Schema.define(:version => 20140221090047) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
-
-  create_table "delayed_jobs", :force => true do |t|
-    t.integer  "priority",   :default => 0, :null => false
-    t.integer  "attempts",   :default => 0, :null => false
-    t.text     "handler",                   :null => false
-    t.text     "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-  end
-
-  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "event_users", :force => true do |t|
     t.integer  "event_id"
@@ -146,12 +130,6 @@ ActiveRecord::Schema.define(:version => 20140221090047) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "order_options", :force => true do |t|
-    t.integer  "cost"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
     t.string   "type"
@@ -159,11 +137,10 @@ ActiveRecord::Schema.define(:version => 20140221090047) do
     t.string   "item_size"
     t.string   "payment_state"
     t.string   "transaction_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "item_color"
     t.string   "ticket_type"
-    t.integer  "order_option_id"
     t.integer  "cost"
   end
 
@@ -272,6 +249,7 @@ ActiveRecord::Schema.define(:version => 20140221090047) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "color"
+    t.text     "icon"
   end
 
 end

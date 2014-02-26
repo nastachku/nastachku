@@ -1,0 +1,28 @@
+.pagetitle.mainpage__title
+  .layout-line
+    %h1.pagetitle__title Самые лучшие спикеры
+.mainpage__speakers
+  .layout-line
+    %ul
+      - @lectors.each do |lector|
+        %li
+          .mainpage__speakers-img
+            = image_tag lector.photo
+            = lector.lector_section_color
+          .mainpage__speakers__about-mini
+            %h4
+              %b
+                = lector.full_name
+              = lector.position
+              ,
+              = lector.company
+          .mainpage__speakers__about
+            %h4
+              = lector.main_lecture.title
+            %h5
+              = lector.position
+              ,
+              = lector.company
+          .mainpage__speakers__desc
+            %p.open_this
+              = lector.main_lecture.thesises.first(140)

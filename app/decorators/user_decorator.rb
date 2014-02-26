@@ -13,4 +13,14 @@ class UserDecorator < Draper::Decorator
     full_name
   end
 
+  def lector_section_color
+    h.content_tag :span, class: 'icon_mainsection icon_section-color',
+                         style: "background-image: url(#{main_lecture.workshop.icon})" do
+    end
+  end
+
+  def main_lecture
+    model.lectures.first
+  end
+
 end

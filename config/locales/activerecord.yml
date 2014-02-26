@@ -33,6 +33,8 @@ ru:
       ticket_order: Билет на Стачку
 
     attributes:
+      workshop:
+        icon: Иконка
       ticket_order:
         ticket_type: Тип билета
       lecture:
