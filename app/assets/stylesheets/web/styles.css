@@ -995,6 +995,14 @@ footer {
   background-color: #ff9f4b;
   background-image: url('images/section-mob_small.png');
 }
+.icon_section-color {
+  width: 50px;
+  height: 50px;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: cover;
+}
 .icon_section-purple {
   width: 50px;
   height: 50px;

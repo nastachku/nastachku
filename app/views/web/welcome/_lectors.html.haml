@@ -4,67 +4,73 @@
 .mainpage__speakers
   .layout-line
     %ul
-      %li
-        .mainpage__speakers-img
-          = image_tag "main-speakers-1.jpg"
-          %span.icon_mainsection.icon_section-purple
-        .mainpage__speakers__about-mini
-          %h4
-            %b Билл Гейтс
-            СЕО Microsoft
-        .mainpage__speakers__about
-          %h4 Компания, о которой вы и не мечтали!
-          %h5 СЕО Microsoft, Билл Гейтс
-        .mainpage__speakers__desc
-          %p.open_this
-            “БИЗНЕС — отличная игра: постоянное соревнование
-            и минимум правил. А счет в этой игре
-            ведется в деньгах”
-      %li
-        .mainpage__speakers-img
-          = image_tag "main-speakers-2.jpg"
-          %span.icon_mainsection.icon_section-orange
-        .mainpage__speakers__about-mini
-          %h4
-            %b Вика Газинская
-            PR  KupiVIP
-        .mainpage__speakers__about
-          %h4 «Командовать парадом буду я!». Секреты управления.
-          %h5 PR  KupiVIP, Вика Газинская
-        .mainpage__speakers__desc
-          %p.open_this
-            “БИЗНЕС — отличная игра: постоянное соревнование
-            и минимум правил. А счет в этой игре
-            ведется в деньгах”
-      %li
-        .mainpage__speakers-img
-          = image_tag "main-speakers-3.jpg"
-          %span.icon_mainsection.icon_section-green
-        .mainpage__speakers__about-mini
-          %h4
-            %b Ларри Пейдж
-            CEO Google
-        .mainpage__speakers__about
-          %h4 «Пилите, Шура, пилите!». Золотые надежды нашего века.
-          %h5 CEO Google, Ларри Пейдж
-        .mainpage__speakers__desc
-          %p.open_this
-            “БИЗНЕС — отличная игра: постоянное соревнование
-            и минимум правил. А счет в этой игре
-            ведется в деньгах”
-      %li
-        .mainpage__speakers-img
-          = image_tag "main-speakers-4.jpg"
-          %span.icon_mainsection.icon_section-blue
-        .mainpage__speakers__about-mini
-          %h4
-            %b Олеся Керенская
-            QA Skype
-        .mainpage__speakers__about
-          %h4 «Жизнь прекрасна, невзирая на недочёты».
-          %h5 QA Skype, Олеся Керенская
-        .mainpage__speakers__desc
-          %p.open_this
-            “БИЗНЕС — отличная игра: постоянное соревнование
-            и минимум правил. А счет в этой игре
-            ведется в деньгах”
+      - @lectors.each do |lector|
+        %li
+          .mainpage__speakers-img
+            = image_tag lector.photo
+            = lector.lector_section_color
+          .mainpage__speakers__about-mini
+            %h4
+              %b
+                = lector.full_name
+              = lector.position
+              ,
+              = lector.company
+          .mainpage__speakers__about
+            %h4
+              = lector.main_lecture.title
+            %h5
+              = lector.position
+              ,
+              = lector.company
+          .mainpage__speakers__desc
+            %p.open_this
+              = lector.main_lecture.thesises.first(140)
+        %li
+          .mainpage__speakers-img
+            = image_tag "main-speakers-2.jpg"
+            %span.icon_mainsection.icon_section-orange
+          .mainpage__speakers__about-mini
+            %h4
+              %b Вика Газинская
+              PR  KupiVIP
+          .mainpage__speakers__about
+            %h4 «Командовать парадом буду я!». Секреты управления.
+            %h5 PR  KupiVIP, Вика Газинская
+          .mainpage__speakers__desc
+            %p.open_this
+              “БИЗНЕС — отличная игра: постоянное соревнование
+              и минимум правил. А счет в этой игре
+              ведется в деньгах”
+        %li
+          .mainpage__speakers-img
+            = image_tag "main-speakers-3.jpg"
+            %span.icon_mainsection.icon_section-green
+          .mainpage__speakers__about-mini
+            %h4
+              %b Ларри Пейдж
+              CEO Google
+          .mainpage__speakers__about
+            %h4 «Пилите, Шура, пилите!». Золотые надежды нашего века.
+            %h5 CEO Google, Ларри Пейдж
+          .mainpage__speakers__desc
+            %p.open_this
+              “БИЗНЕС — отличная игра: постоянное соревнование
+              и минимум правил. А счет в этой игре
+              ведется в деньгах”
+        %li
+          .mainpage__speakers-img
+            = image_tag "main-speakers-4.jpg"
+            %span.icon_mainsection.icon_section-blue
+          .mainpage__speakers__about-mini
+            %h4
+              %b Олеся Керенская
+              QA Skype
+          .mainpage__speakers__about
+            %h4 «Жизнь прекрасна, невзирая на недочёты».
+            %h5 QA Skype, Олеся Керенская
+          .mainpage__speakers__desc
+            %p.open_this
+              “БИЗНЕС — отличная игра: постоянное соревнование
+              и минимум правил. А счет в этой игре
+              ведется в деньгах”

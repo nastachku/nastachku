@@ -2,7 +2,8 @@
 
   = f.input :title, input_html: { class: :span6 }
   = f.input :color, input_html: { class: :span6 }
-  = f.input :icon, input_html: { class: :span6 }
+  = f.label :icon
+  = f.file_field :icon, input_html: { class: :span6 }
 
   .form-actions
     = f.button :submit, class: 'btn btn-primary'

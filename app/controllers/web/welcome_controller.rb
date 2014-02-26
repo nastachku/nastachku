@@ -2,7 +2,7 @@
 class Web::WelcomeController < Web::ApplicationController
   def index
     @news = News.last(3)
-    @lectors = UserDecorator.decorate(User.as_lectors.in_carousel.activated.attended.shuffle)
+    @lectors = UserDecorator.decorate_collection User.as_lectors.activated.attended.shuffle.first 4
   end
 
 end
