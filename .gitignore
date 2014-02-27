@@ -6,7 +6,7 @@
 *~
 /public/*
 !public/index.html
-!public/font
+!public/fonts
 !public/less
 !public/img
 !public/js
