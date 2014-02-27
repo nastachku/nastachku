@@ -17,7 +17,7 @@
         %li.lectures__item
           .lectures__item-img
             = image_tag lecture.user.photo, width: 350
-            %span.icon_lectures.icon_section-purple
+            = lecture.workshop_color_icon
           .lectures__item-name
             %b
               = lecture.user.decorate.full_name
