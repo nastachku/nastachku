@@ -5,24 +5,17 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.brand(href=welcome_index_path)= t('.title')
       .container.nav-collapse
         %ul.nav
           %li= link_to t('.pages'),  admin_pages_path
           %li= link_to t('.news'),   admin_news_index_path
-          = dropdown name: t(".lectures_dropdown", new_lectures_count: new_lectures_count),
-              items: [ { name: t('.lectures'), url: admin_lectures_path },
-                       { name: t('.user_lectures'), url: admin_lectures_path(q: { state_in: [:new, :voted] }) }]
-          = dropdown name: t('.schedule'),
-              items: [ { name: t('.halls'), url: admin_halls_path },
-                       { name: t('.workshops'), url: admin_workshops_path },
-                       { name: t('.events'), url: admin_events_path }, ]
-
-          -#%li= link_to t('.user_lectures'),   admin_user_events_path
-          -#%li= link_to t('.events'), admin_events_path
+          %li= link_to t('.lectures'), admin_lectures_path
+          %li= link_to t('.user_lectures'), admin_lectures_path(q: { state_in: [:new, :voted] })
+          %li= link_to t('.halls'), admin_halls_path
+          %li= link_to t('.workshops'), admin_workshops_path
+          %li= link_to t('.events'), admin_events_path
           %li= link_to t('.users'),   admin_users_path
           %li= link_to t('.audits'),   admin_audits_path
-          -#%li= link_to t('.topics'), admin_topics_path
           %li= link_to t('.orders'), admin_orders_path
           %li= link_to t('.mailers'),   admin_mailers_path
           %li= link_to t('.Resque'),   admin_resque_path
