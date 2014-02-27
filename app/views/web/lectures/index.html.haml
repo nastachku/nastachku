@@ -1,30 +1,41 @@
-%h1=t(".events")
-
-.row.workshop
-  - if @lectures.empty?
-    .span12
-      = t(".not_added_yet")
-  .span3
-    %ul.nav.nav-list.b-affix
-      - workshops.each do |workshop|
-        = item :li, workshop, lectures_path(workshop_id_eq: workshop.id)
-
-  .span9
-    .row-fluid.event-item
+.pagetitle.pagetitle__lectures
+  .layout-line
+    %h1.pagetitle__title Доклады
+    .pagetitle__select.pagetitle__select__lecture
+      %select.custom_select
+        %option Техническая секция
+        %option Мобильная разработка
+        %option Стартапы
+        %option Digital-коммуникации
+        %option IT-проекты
+        %option Менеджмент
+        %option{ selected: "selected" } Все доклады
+.content.lectures
+  .layout-line
+    %ul.lectures__items
       - @lectures.each do |lecture|
-        .span4.sinfo
-          .col-l
-            %h5= link_to lecture.user.decorate.reverse_full_name, lectors_path(anchor: lecture.user)
-            %h6
-              %strong= lecture.user.company
-            .pic
-              - if lecture.user.photo.url
-                = image_tag(lecture.user.photo.url)
-
-            %a.twitter-share-button{href: "https://twitter.com/share", data: {lang: "ru", text: "#{t(".twitter_i_am_going")} '#{lecture.title.truncate(90)}'", count: 'none', hashtags: 'nastachku'}}
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-        .span8
-          %h4= lecture.title
-          %p.ainfo= nl2br lecture.thesises
-        .clearfix
+        %li.lectures__item
+          .lectures__item-img
+            = image_tag lecture.user.photo, width: 350
+            %span.icon_lectures.icon_section-purple
+          .lectures__item-name
+            %b
+              = lecture.user.decorate.full_name
+            = lecture.user.company
+            ,
+            = lecture.user.position
+          .lectures__item-about
+            %h4
+              = lecture.title
+          .lectures__item-desc
+            %p.open_this
+              = lecture.thesises
+          .lectures__item__adding
+            .lectures__item__add
+              %span.lectures__item__add-add Я пойду на доклад
+              %p.lectures__item__add-added Доклад добавлен в вашу программу
+            .lectures__item-social
+              %p.open_this Поделиться с друзьями:
+              %a.social__icon.social__icon-tw{ href: "#" }
+              %a.social__icon.social__icon-fb{ href: "#" }
+              %a.social__icon.social__icon-vk{ href: "#" }
