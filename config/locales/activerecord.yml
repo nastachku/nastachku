@@ -150,6 +150,10 @@ ru:
 
         user:
           attributes:
+            facebook:
+              url: 'Адрес facebook отсутствует'
+            vkontakte:
+              url: 'Адрес vkontakte отсутствует'
             email:
               email: 'Введен некорректный email'
               taken: 'Данный Email уже зарегистрирован'
