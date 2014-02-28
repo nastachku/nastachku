@@ -1,32 +1,37 @@
-.pagetitle.pagetitle__lectures
+- if @lectures.any?
+  .pagetitle.pagetitle__lectures
+    .layout-line
+      %h1.pagetitle__title Доклады
+      .pagetitle__select.pagetitle__select__lecture
+        %select.custom_select
+          %option Техническая секция
+          %option Мобильная разработка
+          %option Стартапы
+          %option Digital-коммуникации
+          %option IT-проекты
+          %option Менеджмент
+          %option{ selected: "selected" } Все доклады
+  .content.lectures
+    .layout-line
+      %ul.lectures__items
+        - @lectures.each do |lecture|
+          %li.lectures__item
+            .lectures__item-img
+              = image_tag lecture.user.photo, width: 350
+              = lecture.workshop_color_icon
+            .lectures__item-name
+              %b
+                = lecture.user.decorate.full_name
+              = lecture.user.company
+              ,
+              = lecture.user.position
+            .lectures__item-about
+              %h4
+                = lecture.title
+            .lectures__item-desc
+              %p.open_this
+                = lecture.thesises
+- else
   .layout-line
-    %h1.pagetitle__title Доклады
-    .pagetitle__select.pagetitle__select__lecture
-      %select.custom_select
-        %option Техническая секция
-        %option Мобильная разработка
-        %option Стартапы
-        %option Digital-коммуникации
-        %option IT-проекты
-        %option Менеджмент
-        %option{ selected: "selected" } Все доклады
-.content.lectures
-  .layout-line
-    %ul.lectures__items
-      - @lectures.each do |lecture|
-        %li.lectures__item
-          .lectures__item-img
-            = image_tag lecture.user.photo, width: 350
-            = lecture.workshop_color_icon
-          .lectures__item-name
-            %b
-              = lecture.user.decorate.full_name
-            = lecture.user.company
-            ,
-            = lecture.user.position
-          .lectures__item-about
-            %h4
-              = lecture.title
-          .lectures__item-desc
-            %p.open_this
-              = lecture.thesises
+    %h2.pagetitle__title
+      = t('.there_is_not_any_lectures_now')
