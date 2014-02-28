@@ -26,4 +26,4 @@
                 = lector.reverse_full_name
             .mainpage__speakers__desc
               %p.open_this
-                = lector.main_lecture.thesises.first(140)
+                = lector.main_lecture.thesises.first(140) if lector.main_lecture
