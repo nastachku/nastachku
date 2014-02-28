@@ -3,7 +3,7 @@
     .header__logo
       .header__logo__cont
         .header__logo__cont-logo
-          %a{ href: "/", title: "Стачка!" }
+          %a{ href: root_path, title: "Стачка!" }
             = image_tag "web/logo.png", alt: "Стачка!"
           %span
         .header__logo__cont-prev
@@ -18,4 +18,4 @@
       %a{ href: users_path, title: "Участники" } Участники
       %a{ href: "pages/contacts", title: "Контакты" } Контакты
     .header__login
-      %span.btn_main.btn_main-auth.open_popup{ "data-popup" => "auth", href: new_session_path } Войти на сайт
+      %span.btn_main.btn_main-auth.open_popup{ onclick: "return location.href = '#{new_session_path}'" } Войти на сайт
