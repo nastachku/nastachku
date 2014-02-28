@@ -13,17 +13,17 @@
             .mainpage__speakers__about-mini
               %h4
                 %b
-                  = lector.full_name
+                  = lector.reverse_full_name
                 = lector.position
-                ,
                 = lector.company
             .mainpage__speakers__about
               %h4
                 = lector.main_lecture.title
               %h5
                 = lector.position
-                ,
                 = lector.company
+                ,
+                = lector.reverse_full_name
             .mainpage__speakers__desc
               %p.open_this
                 = lector.main_lecture.thesises.first(140)
