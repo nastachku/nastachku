@@ -1,0 +1,22 @@
+.infoline
+  .layout-line
+    %p.infoline__left
+      %b 11-12 апреля,
+      Ленинский мемориал, Ульяновск
+    %p.infoline__right
+      Стоимость участия на данный момент -
+      %b
+        = configus.platidoma.ticket_price
+        p
+- if request.path == root_path
+  .mainadv
+    .mainadv__banner
+      %h2 Stop working!
+      %p
+        Все работы приостановлены с 11 по 12 апреля!
+        %br/
+        %b Стачка началась!
+        Все на регистрацию!
+      %a{ href: new_user_path, title: "Зарегистрироваться" } Зарегистрироваться
+- else
+  .mainadv.mainadv__mini
