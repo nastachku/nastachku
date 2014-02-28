@@ -46,11 +46,11 @@
             %ul.order__new__items
               %li.order__new__item.order__new__item__days
                 .order__new__item__name
-                  %label
-                    = check_box_tag :ticket_order, nil, false, id: "two_days", class: 'checkbox_type-1'
+                  = check_box_tag :ticket_order, nil, false, id: "two_days", class: 'checkbox_type-1'
+                  %label{for: "two_days"}
                     = t('.stachka_ticket')
                 .order__new__item__price
-                  %h4
+                  %h4#ticket_price_score
                     = configus.platidoma.ticket_price
                     %span.rouble i
               %li.order__new__item.order__new__item__promo
@@ -65,7 +65,7 @@
                   %input#afterparty.checkbox_type-1{ name: "order_item", type: "checkbox" }
                   %label{ for: "afterparty" } Афтепати
                 .order__new__item__price
-                  %h4
+                  %h4#afterparty_score
                     1000
                     %span.rouble i
                 .order__new__item__desc
@@ -73,7 +73,8 @@
             .order__new__total
               %p Итог:
               %h3
-                2500
+                %span#total_score
+                  0
                 %span.rouble i
             .order__new__submit
               %button.btn_main.btn_main-pay{ type: "submit" } Оплатить заказ
@@ -128,3 +129,26 @@
               .orderslist__info__contacts
                 %a{ href: "mailto:xxx@xxx.com" } svetlana@gmail.com
                 %p 8 (909) 301-26-48
+
+
+:javascript
+  jQuery(document).ready(function ($) {
+     $('.form_showpass').on('click',function() {
+         var input=$(this).siblings('input');
+         if ($(this).hasClass('active')) {
+             input.attr('type','password');
+         } else {
+             input.attr('type','text');
+         }
+         $(this).toggleClass('active');
+     });
+
+     $('.tabs__title').click(function(){
+         $(this).siblings().removeClass('selected').end().next('dd').andSelf().addClass('selected');
+     });
+     $('input[type="checkbox"]').change(function() {
+         var sum = $('#two_days').is(':checked') ? parseInt($('#ticket_price_score').text()) : 0;
+         sum += $('#afterparty').is(':checked') ? parseInt($('#afterparty_score').text()) : 0;
+         $('#total_score').text(sum);
+     });
+  });
