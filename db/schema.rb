@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140226004446) do
+ActiveRecord::Schema.define(:version => 20140228150403) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -231,6 +231,8 @@ ActiveRecord::Schema.define(:version => 20140226004446) do
     t.boolean  "not_going_to_conference"
     t.string   "attending_conference_state"
     t.string   "pay_state"
+    t.text     "facebook"
+    t.text     "vkontakte"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
