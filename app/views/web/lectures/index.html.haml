@@ -30,9 +30,12 @@
           .lectures__item-desc
             %p.open_this
               = lecture.thesises
-          .lectures__item__adding
-            .lectures__item__add
-              %span.lectures__item__add-add Я пойду на доклад
+          - if signed_in?
+            .lectures__item__adding
+              .lectures__item__add
+                = link_to api_lecture_listener_votings_path(lecture), class: (lecture.listener_votings.voted_by?(current_user)) ?  "vote-link action-unvote" : "vote-link action-vote", remote: true, method: (lecture.listener_votings.voted_by?(current_user)) ? "delete" : "post" do
+                  %span.lectures__item__add-add
+                    Я пойду на доклад
               %p.lectures__item__add-added Доклад добавлен в вашу программу
             .lectures__item-social
               %p.open_this Поделиться с друзьями:
