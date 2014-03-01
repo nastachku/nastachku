@@ -31,11 +31,14 @@ ru:
         navbar:
           logout: 'Выйти'
           login: 'Войти'
-          admin: 'Админка'
+          admin: 'Админка' 
           afterparty: "Афтепати"
           stachka_2012: 'Стачка! 2012'
           stachka_2013: 'Стачка! 2013'
           buy: "Купить футболку"
+        header:
+          logout: "Разлогиниться"
+          login: 'Войти на сайт'
 
       admin:
         shared:

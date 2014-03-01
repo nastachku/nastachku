@@ -1,44 +1,43 @@
-%h1=t '.title'
-
-= simple_form_for @user do |f|
-  .row
-    .span12
-      .formy
-        .row-fluid
-          .span4
-            = f.input :email, label_html: {style: "line-height: 40px;" }
-
-          .span4
-            = f.input :password
-
-          .span4
-            = f.input :password_confirmation, :required => true, label_html: {style: "line-height: 40px;" }
-
-        .row-fluid
-          .span4
-            = f.input :show_as_participant, :input_html => { :checked => true }, :wrapper => :inline_checkbox
-          .span6
-            = f.input :process_personal_data, as: :boolean, :input_html => { :checked => true }, :wrapper => :inline_checkbox
-      .formy
-        %h5= t('personal_data')
-        .row-fluid
-          .span4
-            = f.input :first_name
-          
-          .span4
-            = f.input :last_name
-
-          .span4
-            = f.input :city
-
-        .row-fluid
-          .span4
-            = f.input :company
-
-          .span4
-            = f.input :position
-
-        = t('.already_registered?')
-        = link_to t('.login'), new_session_path
-
-      = f.button :submit, class: 'btn btn-shine'
+.registration__form
+  = simple_form_for @user do |f|
+    .personal__userpic
+      .personal__userpic__img
+        = image_tag "/assets/web/no-userpic.jpg", alt: ""
+      .personal__userpic__upload
+        = f.input :photo, as: :image_preview
+    .personal__info
+      %ul.form__group
+        %li.form__element
+          = f.input :first_name, input_html: {class: "input_type-1"}, placeholder: "Имя"
+        %li.form__element
+          = f.input :last_name, input_html: {class: "input_type-1"}, placeholder: "Фамилия"
+        %li.form__element
+          = f.input :city, input_html: {class: "input_type-1"}, placeholder: "Город"
+      %ul.form__group
+        %li.form__element
+          = f.input :company, input_html: {class: "input_type-1"}, placeholder: "Компания"
+        %li.form__element
+          = f.input :position, input_html: {class: "input_type-1"}, placeholder: "Должность"
+      %ul.form__group
+        %li.form__element
+          = f.input :email, input_html: {class: "input_type-1"}, placeholder: "E-mail"
+        %li.form__element
+          = f.input :password, input_html: {class: "input_type-1"}, placeholder: "Придумайте пароль"
+        %li.form__element
+          = f.input :password_confirmation, required: true, input_html: {class: "input_type-1"}, placeholder: "Повторите пароль"
+    .personal__identity
+      .personal__identity__number
+        %h5 Ваш персональный номер
+        .personal__information
+          %p Участие в конференции – платное.<br/> 1 день – <b>1000 рублей</b>,<br/> 2 день – <b>500 рублей</b>.<br/> Афтепати – <b>300 рублей</b>.<br/>
+          %p <b>Условия допуска:</b><br/> Документ, удостоверяющие личность, предъявление номера (доступен в личном кабинете).
+      .personal__identity__social
+        %ul.form__group
+          %li.form__element.form__element__tw
+            %input.input_type-1{ :type=>"url", :placeholder => "http://twitter.com/", :value=>""}
+          %li.form__element.form__element__fb
+            %input.input_type-1{ :type=>"url", :placeholder => "http://facebook.com/", :value=>""}
+          %li.form__element.form__element__vk
+            %input.input_type-1{ :type=>"url", :placeholder => "http://vk.com/", :value=>""}
+    .personal__submit
+      = f.button :submit, class: 'btn_main btn_main-reg', type: "submit"

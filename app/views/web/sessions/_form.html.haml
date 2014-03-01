@@ -9,7 +9,8 @@
       .clearfix
         .pull-left
           .pull-left
-            = f.button :submit, :value => t('.login'), :class => 'btn btn-shine', :tabindex => 3
+            %br
+            = f.button :submit, :value => t('.login'), :class => 'btn_main btn_main-auth', :tabindex => 3
           .pull-left
             = link_to sign_in_via_social_network_cpath(:facebook), :class => 'social-auth-enter' do
               %i.ficon-facebook-rect
