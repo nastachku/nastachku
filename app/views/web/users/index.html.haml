@@ -17,7 +17,7 @@
           %li.members__list__item.members__list__item__alphabet.open_this
             .members__list__item__img
               %span.icon_section
-              = image_tag user.photo, alt: ""
+              = image_tag user.decorate.user_pic
             .members__list__item__name= user
             .members__list__item__position= user.position
             .members__list__item__city= user.city.mb_chars.capitalize if user.city
