@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :first_name, :last_name, :city, :company, :position,
     :show_as_participant, :photo, :state_event, :about, :carousel_info, :in_carousel,
-    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event, :pay_state_event
+    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event, :pay_state_event, :facebook, :vkontakte
 
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   validates_format_of :city, with: /^[a-zA-Zа-яА-ЯёЁ0-9 '`-]{0,255}$/
   validates_format_of :company, with: /^[a-zA-Zа-яА-ЯёЁ0-9 '`~\!@#\$\%\^\&\*\(\)_+=\-"\{\}\[\]\/\\|;:,.?<>]{0,255}$/
   validates_format_of :position, with: /^[a-zA-Zа-яА-ЯёЁ0-9 '`~\!@#\$\%\^\&\*\(\)_+=\-"\{\}\[\]\/\\|;:,.?<>]{0,255}$/
+  validates :facebook, url: true, allow_blank: true
+  validates :vkontakte, url: true, allow_blank: true
 
   enumerize :role, in: [ :lector, :user ], default: :user
   has_many :lectures, dependent: :destroy
