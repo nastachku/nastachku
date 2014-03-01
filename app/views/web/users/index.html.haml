@@ -3,7 +3,7 @@
     %h1.pagetitle__title= t '.title'
     .pagetitle__select.pagetitle__select__members
       %select.custom_select
-        %option{:selected => true} Все по алфавиту
+        %option{ selected: true } Все по алфавиту
         %option Все по должности
         %option Все по компании
         %option Все по городу
@@ -17,22 +17,21 @@
           %li.members__list__item.members__list__item__alphabet.open_this
             .members__list__item__img
               %span.icon_section
-              = image_tag "/assets/user-avatar.jpg", alt: ""
+              = image_tag user.photo, alt: ""
             .members__list__item__name= user
-            .members__list__item__position= user.position 
+            .members__list__item__position= user.position
             .members__list__item__city= user.city.mb_chars.capitalize if user.city
             .members__list__item__social
-              %a.social__icon.social__icon-tw{ title: "Твиттер", href: user.twitter_name}
-              %a.social__icon.social__icon-fb{ title: "Фейсбук", href: user.facebook}
-              %a.social__icon.social__icon-vk{ title: "Вконтакте", href: user.vkontakte}
-            end
-
-
-    - else  
+              - unless user.twitter_name.blank?
+                %a.social__icon.social__icon-tw{ title: "Твиттер", href: user.twitter_name}
+              - unless user.facebook.blank?
+                %a.social__icon.social__icon-fb{ title: "Фейсбук", href: user.facebook}
+              - unless user.vkontakte.blank?
+                %a.social__icon.social__icon-vk{ title: "Вконтакте", href: user.vkontakte}
+    - else
       %h5
         = t '.zero_participants'
       = link_to t('.be_the_first'), new_user_path, class: 'btn btn-shine'
-
 
 = javascript_include_tag "web/fancySelect"
 :javascript
