@@ -32,15 +32,26 @@
       .personal__identity__number
         %h5 Ваш персональный номер
         .personal__information
-          %p Участие в конференции – платное.<br/> 1 день – <b>1000 рублей</b>,<br/> 2 день – <b>500 рублей</b>.<br/> Афтепати – <b>300 рублей</b>.<br/>
-          %p <b>Условия допуска:</b><br/> Документ, удостоверяющие личность, предъявление номера (доступен в личном кабинете).
+          %p Участие в конференции – платное.
+
+          %p
+            Стоимость участия за оба дня конференции:
+            %br
+            %b
+              = configus.platidoma.ticket_price
+              рублей
+          %p
+            %b Условия допуска:
+            %br
+            Документ, удостоверяющие личность, предъявление номера (доступен в личном кабинете).
       .personal__identity__social
         %ul.form__group
-          %li.form__element.form__element__tw
-            %input.input_type-1{ :type=>"url", :placeholder => "http://twitter.com/", :value=>""}
-          %li.form__element.form__element__fb
-            %input.input_type-1{ :type=>"url", :placeholder => "http://facebook.com/", :value=>""}
-          %li.form__element.form__element__vk
-            %input.input_type-1{ :type=>"url", :placeholder => "http://vk.com/", :value=>""}
+          - f.with_options input_html: { class: "input_type-1" } do |f|
+            %li.form__element.form__element__tw
+              = f.input :twitter_name, placeholder: "https://twitter.com", label: false
+            %li.form__element.form__element__fb
+              = f.input :facebook, placeholder: "http://facebook.com", as: :string, label: false
+            %li.form__element.form__element__vk
+              = f.input :vkontakte, placeholder: "http://vk.com", as: :string, label: false
     .personal__submit
       = f.button :submit, class: 'btn_main btn_main-reg', type: "submit"
