@@ -2,11 +2,12 @@
   .content__tabs__line
   .layout-line
     %dl.content__tabs
-      %dt.tabs__title Личные данные
-      %dd.tabs__content
+      %dt.tabs__title.selected Личные данные
+      %dd.tabs__content.selected
         = simple_form_for @user, url: account_path, html: { class: 'form-horizontal profile-form' } do |f|
           .personal__userpic
             .personal__userpic__img
+              = image_tag "/assets/web/no-userpic.jpg", alt: "" unless @user.photo
               = f.input :photo, as: :image_preview
           .personal__info
             - f.with_options input_html: { class: "input_type-1" } do |f|
@@ -39,8 +40,8 @@
                     = f.input :vkontakte, placeholder: "http://vk.com", as: :string, label: false
           .personal__submit
             = f.button :submit, t('.save'), class: 'btn_main btn_main-refresh'
-      %dt.tabs__title.selected Заказы
-      %dd.tabs__content.selected
+      %dt.tabs__title Заказы
+      %dd.tabs__content
         = simple_form_for @shirt_order, url: pay_account_buy_path, method: :put do |f|
           .order__new
             %ul.order__new__items

@@ -26,5 +26,5 @@
             = link_to current_user.decorate.full_name, edit_account_path
           .header__login__user-avatar
             %a{ href: '' }
-              = image_tag "/assets/user-avatar.jpg", alt: ""
+              = image_tag current_user.photo, alt: ""
           = link_to '', session_path, :method => :delete, class: "header__login__user-logout"
