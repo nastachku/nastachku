@@ -35,3 +35,9 @@
   .layout-line
     %h2.pagetitle__title
       = t('.there_is_not_any_lectures_now')
+
+= javascript_include_tag "web/fancySelect"
+:javascript
+  jQuery(document).ready(function ($) {
+    $('.custom_select').fancySelect();
+  });

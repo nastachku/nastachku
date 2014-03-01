@@ -11,11 +11,20 @@
           %a{ href: "http://2013.nastachku.ru", title: "2013" } 2013
     %span.btn_main-menu
     %nav.header__nav
-      %a{ href: "pages/stachka", title: "Стачка" } Стачка
+      %a{ href: "/pages/stachka", title: "Стачка" } Стачка
       %a{ href: lectures_path, title: "Доклады" } Доклады
       %a{ href: user_lectures_path, title: "Доклады 2.0" } Доклады 2.0
       %a{ href: schedule_path, title: "Программа" } Программа
       %a{ href: users_path, title: "Участники" } Участники
-      %a{ href: "pages/contacts", title: "Контакты" } Контакты
+      %a{ href: "/pages/contacts", title: "Контакты" } Контакты
     .header__login
-      %span.btn_main.btn_main-auth.open_popup{ onclick: "return location.href = '#{new_session_path}'" } Войти на сайт
+      - unless signed_in?
+        = link_to t(".login"), new_session_path, class: 'btn_main btn_main-auth open_popup', data: {popup: "auth"}, style: "color: white;"
+      - if signed_in?
+        .header__login__user
+          .header__login__user-name
+            = link_to current_user.decorate.full_name, edit_account_path
+          .header__login__user-avatar
+            %a{ href: '' }
+              = image_tag current_user.photo, alt: ""
+          = link_to '', session_path, :method => :delete, class: "header__login__user-logout"

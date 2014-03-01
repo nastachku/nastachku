@@ -24,7 +24,8 @@
       = render "layouts/web/shared/plaha"
       = bootstrap_flash
       = yield
-      = render "layouts/web/shared/organizers"
-      = render "layouts/web/shared/sponsors"
+      - unless params[:controller] == 'web/accounts'
+        = render "layouts/web/shared/organizers"
+        = render "layouts/web/shared/sponsors"
       = render "layouts/web/shared/footer"
       = render "layouts/web/shared/popup_auth"

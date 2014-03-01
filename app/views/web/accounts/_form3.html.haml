@@ -7,7 +7,6 @@
         = simple_form_for @user, url: account_path, html: { class: 'form-horizontal profile-form' } do |f|
           .personal__userpic
             .personal__userpic__img
-              = image_tag "/assets/web/no-userpic.jpg" unless @user.photo
               = f.input :photo, as: :image_preview
           .personal__info
             - f.with_options input_html: { class: "input_type-1" } do |f|
@@ -28,47 +27,51 @@
           .personal__identity
             .personal__identity__number
               %h5 Ваш персональный номер
-              %h2= @user.id
+              %h2
+                = @user.id
             .personal__identity__social
               %ul.form__group
-                - f.with_options input_html: { class: "input_type-1" } do |f|
-                  %li.form__element.form__element__tw
-                    = f.input :twitter_name, placeholder: "https://twitter.com", label: false
-                  %li.form__element.form__element__fb
-                    = f.input :facebook, placeholder: "http://facebook.com", as: :string, label: false
-                  %li.form__element.form__element__vk
-                    = f.input :vkontakte, placeholder: "http://vk.com", as: :string, label: false
+                %li.form__element.form__element__tw
+                  = f.input :twitter, placeholder: "http://twitter.com"
+                  %input.input_type-1{ placeholder: "http://twitter.com/", type: "url", value: "" }
+                %li.form__element.form__element__fb
+                  %input.input_type-1{ placeholder: "http://facebook.com/", type: "url", value: "" }
+                %li.form__element.form__element__vk
+                  %input.input_type-1{ placeholder: "http://vk.com/", type: "url", value: "" }
           .personal__submit
-            = f.button :submit, t('.save'), class: 'btn_main btn_main-refresh'
+            %button.btn_main.btn_main-refresh{ type: "submit" } Обновить информацию
       %dt.tabs__title Заказы
       %dd.tabs__content
-        = simple_form_for @shirt_order, url: pay_account_buy_path, method: :put do |f|
+        %form{ action: "/" }
           .order__new
             %ul.order__new__items
               %li.order__new__item.order__new__item__days
                 .order__new__item__name
-                  = check_box_tag :ticket_order, nil, false, id: "two_days", class: 'checkbox_type-1'
-                  %label{for: "two_days"}
-                    = t('.stachka_ticket')
+                  %input#two_days.checkbox_type-1{ checked: "checked", name: "order_item", type: "checkbox" }
+                  %label{ for: "two_days" } Первый и второй день
                 .order__new__item__price
-                  %h4#ticket_price_score
-                    = configus.platidoma.ticket_price
+                  %h4
+                    1000
                     %span.rouble i
+              %li.order__new__item.order__new__item__days
+                .order__new__item__name
+                  %input#two_days2.checkbox_type-1{ checked: "checked", name: "order_item", type: "checkbox" }
+                  %label{ for: "two_days2" } Первый и второй день
+                .order__new__item__price
+                  %p Оплачено промокодом
               %li.order__new__item.order__new__item__promo
                 Также вы можете оплатить участие
                 %span.order__new__item__promo-open.open_this промокодом
-                %br
+                %br/
                 .order__new__item__promo-code
-                  -# FIXME два тега form нельзя вкладвать друг в друга тупо по стандарту html. есть некий обходной путь, но в 7 утра его нет
-                  -#= form_tag accept_account_promo_code_path(@user.promo_code), method: :put, html: { class: 'form-horizontal' } do |f|
-                    = text_field_tag :code, nil, class: "input_type-1", placeholder: "Введите промо-код"
-                    = button_tag nil, class: 'order__new__item__promo-button', type: "submit"
+                  %input.input_type-1{ name: "promo-code", placeholder: "Введите промо-код", type: "text", value: "" }
+                  %span.order__new__item__promo-button
               %li.order__new__item.order__new__item__afterparty
                 .order__new__item__name
                   %input#afterparty.checkbox_type-1{ name: "order_item", type: "checkbox" }
                   %label{ for: "afterparty" } Афтепати
                 .order__new__item__price
-                  %h4#afterparty_score
+                  %h4
                     1000
                     %span.rouble i
                 .order__new__item__desc
@@ -76,40 +79,58 @@
             .order__new__total
               %p Итог:
               %h3
-                %span#total_score
-                  0
+                2500
                 %span.rouble i
             .order__new__submit
               %button.btn_main.btn_main-pay{ type: "submit" } Оплатить заказ
         .orderslist
           .layout-line
             %ul.orderslist__items
+              %li.orderslist__items__title
+                Оплаченные заказы
+              %li.orderslist__items__head
+                %div
+                  Номер заказа
+                %div
+                  Название
+                %div
+                  Дата
+                %div
+                  Стоимость
+              %li.orderslist__item
+                %div
+                  %p.orderslist__item__name Номер заказа
+                  %span.orderslist__item__data 252
+                %div
+                  %p.orderslist__item__name Название
+                  %span.orderslist__item__data Второй день
+                %div
+                  %p.orderslist__item__name Дата
+                  %span.orderslist__item__data 15.01.2014 12:40
+                %div
+                  %p.orderslist__item__name Стоимость
+                  %span.orderslist__item__data
+                    500
+                    %span.rouble i
+              %li.orderslist__item
+                %div
+                  %p.orderslist__item__name Номер заказа
+                  %span.orderslist__item__data 252
+                %div
+                  %p.orderslist__item__name Название
+                  %span.orderslist__item__data Второй день
+                %div
+                  %p.orderslist__item__name Дата
+                  %span.orderslist__item__data 15.01.2014 12:40
+                %div
+                  %p.orderslist__item__name Стоимость
+                  %span.orderslist__item__data
+                    500
+                    %span.rouble i
+            .orderslist__info
               .orderslist__info__desc
                 %span
                 %p По вопросам альтернативной оплаты или отмены заказа, обращатсья к Светлане Брошкиной.
               .orderslist__info__contacts
                 %a{ href: "mailto:xxx@xxx.com" } svetlana@gmail.com
                 %p 8 (909) 301-26-48
-
-
-:javascript
-  jQuery(document).ready(function ($) {
-     $('.form_showpass').on('click',function() {
-         var input=$(this).siblings('input');
-         if ($(this).hasClass('active')) {
-             input.attr('type','password');
-         } else {
-             input.attr('type','text');
-         }
-         $(this).toggleClass('active');
-     });
-
-     $('.tabs__title').click(function(){
-         $(this).siblings().removeClass('selected').end().next('dd').andSelf().addClass('selected');
-     });
-     $('input[type="checkbox"]').change(function() {
-         var sum = $('#two_days').is(':checked') ? parseInt($('#ticket_price_score').text()) : 0;
-         sum += $('#afterparty').is(':checked') ? parseInt($('#afterparty_score').text()) : 0;
-         $('#total_score').text(sum);
-     });
-  });
