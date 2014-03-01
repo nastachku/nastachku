@@ -1,0 +1,15 @@
+.pagetitle.mainpage__title.pagetitle__withoutborder
+  .layout-line
+    %h1.pagetitle__title Партнёры
+.mainpage__sponsors
+  .layout-line
+    #sponsors_logos.company__logos.logos_carousel.touchcarousel
+      %ul.touchcarousel-container
+        %li.touchcarousel-item
+          %div
+          = link_to "http://ulgov.ru/" do
+            = image_tag "logos/ulgov.jpg"
+        %li.touchcarousel-item
+          %div
+          = link_to "http://creater.ru/" do
+            = image_tag "logos/creater.jpg"
