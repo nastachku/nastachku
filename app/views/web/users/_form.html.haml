@@ -4,7 +4,10 @@
       .personal__userpic__img
         = image_tag "/assets/web/no-userpic.jpg", alt: ""
       .personal__userpic__upload
-        = f.input :photo, as: :image_preview
+        .back_of_photo
+          .div_text
+            "Загрузить фотографию"
+          = f.input :photo, as: :image_preview, input_html: {class: "file_input"}
     .personal__info
       %ul.form__group
         %li.form__element
