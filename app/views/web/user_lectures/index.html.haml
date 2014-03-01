@@ -9,15 +9,12 @@
     %br
 
     .row.workshop
-      .span3
-        %ul.nav.nav-list.b-affix
-          - workshops.each do |workshop|
-            = item :li, workshop, user_lectures_path(s: params[:s], workshop_id_eq: workshop.id)
-
       .span9
         - if @lectures.empty?
           = t(".not_added_yet")
           = link_to t(".first_speaker"), 'mailto:pr@nastachku.ru'
+          %br
+          %br
         - else
           #{ t '.sort_by' }:&nbsp;
           -#FIXME решение в лоб. Наверняка есть более элегантное решение
@@ -53,6 +50,5 @@
                           = lecture.lecture_votings.size
               .span8
                 %h4= lecture.title
-                %P.ainfo= nl2br lecture.thesises
+                %p.ainfo= nl2br lecture.thesises
               .clearfix
-
