@@ -3,16 +3,12 @@
   .layout-line
     %h1.pagetitle__title Программа
     %dl.content__tabs
-      %dt.tabs__title.tab_button.selected 
+      %dt.tabs__title.tab_button.selected
 
+    %br
     %h3 Пока в разработке, появится позже
-    .accordion#accordion2.accordion-scheme
-      .accordion-group
-        .accordion-heading
-          = t('.show_scheme')
-        #collapseOne.accordion-body.collapse
-          .accordion-inner
-            %img{src: "/images/areas-scheme.jpg", alt: "Scheme"}
-
-
-
+    %br
+    %a{ href: "#", onclick: "diplay_hide('#scheme');return false;" }
+      = t('.show_scheme')
+    #scheme{ style: "display:none;" }
+      %img{ src: "/images/areas-scheme.jpg", alt: "Scheme" }
