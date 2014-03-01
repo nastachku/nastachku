@@ -23,4 +23,12 @@ class UserDecorator < Draper::Decorator
     model.lectures.first
   end
 
+  def user_pic
+    if model.photo.present?
+      model.photo
+    else
+      "default-user-image.png"
+    end
+  end
+
 end
