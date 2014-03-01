@@ -16,13 +16,21 @@ class UserDecorator < Draper::Decorator
   def lector_section_color
     if main_lecture and main_lecture.workshop
       h.content_tag :span, class: 'icon_mainsection icon_section',
-      style: "background-image: url(#{main_lecture.workshop.icon})" do
+                           style: "background-image: url(#{main_lecture.workshop.icon})" do
       end
     end
   end
 
   def main_lecture
     model.lectures.first
+  end
+
+  def user_pic
+    if model.photo.present?
+      model.photo
+    else
+      "default-user-image.png"
+    end
   end
 
 end

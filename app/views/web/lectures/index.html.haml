@@ -17,7 +17,7 @@
         - @lectures.each do |lecture|
           %li.lectures__item
             .lectures__item-img
-              = image_tag lecture.user.photo, width: 350
+              = image_tag lecture.user.decorate.user_pic, width: 350
               = lecture.workshop_color_icon
             .lectures__item-name
               %b

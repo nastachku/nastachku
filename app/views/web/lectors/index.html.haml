@@ -12,8 +12,7 @@
           .span4.s-info
             .col-l
               .pic
-                - if lector.photo.url
-                  = image_tag(lector.photo.url)
+                = image_tag lector.user_pic
           .span8
             %h5= lector.decorate.full_name
             %h6
