@@ -1,7 +1,10 @@
-%h1= t('.password_recovery')
-= simple_form_for @type, :url => remind_password_path, html: { class: 'form-type-login' } do |f|
-  .row
-    .span6
-      .formy
-        = f.input :email, input_html: { class: 'input-xlarge' }
-      = f.button :submit, :value => t(".recovery"), :class => 'btn btn-shine'
+.pagetitle.pagetitle__lectures
+  .layout-line
+    %h1.pagetitle__title
+      = t('.password_recovery')
+.content.recovery__pass
+  .layout-line
+    = simple_form_for @type, url: remind_password_path, html: { class: 'form-type-login' } do |f|
+      - f.with_options input_html: { class: "input_type-1" } do |f|
+        = f.input :email, placeholder: "E-mail", label: false
+      = f.button :submit, t('.recovery'), class: "btn_main btn_main-recovery"
