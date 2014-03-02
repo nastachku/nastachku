@@ -1,7 +1,10 @@
 set :rails_env, "staging"
 set :unicorn_env, "staging"
 set :unicorn_pid, "#{shared_path}/pids/unicorn.pid"
-set :branch, 'master'
+set :branch do
+  raise "Use tags: TAG=v2" unless ENV['TAG']
+  ENV['TAG']
+end
 set :user, 'nastachku_staging_2014'
 set :keep_releases, 5
 
