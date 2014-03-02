@@ -1,13 +1,6 @@
 %h.pagetitle
   .layout-line
     %h1.pagetitle__title= t '.title'
-    .pagetitle__select.pagetitle__select__members
-      %select.custom_select
-        %option{ selected: true } Все по алфавиту
-        %option Все по должности
-        %option Все по компании
-        %option Все по городу
-        %option Только докладчики
 .members
   .layout-line
     - unless @users.empty?

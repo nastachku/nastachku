@@ -55,6 +55,9 @@
         - if user_has_no_tickets?(current_user)
           %script{"data-timepad-widget" => "event_register", defer: "defer", src: "//timepad.ru/js/tpwf/loader.min.js"}
             (function(){return {"event":{"id":"105416","org":"10509","subdomain":"srit"},"oldWidgetOptions":{"urlAppend":"","QSAppend":""}}; })();
+        - else
+          %br
+          Билет куплен, дорога на Стачку открыта!
         .orderlist
           .layout-line
             %ul.orderslist__info
