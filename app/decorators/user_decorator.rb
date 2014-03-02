@@ -15,8 +15,10 @@ class UserDecorator < Draper::Decorator
 
   def lector_section_color
     if main_lecture and main_lecture.workshop
-      h.content_tag :span, class: 'icon_mainsection icon_section',
-                           style: "background-image: url(#{main_lecture.workshop.icon})" do
+      if main_lecture.in_schedule?
+        h.content_tag :span, class: 'icon_mainsection icon_section',
+                            style: "background-image: url(#{main_lecture.workshop.icon})" do
+        end
       end
     end
   end
