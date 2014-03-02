@@ -4,6 +4,7 @@ class Web::UsersController < Web::ApplicationController
   def index
     @search = User.ransack(params)
     @users = @search.result.activated.attended.alphabetically
+    #FIXME придумать как задекорировать выборку
 
     respond_with(@users)
   end
