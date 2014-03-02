@@ -4,7 +4,6 @@
 .members
   .layout-line
     - unless @users.empty?
-      =t '.registred_title', activated_count: User.activated.attended.count, participant: Russian.p(User.activated.attended.shown_as_participants.count, t('.one_participant'), t('.two_participant'), t('.many_participant')), participants_count: User.activated.attended.shown_as_participants.count
       %ul.members__list
         - @users.shown_as_participants.each do |user|
           %li.members__list__item.members__list__item__alphabet.open_this
