@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class TicketOrder < Order
   extend Enumerize
   extend ActiveModel::Naming
@@ -6,8 +7,8 @@ class TicketOrder < Order
     configus.platidoma.ticket_price
   end
 
-  #FIXME найти другой вариант реализации перевода
+  #FIXME заменить TicketOrder на чтото вроде self, если возможно`
   def to_s
-    "#{I18n.t("activerecord.models.ticket_order")}"
+    TicketOrder.model_name.human
   end
 end
