@@ -4,10 +4,15 @@
       .personal__userpic__img
         = image_tag "/assets/web/no-userpic.jpg", alt: ""
       .personal__userpic__upload
-        .back_of_photo
-          .div_text
-            "Загрузить фотографию"
-          = f.input :photo, as: :image_preview, input_html: {class: "file_input"}
+        = f.input :photo, input_html: {style: "display: none;"}, label_html: {style: "display: none;"}
+        %a#false_photo_input{ title: "Загрузить фотографию", href: "#"} Загрузить фотографию
+        :javascript
+          $(document).ready( function() {
+            $('#false_photo_input').click(function(){
+              $("#user_photo").click();
+              return false;
+            });
+          });             
     .personal__info
       %ul.form__group
         %li.form__element
@@ -30,7 +35,7 @@
           = f.input :password_confirmation, required: true, input_html: {class: "input_type-1"}, placeholder: "Повторите пароль"
     .personal__identity
       .personal__identity__number
-        %h5 Ваш персональный номер
+        %h5 Информация
         .personal__information
           %p Участие в конференции – платное.
 

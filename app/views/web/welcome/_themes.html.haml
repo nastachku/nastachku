@@ -2,18 +2,6 @@
   .layout-line
     %h1.pagetitle__title Основные секции
 .mainpage__sections
-  .mainpage__social
-    :javascript
-      (function() {
-        if (window.pluso)if (typeof window.pluso.start == "function") return;
-        if (window.ifpluso==undefined) { window.ifpluso = 1;
-        var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-        s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-        s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
-        var h=d[g]('body')[0];
-        h.appendChild(s);
-      }})();
-    .pluso{"data-background" => "transparent", "data-options" => "big,round,line,horizontal,nocounter,theme=04", "data-services" => "twitter,facebook,vkontakte"}
   .layout-line
     %ul
       %li
@@ -39,10 +27,9 @@
           .mainpage__sections-img
             = image_tag "section-m_big.png", alt: "Менеджмент"
           .mainpage__sections-desc
-            %h4.open_this Менеджмент
+            %h4.open_this E-commerce
             %p
-              Это современные инструменты маркетинговых коммуникаций и продвижения торговой марки или
-              бренда с применением цифровых каналов.
+              Платформы, мировые тренды, успешные кейсы, российский рынок электронной коммерции.
       %li
         .mainpage__sections__cont
           .mainpage__sections-img
@@ -57,7 +44,7 @@
           .mainpage__sections-img
             = image_tag "section-i_big.png"
           .mainpage__sections-desc
-            %h4.open_this IT-государтсво
+            %h4.open_this IT и государтсво
             %p
               Это современные инструменты маркетинговых коммуникаций и продвижения торговой марки или
               бренда с применением цифровых каналов.
@@ -70,3 +57,4 @@
             %p
               Это современные инструменты маркетинговых коммуникаций и продвижения торговой марки или
               бренда с применением цифровых каналов.
+

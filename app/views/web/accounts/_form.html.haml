@@ -8,7 +8,17 @@
           .personal__userpic
             .personal__userpic__img
               = image_tag "/assets/web/no-userpic.jpg" unless @user.photo
-              = f.input :photo, as: :image_preview
+              = image_tag @user.photo if @user.photo
+            .personal__userpic__upload
+              = f.input :photo, input_html: {style: "display: none;"}, label_html: {style: "display: none;"}
+              %a#false_photo_input{ title: "Загрузить фотографию", href: "#"} Загрузить фотографию
+              :javascript
+                $(document).ready( function() {
+                  $('#false_photo_input').click(function(){
+                    $("#user_photo").click();
+                    return false;
+                  });
+                });                
           .personal__info
             - f.with_options input_html: { class: "input_type-1" } do |f|
               %ul.form__group
@@ -81,9 +91,9 @@
                 %span.rouble i
             .order__new__submit
               %button#submit_order.btn_main.btn_main-pay{ type: "submit", disabled: true} Оплатить заказ
-        .orderslist
+        .orderlist
           .layout-line
-            %ul.orderslist__items
+            %ul.orderslist__info
               .orderslist__info__desc
                 %span
                 %p По вопросам альтернативной оплаты или отмены заказа, обращатсья к Светлане Брошкиной.

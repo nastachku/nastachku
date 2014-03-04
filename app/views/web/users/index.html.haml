@@ -1,13 +1,6 @@
 %h.pagetitle
   .layout-line
     %h1.pagetitle__title= t '.title'
-    .pagetitle__select.pagetitle__select__members
-      %select.custom_select
-        %option{ selected: true } Все по алфавиту
-        %option Все по должности
-        %option Все по компании
-        %option Все по городу
-        %option Только докладчики
 .members
   .layout-line
     - unless @users.empty?
@@ -16,7 +9,8 @@
         - @users.shown_as_participants.each do |user|
           %li.members__list__item.members__list__item__alphabet.open_this
             .members__list__item__img
-              %span.icon_section
+              -#FIXME в контроллере трудности есть при декорировании, начальникэ.
+              = user.decorate.lector_section_color
               = image_tag user.decorate.user_pic
             .members__list__item__name= user
             .members__list__item__position= user.position
