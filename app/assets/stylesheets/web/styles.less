@@ -403,11 +403,7 @@ header {
     right: 1.7%;
     .options {
         li {
-            padding: 7px 0 7px 50px !important;
-            position: relative;
-            min-height: 55px;
-
-            &:before {
+            .before_select_option {
                 content: '';
                 position: absolute;
                 top: 9px;
@@ -415,18 +411,17 @@ header {
                 z-index: 1;
                 width: 40px !important;
                 height: 40px !important;
+                .icon_section;
+                &:hover {opacity: .8}
             }
-            &:hover:before {opacity: .8}
+            
+                padding: 7px 0 7px 50px !important;
+                position: relative;
+                min-height: 55px;
+                &:first-child, &:nth-child(3), &:nth-child(5), &:nth-child(6), &:nth-child(7) {
+                    line-height: 40px;
+                }
         }
-        li:first-child, li:nth-child(3), li:nth-child(5), li:nth-child(6), li:nth-child(7) {
-            line-height: 40px;
-        }
-        li:first-child:before {.icon_section-green;}
-        li:nth-child(2):before {.icon_section-orange;}
-        li:nth-child(3):before {.icon_section-purple;}
-        li:nth-child(4):before {.icon_section-yellow;}
-        li:nth-child(5):before {.icon_section-blue;}
-        li:nth-child(6):before {.icon_section-red;}
     }
 }
 

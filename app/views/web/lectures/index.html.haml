@@ -2,6 +2,8 @@
   .pagetitle.pagetitle__lectures
     .layout-line
       %h1.pagetitle__title Доклады
+      .pagetitle__select.pagetitle__select__lecture
+        = select_tag :workshop_id_eq, options_for_select([["Все доклады", "-1"]] + @workshops.collect{ |w| [w.title, w.id, {'data-icon' => w.icon}]}), class: "custom_select"
   .content.lectures
     .layout-line
       %ul.lectures__items
@@ -30,5 +32,9 @@
 = javascript_include_tag "web/fancySelect"
 :javascript
   jQuery(document).ready(function ($) {
-    $('.custom_select').fancySelect();
+    $('.custom_select').fancySelect({
+      optionTemplate: function(optionEl) {
+        return '<span class="before_select_option" style="background-image: url(\'' + optionEl.data('icon') + '\');"></span><span class="select_option">' + optionEl.text() + '</span>';
+  }
+  });
   });
