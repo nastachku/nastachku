@@ -414,13 +414,12 @@ header {
                 .icon_section;
                 &:hover {opacity: .8}
             }
-            
-                padding: 7px 0 7px 50px !important;
-                position: relative;
-                min-height: 55px;
-                &:first-child, &:nth-child(3), &:nth-child(5), &:nth-child(6), &:nth-child(7) {
-                    line-height: 40px;
-                }
+            padding: 7px 0 7px 50px !important;
+            position: relative;
+            min-height: 55px;
+            &:first-child, &:nth-child(3), &:nth-child(5), &:nth-child(6), &:nth-child(7) {
+                line-height: 40px;
+            }
         }
     }
 }
@@ -436,6 +435,7 @@ header {
 
 ////////////////////////////////////////// MAINPAGE SECTIONS
 .mainpage__social {
+    z-index: 100;
     position: fixed;
     top: 21.5%;
     right: 0;
@@ -3289,6 +3289,9 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
 
 
     ////////////////////////////////////////// MAINPAGE SECTIONS
+    .mainpage__social {
+        display: none;
+    }
     .mainpage__sections {
         margin-top: 0;
         padding-bottom: 0;
