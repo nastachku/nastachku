@@ -58,4 +58,12 @@ module ApplicationHelper
     @new_lectures = Lecture.new_lectures.count
   end
 
+  def is_main_page?
+    request.path == root_path
+  end
+
+  def in_account?
+    params[:controller] == 'web/accounts'
+  end
+
 end

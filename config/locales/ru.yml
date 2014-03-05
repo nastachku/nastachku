@@ -31,7 +31,7 @@ ru:
         navbar:
           logout: 'Выйти'
           login: 'Войти'
-          admin: 'Админка' 
+          admin: 'Админка'
           afterparty: "Афтепати"
           stachka_2012: 'Стачка! 2012'
           stachka_2013: 'Стачка! 2013'
@@ -174,7 +174,7 @@ ru:
         title: 'Регистрация'
       index:
         title: 'Пойдут на стачку'
-        registred_title: "Зарегистрировалось – %{activated_count} %{participant}. Ниже %{participants_count}, кто согласился рассказать о себе."
+        registred_title: "Зарегистрировалось – %{activated_count} %{participant}. "
         zero_participants: "Пока не зарегистрировалось ни одного участника международной конференции СТАЧКА 2014."
         one_participant: 'участник'
         two_participant: 'участника'
