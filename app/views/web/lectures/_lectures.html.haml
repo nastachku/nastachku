@@ -1,0 +1,17 @@
+- @lectures.each do |lecture|
+  %li.lectures__item
+    .lectures__item-img
+      = image_tag lecture.user.decorate.user_pic, width: 350
+      = lecture.workshop_color_icon
+    .lectures__item-name
+      %b
+        = lecture.user.decorate.full_name
+      = lecture.user.company
+      ,
+      = lecture.user.position
+    .lectures__item-about
+      %h4
+        = lecture.title
+    .lectures__item-desc
+      %p.open_this
+        = lecture.thesises
