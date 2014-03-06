@@ -14,4 +14,9 @@ jQuery(document).ready(function ($) {
       data: {workshop_id_eq: $('#filter_by_workshop option:selected').val()},
     })
   });
+
+  $('#lectures').on('click', '.sorting a', function() {
+    $.getScript(this.href);
+    return false;
+  });
 });
