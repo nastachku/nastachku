@@ -6,7 +6,7 @@ jQuery(document).ready(function ($) {
   });
                                             
   $('.form_showpass').on('click',function() {
-    var input = $(this).siblings('input');
+    var input = $('#user_old_password');
     if ($(this).hasClass('active')) {
       input.attr('type','password');
     } else {

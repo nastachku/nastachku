@@ -33,8 +33,14 @@
                   = f.input :company, placeholder: "Компания", label: false
                 %li.form__element
                   = f.input :position, placeholder: "Должность", label: false
+              %ul.form__group
                 %li.form__element
                   = f.input :email, placeholder: "E-mail", label: false
+                %li.form__element.form__element__pass
+                  = f.input :old_password, placeholder: "Пароль", label: false
+                  %span.form__element__pass-icon.form_showpass
+                %li.form__element
+                  = f.input :password, placeholder: "Новый пароль", label: false
           .personal__identity
             .personal__identity__number
               %h5 Ваш персональный номер
