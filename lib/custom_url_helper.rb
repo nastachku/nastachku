@@ -67,4 +67,27 @@ module CustomUrlHelper
             html_options
   end
 
+  def sort_link_href(search, attribute, direction)
+    # Extract out a routing proxy for url_for scoping later
+    if search.is_a?(Array)
+      routing_proxy = search.shift
+      search = search.first
+    end
+    raise TypeError, "First argument must be a Ransack::Search!" unless Ransack::Search === search
+
+    attr_name = attribute.to_s
+    options = {}
+    query_hash = {
+        s: "#{attr_name} #{direction}"
+    }
+    
+    options.merge!(query_hash)
+    
+    url = if routing_proxy && respond_to?(routing_proxy)
+            send(routing_proxy).url_for(options)
+          else
+            url_for(options)
+          end
+  end
+
 end
