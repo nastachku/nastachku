@@ -8,7 +8,7 @@ class AccountEditType < User
   validates :last_name,  presence: true
   validates :city, presence: true
   validates_each :old_password do |record, attr, value|
-    @old_password_is_empty = value.empty?
+    @old_password_is_empty = (value.nil? or value.empty?)
     if !@old_password_is_empty and !User.find(record.id).authenticate(value)
       record.errors.add(attr, I18n.t(:password_is_wrong, scope: [:activerecord, :errors, :messages]))
     end

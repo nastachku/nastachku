@@ -15,6 +15,7 @@
     %meta{ content: "website", property: "og:type" }
     %meta{ content: "Стачка!", property: "og:site_name" }
     %meta{ content: "i/og_image.png", property: "og:image" }
+    = csrf_meta_tag
     = stylesheet_link_tag "web/application"
     = javascript_include_tag "application"
     = include_gon

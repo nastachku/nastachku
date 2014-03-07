@@ -19,6 +19,19 @@ jQuery(document).ready(function ($) {
     $(this).siblings().removeClass('selected').end().next('dd').andSelf().addClass('selected');
   });
 
+  $('#i_will_come_to_stachka').change(function() {
+    if (this.checked) {
+      $.ajax({
+        url: $(this).data('url'),
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        type: "PUT"
+      });
+    } else {
+      this.checked = true;
+    }
+  });                                       
+                                       
+
   $('#order_form input[type="checkbox"]').change(function() {
     var sum = $('#two_days').is(':checked') ? parseInt($('#ticket_price_score').text()) : 0;
     sum += $('#afterparty').is(':checked') ? parseInt($('#afterparty_score').text()) : 0;
