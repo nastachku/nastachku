@@ -8,7 +8,7 @@ jQuery(document).ready(function ($) {
 
   $('#filter_by_workshop').on('change.fs', function(){
     $.ajax({
-      url: gon.remote_filter_action,
+      url: Routes.lectures_path,
       type: "GET",
       dataType: "script",
       data: {workshop_id_eq: $('#filter_by_workshop option:selected').val()},
