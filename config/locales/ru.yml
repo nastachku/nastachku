@@ -219,6 +219,7 @@ ru:
         they_going: 'Пойдут'
         events: 'Доклады'
         twitter_i_am_going: 'Иду на доклад'
+      lectures:
         there_is_not_any_lectures_now: На данный момент нет информации о докладах
     lectors:
       index:
