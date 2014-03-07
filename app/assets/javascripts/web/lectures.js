@@ -20,3 +20,13 @@ jQuery(document).ready(function ($) {
     return false;
   });
 });
+
+jQuery(document).ready(function ($) {
+  $('#add_to_favorites').on('click', function(){
+    $.ajax({
+      url: Routes.api_lecture_listener_votings_path($(this).data('id')),
+      type: "POST",
+      dataType: "script"
+    })
+  });
+});
