@@ -28,6 +28,9 @@
   %strong= User.human_attribute_name :invisible_lector
   %br= @user.invisible_lector
 
+  %strong= User::PromoCode.human_attribute_name :code
+  %br= @user.promo_code.code
+
 
   - if @user.photo.present?
     %strong= User.human_attribute_name :photo
