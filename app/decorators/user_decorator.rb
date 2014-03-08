@@ -1,4 +1,5 @@
 class UserDecorator < Draper::Decorator
+  decorates :user
   delegate_all
 
   def full_name
