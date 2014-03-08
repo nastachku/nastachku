@@ -88,12 +88,15 @@ class User < ActiveRecord::Base
   state_machine :pay_state, initial: :not_paid_part do
     state :not_paid_part
     state :paid_part
+    after_transition :to => :paid_part do |user, transition|
+      user.attend
+    end
 
     event :not_pay_part do
       transition paid_part: :not_paid_part
     end
 
-    event :pay_part do
+    event :pay_part do |user|
       transition not_paid_part: :paid_part
     end
   end
