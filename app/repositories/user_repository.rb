@@ -9,6 +9,7 @@ module UserRepository
     scope :activated, -> { where state: :active }
     scope :attended, -> { where attending_conference_state: :attended }
     scope :as_lectors, -> { where role: :lector }
+    scope :lecture_in_schedule, -> { joins(:lectures).where(lectures: {state: :in_schedule})  }
     scope :alphabetically, -> { asc_by_last_name }
     scope :in_carousel, -> { where in_carousel: :true }
     scope :visible, -> { where invisible_lector: :false }

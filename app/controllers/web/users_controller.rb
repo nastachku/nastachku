@@ -1,9 +1,13 @@
+# -*- coding: utf-8 -*-
 class Web::UsersController < Web::ApplicationController
   respond_to :html, :json
+  respond_to :js, only: :index
 
   def index
     @search = User.ransack(params)
     @users = @search.result.activated.attended.alphabetically
+    #FIXME некрасиво
+    @users = @users.as_lectors if params[:s] and params[:s].include? 'as_lectors'
     #FIXME придумать как задекорировать выборку
 
     respond_with(@users)
@@ -60,8 +64,7 @@ class Web::UsersController < Web::ApplicationController
   end
 
   def attend
-    @user = User.find params[:id]
-    @user.attend
+    current_user.attend
     redirect_to edit_account_path
   end
 end

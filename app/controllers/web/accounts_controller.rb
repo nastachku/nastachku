@@ -6,6 +6,7 @@ class Web::AccountsController < Web::ApplicationController
     @user = AccountEditType.find current_user
     @ticket_order = TicketOrder.new
     @shirt_order = ShirtOrder.new
+    gon.promo_code_action = accept_account_promo_code_path(@user.promo_code)
   end
 
   def update

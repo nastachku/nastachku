@@ -1,4 +1,4 @@
-function diplay_hide(blockId) {
+function display_hide(blockId) {
   if ($(blockId).css('display') == 'none') {
     $(blockId).animate({height: 'show'}, 500);
   } else {

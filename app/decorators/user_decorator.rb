@@ -1,4 +1,5 @@
 class UserDecorator < Draper::Decorator
+  decorates :user
   delegate_all
 
   def full_name
@@ -15,16 +16,14 @@ class UserDecorator < Draper::Decorator
 
   def lector_section_color
     if main_lecture and main_lecture.workshop
-      if main_lecture.in_schedule?
-        h.content_tag :span, class: 'icon_mainsection icon_section',
-                            style: "background-image: url(#{main_lecture.workshop.icon})" do
-        end
+      h.content_tag :span, class: 'icon_mainsection icon_section',
+                           style: "background-image: url(#{main_lecture.workshop.icon})" do
       end
     end
   end
 
   def main_lecture
-    model.lectures.first
+    model.lectures.voted_or_scheduled.first
   end
 
   def user_pic

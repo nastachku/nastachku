@@ -17,6 +17,7 @@
         %br/
         %b Стачка началась!
         Все на регистрацию!
-      %a{ href: new_user_path, title: "Зарегистрироваться" } Зарегистрироваться
+      - unless signed_in?
+        %a{ href: new_user_path, title: "Зарегистрироваться" } Зарегистрироваться
 - else
   .mainadv.mainadv__mini

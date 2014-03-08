@@ -403,11 +403,7 @@ header {
     right: 1.7%;
     .options {
         li {
-            padding: 7px 0 7px 50px !important;
-            position: relative;
-            min-height: 55px;
-
-            &:before {
+            .before_select_option {
                 content: '';
                 position: absolute;
                 top: 9px;
@@ -415,18 +411,14 @@ header {
                 z-index: 1;
                 width: 40px !important;
                 height: 40px !important;
+                .icon_section;
+                &:hover {opacity: .8}
             }
-            &:hover:before {opacity: .8}
-        }
-        li:first-child, li:nth-child(3), li:nth-child(5), li:nth-child(6), li:nth-child(7) {
+            padding: 7px 0 7px 50px !important;
+            position: relative;
+            min-height: 55px;
             line-height: 40px;
         }
-        li:first-child:before {.icon_section-green;}
-        li:nth-child(2):before {.icon_section-orange;}
-        li:nth-child(3):before {.icon_section-purple;}
-        li:nth-child(4):before {.icon_section-yellow;}
-        li:nth-child(5):before {.icon_section-blue;}
-        li:nth-child(6):before {.icon_section-red;}
     }
 }
 
@@ -441,9 +433,10 @@ header {
 
 ////////////////////////////////////////// MAINPAGE SECTIONS
 .mainpage__social {
+    z-index: 100;
     position: fixed;
     top: 21.5%;
-    right: 0;
+    right: -4px;
     width: 40px;
 
     .social__icon {
@@ -1335,6 +1328,9 @@ footer {
             font-weight: normal;
         }
     }
+    .no_margin>p {
+        margin: 0;
+    }
 }
 
 ////////////////////////////////////////// PROGRAMM
@@ -1802,6 +1798,8 @@ footer {
     }
 
     &:hover {opacity: .8}
+
+    &:disabled {opacity: .8}
 }
 
 .icon_section {
@@ -1851,6 +1849,7 @@ footer {
     height: 40px;
     background-image: @sprite;
     background-repeat: no-repeat;
+    margin: 0;
 
     &.social__icon-fb {
         background-color: #4b83d0;
@@ -2342,14 +2341,33 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
 }
 
 
+.margin_of_information {
+    margin-top: 52px;
+}
+
 //////////////////////////////////////////
 ////////////////////////////////////////// ADAPTIVE
 //////////////////////////////////////////
 
-@media (max-width: 1400px) {
+@media (min-width: 1200px) {
+    .margin_of_information {
+        height: 86px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .margin_of_information {
+        height: 86px;
+    }
+    .mainpage__social {
+        display: none;
+    }
 }
 
 @media (min-width: 980px) and (max-width: 1199px) {
+    .margin_of_information {
+        height: 86px;
+    }
     .header__logo {margin-top: 20px; width: 17.8%}
     .header__nav {
         a {
@@ -2373,8 +2391,15 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
 
 
 @media (max-width: 979px) { ////////////////////////////////////////// 320, 640
+
     .layout-line {
         padding: 0;
+    }
+
+    
+    .margin_of_information {
+        margin-top: 0px;
+        height: 65px;
     }
 
     ////////////////////////////////////////// INFOLINE
@@ -3292,6 +3317,9 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
 
 
     ////////////////////////////////////////// MAINPAGE SECTIONS
+    .mainpage__social {
+        display: none;
+    }
     .mainpage__sections {
         margin-top: 0;
         padding-bottom: 0;

@@ -33,12 +33,25 @@
                   = f.input :company, placeholder: "Компания", label: false
                 %li.form__element
                   = f.input :position, placeholder: "Должность", label: false
+              %ul.form__group
                 %li.form__element
                   = f.input :email, placeholder: "E-mail", label: false
+                %li.form__element.form__element__pass
+                  = f.input :old_password, placeholder: "Пароль", label: false
+                  %span.form__element__pass-icon.form_showpass
+                %li.form__element
+                  = f.input :password, placeholder: "Новый пароль", label: false
           .personal__identity
             .personal__identity__number
               %h5 Ваш персональный номер
               %h2= @user.id
+            .margin_of_information
+              - unless @user.attended?
+                %ul.form__group
+                  %li.form__element
+                    = check_box_tag :i_will_come_to_stachka, nil, false, id: "i_will_come_to_stachka", class: 'checkbox_type-1', data: {url: attend_user_path(@user)}
+                    %label{for: "i_will_come_to_stachka"}
+                      = t('.i_will_come_to_stachka')
             .personal__identity__social
               %ul.form__group
                 - f.with_options input_html: { class: "input_type-1" } do |f|
@@ -52,41 +65,50 @@
             = f.button :submit, t('.save'), class: 'btn_main btn_main-refresh'
       %dt.tabs__title Заказы
       %dd.tabs__content
-        - if user_has_no_tickets?(current_user)
-          %script{"data-timepad-widget" => "event_register", defer: "defer", src: "//timepad.ru/js/tpwf/loader.min.js"}
-            (function(){return {"event":{"id":"105416","org":"10509","subdomain":"srit"},"oldWidgetOptions":{"urlAppend":"","QSAppend":""}}; })();
-        - else
-          %br
-          Билет куплен, дорога на Стачку открыта!
+        = simple_form_for @shirt_order, url: pay_account_buy_path, method: :put do |f|
+          #order_form.order__new
+            %ul.order__new__items
+              %li.order__new__item.order__new__item__days
+                .order__new__item__name
+                  = check_box_tag :ticket_order, nil, false, id: "two_days", class: 'checkbox_type-1'
+                  %label{for: "two_days"}
+                    = t('.stachka_ticket')
+                .order__new__item__price
+                  %h4#ticket_price_score
+                    = configus.platidoma.ticket_price
+                    %span.rouble i
+              %li.order__new__item.order__new__item__promo
+                Также вы можете оплатить участие
+                %span.order__new__item__promo-open.open_this промокодом
+                %br
+                #promo_code_form.order__new__item__promo-code
+                  -# два тега form нельзя вкладвать друг в друга. Обход в accounts.js
+                  = form_tag accept_account_promo_code_path(@user.promo_code), method: :put, html: { class: 'form-horizontal' } do |f|
+                    = text_field_tag :code, nil, class: "input_type-1", placeholder: "Введите промо-код"                    
+                    %button_tag#submit_promo_code.order__new__item__promo-button
+              %li.order__new__item.order__new__item__afterparty
+                .order__new__item__name
+                  %input#afterparty.checkbox_type-1{ name: "afterparty_order", type: "checkbox" }
+                  %label{ for: "afterparty" } Афтепати
+                .order__new__item__price
+                  %h4#afterparty_score
+                    = configus.platidoma.afterparty_price
+                    %span.rouble i
+                .order__new__item__desc
+                  %p.open_this Пройдет в клубе “Duk”, где вы сможете в неформальной обстановке пообщаться со спикерами и другими участникам Пройдет в клубе “Duk”, где вы сможете в неформальной обстановке пообщаться со спикерами и другими участникам Пройдет в клубе “Duk”, где вы сможете в неформальной обстановке пообщаться со спикерами и другими участникам
+            .order__new__total
+              %p Итог:
+              %h3
+                %span#total_score
+                  0
+                %span.rouble i
+            .order__new__submit
+              %button#submit_order.btn_main.btn_main-pay{ type: "submit", disabled: true} Оплатить заказ
         .orderlist
           .layout-line
             %ul.orderslist__info
               .orderslist__info__desc
                 %span
-                %p По вопросам альтернативной оплаты или отмены заказа, обращатсья к Светлане Брошкиной.
+                %p По всем вопросам альтернативной оплаты или отмены заказа, обращатсья:
               .orderslist__info__contacts
-                %a{ href: "mailto:xxx@xxx.com" } svetlana@gmail.com
-                %p 8 (909) 301-26-48
-
-
-:javascript
-  jQuery(document).ready(function ($) {
-     $('.form_showpass').on('click',function() {
-         var input=$(this).siblings('input');
-         if ($(this).hasClass('active')) {
-             input.attr('type','password');
-         } else {
-             input.attr('type','text');
-         }
-         $(this).toggleClass('active');
-     });
-
-     $('.tabs__title').click(function(){
-         $(this).siblings().removeClass('selected').end().next('dd').andSelf().addClass('selected');
-     });
-     $('input[type="checkbox"]').change(function() {
-         var sum = $('#two_days').is(':checked') ? parseInt($('#ticket_price_score').text()) : 0;
-         sum += $('#afterparty').is(':checked') ? parseInt($('#afterparty_score').text()) : 0;
-         $('#total_score').text(sum);
-     });
-  });
+                %a{ href: "mailto:xxx@xxx.com" } info@nastachku.ru
