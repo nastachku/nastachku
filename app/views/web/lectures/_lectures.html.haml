@@ -17,11 +17,16 @@
         = lecture.thesises
     .lectures__item__adding
       .lectures__item__add
-        - unless user_is_listener?(lecture)
-          %span#add_to_favorites.lectures__item__add-add{ data: { id: lecture.id } } Я пойду на доклад
+        - if current_user
+          - unless user_is_listener?(lecture)
+            %span#voting_button.lectures__item__add-add{ data: { id: lecture.id } } Я пойду на доклад
+            %p#lecture_added.lectures__item__add-added{ style: "display: none" } Доклад добавлен в вашу программу
+          - else
+            %span#voting_button.lectures__item__add-add.added{ data: { id: lecture.id } } Удалить доклад
+            %p#lecture_added.lectures__item__add-added Доклад добавлен в вашу программу
         - else
           %span.lectures__item__add-add.added Я пойду на доклад
-          %p.lectures__item__add-added Доклад добавлен в вашу программу
+          %p.lectures__item__add-added Требуется регистрация на конференции
       .lectures__item-social
         %p.open_this Поделиться с друзьями:
         .pluso{"data-background" => "transparent", "data-options" => "big,round,line,horizontal,nocounter,theme=04", "data-services" => "twitter,facebook,vkontakte"}

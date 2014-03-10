@@ -19,14 +19,28 @@ jQuery(document).ready(function ($) {
     $.getScript(this.href);
     return false;
   });
-});
 
-jQuery(document).ready(function ($) {
-  $('#add_to_favorites').on('click', function(){
+  $(document).on('click', '#voting_button:not(".added")', function(){
     $.ajax({
       url: Routes.api_lecture_listener_votings_path($(this).data('id')),
       type: "POST",
-      dataType: "script"
+      dataType: "json",
+      success: function() {
+        $("#voting_button").addClass("added");
+        $("#lecture_added").show();
+      }
     })
   });
+
+  $(document).on('click', '#voting_button.added', function() {
+    $.ajax({
+      url: Routes.api_lecture_listener_votings_path($(this).data('id')),
+      type: "DELETE",
+      dataType: "json",
+      success: function() {
+        $('#voting_button').removeClass("added");
+        $('#lecture_added').hide();
+      }
+     })
+   });
 });
