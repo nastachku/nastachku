@@ -55,6 +55,7 @@ class Web::UsersControllerTest < ActionController::TestCase
   end
 
   test "should put attend on conference" do
+    sign_in @user
     put :attend, id: @user
     assert_response :redirect
 

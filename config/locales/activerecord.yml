@@ -70,6 +70,7 @@ ru:
         last_name: "Фамилия"
         password: "Пароль (латиница, хотя бы 1 строчная, заглавная, цифра и спец.символ)"
         password_confirmation: "Подтверждение пароля"
+        old_password: "Старый пароль"
         city: "Город"
         twitter_name: "Твиттер-аккаунт"
         company: "Компания"
@@ -131,6 +132,7 @@ ru:
 
     errors:
       messages:
+        password_is_wrong: 'не верный'
         password_not_valid: 'Пароль не соответствует требованиям'
         blank: 'Поле не может быть пустым'
         confirmation: 'Не совпадает с подтверждением'

@@ -64,8 +64,7 @@ class Web::UsersController < Web::ApplicationController
   end
 
   def attend
-    @user = User.find params[:id]
-    @user.attend
+    current_user.attend
     redirect_to edit_account_path
   end
 end

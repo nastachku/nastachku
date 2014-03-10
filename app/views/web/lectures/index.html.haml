@@ -1,16 +1,11 @@
-- if @lectures.any?
-  .pagetitle.pagetitle__lectures
-    .layout-line
-      %h1.pagetitle__title Доклады
-      .pagetitle__select.pagetitle__select__lecture
-        = select_tag :filter_by_workshop, options_for_select([["Все доклады", " "]] + @workshops.collect{ |w| [w.title, w.id, {'data-icon' => w.icon}]}), class: "custom_select"
-  .content.lectures
-    .layout-line
-      %ul#lectures.lectures__items
-        = render 'lectures'
-- else
+.pagetitle.pagetitle__lectures
   .layout-line
-    %h2.pagetitle__title
-      = t('.there_is_not_any_lectures_now')
+    %h1.pagetitle__title Доклады
+    .pagetitle__select.pagetitle__select__lecture
+      = select_tag :filter_by_workshop, options_for_select([["Все доклады", " "]] + @workshops.collect{ |w| [w.title, w.id, {'data-icon' => w.icon}]}), class: "custom_select"
+.content.lectures
+  .layout-line
+    %ul#lectures.lectures__items
+      = render 'lectures'
 
 = javascript_include_tag "web/fancySelect"
