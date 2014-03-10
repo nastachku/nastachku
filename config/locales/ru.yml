@@ -174,6 +174,7 @@ ru:
         title: 'Регистрация'
       index:
         title: 'Пойдут на стачку'
+      users:
         registred_title: "Зарегистрировалось – %{activated_count} %{participant}. "
         zero_participants: "Пока не зарегистрировалось ни одного участника международной конференции СТАЧКА 2014."
         one_participant: 'участник'
@@ -191,19 +192,20 @@ ru:
       index:
         title: 'Доклады 2.0'
         events20: 'Доклады 2.0'
+        user_lectures_title_before_link: 'Если у вас в копилке есть сумасшедший доклад и вам есть о чем рассказать ИТ-общественности, '
+        user_lectures_title_link: 'предложите его'
+        user_lectures_title_after_link: 'и выступите на конференции.'
+      lectures:
+        not_added_yet: 'Пока не добавлено ни одного доклада. Вы можете'
+        first_speaker: 'стать первым докладчиком.'
+        sort_by: 'Сортировать'
+        by_lecture_votings_count: 'По количеству голосов'
+        by_created_at: 'По дате добавления'
         vote_this_lecture: 'Голосовать за доклад'
         already_voted: 'Вы проголосовали'
         they_voted: 'Проголосовали'
         unvote: "Отменить голос"
         pending: 'Ждём...'
-        by_lecture_votings_count: 'По количеству голосов'
-        by_created_at: 'По дате добавления'
-        sort_by: 'Сортировать'
-        user_lectures_title_before_link: 'Если у вас в копилке есть сумасшедший доклад и вам есть о чем рассказать ИТ-общественности, '
-        user_lectures_title_link: 'предложите его'
-        user_lectures_title_after_link: 'и выступите на конференции.'
-        not_added_yet: 'Пока не добавлено ни одного доклада. Вы можете'
-        first_speaker: 'стать первым докладчиком.'
         auth_for_vote: 'Авторизуйтесь, чтобы проголосовать'
 
     lectures:

@@ -403,11 +403,7 @@ header {
     right: 1.7%;
     .options {
         li {
-            padding: 7px 0 7px 50px !important;
-            position: relative;
-            min-height: 55px;
-
-            &:before {
+            .before_select_option {
                 content: '';
                 position: absolute;
                 top: 9px;
@@ -415,18 +411,14 @@ header {
                 z-index: 1;
                 width: 40px !important;
                 height: 40px !important;
+                .icon_section;
+                &:hover {opacity: .8}
             }
-            &:hover:before {opacity: .8}
-        }
-        li:first-child, li:nth-child(3), li:nth-child(5), li:nth-child(6), li:nth-child(7) {
+            padding: 7px 0 7px 50px !important;
+            position: relative;
+            min-height: 55px;
             line-height: 40px;
         }
-        li:first-child:before {.icon_section-green;}
-        li:nth-child(2):before {.icon_section-orange;}
-        li:nth-child(3):before {.icon_section-purple;}
-        li:nth-child(4):before {.icon_section-yellow;}
-        li:nth-child(5):before {.icon_section-blue;}
-        li:nth-child(6):before {.icon_section-red;}
     }
 }
 
@@ -441,6 +433,7 @@ header {
 
 ////////////////////////////////////////// MAINPAGE SECTIONS
 .mainpage__social {
+    z-index: 100;
     position: fixed;
     top: 21.5%;
     right: 0;
@@ -1802,6 +1795,8 @@ footer {
     }
 
     &:hover {opacity: .8}
+
+    &:disabled {opacity: .8}
 }
 
 .icon_section {
@@ -1851,23 +1846,24 @@ footer {
     height: 40px;
     background-image: @sprite;
     background-repeat: no-repeat;
+    margin: 0;
 
     &.social__icon-fb {
         background-color: #4b83d0;
-        background-position: -42px 0px !important;
+        background-position: -40px 0px !important;
         border-left: 1px solid #3964a0;
         border-right: 1px solid #3964a0;
         &:hover {background-color: lighten(#4b83d0,5%)}
     }
     &.social__icon-tw {
 	background-color: #5dd7fc;
-	background-position: 0px 0px !important;        
+	background-position: 0px 0px !important;
 	&:hover {background-color: lighten(#5dd7fc,5%)}
     }
-    
+
     &.social__icon-vk {
         background-color: #02789f;
-        background-position: -82px 0 !important;
+        background-position: -80px 0 !important;
         &:hover {background-color: lighten(#02789f,5%)}
     }
 }
@@ -3292,6 +3288,9 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
 
 
     ////////////////////////////////////////// MAINPAGE SECTIONS
+    .mainpage__social {
+        display: none;
+    }
     .mainpage__sections {
         margin-top: 0;
         padding-bottom: 0;

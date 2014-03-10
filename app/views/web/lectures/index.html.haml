@@ -2,33 +2,15 @@
   .pagetitle.pagetitle__lectures
     .layout-line
       %h1.pagetitle__title Доклады
+      .pagetitle__select.pagetitle__select__lecture
+        = select_tag :filter_by_workshop, options_for_select([["Все доклады", " "]] + @workshops.collect{ |w| [w.title, w.id, {'data-icon' => w.icon}]}), class: "custom_select"
   .content.lectures
     .layout-line
-      %ul.lectures__items
-        - @lectures.each do |lecture|
-          %li.lectures__item
-            .lectures__item-img
-              = image_tag lecture.user.decorate.user_pic, width: 350
-              = lecture.workshop_color_icon
-            .lectures__item-name
-              %b
-                = lecture.user.decorate.full_name
-              = lecture.user.company
-              ,
-              = lecture.user.position
-            .lectures__item-about
-              %h4
-                = lecture.title
-            .lectures__item-desc
-              %p.open_this
-                = lecture.thesises
+      %ul#lectures.lectures__items
+        = render 'lectures'
 - else
   .layout-line
     %h2.pagetitle__title
       = t('.there_is_not_any_lectures_now')
 
 = javascript_include_tag "web/fancySelect"
-:javascript
-  jQuery(document).ready(function ($) {
-    $('.custom_select').fancySelect();
-  });

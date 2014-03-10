@@ -1,15 +1,3 @@
-.mainpage__social
-  :javascript
-    (function() {
-      if (window.pluso)if (typeof window.pluso.start == "function") return;
-      if (window.ifpluso==undefined) { window.ifpluso = 1;
-      var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-      s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-      s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
-      var h=d[g]('body')[0];
-      h.appendChild(s);
-    }})();
-  .pluso{"data-background" => "transparent", "data-options" => "big,round,line,horizontal,nocounter,theme=04", "data-services" => "twitter,facebook,vkontakte"}
 %footer
   .footer__topbar
     %p Если Вы хотите стать спонсором или выступить с докладом, пожалуйста, свяжитесь с нами.
@@ -20,6 +8,6 @@
       %a{ href: "http://m-st.ru/", target: "_blank" } MST Digital Agency
     .footer__social
       %p Следи за Стачкой:
-      %a.social__icon.social__icon-tw{ href: "https://twitter.com/nastachku" }
-      %a.social__icon.social__icon-fb{ href: "https://www.facebook.com/nastachku" }
-      %a.social__icon.social__icon-vk{ href: "http://vk.com/nastachku" }
+      %a.social__icon.social__icon-tw{ href: "https://twitter.com/nastachku", target: "_blank" }
+      %a.social__icon.social__icon-fb{ href: "https://www.facebook.com/nastachku", target: "_blank" }
+      %a.social__icon.social__icon-vk{ href: "http://vk.com/nastachku", target: "_blank" }
