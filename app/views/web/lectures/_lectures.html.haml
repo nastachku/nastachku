@@ -22,7 +22,7 @@
             %span#add_to_favorites.lectures__item__add-add{ data: { id: lecture.id } } Я пойду на доклад
             %p#lecture_added.lectures__item__add-added{ style: "display: none" } Доклад добавлен в вашу программу
           - else
-            %span#add_to_favorites.lectures__item__add-add.added Я пойду на доклад
+            %span#remove_from_favorites.lectures__item__add-add.added{ data: { id: lecture.id } } Удалить доклад
             %p#lecture_added.lectures__item__add-added Доклад добавлен в вашу программу
         - else
           %span.lectures__item__add-add.added Я пойду на доклад
