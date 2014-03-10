@@ -436,7 +436,7 @@ header {
     z-index: 100;
     position: fixed;
     top: 21.5%;
-    right: 0;
+    right: -4px;
     width: 40px;
 
     .social__icon {
@@ -1327,6 +1327,9 @@ footer {
             font-family: @roboto_med;
             font-weight: normal;
         }
+    }
+    .no_margin>p {
+        margin: 0;
     }
 }
 
@@ -2338,14 +2341,33 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
 }
 
 
+.margin_of_information {
+    margin-top: 52px;
+}
+
 //////////////////////////////////////////
 ////////////////////////////////////////// ADAPTIVE
 //////////////////////////////////////////
 
-@media (max-width: 1400px) {
+@media (min-width: 1200px) {
+    .margin_of_information {
+        height: 86px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .margin_of_information {
+        height: 86px;
+    }
+    .mainpage__social {
+        display: none;
+    }
 }
 
 @media (min-width: 980px) and (max-width: 1199px) {
+    .margin_of_information {
+        height: 86px;
+    }
     .header__logo {margin-top: 20px; width: 17.8%}
     .header__nav {
         a {
@@ -2369,8 +2391,15 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
 
 
 @media (max-width: 979px) { ////////////////////////////////////////// 320, 640
+
     .layout-line {
         padding: 0;
+    }
+
+    
+    .margin_of_information {
+        margin-top: 0px;
+        height: 65px;
     }
 
     ////////////////////////////////////////// INFOLINE

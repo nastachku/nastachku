@@ -20,7 +20,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
   def index
     query = { s: 'created_at desc' }.merge(params[:q] || {})
     @search = User.ransack(query)
-    @users = @search.result.page(params[:page]).per(50)
+    @users = @search.result.includes(:promo_code).page(params[:page]).per(50)
   end
 
   def show

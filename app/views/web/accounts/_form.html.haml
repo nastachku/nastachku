@@ -33,12 +33,25 @@
                   = f.input :company, placeholder: "Компания", label: false
                 %li.form__element
                   = f.input :position, placeholder: "Должность", label: false
+              %ul.form__group
                 %li.form__element
                   = f.input :email, placeholder: "E-mail", label: false
+                %li.form__element.form__element__pass
+                  = f.input :old_password, placeholder: "Пароль", label: false
+                  %span.form__element__pass-icon.form_showpass
+                %li.form__element
+                  = f.input :password, placeholder: "Новый пароль", label: false
           .personal__identity
             .personal__identity__number
               %h5 Ваш персональный номер
               %h2= @user.id
+            .margin_of_information
+              - unless @user.attended?
+                %ul.form__group
+                  %li.form__element
+                    = check_box_tag :i_will_come_to_stachka, nil, false, id: "i_will_come_to_stachka", class: 'checkbox_type-1', data: {url: attend_user_path(@user)}
+                    %label{for: "i_will_come_to_stachka"}
+                      = t('.i_will_come_to_stachka')
             .personal__identity__social
               %ul.form__group
                 - f.with_options input_html: { class: "input_type-1" } do |f|
@@ -96,7 +109,6 @@
             %ul.orderslist__info
               .orderslist__info__desc
                 %span
-                %p По вопросам альтернативной оплаты или отмены заказа, обращатсья к Светлане Брошкиной.
+                %p По всем вопросам альтернативной оплаты или отмены заказа, обращатсья:
               .orderslist__info__contacts
-                %a{ href: "mailto:xxx@xxx.com" } svetlana@gmail.com
-                %p 8 (909) 301-26-48
+                %a{ href: "mailto:xxx@xxx.com" } info@nastachku.ru
