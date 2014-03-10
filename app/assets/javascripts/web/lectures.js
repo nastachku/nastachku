@@ -8,7 +8,7 @@ jQuery(document).ready(function ($) {
 
   $('#filter_by_workshop').on('change.fs', function(){
     $.ajax({
-      url: gon.remote_filter_action,
+      url: Routes.lectures_path,
       type: "GET",
       dataType: "script",
       data: {workshop_id_eq: $('#filter_by_workshop option:selected').val()},
@@ -18,5 +18,15 @@ jQuery(document).ready(function ($) {
   $('#lectures').on('click', '.sorting a', function() {
     $.getScript(this.href);
     return false;
+  });
+});
+
+jQuery(document).ready(function ($) {
+  $('#add_to_favorites').on('click', function(){
+    $.ajax({
+      url: Routes.api_lecture_listener_votings_path($(this).data('id')),
+      type: "POST",
+      dataType: "script"
+    })
   });
 });
