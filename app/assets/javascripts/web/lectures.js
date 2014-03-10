@@ -20,25 +20,25 @@ jQuery(document).ready(function ($) {
     return false;
   });
 
-  $('#add_to_favorites').on('click', function(){
+  $(document).on('click', '#voting_button:not(".added")', function(){
     $.ajax({
       url: Routes.api_lecture_listener_votings_path($(this).data('id')),
       type: "POST",
       dataType: "json",
       success: function() {
-        $("#add_to_favorites").addClass("added");
+        $("#voting_button").addClass("added");
         $("#lecture_added").show();
       }
     })
   });
 
-  $('#remove_from_favorites').on('click', function() {
+  $(document).on('click', '#voting_button.added', function() {
     $.ajax({
       url: Routes.api_lecture_listener_votings_path($(this).data('id')),
       type: "DELETE",
       dataType: "json",
       success: function() {
-        $('#remove_from_favorites').removeClass("added");
+        $('#voting_button').removeClass("added");
         $('#lecture_added').hide();
       }
      })
