@@ -20,26 +20,28 @@ jQuery(document).ready(function ($) {
     return false;
   });
 
-  $(document).on('click', '#voting_button:not(".added")', function(){
+  $(document).on('click', '.voting_button:not(".added")', function(){
+    var self = this;
     $.ajax({
-      url: Routes.api_lecture_listener_votings_path($(this).data('id')),
+      url: Routes.api_lecture_lecture_votings_path($(this).data('id')),
       type: "POST",
       dataType: "json",
       success: function() {
-        $("#voting_button").addClass("added");
-        $("#lecture_added").show();
+        $(self).addClass("added");
+        $(self).siblings(".lecture_added").show();
       }
     })
   });
 
-  $(document).on('click', '#voting_button.added', function() {
+  $(document).on('click', '.voting_button.added', function() {
+    var self = this;
     $.ajax({
-      url: Routes.api_lecture_listener_votings_path($(this).data('id')),
+      url: Routes.api_lecture_lecture_votings_path($(this).data('id')),
       type: "DELETE",
       dataType: "json",
       success: function() {
-        $('#voting_button').removeClass("added");
-        $('#lecture_added').hide();
+        $(self).removeClass("added");
+        $(self).siblings('.lecture_added').hide();
       }
      })
    });
