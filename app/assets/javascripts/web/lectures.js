@@ -26,7 +26,13 @@ jQuery(document).ready(function ($) {
     $.ajax({
       url: Routes.api_lecture_listener_votings_path($(this).data('id')),
       type: "POST",
-      dataType: "script"
+      dataType: "json",
+      success: function() {
+                            $("#add_to_favorites").addClass("added");
+                            $("#lecture_added").show(); },
+      error: function() {
+        alert("fuck");
+      }
     })
   });
 });
