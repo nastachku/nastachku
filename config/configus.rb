@@ -55,7 +55,7 @@ Configus.build Rails.env do
       login credentials_hash["production"]["platidoma"]["login"]
       gate_password credentials_hash["production"]["platidoma"]["gate_password"]
       shirt_price 500
-      afterparty_price 1000
+      afterparty_price 1500
       if Time.current.month == 2
         ticket_price 750
       elsif Time.current.month == 3
@@ -101,7 +101,6 @@ Configus.build Rails.env do
       shop_id credentials_hash["development"]["platidoma"]["shop_id"]
       login credentials_hash["development"]["platidoma"]["login"]
       gate_password credentials_hash["development"]["platidoma"]["gate_password"]
-      afterparty_price 1000
       shirt_price 500
     end
 
@@ -120,7 +119,6 @@ Configus.build Rails.env do
       shop_id 7
       login "test"
       gate_password "test"
-      afterparty_price 1000
       shirt_price 500
     end
   end
@@ -158,7 +156,6 @@ Configus.build Rails.env do
       shop_id credentials_hash["staging"]["platidoma"]["shop_id"]
       login credentials_hash["staging"]["platidoma"]["login"]
       gate_password credentials_hash["staging"]["platidoma"]["gate_password"]
-      afterparty_price 1000
       shirt_price 500
     end
 
