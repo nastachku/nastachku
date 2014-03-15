@@ -11,4 +11,4 @@ $(function() {
   s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
   var h=d[g]('body')[0];
   h.appendChild(s);
-}})();
+}});
