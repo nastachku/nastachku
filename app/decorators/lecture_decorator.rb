@@ -16,6 +16,6 @@ class LectureDecorator < Draper::Decorator
   end
 
   def full_title
-    "#{self.decorate.lector} - #{title}(#{self.workshop.title})"
+    "#{lector} - #{title}(#{model.workshop.title})"
   end
 end
