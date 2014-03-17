@@ -39,7 +39,7 @@ class Lecture < ActiveRecord::Base
     end
   end
   def full_title
-    title
+    "#{self.decorate.lector} - #{title}(#{self.workshop.title})"
   end
 
 end
