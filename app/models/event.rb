@@ -24,8 +24,4 @@ class Event < ActiveRecord::Base
       transition active: :inactive
     end
   end
-  def full_title
-    title
-  end
-
 end
