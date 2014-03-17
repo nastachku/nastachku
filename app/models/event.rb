@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
 
   validates :title, presence: true
 
-  has_many :slots, as: :event
+  has_one :slot
   has_many :halls, through: :slots
   has_many :event_users
   has_many :users, through: :event_users
@@ -23,6 +23,9 @@ class Event < ActiveRecord::Base
     event :deactivate do
       transition active: :inactive
     end
+  end
+  def full_title
+    title
   end
 
 end
