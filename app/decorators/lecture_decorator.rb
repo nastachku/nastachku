@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 class LectureDecorator < Draper::Decorator
   decorates :lecture
-  decorates_association :user 
+  decorates_association :user
   delegate_all
 
   def workshop_color_icon
@@ -13,5 +13,9 @@ class LectureDecorator < Draper::Decorator
   def lector
     #FIXME убрать UserDecorator.decorate, декорировать с помощью association
     UserDecorator.decorate model.user
+  end
+
+  def full_title
+    "#{self.decorate.lector} - #{title}(#{self.workshop.title})"
   end
 end
