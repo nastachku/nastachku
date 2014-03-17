@@ -1,6 +1,5 @@
 class Web::SchedulesController < Web::ApplicationController
   def show
-    @halls = Hall.activated.by_position
-    @workshops = Workshop.web
+    @halls = HallDecorator.decorate_collection Hall.activated.by_position
   end
 end

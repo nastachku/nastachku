@@ -39,80 +39,20 @@
                   %th
                     = hall.title
                 %th
-                  %span.programm__next{ data: {page: "1"}}
+                  %span.programm__next{ data: { page: "1" }}
             %tbody
               %tr.programm__schedule__mainaction
-                %td 9<span>00</span>
-                %td{ colspan: 7}
+                %td
+                  9
+                  %span 00
+                %td{ colspan: 7 }
                   %h4 Регистрация
-              %tr.programm__schedule__mainaction
-                %td 10<span>00</span>
-                %td{ colspan: 7}
-                  %h4 Торжественное открытие
-              %tr.programm__schedule__lectures
-                %td 10<span>00</span>
-                %td
-                  .programm__schedule__lectures__lecture.lecture__yellow
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
-                %td
-                  .programm__schedule__lectures__lecture.lecture__orange
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
-                %td
-                  .programm__schedule__lectures__lecture.lecture__green
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
-                %td
-                  .programm__schedule__lectures__lecture.lecture__red.in_my_schedule
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
-                %td
-                  .programm__schedule__lectures__lecture.lecture__purple
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
-                %td
-                  .programm__schedule__lectures__lecture.lecture__blue
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
-              %tr.programm__schedule__lectures
-                %td 11<span>30</span>
-                %td
-                  .programm__schedule__lectures__lecture.lecture__yellow
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
-                %td
-                  .programm__schedule__lectures__lecture.lecture__orange
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
-                %td
-                  .programm__schedule__lectures__lecture.lecture__green
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
-                %td
-                  .programm__schedule__lectures__lecture.lecture__red.in_my_schedule
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
-                %td
-                  .programm__schedule__lectures__lecture.lecture__purple
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
-                %td
-                  .programm__schedule__lectures__lecture.lecture__blue
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+              = render "timeline", start_hour: 10, end_hour: 18
+              %tr
+                - @halls.each do |hall|
+                  - hall.lectures_sorted_by_time.each do |slot|
+                    %td{ rowspan: span_count(slot) }
+                      = slot.event.title
               %tr.programm__schedule__mainaction
                 %td 12<span>30</span>
                 %td{ colspan: 7}
