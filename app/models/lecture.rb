@@ -38,8 +38,4 @@ class Lecture < ActiveRecord::Base
       transition [:new, :in_schedule, :voted] => :rejected
     end
   end
-  def full_title
-    "#{self.decorate.lector} - #{title}(#{self.workshop.title})"
-  end
-
 end
