@@ -1,14 +1,356 @@
-.con.content.programm
+.content.programm
   .content__tabs__line
   .layout-line
     %h1.pagetitle__title Программа
+    .programm__my
+      %input#my_programm.checkbox_type-3{ type:"checkbox", name: "my_programm", value:"Y", data: {my: "in_my_schedule"}}
+      %label{ for:"my_programm"} Моя программа
     %dl.content__tabs
-      %dt.tabs__title.tab_button.selected
+      %dt.tabs__title.tab_button.selected 12 апреля<span> - суббота</span>
+      %dd.tabs__content.selected
+        .programm__filter
+          .programm__filter__checkboxs-title Выберите секцию:
+          %ul.programm__filter__checkboxs
+            %li
+              %input#section-1.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__green"}}
+              %label.checkbox_type-2-green{ for:"section-1"} Техническая секция
+            %li
+              %input#section-2.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__orange"}}
+              %label.checkbox_type-2-orange{ for:"section-2"} Мобильная разработка
+            %li
+              %input#section-3.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__purple"}}
+              %label.checkbox_type-2-purple{ for:"section-3"} Стартапы
+            %li
+              %input#section-4.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__yellow"}}
+              %label.checkbox_type-2-yellow{ for:"section-4"} Digital- коммуникации
+            %li
+              %input#section-5.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__red"}}
+              %label.checkbox_type-2-red{ for:"section-5"} Менеджмент
+            %li
+              %input#section-6.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__blue"}}
+              %label.checkbox_type-2-blue{ for:"section-6"} IT-проекты
+        .programm__schedule
+          %table#april-12.page-1
+            %thead
+              %tr
+                %th
+                  %span.programm__prev.disable{ data: {page: "1"}}
+                - @halls.each do |hall|
+                  %th
+                    = hall.title
+                %th
+                  %span.programm__next{ data: {page: "1"}}
+            %tbody
+              %tr.programm__schedule__mainaction
+                %td 9<span>00</span>
+                %td{ colspan: 7}
+                  %h4 Регистрация
+              %tr.programm__schedule__mainaction
+                %td 10<span>00</span>
+                %td{ colspan: 7}
+                  %h4 Торжественное открытие
+              %tr.programm__schedule__lectures
+                %td 10<span>00</span>
+                %td
+                  .programm__schedule__lectures__lecture.lecture__yellow
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__orange
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__green
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__red.in_my_schedule
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__purple
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__blue
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+              %tr.programm__schedule__lectures
+                %td 11<span>30</span>
+                %td
+                  .programm__schedule__lectures__lecture.lecture__yellow
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__orange
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__green
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__red.in_my_schedule
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__purple
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__blue
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+              %tr.programm__schedule__mainaction
+                %td 12<span>30</span>
+                %td{ colspan: 7}
+                  %h4 перерыв на обед
+              %tr.programm__schedule__lectures
+                %td 11<span>30</span>
+                %td
+                  .programm__schedule__lectures__lecture.lecture__yellow
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__orange
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__green
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__red.in_my_schedule
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__purple
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__blue
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+              %tr.programm__schedule__mainaction
+                %td 12<span>30</span>
+                %td{ colspan: 7}
+                  %h4 Кофебрейк
+        .programm__print
+          %a.social__icon.social__icon-tw{ title: "Распечатать программу мероприятия (А4)", href: "#"} Распечатать программу мероприятия (А4)
+      %dt.tabs__title.tab_button 13 апреля<span> - воскресенье</span>
+      %dd.tabs__content
+        .programm__filter
+          .programm__filter__checkboxs-title Выберите секцию:
+          %ul.programm__filter__checkboxs
+            %li
+              %input#section-1.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__green"}}
+              %label.checkbox_type-2-green{ for:"section-1"} Техническая секция
+            %li
+              %input#section-2.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__orange"}}
+              %label.checkbox_type-2-orange{ for:"section-2"} Мобильная разработка
+            %li
+              %input#section-3.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__purple"}}
+              %label.checkbox_type-2-purple{ for:"section-3"} Стартапы
+            %li
+              %input#section-4.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__yellow"}}
+              %label.checkbox_type-2-yellow{ for:"section-4"} Digital- коммуникации
+            %li
+              %input#section-5.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__red"}}
+              %label.checkbox_type-2-red{ for:"section-5"} Менеджмент
+            %li
+              %input#section-6.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__blue"}}
+              %label.checkbox_type-2-blue{ for:"section-6"} IT-проекты
+        .programm__schedule
+          %table#april-12.page-1
+            %thead
+              %tr
+                %th
+                  %span.programm__prev.disable{ data: {page: "1"}}
+                %th Большой Зал
+                %th Кинобар
+                %th Процесс-центр
+                %th Кинозал музея
+                %th Фойе опц
+                %th Октябрьский
+                %th
+                  %span.programm__next{ data: {page: "1"}}
+            %tbody
+              %tr.programm__schedule__mainaction
+                %td 9<span>00</span>
+                %td{ colspan: 7}
+                  %h4 Регистрация
+              %tr.programm__schedule__mainaction
+                %td 10<span>00</span>
+                %td{ colspan: 7}
+                  %h4 Торжественное открытие
+              %tr.programm__schedule__lectures
+                %td 10<span>00</span>
+                %td
+                  .programm__schedule__lectures__lecture.lecture__yellow
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__orange
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__green
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__red.in_my_schedule
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__purple
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__blue
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+              %tr.programm__schedule__lectures
+                %td 11<span>30</span>
+                %td
+                  .programm__schedule__lectures__lecture.lecture__yellow
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__orange
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__green
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__red.in_my_schedule
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__purple
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__blue
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+              %tr.programm__schedule__mainaction
+                %td 12<span>30</span>
+                %td{ colspan: 7}
+                  %h4 перерыв на обед
+              %tr.programm__schedule__lectures
+                %td 11<span>30</span>
+                %td
+                  .programm__schedule__lectures__lecture.lecture__yellow
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__orange
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__green
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__red.in_my_schedule
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__purple
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+                %td
+                  .programm__schedule__lectures__lecture.lecture__blue
+                    %h4.lecture__lecturer Фазлыев Руслан
+                    %span.lecture__company Ecwid
+                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
+              %tr.programm__schedule__mainaction
+                %td 12<span>30</span>
+                %td{ colspan: 7}
+                  %h4 Кофебрейк
+          .programm__timer{ style: "height: 230px;" }
+            .programm__timer-time 11<span>29</span>
+            .programm__timer-time 11<span>29</span>
+        .programm__print
+          %a.social__icon.social__icon-tw{ title: "Распечатать программу мероприятия (А4)", href: "#"} Распечатать программу мероприятия (А4)
 
-    %br
-    %h3 Пока в разработке, появится позже
-    %br
-    %a{ href: "#", onclick: "display_hide('#scheme');return false;" }
-      = t('.show_scheme')
-    #scheme{ style: "display:none;" }
-      %img{ src: "/images/areas-scheme.jpg", alt: "Scheme" }
+:javascript
+    jQuery(document).ready(function ($) {
+            $('.tab_button').on('click', function() {
+                $(this).siblings().removeClass('selected').end().next('dd').andSelf().addClass('selected');
+            });
+
+            var next=$('.programm__next'), prev=$('.programm__prev');
+            next.on('click',function() {
+                programm_next(next, prev);
+            });
+            prev.on('click',function() {
+                programm_prev(prev, next);
+            });
+
+            var lectures=$('.programm__schedule__lectures__lecture');
+            $('.schedule__filter').on('change', function() {
+                if ($(this).is(':checked')) {
+                    lectures.addClass('disable');
+                    $('.'+$(this).data('lecture')).addClass('enable');
+                } else {
+                    $('.'+$(this).data('lecture')).removeClass('enable');
+                }
+                if (!$(this).parents('.programm__filter__checkboxs').find(':checked').length) {
+                    lectures.removeClass('disable');
+                }
+            });
+
+            var my_programm=$('#my_programm');
+            my_programm.on('change', function() {
+                if ($(this).is(':checked')) {
+                    lectures.addClass('disable');
+                    $('.'+$(this).data('my')).addClass('enable');
+                } else {
+                    lectures.removeClass('disable');
+                    $('.'+$(this).data('my')).removeClass('enable');
+                }
+            });
+        });
+.layout-line
+  %a{ href: "#", onclick: "display_hide('#scheme');return false;" }
+    = t('.show_scheme')
+  #scheme{ style: "display:none;" }
+    %img{ src: "/images/areas-scheme.jpg", alt: "Scheme" }
