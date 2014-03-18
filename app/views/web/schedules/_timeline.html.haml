@@ -1,19 +1,5 @@
-.timeline
-  - (start_hour...end_hour).each do |i|
-    .b-quart
-      .lined
-      = i
-      %sup
-        00
-    .b-quart
-      .lined
-      %sup
-        15
-    .b-quart
-      .lined
-      %sup
-        30
-    .b-quart
-      .lined
-      %sup
-        45
+%td
+  - if i_time.minute % 30 == 0
+    = i_time.hour
+    %span
+      = i_time.minute
