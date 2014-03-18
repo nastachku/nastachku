@@ -19,4 +19,12 @@ module Web::SchedulesHelper
     end
     return false
   end
+
+  def minute_to_timeline(minute)
+    if (minute == 0)
+      "00"
+    else
+      minute
+    end
+  end
 end
