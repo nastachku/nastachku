@@ -1,0 +1,26 @@
+- if i.first % 15 == 0
+  %td{ rowspan: 3 }
+    = i_time.hour
+    %span
+      = i_time.minute
+- if @halls.first.has_event?(i_time)
+  %td{ rowspan: @halls.first.slot_at_the_time(i_time).decorate.duration / 5, colspan: @halls.count }
+    event
+- if @halls.first.has_lecture?(i_time)
+  %td{ rowspan: @halls.first.slot_at_the_time(i_time).decorate.duration / 5 }
+    .programm__schedule__lectures__lecture{ class: @halls.first.slot_at_the_time(i_time).event.decorate.workshop_color }
+      %h4.lecture__lecturer
+        = @halls.first.slot_at_the_time(i_time).event.user.decorate.full_name
+      %span.lecture__company
+        = @halls.first.slot_at_the_time(i_time).event.user.company
+      %p.lecture__desc
+        = @halls.first.slot_at_the_time(i_time).event.title
+- if @halls.first.has_not_slots?(i_time)
+  %td
+- @halls.each do |hall|
+  - if hall.id != 1
+    - if hall.has_lecture?(i_time)
+      %td{ rowspan: hall.slot_at_the_time(i_time).duration / 5 }
+        lecture
+  - if hall.has_not_slots?(i_time)
+    %td

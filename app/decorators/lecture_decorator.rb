@@ -10,6 +10,10 @@ class LectureDecorator < Draper::Decorator
     end
   end
 
+  def workshop_color
+    "lecture__#{model.workshop.color}"
+  end
+
   def lector
     #FIXME убрать UserDecorator.decorate, декорировать с помощью association
     UserDecorator.decorate model.user
