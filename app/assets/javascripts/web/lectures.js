@@ -12,14 +12,19 @@ jQuery(document).ready(function ($) {
       type: "GET",
       dataType: "script",
       data: {workshop_id_eq: $('#filter_by_workshop option:selected').val()},
+      success: function() {
+        window.pluso.start();
+      }
     })
   });
 
   $('#lectures').on('click', '.sorting a', function() {
-    $.getScript(this.href);
+    $.getScript(this.href,  function( data, textStatus, jqxhr ) {
+      window.pluso.start();
+    });
     return false;
   });
-
+  
   $(document).on('click', '.voting_button:not(".added")', function(){
     var self = this;
     $.ajax({
