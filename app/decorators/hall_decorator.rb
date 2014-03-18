@@ -14,7 +14,7 @@ class HallDecorator < Draper::Decorator
     false
   end
 
-  def has_event?(time)
+  def has_begin_event?(time)
     model.slots.each do |slot|
       if slot.start_time == time and slot.event_type == "Event"
         return true
@@ -24,7 +24,16 @@ class HallDecorator < Draper::Decorator
   end
 
 
-  def has_lecture?(time)
+  def has_event?(time)
+    model.slots.each do |slot|
+      if slot.start_time < time and slot.finish_time > time and slot.event_type == "Event"
+        return true
+      end
+    end
+    return false
+  end
+
+  def has_begin_lecture?(time)
     model.slots.each do |slot|
       if slot.start_time == time and slot.event_type == "Lecture"
         return true

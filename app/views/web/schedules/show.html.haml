@@ -44,13 +44,23 @@
               - (540...(19*60+15)).each_slice(5).to_a.each do |i|
                 - i_time = DateTime.new(2014, 4, 11, i.first / 60, i.first % 60, 0)
                 - if not slots_in_time?(@slots, i_time)
-                  %tr
-                - elsif @halls.first.has_event?(i_time)
                   %tr.programm__schedule__mainaction
-                    = render "program_table_row", i: i, i_time: i_time
-                - elsif @halls.first.has_lecture?(i_time)
+                    = render "timeline", i_time: i_time
+                    - (1..@halls.count).each do
+                      %td
+                - elsif @halls.first.has_begin_event?(i_time)
+                  %tr.programm__schedule__mainaction
+                    = render "timeline", i_time: i_time
+                    %td{ rowspan: @halls.first.slot_at_the_time(i_time).decorate.duration / 5, colspan: @halls.count }
+                      %h4
+                        = @halls.first.slot_at_the_time(i_time).event.title
+                - elsif @halls.first.has_event?(i_time)
+                  %tr
+                    %td
+                - else
                   %tr.programm__schedule__lecture
-                    = render "program_table_row", i: i, i_time: i_time
+                    = render "timeline", i_time: i_time
+                    = render "program_table_row", i_time: i_time
         .programm__print
           %a{ title: "Распечатать программу мероприятия (А4)", href: "#"} Распечатать программу мероприятия (А4)
       %dt.tabs__title.tab_button 13 апреля<span> - воскресенье</span>

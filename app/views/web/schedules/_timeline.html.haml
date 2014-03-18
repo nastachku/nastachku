@@ -1,15 +1,4 @@
-- (start_hour...end_hour).each do |i|
-  %tr
-    %td
-      = i
-      %span 00
-    - (1...5).each do |j|
-      %tr
-        %td
-    %tr
-      %td
-        = i
-        %span 30
-    - (1...5).each do |j|
-      %tr
-        %td
+%td
+  = i_time.hour
+  %span
+    = i_time.minute
