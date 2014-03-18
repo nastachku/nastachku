@@ -34,67 +34,34 @@
             %thead
               %tr
                 %th
-                  %span.programm__prev.disable{ data: {page: "1"}}
+                  %span.programm__prev.disable{ data: { page: "1" }}
                 - @halls.each do |hall|
                   %th
                     = hall.title
                 %th
                   %span.programm__next{ data: { page: "1" }}
             %tbody
-              %tr.programm__schedule__mainaction
-                %td
-                  9
-                  %span 00
-                %td{ colspan: 7 }
-                  %h4 Регистрация
-              = render "timeline", start_hour: 10, end_hour: 18
-              %tr
-                - @halls.each do |hall|
-                  - hall.lectures_sorted_by_time.each do |slot|
-                    %td{ rowspan: span_count(slot) }
-                      = slot.event.title
-              %tr.programm__schedule__mainaction
-                %td 12<span>30</span>
-                %td{ colspan: 7}
-                  %h4 перерыв на обед
-              %tr.programm__schedule__lectures
-                %td 11<span>30</span>
-                %td
-                  .programm__schedule__lectures__lecture.lecture__yellow
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
-                %td
-                  .programm__schedule__lectures__lecture.lecture__orange
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
-                %td
-                  .programm__schedule__lectures__lecture.lecture__green
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
-                %td
-                  .programm__schedule__lectures__lecture.lecture__red.in_my_schedule
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
-                %td
-                  .programm__schedule__lectures__lecture.lecture__purple
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
-                %td
-                  .programm__schedule__lectures__lecture.lecture__blue
-                    %h4.lecture__lecturer Фазлыев Руслан
-                    %span.lecture__company Ecwid
-                    %p.lecture__desc Как Ecwid стал решением электронной коммерции номер 1 на Facebook.
-              %tr.programm__schedule__mainaction
-                %td 12<span>30</span>
-                %td{ colspan: 7}
-                  %h4 Кофебрейк
+              - (540...(19*60+15)).each_slice(5).to_a.each do |i|
+                - i_time = DateTime.new(2014, 4, 11, i.first / 60, i.first % 60, 0)
+                %tr.programm__schedule__mainaction
+                  - if i.first % 15 == 0
+                    %td{ rowspan: 3 }
+                      = i_time.hour
+                      %span
+                        = i_time.minute
+                  - if @halls.first.has_event?(i_time)
+                    %td{ rowspan: @halls.first.slot_at_the_time(i_time).decorate.duration / 5, colspan: @halls.count }
+                      event
+                  - elsif @halls.first.has_lecture?(i_time)
+                    %td{ rowspan: @halls.first.slot_at_the_time(i_time).decorate.duration / 5 }
+                      lecture1
+                  - @halls.each do |hall|
+                    - if hall.id != 1
+                      - if hall.has_lecture?(i_time)
+                        %td{ rowspan: hall.slot_at_the_time(i_time).duration / 5 }
+                          lecture
         .programm__print
-          %a.social__icon.social__icon-tw{ title: "Распечатать программу мероприятия (А4)", href: "#"} Распечатать программу мероприятия (А4)
+          %a{ title: "Распечатать программу мероприятия (А4)", href: "#"} Распечатать программу мероприятия (А4)
       %dt.tabs__title.tab_button 13 апреля<span> - воскресенье</span>
       %dd.tabs__content
         .programm__filter
