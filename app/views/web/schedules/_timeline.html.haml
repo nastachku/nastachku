@@ -1,5 +1,5 @@
-%td
-  - if i_time.minute % 30 == 0
+- if i_time.minute % 15 == 0
+  %td.programm__time{ rowspan: 3 }
     = i_time.hour
     %span
-      = i_time.minute
+      = minute_to_timeline(i_time.minute)

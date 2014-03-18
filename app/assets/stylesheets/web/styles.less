@@ -1435,12 +1435,16 @@ footer {
 
     td {
         border: 1px solid #eaeaeb;
-        padding: 10px 0;
+        padding-top: 5px;
         width: 16%;
         vertical-align: top;
     }
 
-    tbody tr td:first-child {
+    tr {
+      height: 15px;
+    }
+
+    tbody tr td.programm__time {
         border-left: 0;
         font-family: @roboto_reg;
         font-size: .875em;
@@ -1454,9 +1458,11 @@ footer {
     }
 }
 
+.programm__schedule td.programm__time {
+  border-bottom: 1px solid #eaeaeb;
+}
+
 .programm__schedule__mainaction {
-    border-bottom: 1px solid #eaeaeb;
-    border-top: 1px solid #eaeaeb;
     h4 {
         font-family: @roboto_med;
         font-size: 0.9375em;
