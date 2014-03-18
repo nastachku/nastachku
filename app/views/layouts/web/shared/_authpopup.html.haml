@@ -8,9 +8,9 @@
         = link_to 'Забыли пароль?', new_remind_password_path
       .popup__auth__form-enter
         = f.button :submit, :value => 'Войти на сайт', :class => 'btn_main btn_main-auth', :tabindex => 3
-    -#.popup__auth__form-social
+    .popup__auth__form-social
       %p Авторизируйтесь с помощью социальной сети:
-      = render 'layouts/web/shared/social_buttons'
+      = link_to '', sign_in_via_social_network_cpath(:facebook), :class => "social__icon social__icon-fb"
     .popup__auth__form-reg
       %p Еще не зарегистрировались? Сейчас самое время!
       %a{ title: "Регистрация", href: new_user_path} Регистрация
