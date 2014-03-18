@@ -16,6 +16,17 @@
       %p.open_this
         = lecture.thesises
     .lectures__item__adding
+      .lectures__item__add
+        - if current_user
+          - unless user_is_listener?(lecture)
+            %span.voting_button.lectures__item__add-add{ data: { id: lecture.id } } Я пойду на доклад
+            %p.lecture_added.lectures__item__add-added{ style: "display: none" } Доклад добавлен в вашу программу
+          - else
+            %span.voting_button.lectures__item__add-add.added{ data: { id: lecture.id } } Удалить доклад
+            %p.lecture_added.lectures__item__add-added Доклад добавлен в вашу программу
+        - else
+          %span.lectures__item__add-add.added Я пойду на доклад
+          %p.lectures__item__add-added Требуется регистрация на конференции
       .lectures__item-social
         %p.open_this Поделиться с друзьями:
         .pluso{data: {url: "#{lectures_url}#lecture_#{lecture.id}" ,title: lecture.title, description: "#{lecture.thesises} ...",  background: "transparent", options: "big,round,line,horizontal,nocounter,theme=04", services: "twitter,facebook,vkontakte"}}

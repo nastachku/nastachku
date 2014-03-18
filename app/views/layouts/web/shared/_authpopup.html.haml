@@ -1,0 +1,17 @@
+#popup_auth.popup.popup__auth
+  .popup__content
+    = simple_form_for @auth_user, url: session_path(from: params[:from]), html: { class: 'popup__auth__form' } do |f|
+      %h2.popup__title Войти на сайт
+      = f.input :email, :tabindex => 1, input_html: { value: @auth_email, class: "input_type-1"}, placeholder: "E-mail", label_html: {style: "display: none;"}
+      = f.input :password, :tabindex => 2, input_html: {class: "input_type-1"}, :placeholder => "Пароль", label_html: {style: "display: none;"}
+      .popup__auth__form-forgot
+        = link_to 'Забыли пароль?', new_remind_password_path
+      .popup__auth__form-enter
+        = f.button :submit, :value => 'Войти на сайт', :class => 'btn_main btn_main-auth', :tabindex => 3
+    -#.popup__auth__form-social
+      %p Авторизируйтесь с помощью социальной сети:
+      = render 'layouts/web/shared/social_buttons'
+    .popup__auth__form-reg
+      %p Еще не зарегистрировались? Сейчас самое время!
+      %a{ title: "Регистрация", href: new_user_path} Регистрация
+  %span.popup__close.close_popup

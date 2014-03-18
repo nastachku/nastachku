@@ -22,7 +22,7 @@ class Web::SessionsController < Web::ApplicationController
       sign_in user
       redirect_to edit_account_path
     else
-      render :new
+      redirect_to welcome_index_path
     end
   end
 
