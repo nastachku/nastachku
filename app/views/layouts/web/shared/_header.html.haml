@@ -19,7 +19,7 @@
       %a{ href: "/pages/contacts", title: "Контакты" } Контакты
     .header__login
       - unless signed_in?
-        = link_to t(".login"), new_session_path, class: 'btn_main btn_main-auth open_popup', data: {popup: "auth"}, style: "color: white;"
+        = content_tag :span, t(".login"), class: 'btn_main btn_main-auth open_popup', data: {popup: "auth"}, style: "color: white;"
       - if signed_in?
         .header__login__user
           .header__login__user-name

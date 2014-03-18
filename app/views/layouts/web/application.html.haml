@@ -35,4 +35,5 @@
       - if is_main_page?
         = render "layouts/web/shared/social_buttons"
       = render "layouts/web/shared/footer"
-      = render "layouts/web/shared/popup_auth"
+    #overlay.overlay
+    = render "layouts/web/shared/authpopup"
