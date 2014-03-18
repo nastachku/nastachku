@@ -1,4 +1,5 @@
 %td
-  = i_time.hour
-  %span
-    = i_time.minute
+  - if i_time.minute % 30 == 0
+    = i_time.hour
+    %span
+      = i_time.minute

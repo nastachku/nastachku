@@ -56,7 +56,7 @@
                         = @halls.first.slot_at_the_time(i_time).event.title
                 - elsif @halls.first.has_event?(i_time)
                   %tr
-                    %td
+                    = render "timeline", i_time: i_time
                 - else
                   %tr.programm__schedule__lecture
                     = render "timeline", i_time: i_time
