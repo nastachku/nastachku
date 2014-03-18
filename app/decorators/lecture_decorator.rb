@@ -11,7 +11,11 @@ class LectureDecorator < Draper::Decorator
   end
 
   def workshop_color
-    "lecture__#{model.workshop.color}"
+    workshops = Workshop.all
+    hash = { "#{workshops[0].title}" => "lecture__red", "#{workshops[1].title}" => "lecture__blue",
+      "#{workshops[2].title}" => "lecture__orange", "#{workshops[3].title}" => "lecture__purple",
+      "#{workshops[4].title}" => "lecture__green", "#{workshops[5].title}" => "lecture__yellow"}
+    hash[model.workshop.title]
   end
 
   def lector

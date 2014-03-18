@@ -20,7 +20,7 @@
 - @halls.each do |hall|
   - if hall.id != 1
     - if hall.has_lecture?(i_time)
-      %td{ rowspan: hall.slot_at_the_time(i_time).duration / 5 }
+      %td{ rowspan: hall.slot_at_the_time(i_time).decorate.duration / 5 }
         lecture
   - if hall.has_not_slots?(i_time)
     %td
