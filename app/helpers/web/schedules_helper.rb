@@ -27,4 +27,10 @@ module Web::SchedulesHelper
       minute
     end
   end
+
+  def first_day_selected(day)
+    if day.day == configus.schedule.first_day.day
+      "selected"
+    end
+  end
 end
