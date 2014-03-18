@@ -13,7 +13,7 @@ class Lecture < ActiveRecord::Base
   has_many :lecture_votings, as: :voteable, extend: [Extensions::VotingExtension]
   has_many :listeners, through: :listener_votings, source: :user
   has_many :voted, through: :lecture_votings, source: :user
-  has_many :slots, as: :event
+  has_one :slot, as: :event
   has_many :halls, through: :slots
 
   mount_uploader :presentation, EventPresentationUploader
@@ -38,5 +38,4 @@ class Lecture < ActiveRecord::Base
       transition [:new, :in_schedule, :voted] => :rejected
     end
   end
-
 end
