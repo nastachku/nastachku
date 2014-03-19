@@ -7,8 +7,10 @@
         = simple_form_for @user, url: account_path, html: { class: 'form-horizontal profile-form' } do |f|
           .personal__userpic
             .personal__userpic__img
-              = image_tag "/assets/web/no-userpic.jpg" unless @user.photo
-              = image_tag @user.photo if @user.photo
+              - if not @user.photo or @user.photo.to_s.empty?
+                = image_tag "/assets/web/no-userpic.jpg"
+              - else
+                = image_tag @user.photo
             .personal__userpic__upload
               = f.input :photo, input_html: {style: "display: none;"}, label_html: {style: "display: none;"}
               %a#false_photo_input{ title: "Загрузить фотографию", href: "#"} Загрузить фотографию

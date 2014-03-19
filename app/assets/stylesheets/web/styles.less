@@ -971,6 +971,7 @@ footer {
     cursor: pointer;
     margin-left: -1px;
     font-size: 15px;
+    border: 1px solid #EDEDED;
 
     &:first-child {margin-left: 0}
     &.selected {
@@ -2862,6 +2863,9 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
                 width: 30%;
                 &:nth-child(5), &:nth-child(6),&:nth-child(7){
                     display: none;
+                }
+                &:last-child {
+                  border-left: 0px;
                 }
             }
         }
