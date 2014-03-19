@@ -24,7 +24,7 @@ jQuery(document).ready(function ($) {
     });
     return false;
   });
-  
+
   $(document).on('click', '.voting_button:not(".added")', function(){
     var self = this;
     $.ajax({
