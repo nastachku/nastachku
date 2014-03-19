@@ -40,7 +40,7 @@ module AuthHelper
   end
 
   def track_user(user)
-    old_sign_in_at = user.current_sign_in_at 
+    old_sign_in_at = user.current_sign_in_at
     new_sign_in_at = Time.zone.now.utc
 
     user.last_sign_in_at = old_sign_in_at || new_sign_in_at
@@ -48,7 +48,7 @@ module AuthHelper
 
     old_sign_in_ip = user.current_sign_in_ip
     new_sign_in_ip = request.remote_ip
-    
+
     user.last_sign_in_ip = old_sign_in_ip || new_sign_in_ip
     user.current_sign_in_ip = new_sign_in_ip
 
@@ -57,7 +57,7 @@ module AuthHelper
 
     user.changed_by = user
 
-    #FIXME Скипаем валиадцию, так как в бд присутствуют невалидные пользователи 
+    #FIXME Скипаем валиадцию, так как в бд присутствуют невалидные пользователи
     #(юзеры успели зарегаться до ввода некоторых валидаций)
     user.save(validate: false)
   end
