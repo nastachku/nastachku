@@ -32,7 +32,7 @@ class TimeSlotEditWidget
       start_date = e.localDate
       console.log(start_date)
       finish_date = new Date(Date.parse(start_date))
-      finish_date = finish_date.setHours(finish_date.getHours() + 1)
+      finish_date.setMinutes(finish_date.getMinutes() + 45)
       console.log(finish_date)
       picker = @item.find('.finish_time').closest('.datetimepicker').data('datetimepicker')
       picker.setLocalDate(new Date(finish_date))
