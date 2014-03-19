@@ -1,5 +1,6 @@
 class Slot < ActiveRecord::Base
   include SlotRepository
+  include UsefullScopes
   extend Enumerize
 
   class << self
