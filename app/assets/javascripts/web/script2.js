@@ -3,14 +3,35 @@
  * mihailfirsov.ru
  * dev.firsov@gmail.com
 */
+var timer;
+
+function showAdapticTable() {
+    $("dd.selected table").removeClass();
+    $("dd.selected table").addClass("page-1");
+    var page = Number($("dd.selected table").attr('data-page'));
+    if (isNaN(page)) page = 1;
+    hideAllTd();
+    if (check_width(604)) {
+      showTdOfTable([page]);
+    } else if (check_width(964)) {
+      if(page == 1) {
+        showTdOfTable([1,2,3]);
+      } else if (page == 2) {
+        showTdOfTable([4,5,6]);
+      }
+    } else {
+      showTdOfTable([1,2,3,4,5,6]);
+    }
+}
 jQuery(document).ready(function ($) {
-
+    $(window).resize(function(){
+      showAdapticTable();
+    });
     var $layout=$('#layout'), $overlay=$('#overlay'), $popups=$('.popup');
-
     $('.open_this').on('click', function() {
         $(this).toggleClass('open');
     });
-
+    showAdapticTable();
     if (check_width(604)) {
         var org_logos_carousel=$("#org_logos").touchCarousel({
             pagingNav: false,
@@ -76,12 +97,15 @@ function programm_next (next, prev) {
             next.attr('data-page', (page + 1));
             prev.removeClass('disable').attr('data-page', (page + 1));
             next.parents('table').attr('class', 'page-' + (page + 1));
+            // то, что выше - может не работать как надо
+            showTdOfTable([page+1]);
         }
     } else if (check_width(964)) {
         if (page==1) {
             next.addClass('disable').attr('data-page',2);
             prev.removeClass('disable').attr('data-page',2);
             next.parents('table').attr('class','page-2')
+            showTdOfTable([4,5,6]);
         }
     }
 }
@@ -94,14 +118,29 @@ function programm_prev (prev, next) {
             prev.attr('data-page', (page - 1));
             next.removeClass('disable').attr('data-page', (page - 1));
             prev.parents('table').attr('class', 'page-' + (page - 1));
+            // то, что выше - может не работать как надо
+            showTdOfTable([page-1]);
         }
     } else if (check_width(964)) {
         if (page==2) {
             next.removeClass('disable').attr('data-page',1);
             prev.addClass('disable').attr('data-page',1);
             next.parents('table').attr('class','page-1')
+            showTdOfTable([1,2,3]);
         }
     }
+}
+
+// halls = [1,2,3]
+function showTdOfTable(halls) {
+  hideAllTd();
+  halls.map(function(hall) {
+    $("td[data-hall=" + hall + "]").show();
+  });           
+}
+
+function hideAllTd() {
+  $("td[data-hall]").hide();
 }
 
 function contacts_next (next, prev) {
