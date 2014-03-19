@@ -4,3 +4,4 @@
       = render "lecture", lecture: hall.slot_at_the_time(i_time).event
   - elsif hall.has_not_slots?(i_time)
     %td
+%td{ style: "border-left: 0px" }
