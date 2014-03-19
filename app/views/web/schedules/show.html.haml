@@ -2,9 +2,10 @@
   .content__tabs__line
   .layout-line
     %h1.pagetitle__title Программа
-    .programm__my
-      %input#my_programm.checkbox_type-3{ type:"checkbox", name: "my_programm", value:"Y", data: {my: "in_my_schedule"}}
-      %label{ for:"my_programm"} Моя программа
+    - if signed_in?
+      .programm__my
+        %input#my_programm.checkbox_type-3{ type:"checkbox", name: "my_programm", value:"Y", data: {my: "in_my_schedule"}}
+        %label{ for:"my_programm"} Моя программа
     %dl.content__tabs
       = render "day", day: configus.schedule.first_day
       = render "day", day: configus.schedule.second_day
