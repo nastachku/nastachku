@@ -44,7 +44,7 @@ class HallDecorator < Draper::Decorator
 
   def has_not_slots?(time)
     model.slots.each do |slot|
-      if slot.start_time <= time and slot.finish_time >= time
+        if slot.start_time < time and slot.finish_time > time
         return false
       end
     end

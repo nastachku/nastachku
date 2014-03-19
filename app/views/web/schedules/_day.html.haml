@@ -45,14 +45,16 @@
                 %td
           - elsif @halls.first.has_begin_event?(i_time)
             %tr.programm__schedule__mainaction
-              = render "timeline", i_time: i_time
-              %td{ rowspan: @halls.first.slot_at_the_time(i_time).decorate.duration / 5, colspan: @halls.count }
+              %td.programm__time
+                = i_time.hour
+                %span
+                  = minute_to_timeline(i_time.minute)
+              %td{ colspan: @halls.count + 1 }
                 %h4
                   = @halls.first.slot_at_the_time(i_time).event.title
           - elsif @halls.first.has_event?(i_time)
-            %tr
-              = render "timeline", i_time: i_time
+            - next
           - else
-            %tr.programm__schedule__lecture
+            %tr.programm__schedule__lectures
               = render "timeline", i_time: i_time
               = render "program_table_row", i_time: i_time
