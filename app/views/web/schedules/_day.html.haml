@@ -39,10 +39,11 @@
         - (540...(19*60+15)).each_slice(5).to_a.each do |i|
           - i_time = DateTime.new(day.year, day.month, day.day, i.first / 60, i.first % 60, 0)
           - if not slots_in_time?(@slots, i_time)
-            %tr.programm__schedule__mainaction
+            %tr
               = render "timeline", i_time: i_time
               - (1..@halls.count).each do
                 %td
+              %td{ style: "border-left: 0px" }
           - elsif @halls.first.has_begin_event?(i_time)
             %tr.programm__schedule__mainaction
               %td.programm__time
@@ -54,6 +55,10 @@
                   = @halls.first.slot_at_the_time(i_time).event.title
           - elsif @halls.first.has_event?(i_time)
             - next
+          - elsif @halls.first.timeline_need_finish_event_correction?(i_time)
+            %tr.programm__schedule__lectures
+              %td.programm__time{ style: "border-top: 0px" }
+              = render "program_table_row",  i_time: i_time
           - else
             %tr.programm__schedule__lectures
               = render "timeline", i_time: i_time
