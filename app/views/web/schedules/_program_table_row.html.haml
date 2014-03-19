@@ -2,5 +2,5 @@
   - if hall.has_begin_lecture?(i_time)
     %td{ rowspan: hall.slot_at_the_time(i_time).decorate.duration / 5 }
       = render "lecture", lecture: hall.slot_at_the_time(i_time).event
-  - if hall.has_not_slots?(i_time)
+  - elsif hall.has_not_slots?(i_time)
     %td
