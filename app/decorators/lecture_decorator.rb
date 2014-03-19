@@ -30,4 +30,14 @@ class LectureDecorator < Draper::Decorator
   def full_title
     "#{lector} - #{title}(#{model.workshop.title})"
   end
+
+  def in_schedule_of(user)
+    if user
+      if model.lecture_votings.voted_by? user
+        "in_my_schedule"
+      else
+        ""
+      end
+    end
+  end
 end

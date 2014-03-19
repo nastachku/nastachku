@@ -1,4 +1,4 @@
-.programm__schedule__lectures__lecture{ class: lecture.decorate.workshop_color }
+.programm__schedule__lectures__lecture{ class: "#{lecture.workshop_color} #{lecture.in_schedule_of(current_user)}" }
   %h4.lecture__lecturer
     = lecture.slot.start_time.to_time.strftime("%H:%M")
   %h4.lecture__lecturer
