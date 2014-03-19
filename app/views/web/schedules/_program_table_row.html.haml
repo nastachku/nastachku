@@ -1,6 +1,6 @@
 - @halls.each_with_index do |hall, i|
   - if hall.has_begin_lecture?(i_time)
-    %td{ rowspan: hall.slot_at_the_time(i_time).decorate.duration / 5, data: {hall: hall.id} }
+    %td{ rowspan: hall.slot_at_the_time(i_time).decorate.duration / 5, data: {hall: i} }
       = render "lecture", lecture: hall.slot_at_the_time(i_time).event.decorate
   - elsif hall.has_not_slots?(i_time)
     %td{data: {hall: i} }
