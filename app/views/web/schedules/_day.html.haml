@@ -28,8 +28,8 @@
           - if not slots_in_time?(@slots, i_time)
             %tr
               = render "timeline", i_time: i_time
-              - (1..@halls.count).each do
-                %td
+              - (1..@halls.count).each_with_index do |item, index|
+                %td{data: {hall: index} }
               %td{ style: "border-left: 0px" }
           - elsif @halls.first.has_begin_event?(i_time)
             %tr.programm__schedule__mainaction

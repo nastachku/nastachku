@@ -5,6 +5,7 @@ module UserPopulator
     user.first_name = session_auth_hash[:info][:first_name]
     user.last_name = session_auth_hash[:info][:last_name]
     user.facebook = session_auth_hash[:info][:urls][:Facebook]
+    user
   end
 
 end
