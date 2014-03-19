@@ -6,24 +6,11 @@
   .programm__filter
     .programm__filter__checkboxs-title Выберите секцию:
     %ul.programm__filter__checkboxs
-      %li
-        %input#section-1.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__green"}}
-        %label.checkbox_type-2-green{ for:"section-1"} Техническая секция
-      %li
-        %input#section-2.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__orange"}}
-        %label.checkbox_type-2-orange{ for:"section-2"} Мобильная разработка
-      %li
-        %input#section-3.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__purple"}}
-        %label.checkbox_type-2-purple{ for:"section-3"} Стартапы
-      %li
-        %input#section-4.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__yellow"}}
-        %label.checkbox_type-2-yellow{ for:"section-4"} Digital- коммуникации
-      %li
-        %input#section-5.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__red"}}
-        %label.checkbox_type-2-red{ for:"section-5"} Менеджмент
-      %li
-        %input#section-6.checkbox_type-2.schedule__filter{ type:"checkbox", name: "order_item", value:"Y", data: {lecture: "lecture__blue"}}
-        %label.checkbox_type-2-blue{ for:"section-6"} IT-проекты
+      - @workshops.each_with_index do |workshop, i|
+        %li
+          %input.checkbox_type-2.schedule__filter{ id: "section-#{i}", type: "checkbox", name: "order_item", value: "Y", data: { lecture: "lecture__#{workshop_color(workshop.title)}"  } }
+          %label{ class: "checkbox_type-2-#{workshop_color(workshop.title)}", for: "section-#{i}" }
+            = workshop.title
   .programm__schedule
     %table#april-12.page-1
       %thead

@@ -33,4 +33,11 @@ module Web::SchedulesHelper
       "selected"
     end
   end
+
+  include WorkshopsHelper
+
+  def workshop_color(workshop_title)
+    workshops_color_hash[workshop_title]
+  end
+
 end
