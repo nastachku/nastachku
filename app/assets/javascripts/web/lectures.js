@@ -6,6 +6,8 @@ jQuery(document).ready(function ($) {
     }
   });
 
+  $('#filter_by_workshop option[value=' + $.url().param("workshop_id_eq") + ']').prop('selected', true).trigger('change');
+
   $('#filter_by_workshop').on('change.fs', function(){
     $.ajax({
       url: Routes.lectures_path(),
