@@ -29,5 +29,4 @@
           %p.lectures__item__add-added Требуется регистрация на конференции
       .lectures__item-social
         %p.open_this Поделиться с друзьями:
-        .share42init{data: {path: root_url + "assets/", url: "#{lectures_url}#lecture_#{lecture.id}", title: "#{lecture.title}(#{lecture.user.decorate.full_name})", image: "#{root_url}/assets/#{lecture.user.decorate.user_pic}", description: lecture.thesises}}
-        .pluso{data: {url: "#{lectures_url}#lecture_#{lecture.id}", title: lecture.title, description: lecture.thesises,  background: "transparent", options: "big,round,line,horizontal,nocounter,theme=04", services: "twitter,facebook,vkontakte"}}
+        .share42init{data: {path: root_url + "assets/", url: "#{lectures_url}?lecture_id=#{lecture.id}", title: "#{lecture.title}(#{lecture.user.decorate.full_name})", image: "#{root_url}/assets/#{lecture.user.decorate.user_pic}", description: lecture.thesises}}

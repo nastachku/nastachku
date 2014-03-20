@@ -14,7 +14,13 @@
     %meta{ content: "Digital-коммуникации, Программирование, IT-стартапы, Электронная коммерция, Менеджмент в IT, IT на службе общества", property: "og:description" }
     %meta{ content: "website", property: "og:type" }
     %meta{ content: "Стачка!", property: "og:site_name" }
-    %meta{ content: "i/og_image.png", property: "og:image" }
+    - if @lecture_id and @lecture_by_id
+      %meta{ content: "#{root_url}assets/#{@lecture_by_id.lector_photo}", property: "og:image" }
+      %meta{ content: @lecture_by_id.thesises, property: "og:description" }
+      %meta{ content: "#{@lecture_by_id.title}(#{@lecture_by_id.lector_name})", property: "og:title" }
+      %meta{ content: "#{lectures_url}?lecture_id=#{@lecture_id}", property: "og:url" }
+    - else
+      %meta{ content: "i/og_image.png", property: "og:image" }
     = csrf_meta_tag
     = stylesheet_link_tag "web/application"
     = javascript_include_tag "application"

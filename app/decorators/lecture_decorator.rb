@@ -22,6 +22,14 @@ class LectureDecorator < Draper::Decorator
     "lecture__#{workshops_color_hash[model.workshop.title]}"
   end
 
+  def lector_photo
+    lector.user_pic
+  end
+
+  def lector_name
+    lector.full_name
+  end
+
   def lector
     #FIXME убрать UserDecorator.decorate, декорировать с помощью association
     UserDecorator.decorate model.user
