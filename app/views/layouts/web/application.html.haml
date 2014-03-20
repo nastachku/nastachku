@@ -9,7 +9,6 @@
     %meta{ charset: "utf-8" }
     %meta{ content: "Digital-коммуникации, Программирование, IT-стартапы, Электронная коммерция, Менеджмент в IT, IT на службе общества", name: "description" }
     %meta{ content: "Главная | Стачка!", name: "keywords" }
-    %meta{ content: "http://nastachku.ru/", property: "og:url" }
     %meta{ content: "Главная | Стачка!", property: "og:title" }
     %meta{ content: "Digital-коммуникации, Программирование, IT-стартапы, Электронная коммерция, Менеджмент в IT, IT на службе общества", property: "og:description" }
     %meta{ content: "website", property: "og:type" }
@@ -21,6 +20,7 @@
       %meta{ content: "#{lectures_url}?lecture_id=#{@lecture_id}", property: "og:url" }
     - else
       %meta{ content: "i/og_image.png", property: "og:image" }
+      %meta{ content: "http://nastachku.ru/", property: "og:url" }
     = csrf_meta_tag
     = stylesheet_link_tag "web/application"
     = javascript_include_tag "application"
