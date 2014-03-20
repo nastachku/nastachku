@@ -14,6 +14,7 @@ jQuery(document).ready(function ($) {
       data: {workshop_id_eq: $('#filter_by_workshop option:selected').val()},
       success: function() {
         window.pluso.start();
+        window.history.pushState('string', 'Доклады', Routes.lectures_path() + "?workshop_id_eq=" + $('#filter_by_workshop option:selected').val());
       }
     })
   });
