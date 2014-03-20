@@ -41,6 +41,6 @@ module Web::SchedulesHelper
   end
 
   def minutes_count(time)
-    time.hour * 60 + time.minute
+    time.hour * 60 + time.to_datetime.minute
   end
 end
