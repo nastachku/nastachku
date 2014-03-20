@@ -24,9 +24,6 @@ function showAdapticTable() {
     }
 }
 jQuery(document).ready(function ($) {
-    $(window).resize(function(){
-      showAdapticTable();
-    });
     var $layout=$('#layout'), $overlay=$('#overlay'), $popups=$('.popup');
     $('.open_this').on('click', function() {
         $(this).toggleClass('open');
