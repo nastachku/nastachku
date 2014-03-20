@@ -23,7 +23,7 @@
           %th
             %span.programm__next{ data: { page: "1" }}
       %tbody
-        - (540...(19*60+15)).each_slice(5).to_a.each do |i|
+        - (minutes_count(start_time)...minutes_count(finish_time)).each_slice(5).to_a.each do |i|
           - i_time = DateTime.new(day.year, day.month, day.day, i.first / 60, i.first % 60, 0)
           - if not slots_in_time?(@slots, i_time)
             %tr

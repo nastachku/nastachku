@@ -16,8 +16,16 @@ Configus.build Rails.env do
     end
 
     schedule do
-      first_day Time.utc(2014, 4, 11)
-      second_day Time.utc(2014, 4, 12)
+      first_day do
+        date Time.utc(2014, 4, 11)
+        start_time DateTime.new(2014, 4, 11, 9, 0, 0)
+        finish_time DateTime.new(2014, 4, 11, 21, 0, 0)
+      end
+      second_day do
+        date Time.utc(2014, 4, 12)
+        start_time DateTime.new(2014, 4, 12, 10, 0, 0)
+        finish_time DateTime.new(2014, 4, 12, 18, 0, 0)
+      end
     end
 
     mailer do

@@ -29,7 +29,7 @@ module Web::SchedulesHelper
   end
 
   def first_day_selected(day)
-    if day.day == configus.schedule.first_day.day
+    if day.day == configus.schedule.first_day.date.day
       "selected"
     end
   end
@@ -40,4 +40,7 @@ module Web::SchedulesHelper
     workshops_color_hash[workshop_title]
   end
 
+  def minutes_count(time)
+    time.hour * 60 + time.minute
+  end
 end
