@@ -10,9 +10,6 @@ class Web::ApplicationController < ApplicationController
   #helper :all
   helper_method :edit_admin_event_cpath, :workshops
 
-  before_filter :basic_auth if Rails.env.staging?
-
-  before_filter :basic_auth if Rails.env.staging?
 
   protect_from_forgery
 
