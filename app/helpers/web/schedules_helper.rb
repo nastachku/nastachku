@@ -29,7 +29,7 @@ module Web::SchedulesHelper
   end
 
   def first_day_selected(day)
-    if day.day == configus.schedule.first_day.day
+    if day.day == configus.schedule.first_day.date.day
       "selected"
     end
   end
@@ -40,4 +40,17 @@ module Web::SchedulesHelper
     workshops_color_hash[workshop_title]
   end
 
+  def minutes_count(time)
+    time.hour * 60 + time.to_datetime.minute
+  end
+
+  def before_after_party?(time)
+    last_lecture_finish_time = time
+    Slot.for_day(time).each do |slot|
+      if slot.event_type == "Lecture" and slot.finish_time > last_lecture_finish_time
+        last_lecture_finish_time = slot.finish_time
+      end
+    end
+    last_lecture_finish_time == time
+  end
 end
