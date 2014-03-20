@@ -33,30 +33,19 @@ jQuery(document).ready(function ($) {
     });
     showAdapticTable();
     if (check_width(604)) {
-        var org_logos_carousel=$("#org_logos").touchCarousel({
+        var options = {
             pagingNav: false,
             scrollbar: false,
             directionNavAutoHide: false,
             itemsPerMove: 1,
-            loopItems: false,
+            loopItems: true,
             directionNav: true,
             autoplay: false,
             autoplayDelay: 2000,
             useWebkit3d: true,
             transitionSpeed: 400
-        }).data("touchCarousel");
-        var spn_logos_carousel=$("#sponsors_logos").touchCarousel({
-            pagingNav: false,
-            scrollbar: false,
-            directionNavAutoHide: false,
-            itemsPerMove: 1,
-            loopItems: false,
-            directionNav: true,
-            autoplay: false,
-            autoplayDelay: 2000,
-            useWebkit3d: true,
-            transitionSpeed: 400
-        }).data("touchCarousel");
+        };
+        var logos_carousel=$(".touchcarousel").touchCarousel(options).data("touchCarousel");
     }
 
 
