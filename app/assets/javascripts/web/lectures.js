@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
       dataType: "script",
       data: {workshop_id_eq: $('#filter_by_workshop option:selected').val()},
       success: function() {
-        window.pluso.start();
+        startShare42();
         window.history.pushState('string', 'Доклады', Routes.lectures_path() + "?workshop_id_eq=" + $('#filter_by_workshop option:selected').val());
       }
     })
@@ -23,7 +23,7 @@ jQuery(document).ready(function ($) {
 
   $('#lectures').on('click', '.sorting a', function() {
     $.getScript(this.href,  function( data, textStatus, jqxhr ) {
-      window.pluso.start();
+      startShare42();
     });
     return false;
   });
