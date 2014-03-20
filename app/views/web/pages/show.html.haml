@@ -1,15 +1,19 @@
 - if is_contacts_page?
   .content
     .layout-line
-      %p Ищете где остановиться в Ульяновске?
-      %p СТАЧКА рекомендует снять квартиру посуточно!
-      %p
-        = link_to "http://sutochno.ru" do
-          Суточно.ру
-        \- тысячи предложений от владельцев квартир в России и за рубежом.
-      %p
+      .sutochno
         = link_to "http://sutochno.ru" do
           = image_tag "logos/sutochno.png"
+        .text{ style: "float: left" }
+          %p Ищете где остановиться в Ульяновске?
+          %p СТАЧКА рекомендует снять квартиру посуточно!
+          %p
+            = link_to "http://sutochno.ru" do
+              Суточно.ру
+            \- тысячи предложений от владельцев квартир в России и за рубежом.
+      .clearfix
+  %br
+  %hr
 .pagetitle
   .layout-line
     %h1.pagetitle__title= @page.title
