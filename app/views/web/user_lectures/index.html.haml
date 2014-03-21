@@ -2,7 +2,7 @@
   .layout-line
     %h1.pagetitle__title= t '.events20'
     .pagetitle__select.pagetitle__select__lecture
-      = select_tag :filter_by_workshop, options_for_select([["Все доклады", " "]] + @workshops.collect{ |w| [w.title, w.id, {'data-icon' => w.icon}]}), class: "custom_select"
+      = select_tag :filter_user_lectures_by_workshop, options_for_select([["Все доклады", " "]] + @workshops.collect{ |w| [w.title, w.id, {'data-icon' => w.icon}]}), class: "custom_select"
     %h5
       = t('.user_lectures_title_before_link')
       = succeed ',' do

@@ -24,11 +24,13 @@
           = lecture.thesises
       .lectures__item__adding
         .lectures__item__add
-          - if current_user
-            -# if user_voted_for_lecture?(lecture)
-              %p.lecture_added.lectures__item__add-added{ style: "display: none" } Проголосовать за доклад
-            -# else
-              %p.lecture_added.lectures__item__add-added Вы уже проголосовали за этот доклад
+          - if signed_in?
+            - unless user_voted_for_lecture?(lecture)
+              %span.voting_button.lectures__item__add-add{ data: { id: lecture.id } } Я пойду на доклад
+              %p.lecture_added.lectures__item__add-added Вы проголосовали за этот доклад
+            - else
+              %span.voting_button.lectures__item__add-add.added{ data: { id: lecture.id } } Удалить доклад
+              %p.lecture_added.lectures__item__add-added Проголосовать за доклад
           - else
             %p.lectures__item__add-added Требуется регистрация на конференции
         .lectures__item-social

@@ -17,7 +17,7 @@
         = lecture.thesises
     .lectures__item__adding
       .lectures__item__add
-        - if current_user
+        - if signed_in?
           - unless user_is_listener?(lecture)
             %span.voting_button.lectures__item__add-add{ data: { id: lecture.id } } Я пойду на доклад
             %p.lecture_added.lectures__item__add-added{ style: "display: none" } Доклад добавлен в вашу программу
