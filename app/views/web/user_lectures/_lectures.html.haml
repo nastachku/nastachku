@@ -33,6 +33,8 @@
               %p.lecture_added.lectures__item__add-added Проголосовать за доклад
           - else
             %p.lectures__item__add-added Требуется регистрация на конференции
+          %p.lecture_added.lecture__item__add-added
+            = lecture.lecture_votings_count
         .lectures__item-social
           %p.open_this Поделиться с друзьями:
           .share42init{data: {path: root_url + "assets/", url: "#{lectures_url}?lecture_id=#{lecture.id}", title: "#{lecture.title}(#{lecture.user.decorate.full_name})", image: "#{root_url}/assets/#{lecture.user.decorate.user_pic}", description: lecture.thesises}}
