@@ -29,7 +29,8 @@ class TimeSlotEditWidget
     @item.find('.datetimepicker').datetimepicker format: "yyyy-MM-dd hh:mm:ss"
     @start_time_picker = @item.find('.start_time').closest('.datetimepicker')
     start_picker = @start_time_picker.data('datetimepicker')
-    start_picker.setLocalDate(new Date(2014,3,11,9)) if start_picker
+    finish_picker = @item.find('.finish_time').closest('.datetimepicker').data('datetimepicker')
+    start_picker.setLocalDate(new Date(2014,3,11,9)) if start_picker && finish_picker && start_picker.getLocalDate().getTime() == finish_picker.getLocalDate().getTime()
     @start_time_picker.on 'changeDate', (e) =>
       start_date = e.localDate
       console.log(start_date)
