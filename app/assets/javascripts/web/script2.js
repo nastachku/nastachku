@@ -22,33 +22,36 @@ function setNextAndPrevButtons(page, enableAll, disablePrev){
 }
 
 function showAdapticTable() {
-    var page = Number($("dd.selected table").attr('class').split('page-')[1]);
-    var setPageOne = function() {
-      page = 1;
-      var $table = $("dd.selected table");
-      $table.removeClass();
-      $table.addClass("page-1");
-      setNextAndPrevButtons(page, false, (page == 1));
-    }
-    if (isNaN(page)) {
-      setPageOne();
-    }
-    hideAllTd();
-    if (check_width(604)) {
-      setNextAndPrevButtons(page, (page != 1 && page != 7), (page == 1))
-      showTdOfTable([page]);
-    } else if (check_width(964)) {
-      if(page > 2) {
+    var table_class = $("dd.selected table").attr('class');
+    if (table_class) {
+      var page = Number(table_class.split('page-')[1]);
+      var setPageOne = function() {
+        page = 1;
+        var $table = $("dd.selected table");
+        $table.removeClass();
+        $table.addClass("page-1");
+        setNextAndPrevButtons(page, false, (page == 1));
+      }
+      if (isNaN(page)) {
         setPageOne();
       }
-      if(page == 1) {
-        showTdOfTable([1,2,3]);
-      } else if (page == 2) {
-        showTdOfTable([4,5,6,7]);
+      hideAllTd();
+      if (check_width(604)) {
+        setNextAndPrevButtons(page, (page != 1 && page != 7), (page == 1))
+        showTdOfTable([page]);
+      } else if (check_width(964)) {
+        if(page > 2) {
+          setPageOne();
+        }
+        if(page == 1) {
+          showTdOfTable([1,2,3]);
+        } else if (page == 2) {
+          showTdOfTable([4,5,6,7]);
+        }
+      } else {
+        setPageOne();
+        showTdOfTable([1,2,3,4,5,6,7]);
       }
-    } else {
-      setPageOne();
-      showTdOfTable([1,2,3,4,5,6,7]);
     }
 }
 jQuery(document).ready(function ($) {
