@@ -3,26 +3,54 @@
  * mihailfirsov.ru
  * dev.firsov@gmail.com
 */
-var timer;
+function setNextAndPrevButtons(page, enableAll, disablePrev){
+      var $next = $('.programm__next'), $prev=$('.programm__prev'); 
+      $next.attr('data-page', page);
+      $prev.attr('data-page', page);
+      if (enableAll) {
+          $prev.removeClass('disable').attr('data-page', page);
+          $next.removeClass('disable').attr('data-page', page);
+      } else {
+        if (disablePrev) {
+          $prev.addClass('disable').attr('data-page', page);
+          $next.removeClass('disable').attr('data-page', page);
+        } else {
+          $next.addClass('disable').attr('data-page', page);
+          $prev.removeClass('disable').attr('data-page', page);
+        }
+      }
+}
 
 function showAdapticTable() {
     var table_class = $("dd.selected table").attr('class');
-    $("dd.selected table").removeClass();
-    $("dd.selected table").addClass("page-1");
     if (table_class) {
       var page = Number(table_class.split('page-')[1]);
-      if (isNaN(page)) page = 1;
+      var setPageOne = function() {
+        page = 1;
+        var $table = $("dd.selected table");
+        $table.removeClass();
+        $table.addClass("page-1");
+        setNextAndPrevButtons(page, false, (page == 1));
+      }
+      if (isNaN(page)) {
+        setPageOne();
+      }
       hideAllTd();
       if (check_width(604)) {
+        setNextAndPrevButtons(page, (page != 1 && page != 7), (page == 1))
         showTdOfTable([page]);
       } else if (check_width(964)) {
+        if(page > 2) {
+          setPageOne();
+        }
         if(page == 1) {
           showTdOfTable([1,2,3]);
         } else if (page == 2) {
-          showTdOfTable([4,5,6]);
+          showTdOfTable([4,5,6,7]);
         }
       } else {
-        showTdOfTable([1,2,3,4,5,6]);
+        setPageOne();
+        showTdOfTable([1,2,3,4,5,6,7]);
       }
     }
 }
@@ -31,6 +59,9 @@ jQuery(document).ready(function ($) {
     $('.open_this').on('click', function() {
         $(this).toggleClass('open');
     });
+    $(window).resize(function(){
+      showAdapticTable();
+    });  
     showAdapticTable();
     if (check_width(604)) {
         var options = {
@@ -81,8 +112,8 @@ function check_width (data_width) {
 function programm_next (next, prev) {
     var page=Number(next.attr('data-page'));
     if (check_width(604)) {
-        if (page<6){
-            if (page==5) next.addClass('disable');
+        if (page<7){
+            if (page==6) next.addClass('disable');
             next.attr('data-page', (page + 1));
             prev.removeClass('disable').attr('data-page', (page + 1));
             next.parents('table').attr('class', 'page-' + (page + 1));
@@ -94,7 +125,7 @@ function programm_next (next, prev) {
             next.addClass('disable').attr('data-page',2);
             prev.removeClass('disable').attr('data-page',2);
             next.parents('table').attr('class','page-2')
-            showTdOfTable([4,5,6]);
+            showTdOfTable([4,5,6,7]);
         }
     }
 }
