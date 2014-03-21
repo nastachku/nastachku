@@ -23,7 +23,7 @@ class UserDecorator < Draper::Decorator
   end
 
   def main_lecture
-    model.lectures.voted_or_scheduled.first
+    model.lectures.first
   end
 
   def user_pic
