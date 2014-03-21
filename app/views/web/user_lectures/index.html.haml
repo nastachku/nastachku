@@ -6,10 +6,9 @@
     %h5
       = t('.user_lectures_title_before_link')
       = succeed ',' do
-        = link_to t(".user_lectures_title_link"), 'mailto:info@nastachku.ru'
+        = link_to t(".user_lectures_title_link"), new_account_lecture_path
       = t('.user_lectures_title_after_link')
     %br
-
 .content.lectures
   .layout-line
     %ul#lectures.lectures__items

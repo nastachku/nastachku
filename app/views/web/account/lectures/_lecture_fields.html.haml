@@ -2,8 +2,9 @@
   .formy.formy-issue.nested-fields
     .row-fluid
       .span8
-        = f.input :title
-        = f.input :thesises, input_html: {rows: 5}
+        = f.input :title, label: false, placeholder: Lecture.human_attribute_name(:title), class: :input_without_ul
+        = f.input :thesises, label: false, placeholder: Lecture.human_attribute_name(:thesises), class: :input_without_ul
+        = f.association :workshop
       .span3
         = f.input :presentation, as: :file
       .span1

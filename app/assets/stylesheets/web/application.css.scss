@@ -2,3 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //= require_tree .
+
+.controls textarea {
+  height: 150px;
+}
+
+.controls textarea:focus {
+  height: 300px;
+}
+
+.one_column_form {
+  width: 600px;
+}
+
+.one_column_form input {
+  width: 100%;
+}
+
+.one_column_form textarea {
+  width: 100%;
+}
+
+.one_column_form select {
+  width: 100%;
+}
