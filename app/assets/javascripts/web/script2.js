@@ -6,21 +6,24 @@
 var timer;
 
 function showAdapticTable() {
+    var table_class = $("dd.selected table").attr('class');
     $("dd.selected table").removeClass();
     $("dd.selected table").addClass("page-1");
-    var page = Number($("dd.selected table").attr('data-page'));
-    if (isNaN(page)) page = 1;
-    hideAllTd();
-    if (check_width(604)) {
-      showTdOfTable([page]);
-    } else if (check_width(964)) {
-      if(page == 1) {
-        showTdOfTable([1,2,3]);
-      } else if (page == 2) {
-        showTdOfTable([4,5,6]);
+    if (table_class) {
+      var page = Number(table_class.split('page-')[1]);
+      if (isNaN(page)) page = 1;
+      hideAllTd();
+      if (check_width(604)) {
+        showTdOfTable([page]);
+      } else if (check_width(964)) {
+        if(page == 1) {
+          showTdOfTable([1,2,3]);
+        } else if (page == 2) {
+          showTdOfTable([4,5,6]);
+        }
+      } else {
+        showTdOfTable([1,2,3,4,5,6]);
       }
-    } else {
-      showTdOfTable([1,2,3,4,5,6]);
     }
 }
 jQuery(document).ready(function ($) {
