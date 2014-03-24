@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 Nastachku::Application.routes.draw do
   require 'admin_constraint'
-  
+
   get "audits/index"
 
   match "/404", to: "web/errors#not_found"
@@ -110,7 +110,7 @@ Nastachku::Application.routes.draw do
       resources :workshops
       resources :halls
       resources :event_breaks
-      resources :orders, only: [:index]
+      resources :orders, only: [ :index, :edit, :update ]
       resource :mailers, only: [] do
         get :index
         post :deliver
