@@ -1,31 +1,21 @@
-%h1=t '.add_event'
+.pagetitle
+  .layout-line
+    %h1.pagetitle__title
+      =t '.add_event'
+.content
+  .layout-line
+    = simple_form_for @user, url: account_lectures_path, method: :post do |f|
+      %ul.form__group.one_column_form
+        %li.form__element
+          = f.input :about, label: false, placeholder: User.human_attribute_name(:about), class: 'user-summary'
+        %li.form__element
+          #events
+            = f.simple_fields_for :lectures do |lecture|
+              = render 'lecture_fields', f: lecture
 
-= simple_form_for @user, url: account_lectures_path, method: :post do |f|
-  .row
-    .span12
-      .formy{ :class => @user.photo.url ? 'formy-photo' : '' }
-        .form
-          .row-fluid
-            .span4
-              - if @user.photo.url
-                .userpic
-                  = image_tag(@user.photo.url)
-              = f.input :photo, as: :file
-
-            .span8
-              = f.input :about, input_html: {rows: 5, cols: 20, class: 'user-summary'}
-
-  .row
-    .span12
-      %br
-
-      #events
-        = f.simple_fields_for :lectures do |lecture|
-          = render 'lecture_fields', f: lecture
-
-      .btn-diff.clearfix
-        .pull-left
-          = f.submit t('.add_event'), class: 'btn btn-shine'
-        .pull-right
-          = link_to_add_association f, :lectures, class: "btn", :'data-association-insertion-node' => '#events', :'data-association-insertion-method' => 'append' do
-            %i.icon-plus
+          .btn-diff.clearfix
+            .pull-left
+              = f.submit t('.add_event'), class: "btn_main btn_main-reg"
+            .pull-right
+              = link_to_add_association f, :lectures, class: "btn", :'data-association-insertion-node' => '#events', :'data-association-insertion-method' => 'append' do
+                %i.icon-plus
