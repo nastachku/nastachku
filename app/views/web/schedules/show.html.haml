@@ -25,11 +25,14 @@
 
             var lectures=$('.programm__schedule__lectures__lecture');
             $('.schedule__filter').on('change', function() {
+                var lecture_class = $(this).data('lecture');
                 if ($(this).is(':checked')) {
+                    $('[data-lecture=' + lecture_class + ']').prop("checked", true);
                     lectures.addClass('disable');
-                    $('.'+$(this).data('lecture')).addClass('enable');
+                    $('.'+ lecture_class).addClass('enable');
                 } else {
-                    $('.'+$(this).data('lecture')).removeClass('enable');
+                    $('[data-lecture=' + lecture_class + ']').prop("checked", false);
+                    $('.'+ lecture_class).removeClass('enable');
                 }
                 if (!$(this).parents('.programm__filter__checkboxs').find(':checked').length) {
                     lectures.removeClass('disable');
