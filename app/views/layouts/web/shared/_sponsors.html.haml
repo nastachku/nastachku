@@ -1,5 +1,16 @@
 ﻿.pagetitle.mainpage__title.pagetitle__withoutborder
   .layout-line
+    %h1.pagetitle__title Генеральный спонсор
+.mainpage__sponsors
+  .layout-line
+    #platin_sponsors_logos.company__logos.logos_carousel
+      %ul.touchcarousel-container
+        %li.touchcarousel-item
+          %div
+          = link_to "http://www.microsoft.com/", target: "_blank" do
+            = image_tag "logos/microsoft_logo.png"
+.pagetitle.mainpage__title.pagetitle__withoutborder
+  .layout-line
     %h1.pagetitle__title Платиновые спонсоры
 .mainpage__sponsors
   .layout-line

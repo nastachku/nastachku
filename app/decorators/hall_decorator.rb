@@ -52,7 +52,7 @@ class HallDecorator < Draper::Decorator
   end
 
   def timeline_need_finish_event_correction?(time)
-    Slot.for_day(time).with(hall_id: model.id).each do |slot|
+    model.slots.for_day(time).each do |slot|
       d = (time.hour - slot.finish_time.hour) * 60 + (time.minute - slot.finish_time.to_datetime.minute)
       if d >= 0 and d < 10 and time.minute % 15 > 0 and slot.finish_time.to_datetime.minute % 15 > 0 and slot.event_type == "Event"
         return true
@@ -62,7 +62,7 @@ class HallDecorator < Draper::Decorator
   end
 
   def timeline_need_start_event_correction?(time)
-    Slot.for_day(time).with(hall_id: model.id).each do |slot|
+    model.slots.for_day(time).each do |slot|
       d = (slot.start_time.hour - time.hour) * 60 + (slot.start_time.to_datetime.minute - time.minute)
       if d >= 0 and d <= 10 and slot.start_time.to_datetime.minute % 15 > 0 and slot.event_type == "Event"
         return true
@@ -72,7 +72,7 @@ class HallDecorator < Draper::Decorator
   end
 
   def border_first_timeline_cell?(time)
-    Slot.for_day(time).with(hall_id: model.id).each do |slot|
+    model.slots.for_day(time).each do |slot|
       d = (time.hour - slot.finish_time.hour) * 60 + (time.minute - slot.finish_time.to_datetime.minute)
       if d > 0 and d <= 10 and slot.finish_time.to_datetime.minute % 15 > 0 and slot.event_type == "Event" and time.minute % 15 == 0
         return "programm__timeline__cell__without__border"
