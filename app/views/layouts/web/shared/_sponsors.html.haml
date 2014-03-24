@@ -37,12 +37,16 @@
             = image_tag "logos/jagajam.png"
 .pagetitle.mainpage__title.pagetitle__withoutborder
   .layout-line
-    %h1.pagetitle__title Серебрянный спонсор
+    %h1.pagetitle__title Серебрянные спонсоры
 .mainpage__sponsors
   .layout-line
-    #silver_sponsors_logos.company__logos.logos_carousel
+    #silver_sponsors_logos.company__logos.logos_carousel.touchcarousel
       %ul.touchcarousel-container
         %li.touchcarousel-item
           %div
           = link_to "http://www.usabilitylab.ru", target: "_blank" do
             = image_tag "logos/usability_lab.jpg"
+        %li.touchcarousel-item
+          %div
+          = link_to "http://sepyra.com/", target: "_blank" do
+            = image_tag "logos/sepyra.jpg"
