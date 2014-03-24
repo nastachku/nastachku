@@ -8,8 +8,8 @@
     %ul.programm__filter__checkboxs
       - @workshops.each_with_index do |workshop, i|
         %li
-          %input.checkbox_type-2.schedule__filter{ id: "section-#{i}", type: "checkbox", name: "order_item", value: "Y", data: { lecture: "lecture__#{workshop_color(workshop.title)}"  } }
-            %label{ class: "checkbox_type-2-#{workshop_color(workshop.title)}", for: "section-#{i}" }
+          %input.checkbox_type-2.schedule__filter{ id: "section-#{i}-#{day.to_s}", type: "checkbox", name: "order_item", value: "Y", data: { lecture: "lecture__#{workshop_color(workshop.title)}"  } }
+            %label{ class: "checkbox_type-2-#{workshop_color(workshop.title)}", for: "section-#{i}-#{day.to_s}" }
               = workshop.title
   .programm__schedule
     %table#april-12.page-1

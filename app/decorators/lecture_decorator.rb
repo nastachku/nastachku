@@ -48,4 +48,8 @@ class LectureDecorator < Draper::Decorator
       end
     end
   end
+
+  def lecture_votings_count
+    model.lecture_votings.count
+  end
 end

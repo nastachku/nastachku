@@ -8,7 +8,7 @@
           .personal__userpic
             .personal__userpic__img
               - if not @user.photo or @user.photo.to_s.empty?
-                = image_tag "/assets/web/no-userpic.jpg"
+                = image_tag "/assets/web/default-user-image.png"
               - else
                 = image_tag @user.photo
             .personal__userpic__upload
@@ -116,8 +116,6 @@
                 %span.rouble i
             .order__new__submit
               %button#submit_order.btn_main.btn_main-pay{ type: "submit", disabled: true} Оплатить заказ
-            Также, Вы можете оплатить участие в конференции через систему
-            %a{ href: "http://srit.timepad.ru/event/105416/"} TimePad
         .orderlist
           .layout-line
             %ul.orderslist__info
