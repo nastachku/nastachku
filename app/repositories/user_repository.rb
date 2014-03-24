@@ -14,6 +14,7 @@ module UserRepository
     scope :in_carousel, -> { where in_carousel: :true }
     scope :visible, -> { where invisible_lector: :false }
     scope :nonsynchronized, -> { where timepad_state: [:unsynchronized, :failed] }
+    scope :with_voted_or_scheduled_lectures, -> { joins(:lectures).where(lectures: {state: [:voted, :in_schedule]}) }
 
     def self.companies_by_term(company = nil)
       if company

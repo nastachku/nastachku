@@ -32,6 +32,10 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/config/backup.rb #{release_path}/config/backup.rb"
   end
 
+  desc "Symlinks the newrelic.yml"
+  task :symlink_backup, roles: :app do
+    run "ln -nfs #{shared_path}/config/newrelic.yml #{release_path}/config/newrelic.yml"
+  end
   desc "Seed database data"
   task :seed_data do
     run "cd #{current_path} && RAILS_ENV=#{rails_env} #{rake} db:seed"

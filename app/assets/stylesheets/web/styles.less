@@ -612,7 +612,7 @@ header {
             vertical-align: middle;
             height: 100%;
         }
-        img {max-height: 100%; max-width: 100%; vertical-align: middle}
+        img {max-height: 100%; max-width: 90%; vertical-align: middle}
     }
 }
 
@@ -1444,7 +1444,7 @@ footer {
     td {
         border-left: 1px solid #eaeaeb;
         padding-top: 10px;
-        width: 16%;
+        width: 14%;
         vertical-align: top;
     }
 
@@ -1872,12 +1872,12 @@ footer {
 
 .social__icon {
     display: inline-block !important;
-    vertical-align: middle !important;
+    vertical-align: middle;
     width: 40px !important;
     height: 40px !important;
     background-image: @sprite !important;
     background-repeat: no-repeat !important;
-    margin: 0 !important;
+    margin: 0;
 
     &.social__icon-fb {
         background-color: #4b83d0 !important;
@@ -2890,7 +2890,7 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
         }
         .page-1 {
             th {
-                &:nth-child(5), &:nth-child(6),&:nth-child(7){
+                &:nth-child(5), &:nth-child(6),&:nth-child(7),&:nth-child(8){
                     display: none;
                 }
             }
@@ -2913,7 +2913,7 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
             }
             .programm__schedule__lectures td {
                 &:first-child {width: 4%}
-                width: 30%;
+                width: 26%;
                 &:nth-child(2), &:nth-child(3),&:nth-child(4){
                     display: none;
                 }
@@ -4229,6 +4229,10 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
         .page-6 {
             th:nth-child(7){display: table-cell}
             .programm__schedule__lectures td:nth-child(7) {display: table-cell}
+        }
+        .page-7 {
+            th:nth-child(8){display: table-cell}
+            .programm__schedule__lectures td:nth-child(8) {display: table-cell}
         }
     }
     .lecture__lecturer, .lecture__company, .lecture__desc {font-size: .875em}
