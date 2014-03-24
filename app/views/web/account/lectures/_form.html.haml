@@ -5,6 +5,10 @@
 .content
   .layout-line
     = simple_form_for @user, url: account_lectures_path, method: :post do |f|
+      - if @user.errors.any?
+        - @user.errors.full_messages.each do |msg|
+          %li
+            = msg
       %ul.form__group.one_column_form
         %li.form__element
           = f.input :about, label: false, placeholder: User.human_attribute_name(:about), class: 'user-summary'
