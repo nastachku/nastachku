@@ -1,0 +1,12 @@
+= simple_form_for @order, url: admin_orders_path, html: { class: 'form-horizontal' } do |f|
+  = f.input :user_id
+  = f.input :type
+  = f.input :item_size
+  = f.input :payment_state
+  = f.input :transaction_id
+  = f.input :item_color
+  = f.input :ticket_type
+  = f.input :cost
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to t('.cancel', default: t("helpers.links.cancel")), admin_orders_path, class: 'btn'
