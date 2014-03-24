@@ -11,6 +11,11 @@
       = render "day", day: configus.schedule.second_day.date, start_time: configus.schedule.second_day.start_time, finish_time: configus.schedule.second_day.finish_time
 :javascript
     jQuery(document).ready(function ($) {
+            $("td[data-hall]").children(".programm__schedule__lectures__lecture").each(function(){
+                var $local_this = $(this);
+                $local_this.css('height', $local_this.parent().css('height'));
+            });
+    
             $('.tab_button').on('click', function() {
                 $(this).siblings().removeClass('selected').end().next('dd').andSelf().addClass('selected');
             });
@@ -25,11 +30,14 @@
 
             var lectures=$('.programm__schedule__lectures__lecture');
             $('.schedule__filter').on('change', function() {
+                var lecture_class = $(this).data('lecture');
                 if ($(this).is(':checked')) {
+                    $('[data-lecture=' + lecture_class + ']').prop("checked", true);
                     lectures.addClass('disable');
-                    $('.'+$(this).data('lecture')).addClass('enable');
+                    $('.'+ lecture_class).addClass('enable');
                 } else {
-                    $('.'+$(this).data('lecture')).removeClass('enable');
+                    $('[data-lecture=' + lecture_class + ']').prop("checked", false);
+                    $('.'+ lecture_class).removeClass('enable');
                 }
                 if (!$(this).parents('.programm__filter__checkboxs').find(':checked').length) {
                     lectures.removeClass('disable');
