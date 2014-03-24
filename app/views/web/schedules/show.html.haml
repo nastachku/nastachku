@@ -13,7 +13,10 @@
     jQuery(document).ready(function ($) {
             $("td[data-hall]").children(".programm__schedule__lectures__lecture").each(function(){
                 var $local_this = $(this);
-                $local_this.css('height', $local_this.parent().css('height'));
+                var parent_height = $local_this.parent().css('height');
+                if ($local_this.css('height') < parent_height) {
+                    $local_this.css('height', parent_height);
+                }
             });
     
             $('.tab_button').on('click', function() {
