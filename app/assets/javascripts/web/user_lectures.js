@@ -37,6 +37,7 @@ jQuery(document).ready(function ($) {
       success: function() {
         $(self).addClass("added");
         $(self).siblings(".lecture_added").show();
+        $('#lecture_votings_count').html(parseInt($('#lecture_votings_count').html(), 10) + 1);
       }
     })
   });
@@ -50,6 +51,7 @@ jQuery(document).ready(function ($) {
       success: function() {
         $(self).removeClass("added");
         $(self).siblings('.lecture_added').hide();
+        $('#lecture_votings_count').html(parseInt($('#lecture_votings_count').html(), 10) - 1);
       }
      })
    });

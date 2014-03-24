@@ -30,10 +30,10 @@
               %p.lecture_added.lectures__item__add-added Вы проголосовали за этот доклад
             - else
               %span.voting_button.lectures__item__add-add.added{ data: { id: lecture.id } } Удалить доклад
-              %p.lecture_added.lectures__item__add-added Проголосовать за доклад
+              %p.lecture_added.lectures__item__add-added Вы проголосовали за этот доклад
           - else
             %p.lectures__item__add-added Требуется регистрация на конференции
-          %p.lecture_voting_count
+          %p.lecture_voting_count#lecture_votings_count
             = lecture.lecture_votings_count
         .lectures__item-social
           %p.open_this Поделиться с друзьями:
