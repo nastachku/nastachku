@@ -11,6 +11,11 @@
       = render "day", day: configus.schedule.second_day.date, start_time: configus.schedule.second_day.start_time, finish_time: configus.schedule.second_day.finish_time
 :javascript
     jQuery(document).ready(function ($) {
+            $("td[data-hall]").children(".programm__schedule__lectures__lecture").each(function(){
+                var $local_this = $(this);
+                $local_this.css('height', $local_this.parent().css('height'));
+            });
+    
             $('.tab_button').on('click', function() {
                 $(this).siblings().removeClass('selected').end().next('dd').andSelf().addClass('selected');
             });
