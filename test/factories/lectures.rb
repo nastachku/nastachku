@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :lecture do
     title
     thesises
-    presentation
+    #presentation
     association :user
     association :workshop
   end
