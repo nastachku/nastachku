@@ -7,6 +7,7 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
     order.transaction_id = params[:pd_trans_id]
     order.save
     update_payment_state(order)
+    put_paid_status_with_other_orders order
     flash_success
     redirect_to edit_account_path anchor: :my_orders
   end
