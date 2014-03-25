@@ -13,6 +13,7 @@
       %th= t(".cost")
       %th= sort_link(@search, :payment_state)
       %th= sort_link(@search, :created_at)
+      %th= t('.edit')
   %tbody
     - @orders.each do |order|
       %tr
@@ -23,5 +24,6 @@
         %td= order.cost
         %td= order.human_payment_state_name
         %td= l order.created_at
+        %td= link_to t('.edit'), edit_admin_order_path(order)
 
 = paginate @orders
