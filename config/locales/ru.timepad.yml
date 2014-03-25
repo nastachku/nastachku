@@ -1,0 +1,8 @@
+ru:
+  timepad:
+    data:
+      paid: "'Оплатил'"
+      sum: "'Сумма'"
+      email: "'E-mail'"
+      status: "'Статус'"
+      has_paid: "'оплачено'"
