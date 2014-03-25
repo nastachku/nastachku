@@ -111,7 +111,7 @@ Nastachku::Application.routes.draw do
       resources :workshops
       resources :halls
       resources :event_breaks
-      resources :orders, only: [:index]
+      resources :orders, only: [ :index, :edit, :update ]
       resource :mailers, only: [] do
         get :index
         post :deliver
