@@ -437,7 +437,7 @@ DEPENDENCIES
   pre-commit
   pry
   rack-rewrite
-  rails
+  rails (~> 3.2.13)
   rake
   ransack
   redcarpet
