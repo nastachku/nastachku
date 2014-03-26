@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
 
   # FIXME запхать это в конфигас как-нить
   if Rails.env.production? or Rails.env.staging?
-    rescue_from ActionController::RoutingError, ActionView::MissingTemplate, ActiveRecord::RecordNotFound do |exception|
+    rescue_from ActionController::RoutingError, ActionView::MissingTemplate, ActiveRecord::RecordNotFound do |e|
+      logger.error "redirect to 404 => exception #{e.class.name} : #{e.message}"
       redirect_to "/404"
     end
   end
