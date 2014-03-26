@@ -47,9 +47,7 @@ module Web::SchedulesHelper
   def before_after_party?(time)
     last_lecture_finish_time = time
     Slot.for_day(time).with(event_type: "Lecture").each do |slot|
-      if slot.finish_time > last_lecture_finish_time
-        last_lecture_finish_time = slot.finish_time
-      end
+      last_lecture_finish_time = slot.finish_time if slot.finish_time > last_lecture_finish_time
     end
     last_lecture_finish_time == time
   end
