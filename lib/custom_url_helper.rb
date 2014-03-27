@@ -67,7 +67,7 @@ module CustomUrlHelper
             html_options
   end
 
-  def sort_link_href(search, attribute, direction)
+  def sort_link_href(search, attribute, direction, format)
     # Extract out a routing proxy for url_for scoping later
     if search.is_a?(Array)
       routing_proxy = search.shift
@@ -82,7 +82,7 @@ module CustomUrlHelper
     }
     
     options.merge!(query_hash)
-    
+    options.merge!(format: format) if format
     url = if routing_proxy && respond_to?(routing_proxy)
             send(routing_proxy).url_for(options)
           else
