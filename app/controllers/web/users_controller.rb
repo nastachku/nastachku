@@ -2,6 +2,8 @@
 class Web::UsersController < Web::ApplicationController
   respond_to :html, :json
   respond_to :js, only: :index
+  after_filter(only: [:activate, :attend, :create]) { |c| expire_action("users", "index") }
+  caches_page :index
 
   def index
     @search = User.ransack(params)
@@ -67,4 +69,5 @@ class Web::UsersController < Web::ApplicationController
     current_user.attend
     redirect_to edit_account_path
   end
+
 end

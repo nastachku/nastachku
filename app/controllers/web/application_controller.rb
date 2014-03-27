@@ -41,4 +41,8 @@ class Web::ApplicationController < ApplicationController
     @parts << part
   end
 
+  def expire_action(controller, action)
+    expire_page controller: controller, action: action
+  end
+
 end
