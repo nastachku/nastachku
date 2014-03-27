@@ -3,7 +3,7 @@
     %h1.pagetitle__title= t '.title'
     .pagetitle__select.pagetitle__select__members
       - options = [['Все по алфавиту', :last_name], ['Все по должности', :position], ['Все по компании', :company], ['Все по городу', :city], ['Только докладчики', :as_lectors]]
-      = select_tag :filter_for_users, options_for_select(options.collect{ |o| [o.first, o.second.to_s, {'data-href' => sort_link_href(@search, o.second, :asc)}]}), class: "custom_select"
+      = select_tag :filter_for_users, options_for_select(options.collect{ |o| [o.first, o.second.to_s, {'data-href' => sort_link_href(@search, o.second, :asc, :js)}]}), class: "custom_select"
 .members
   #users.layout-line
     = render 'users'
