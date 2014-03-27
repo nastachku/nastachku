@@ -15,4 +15,12 @@ class ApplicationController < ActionController::Base
       redirect_to "/404"
     end
   end
+
+  private
+
+  def expire_my_action(controller, action)
+    expire_action controller: controller, action: action
+    expire_action controller: controller, action: action, format: :js
+  end
+
 end

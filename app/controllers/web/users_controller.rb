@@ -2,7 +2,11 @@
 class Web::UsersController < Web::ApplicationController
   respond_to :html, :json
   respond_to :js, only: :index
-
+  caches_action :index, unless: :current_user, :cache_path => Proc.new {|c|
+    user = User.activated.attended.alphabetically.order('updated_at DESC').limit(1).first
+    {:tag => "#{user.updated_at.to_i if user}_#{c.params.except(:_).to_s}"}
+  }
+  
   def index
     @search = User.ransack(params)
     @users = @search.result.activated.attended.alphabetically
@@ -67,4 +71,5 @@ class Web::UsersController < Web::ApplicationController
     current_user.attend
     redirect_to edit_account_path
   end
+
 end
