@@ -19,14 +19,14 @@ module OrderHelper
       if order == other_order or not other_order.type
         next
       end
-      if order.decorate.in_same_minute_with?(other_order)
+      if order.decorate.in_same_minute_with? other_order
         if order_cost == other_order.its_cost
-          pay_user_if_ticket(other_order)
+          pay_user_if_ticket other_order
           other_order.pay
           break;
         elsif order_cost > other_order.its_cost
           if ticket_order_one_of_two_items?(other_order, order_cost) or afterparty_one_of_two_items?(other_order, order_cost)
-            pay_user_if_ticket(other_order)
+            pay_user_if_ticket other_order
             other_order.pay
             order_cost -= other_order.its_cost
           end
