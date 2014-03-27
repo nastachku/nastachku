@@ -21,11 +21,10 @@
       - unless signed_in?
         = content_tag :span, t(".login"), class: 'btn_main btn_main-auth open_popup', data: {popup: "auth"}, style: "color: white;"
       - if signed_in?
-        = cache(current_user) do
-          .header__login__user
-            .header__login__user-name
-              = link_to current_user_decorate.full_name, edit_account_path
-            .header__login__user-avatar
-              %a{ href: '' }
-                = image_tag current_user_decorate.user_pic
-            = link_to '', session_path, method: :delete, class: "header__login__user-logout"
+        .header__login__user
+          .header__login__user-name
+            = link_to current_user_decorate.full_name, edit_account_path
+          .header__login__user-avatar
+            %a{ href: '' }
+              = image_tag current_user_decorate.user_pic
+          = link_to '', session_path, method: :delete, class: "header__login__user-logout"

@@ -1,7 +1,8 @@
 class Web::SchedulesController < Web::ApplicationController
   caches_action :show, :cache_path => Proc.new {|c|
     hall = Hall.activated.order('updated_at DESC').limit(1).first
-    {:tag => "#{hall.updated_at.to_i if hall}"}
+    curr_user = current_user ? current_user.id : "none"
+    {:tag => "#{hall.updated_at.to_i if hall}_#{curr_user}"}
   }
   
   def show
