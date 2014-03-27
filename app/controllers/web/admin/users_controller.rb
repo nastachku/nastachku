@@ -1,6 +1,5 @@
 class Web::Admin::UsersController < Web::Admin::ApplicationController
   
-  after_filter(only: [:update, :create, :destroy]) { |c| expire_my_action("/web/users", "index") }
   def new
     @user = User.new
   end

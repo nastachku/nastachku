@@ -2,7 +2,6 @@
 class Web::UsersController < Web::ApplicationController
   respond_to :html, :json
   respond_to :js, only: :index
-  after_filter(only: [:activate, :attend, :create]) { |c| expire_my_action("/web/users", "index") }
   caches_action :index, :cache_path => Proc.new {|c|
     user = User.activated.attended.alphabetically.order('updated_at DESC').limit(1).first
     {:tag => "#{user.updated_at.to_i}_#{c.params.except(:_).to_s}"}

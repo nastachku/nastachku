@@ -1,7 +1,6 @@
 class Web::AccountsController < Web::ApplicationController
 
   before_filter :authenticate_user!
-  after_filter(only: [:update]) { |c| expire_my_action("/web/users", "index") }
 
   def edit
     @user = AccountEditType.find current_user
