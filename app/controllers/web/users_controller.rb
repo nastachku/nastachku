@@ -4,7 +4,7 @@ class Web::UsersController < Web::ApplicationController
   respond_to :js, only: :index
   caches_action :index, unless: :current_user, :cache_path => Proc.new {|c|
     user = User.activated.attended.alphabetically.order('updated_at DESC').limit(1).first
-    {:tag => "#{user.updated_at.to_i}_#{c.params.except(:_).to_s}"}
+    {:tag => "#{user.updated_at.to_i if user}_#{c.params.except(:_).to_s}"}
   }
   
   def index
