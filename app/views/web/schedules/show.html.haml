@@ -52,17 +52,6 @@
                     lectures.removeClass('disable');
                 }
             });
-
-            var my_programm=$('#my_programm');
-            my_programm.on('change', function() {
-                if ($(this).is(':checked')) {
-                    lectures.addClass('disable');
-                    $('.'+$(this).data('my')).addClass('enable');
-                } else {
-                    lectures.removeClass('disable');
-                    $('.'+$(this).data('my')).removeClass('enable');
-                }
-            });
         });
 - if signed_in?
   :javascript
