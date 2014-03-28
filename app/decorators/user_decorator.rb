@@ -34,4 +34,12 @@ class UserDecorator < Draper::Decorator
     end
   end
 
+  def assets_user_pic
+    if model.photo.present?
+      model.photo.url
+    else
+      "assets/default-user-image.png"
+    end
+  end
+
 end
