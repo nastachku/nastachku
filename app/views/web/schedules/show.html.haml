@@ -2,13 +2,14 @@
   .content__tabs__line
   .layout-line
     %h1.pagetitle__title Программа
-    -# if signed_in?
+    - if signed_in?
       .programm__my
         %input#my_programm.checkbox_type-3{ type:"checkbox", name: "my_programm", value:"Y", data: {my: "in_my_schedule"}}
         %label{ for:"my_programm"} Моя программа
     %dl.content__tabs
-      = render "day", day: configus.schedule.first_day.date, start_time: configus.schedule.first_day.start_time, finish_time: configus.schedule.first_day.finish_time
-      = render "day", day: configus.schedule.second_day.date, start_time: configus.schedule.second_day.start_time, finish_time: configus.schedule.second_day.finish_time
+      = cache(schedule_cache_key) do
+        = render "day", day: configus.schedule.first_day.date, start_time: configus.schedule.first_day.start_time, finish_time: configus.schedule.first_day.finish_time
+        = render "day", day: configus.schedule.second_day.date, start_time: configus.schedule.second_day.start_time, finish_time: configus.schedule.second_day.finish_time
 :javascript
     jQuery(document).ready(function ($) {
             function setHeightOfDivInTd() {
@@ -21,7 +22,7 @@
               });
             }
 
-            
+
             setHeightOfDivInTd();
             $('.tab_button').on('click', function() {
                 $(this).siblings().removeClass('selected').end().next('dd').andSelf().addClass('selected');
@@ -51,18 +52,10 @@
                     lectures.removeClass('disable');
                 }
             });
-
-            var my_programm=$('#my_programm');
-            my_programm.on('change', function() {
-                if ($(this).is(':checked')) {
-                    lectures.addClass('disable');
-                    $('.'+$(this).data('my')).addClass('enable');
-                } else {
-                    lectures.removeClass('disable');
-                    $('.'+$(this).data('my')).removeClass('enable');
-                }
-            });
         });
+- if signed_in?
+  :javascript
+    check_my_program_slots(#{my_program_slots})
 .layout-line
   %a{ href: "#", onclick: "display_hide('#scheme');return false;" }
     = t('.show_scheme')
