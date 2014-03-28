@@ -14,3 +14,6 @@ role :db,  '62.76.191.134', :primary => true
 
 set :whenever_command, "bundle exec whenever"
 require "whenever/capistrano"
+
+
+after "deploy:update", "deploy:cleanup"
