@@ -1,14 +1,15 @@
-- if @lectures.any?
+- if this.four_lectures
   .pagetitle.mainpage__title
     .layout-line
       %h1.pagetitle__title Самые лучшие спикеры
   .mainpage__speakers
     .layout-line
       %ul
-        - @lectures.each do |lecture|
+        - for lecture in this.four_lectures
           %li
             .mainpage__speakers-img
-              = image_tag lecture.lector.user_pic
+              %img{src: lecture.lector.user_pic}
+              %span.icon_lectures.icon_section{style: "background-image: url(#{lecture.workshop_icon})"}
               = lecture.workshop_color_icon
             .mainpage__speakers__about-mini
               %h4
@@ -16,7 +17,7 @@
                   = lecture.lector.reverse_full_name
                 = lecture.lector.position
                 = lecture.lector.company
-            - if lecture.present?
+            - if lecture
               .mainpage__speakers__about
                 %h4
                   = lecture.title
@@ -27,4 +28,4 @@
                   = lecture.lector.reverse_full_name
               .mainpage__speakers__desc
                 %p.open_this
-                  = lecture.thesises.first(140)
+                  = lecture.thesises

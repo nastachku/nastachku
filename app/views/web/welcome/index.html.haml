@@ -1,2 +1,5 @@
 = render "themes"
-= render "lectures"
+#lectures
+  :javascript
+    render_lectures(#{my_lectures(@lectures)});
+  

@@ -64,6 +64,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails'
   gem 'turbo-sprockets-rails3'
+  gem 'haml_coffee_assets'
+  gem 'execjs'
 end
 
 group :test, :development do

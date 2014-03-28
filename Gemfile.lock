@@ -140,6 +140,10 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
+    haml_coffee_assets (1.16.0)
+      coffee-script (~> 2.0)
+      sprockets (~> 2.0)
+      tilt (~> 1.1)
     happymapper (0.4.0)
       libxml-ruby (~> 2.0)
     hash-deep-merge (0.1.1)
@@ -411,10 +415,12 @@ DEPENDENCIES
   coveralls
   draper
   enumerize
+  execjs
   factory_girl_rails
   gon
   google-analytics-rails
   haml-rails
+  haml_coffee_assets
   jbuilder
   jquery-rails
   jquery-ui-rails
