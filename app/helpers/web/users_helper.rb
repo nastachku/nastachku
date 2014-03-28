@@ -9,7 +9,7 @@ module Web::UsersHelper
       User.activated.attended.count
     end
 
-    def show_as_participants
+    def shown_as_participants
       Russian.p(User.activated.attended.shown_as_participants.count, t('.one_participant'), t('.two_participant'), t('.many_participant'))
     end
   end
