@@ -51,4 +51,17 @@ module Web::SchedulesHelper
     end
     last_lecture_finish_time == time
   end
+
+  def schedule_cache_key
+    ( proc {
+      hall = Hall.activated.order('updated_at DESC').limit(1).first
+      {tag: "#{hall.updated_at.to_i if hall}_#{current_user.id if current_user}"}
+    } ).call
+  end
+
+  def my_program_slots
+    ids = []
+    current_user.lecture_votings.each { |vote| ids << vote.voteable.id }
+    ids
+  end
 end
