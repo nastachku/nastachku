@@ -8,14 +8,14 @@ function display_hide(blockId) {
 
 function check_my_program_slots(slots) {
   $("#my_programm").on('change', function() {
-    if ($(this)).is(':checked')) {
+    if ($(this).is(':checked')) {
       $(".programm__schedule__lectures__lecture").addClass('disable');
-      $.each(slots, function(value)) {
+      $.each(slots, function(index, value) {
         $("#lecture-" + value).addClass('enable');
       });
     } else {
       $(".programm__schedule__lectures__lecture").removeClass('disable');
-      $.each(slots, function(value)) {
+      $.each(slots, function(index, value) {
         $("#lecture-" + value).removeClass('enable');
       });
     }
