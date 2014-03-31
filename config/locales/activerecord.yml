@@ -139,7 +139,6 @@ ru:
         user_should_not_exists: 'Пользователь с таким email не найден!'
         wrong_language: "Поле должно содержать только русские буквы"
 
-      models:
         page:
           attributes:
             slug:
@@ -150,8 +149,19 @@ ru:
             slug:
               taken: 'Такой слаг уже есть, выберите другой'
 
+      models:
         user:
           attributes:
+            first_name:
+              human_name: имеет неверный формат
+            last_name:
+              human_name: имеет неверный формат
+            city:
+              city_name: имеет неверный формат
+            company:
+              company_name:имеет неверный формат
+            position:
+              position_name: имеет неверный формат
             facebook:
               url: 'Адрес facebook отсутствует'
             vkontakte:

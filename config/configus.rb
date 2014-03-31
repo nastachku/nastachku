@@ -69,7 +69,11 @@ Configus.build Rails.env do
       elsif Time.current.month == 3
         ticket_price 1100
       elsif Time.current.month == 4
-        ticket_price 1500
+        if Time.current.day == 1
+          ticket_price 1100
+        else
+          ticket_price 1500
+        end
       end
     end
 
