@@ -8,6 +8,8 @@ class Web::UserLecturesController < Web::ApplicationController
     conditions = { s: 'created_at desc' }.merge(params || {})
     @search = Lecture.ransack conditions
     @lectures = LectureDecorator.decorate_collection @search.result.voted.with_active_speaker.by_created_at
+    @lecture_id = params[:lecture_id]
+    @lecture_by_id = LectureDecorator.decorate Lecture.find @lecture_id if @lecture_id
     @workshops = Workshop.web
     gon.remote_filter_action = user_lectures_path
     respond_to do |format|
