@@ -54,6 +54,7 @@ gem 'sprockets'
 gem 'sinatra', '>= 1.3.0', :require => nil
 gem 'newrelic_rpm'
 gem 'smarter_csv'
+gem 'weary'
 
 # Gems used only for assets and not required
 # in production environments by default.
