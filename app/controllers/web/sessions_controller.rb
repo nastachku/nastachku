@@ -22,7 +22,8 @@ class Web::SessionsController < Web::ApplicationController
       sign_in user
       redirect_to edit_account_path
     else
-      redirect_to welcome_index_path
+      flash[:error] = @type.errors.full_messages
+      redirect_to new_session_path
     end
   end
 
