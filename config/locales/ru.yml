@@ -16,6 +16,13 @@ ru:
   layouts:
     web:
       shared:
+        authpopup:
+          password: Пароль
+          forgot_password: "Забыли пароль?"
+          enter_site: Войти на сайт
+          auth_with_social: "Авторизируйтесь с помощью социальной сети:"
+          you_are_not_user_please_welcome: "Еще не зарегистрировались? Сейчас самое время!"
+          registration: Регистрация
         navigation:
           title: 'Стачка!'
           participants: 'Участники'
