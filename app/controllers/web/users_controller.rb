@@ -52,7 +52,6 @@ class Web::UsersController < Web::ApplicationController
         @user.activate
         clear_session_auth_hash
         sign_in @user
-        redirect_to welcome_index_path
       else
         token = @user.create_auth_token
         UserMailer.confirm_registration(@user.id, token.id).deliver
