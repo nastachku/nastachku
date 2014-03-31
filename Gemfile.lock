@@ -473,5 +473,6 @@ DEPENDENCIES
   usefull_scopes
   validates
   virtus
+  weary
   whenever
   ya_acl

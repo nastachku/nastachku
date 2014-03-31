@@ -57,6 +57,10 @@ Configus.build Rails.env do
        secret credentials_hash["production"]["twitter"]["secret"]
     end
 
+    cs_cart do
+      secret_key credentials_hash["production"]["cs-cart"]["secret_key"]
+    end
+
     platidoma do
       host credentials_hash["production"]["platidoma"]["host"]
       shop_id credentials_hash["production"]["platidoma"]["shop_id"]
@@ -69,7 +73,11 @@ Configus.build Rails.env do
       elsif Time.current.month == 3
         ticket_price 1100
       elsif Time.current.month == 4
-        ticket_price 1500
+        if Time.current.day == 1
+          ticket_price 1100
+        else
+          ticket_price 1500
+        end
       end
     end
 
@@ -102,6 +110,10 @@ Configus.build Rails.env do
     facebook do
       app_id credentials_hash["development"]["facebook"]["app_id"]
       app_secret credentials_hash["development"]["facebook"]["app_secret"]
+    end
+
+    cs_cart do
+      secret_key credentials_hash["development"]["cs-cart"]["secret_key"]
     end
 
     platidoma do
@@ -157,6 +169,10 @@ Configus.build Rails.env do
     facebook do
       app_id credentials_hash["staging"]["facebook"]["app_id"]
       app_secret credentials_hash["staging"]["facebook"]["app_secret"]
+    end
+
+    cs_cart do
+      secret_key credentials_hash["staging"]["cs-cart"]["secret_key"]
     end
 
     platidoma do

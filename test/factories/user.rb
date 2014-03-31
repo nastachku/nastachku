@@ -8,6 +8,7 @@ FactoryGirl.define do
     last_name "Строка"
     city "Строка"
     company
+    position "Строка"
     show_as_participant
     email
     twitter_name ""
@@ -17,7 +18,7 @@ FactoryGirl.define do
       user.activate
       FactoryGirl.create_list(:lecture, 5, user: user)
     end
-    
+
   end
 
   factory :admin, :parent => :user do

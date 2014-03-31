@@ -53,7 +53,7 @@ class Web::UsersController < Web::ApplicationController
         @user.activate
         clear_session_auth_hash
         sign_in @user
-        redirect_to welcome_index_path
+        redirect_to auth_cs_cart_user_url get_auth_token @user
       else
         token = @user.create_auth_token
         UserMailer.confirm_registration(@user.id, token.id).deliver
