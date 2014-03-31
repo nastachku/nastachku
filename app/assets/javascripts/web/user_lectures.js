@@ -35,9 +35,10 @@ jQuery(document).ready(function ($) {
       type: "POST",
       dataType: "json",
       success: function() {
+        var $votings_count = $(self).siblings('.lecture_voting_count');
+        $votings_count.html(parseInt($votings_count.html(), 10) + 1);
         $(self).addClass("added");
         $(self).siblings(".lecture_added").show();
-        $('#lecture_votings_count').html(parseInt($('#lecture_votings_count').html(), 10) + 1);
       }
     })
   });
@@ -49,9 +50,10 @@ jQuery(document).ready(function ($) {
       type: "DELETE",
       dataType: "json",
       success: function() {
+        var $votings_count = $(self).siblings('.lecture_voting_count');
+        $votings_count.html(parseInt($votings_count.html(), 10) - 1);
         $(self).removeClass("added");
         $(self).siblings('.lecture_added').hide();
-        $('#lecture_votings_count').html(parseInt($('#lecture_votings_count').html(), 10) - 1);
       }
      })
    });

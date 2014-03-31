@@ -1,2 +1,6 @@
-= render "themes"
-= render "lectures"
+= cache "welcome_index_signed_user", expires_in: 5.hours do
+  = render "themes"
+  #lectures
+    :javascript
+      render_lectures(#{my_lectures(@lectures)});
+  
