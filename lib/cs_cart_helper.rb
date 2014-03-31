@@ -16,7 +16,7 @@ module CsCartHelper
       last_name: user.last_name,
       id: user.id,
       email: user.email,
-      key: Digest::MD5.hexdigest("#{user.first_name}|#{user.last_name}|#{user.id}")
+      key: Digest::MD5.hexdigest("#{user.first_name}|#{user.last_name}|#{user.id}|#{user.email}|#{configus.cs_cart.secret_key}")
     }
     token = get_token args
   end
