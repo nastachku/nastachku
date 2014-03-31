@@ -1,14 +1,13 @@
 #FIXME перенести функциональность в гем
 module CsCartHelper
 
-  def auth_user_url(token)
-    auth_user token
+  def auth_cs_cart_user_url(token)
+    "https://devel.cs-cart.ru/index.php?dispatch=auth.login_stachka&token=#{token}"
   end
 
   def get_token(args)
     response = client_proxy.get_token(args).perform
-    binding.pry
-    ActiveSupport::JSON.decode(response.body).values.symbolize_keys[:data] if response.success?
+    ActiveSupport::JSON.decode(response.body)["data"] if response.success?
   end
 
   def get_auth_token(user)
@@ -22,7 +21,6 @@ module CsCartHelper
     token = get_token args
   end
 
-
   def auth_user(args)
     response = @client_proxy.auth_user args
   end
@@ -34,10 +32,6 @@ module CsCartHelper
   class ClientProxy < Weary::Client
     post :get_token, "https://devel.cs-cart.ru/index.php?dispatch=auth.get_stachka_token" do |resource|
       resource.required :first_name, :last_name, :id, :email, :key
-    end
-
-    post :auth_user, "https://devel.cs-cart.ru/index.php?dispatch=auth.login_stachka" do |resource|
-      resource.required :token
     end
   end
 
