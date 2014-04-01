@@ -9,6 +9,7 @@ class Web::LecturesController < Web::ApplicationController
     @current_user_votings = LectureVoting.where(user_id: current_user.id) if current_user
     @lecture_id = params[:lecture_id]
     @lecture_by_id = LectureDecorator.decorate Lecture.find @lecture_id if @lecture_id
+    @workshops = Workshop.web
     respond_to do |format|
        format.html
        format.js

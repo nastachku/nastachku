@@ -39,6 +39,10 @@ class LectureDecorator < Draper::Decorator
     "#{lector} - #{title}(#{model.workshop.title})"
   end
 
+  def another_full_title
+    "#{model.title}(#{lector.full_name})"
+  end
+
   def in_schedule_of(user)
     if user
       if model.lecture_votings.voted_by? user
@@ -51,5 +55,9 @@ class LectureDecorator < Draper::Decorator
 
   def lecture_votings_count
     model.lecture_votings.count
+  end
+
+  def by_id_url
+    "#{h.lectures_url}?lecture_id=#{model.id}"
   end
 end
