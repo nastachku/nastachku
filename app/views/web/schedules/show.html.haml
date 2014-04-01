@@ -7,9 +7,8 @@
         %input#my_programm.checkbox_type-3{ type:"checkbox", name: "my_programm", value:"Y", data: {my: "in_my_schedule"}}
         %label{ for:"my_programm"} Моя программа
     %dl.content__tabs
-      = cache(schedule_cache_key) do
-        = render "day", day: configus.schedule.first_day.date, start_time: configus.schedule.first_day.start_time, finish_time: configus.schedule.first_day.finish_time
-        = render "day", day: configus.schedule.second_day.date, start_time: configus.schedule.second_day.start_time, finish_time: configus.schedule.second_day.finish_time
+      = render "day", day: configus.schedule.first_day.date, start_time: configus.schedule.first_day.start_time, finish_time: configus.schedule.first_day.finish_time
+      = render "day", day: configus.schedule.second_day.date, start_time: configus.schedule.second_day.start_time, finish_time: configus.schedule.second_day.finish_time
 :javascript
     jQuery(document).ready(function ($) {
             function setHeightOfDivInTd() {
@@ -21,7 +20,6 @@
                   }
               });
             }
-
 
             setHeightOfDivInTd();
             $('.tab_button').on('click', function() {

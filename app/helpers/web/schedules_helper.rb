@@ -61,7 +61,7 @@ module Web::SchedulesHelper
 
   def my_program_slots
     ids = []
-    current_user.lecture_votings.each { |vote| ids << vote.voteable.id }
+    current_user.lecture_votings.each { |vote| ids << vote.voteable_id }
     ids
   end
 end

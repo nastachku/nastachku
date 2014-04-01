@@ -1,5 +1,6 @@
 class SlotDecorator < Draper::Decorator
   delegate_all
+  decorates_association :event
 
   def start_hour
     model.start_time.hour
