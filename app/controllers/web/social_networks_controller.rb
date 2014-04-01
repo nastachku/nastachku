@@ -10,7 +10,7 @@ class Web::SocialNetworksController < Web::ApplicationController
       end
       sign_in authorization.user
       flash_success
-      return redirect_to edit_account_path
+      return redirect_to auth_cs_cart_user_url get_auth_token authorization.user
     else
       user = User.find_by_email(auth_hash[:info][:email])
       if !user
@@ -25,12 +25,12 @@ class Web::SocialNetworksController < Web::ApplicationController
         user.activate
         sign_in user
         flash_success
-        return redirect_to welcome_index_path
+        return redirect_to auth_cs_cart_user_url get_auth_token user
       else
         flash_error
         return redirect_to new_session_path
       end
-    end    
+    end
   end
 
   def twitter
