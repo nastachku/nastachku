@@ -50,6 +50,10 @@ module ApplicationHelper
     content_tag(:li, link, options)
   end
 
+  def asset_url asset
+    "#{request.protocol}#{request.host_with_port}#{asset_path(asset)}"
+  end
+
   def current_user_decorate
     current_user.decorate
   end
