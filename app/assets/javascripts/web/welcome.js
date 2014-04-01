@@ -5,8 +5,7 @@ function render_lectures(lectures) {
   function shuffle(o, count){ //v1.0
     if (count) {
       var temp_arr = [];
-      var count = count > o.length ? o.lenght : count;
-      for(var j, i = count - 1; i >= 0; i--) {
+      for(var j, i = o.length - 1; i >= 0 && count > 0; i--, count--) {
         j = Math.floor(Math.random() * i);
         temp_arr.push(o[j]);
         o.splice(j, 1);

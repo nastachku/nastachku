@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class CityNameValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     unless value =~ /^[a-zA-Zа-яА-ЯёЁ0-9 '`-]{0,255}$/

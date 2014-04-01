@@ -91,7 +91,7 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
 
     get :twitter
 
-    assert_redirected_to welcome_index_path
+    assert_redirected_to new_session_path
   end
   test "should get failure" do
     get :failure
