@@ -60,4 +60,8 @@ class LectureDecorator < Draper::Decorator
   def by_id_url
     "#{h.lectures_url}?lecture_id=#{model.id}"
   end
+
+  def user_lecture_by_id_url
+    "#{h.user_lectures_url}?lecture_id=#{model.id}"
+  end
 end
