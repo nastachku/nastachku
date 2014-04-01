@@ -95,4 +95,5 @@ group :development do
   gem 'capistrano_colors'
   gem 'capi'
   gem 'capistrano-maintenance'
+  gem 'ruby-prof'
 end
