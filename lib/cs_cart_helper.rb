@@ -1,4 +1,3 @@
-#FIXME перенести функциональность в гем
 module CsCartHelper
 
   def auth_cs_cart_user_url(token)
@@ -14,7 +13,7 @@ module CsCartHelper
     args = {
       first_name: user.first_name,
       last_name: user.last_name,
-      id: user.id,
+      stachka_id: user.id.to_s,
       email: user.email,
       key: Digest::MD5.hexdigest("#{user.first_name}|#{user.last_name}|#{user.id}|#{user.email}|#{configus.cs_cart.secret_key}")
     }
@@ -31,7 +30,7 @@ module CsCartHelper
 
   class ClientProxy < Weary::Client
     post :get_token, "https://devel.cs-cart.ru/index.php?dispatch=auth.get_stachka_token" do |resource|
-      resource.required :first_name, :last_name, :id, :email, :key
+      resource.required :first_name, :last_name, :stachka_id, :email, :key
     end
   end
 
