@@ -5,6 +5,6 @@ module CsCart::Client
   end
 
   def client_proxy
-    @client_proxy ||= ClientProxy.new
+    @client_proxy ||= CsCart::ClientProxy.new
   end
 end
