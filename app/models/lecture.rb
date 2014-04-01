@@ -1,3 +1,4 @@
+require 'carrierwave/orm/activerecord'
 class Lecture < ActiveRecord::Base
   include LectureRepository
 
