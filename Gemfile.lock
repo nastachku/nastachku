@@ -297,6 +297,7 @@ GEM
       actionmailer (>= 3.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    ruby-prof (0.14.2)
     rufus-scheduler (2.0.24)
       tzinfo (>= 0.3.22)
     russian (0.6.0)
@@ -450,6 +451,7 @@ DEPENDENCIES
   resque
   resque-scheduler
   resque_mailer
+  ruby-prof
   russian
   rvm-capistrano
   sass-rails (~> 3.2.3)
