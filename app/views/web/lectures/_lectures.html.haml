@@ -1,11 +1,11 @@
 - @lectures.each do |lecture|
   %li.lectures__item{id: "lecture_#{lecture.id}"}
     .lectures__item-img
-      = image_tag lecture.user.decorate.user_pic, width: 350
+      = image_tag lecture.user.user_pic, width: 350
       = lecture.workshop_color_icon
     .lectures__item-name
       %b
-        = lecture.user.decorate.full_name
+        = lecture.user.full_name
       = lecture.user.company
       ,
       = lecture.user.position
@@ -18,7 +18,7 @@
     .lectures__item__adding
       .lectures__item__add
         - if signed_in?
-          - unless user_is_listener?(lecture)
+          - unless lecture_voted_by_current_user(lecture, @current_user_votings)
             %span.voting_button.lectures__item__add-add{ data: { id: lecture.id } } Я пойду на доклад
             %p.lecture_added.lectures__item__add-added{ style: "display: none" } Доклад добавлен в вашу программу
           - else
@@ -29,4 +29,4 @@
           %p.lectures__item__add-added Требуется регистрация на конференции
       .lectures__item-social
         %p.open_this Поделиться с друзьями:
-        .share42init{data: {path: root_url + "assets/", url: "#{lectures_url}?lecture_id=#{lecture.id}", title: "#{lecture.title}(#{lecture.user.decorate.full_name})", image: "#{root_url}/assets/#{lecture.user.decorate.user_pic}", description: lecture.thesises}}
+        .share42init{data: {path: root_url + "assets/", url: lecture.by_id_url, title: lecture.another_full_title, image: asset_url(lecture.user.user_pic), description: lecture.thesises}}
