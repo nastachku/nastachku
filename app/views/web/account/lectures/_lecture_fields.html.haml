@@ -4,7 +4,7 @@
       .span8
         = f.input :title, label: false, placeholder: Lecture.human_attribute_name(:title), class: :input_without_ul
         = f.input :thesises, label: false, placeholder: Lecture.human_attribute_name(:thesises), class: :input_without_ul
-        = f.association :workshop
+        = f.association :workshop, input_html: { id: "workshop_select" }
       .span3
         = f.input :presentation, as: :file
       .span1
