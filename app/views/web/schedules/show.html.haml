@@ -16,6 +16,7 @@
               $("td[data-hall]").children(".programm__schedule__lectures__lecture").each(function(){
                   var $local_this = $(this);
                   var parent_height = $local_this.parent().css('height');
+                  $local_this.parent().css('height', parent_height);
                   if ($local_this.css('min-height') != 0 && $local_this.css('height') < parent_height) {
                       $local_this.css('min-height', parent_height);
                   }
