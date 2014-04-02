@@ -35,7 +35,7 @@
 
           .btn-diff.clearfix
             .pull-left
-              = f.submit t('.add_event'), class: "btn_main btn_main-reg"
+              = f.submit t('.add_event'), class: "btn_main btn_main-reg", id: "add_user_lecture"
             .pull-right
               = link_to_add_association f, :lectures, class: "btn", :'data-association-insertion-node' => '#events', :'data-association-insertion-method' => 'append' do
                 %i.icon-plus
