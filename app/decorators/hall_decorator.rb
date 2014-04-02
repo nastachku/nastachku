@@ -12,7 +12,7 @@ class HallDecorator < Draper::Decorator
       if slot.start_time == time
         return {status: :lecture_begin, slot: slot.decorate}
       end
-      if slot.start_time <= time and slot.finish_time >= time
+      if slot.start_time <= time and slot.finish_time > time
         now_pass_lecture = true
       end
     end
