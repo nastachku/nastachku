@@ -18,12 +18,12 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    actionmailer (3.2.13)
-      actionpack (= 3.2.13)
-      mail (~> 2.5.3)
-    actionpack (3.2.13)
-      activemodel (= 3.2.13)
-      activesupport (= 3.2.13)
+    actionmailer (3.2.17)
+      actionpack (= 3.2.17)
+      mail (~> 2.5.4)
+    actionpack (3.2.17)
+      activemodel (= 3.2.17)
+      activesupport (= 3.2.17)
       builder (~> 3.0.0)
       erubis (~> 2.7.0)
       journey (~> 1.0.4)
@@ -31,19 +31,19 @@ GEM
       rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.2.1)
-    activemodel (3.2.13)
-      activesupport (= 3.2.13)
+    activemodel (3.2.17)
+      activesupport (= 3.2.17)
       builder (~> 3.0.0)
-    activerecord (3.2.13)
-      activemodel (= 3.2.13)
-      activesupport (= 3.2.13)
+    activerecord (3.2.17)
+      activemodel (= 3.2.17)
+      activesupport (= 3.2.17)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
-    activeresource (3.2.13)
-      activemodel (= 3.2.13)
-      activesupport (= 3.2.13)
-    activesupport (3.2.13)
-      i18n (= 0.6.1)
+    activeresource (3.2.17)
+      activemodel (= 3.2.17)
+      activesupport (= 3.2.17)
+    activesupport (3.2.17)
+      i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     addressable (2.3.3)
     airbrake (3.1.8)
@@ -51,7 +51,7 @@ GEM
       builder
       json
     ansi (1.4.3)
-    arel (3.0.2)
+    arel (3.0.3)
     backports (2.6.7)
     backup (3.1.3)
       open4 (~> 1.3.0)
@@ -149,9 +149,9 @@ GEM
     hash-deep-merge (0.1.1)
     hashie (1.2.0)
     highline (1.6.16)
-    hike (1.2.1)
+    hike (1.2.3)
     httpauth (0.2.0)
-    i18n (0.6.1)
+    i18n (0.6.9)
     jbuilder (1.0.2)
       activesupport (>= 3.0.0)
     journey (1.0.4)
@@ -163,7 +163,7 @@ GEM
       railties (>= 3.1.0)
     js-routes (0.8.7)
       rails (>= 3.2)
-    json (1.7.7)
+    json (1.8.1)
     jwt (0.1.5)
       multi_json (>= 1.0)
     kaminari (0.14.1)
@@ -180,13 +180,12 @@ GEM
       less (~> 2.3.1)
     libv8 (3.11.8.13)
     libxml-ruby (2.6.0)
-    mail (2.5.3)
-      i18n (>= 0.4.0)
+    mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     metaclass (0.0.1)
     method_source (0.8.2)
-    mime-types (1.21)
+    mime-types (1.25.1)
     mini_magick (3.5.0)
       subexec (~> 0.2.1)
     minitest (4.3.3)
@@ -236,7 +235,7 @@ GEM
       weary (= 1.1.2)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
-    polyglot (0.3.3)
+    polyglot (0.3.4)
     pre-commit (0.7.0)
       execjs
     promise (0.3.0)
@@ -250,27 +249,27 @@ GEM
     rack-protection (1.5.2)
       rack
     rack-rewrite (1.3.3)
-    rack-ssl (1.3.3)
+    rack-ssl (1.3.4)
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    rails (3.2.13)
-      actionmailer (= 3.2.13)
-      actionpack (= 3.2.13)
-      activerecord (= 3.2.13)
-      activeresource (= 3.2.13)
-      activesupport (= 3.2.13)
+    rails (3.2.17)
+      actionmailer (= 3.2.17)
+      actionpack (= 3.2.17)
+      activerecord (= 3.2.17)
+      activeresource (= 3.2.17)
+      activesupport (= 3.2.17)
       bundler (~> 1.0)
-      railties (= 3.2.13)
-    railties (3.2.13)
-      actionpack (= 3.2.13)
-      activesupport (= 3.2.13)
+      railties (= 3.2.17)
+    railties (3.2.17)
+      actionpack (= 3.2.17)
+      activesupport (= 3.2.17)
       rack-ssl (~> 1.3.2)
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
     raindrops (0.10.0)
-    rake (10.0.3)
+    rake (10.2.2)
     ransack (0.7.2)
       actionpack (~> 3.0)
       activerecord (~> 3.0)
@@ -297,6 +296,7 @@ GEM
       actionmailer (>= 3.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    ruby-prof (0.14.2)
     rufus-scheduler (2.0.24)
       tzinfo (>= 0.3.22)
     russian (0.6.0)
@@ -341,9 +341,9 @@ GEM
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
       ref
-    thor (0.17.0)
-    tilt (1.3.6)
-    treetop (1.4.12)
+    thor (0.19.1)
+    tilt (1.4.1)
+    treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
     turbo-sprockets-rails3 (0.3.11)
@@ -355,7 +355,7 @@ GEM
       actionpack (>= 3.1)
       execjs
       railties (>= 3.1)
-    tzinfo (0.3.37)
+    tzinfo (0.3.39)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
@@ -443,13 +443,14 @@ DEPENDENCIES
   pre-commit
   pry
   rack-rewrite
-  rails (~> 3.2.13)
+  rails (~> 3.2.17)
   rake
   ransack
   redcarpet
   resque
   resque-scheduler
   resque_mailer
+  ruby-prof
   russian
   rvm-capistrano
   sass-rails (~> 3.2.3)
@@ -473,5 +474,6 @@ DEPENDENCIES
   usefull_scopes
   validates
   virtus
+  weary
   whenever
   ya_acl

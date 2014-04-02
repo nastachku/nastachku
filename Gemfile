@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.13'
+gem 'rails', '~> 3.2.17'
 gem 'pg'
 gem 'unicorn'
 gem 'haml-rails'
@@ -54,6 +54,7 @@ gem 'sprockets'
 gem 'sinatra', '>= 1.3.0', :require => nil
 gem 'newrelic_rpm'
 gem 'smarter_csv'
+gem 'weary'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -94,4 +95,5 @@ group :development do
   gem 'capistrano_colors'
   gem 'capi'
   gem 'capistrano-maintenance'
+  gem 'ruby-prof'
 end

@@ -44,9 +44,9 @@ module Web::SchedulesHelper
     time.hour * 60 + time.to_datetime.minute
   end
 
-  def before_after_party?(time)
+  def before_after_party?(time, lectures_slots)
     last_lecture_finish_time = time
-    Slot.for_day(time).with(event_type: "Lecture").each do |slot|
+    lectures_slots.each do |slot|
       last_lecture_finish_time = slot.finish_time if slot.finish_time > last_lecture_finish_time
     end
     last_lecture_finish_time == time
@@ -61,7 +61,7 @@ module Web::SchedulesHelper
 
   def my_program_slots
     ids = []
-    current_user.lecture_votings.each { |vote| ids << vote.voteable.id }
+    current_user.lecture_votings.each { |vote| ids << vote.voteable_id }
     ids
   end
 end

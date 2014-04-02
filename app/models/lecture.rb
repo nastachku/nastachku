@@ -1,3 +1,5 @@
+require 'carrierwave/orm/activerecord' # for load_models initializer, remove if
+# remove its
 class Lecture < ActiveRecord::Base
   include LectureRepository
 

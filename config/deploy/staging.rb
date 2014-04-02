@@ -7,7 +7,7 @@ set :branch do
 end
 set :user, 'nastachku_staging_2014'
 set :keep_releases, 5
-set :rvm_ruby_string, "ruby-2.0.0-p451@nastachku"
+set :rvm_ruby_string, "2.0.0-p451"
 
 role :web, '62.76.190.226'
 role :app, '62.76.190.226'

@@ -36,10 +36,11 @@ class Web::UsersController < Web::ApplicationController
       token.user.activate!
       sign_in token.user
       flash_success
+      redirect_to edit_account_path
     else
       flash_error
+      redirect_to new_session_path
     end
-    redirect_to welcome_index_path
   end
 
   def create
@@ -52,7 +53,7 @@ class Web::UsersController < Web::ApplicationController
         @user.activate
         clear_session_auth_hash
         sign_in @user
-        redirect_to welcome_index_path
+        redirect_to new_session_path
       else
         token = @user.create_auth_token
         UserMailer.confirm_registration(@user.id, token.id).deliver

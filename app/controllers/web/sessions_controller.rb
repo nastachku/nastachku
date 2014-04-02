@@ -1,4 +1,3 @@
-
 class Web::SessionsController < Web::ApplicationController
 
   def new
@@ -15,14 +14,14 @@ class Web::SessionsController < Web::ApplicationController
 
   def create
     @type = UserSignInType.new params[:user_sign_in_type]
-
     if @type.valid?
       user = @type.user
       flash_success
       sign_in user
-      redirect_to edit_account_path
+      redirect_to auth_cs_cart_user_url get_auth_token user
     else
-      redirect_to welcome_index_path
+      flash[:error] = @type.errors.full_messages
+      redirect_to new_session_path
     end
   end
 

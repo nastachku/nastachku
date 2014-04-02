@@ -1,7 +1,15 @@
 - @halls.each_with_index do |hall, i|
-  - if hall.has_begin_lecture?(i_time)
-    %td{ rowspan: hall.slot_at_the_time(i_time).decorate.duration / 5, data: { hall: i + 1 } }
-      = render "lecture", lecture: hall.slot_at_the_time(i_time).event.decorate
-  - elsif hall.has_not_slots?(i_time)
+  - at_this_time = hall.at_this_time(i_time)
+  - case(at_this_time[:status])
+    - when(:lecture_begin)
+      %td{ rowspan: at_this_time[:slot].duration / 5, data: { hall: i + 1 } }
+        = render "lecture", lecture: at_this_time[:slot].event, slot: at_this_time[:slot]
+    - when(:slot_is_empty)
+      %td{data: { hall: i + 1 } }
+  -# if hall.has_begin_lecture?(i_time)
+    - slot = hall.slot_at_the_time(i_time)
+    %td{ rowspan: slot.duration / 5, data: { hall: i + 1 } }
+      = render "lecture", lecture: slot.event, slot: slot
+  -# elsif hall.has_not_slots?(i_time)
     %td{data: { hall: i + 1 } }
 %td{ style: "border-left: 0px;" }
