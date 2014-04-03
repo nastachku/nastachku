@@ -16,6 +16,14 @@ set :rake, "#{rake} --trace"
 
 default_run_options[:pty] = true
 
+
+namespace :resque do
+  desc "Start resque worker"
+  task :start do
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} QUEUE=* #{rake} environment resque:work"
+  end
+end
+
 namespace :deploy do
   desc "Symlinks the database.yml"
   task :symlink_db, roles: :app do
