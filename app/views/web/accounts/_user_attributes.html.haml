@@ -1,0 +1,61 @@
+= simple_form_for @user, url: account_path, html: { class: 'form-horizontal profile-form' } do |f|
+  .personal__userpic
+    .personal__userpic__img
+      - if not @user.photo or @user.photo.to_s.empty?
+        = image_tag "default-user-image.png"
+      - else
+        = image_tag @user.photo
+    .personal__userpic__upload
+      = f.input :photo, input_html: {style: "display: none;"}, label_html: {style: "display: none;"}
+      %a#false_photo_input{ title: "Загрузить фотографию", href: "#"} Загрузить фотографию
+      :javascript
+        $(document).ready( function() {
+          $('#false_photo_input').click(function(){
+            $("#user_photo").click();
+            return false;
+          });
+        });
+  .personal__info
+    - f.with_options input_html: { class: "input_type-1" } do |f|
+      %ul.form__group
+        %li.form__element
+          = f.input :first_name, placeholder: "Имя", label: false
+        %li.form__element
+          = f.input :last_name, placeholder: "Фамилия", label: false
+        %li.form__element
+          = f.input :city, placeholder: "Город", label: false
+      %ul.form__group
+        %li.form__element
+          = f.input :company, placeholder: "Компания", label: false
+        %li.form__element
+          = f.input :position, placeholder: "Должность", label: false
+      %ul.form__group
+        %li.form__element
+          = f.input :email, placeholder: "E-mail", label: false
+        %li.form__element.form__element__pass
+          = f.input :old_password, placeholder: "Пароль", label: false
+          %span.form__element__pass-icon.form_showpass
+        %li.form__element
+          = f.input :password, placeholder: "Новый пароль", label: false
+  .personal__identity
+    .personal__identity__number
+      %h5 Ваш персональный номер
+      %h2= @user.id
+    .margin_of_information
+      - unless @user.attended?
+        %ul.form__group
+          %li.form__element
+            = check_box_tag :i_will_come_to_stachka, nil, false, id: "i_will_come_to_stachka", class: 'checkbox_type-1', data: {url: attend_user_path(@user)}
+            %label{for: "i_will_come_to_stachka"}
+              = t('.i_will_come_to_stachka')
+    .personal__identity__social
+      %ul.form__group
+        - f.with_options input_html: { class: "input_type-1" } do |f|
+          %li.form__element.form__element__tw
+            = f.input :twitter_name, placeholder: "https://twitter.com", label: false
+          %li.form__element.form__element__fb
+            = f.input :facebook, placeholder: "http://facebook.com", as: :string, label: false
+          %li.form__element.form__element__vk
+            = f.input :vkontakte, placeholder: "http://vk.com", as: :string, label: false
+  .personal__submit
+    = f.button :submit, t('.save'), class: 'btn_main btn_main-refresh'

@@ -46,6 +46,9 @@ ru:
         header:
           logout: "Разлогиниться"
           login: 'Войти на сайт'
+        plaha:
+          buy_a_ticket: "Купить билет!"
+          we_waiting_for_you: "Ждём Вас на Стачке!"
 
       admin:
         shared:
