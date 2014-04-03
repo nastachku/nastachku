@@ -16,7 +16,7 @@
               $("td[data-hall]").children(".programm__schedule__lectures__lecture").each(function(){
                   var $local_this = $(this);
                   var parent = $local_this.parent();
-                  if (!parent.prop("height")) {
+                  if (!(parent.prop("height") || parseInt(parent.css('height')) == 0)) {
                       var parent_height = parent.css('height');
                       parent.prop('height', parent_height);
                   }
