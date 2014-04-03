@@ -46,6 +46,8 @@ ru:
         header:
           logout: "Разлогиниться"
           login: 'Войти на сайт'
+        plaha:
+          buy_a_ticket: "Купить билет!"
 
       admin:
         shared:

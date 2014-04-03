@@ -11,7 +11,8 @@
 - if is_main_page?
   .mainadv
     .mainadv__banner
-      %h2 Stop working!
+      %h2.plaha_main_text
+        = t('.buy_a_ticket')
       %p
         Стоимость участия -
         %b 1500
@@ -19,5 +20,7 @@
         %b / 2 дня
       - unless signed_in?
         %a{ href: new_user_path, title: "Зарегистрироваться" } Зарегистрироваться
+      - else
+        = link_to t(".buy_a_ticket"),
 - else
   .mainadv.mainadv__mini
