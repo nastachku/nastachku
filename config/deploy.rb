@@ -16,6 +16,18 @@ set :rake, "#{rake} --trace"
 
 default_run_options[:pty] = true
 
+namespace :resque do
+  desc "Start resque worker"
+  task :start do
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} PIDFILE=#{shared_path}/pids/resque.pid BACKGROUND=yes QUEUE='*' #{rake} environment resque:work >> #{current_path}/log/resque_worker.log"
+  end
+
+  desc "Start scheduler"
+  task :scheduler_start do
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} PIDFILE=#{shared_path}/pids/resque_scheduler.pid BACKGROUND=yes #{rake} environment resque:scheduler >> #{current_path}/log/resque_scheduler.log"
+  end
+end
+
 namespace :deploy do
   desc "Symlinks the database.yml"
   task :symlink_db, roles: :app do
