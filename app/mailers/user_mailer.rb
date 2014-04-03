@@ -20,6 +20,14 @@ class UserMailer < AsyncMailer
     mail :to => @user.email
   end
 
+  def broadcast(user_id, mail_params_id)
+    params = MailParams.find_by_id mail_params_id
+    @user = UserDecorator.decorate(User.find_by_id user_id)
+    @mail_content = params.mail_content
+    @subject = params.subject
+    mail :to => @user.email, subject: @subject
+  end
+
   def conference_is_open(user_id, token_id, mail_params_id)
     params = MailParams.find_by_id mail_params_id
     @user = UserDecorator.decorate(User.find_by_id user_id)

@@ -3,7 +3,7 @@
   
 .well
   %h4
-    = t '.count_of_receiving_mail', users_count: @users_size
+    = t '.count_of_receiving_mail', users_count: @attended_users_size
   = form_tag deliver_admin_mailers_path, html: { class: 'nomargin' } do |f|
     .row-fluid
       .span4
@@ -40,4 +40,19 @@
   %span#subject_preview
     
   = render file: "./user_mailer/conference_is_open"
+
+        
+.well
+  %h4
+    = t '.count_of_receiving_mail', users_count: @users_size
+  = form_tag broadcast_admin_mailers_path, html: { class: 'nomargin' } do |f|
+    .row-fluid
+      .span4
+        = text_field_tag :subject, nil, placeholder: t(".subject"), class: "wide-input"
+    .row-fluid
+      .span12
+        = text_area_tag :mail_content, nil, rows: 5, placeholder: t(".mail_content"), class: "wide-input"
+    .row-fluid
+      .span4
+        = submit_tag t(".send"), class: "btn btn-primary"
         
