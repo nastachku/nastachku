@@ -132,6 +132,10 @@ jQuery(document).ready(function ($) {
       }
     }
   }
+  if (window.location.hash == "") {
+    window.location.hash = "#user_attributes"
+  }
   $(window.location.hash).addClass("selected");
   $(window.location.hash + "_title").addClass("selected");
+  $("#two_days").attr('checked', true);
 });
