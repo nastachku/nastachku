@@ -15,9 +15,11 @@
             function setHeightOfDivInTd() {
               $("td[data-hall]").children(".programm__schedule__lectures__lecture").each(function(){
                   var $local_this = $(this);
-                  var parent_height = $local_this.parent().css('height');
-                  if ($local_this.css('min-height') != 0 && $local_this.css('height') < parent_height) {
+                  var parent = $local_this.parent();
+                  var parent_height = parent.prop("height") ? parent.prop('height') : parent.css('height') ;
+                  if (parseInt($local_this.css('min-height')) != 0 && parseInt($local_this.css('height')) < parseInt(parent_height)) {
                       $local_this.css('min-height', parent_height);
+                      parent.prop('height', parent_height);
                   }
               });
             }
