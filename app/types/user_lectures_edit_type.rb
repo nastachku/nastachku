@@ -2,7 +2,6 @@ class UserLecturesEditType < User
   include BasicType
 
   validates :photo, presence: true
-  validates :about, presence: true
 
   validates_associated :lectures
 
