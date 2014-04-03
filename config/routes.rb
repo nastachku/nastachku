@@ -116,6 +116,7 @@ Nastachku::Application.routes.draw do
       resource :mailers, only: [] do
         get :index
         post :deliver
+        post :broadcast
       end
       mount Resque::Server, at: "resque", constraints: AdminConstraint.new, as: 'resque'
 
