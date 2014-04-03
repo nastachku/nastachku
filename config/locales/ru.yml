@@ -102,6 +102,8 @@ ru:
 
     account:
       lectures:
+        attributes:
+          thesises: 'Тезисы'
         form:
           add_event: 'Добавить доклад'
         event_fields:
@@ -540,6 +542,11 @@ ru:
         state: "Состояние"
         timepad_state: "Состояние timepad.ru"
         about: "О себе"
+        lectures: "Лекция "
+        
+      lectures:
+        title: "Название: "
+        thesises: "Тезисы"
 
       base_event:
         title: 'Название'
