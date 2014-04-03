@@ -20,7 +20,7 @@ default_run_options[:pty] = true
 namespace :resque do
   desc "Start resque worker"
   task :start do
-    run "cd #{current_path} && RAILS_ENV=#{rails_env} QUEUE=* #{rake} environment resque:work"
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} PIDFILE=#{shared_path}/pids/resque.pid BACKGROUND=yes QUEUE='*' #{rake} environment resque:work >> #{current_path}/log/resque_worker.log"
   end
 end
 
