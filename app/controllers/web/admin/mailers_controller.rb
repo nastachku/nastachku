@@ -2,7 +2,8 @@ class Web::Admin::MailersController < Web::Admin::ApplicationController
   def index
     @user = UserDecorator.decorate(User.first)
     @token = @user.create_user_welcome_token
-    @users_size = User.where(attending_conference_state: :not_decided).size
+    @attended_users_size = User.where(attending_conference_state: :not_decided).size
+    @users_size = User.all.count
   end
 
   def deliver
@@ -17,5 +18,14 @@ class Web::Admin::MailersController < Web::Admin::ApplicationController
     rescue Net::SMTPAuthenticationError, SocketError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError, Errno::ECONNREFUSED => e
       flash[:error] = t(".flash.controllers.web.admin.mailers.deliver.error") + e.message
     end
+  end
+
+  def broadcast
+    attrs = [:subject, :mail_content]
+    mail_attrs = Hash[attrs.collect { |x| [x, params[x]] }]
+    mail_params = MailParams.create mail_attrs
+    Resque.enqueue BroadcastMailerJob, mail_params.id
+    flash_success
+    redirect_to admin_mailers_path
   end
 end
