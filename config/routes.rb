@@ -83,6 +83,7 @@ Nastachku::Application.routes.draw do
         resources :order_options, only: :create
         resource :buy, only: [] do
           put :pay
+          put :ticket_buy
         end
         resources :promo_codes, only: []  do
           member do

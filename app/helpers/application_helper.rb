@@ -71,4 +71,11 @@ module ApplicationHelper
     params[:controller] == 'web/accounts'
   end
 
+  def current_user_not_going_to_conference?
+    current_user.not_decided?
+  end
+
+  def current_user_attending_to_conference?
+    current_user and current_user.attended?
+  end
 end

@@ -8,10 +8,16 @@
       %b
         = configus.platidoma.ticket_price
         p
-- if is_main_page?
+- if current_user_attending_to_conference? or not is_main_page?
+  .mainadv.mainadv__mini
+- else is_main_page?
   .mainadv
     .mainadv__banner
-      %h2 Stop working!
+      - unless signed_in?
+        %h2 Stop working!
+      - else
+        %h2.plaha_main_text
+          = t('.buy_a_ticket')
       %p
         Стоимость участия -
         %b 1500
@@ -19,5 +25,6 @@
         %b / 2 дня
       - unless signed_in?
         %a{ href: new_user_path, title: "Зарегистрироваться" } Зарегистрироваться
-- else
-  .mainadv.mainadv__mini
+      - else
+        - if current_user_not_going_to_conference?
+          = link_to t(".buy_a_ticket"), ticket_buy_account_buy_path, method: :put
