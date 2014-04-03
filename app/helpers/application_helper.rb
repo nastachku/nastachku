@@ -76,6 +76,6 @@ module ApplicationHelper
   end
 
   def current_user_attending_to_conference?
-    current_user and current_user.attended?
+    current_user and current_user.paid_part?
   end
 end
