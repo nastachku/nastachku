@@ -1,13 +1,13 @@
 .content.personal
   .content__tabs__line
   .layout-line
-    %dl.content__tabs
-      %dt.tabs__title.selected Личные данные
-      %dd.tabs__content.selected
+    %dl.content__tabs#tabs
+      %dt.tabs__title Личные данные
+      %dd.tabs__content#user_attributes
         = render "user_attributes"
       %dt.tabs__title Заказы
-      %dd.tabs__content
+      %dd.tabs__content#orders
         = render "orders"
       %dt.tabs__title Товары
-      %dd.tabs__content
+      %dd.tabs__content#products
         = render "products"
