@@ -16,7 +16,15 @@
               $("td[data-hall]").children(".programm__schedule__lectures__lecture").each(function(){
                   var $local_this = $(this);
                   var parent = $local_this.parent();
-                  var parent_height = parent.prop("height") ? parent.prop('height') : parent.css('height') ;
+                  if (!(parent.prop("height") || parseInt(parent.css('height')) == 0)) {
+                      var parent_height = parent.css('height');
+                      parent.data('height-save', parent_height).attr('data-height-save', parent_height);
+                  }
+              });
+              $("td[data-hall]").children(".programm__schedule__lectures__lecture").each(function(){
+                  var $local_this = $(this);
+                  var parent = $local_this.parent();
+                  var parent_height = parent.data('height-save');
                   if (parseInt($local_this.css('min-height')) != 0 && parseInt($local_this.css('height')) < parseInt(parent_height)) {
                       $local_this.css('min-height', parent_height);
                       parent.prop('height', parent_height);
