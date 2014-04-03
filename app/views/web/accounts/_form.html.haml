@@ -8,7 +8,7 @@
           .personal__userpic
             .personal__userpic__img
               - if not @user.photo or @user.photo.to_s.empty?
-                = image_tag "/assets/web/default-user-image.png"
+                = image_tag "default-user-image.png"
               - else
                 = image_tag @user.photo
             .personal__userpic__upload
