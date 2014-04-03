@@ -133,4 +133,5 @@ jQuery(document).ready(function ($) {
     }
   }
   $(window.location.hash).addClass("selected");
+  $(window.location.hash + "_title").addClass("selected");
 });
