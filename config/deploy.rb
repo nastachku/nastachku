@@ -36,6 +36,10 @@ namespace :resque do
     run "rm -f resque_pid scheduler_pid"
   end
 
+  desc "List all resque processes."
+  task :list do
+    run 'ps -ef f | grep -E "[r]esque"'
+  end
 end
 
 namespace :deploy do
