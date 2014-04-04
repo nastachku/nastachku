@@ -12,8 +12,7 @@
   .mainadv.mainadv__mini
 - else is_main_page?
   .mainadv
-    -# banner = rand(4)
-    - banner = 3
+    - banner = rand(4)
     - if banner == 0
       .mainadv__banner__dollar
         %h2.plaha_main_text
@@ -39,7 +38,7 @@
         %h2.girl_shirt_text
           = t('.girl_shirt_costs')
           %span.rouble i
-        = link_to t(".buy_shirt")
+        = link_to t(".buy_shirt"), "#{edit_account_path}#products"
     - elsif banner == 3
       .mainadv__banner__boy
         %h2.boy_shirt_text
