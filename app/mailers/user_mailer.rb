@@ -20,7 +20,7 @@ class UserMailer < AsyncMailer
     mail :to => @user.email
   end
 
-  def broadcast(user_id, mail_params_id)
+  def send_mail(user_id, mail_params_id)
     params = MailParams.find_by_id mail_params_id
     @user = UserDecorator.decorate(User.find_by_id user_id)
     @mail_content = params.mail_content

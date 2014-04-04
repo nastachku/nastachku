@@ -16,6 +16,13 @@ set :rake, "#{rake} --trace"
 
 default_run_options[:pty] = true
 
+namespace :cache do
+  desc "Clear rails cache"
+  task :clear do
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} #{rake} cache:clear"
+  end
+end
+
 namespace :resque do
   desc "Start resque worker"
   task :start do
@@ -25,6 +32,20 @@ namespace :resque do
   desc "Start scheduler"
   task :scheduler_start do
     run "cd #{current_path} && RAILS_ENV=#{rails_env} PIDFILE=#{shared_path}/pids/resque_scheduler.pid BACKGROUND=yes #{rake} environment resque:scheduler >> #{current_path}/log/resque_scheduler.log"
+  end
+  
+  desc "Stop workers"
+  task :stop do
+    resque_pid = "#{shared_path}/pids/resque.pid "
+    scheduler_pid = "#{shared_path}/pids/resque_scheduler.pid" 
+    sudo "kill -2 `cat #{resque_pid}`"
+    sudo "kill -2 `cat #{scheduler_pid}`"
+    run "rm -f resque_pid scheduler_pid"
+  end
+
+  desc "List all resque processes."
+  task :list do
+    run 'ps -ef f | grep -E "[r]esque"'
   end
 end
 
