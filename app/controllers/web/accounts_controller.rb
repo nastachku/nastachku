@@ -5,6 +5,10 @@ class Web::AccountsController < Web::ApplicationController
     @user = AccountEditType.find current_user
     @ticket_order = TicketOrder.new
     @shirt_order = ShirtOrder.new
+    if params[:discount_code]
+      @discount = Discount.find_by_code params[:discount_code]
+      @price_with_discount = (@ticket_order.its_cost * @discount.percent / 100)
+    end
     gon.promo_code_action = accept_account_promo_code_path(@user.promo_code)
   end
 
