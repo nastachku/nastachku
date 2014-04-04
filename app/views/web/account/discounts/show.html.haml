@@ -1,0 +1,35 @@
+= simple_form_for @shirt_order, url: pay_account_buy_path, method: :put do |f|
+  #order_form.order__new
+    %ul.order__new__items
+      - unless current_user.paid_part?
+        %li.order__new__item.order__new__item__days
+          .order__new__item__name
+            = check_box_tag :ticket_order, nil, false, id: "two_days", class: 'checkbox_type-1'
+            %label{for: "two_days"}
+              = t('.stachka_ticket')
+          .order__new__item__price
+            %h4#ticket_price_score
+              = configus.platidoma.ticket_price
+              %span.rouble i
+      - else
+        %h3.ticket_paid
+          Вы купили билет на Стачку!
+    - unless current_user.paid_part?
+      .order__new__total
+        %p Итог:
+        %h3
+          %span#total_score
+            0
+          %span.rouble i
+      .order__new__submit
+        %button#submit_order.btn_main.btn_main-pay{ type: "submit", disabled: true } Оплатить заказ
+      С помощью электронных кошельков оплатить участие можно через систему
+      %a{ href: "http://srit.timepad.ru/event/105416/"} Timepad
+.orderlist
+  .layout-line
+    %ul.orderslist__info
+      .orderslist__info__desc
+        %span
+        %p По всем вопросам альтернативной оплаты или отмены заказа, обращаться:
+      .orderslist__info__contacts
+        %a{ href: "mailto:info@nastachku.ru" } info@nastachku.ru
