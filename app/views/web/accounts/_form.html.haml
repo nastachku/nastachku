@@ -12,7 +12,19 @@
       %dd.tabs__content#products
         = render "products"
 :javascript
-  if (window.location.hash == "") {
+  if ($("#two_days")) {
+    $("#two_days").attr('checked', true);
+    if ($('#two_days').is(':checked')) {
+        $('#submit_order').attr("disabled", false);
+    }
+    var cost = parseInt($('#ticket_price_score').text()) != NaN ? parseInt($('#ticket_price_score').text()) : 0;
+    $("#total_score").text(cost);
+  }
+  
+  if ("#{@discount}" != "") {
+      $("#orders").addClass("selected");
+      $("#orders_title").addClass("selected");
+  } else if (window.location.hash == "") {
     $("#user_attributes").addClass("selected");
     $("#user_attributes_title").addClass("selected");
   } else if (window.location.hash == "#orders") {
@@ -21,8 +33,4 @@
   } else {
     $("#products").addClass("selected");
     $("#products_title").addClass("selected");
-  }
-  if ($("#two_days")) {
-    $("#two_days").attr('checked', true);
-    $("#total_score").text(parseInt($('#ticket_price_score').text()));
   }
