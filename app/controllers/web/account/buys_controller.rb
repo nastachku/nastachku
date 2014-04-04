@@ -8,7 +8,12 @@ class Web::Account::BuysController < Web::Account::ApplicationController
     if params[:ticket_order]
       @ticket_order = current_user.ticket_orders.build(items_count: 1)
       if @ticket_order.save
-        @order.cost += @ticket_order.its_cost
+        if params[:discount]
+          discount = Discount.find_by_code params[:discount]
+          @order.cost += (@ticket_order.its_cost * discount.percent) / 100
+        else
+          @order.cost += @ticket_order.its_cost
+        end
         @order.items_count += @ticket_order.items_count
       else
         flash_error

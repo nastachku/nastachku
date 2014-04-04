@@ -7,9 +7,14 @@ class Web::Account::PromoCodesController < Web::Account::ApplicationController
       flash_success
       redirect_to welcome_index_path
     else
-      flash_error
-      flash[:error] = flash[:error] #FIXME какого-то без этого не показывает flash
-      redirect_to edit_account_path
+      @discount = Discount.find_by_code params[:code]
+      if @discount
+        redirect_to edit_account_path(discount_code: params[:code])
+      else
+        flash_error
+        flash[:error] = flash[:error] #FIXME какого-то без этого не показывает flash
+        redirect_to edit_account_path
+      end
     end
   end
 end
