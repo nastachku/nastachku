@@ -8,7 +8,7 @@ class Web::Account::PromoCodesController < Web::Account::ApplicationController
       redirect_to welcome_index_path
     else
       @discount = Discount.find_by_code params[:code]
-      if @discount
+      if @discount and @discount.begin_date < Time.now and @discount.end_date > Time.now
         redirect_to edit_account_path(discount_code: params[:code])
       else
         flash_error
