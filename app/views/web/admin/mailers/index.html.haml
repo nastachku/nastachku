@@ -55,4 +55,14 @@
     .row-fluid
       .span4
         = submit_tag t(".send"), class: "btn btn-primary"
-        
+  %h3= t(".preview")
+  = form_tag broadcast_preview_admin_mailers_path, html: { class: 'nomargin' } do |f|
+    .row-fluid
+      .span4
+        = text_field_tag :user_id, nil, placeholder: "user_id", class: "wide-input"
+    .row-fluid
+      .span12
+        = text_area_tag :mail_content, nil, rows: 5, placeholder: t(".mail_content"), class: "wide-input"
+    .row-fluid
+      .span4
+        = submit_tag t(".send"), class: "btn btn-primary"

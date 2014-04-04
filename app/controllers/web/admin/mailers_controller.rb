@@ -28,4 +28,11 @@ class Web::Admin::MailersController < Web::Admin::ApplicationController
     flash_success
     redirect_to admin_mailers_path
   end
+
+  def broadcast_preview
+    attrs = [:mail_content]
+    mail_attrs = Hash[attrs.collect { |x| [x, params[x]] }]
+    mail_params = MailParams.create mail_attrs
+    redirect_to "/mailer_preview/broadcast"
+  end
 end
