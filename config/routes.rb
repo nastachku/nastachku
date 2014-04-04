@@ -81,7 +81,8 @@ Nastachku::Application.routes.draw do
         resources :shirt_orders, only: [:new, :create]
         resources :ticket_orders, only: :create
         resources :order_options, only: :create
-        get ":code" => "discounts#show"
+        get "code/:code" => "discounts#show"
+        post "discount" => "accounts#edit"
         resource :buy, only: [] do
           put :pay
           put :ticket_buy

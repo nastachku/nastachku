@@ -106,6 +106,7 @@ ru:
       discounts:
         show:
           you_have_discount: "Купите билет со скидкой %{percent} %"
+          code_not_true: "Код не верен"
           stachka_ticket: Билет на Стачку
       lectures:
         form:
