@@ -12,16 +12,6 @@
     %meta{ content: "Главная | Стачка!", property: "og:title" }
     %meta{ content: "Digital-коммуникации, Программирование, IT-стартапы, Электронная коммерция, Менеджмент в IT, IT на службе общества", property: "og:description" }
     %meta{ content: "Стачка!", property: "og:site_name" }
-    :javascript
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-47395104-1']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
     - if @lecture_id and @lecture_by_id
       %meta{ content: "#{root_url}#{@lecture_by_id.lector_photo if @lecture_by_id.lector_photo}", property: "og:image" }
       %meta{ content: "455", property: "og:image:width" }
@@ -59,3 +49,13 @@
       = render "layouts/web/shared/footer"
     #overlay.overlay
     = render "layouts/web/shared/authpopup"
+    :javascript
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-47395104-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
