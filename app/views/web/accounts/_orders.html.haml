@@ -82,13 +82,3 @@
         %p По всем вопросам альтернативной оплаты или отмены заказа, обращаться:
       .orderslist__info__contacts
         %a{ href: "mailto:info@nastachku.ru" } info@nastachku.ru
-:javascript
-  if (window.location.hash == "") {
-    window.location.hash = "#user_attributes";
-  }
-  $(window.location.hash).addClass("selected");
-  $(window.location.hash + "_title").addClass("selected");
-  if ($("#two_days")) {
-    $("#two_days").attr('checked', true);
-    $("#total_score").text(parseInt($('#ticket_price_score').text()));
-  }

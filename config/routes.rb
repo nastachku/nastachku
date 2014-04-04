@@ -86,7 +86,8 @@ Nastachku::Application.routes.draw do
         post "discount" => "accounts#edit"
         resource :buy, only: [] do
           put :pay
-          put :ticket_buy
+          post :ticket
+          post :afterparty
         end
         resources :promo_codes, only: []  do
           member do
