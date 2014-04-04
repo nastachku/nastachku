@@ -7,7 +7,11 @@ class Web::Account::BuysControllerTest < ActionController::TestCase
   end
 
   test "should put ticket buy" do
-    get :ticket_buy
+    post :ticket
+    assert_response :redirect
+  end
+  test "should put afterparty buy" do
+    post :afterparty
     assert_response :redirect
   end
 end
