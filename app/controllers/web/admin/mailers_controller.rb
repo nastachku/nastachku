@@ -4,9 +4,10 @@ class Web::Admin::MailersController < Web::Admin::ApplicationController
     @token = @user.create_user_welcome_token
     @attended_users_size = User.where(attending_conference_state: :not_decided).size
     @users_size = User.all.count
+    @admins_size = User.where(admin: true).count
   end
 
-  def deliver
+  def broadcast_to_not_attended
     begin
       attrs = [:subject, :begin_of_greetings, :end_of_greetings, :mail_content,
        :before_link, :after_link, :goodbye]
@@ -27,5 +28,21 @@ class Web::Admin::MailersController < Web::Admin::ApplicationController
     Resque.enqueue BroadcastMailerJob, mail_params.id
     flash_success
     redirect_to admin_mailers_path
+  end
+
+  def broadcast_to_admins
+    attrs = [:subject, :mail_content]
+    mail_attrs = Hash[attrs.collect { |x| [x, params[x]] }]
+    mail_params = MailParams.create mail_attrs
+    Resque.enqueue BroadcastAdminsMailerJob, mail_params.id
+    flash_success
+    redirect_to admin_mailers_path
+  end
+
+  def preview
+    attrs = [:subject, :mail_content]
+    mail_attrs = Hash[attrs.collect { |x| [x, params[x]] }]
+    mail_params = MailParams.create mail_attrs
+    redirect_to "/mailer_preview/broadcast"
   end
 end

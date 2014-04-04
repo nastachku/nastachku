@@ -7,6 +7,7 @@ Nastachku::Application.routes.draw do
   match "/404", to: "web/errors#not_found"
   match "/500", to: "web/errors#internal_server_error"
   match "/banned", to: "web/errors#banned"
+  mount Preview => 'mailer_preview'
 
   root to: "web/welcome#index"
 
@@ -115,8 +116,10 @@ Nastachku::Application.routes.draw do
       resources :orders, only: [ :index, :edit, :update ]
       resource :mailers, only: [] do
         get :index
-        post :deliver
+        post :broadcast_to_not_attended
         post :broadcast
+        post :preview
+        post :broadcast_to_admins
       end
       mount Resque::Server, at: "resque", constraints: AdminConstraint.new, as: 'resque'
 
