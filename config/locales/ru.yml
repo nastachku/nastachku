@@ -49,6 +49,11 @@ ru:
         plaha:
           buy_a_ticket: "Купить билет!"
           we_waiting_for_you: "Ждём Вас на Стачке!"
+          boy_shirt_costs: Стоимость футболки 450
+          girl_shirt_costs: Стоимость футболки 590
+          buy_shirt: Купить футболку
+          classmates_get_good_guys_for_lesson: "\"Одноклассники\" всех хороших ребят со \"Стачки\" на закрытом <br/> \"Факультативе\""
+          afterparty_costs: Стоимость билета
 
       admin:
         shared:
