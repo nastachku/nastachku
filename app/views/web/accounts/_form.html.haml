@@ -11,3 +11,18 @@
       %dt.tabs__title#products_title Товары
       %dd.tabs__content#products
         = render "products"
+:javascript
+  if (window.location.hash == "") {
+    $("#user_attributes").addClass("selected");
+    $("#user_attributes_title").addClass("selected");
+  } else if (window.location.hash == "#orders") {
+      $("#orders").addClass("selected");
+      $("#orders_title").addClass("selected");
+  } else {
+    $("#products").addClass("selected");
+    $("#products_title").addClass("selected");
+  }
+  if ($("#two_days")) {
+    $("#two_days").attr('checked', true);
+    $("#total_score").text(parseInt($('#ticket_price_score').text()));
+  }
