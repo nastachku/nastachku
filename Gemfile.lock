@@ -183,6 +183,8 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mail_view (2.0.4)
+      tilt
     metaclass (0.0.1)
     method_source (0.8.2)
     mime-types (1.25.1)
@@ -428,6 +430,7 @@ DEPENDENCIES
   kaminari
   kaminari-bootstrap
   less-rails
+  mail_view (~> 2.0.4)
   mini_magick
   minitest
   mobylette

@@ -95,6 +95,13 @@ ru:
             error: 'Не предоставлено необходимых разрешений на доступ к аккаунту'
 
         admin:
+          mailers:
+            broadcast_to_admins:
+              success: "Рассылка начата"
+            broadcast:
+              success: "Рассылка начата"
+            broadcast_to_not_attended:
+              success: "Рассылка начата"
           pages:
             create:
               success: 'Страница добавлена.'

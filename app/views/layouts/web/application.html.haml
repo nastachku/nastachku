@@ -20,7 +20,9 @@
       %meta{ content: "#{@lecture_by_id.title}(#{@lecture_by_id.lector_name})", property: "og:title" }
       %meta{ content: "#{lectures_url}?lecture_id=#{@lecture_id}", property: "og:url" }
     - else
-      %meta{ content: "i/og_image.png", property: "og:image" }
+      %meta{ content: asset_url("web/og_image_2.png"), property: "og:image" }
+      %meta{ content: "250", property: "og:image:width" }
+      %meta{ content: "250", property: "og:image:height" }
       %meta{ content: "http://nastachku.ru/", property: "og:url" }
     = csrf_meta_tag
     = stylesheet_link_tag "web/application"
