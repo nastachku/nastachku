@@ -12,12 +12,35 @@
   .mainadv.mainadv__mini
 - else is_main_page?
   .mainadv
-    .mainadv__banner__dollar
-      %h2.plaha_main_text
-        = t('.buy_a_ticket')
-      %p
-        Стоимость участия -
-        %b 1500
-        %span.rouble i
-        %b / 2 дня
-      = link_to t(".buy_a_ticket"), ticket_buy_account_buy_path, method: :put
+    - banner = rand(3)
+    - if banner == 0
+      .mainadv__banner__dollar
+        %h2.plaha_main_text
+          = t('.buy_a_ticket')
+        %p
+          Стоимость участия -
+          %b 1500
+          %span.rouble i
+          %b / 2 дня
+        = link_to t(".buy_a_ticket"), ticket_buy_account_buy_path, method: :put
+    - elsif banner == 1
+      .mainadv__banner__ok
+        %h2 Afterparty!
+        %p
+          = t('.classmates_get_good_guys_for_lesson')
+        %p
+          = t('.afterparty_costs')
+          = configus.platidoma.afterparty_price
+          %span.rouble i
+        = link_to t('.buy_a_ticket')
+    - elsif banner == 2
+      .mainadv__banner__girl
+        %h3
+          = t('.boy_shirt_costs')
+        = link_to t(".buy_shirt")
+    - elsif banner == 3
+      .mainadv__banner__boy
+        %h3
+          = t('.girl_shirt_costs')
+        = link_to t('.buy_shirt')
+
