@@ -16,6 +16,13 @@ set :rake, "#{rake} --trace"
 
 default_run_options[:pty] = true
 
+namespace :cache do
+  desc "Clear rails cache"
+  task :clear do
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} #{rake} cache:clear"
+  end
+end
+
 namespace :resque do
   desc "Start resque worker"
   task :start do
