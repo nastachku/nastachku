@@ -54,6 +54,8 @@ module Nastachku
     config.active_record.whitelist_attributes = true
     config.active_record.observers = :user_observer
 
+    ActionMailer::Base.default charset: "UTF-8"
+
     # Enable the asset pipeline
     config.assets.enabled = true
 
