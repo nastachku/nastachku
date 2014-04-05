@@ -8,7 +8,7 @@
       %b
         = configus.platidoma.ticket_price
         p
-- if is_main_page?
+- if is_main_page? and not current_user_paid_for_conference?
   .mainadv
     - banner = 0 #rand(4)
     - if banner == 0
@@ -22,9 +22,9 @@
             %span.rouble i
             %b / 2 дня
           = link_to t(".buy_a_ticket"), ticket_account_buy_path, method: :post
-      - else
-        - banner += 1
-    - elsif banner == 1
+      -# else
+        -# banner += 1
+    -# elsif banner == 1
       - unless current_user_has_afterparty?
         .mainadv__banner__ok
           %h2 Afterparty!
@@ -37,13 +37,13 @@
           = link_to t('.buy_a_ticket'), afterparty_account_buy_path, method: :post
       - else
         - banner += 1
-    - elsif banner == 2
+    -# elsif banner == 2
       .mainadv__banner__girl
         %h2.girl_shirt_text
           = t('.girl_shirt_costs')
           %span.rouble i
         = link_to t(".buy_shirt"), "#{edit_account_path}#products"
-    - elsif banner == 3
+    -# elsif banner == 3
       .mainadv__banner__boy
         %h2.boy_shirt_text
           = t('.boy_shirt_costs')

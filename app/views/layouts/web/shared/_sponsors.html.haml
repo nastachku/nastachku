@@ -1,14 +1,18 @@
 ﻿.pagetitle.mainpage__title.pagetitle__withoutborder
   .layout-line
-    %h1.pagetitle__title Генеральный спонсор
+    %h1.pagetitle__title Генеральный спонсоры
 .mainpage__sponsors
   .layout-line
-    #platin_sponsors_logos.company__logos.logos_carousel
+    #platin_sponsors_logos.company__logos.logos_carousel.touchcarousel
       %ul.touchcarousel-container
         %li.touchcarousel-item
           %div
           = link_to "http://www.microsoft.com/", target: "_blank" do
             = image_tag "logos/microsoft_logo.png"
+        %li.touchcarousel-item
+          %div
+          = link_to "http://www.odnoklassniki.ru/", target: "_blank" do
+            = image_tag "logos/odnoklassniki.jpg"
 .pagetitle.mainpage__title.pagetitle__withoutborder
   .layout-line
     %h1.pagetitle__title Платиновые спонсоры
