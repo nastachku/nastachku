@@ -56,7 +56,9 @@ class Web::UsersController < Web::ApplicationController
         redirect_to new_session_path
       else
         token = @user.create_auth_token
-        UserMailer.confirm_registration(@user.id, token.id).deliver
+        #FIXME убрать создание токена
+        @user.activate
+        UserMailer.confirm_registration(@user.id, token.id).deliver_in(10.seconds)
         flash_success
         redirect_to new_session_path
       end

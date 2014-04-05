@@ -68,7 +68,7 @@ ru:
         email: "Email"
         first_name: "Имя"
         last_name: "Фамилия"
-        password: "Пароль (латиница, хотя бы 1 строчная, заглавная, цифра и спец.символ)"
+        password: "Пароль"
         password_confirmation: "Подтверждение пароля"
         old_password: "Старый пароль"
         city: "Город"

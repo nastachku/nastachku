@@ -10,9 +10,9 @@ class Web::RemindPasswordsController < Web::ApplicationController
       user.changed_by = current_user
       if user && user.active?
         token = user.create_remind_password_token
-        UserMailer.remind_password(user.id, token.id).deliver
+        UserMailer.remind_password(user.id, token.id).deliver_in(10.seconds)
         flash_success
-        return redirect_to welcome_index_path
+        return redirect_to new_session_path
       else
         flash[:error] = t :inactive, scope: [:activemodel, :errors, :models, :user_password_remind_type]
       end
