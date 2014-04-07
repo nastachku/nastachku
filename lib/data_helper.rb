@@ -40,11 +40,6 @@ module DataHelper
   end
 
   def download_orders_in_csv(tickets_file="ticketorders.csv", afterparty_file="afterpartyorders.csv")
-    750 and 1000
-    1100 and 1000
-    1100 and 1500
-    1500 and 2000
-    1500 and 2500
     @ticket_users = []
     @afterparty_users = []
     t_index = 1
@@ -80,6 +75,11 @@ module DataHelper
       end
       if order
         if (ticket_order and ticket_order.cost == nil) and (afterparty_order and afterparty_order.cost == nil)
+          # 750 and 1000
+          # 1100 and 1000
+          # 1100 and 1500
+          # 1500 and 2000
+          # 1500 and 2500
           case order.cost
           when 1750
             ticket_order_cost = 750
