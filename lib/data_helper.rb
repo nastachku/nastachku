@@ -39,7 +39,7 @@ module DataHelper
     end
   end
 
-  def download_orders_in_csv(tickets_file="ticketorders.csv", afterparty_file="afterpartyorders.csv")
+  def download_orders_in_csv(tickets_file="public/admin/ticketorders.csv", afterparty_file="public/admin/afterpartyorders.csv")
     750 and 1000
     1100 and 1000
     1100 and 1500
