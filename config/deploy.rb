@@ -126,4 +126,3 @@ after 'deploy:update_code', 'deploy:checkout', 'deploy:assets:precompile'
 after 'deploy:symlink_db', 'deploy:symlink_backup'
 after 'deploy:symlink_backup', 'deploy:symlink_credentials'
 after "deploy:restart", "unicorn:stop"
-after "unicorn:stop", "cache:clear", "resque:stop", "resque:start", "resque:scheduler_start"
