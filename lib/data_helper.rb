@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'csv'
 module DataHelper
   def add_ticket_to_user(user, sum, pay_date)
@@ -38,51 +39,87 @@ module DataHelper
     end
   end
 
-  def download_orders_in_csv(tickets_file, afterparty_file)
+  def download_orders_in_csv(tickets_file="ticketorders.csv", afterparty_file="afterpartyorders.csv")
     750 and 1000
     1100 and 1000
     1100 and 1500
     1500 and 2000
-    ticket_users = []
-    afterparty_users = []
+    1500 and 2500
+    @ticket_users = []
+    @afterparty_users = []
+    t_index = 1
+    a_index = 1
     User.includes(:orders).where(orders: {payment_state: :paid}).each do |user|
       orders = user.orders
       order = orders.select { |x| x.type == nil }.first
+      orders_count = orders.select { |x| x.type == nil }.count
+      if order and orders_count == 2
+        # если ктото купил билет и афтепати отдельными ордерами
+        second_order = orders.select {|x| x.type == nil}.second
+        order.cost = order.cost + second_order.cost
+      end
       ticket_order = orders.select { |x| x.type == "TicketOrder" }.first
       afterparty_order = orders.select { |x| x.type == "AfterpartyOrder" }.first
-      if ticket_order and afterparty_order
-        case order.cost
-        when 1750
-          ticket_order.cost = 750
-          afterparty_order.cost = 1000
-        when 2100
-          ticket_order.cost = 1100
-          afterparty_order.cost = 1000
-        when 2600
-          ticket_order.cost = 1100
-          afterparty_order.cost = 1500
-        when 3500          
-          ticket_order.cost = 1500
-          afterparty_order.cost = 2000
+      if ticket_order and ticket_order.cost != nil
+        # from timepad
+        # некоторые покупали несколько билетов на одно имя
+        ticket_orders = orders.select { |x| x.type == "TicketOrder" and x.cost != nil }
+        ticket_orders.each do |t|
+          @ticket_users << userdata_and_cost(t_index, user, t.cost, "timepad")
+          t_index = t_index + 1
+        end   
+      end
+      if afterparty_order and afterparty_order.cost != nil
+        # from timepad
+        # некоторые покупали несколько афтепати на одно имя
+        afterparty_orders = orders.select { |x| x.type == "AfterpartyOrder" and x.cost != nil }
+        afterparty_orders.each do |a|
+          @afterparty_users << userdata_and_cost(a_index, user, a.cost, "timepad")
+          a_index = a_index + 1
+        end   
+      end
+      if order
+        if (ticket_order and ticket_order.cost == nil) and (afterparty_order and afterparty_order.cost == nil)
+          case order.cost
+          when 1750
+            ticket_order_cost = 750
+            afterparty_order_cost = 1000
+          when 2100
+            ticket_order_cost = 1100
+            afterparty_order_cost = 1000
+          when 2600
+            ticket_order_cost = 1100
+            afterparty_order_cost = 1500
+          when 3500          
+            ticket_order_cost = 1500
+            afterparty_order_cost = 2000
+          when 4000
+            ticket_order_cost = 1500
+            afterparty_order_cost = 2500
+          end
+          @ticket_users << userdata_and_cost(t_index, user, ticket_order_cost)
+          @afterparty_users << userdata_and_cost(a_index, user, afterparty_order_cost)
+          t_index = t_index + 1
+          a_index = a_index + 1
+        elsif ticket_order and ticket_order.cost == nil
+          @ticket_users << userdata_and_cost(t_index, user, order.cost)
+          t_index = t_index + 1
+        elsif afterparty_order and afterparty_order.cost == nil
+          @afterparty_users << userdata_and_cost(a_index, user, order.cost)
+          a_index = a_index + 1
         end
-        ticket_users << userdata_and_cost(user, ticket_order.cost)
-        afterparty_users << userdata_and_cost(user, afterparty_order.cost)
-      elsif ticket_order
-        ticket_users << userdata_and_cost(user, order.cost)
-      elsif afterparty_order
-        afterparty_users << userdata_and_cost(user, order.cost)
-      end   
+      end
     end
-    CSV.open("ticketorders.csv", "w") do |csv|
-      ticket_users.each { |i| csv << i }
+    CSV.open(tickets_file, "w") do |csv|
+      @ticket_users.each { |i| csv << i }
     end
-    CSV.open("afterpartyorders.csv", "w") do |csv|
-      afterparty_users.each { |i| csv << i }
+    CSV.open(afterparty_file, "w") do |csv|
+      @afterparty_users.each { |i| csv << i }
     end    
   end
 
-  def userdata_and_cost(user, cost)
-    [user.id, user.decorate.full_name, user.company, cost]
+  def userdata_and_cost(index, user, cost, shop="platidoma")
+    [index, user.id, user.decorate.full_name, user.company, cost, shop]
   end
 end
 
