@@ -38,3 +38,15 @@
         = link_to t('.buy_shirt'), "#{edit_account_path}#products"
 - else
   .mainadv.mainadv__mini
+  .mainadv
+    - banner = rand(3)
+    .mainadv__banner__dollar
+      %h2.plaha_main_text
+        = t('.buy_a_ticket')
+      %p
+        Стоимость участия -
+        %b 1500
+        %span.rouble i
+        %b / 2 дня
+      - unless current_user_paid_for_conference?
+        = link_to t(".buy_a_ticket"), ticket_account_buy_path, method: :post
