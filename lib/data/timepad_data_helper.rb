@@ -1,5 +1,5 @@
-require 'csv'
 # -*- coding: utf-8 -*-
+require 'csv'
 module Data::TimepadDataHelper
   def restore_data_from_timepad_csv(file_path)
     # ПРОВЕРИТЬ ДОБАВЛЕНИЕ AFTERPARTY !!!11
