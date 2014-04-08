@@ -1,6 +1,6 @@
 - model_class = UsersList
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human
+  %h1=t '.title', default: model_class.model_name.human
 
 %p
   %strong= model_class.human_attribute_name(:file) + ':'
@@ -12,6 +12,5 @@
   = @users_list.state
 
 .form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), users_lists_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_users_list_path(@users_list), :class => 'btn'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), users_list_path(@users_list), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+  = link_to t('.back', default: t("helpers.links.back")), admin_users_lists_path, class: 'btn'
+  = link_to t('.destroy', default: t("helpers.links.destroy")), admin_users_list_path(@users_list), method: "delete", data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger'

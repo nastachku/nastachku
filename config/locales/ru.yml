@@ -285,7 +285,17 @@ ru:
       welcome:
         index:
           title: 'Админка стачки'
-          prices_for_ticket: Цены за билет
+          lists: Загруженные списки
+          view_lists: Посмотреть загруженные списки пользователей
+      users_lists:
+        index:
+          title: Загруженные списки
+          new: Загрузить список
+        new:
+          title: Загрузить список пользователей
+        show:
+          back: Назад
+          destroy: Удалить список (данные в базе останутся на месте)
       users:
         form:
           attending_conference_state: "Идёт ли пользователь на СТАЧКУ 2014"

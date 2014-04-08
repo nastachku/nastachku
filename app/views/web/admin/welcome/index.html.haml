@@ -1,2 +1,6 @@
 .page-header
   %h1=t '.title'
+
+%h2
+  = t('.lists')
+= link_to t('.view_lists'), admin_users_lists_path, class: 'btn btn-large  btn-success'
