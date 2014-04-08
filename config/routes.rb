@@ -101,6 +101,10 @@ Nastachku::Application.routes.draw do
       get :authorization, on: :member
     end
 
+    namespace :registrator do
+      resources :users
+    end
+
     namespace :admin do
       resources :users_lists, except: [:edit, :update] do
         member do
@@ -131,6 +135,10 @@ Nastachku::Application.routes.draw do
         post :preview
         post :broadcast_to_admins
       end
+      resource :reports, only: [] do
+        post :generate
+      end
+      match '/downloads/reports/*filename' => 'reports#download', as: 'reports_file' 
       mount Resque::Server, at: "resque", constraints: AdminConstraint.new, as: 'resque'
 
       root to: "welcome#index"

@@ -6,3 +6,6 @@ ru:
       email: "'E-mail'"
       status: "'Статус'"
       has_paid: "'оплачено'"
+      ticket_type: "'Тип билета'"
+      afterparty: "'Afterparty'"
+      ticket: "'Участие в конференции'"

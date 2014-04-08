@@ -36,11 +36,20 @@ class LectureDecorator < Draper::Decorator
   end
 
   def full_title
-    "#{lector} - #{title}(#{model.workshop.title})"
+    raise model.inspect if model.nil?
+    if model.user
+      "#{lector} - #{model.title}(#{model.workshop.title})"
+    else
+      "#{model.title}(#{model.workshop.title})"
+    end
   end
 
   def another_full_title
-    "#{model.title}(#{lector.full_name})"
+    if model.user
+      "#{model.title}(#{lector.full_name})"
+    else
+      "#{model.title}"
+    end    
   end
 
   def in_schedule_of(user)
