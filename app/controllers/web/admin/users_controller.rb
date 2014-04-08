@@ -1,5 +1,5 @@
 class Web::Admin::UsersController < Web::Admin::ApplicationController
-  
+
   def new
     @user = User.new
   end
@@ -46,10 +46,15 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     end
   end
 
-   def destroy
-     @user = User.find params[:id]
-     @user.destroy
-     redirect_to admin_users_path
-   end
+  def destroy
+    @user = User.find params[:id]
+    @user.destroy
+    redirect_to admin_users_path
+  end
 
+  def pay_part
+    @user = User.find params[:user_id]
+    @user.pay_part
+    redirect_to admin_users_list_path params[:id]
+  end
 end

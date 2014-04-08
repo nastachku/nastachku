@@ -1,6 +1,9 @@
 class Web::Admin::UsersListsController < Web::Admin::ApplicationController
   def show
     @users_list = UsersList.find params[:id]
+    list = upload_list_from_file UsersList.find(params[:id]).file.file.file #причуды carrierwave
+    @users = UserDecorator.decorate_collection list[0]
+    @other_users = list[1]
   end
 
   def index

@@ -1,16 +1,38 @@
-- model_class = UsersList
 .page-header
-  %h1=t '.title', default: model_class.model_name.human
+  %h1=t('.title')
 
-%p
-  %strong= model_class.human_attribute_name(:file) + ':'
-  %br
-  = @users_list.file
-%p
-  %strong= model_class.human_attribute_name(:state) + ':'
-  %br
-  = @users_list.state
-
-.form-actions
-  = link_to t('.back', default: t("helpers.links.back")), admin_users_lists_path, class: 'btn'
-  = link_to t('.destroy', default: t("helpers.links.destroy")), admin_users_list_path(@users_list), method: "delete", data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger'
+%table.table.table-striped
+  %thead
+    %tr
+      %th= :id
+      %th= :last_name
+      %th= :first_name
+      %th= :email
+      %th= :company
+      %th= :pay_part_state
+      %th= t('.price')
+      %td= :created_at
+      %td= t('.actions')
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= link_to user.id, admin_user_path(user)
+        %td= user.last_name
+        %td= user.first_name
+        %td= user.email
+        %td= user.company
+        %td= user.pay_state
+        %td= user.ticket_price
+        %td=l user.ticket_date
+        %td= link_to t('.accept'), "/admin/users_lists/#{@users_list.id}/#{user.id}", method: :put, class: 'btn btn-success btn-mini'
+%h2
+  = t('.other_users')
+%table.table.table-striped
+  - @other_users.each do |user|
+    %tr
+      %td
+        = user[:"ФИО"]
+      %td
+        = user[:email]
+      %td
+        = user[:"Компания"]

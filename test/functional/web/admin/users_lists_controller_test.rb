@@ -4,6 +4,12 @@ class Web::Admin::UsersListsControllerTest < ActionController::TestCase
   setup do
     user = create :admin
     sign_in user
+    @users_list = create :users_list
+  end
+
+  test "should get show" do
+    get :show, id: @users_list
+    assert_response :success
   end
 
   test 'should get index' do
