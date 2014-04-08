@@ -1,5 +1,5 @@
 module Data::UsersListsDataHelper
-  def upload_list_from_file
+  def upload_list_from_file(file_path)
     table = SmarterCSV.process(file_path)
     users_list = []
     table.map do |row|
