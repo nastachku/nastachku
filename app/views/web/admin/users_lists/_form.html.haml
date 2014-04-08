@@ -1,4 +1,5 @@
 = simple_form_for @users_list, url: admin_users_lists_path, html: { class: 'form-horizontal' } do |f|
   = f.file_field :file
+  = f.input :description
   .form-actions
     = f.button :submit, class: 'btn-primary'

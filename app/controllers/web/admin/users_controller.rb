@@ -55,6 +55,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
   def pay_part
     @user = User.find params[:user_id]
     @user.pay_part
+    @user.reason_to_give_ticket = UsersList.find(params[:id]).description
     redirect_to admin_users_list_path params[:id]
   end
 end
