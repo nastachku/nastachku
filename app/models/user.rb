@@ -87,6 +87,7 @@ class User < ActiveRecord::Base
     state :not_paid_part
     state :paid_part
     after_transition :to => :paid_part do |user, transition|
+      user.activate
       user.attend
     end
 
