@@ -32,13 +32,22 @@
 %h2
   = t('.other_users')
 %table.table.table-striped
-  - @other_users.each do |user|
+  %thead
+    %th= :last_name
+    %th= :first_name
+    %th= :email
+    %th= :company
+  - @other_users.each do |other_user|
     %tr
-      %td
-        = user[:"ФИО"]
-      %td
-        = user[:email]
-      %td
-        = user[:"Компания"]
-      %td
-        = link_to t('.accept'), create_paid_part_admin_users_list_path(@users_list), method: :post, class: 'btn btn-success btn-mini'
+      - @user = UserCreatePaidType.new
+      = simple_form_for @user, url: create_paid_part_admin_users_list_path(@users_list) do |f|
+        %td
+          = f.input :last_name, label: false, input_html: { value: other_user[t('users_lists.data.fio').to_sym].split(' ')[0] }
+        %td
+          = f.input :first_name, label: false, input_html: { value: other_user[t('users_lists.data.fio').to_sym].split(' ')[1] }
+        %td
+          = f.input :email, label: false, input_html: { value: other_user[t('users_lists.data.email').to_sym] }
+        %td
+          = f.input :company, label: false, input_html: { value: other_user[t('users_lists.data.company').to_sym] }
+        %td
+          = f.submit t('.accept'), class: 'btn btn-success btn-mini'
