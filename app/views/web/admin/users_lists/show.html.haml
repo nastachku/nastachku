@@ -8,7 +8,7 @@
       %th= :last_name
       %th= :first_name
       %th= :email
-      %th= :company
+      %th= :reason_to_give_ticket
       %th= :pay_part_state
       %th= t('.price')
       %td= :created_at
@@ -20,11 +20,15 @@
         %td= user.last_name
         %td= user.first_name
         %td= user.email
-        %td= user.company
+        %td= user.reason_to_give_ticket
         %td= user.pay_state
         %td= user.ticket_price
         %td=l user.ticket_date
-        %td= link_to t('.accept'), "/admin/users_lists/#{@users_list.id}/#{user.id}", method: :put, class: 'btn btn-success btn-mini'
+        %td
+          - unless user.reason_to_give_ticket
+            = link_to t('.accept'), "/admin/users_lists/#{@users_list.id}/#{user.id}", method: :put, class: 'btn btn-success btn-mini'
+          - else
+            = t('.accepted')
 %h2
   = t('.other_users')
 %table.table.table-striped
