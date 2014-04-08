@@ -1,5 +1,7 @@
-class Web::Registrator::UsersController < Web::Admin::ApplicationController
+class Web::Registrator::UsersController < Web::Registrator::ApplicationController
   def index
-    @users = User.paid
+    query = { s: 'last_name asc' }.merge(params[:q] || {})
+    @search = User.paid.ransack(query)
+    @users = @search.result.page(params[:page]).per(50)
   end
 end

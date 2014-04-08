@@ -19,7 +19,7 @@ module AuthHelper
   end
 
   def signed_as_registrator?
-    signed_in? && current_user.registrator?
+    signed_in? && (current_user.role.registrator? or current_user.admin?)
   end
 
   def authenticate_user!

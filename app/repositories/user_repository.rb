@@ -15,6 +15,7 @@ module UserRepository
     scope :visible, -> { where invisible_lector: :false }
     scope :nonsynchronized, -> { where timepad_state: [:unsynchronized, :failed] }
     scope :with_voted_or_scheduled_lectures, -> { joins(:lectures).where(lectures: {state: [:voted, :in_schedule]}) }
+    scope :paid, -> { where pay_state: :paid_part }
 
     def self.companies_by_term(company = nil)
       if company
