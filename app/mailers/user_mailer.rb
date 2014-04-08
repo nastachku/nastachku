@@ -10,7 +10,9 @@ class UserMailer < AsyncMailer
 
   def sent_after_create(user_id)
     @user = User.find_by_id user_id
-    mail :to => @user.email
+    if @user.email.present?
+      mail to: @user.email
+    end
   end
 
   def remind_password(user_id, token_id)

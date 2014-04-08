@@ -62,7 +62,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
   end
 
   def create_paid_part
-    @user = User.new params[:user]
+    @user = UserCreatePaidType.new params[:user]
     if @user.save
       @user.pay_part
       UserMailer.sent_after_create @user.id

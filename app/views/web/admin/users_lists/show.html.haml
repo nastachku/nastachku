@@ -42,7 +42,7 @@
     %th= :city
   - @other_users.each do |other_user|
     %tr
-      - @user = User.new
+      - @user = UserCreatePaidType.new
       = simple_form_for @user, url: create_paid_part_admin_users_list_path(@users_list) do |f|
         - f.with_options input_html: { class: :span2 } do |f|
           %td
