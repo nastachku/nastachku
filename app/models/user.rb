@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   validates :facebook, url: true, allow_blank: true
   validates :vkontakte, url: true, allow_blank: true
 
-  enumerize :role, in: [ :lector, :user ], default: :user
+  enumerize :role, in: [ :lector, :user, :registrator ], default: :user
   has_many :lectures, dependent: :destroy
   has_many :lecture_votings
   has_many :listener_votings

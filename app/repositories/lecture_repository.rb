@@ -15,5 +15,6 @@ module LectureRepository
     scope :by_lecture_votes, -> { by_lecture_votings_count }
     scope :by_listener_votes, -> { by_listener_votings_count }
     scope :with_active_speaker, -> { joins(:user).where(users: { state: :active, attending_conference_state: :attended}) }
+    scope :without_speaker, -> {where(user_id: nil)}
   end
 end

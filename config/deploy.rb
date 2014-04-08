@@ -40,7 +40,7 @@ namespace :resque do
     scheduler_pid = "#{shared_path}/pids/resque_scheduler.pid" 
     sudo "kill -2 `cat #{resque_pid}`"
     sudo "kill -2 `cat #{scheduler_pid}`"
-    run "rm -f resque_pid scheduler_pid"
+    run "rm -f #{resque_pid} #{scheduler_pid}"
   end
 
   desc "List all resque processes."

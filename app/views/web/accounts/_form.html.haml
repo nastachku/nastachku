@@ -17,7 +17,7 @@
     if ($('#two_days').is(':checked')) {
         $('#submit_order').attr("disabled", false);
     }
-    var cost = parseInt($('#ticket_price_score').text()) != NaN ? parseInt($('#ticket_price_score').text()) : 0;
+    var cost = parseInt($('#ticket_price_score').text()) ? parseInt($('#ticket_price_score').text()) : 0;
     $("#total_score").text(cost);
   }
   

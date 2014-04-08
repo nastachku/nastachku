@@ -555,7 +555,7 @@ ru:
         email: "Email"
         first_name: "Имя"
         last_name: "Фамилия"
-        password: "Пароль (от 8 до 30, латиница, хотя бы 1 строчная, заглавная, цифра и спец.символ)"
+        password: "Пароль"
         password_confirmation: "Подтверждение пароля"
         city: "Город"
         company: "Компания"
@@ -619,7 +619,7 @@ ru:
     labels:
       user:
         email: "Email"
-        password: "Пароль (от 8 до 30, латиница, хотя бы 1 строчная, заглавная, цифра и спец.символ)"
+        password: "Пароль"
 
   flash:
     controllers:

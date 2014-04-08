@@ -7,7 +7,7 @@ class Web::AccountsController < Web::ApplicationController
     @shirt_order = ShirtOrder.new
     if params[:discount_code]
       @discount = Discount.find_by_code params[:discount_code]
-      @price_with_discount = (@ticket_order.its_cost * @discount.percent / 100)
+      @price_with_discount = @discount.cost
     end
     gon.promo_code_action = accept_account_promo_code_path(@user.promo_code)
   end
