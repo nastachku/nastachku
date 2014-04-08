@@ -1,4 +1,4 @@
-module DataHelper
+module Data::TimepadDataHelper
   def add_ticket_to_user(user, sum, pay_date)
     user.pay_part
     ticket_order = user.ticket_orders.build(cost: sum, items_count: 1)

@@ -1,4 +1,4 @@
-class UserMailer < AsyncMailer 
+class UserMailer < AsyncMailer
   default_url_options[:host] = configus.mailer.default_host
   default from: configus.mailer.default_from
 
@@ -6,6 +6,13 @@ class UserMailer < AsyncMailer
     @user = User.find_by_id user_id
     @token = User::AuthToken.find_by_id token_id
     mail :to => @user.email
+  end
+
+  def sent_after_create(user_id)
+    @user = User.find_by_id user_id
+    if @user.email.present?
+      mail to: @user.email
+    end
   end
 
   def remind_password(user_id, token_id)

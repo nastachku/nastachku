@@ -1,0 +1,68 @@
+.page-header
+  %h1=t('.title')
+
+= link_to t('.accept_all'), accept_admin_users_list_path(@users_list), method: :put, class: 'btn btn-success btn-large'
+%table.table.table-striped
+  %thead
+    %tr
+      %th= :id
+      %th= :last_name
+      %th= :first_name
+      %th= :email
+      %th= :reason_to_give_ticket
+      %th= :pay_part_state
+      %th= t('.price')
+      %td= :created_at
+      %td= t('.actions')
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= link_to user.id, admin_user_path(user)
+        %td= user.last_name
+        %td= user.first_name
+        %td= user.email
+        %td= user.reason_to_give_ticket
+        %td= user.pay_state
+        %td= user.ticket_price
+        %td
+          - if user.ticket_date
+            =l user.ticket_date
+        %td
+          - unless user.reason_to_give_ticket
+            = link_to t('.accept'), "/admin/users_lists/#{@users_list.id}/#{user.id}", method: :put, class: 'btn btn-success btn-mini'
+          - else
+            = t('.accepted')
+%h2
+  = t('.other_users')
+%table.table.table-striped
+  %thead
+    %th= :last_name
+    %th= :first_name
+    %th= :email
+    %th= :company
+    %th= :city
+  - @other_users.each_with_index do |other_user, i|
+    %tr
+      - @user = UserCreatePaidType.new
+      = simple_form_for @user, url: create_paid_part_admin_users_list_path(@users_list) do |f|
+        - f.with_options input_html: { class: :span2 } do |f|
+          %td
+            = f.input :last_name, label: false, input_html: { value: other_user[t('users_lists.data.fio').to_sym].split(' ')[0] }
+          %td
+            = f.input :first_name, label: false, input_html: { value: other_user[t('users_lists.data.fio').to_sym].split(' ')[1] }
+          %td
+            - if other_user[t('users_lists.data.email').to_sym]
+              = f.input :email, label: false, input_html: { value: other_user[t('users_lists.data.email').to_sym] }
+            - else
+              = f.input :email, label: false, input_html: { value: "example#{i * @users_list.id}@gmail.com" }
+          %td
+            - if other_user[t('users_lists.data.company').to_sym]
+              = f.input :company, label: false, input_html: { value: other_user[t('users_lists.data.company').to_sym] }
+            - else
+              = f.input :company, label: false, input_html: { value: "Unknown" }
+          %td
+            = f.input :city, label: false, input_html: { value: "Ульяновск" }
+          %td
+            = f.input :reason_to_give_ticket, as: :hidden, input_html: { value: @users_list.description }
+            = f.input :password, as: :hidden, input_html: { value: generate_password }
+            = f.submit t('.accept'), class: 'btn btn-success btn-mini'
