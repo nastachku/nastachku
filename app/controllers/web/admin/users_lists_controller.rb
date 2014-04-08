@@ -12,9 +12,11 @@ class Web::Admin::UsersListsController < Web::Admin::ApplicationController
     @users = list[0]
     @other_users = list[1]
     @users.each_with_index do |user, i|
-      user.pay_part
-      user.reason_to_give_ticket = @users_list.description
-      user.save
+      unless user.reason_to_give_ticket
+        user.pay_part
+        user.reason_to_give_ticket = @users_list.description
+        user.save
+      end
     end
     Resque.enqueue  BroadcastMailerJobAfterCreate, @users
 
