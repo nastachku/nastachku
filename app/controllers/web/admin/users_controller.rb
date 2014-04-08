@@ -55,8 +55,16 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
   def pay_part
     @user = User.find params[:user_id]
     @user.pay_part
+    #FIXME создать функцию
     @user.reason_to_give_ticket = UsersList.find(params[:id]).description
     @user.save
+    redirect_to admin_users_list_path params[:id]
+  end
+
+  def create_paid_part
+    @user = UserCreatePaidType.create({ email: params[:email], first_name: params[:full_name].split('  ')[0], last_name: params[:full_name][1], company: params[:company], password: generate_password, reason_to_give_ticket: UsersList.find(params[:id]).description })
+    @user.pay_part
+    #FIXME создать функцию
     redirect_to admin_users_list_path params[:id]
   end
 end

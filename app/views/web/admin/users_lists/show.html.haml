@@ -40,3 +40,5 @@
         = user[:email]
       %td
         = user[:"Компания"]
+      %td
+        = link_to t('.accept'), create_paid_part_admin_users_list_path(@users_list), method: :post, class: 'btn btn-success btn-mini'

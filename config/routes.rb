@@ -105,6 +105,7 @@ Nastachku::Application.routes.draw do
       resources :users_lists, except: [:edit, :update] do
         member do
           put ":user_id" => "users#pay_part"
+          post "create_paid_part" => "users#create_paid_part"
         end
       end
       resources :lectures
