@@ -1,5 +1,5 @@
 class Discount < ActiveRecord::Base
-  attr_accessible :begin_date, :code, :end_date, :percent
+  attr_accessible :begin_date, :code, :end_date, :cost
 
   has_many :order
   validates :begin_date, presence: true

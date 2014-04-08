@@ -101,6 +101,10 @@ Nastachku::Application.routes.draw do
       get :authorization, on: :member
     end
 
+    namespace :registrator do
+      resources :users
+    end
+
     namespace :admin do
       resources :lectures
       resources :pages

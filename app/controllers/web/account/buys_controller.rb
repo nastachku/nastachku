@@ -14,7 +14,7 @@ class Web::Account::BuysController < Web::Account::ApplicationController
       end
       if @ticket_order.save
         if @ticket_order.discount
-          @order.cost += (@ticket_order.its_cost * @ticket_order.discount.percent) / 100
+          @order.cost += @ticket_order.discount.cost
         else
           @order.cost += @ticket_order.its_cost
         end
