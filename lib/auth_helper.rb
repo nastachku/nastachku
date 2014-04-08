@@ -18,6 +18,10 @@ module AuthHelper
     signed_in? && current_user.admin?
   end
 
+  def signed_as_registrator?
+    signed_in? && current_user.registrator?
+  end
+
   def authenticate_user!
     unless signed_in?
       redirect_to new_session_path(from: request.url)
@@ -26,6 +30,10 @@ module AuthHelper
 
   def authenticate_admin!
     redirect_to new_session_path unless signed_as_admin?
+  end
+
+  def authenticate_registrator!
+    redirect_to new_session_path unless signed_as_registrator?
   end
 
   def current_user

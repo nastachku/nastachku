@@ -53,7 +53,7 @@ class Web::UsersController < Web::ApplicationController
         @user.activate
         clear_session_auth_hash
         sign_in @user
-        redirect_to new_session_path
+        redirect_to lectures_path
       else
         token = @user.create_auth_token
         #FIXME убрать создание токена

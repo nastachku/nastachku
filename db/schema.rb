@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140408120039) do
+ActiveRecord::Schema.define(:version => 20140408141352) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -73,9 +73,9 @@ ActiveRecord::Schema.define(:version => 20140408120039) do
     t.string   "code"
     t.datetime "begin_date"
     t.datetime "end_date"
-    t.integer  "percent"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "cost"
   end
 
   create_table "event_users", :force => true do |t|
