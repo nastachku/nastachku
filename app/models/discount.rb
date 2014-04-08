@@ -4,6 +4,6 @@ class Discount < ActiveRecord::Base
   has_many :order
   validates :begin_date, presence: true
   validates :end_date, presence: true
-  validates :code, presence: true, length: { is: 8 }
-  validates :percent, presence: true
+  validates :code, presence: true
+  validates :cost, presence: true
 end
