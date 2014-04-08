@@ -65,6 +65,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     @user = User.new params[:user]
     if @user.save
       @user.pay_part
+      UserMailer.sent_after_create @user.id
       redirect_to admin_users_list_path params[:id]
     else
       redirect_to admin_users_list_path params[:id]

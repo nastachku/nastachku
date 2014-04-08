@@ -1,10 +1,15 @@
-class UserMailer < AsyncMailer 
+class UserMailer < AsyncMailer
   default_url_options[:host] = configus.mailer.default_host
   default from: configus.mailer.default_from
 
   def confirm_registration(user_id, token_id)
     @user = User.find_by_id user_id
     @token = User::AuthToken.find_by_id token_id
+    mail :to => @user.email
+  end
+
+  def sent_after_create(user_id)
+    @user = User.find_by_id user_id
     mail :to => @user.email
   end
 
