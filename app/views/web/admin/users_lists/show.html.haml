@@ -1,42 +1,19 @@
 .page-header
   %h1=t('.title')
 
-.well
-  = simple_form_for @search, url: admin_users_path, html: { class: 'nomargin' }, method: :get do |f|
-    .row-fluid
-      .span4
-        = f.input_field :last_name_cont, placeholder: t(".last_name"), label: false, required: false
-      .span4
-        = f.input_field :first_name_cont, placeholder: t(".first_name"), label: false, required: false
-      .span4
-        = f.input_field :email_cont, placeholder: t(".email"), label: false, required: false
-
-    .row-fluid
-      .span4
-        = f.input_field :city_cont, placeholder: t(".city"), label: false, required: false
-      .span4
-        = f.input :state_in, as: :chosen_select, collection: User.state_machine.states.map { |s| [s.human_name, s.name] }, input_html: { data: { placeholder: t(".state") }}, label: false, required: false
-      .span4
-        = f.submit t(".search"), class: 'btn btn-primary'
-
-
-= link_to t('.new_user'), new_admin_user_path, class: 'btn btn-primary'
-%br
-%br
-= paginate @users
 %table.table.table-striped
   %thead
     %tr
-      %th= sort_link(@search, :id)
-      %th= sort_link(@search, :last_name)
-      %th= sort_link(@search, :first_name)
-      %th= sort_link(@search, :email)
-      %th= sort_link(@search, :city)
-      %th= sort_link(@search, :state)
-      %th= sort_link(@search, :timepad_state)
-      %th= sort_link(@search, :role)
+      %th= :id
+      %th= :last_name
+      %th= :first_name
+      %th= :email
+      %th= :city
+      %th= :state
+      %th= :timepad_state
+      %th= :role
       %th= User::PromoCode.human_attribute_name :code
-      %th= sort_link(@search, :created_at)
+      %th= :created_at
       %th= t(".actions")
   %tbody
     - @users.each do |user|
@@ -54,6 +31,5 @@
         %td
           = link_to t('.edit'), edit_admin_user_path(user), class: 'btn btn-mini'
           = link_to t('.destroy'), admin_user_path(user), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-mini btn-danger'
-= paginate @users
 
 = link_to t('.new_user'), new_admin_user_path, class: 'btn btn-primary'

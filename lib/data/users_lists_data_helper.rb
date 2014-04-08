@@ -5,9 +5,9 @@ module Data::UsersListsDataHelper
     table.map do |row|
       user = User.find_by_email row[I18n.t('users_lists.data.status').to_sym]
       if user
-        users_lists << user
+        users_list << user
       end
     end
-    users_lists
+    users_list
   end
 end
