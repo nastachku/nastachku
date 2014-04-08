@@ -15,6 +15,13 @@ class UserMailer < AsyncMailer
     end
   end
 
+  def sent_after_create_if_user_present(user_id)
+    @user = User.find_by_id user_id
+    if @user.email.present?
+      mail to: @user.email
+    end
+  end
+
   def remind_password(user_id, token_id)
     @user = User.find_by_id user_id
     @token = User::AuthToken.find_by_id token_id
