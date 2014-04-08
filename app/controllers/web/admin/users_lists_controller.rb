@@ -11,18 +11,19 @@ class Web::Admin::UsersListsController < Web::Admin::ApplicationController
     list = upload_list_from_file @users_list.file.file.file
     @users = list[0]
     @other_users = list[1]
-    @users.each do |user|
+    @users.each_with_index do |user, i|
       user.pay_part
       user.reason_to_give_ticket = @users_list.description
       user.save
-      UserMailer.sent_after_create user.id
     end
+    Resque.enqueue  BroadcastMailerJobAfterCreate, @users
 
-    @other_users.each do |other_user|
+    @other_users.each_with_index do |other_user, i|
       user = UserCreatePaidType.new(email: other_user[I18n.t('users_lists.data.email').to_sym], first_name: other_user[I18n.t('users_lists.data.fio').to_sym].split(' ')[1], last_name: other_user[I18n.t('users_lists.data.fio').to_sym].split(' ')[0], company: other_user[I18n.t('users_lists.data.company').to_sym], password: generate_password, city: "Ульяновск", reason_to_give_ticket: @users_list.description)
       if user.save
         user.pay_part
-        UserMailer.sent_after_create user.id
+        UserMailer.sent_after_create(user.id).deliver_in((10 * (i + 1)).seconds)
+        Rails.logger.info "BROADCASTING SEND EMAILS to other users #{user.id}"
       end
     end
     @users_list.accept
