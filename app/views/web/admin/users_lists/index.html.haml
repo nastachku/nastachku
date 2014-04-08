@@ -1,0 +1,22 @@
+- model_class = UsersList
+.page-header
+  %h1=t '.title', default: model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:file)
+      %th= model_class.human_attribute_name(:state)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', default: t("helpers.actions")
+  %tbody
+    - @users_lists.each do |users_list|
+      %tr
+        %td= link_to users_list.id, users_list_path(users_list)
+        %td= users_list.file
+        %td= users_list.state
+        %td=l users_list.created_at
+        %td
+          = link_to t('.destroy', default: t("helpers.links.destroy")), users_list_path(users_list), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+
+= link_to t('.new', default: t("helpers.links.new")), new_admin_users_list_path, class: 'btn btn-primary'
