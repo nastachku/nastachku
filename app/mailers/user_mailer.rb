@@ -11,14 +11,14 @@ class UserMailer < AsyncMailer
   def sent_after_create(user_id)
     @user = User.find_by_id user_id
     if @user.email.present?
-      mail to: @user.email
+      mail to: @user.email, subject: I18n.t("ru.you_have_received_ticket")
     end
   end
 
   def sent_after_create_if_user_present(user_id)
     @user = User.find_by_id user_id
     if @user.email.present?
-      mail to: @user.email
+      mail to: @user.email, subject: I18n.t("ru.you_have_received_ticket")
     end
   end
 
