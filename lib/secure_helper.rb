@@ -10,4 +10,8 @@ module SecureHelper
     Array.new(9){ rand(36).to_s(36) }.join
   end
 
+  def generate_password
+    Array.new(9){ rand(36).to_s(36) }.join + "$"
+  end
+
 end

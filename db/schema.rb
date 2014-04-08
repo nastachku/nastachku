@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140404090921) do
+ActiveRecord::Schema.define(:version => 20140408132629) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -69,6 +69,15 @@ ActiveRecord::Schema.define(:version => 20140404090921) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
+  create_table "discount_codes", :force => true do |t|
+    t.string   "code"
+    t.datetime "begin_date"
+    t.datetime "end_date"
+    t.integer  "percent"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "discounts", :force => true do |t|
     t.string   "code"
     t.datetime "begin_date"
@@ -115,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20140404090921) do
     t.integer  "workshop_id"
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
+    t.datetime "convenient_time"
   end
 
   create_table "mail_params", :force => true do |t|
@@ -242,9 +252,18 @@ ActiveRecord::Schema.define(:version => 20140404090921) do
     t.string   "pay_state"
     t.text     "facebook"
     t.text     "vkontakte"
+    t.text     "reason_to_give_ticket"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
+  create_table "users_lists", :force => true do |t|
+    t.text     "file"
+    t.string   "state"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "description"
+  end
 
   create_table "votings", :force => true do |t|
     t.integer  "user_id"
