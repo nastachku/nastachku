@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true, human_name: true
   validates :city, city_name: true
   validates :company, company_name: true
-  validates :position, position_name: true
+  validates :position, position_name: true, allow_blank: true
   validates :facebook, url: true, allow_blank: true
   validates :vkontakte, url: true, allow_blank: true
 

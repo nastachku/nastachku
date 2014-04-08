@@ -47,10 +47,16 @@ class UserDecorator < Draper::Decorator
   end
 
   def ticket_price
-    model.ticket_orders.select { |ticket| ticket.paid? }.first.its_cost
+    ticket = model.ticket_orders.select { |ticket| ticket.paid? }.first
+    if ticket
+      ticket.its_cost
+    end
   end
 
   def ticket_date
-    model.ticket_orders.select { |ticket| ticket.paid? }.first.created_at.to_date
+    ticket = model.ticket_orders.select { |ticket| ticket.paid? }.first
+    if ticket.present?
+      ticket.created_at.to_date
+    end
   end
 end
