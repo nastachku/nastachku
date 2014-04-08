@@ -1,6 +1,7 @@
 .page-header
   %h1=t('.title')
 
+= link_to t('.accept_all'), accept_admin_users_list_path(@users_list), method: :put, class: 'btn btn-success btn-large'
 %table.table.table-striped
   %thead
     %tr
@@ -40,7 +41,7 @@
     %th= :email
     %th= :company
     %th= :city
-  - @other_users.each do |other_user|
+  - @other_users.each_with_index do |other_user, i|
     %tr
       - @user = UserCreatePaidType.new
       = simple_form_for @user, url: create_paid_part_admin_users_list_path(@users_list) do |f|
@@ -50,9 +51,15 @@
           %td
             = f.input :first_name, label: false, input_html: { value: other_user[t('users_lists.data.fio').to_sym].split(' ')[1] }
           %td
-            = f.input :email, label: false, input_html: { value: other_user[t('users_lists.data.email').to_sym] }
+            - if other_user[t('users_lists.data.email').to_sym]
+              = f.input :email, label: false, input_html: { value: other_user[t('users_lists.data.email').to_sym] }
+            - else
+              = f.input :email, label: false, input_html: { value: "example#{i * @users_list.id}@gmail.com" }
           %td
-            = f.input :company, label: false, input_html: { value: other_user[t('users_lists.data.company').to_sym] }
+            - if other_user[t('users_lists.data.company').to_sym]
+              = f.input :company, label: false, input_html: { value: other_user[t('users_lists.data.company').to_sym] }
+            - else
+              = f.input :company, label: false, input_html: { value: "Unknown" }
           %td
             = f.input :city, label: false, input_html: { value: "Ульяновск" }
           %td

@@ -58,6 +58,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     #FIXME создать функцию
     @user.reason_to_give_ticket = UsersList.find(params[:id]).description
     @user.save
+    UserMailer.sent_after_create @user.id
     redirect_to admin_users_list_path params[:id]
   end
 
