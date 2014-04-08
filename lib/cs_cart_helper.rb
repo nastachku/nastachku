@@ -3,7 +3,7 @@ require "cs_cart/client"
 module CsCartHelper
   include CsCart::Client
   def auth_cs_cart_user_url(token)
-    "http://nastachku.cs-cart.ru/index.php?dispatch=auth.login_stachka&token=#{token}"
+    "https://nastachku.cs-cart.ru/index.php?dispatch=auth.login_stachka&token=#{token}"
   end
 
   def get_auth_token(user)

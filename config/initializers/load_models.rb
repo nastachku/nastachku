@@ -2,7 +2,7 @@ def load_models_if_development_initilizer
   if Rails.env == "development"
     def require_all_in(folder)
       Dir.foreach(folder) do |name|
-        if name =~ /\.rb$/
+        if name =~ /\.rb$/ and not (name =~ /^\.#/ or name =~ /^#/)
           puts "REQUIRING DEPENDENCY: #{name}"
           require_dependency name unless name == "." || name == ".."
         else

@@ -1,15 +1,9 @@
 # -*- coding: utf-8 -*-
 require 'csv'
 module DataHelper
-  def add_ticket_to_user(user, sum, pay_date)
-    user.pay_part
-    ticket_order = user.ticket_orders.build(cost: sum, items_count: 1)
-    ticket_order.created_at = pay_date
-    ticket_order.pay
-    ticket_order.save
-  end
 
   def restore_data_from_timepad_csv(file_path)
+    # ПРОВЕРИТЬ ДОБАВЛЕНИЕ AFTERPARTY !!!11
     table =  SmarterCSV.process(file_path)
     other_users = []
     table.map do |row|
@@ -19,24 +13,47 @@ module DataHelper
         sum = row[I18n.t('timepad.data.sum').to_sym].to_s.split("'")[1].to_i
         pay_date = row[I18n.t('timepad.data.paid').to_sym].to_s.split("'")[1].to_datetime
         if user
-          add_ticket_to_user(user, sum, pay_date)
+          add_order_to_user(user, sum, pay_date, row[I18n.t('timepad.data.ticket_type')])
         else
-          other_users << {id: email, sum: sum, pay_date: pay_date}
+          other_users << {id: email, sum: sum, pay_date: pay_date, type: row[I18n.t('timepad.data.ticket_type')] }
         end
       end
     end
-    other_users
-  end
-
-  def ticket_for_other_user(id, sum, pay_date)
-    user = User.find id
-    add_ticket_to_user user, sum, pay_date
+    other_users # пользователи, которые не найдены в базе по email
+    # их можно поискать ручками по имени\фамилии\должности\компании,
+    # заменить id на реальный
+    # и применить к массиву users функцию tickets_for_other_users(users)
   end
 
   def tickets_for_other_users(users)
-    users.each do |user|
-      ticket_for_other_user(user[:id], user[:sum], user[:pay_date])
+    users.each do |user_data|
+      user = User.find user_data[:id]
+      add_order_to_user(user, user_data[:sum], user_data[:pay_date], user_data[:type])
     end
+  end
+
+  def add_order_to_user(user, sum, pay_date, type)
+    case type
+    when row[I18n.t('timepad.data.ticket')]
+      add_ticket_to_user(user, sum, pay_date)
+    when row[I18n.t('timepad.data.afterparty')]
+      add_afterparty_to_user(user, sum, pay_date)
+    end
+  end
+
+  def add_ticket_to_user(user, sum, pay_date)
+    user.pay_part
+    ticket_order = user.ticket_orders.build(cost: sum, items_count: 1)
+    ticket_order.created_at = pay_date
+    ticket_order.pay
+    ticket_order.save
+  end
+
+  def add_afterparty_to_user(user, sum, pay_date)
+    afterparty_order = user.afterparty_orders.build(cost: sum, items_count: 1)
+    afterparty_order.created_at = pay_date
+    afterparty_order.pay
+    afterparty_order.save
   end
 
   def download_orders_in_csv(tickets_file="ticketorders.csv", afterparty_file="afterpartyorders.csv")
@@ -44,7 +61,7 @@ module DataHelper
     @afterparty_users = []
     t_index = 1
     a_index = 1
-    User.includes(:orders).where(orders: {payment_state: :paid}).each do |user|
+    User.includes(:orders).where(orders: {payment_state: :paid}).order("orders.id ASC").each do |user|
       orders = user.orders
       order = orders.select { |x| x.type == nil }.first
       orders_count = orders.select { |x| x.type == nil }.count
@@ -53,28 +70,13 @@ module DataHelper
         second_order = orders.select {|x| x.type == nil}.second
         order.cost = order.cost + second_order.cost
       end
-      ticket_order = orders.select { |x| x.type == "TicketOrder" }.first
-      afterparty_order = orders.select { |x| x.type == "AfterpartyOrder" }.first
-      if ticket_order and ticket_order.cost != nil
-        # from timepad
-        # некоторые покупали несколько билетов на одно имя
-        ticket_orders = orders.select { |x| x.type == "TicketOrder" and x.cost != nil }
-        ticket_orders.each do |t|
-          @ticket_users << userdata_and_cost(t_index, user, t.cost, "timepad")
-          t_index = t_index + 1
-        end   
-      end
-      if afterparty_order and afterparty_order.cost != nil
-        # from timepad
-        # некоторые покупали несколько афтепати на одно имя
-        afterparty_orders = orders.select { |x| x.type == "AfterpartyOrder" and x.cost != nil }
-        afterparty_orders.each do |a|
-          @afterparty_users << userdata_and_cost(a_index, user, a.cost, "timepad")
-          a_index = a_index + 1
-        end   
-      end
+      ticket_order = first_order("TicketOrder", orders)
+      afterparty_order = first_order("AfterpartyOrder", orders)
+      
+      t_index = orders_from_timepad(user, t_index, @ticket_users, "TicketOrder")
+      a_index = orders_from_timepad(user, a_index, @afterparty_users, "AfterpartyOrder")
       if order
-        if (ticket_order and ticket_order.cost == nil) and (afterparty_order and afterparty_order.cost == nil)
+        if ticket_order and afterparty_order
           # 750 and 1000
           # 1100 and 1000
           # 1100 and 1500
@@ -101,10 +103,10 @@ module DataHelper
           @afterparty_users << userdata_and_cost(a_index, user, afterparty_order_cost)
           t_index = t_index + 1
           a_index = a_index + 1
-        elsif ticket_order and ticket_order.cost == nil
+        elsif ticket_order
           @ticket_users << userdata_and_cost(t_index, user, order.cost)
           t_index = t_index + 1
-        elsif afterparty_order and afterparty_order.cost == nil
+        elsif afterparty_order
           @afterparty_users << userdata_and_cost(a_index, user, order.cost)
           a_index = a_index + 1
         end
@@ -118,8 +120,28 @@ module DataHelper
     end    
   end
 
-  def userdata_and_cost(index, user, cost, shop="platidoma")
-    [index, user.id, user.decorate.full_name, user.company, cost, shop]
+  def userdata_and_cost(index, user, cost, shop="platidoma", count=1)
+    [index, user.id, user.decorate.full_name, user.company, cost, shop, count]
   end
+  
+  def orders_from_timepad(user, index, orders_output, orders_type)
+    # from timepad
+    # некоторые покупали несколько билетов на одно имя
+    timepad_orders = user.orders.select { |x| x.type == orders_type and x.cost != nil }
+    timepad_orders_count = timepad_orders.count
+    if timepad_orders_count > 0
+      timepad_order = timepad_orders.first
+      orders_output << userdata_and_cost(index, user, timepad_order.cost, "timepad", timepad_orders_count)
+      index = index + 1
+    end
+    index
+  end
+
+  def first_order(type, orders)
+    # cost == nil if platidoma
+    # и по идее он должен быть такой один
+    orders.select { |x| x.type == type and x.cost == nil }.first
+  end
+
 end
 
