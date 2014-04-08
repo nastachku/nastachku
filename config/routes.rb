@@ -102,6 +102,11 @@ Nastachku::Application.routes.draw do
     end
 
     namespace :admin do
+      resources :users_lists, only: [] do
+        collection do
+          get ":file" => "users_lists#show"
+        end
+      end
       resources :lectures
       resources :pages
       resources :news
