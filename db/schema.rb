@@ -69,15 +69,6 @@ ActiveRecord::Schema.define(:version => 20140409153939) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
-  create_table "discount_codes", :force => true do |t|
-    t.string   "code"
-    t.datetime "begin_date"
-    t.datetime "end_date"
-    t.integer  "percent"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "discounts", :force => true do |t|
     t.string   "code"
     t.datetime "begin_date"
@@ -124,7 +115,6 @@ ActiveRecord::Schema.define(:version => 20140409153939) do
     t.integer  "workshop_id"
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
-    t.datetime "convenient_time"
   end
 
   create_table "mail_params", :force => true do |t|

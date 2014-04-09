@@ -45,7 +45,7 @@
         %td= user.city
         %td= user.pay_state
         %td=l user.created_at
-        %td= link_to t('.give_badge')
+        %td= link_to t('.give_badge'), registrator_user_give_badge_path(user)
 = paginate @users
 
 -#= link_to t('.new_user'), new_admin_user_path, :class => 'btn btn-primary'
