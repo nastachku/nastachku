@@ -28,6 +28,7 @@ class Web::Admin::UsersListsController < Web::Admin::ApplicationController
       user = UserCreatePaidType.new(email: other_user[I18n.t('users_lists.data.email').to_sym], first_name: other_user[I18n.t('users_lists.data.fio').to_sym].split(' ')[1], last_name: other_user[I18n.t('users_lists.data.fio').to_sym].split(' ')[0], company: other_user[I18n.t('users_lists.data.company').to_sym], password: generate_password, city: "Ульяновск", reason_to_give_ticket: @users_list.description)
       if user.save
         user.pay_part
+        User::PromoCode.create(code: generate_promo_code, user_id: @user.id)
         UserMailer.sent_after_create(user.id).deliver_in((10 * (i + 1)).seconds)
         Rails.logger.info "BROADCASTING SEND EMAILS to other users #{user.id}"
       end
