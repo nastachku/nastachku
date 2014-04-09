@@ -4,6 +4,24 @@ ru:
       users:
         new:
           title: Создание участника
+        with_badge:
+          title: 'Список пользователей'
+          created_at: 'Время создания'
+          actions: 'Действия'
+          edit: 'Редактировать'
+          destroy: 'Удалить'
+          confirm: 'Вы уверены?'
+          new_user: 'Добавить пользователя'
+          search: 'Найти'
+          first_name: 'Имя'
+          last_name: 'Фамилия'
+          email: 'Email'
+          city: 'Город'
+          users_without_badge: "Участники без бейджа"
+          users_with_badge: "Участники c бейджем"
+          badge_state: Бейдж
+          view_all: Сбросить фильтр
+          new_user: Создать нового участника
         index:
           title: 'Список пользователей'
           created_at: 'Время создания'
@@ -20,7 +38,7 @@ ru:
           users_without_badge: "Участники без бейджа"
           users_with_badge: "Участники c бейджем"
           badge_state: Бейдж
-          view_all: Показать всех участников
+          view_all: Сбросить фильтр
           new_user: Создать нового участника
         users:
           confirm: "Вы уверены?"
