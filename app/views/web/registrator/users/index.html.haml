@@ -50,8 +50,7 @@
         - if user.not_get_badge?
           %td= link_to t('.give_badge'), give_badge_registrator_user_path(user), method: :put, class: 'btn btn-success btn-mini'
         - else
-          %td= link_to t('.take_badge_back'), take_badge_back_registrator_user_path(user), method: :put, class: 'btn btn-success btn-mini'
-
+          %td= t('.badge_gived')
 = paginate @users
 
 -#= link_to t('.new_user'), new_admin_user_path, :class => 'btn btn-primary'
