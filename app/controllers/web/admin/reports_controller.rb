@@ -2,10 +2,11 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
   def generate
     Dir.mkdir("downloads") unless File.exists?("downloads")
     Dir.mkdir("downloads/reports") unless File.exists?("downloads/reports")
-    download_orders_in_csv("downloads/reports/ticketorders.csv", "downloads/reports/afterpartyorders.csv")
+    download_orders_in_csv("downloads/reports/ticketorders.csv", "downloads/reports/afterpartyorders.csv", "downloads/reports/badges.csv")
+    end
     redirect_to admin_root_path
   end
-  
+
   def download
     filename = [params[:filename], params[:format]].join('.')
     path = Rails.root.join( 'downloads/reports', filename )
