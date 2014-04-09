@@ -1,0 +1,18 @@
+ru:
+  web:
+    registrator:
+      users:
+        index:
+          title: 'Список пользователей'
+          created_at: 'Время создания'
+          actions: 'Действия'
+          edit: 'Редактировать'
+          destroy: 'Удалить'
+          confirm: 'Вы уверены?'
+          new_user: 'Добавить пользователя'
+          search: 'Найти'
+          first_name: 'Имя'
+          last_name: 'Фамилия'
+          email: 'Email'
+          city: 'Город'
+          badge_state: Бейдж
