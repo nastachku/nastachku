@@ -1,0 +1,6 @@
+ru:
+  users_lists:
+    data:
+      email: email
+      fio: ФИО
+      company: Компания

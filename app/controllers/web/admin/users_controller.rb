@@ -1,5 +1,5 @@
 class Web::Admin::UsersController < Web::Admin::ApplicationController
-  
+
   def new
     @user = User.new
   end
@@ -46,10 +46,30 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     end
   end
 
-   def destroy
-     @user = User.find params[:id]
-     @user.destroy
-     redirect_to admin_users_path
-   end
+  def destroy
+    @user = User.find params[:id]
+    @user.destroy
+    redirect_to admin_users_path
+  end
 
+  def pay_part
+    @user = User.find params[:user_id]
+    @user.pay_part
+    #FIXME создать функцию
+    @user.reason_to_give_ticket = UsersList.find(params[:id]).description
+    @user.save
+    UserMailer.sent_after_create_if_user_present(@user.id).deliver_in(10.seconds)
+    redirect_to admin_users_list_path params[:id]
+  end
+
+  def create_paid_part
+    @user = UserCreatePaidType.new params[:user]
+    if @user.save
+      @user.pay_part
+      UserMailer.sent_after_create(@user.id).deliver_in(10.seconds)
+      redirect_to admin_users_list_path params[:id]
+    else
+      redirect_to admin_users_list_path params[:id]
+    end
+  end
 end

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 require 'csv'
-module DataHelper
-
+module Data::TimepadDataHelper
   def restore_data_from_timepad_csv(file_path)
     # ПРОВЕРИТЬ ДОБАВЛЕНИЕ AFTERPARTY !!!11
     table =  SmarterCSV.process(file_path)
@@ -72,7 +71,7 @@ module DataHelper
       end
       ticket_order = first_order("TicketOrder", orders)
       afterparty_order = first_order("AfterpartyOrder", orders)
-      
+
       t_index = orders_from_timepad(user, t_index, @ticket_users, "TicketOrder")
       a_index = orders_from_timepad(user, a_index, @afterparty_users, "AfterpartyOrder")
       if order
@@ -92,7 +91,7 @@ module DataHelper
           when 2600
             ticket_order_cost = 1100
             afterparty_order_cost = 1500
-          when 3500          
+          when 3500
             ticket_order_cost = 1500
             afterparty_order_cost = 2000
           when 4000
@@ -117,13 +116,13 @@ module DataHelper
     end
     CSV.open(afterparty_file, "w") do |csv|
       @afterparty_users.each { |i| csv << i }
-    end    
+    end
   end
 
   def userdata_and_cost(index, user, cost, shop="platidoma", count=1)
     [index, user.id, user.decorate.full_name, user.company, cost, shop, count]
   end
-  
+
   def orders_from_timepad(user, index, orders_output, orders_type)
     # from timepad
     # некоторые покупали несколько билетов на одно имя

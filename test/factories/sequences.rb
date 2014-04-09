@@ -37,6 +37,9 @@ FactoryGirl.define do
     fixture_file_upload Rails.root.to_s + "/test/fixtures/photos/test.png", "image/png"
   end
 
+  sequence :file do |n|
+    fixture_file_upload 'users_list.csv'
+  end
   sequence :user_with_lectures do |n|
     {
         about:             FactoryGirl.generate(:about),

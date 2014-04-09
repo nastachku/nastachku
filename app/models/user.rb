@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :first_name, :last_name, :city, :company, :position,
     :show_as_participant, :photo, :state_event, :about, :carousel_info, :in_carousel,
-    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event, :pay_state_event, :facebook, :vkontakte
+    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event, :pay_state_event, :facebook, :vkontakte, :reason_to_give_ticket
 
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true, human_name: true
   validates :city, city_name: true
   validates :company, company_name: true
-  validates :position, position_name: true
+  validates :position, position_name: true, allow_blank: true
   validates :facebook, url: true, allow_blank: true
   validates :vkontakte, url: true, allow_blank: true
 
@@ -87,6 +87,7 @@ class User < ActiveRecord::Base
     state :not_paid_part
     state :paid_part
     after_transition :to => :paid_part do |user, transition|
+      user.activate
       user.attend
     end
 

@@ -1,46 +1,5 @@
 .page-header
   %h1=t '.title'
--# FIXME придумать способ доставать цены из configus
-.row-fluid
-  .span6
-    %h3
-      = t('.prices_for_ticket')
-    %table.table.table-stripped.table-bordered
-      %thead
-        %th
-        %th
-          Февраль
-        %th
-          Март
-        %th
-          Апрель
-      %tr
-        %td
-          Первый день
-        %td
-          500
-        %td
-          750
-        %td
-          1000
-      %tr
-        %td
-          Второй день
-        %td
-          250
-        %td
-          350
-        %td
-          500
-      %tr
-        %td
-          Общая стоимость за два дня
-        %td
-          750
-        %td
-          1100
-        %td
-          1500
 .row-fluid
   .span6
     %h3
@@ -50,4 +9,6 @@
     = link_to "Отчет по билетам", admin_reports_file_path("ticketorders.csv")
     %br
     = link_to "Отчет по афтепати", admin_reports_file_path("afterpartyorders.csv")
-
+%h2
+  = t('.lists')
+= link_to t('.view_lists'), admin_users_lists_path, class: 'btn btn-large  btn-success'
