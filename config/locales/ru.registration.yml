@@ -2,6 +2,8 @@ ru:
   web:
     registrator:
       users:
+        new:
+          title: Создание участника
         index:
           title: 'Список пользователей'
           created_at: 'Время создания'
@@ -15,6 +17,15 @@ ru:
           last_name: 'Фамилия'
           email: 'Email'
           city: 'Город'
+          users_without_badge: "Участники без бейджа"
+          users_with_badge: "Участники c бейджем"
           badge_state: Бейдж
-          give_badge: Выдать бейдж
+          view_all: Показать всех участников
+          new_user: Создать нового участника
+        users:
+          confirm: "Вы уверены?"
           badge_gived: Бейдж выдан
+          give_badge: Выдать бейдж
+          badge_state: Бейдж
+          actions: Действия
+        
