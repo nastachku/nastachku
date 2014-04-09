@@ -10,4 +10,9 @@ class Web::Registrator::UsersControllerTest < ActionController::TestCase
     get :index
     assert_response :success
   end
+
+  test "should put give_badge" do
+    put :give_badge, id: @registrator
+    assert_response :redirect
+  end
 end

@@ -33,6 +33,7 @@
       %th= sort_link(@search, :email)
       %th= sort_link(@search, :city)
       %th= sort_link(@search, :pay_state)
+      %th= sort_link(@search, :badge_state)
       %th= sort_link(@search, :created_at)
       %th= t('.actions')
   %tbody
@@ -44,8 +45,9 @@
         %td= user.email
         %td= user.city
         %td= user.pay_state
+        %td= user.badge_state
         %td=l user.created_at
-        %td= link_to t('.give_badge'), registrator_user_give_badge_path(user)
+        %td= link_to t('.give_badge'),  give_badge_registrator_user_path(user), method: :put, class: 'btn btn-success btn-mini'
 = paginate @users
 
 -#= link_to t('.new_user'), new_admin_user_path, :class => 'btn btn-primary'

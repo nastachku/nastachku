@@ -104,7 +104,9 @@ Nastachku::Application.routes.draw do
     namespace :registrator do
       root to: "users#index"
       resources :users, only: [ :index, :new, :create ] do
-        put :give_badge
+        member do
+          put :give_badge
+        end
       end
     end
 
