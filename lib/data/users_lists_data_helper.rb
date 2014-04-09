@@ -4,7 +4,7 @@ module Data::UsersListsDataHelper
     users_list = []
     other_users_list = []
     table.map do |row|
-      user = User.find_by_email row[I18n.t('users_lists.data.email').to_sym].downcase
+      user = User.find_by_email row[I18n.t('users_lists.data.email').to_sym].downcase.strip!
       if user
         users_list << user
       else
