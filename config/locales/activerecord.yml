@@ -100,6 +100,7 @@ ru:
         invisible_lector: "Скрыть из списка докладчиков"
         not_going_to_conference: "Я не пойду на Стачку"
         badge_state_event: Бейдж
+        badge_state: Бейдж
 
       topic:
         title: 'Название'
@@ -168,7 +169,7 @@ ru:
             city:
               city_name: имеет неверный формат
             company:
-              company_name:имеет неверный формат
+              company_name: имеет неверный формат
             position:
               position_name: имеет неверный формат
             facebook:

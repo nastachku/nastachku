@@ -1,0 +1,29 @@
+= paginate users
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link(@search, :id)
+      %th= sort_link(@search, :last_name)
+      %th= sort_link(@search, :first_name)
+      %th= sort_link(@search, :email)
+      %th= sort_link(@search, :city)
+      %th= sort_link(@search, :pay_state)
+      %th= sort_link(@search, :badge_state)
+      %th= sort_link(@search, :created_at)
+      %th= t('.actions')
+  %tbody
+    - users.each do |user|
+      %tr
+        %td= link_to user.id, admin_user_path(user)
+        %td= user.last_name
+        %td= user.first_name
+        %td= user.email
+        %td= user.city
+        %td= I18n.t("activerecord.state_machines.user.pay_state.states.#{user.pay_state}")
+        %td= I18n.t("activerecord.state_machines.user.badge_state.states.#{user.badge_state}")
+        %td=l user.created_at
+        - if user.not_get_badge?
+          %td= link_to t('.give_badge'), give_badge_registrator_user_path(user), method: :put, class: 'btn btn-success btn-mini', :data => { :confirm => t('.confirm') } 
+        - else
+          %td= t('.badge_gived')
+= paginate users

@@ -1,6 +1,8 @@
 - model = User
 .page-header
 
+  = link_to t(".view_all"), registrator_users_path, class: 'btn btn-primary btn-large'
+  = link_to t(".new_user"), new_registrator_user_path, class: 'btn btn-info btn-large'
 .well
   = simple_form_for @search, url: registrator_users_path, html: { class: 'nomargin' }, method: :get do |f|
     .row-fluid
@@ -19,38 +21,20 @@
       .span4
         = f.submit t(".search"), class: 'btn btn-primary'
 
-
 -#= link_to t('.new_user'), new_admin_user_path, :class => 'btn btn-primary'
 %br
 %br
-= paginate @users
-%table.table.table-striped
-  %thead
-    %tr
-      %th= sort_link(@search, :id)
-      %th= sort_link(@search, :last_name)
-      %th= sort_link(@search, :first_name)
-      %th= sort_link(@search, :email)
-      %th= sort_link(@search, :city)
-      %th= sort_link(@search, :pay_state)
-      %th= sort_link(@search, :badge_state)
-      %th= sort_link(@search, :created_at)
-      %th= t('.actions')
-  %tbody
-    - @users.each do |user|
-      %tr
-        %td= link_to user.id, admin_user_path(user)
-        %td= user.last_name
-        %td= user.first_name
-        %td= user.email
-        %td= user.city
-        %td= I18n.t("activerecord.state_machines.user.pay_state.states.#{user.pay_state}")
-        %td= I18n.t("activerecord.state_machines.user.badge_state.states.#{user.badge_state}")
-        %td=l user.created_at
-        - if user.not_get_badge?
-          %td= link_to t('.give_badge'), give_badge_registrator_user_path(user), method: :put, class: 'btn btn-success btn-mini'
-        - else
-          %td= t('.badge_gived')
-= paginate @users
-
+%ul.nav.nav-tabs
+  %li.active
+    %a{href:"#users_without_badge", data: {toggle: "tab"}}
+      = t('.users_without_badge')
+  %li
+    %a{href:"#users_with_badge", data: {toggle: "tab"}}
+      = t('.users_with_badge')
+.tab-content
+  .tab-pane.active#users_without_badge
+    = render "users", users: @users_without_badge
+  .tab-pane#users_with_badge
+    = render "users", users: @users_with_badge
+  
 -#= link_to t('.new_user'), new_admin_user_path, :class => 'btn btn-primary'
