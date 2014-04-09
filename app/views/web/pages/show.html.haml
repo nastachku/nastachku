@@ -14,9 +14,10 @@
       .clearfix
   %br
   %hr
-.pagetitle
-  .layout-line
-    %h1.pagetitle__title= @page.title
+- if @page.title
+  .pagetitle
+    .layout-line
+      %h1.pagetitle__title= @page.title
 .content
   .layout-line
     != @page.body
