@@ -55,7 +55,7 @@ module Data::TimepadDataHelper
     afterparty_order.save
   end
 
-  def download_orders_in_csv(tickets_file="ticketorders.csv", afterparty_file="afterpartyorders.csv", badge_file="badges.csv")
+  def download_orders_in_csv(tickets_file="ticketorders.csv", afterparty_file="afterpartyorders.csv", badge_file="badges.csv", paid_file="paid_users.csv")
     @ticket_users = []
     @afterparty_users = []
     t_index = 1
@@ -123,6 +123,13 @@ module Data::TimepadDataHelper
     end
     CSV.open(badge_file, "w") do |csv|
       @users.each { |i| csv << i  }
+    end
+    @paid_users = []
+    User.all.select { |user| user.paid_part? }.each do |user|
+      @paid_users << userdata(user)
+    end
+    CSV.open(paid_file, "w") do |csv|
+      @paid_users.each { |i| csv << i  }
     end
   end
 
