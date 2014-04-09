@@ -5,7 +5,7 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
     download_orders_in_csv("downloads/reports/ticketorders.csv", "downloads/reports/afterpartyorders.csv")
     redirect_to admin_root_path
   end
-  
+
   def download
     filename = [params[:filename], params[:format]].join('.')
     path = Rails.root.join( 'downloads/reports', filename )
