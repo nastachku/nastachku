@@ -23,7 +23,7 @@
         %td= I18n.t("activerecord.state_machines.user.badge_state.states.#{user.badge_state}")
         %td=l user.created_at
         - if user.not_get_badge?
-          %td= link_to t('.give_badge'), give_badge_registrator_user_path(user), method: :put, class: 'btn btn-success btn-mini', :data => { :confirm => t('.confirm') } 
+          %td= link_to t('.give_badge'), give_badge_registrator_users_path(user), method: :put, class: 'btn btn-success btn-mini', :data => { :confirm => t('.confirm') } 
         - else
           %td= t('.badge_gived')
 = paginate users
