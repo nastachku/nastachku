@@ -58,7 +58,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     #FIXME создать функцию
     @user.reason_to_give_ticket = UsersList.find(params[:id]).description
     @user.save
-    UserMailer.sent_after_create_if_user_present(@user.id).deliver_in(10.seconds)
+    UserMailer.sent_after_create_if_user_present(@user.id).deliver_in(10.seconds) if Rails.env.production?
     redirect_to admin_users_list_path params[:id]
   end
 
@@ -67,7 +67,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     if @user.save
       @user.pay_part
       User::PromoCode.create(code: generate_promo_code, user_id: @user.id)
-      UserMailer.sent_after_create(@user.id).deliver_in(10.seconds)
+      UserMailer.sent_after_create(@user.id).deliver_in(10.seconds) if Rails.env.production?
       redirect_to admin_users_list_path params[:id]
     else
       redirect_to admin_users_list_path params[:id]
