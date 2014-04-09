@@ -4,8 +4,8 @@ ru:
       user:
         badge_state:
           states:
-            not_get: Не выдан
-            get: Выдан
+            not_get_badge: Не выдан
+            get_badge: Выдан
           events:
             give_badge: Выдать бейдж
             take_badge_back: Забрать бейдж

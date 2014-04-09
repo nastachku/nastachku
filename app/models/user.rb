@@ -101,17 +101,17 @@ class User < ActiveRecord::Base
     end
   end
 
-  state_machine :badge_state, initial: :not_get do
-    state :not_get
-    state :get
+  state_machine :badge_state, initial: :not_get_badge do
+    state :not_get_badge
+    state :get_badge
 
     event :give_badge do
-      transition not_get: :get
+      transition not_get_badge: :get_badge
     end
 
     #0_0 may be ;)
     event :take_badge_back do
-      transition get: :not_get
+      transition get_badge: :not_get_badge
     end
   end
 
