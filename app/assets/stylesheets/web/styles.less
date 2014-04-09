@@ -1907,6 +1907,14 @@ footer {
         background-position: -80px 0 !important;
         &:hover {background-color: lighten(#02789f,5%) !important}
     }
+
+    &.social__icon-odnoklassniki {
+        background-color: #02789f !important;
+        background-image: url('odnoklassniki_icon.png') !important;
+        background-position: 0 !important;
+        background-size: contain !important;
+        &:hover {background-color: lighten(#02789f,5%) !important}
+    }
 }
 
 .pluso {
@@ -1923,6 +1931,10 @@ footer {
 		a.pluso-vkontakte {
 			.social__icon();
 			.social__icon.social__icon-vk();
+		}
+		a.pluso-odnoklassniki {
+			.social__icon();
+			.social__icon.social__icon-odnoklassniki();
 		}
 		a.pluso-more{
 			display: none;
@@ -1949,6 +1961,11 @@ footer {
 	.social__icon();
 	.social__icon.social__icon-vk();
     }
+    .share42-item:nth-child(4) a {
+	.social__icon();
+	.social__icon.social__icon-odnoklassniki();
+    }
+
 }
 
 .three_dots {
