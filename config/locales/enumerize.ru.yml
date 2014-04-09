@@ -4,6 +4,7 @@ ru:
       role:
         lector: 'Докладчик'
         user: 'Участник'
+        registrator: Регистратор
     ticket_order:
       ticket_type:
         first: Первый день

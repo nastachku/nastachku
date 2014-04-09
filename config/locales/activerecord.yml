@@ -2,6 +2,13 @@ ru:
   activerecord:
     state_machines:
       user:
+        badge_state:
+          states:
+            not_get: Не выдан
+            get: Выдан
+          events:
+            give_badge: Выдать бейдж
+            take_badge_back: Забрать бейдж
         attending_conference_state:
           states:
             attended: "Идёт"
@@ -91,6 +98,7 @@ ru:
         created_at: "Время создания"
         invisible_lector: "Скрыть из списка докладчиков"
         not_going_to_conference: "Я не пойду на Стачку"
+        badge_state_event: Бейдж
 
       topic:
         title: 'Название'
