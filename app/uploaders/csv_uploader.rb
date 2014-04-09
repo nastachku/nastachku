@@ -6,6 +6,10 @@ class CsvUploader < CarrierWave::Uploader::Base
 
   storage :file
 
+  def store_dir
+    "system/uploads/csv/#{mounted_as}/#{model.id}"
+  end
+
   def filename
     if original_filename
       @name ||= Digest::MD5.hexdigest(File.dirname(current_path))
