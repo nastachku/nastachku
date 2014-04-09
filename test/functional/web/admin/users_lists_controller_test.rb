@@ -34,4 +34,9 @@ class Web::Admin::UsersListsControllerTest < ActionController::TestCase
     assert_response :redirect
     assert !UsersList.exists?(@users_list)
   end
+
+  test 'should put accept' do
+    put :accept, id: @users_list
+    assert_response :redirect
+  end
 end
