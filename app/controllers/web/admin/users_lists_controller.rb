@@ -13,13 +13,16 @@ class Web::Admin::UsersListsController < Web::Admin::ApplicationController
     @other_users = list[1]
     users_not_payed = @users.select { |u| not u.paid_part? }
     @users.each_with_index do |user, i|
+      if user.paid_part?
+        next
+      end
       unless user.reason_to_give_ticket or user.paid_part?
         user.pay_part
         user.reason_to_give_ticket = @users_list.description
         user.save
       end
     end
-    Resque.enqueue  BroadcastMailerJobAfterCreate, users_not_payed
+    Resque.enqueue  BroadcastMailerJobAfterCreate, @users.select { |user| not user.paid_part? }
 
     @other_users.each_with_index do |other_user, i|
       user = UserCreatePaidType.new(email: other_user[I18n.t('users_lists.data.email').to_sym], first_name: other_user[I18n.t('users_lists.data.fio').to_sym].split(' ')[1], last_name: other_user[I18n.t('users_lists.data.fio').to_sym].split(' ')[0], company: other_user[I18n.t('users_lists.data.company').to_sym], password: generate_password, city: "Ульяновск", reason_to_give_ticket: @users_list.description)
