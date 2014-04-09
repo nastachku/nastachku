@@ -11,11 +11,12 @@ class Web::Admin::UsersListsController < Web::Admin::ApplicationController
     list = upload_list_from_file @users_list.file.file.file
     @users = list[0]
     @other_users = list[1]
+    users_not_payed = @users.select { |u| not u.paid_part? }
     @users.each_with_index do |user, i|
       if user.paid_part?
         next
       end
-      unless user.reason_to_give_ticket
+      unless user.reason_to_give_ticket or user.paid_part?
         user.pay_part
         user.reason_to_give_ticket = @users_list.description
         user.save
