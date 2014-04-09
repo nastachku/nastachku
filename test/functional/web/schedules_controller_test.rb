@@ -4,9 +4,7 @@ class Web::SchedulesControllerTest < ActionController::TestCase
   setup do
     @hall = create :hall
     @hall.activate
-    6.times do
-      @workshop = create :workshop
-    end
+    6.times { create :workshop }
   end
 
   test "should get show" do
