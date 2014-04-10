@@ -1,8 +1,8 @@
-%dt.tabs__title.tab_button{ class: first_day_selected(day) }
+%dt.tabs__title.tab_button{ class: day_selected(day) }
   = Russian::strftime(day, "%e %B")
   %span
     = Russian::strftime(day, "- %A")
-%dd.tabs__content{ class: first_day_selected(day)  }
+%dd.tabs__content{ class: day_selected(day)  }
   .programm__filter
     .programm__filter__checkboxs-title Выберите секцию:
     %ul.programm__filter__checkboxs
@@ -12,7 +12,7 @@
             %label{ class: "checkbox_type-2-#{workshop_color(workshop.title)}", for: "section-#{i}-#{day.to_s}" }
               = workshop.title
   .programm__schedule
-    %table#april-12.page-1
+    %table.page-1{ id: "april-#{day.day}" }
       %thead
         %tr
           %th
@@ -27,19 +27,19 @@
           - i_time = DateTime.new(day.year, day.month, day.day, i.first / 60, i.first % 60, 0)
           - if not slots_in_time?(@slots, i_time)
             - if before_after_party?(i_time, @lectures_slots)
-              %tr
+              %tr{ id: "#{i_time.hour}_#{i_time.minute}_tr"  }
                 %td.programm__time{ style: "border-left: 0px; border-top: 0px" }
                 - (1..@halls.count).each_with_index do |item, index|
                   %td{data: {hall: index} }
                 %td
             - else
-              %tr
+              %tr{ id: "#{i_time.hour}_#{i_time.minute}_tr"  }
                 = render "timeline", i_time: i_time
                 - (1..@halls.count).each_with_index do |item, index|
                   %td{data: {hall: index} }
                 %td
           - elsif @first_hall.has_begin_event?(i_time)
-            %tr.programm__schedule__mainaction
+            %tr.programm__schedule__mainaction{ id: "#{i_time.hour}_#{i_time.minute}_tr"  }
               %td.programm__time
                 = i_time.hour
                 %span
@@ -50,11 +50,13 @@
           - elsif @first_hall.has_event?(i_time)
             - next
           - elsif @first_hall.timeline_need_finish_event_correction?(i_time)
-            %tr.programm__schedule__lectures
+            %tr.programm__schedule__lectures{ id: "#{i_time.hour}_#{i_time.minute}_tr"  }
               %td.programm__time{ style: "border-top: 0px" }
                 = render "program_table_row",  i_time: i_time
           - else
-            %tr.programm__schedule__lectures
+            %tr.programm__schedule__lectures{ id: "#{i_time.hour}_#{i_time.minute}_tr"  }
               = render "timeline", i_time: i_time
               = render "program_table_row", i_time: i_time
-
+    .programm__timer{ style: "height: 300px;" }
+      .programm__timer-time
+      .programm__timer-time
