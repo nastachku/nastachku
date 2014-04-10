@@ -28,7 +28,7 @@ class Web::Registrator::UsersController < Web::Registrator::ApplicationControlle
       @user.activate
       @user.pay_part
       flash_success
-      redirect_to registrator_users_path
+      redirect_to registrator_root_path
     else
       flash_error
       render :new
@@ -38,6 +38,6 @@ class Web::Registrator::UsersController < Web::Registrator::ApplicationControlle
   def give_badge
     user = User.find params[:id]
     user.give_badge
-    redirect_to registrator_users_path
+    redirect_to registrator_root_path
   end
 end
