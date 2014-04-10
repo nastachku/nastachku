@@ -281,7 +281,7 @@ ru:
 
       show:
         show_scheme: 'Схема залов'
-        buy_ticket_right_now: "Приобрести билет на Стачку"
+        buy_ticket_right_now: "Купить билет на Стачку"
     errors:
       banned:
         banned: 'Ваш аккаунт заблокирован.'

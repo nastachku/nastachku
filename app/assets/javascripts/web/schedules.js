@@ -21,3 +21,15 @@ function check_my_program_slots(slots) {
     }
   });
 }
+$(document).ready(function() {
+  function digitalWatch() {
+    var date = new Date();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    if (hours < 10) hours = "0" + hours;
+    if (minutes < 10) minutes = "0" + minutes;
+    $(".programm__timer-time").html(hours + "<span>" + minutes + "</span>");
+    setTimeout(function() { digitalWatch(); } , 60000);
+  }
+  digitalWatch();
+});
