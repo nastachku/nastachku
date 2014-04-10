@@ -61,7 +61,8 @@ module Web::SchedulesHelper
   def schedule_cache_key
     ( proc {
       hall = Hall.activated.order('updated_at DESC').limit(1).first
-      {tag: "#{hall.updated_at.to_i if hall}_#{current_user.id if current_user}"}
+      curr_user_id = current_user ? "1" : "0"
+      {tag: "#{hall.updated_at.to_i if hall}_#{curr_user_id}"}
     } ).call
   end
 
