@@ -33,7 +33,7 @@ module AuthHelper
   end
 
   def authenticate_registrator!
-    redirect_to new_session_path unless signed_as_registrator?
+    redirect_to new_session_path(from: request.url) unless signed_as_registrator?
   end
 
   def current_user
