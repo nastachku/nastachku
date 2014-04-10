@@ -6,9 +6,9 @@
       %th= sort_link(@search, :last_name)
       %th= sort_link(@search, :first_name)
       %th= sort_link(@search, :email)
+      %th= sort_link(@search, :company)
       %th= sort_link(@search, :city)
       %th= sort_link(@search, :pay_state)
-      %th= sort_link(@search, :badge_state)
       %th= sort_link(@search, :created_at)
       %th= t('.actions')
   %tbody
@@ -23,7 +23,7 @@
         %td= I18n.t("activerecord.state_machines.user.pay_state.states.#{user.pay_state}")
         %td=l user.created_at
         - if user.not_get_badge?
-          %td= link_to t('.give_badge'), give_badge_registrator_users_path(user), method: :put, class: 'btn btn-success btn-mini', :data => { :confirm => t('.confirm') } 
+          %td= link_to t('.give_badge'), give_badge_registrator_users_path(user), method: :put, class: 'btn btn-success btn-mini', :data => { :confirm => "Выдать бейдж участнику #{user.full_name}, компания #{user.company}?" }
         - else
           %td= t('.badge_gived')
 = paginate users

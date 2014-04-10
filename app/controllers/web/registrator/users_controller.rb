@@ -3,13 +3,13 @@ class Web::Registrator::UsersController < Web::Registrator::ApplicationControlle
   def index
     query = { s: 'last_name asc' }.merge(params[:q] || {})
     @search = User.paid.without_badge.ransack(query)
-    @users = @search.result.page(params[:page]).per(50)
+    @users = UserDecorator.decorate_collection @search.result.page(params[:page]).per(50)
   end
 
   def with_badge
     query = { s: 'last_name asc' }.merge(params[:q] || {})
     @search = User.paid.with_badge.ransack(query)
-    @users = @search.result.page(params[:page]).per(50)
+    @users = UserDecorator.decorate_collection @search.result.page(params[:page]).per(50)
   end
 
   def new
