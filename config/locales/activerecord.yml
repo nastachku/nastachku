@@ -2,6 +2,13 @@ ru:
   activerecord:
     state_machines:
       user:
+        badge_state:
+          states:
+            not_get_badge: Не выдан
+            get_badge: Выдан
+          events:
+            give_badge: Выдать бейдж
+            take_badge_back: Забрать бейдж
         attending_conference_state:
           states:
             attended: "Идёт"
@@ -65,6 +72,7 @@ ru:
         created_at: "Время создания"
 
       user:
+        id: Hомер
         email: "Email"
         first_name: "Имя"
         last_name: "Фамилия"
@@ -88,9 +96,11 @@ ru:
         admin: "Администратор"
         role: 'Роль'
         topics: 'Топики'
-        created_at: "Время создания"
+        created_at: Дата регистрации
         invisible_lector: "Скрыть из списка докладчиков"
         not_going_to_conference: "Я не пойду на Стачку"
+        badge_state_event: Бейдж
+        badge_state: Бейдж
 
       topic:
         title: 'Название'
@@ -159,7 +169,7 @@ ru:
             city:
               city_name: имеет неверный формат
             company:
-              company_name:имеет неверный формат
+              company_name: имеет неверный формат
             position:
               position_name: имеет неверный формат
             facebook:
