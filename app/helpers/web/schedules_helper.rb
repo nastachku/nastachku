@@ -71,6 +71,7 @@ module Web::SchedulesHelper
     ids
   end
 
-  def time_view_program_of_second_day
+  def current_user_not_going_to_conference?
+    not signed_in? or (current_user.not_paid_part? if signed_in?)
   end
 end

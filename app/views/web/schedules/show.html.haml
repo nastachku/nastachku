@@ -2,6 +2,9 @@
   .content__tabs__line
   .layout-line
     %h1.pagetitle__title Программа
+    - if current_user_not_going_to_conference?
+      .programm__my
+        = link_to t(".buy_ticket_right_now"), ticket_account_buy_path, method: :post, class: "btn_main btn_main-reg btn_buy_ticket_right_now"
     - if signed_in?
       .programm__my
         %input#my_programm.checkbox_type-3{ type:"checkbox", name: "my_programm", value:"Y", data: {my: "in_my_schedule"}}
