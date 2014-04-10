@@ -1,8 +1,8 @@
-%dt.tabs__title.tab_button{ class: first_day_selected(day) }
+%dt.tabs__title.tab_button{ class: day_selected(day) }
   = Russian::strftime(day, "%e %B")
   %span
     = Russian::strftime(day, "- %A")
-%dd.tabs__content{ class: first_day_selected(day)  }
+%dd.tabs__content{ class: day_selected(day)  }
   .programm__filter
     .programm__filter__checkboxs-title Выберите секцию:
     %ul.programm__filter__checkboxs

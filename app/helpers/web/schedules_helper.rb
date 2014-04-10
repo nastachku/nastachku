@@ -28,8 +28,14 @@ module Web::SchedulesHelper
     end
   end
 
-  def first_day_selected(day)
-    if day.day == configus.schedule.first_day.date.day
+  def day_selected(day)
+    if DateTime.now > DateTime.new(2014, 4, 11, 18, 0, 0)
+      if day.day == configus.schedule.first_day.date.day
+        ""
+      elsif day.day == configus.schedule.second_day.date.day
+      "selected"
+      end
+    elsif day.day == configus.schedule.first_day.date.day
       "selected"
     end
   end
@@ -63,5 +69,8 @@ module Web::SchedulesHelper
     ids = []
     current_user.lecture_votings.each { |vote| ids << vote.voteable_id }
     ids
+  end
+
+  def time_view_program_of_second_day
   end
 end
