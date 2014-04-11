@@ -8,4 +8,13 @@
       %b
         = configus.platidoma.ticket_price
         p
-.mainadv.mainadv__mini
+.mainadv
+  -# banner = rand(4)
+  - banner = 3
+  - if banner == 3
+    .mainadv__banner__dollar
+      %h2.plaha_main_text
+        Afterparty!
+      %p
+        != t('.classmates_get_good_guys_for_lesson')
+        на Ленинских горках, в 20:00
