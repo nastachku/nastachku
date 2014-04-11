@@ -9,7 +9,7 @@ Nastachku::Application.routes.draw do
   match "/banned", to: "web/errors#banned"
   mount Preview => 'mailer_preview'
 
-  root to: "web/welcome#index"
+  root to: "web/schedules#show"
 
   mount Ckeditor::Engine => '/ckeditor'
 
@@ -102,7 +102,13 @@ Nastachku::Application.routes.draw do
     end
 
     namespace :registrator do
-      resources :users
+      root to: "users#index"
+      resource :users, only: [ :index, :new, :create ] do
+        get :with_badge
+        member do
+          put :give_badge
+        end
+      end
     end
 
     namespace :admin do
@@ -138,12 +144,13 @@ Nastachku::Application.routes.draw do
       resource :reports, only: [] do
         post :generate
       end
-      match '/downloads/reports/*filename' => 'reports#download', as: 'reports_file' 
+      match '/downloads/reports/*filename' => 'reports#download', as: 'reports_file'
       mount Resque::Server, at: "resque", constraints: AdminConstraint.new, as: 'resque'
 
       root to: "welcome#index"
     end
   end
+
 
   match '*unmatched_route', to: "web/errors#not_found"
 end

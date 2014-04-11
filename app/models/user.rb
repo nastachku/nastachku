@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :first_name, :last_name, :city, :company, :position,
     :show_as_participant, :photo, :state_event, :about, :carousel_info, :in_carousel,
-    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event, :pay_state_event, :facebook, :vkontakte, :reason_to_give_ticket
+    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event,
+    :pay_state_event, :facebook, :vkontakte, :reason_to_give_ticket, :badge_state_event
 
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
@@ -97,6 +98,20 @@ class User < ActiveRecord::Base
 
     event :pay_part do |user|
       transition not_paid_part: :paid_part
+    end
+  end
+
+  state_machine :badge_state, initial: :not_get_badge do
+    state :not_get_badge
+    state :get_badge
+
+    event :give_badge do
+      transition not_get_badge: :get_badge
+    end
+
+    #0_0 may be ;)
+    event :take_badge_back do
+      transition get_badge: :not_get_badge
     end
   end
 

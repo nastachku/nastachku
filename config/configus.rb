@@ -41,6 +41,10 @@ Configus.build Rails.env do
       city 'Москва'
     end
 
+    badges do
+      time_to_print_badges DateTime.new(2014, 4, 9, 18, 0, 0)
+    end
+
     token do
       auth_lifetime 24.hour
       old_user_welcome_lifetime 3.month
