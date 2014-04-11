@@ -75,4 +75,8 @@ module Web::SchedulesHelper
   def current_user_not_going_to_conference?
     not signed_in? or (current_user.not_paid_part? if signed_in?)
   end
+
+  def current_day_of_conference?(day)
+    day.day == DateTime.now.day
+  end
 end

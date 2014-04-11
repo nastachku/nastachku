@@ -43,6 +43,9 @@ $(document).ready(function() {
     if (minutes < 10) minutes = "0" + minutes;
     $(".programm__timer-time").html(hours + "<span>" + minutes + "</span>");
     $(".programm__timer").css({height: current_height});
+    if (hours > 20) {
+      $(".programm__timer").css({display: "none"});
+    }
     setTimeout(function() { digitalWatch(); } , 60000);
   }
   digitalWatch();
