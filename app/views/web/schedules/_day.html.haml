@@ -57,7 +57,3 @@
             %tr.programm__schedule__lectures{ id: "#{i_time.hour}_#{i_time.minute}_tr"  }
               = render "timeline", i_time: i_time
               = render "program_table_row", i_time: i_time
-    - if current_day_of_conference?(day)
-      .programm__timer{ style: "height: 300px;" }
-        .programm__timer-time
-        .programm__timer-time
