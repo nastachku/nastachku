@@ -9,7 +9,7 @@ Nastachku::Application.routes.draw do
   match "/banned", to: "web/errors#banned"
   mount Preview => 'mailer_preview'
 
-  root to: "web/welcome#index"
+  root to: "web/schedules#show"
 
   mount Ckeditor::Engine => '/ckeditor'
 
