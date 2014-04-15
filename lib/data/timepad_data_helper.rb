@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'csv'
 module Data::TimepadDataHelper
-  def restore_data_from_timepad_csv(file_path)
+  def self.restore_data_from_timepad_csv(file_path)
     # ПРОВЕРИТЬ ДОБАВЛЕНИЕ AFTERPARTY !!!11
     table =  SmarterCSV.process(file_path)
     other_users = []
@@ -12,7 +12,7 @@ module Data::TimepadDataHelper
         sum = row[I18n.t('timepad.data.sum').to_sym].to_s.split("'")[1].to_i
         pay_date = row[I18n.t('timepad.data.paid').to_sym].to_s.split("'")[1].to_datetime
         if user
-          add_order_to_user(user, sum, pay_date, row[I18n.t('timepad.data.ticket_type')])
+          add_order_to_user(user, sum, pay_date, row[I18n.t('timepad.data.ticket_type')], row)
         else
           other_users << {id: email, sum: sum, pay_date: pay_date, type: row[I18n.t('timepad.data.ticket_type')] }
         end
@@ -24,14 +24,14 @@ module Data::TimepadDataHelper
     # и применить к массиву users функцию tickets_for_other_users(users)
   end
 
-  def tickets_for_other_users(users)
+  def self.tickets_for_other_users(users)
     users.each do |user_data|
       user = User.find user_data[:id]
       add_order_to_user(user, user_data[:sum], user_data[:pay_date], user_data[:type])
     end
   end
 
-  def add_order_to_user(user, sum, pay_date, type)
+  def self.add_order_to_user(user, sum, pay_date, type, row)
     case type
     when row[I18n.t('timepad.data.ticket')]
       add_ticket_to_user(user, sum, pay_date)
@@ -40,7 +40,7 @@ module Data::TimepadDataHelper
     end
   end
 
-  def add_ticket_to_user(user, sum, pay_date)
+  def self.add_ticket_to_user(user, sum, pay_date)
     user.pay_part
     ticket_order = user.ticket_orders.build(cost: sum, items_count: 1)
     ticket_order.created_at = pay_date
@@ -48,14 +48,14 @@ module Data::TimepadDataHelper
     ticket_order.save
   end
 
-  def add_afterparty_to_user(user, sum, pay_date)
+  def self.add_afterparty_to_user(user, sum, pay_date)
     afterparty_order = user.afterparty_orders.build(cost: sum, items_count: 1)
     afterparty_order.created_at = pay_date
     afterparty_order.pay
     afterparty_order.save
   end
 
-  def download_orders_in_csv(tickets_file="ticketorders.csv", afterparty_file="afterpartyorders.csv")
+  def self.download_orders_in_csv(tickets_file="ticketorders.csv", afterparty_file="afterpartyorders.csv")
     @ticket_users = []
     @afterparty_users = []
     t_index = 1
@@ -119,11 +119,11 @@ module Data::TimepadDataHelper
     end
   end
 
-  def userdata_and_cost(index, user, cost, shop="platidoma", count=1)
+  def self.userdata_and_cost(index, user, cost, shop="platidoma", count=1)
     [index, user.id, user.decorate.full_name, user.company, cost, shop, count]
   end
 
-  def orders_from_timepad(user, index, orders_output, orders_type)
+  def self.orders_from_timepad(user, index, orders_output, orders_type)
     # from timepad
     # некоторые покупали несколько билетов на одно имя
     timepad_orders = user.orders.select { |x| x.type == orders_type and x.cost != nil }
@@ -136,7 +136,7 @@ module Data::TimepadDataHelper
     index
   end
 
-  def first_order(type, orders)
+  def self.first_order(type, orders)
     # cost == nil if platidoma
     # и по идее он должен быть такой один
     orders.select { |x| x.type == type and x.cost == nil }.first
