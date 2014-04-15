@@ -12,7 +12,7 @@ module Data::TimepadDataHelper
         sum = row[I18n.t('timepad.data.sum').to_sym].to_s.split("'")[1].to_i
         pay_date = row[I18n.t('timepad.data.paid').to_sym].to_s.split("'")[1].to_datetime
         if user
-          add_order_to_user(user, sum, pay_date, row[I18n.t('timepad.data.ticket_type')], row)
+          add_order_to_user(user, sum, pay_date, row[I18n.t('timepad.data.ticket_type')])
         else
           other_users << {id: email, sum: sum, pay_date: pay_date, type: row[I18n.t('timepad.data.ticket_type')] }
         end
@@ -31,7 +31,7 @@ module Data::TimepadDataHelper
     end
   end
 
-  def self.add_order_to_user(user, sum, pay_date, type, row)
+  def self.add_order_to_user(user, sum, pay_date, type)
     case type
     when row[I18n.t('timepad.data.ticket')]
       add_ticket_to_user(user, sum, pay_date)
