@@ -30,7 +30,7 @@ namespace :resque do
   end
 
   desc "Start resque mailer worker"
-  task :start do
+  task :start_mailer do
     run "cd #{current_path} && RAILS_ENV=#{rails_env} PIDFILE=#{shared_path}/pids/resque_mailer.pid BACKGROUND=yes QUEUE='mailer' #{rake} environment resque:work >> #{current_path}/log/resque_worker_mailer.log"
   end
 
