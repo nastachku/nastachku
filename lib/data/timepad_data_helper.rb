@@ -33,9 +33,9 @@ module Data::TimepadDataHelper
 
   def add_order_to_user(user, sum, pay_date, type)
     case type
-    when row[I18n.t('timepad.data.ticket')]
+    when I18n.t('timepad.data.ticket')
       add_ticket_to_user(user, sum, pay_date)
-    when row[I18n.t('timepad.data.afterparty')]
+    when I18n.t('timepad.data.afterparty')
       add_afterparty_to_user(user, sum, pay_date)
     end
   end

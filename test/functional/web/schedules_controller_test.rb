@@ -8,6 +8,7 @@ class Web::SchedulesControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
+    Rails.cache.clear
     get :show
     assert_response :success
   end
