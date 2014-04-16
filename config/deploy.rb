@@ -29,6 +29,11 @@ namespace :resque do
     run "cd #{current_path} && RAILS_ENV=#{rails_env} PIDFILE=#{shared_path}/pids/resque.pid BACKGROUND=yes QUEUE='*' #{rake} environment resque:work >> #{current_path}/log/resque_worker.log"
   end
 
+  desc "Start resque mailer worker"
+  task :start_mailer do
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} PIDFILE=#{shared_path}/pids/resque_mailer.pid BACKGROUND=yes QUEUE='mailer' #{rake} environment resque:work >> #{current_path}/log/resque_worker_mailer.log"
+  end
+
   desc "Start scheduler"
   task :scheduler_start do
     run "cd #{current_path} && RAILS_ENV=#{rails_env} PIDFILE=#{shared_path}/pids/resque_scheduler.pid BACKGROUND=yes #{rake} environment resque:scheduler >> #{current_path}/log/resque_scheduler.log"
@@ -38,9 +43,11 @@ namespace :resque do
   task :stop do
     resque_pid = "#{shared_path}/pids/resque.pid "
     scheduler_pid = "#{shared_path}/pids/resque_scheduler.pid" 
+    mailer_pid = "#{shared_path}/pids/resque_mailer.pid" 
     sudo "kill -2 `cat #{resque_pid}`"
     sudo "kill -2 `cat #{scheduler_pid}`"
-    run "rm -f #{resque_pid} #{scheduler_pid}"
+    sudo "kill -2 `cat #{mailer_pid}`"
+    run "rm -f #{resque_pid} #{scheduler_pid} #{mailer_pid}"
   end
 
   desc "List all resque processes."
