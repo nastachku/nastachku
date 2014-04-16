@@ -28,8 +28,14 @@ module Web::SchedulesHelper
     end
   end
 
-  def first_day_selected(day)
-    if day.day == configus.schedule.first_day.date.day
+  def day_selected(day)
+    if DateTime.now > DateTime.new(2014, 4, 11, 18, 0, 0)
+      if day.day == configus.schedule.first_day.date.day
+        ""
+      elsif day.day == configus.schedule.second_day.date.day
+      "selected"
+      end
+    elsif day.day == configus.schedule.first_day.date.day
       "selected"
     end
   end
@@ -64,5 +70,13 @@ module Web::SchedulesHelper
     ids = []
     current_user.lecture_votings.each { |vote| ids << vote.voteable_id }
     ids
+  end
+
+  def current_user_not_going_to_conference?
+    not signed_in? or (current_user.not_paid_part? if signed_in?)
+  end
+
+  def current_day_of_conference?(day)
+    day.day == DateTime.now.day
   end
 end
