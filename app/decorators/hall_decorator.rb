@@ -11,8 +11,7 @@ class HallDecorator < Draper::Decorator
     model.slots.each do |slot|
       if slot.start_time == time
         return {status: :lecture_begin, slot: slot.decorate}
-      end
-      if slot.start_time <= time and slot.finish_time > time
+      elsif slot.start_time <= time and slot.finish_time > time
         now_pass_lecture = true
       end
     end
@@ -27,7 +26,7 @@ class HallDecorator < Draper::Decorator
     end
     false
   end
-  
+
   def has_begin_event?(time)
     model.slots.each do |slot|
       if slot.start_time == time and slot.event_type == "Event"
@@ -65,7 +64,7 @@ class HallDecorator < Draper::Decorator
     return true
   end
 
-  
+
   def timeline_need_finish_event_correction?(time)
     model.slots.each do |slot|
       if slot.start_time.day == time.day

@@ -5,6 +5,6 @@ FactoryGirl.define do
     association :event, factory: :user_event
     association :hall
     start_time
-    finish_time
+    finish_time { start_time + 1.day }
   end
 end
