@@ -3,7 +3,7 @@ class Web::Admin::MailersController < Web::Admin::ApplicationController
     @user = UserDecorator.decorate(User.first)
     @token = @user.create_user_welcome_token
     @attended_users_size = User.where(attending_conference_state: :not_decided).size
-    @users_size = User.all.count
+    @users_size =  User.includes(:orders).where(orders: {payment_state: :paid, type: "AfterpartyOrder"}).count
     @admins_size = User.where(admin: true).count
   end
 
