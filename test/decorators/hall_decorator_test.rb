@@ -19,4 +19,14 @@ class HallDecoratorTest < Draper::TestCase
     @hall.slots << (create :slot)
     assert @hall.at_this_time (@hall.slots.first.start_time + 1.hour)
   end
+
+  test "slot at the time" do
+    @hall.slots << (create :slot)
+    assert @hall.slot_at_the_time @hall.slots.first.start_time
+  end
+
+  test "slot at the time with false" do
+    @hall.slots << (create :slot)
+    assert_equal @hall.slot_at_the_time(Time.now), false
+  end
 end
