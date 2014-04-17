@@ -36,7 +36,6 @@ class LectureDecorator < Draper::Decorator
   end
 
   def full_title
-    raise model.inspect if model.nil?
     if model.user
       "#{lector} - #{model.title}(#{model.workshop.title})"
     else
@@ -49,16 +48,6 @@ class LectureDecorator < Draper::Decorator
       "#{model.title}(#{lector.full_name})"
     else
       "#{model.title}"
-    end    
-  end
-
-  def in_schedule_of(user)
-    if user
-      if model.lecture_votings.voted_by? user
-        "in_my_schedule"
-      else
-        ""
-      end
     end
   end
 
