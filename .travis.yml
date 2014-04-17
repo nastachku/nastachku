@@ -9,4 +9,5 @@ before_script:
   - psql -c 'create database nastachku_test' -U postgres
   - cp config/database.yml.sample config/database.yml
   - cp config/credentials.yml.sample config/credentials.yml
-  - sudo apt-get install redis-server
+services:
+  - redis-server
