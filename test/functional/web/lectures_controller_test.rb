@@ -22,7 +22,7 @@ class Web::LecturesControllerTest < ActionController::TestCase
   test "should action cache index" do
     cache_lectures_path = 'views/test.host' + lectures_path
     ActionController::Base.perform_caching = true
-    Rails.cache.clear
+    #Rails.cache.clear
     assert not(ActionController::Base.cache_store.exist?(cache_lectures_path))
     get :index
     assert ActionController::Base.cache_store.exist?(cache_lectures_path)
