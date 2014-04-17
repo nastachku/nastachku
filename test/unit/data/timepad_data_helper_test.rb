@@ -13,7 +13,7 @@ class Data::TimepadDataHelperTest < ActiveSupport::TestCase
 
   test "test tickets_for_other_users" do
     user = create :user
-    other_users = [{ id: 1, sum: 750, pay_date: "Wed, 19 Feb 2014 16:32:44 +0000", type: I18n.t('timepad.data.ticket') }]
+    other_users = [{ id: user.id, sum: 750, pay_date: "Wed, 19 Feb 2014 16:32:44 +0000", type: I18n.t('timepad.data.ticket') }]
     tickets_for_other_users other_users
     assert User.find(other_users.first[:id]).ticket_orders.any?
   end
