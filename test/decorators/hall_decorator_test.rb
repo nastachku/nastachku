@@ -97,9 +97,10 @@ class HallDecoratorTest < Draper::TestCase
   test "timeline need start event correction" do
     slot = create :slot
     slot.event_type = "Event"
+    slot.start_time += 5.minutes
     slot.save
     @hall.slots << slot
-    assert @hall.timeline_need_start_event_correction? (@hall.slots.first.start_time).to_datetime
+    assert @hall.timeline_need_start_event_correction? (@hall.slots.last.start_time).to_datetime
   end
 
   test "timeline does not need start event correction" do
