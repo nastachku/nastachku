@@ -29,11 +29,6 @@ module ApplicationHelper
     current_user.decorate
   end
 
-  #FIXME запросы из хелпера - плохая идея. придумать другое решение.
-  def new_lectures_count
-    @new_lectures = Lecture.new_lectures.count
-  end
-
   def is_main_page?
     request.path == root_path
   end
