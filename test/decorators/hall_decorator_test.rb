@@ -109,11 +109,10 @@ class HallDecoratorTest < Draper::TestCase
   test "border first timeline cell" do
     slot = create :slot
     slot.event_type = "Event"
-    slot.finish_time -= 5.minutes
-    slot.start_time += (15 - (slot.start_time.to_datetime.minute % 15)).minutes
+    slot.finish_time += 5.minutes
     slot.save
     @hall.slots << slot
-    assert_equal @hall.border_first_timeline_cell?(@hall.slots.first.start_time.to_datetime), "programm__timeline__cell__without__border"
+    assert_equal @hall.border_first_timeline_cell?(@hall.slots.last.finish_time.to_datetime + 10.minutes), "programm__timeline__cell__without__border"
   end
 
   test "empty border first timeline cell" do
