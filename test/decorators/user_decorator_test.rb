@@ -27,6 +27,14 @@ class UserDecoratorTest < Draper::TestCase
     ticket = create :ticket_order
     ticket.pay
     @user.orders << ticket
-    assert @user.ticket
+    assert @user.ticket_date
+  end
+
+  test "reverse full name" do
+    assert @user.reverse_full_name
+  end
+
+  test "lector section color" do
+    assert @user.lector_section_color
   end
 end
