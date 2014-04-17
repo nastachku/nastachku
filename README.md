@@ -7,6 +7,7 @@
   bundle install
   bundle exec rake db:create db:migrate db:seed
   bundle exec unicorn_rails
+  sudo apt-get install redis-server
 ```
 
   Теперь в браузере можно будет открыть сайт, по умолчанию он находится

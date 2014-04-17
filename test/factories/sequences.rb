@@ -8,7 +8,7 @@ FactoryGirl.define do
     n
   end
 
-  [:company, :slug, :title, :thesises, :body, :photo, :description, :about, :color].each do |trait|
+  [:string, :company, :slug, :title, :thesises, :body, :photo, :description, :about, :color].each do |trait|
     sequence trait do |n|
       "#{trait}_#{n}"
     end

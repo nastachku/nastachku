@@ -8,6 +8,8 @@ class Web::LecturesControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
+    user = create :user
+    sign_in user
     get :index
     assert_response :success
   end
@@ -16,7 +18,7 @@ class Web::LecturesControllerTest < ActionController::TestCase
     get :index, q: { workshop_id_eq: @lecture.workshop.id }
     assert_response :success
   end
-  
+
   test "should action cache index" do
     cache_lectures_path = 'views/test.host' + lectures_path
     ActionController::Base.perform_caching = true

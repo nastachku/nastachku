@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 1.9.3
+  - 2.0.0
 env:
   - DB=postgresql
 script:
@@ -9,3 +9,6 @@ before_script:
   - psql -c 'create database nastachku_test' -U postgres
   - cp config/database.yml.sample config/database.yml
   - cp config/credentials.yml.sample config/credentials.yml
+  - mkdir tmp && mkdir tmp/cache
+services:
+  - redis-server

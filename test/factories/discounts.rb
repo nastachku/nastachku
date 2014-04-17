@@ -5,6 +5,6 @@ FactoryGirl.define do
     code "MyString"
     begin_date "2014-04-04 13:09:21"
     end_date "2014-04-04 13:09:21"
-    percent 1
+    cost 1
   end
 end

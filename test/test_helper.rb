@@ -20,7 +20,6 @@ class ActiveSupport::TestCase
   include FactoryGirl::Syntax::Methods
   include TestSupport
 end
-  
 
 class FactoryGirl::Syntax::Default::DSL
   include ActionDispatch::TestProcess

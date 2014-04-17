@@ -10,10 +10,6 @@ class UserDecorator < Draper::Decorator
     "#{model.first_name} #{model.last_name}"
   end
 
-  def to_s
-    full_name
-  end
-
   def lector_section_color
     if main_lecture and main_lecture.workshop
       h.content_tag :span, class: 'icon_mainsection icon_section',

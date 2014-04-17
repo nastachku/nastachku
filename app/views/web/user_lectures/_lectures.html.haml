@@ -29,7 +29,7 @@
       .lectures__item__adding
         .lectures__item__add
           - if signed_in?
-            - unless lecture_voted_by_current_user(lecture, @current_user_votings)
+            - unless lecture_voted_by_current_user?(lecture, @current_user_votings)
               %span.voting_button.lectures__item__add-add{ data: { id: lecture.id } } Я пойду на доклад
               %p.lecture_added.lectures__item__add-added Вы проголосовали за этот доклад
             - else
@@ -37,7 +37,7 @@
               %p.lecture_added.lectures__item__add-added Вы проголосовали за этот доклад
           - else
             %p.lecture_voting_count
-              Проголосовало: 
+              Проголосовало:
             %p.lectures__item__add-added Требуется регистрация на конференции
           %p.lecture_voting_count
             = lecture.lecture_votings_count

@@ -8,6 +8,9 @@ class Web::AccountsControllerTest < ActionController::TestCase
 
   test "should get edit" do
     promo_code = create :user_promo_code, user_id: @user.id
+    afterparty = create :afterparty_order
+    afterparty.pay
+    @user.orders << afterparty
     get :edit, id: promo_code
     assert_response :success
   end

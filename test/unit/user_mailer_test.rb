@@ -4,7 +4,7 @@ require 'test_helper'
 class UserMailerTest < ActionMailer::TestCase
   test "send" do
     #FIXME добавить factories :email
-    @email = build :test_email
+    @email = create :mail_params
     @user = create :user
     @token = "ABCDE"
     assert_equal @user.email, UserMailer.conference_is_open(@user, @token, @email).to[0]
