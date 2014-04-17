@@ -3,7 +3,6 @@ class Order < ActiveRecord::Base
 
   attr_accessible :user_id, :items_count, :payment_state, :cost, :payment_system, :discount_id
 
-  validates :user, presence: true
   validates :items_count, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
   belongs_to :discount
