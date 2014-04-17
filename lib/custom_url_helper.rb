@@ -80,7 +80,7 @@ module CustomUrlHelper
     query_hash = {
         s: "#{attr_name} #{direction}"
     }
-    
+
     options.merge!(query_hash)
     options.merge!(format: format) if format
     url = if routing_proxy && respond_to?(routing_proxy)
