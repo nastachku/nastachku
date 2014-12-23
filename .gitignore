@@ -15,6 +15,7 @@
 !public/images
 /coverage
 /downloads
+/bin
 
 #ignore idea project files
 .idea
