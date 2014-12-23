@@ -52,7 +52,10 @@ GEM
       json
     ansi (1.4.3)
     arel (3.0.3)
-    backports (2.6.7)
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
     backup (3.1.3)
       open4 (~> 1.3.0)
       thor (>= 0.15.4, < 2)
@@ -105,6 +108,8 @@ GEM
       orm_adapter
     cocoon (1.1.2)
     coderay (1.1.0)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -132,6 +137,8 @@ GEM
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     descendants_tracker (0.0.1)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
     dotenv (1.0.2)
     dotenv-rails (1.0.2)
       dotenv (= 1.0.2)
@@ -141,6 +148,7 @@ GEM
       request_store (~> 1.0.3)
     enumerize (0.5.1)
       activesupport (>= 3.2)
+    equalizer (0.0.9)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -191,6 +199,7 @@ GEM
     hitimes (1.2.2)
     httpauth (0.2.0)
     i18n (0.6.9)
+    ice_nine (0.11.1)
     jbuilder (1.0.2)
       activesupport (>= 3.0.0)
     journey (1.0.4)
@@ -400,6 +409,7 @@ GEM
       libv8 (~> 3.16.14.0)
       ref
     thor (0.19.1)
+    thread_safe (0.3.4)
     tilt (1.4.1)
     timecop (0.7.1)
     timecop-console (0.3.1)
@@ -440,9 +450,11 @@ GEM
       activesupport (>= 3.0.0)
     vegas (0.1.11)
       rack (>= 1.0.0)
-    virtus (0.5.4)
-      backports (~> 2.6.1)
-      descendants_tracker (~> 0.0.1)
+    virtus (1.0.3)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
     weary (1.1.2)
       addressable (~> 2.3.2)
       multi_json (~> 1.3.0)
@@ -553,7 +565,7 @@ DEPENDENCIES
   untranslated
   usefull_scopes
   validates
-  virtus
+  virtus (>= 1.0.0)
   weary
   whenever
   ya_acl
