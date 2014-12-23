@@ -24,7 +24,7 @@ class Web::SocialNetworksController < Web::ApplicationController
       user.authorizations << build_authorization(auth_hash)
 
       # на стачке 2013 не было адреса фейсбука в аккаунте, а в 2014
-      # появился, это для новых пользователй
+      # появился (привет из 2015, фейсбук все еще тут), это для новых пользователей
       user.facebook = auth_hash[:info][:urls][:Facebook]
 
       if !user.inactive? && user.save

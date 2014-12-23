@@ -8,7 +8,7 @@ module Web::SchedulesHelper
   end
 
   def time_first_day(hour, minutes)
-    DateTime.new(2014, 4, 11, hour, minutes, 0)
+    DateTime.new(2015, 4, 11, hour, minutes, 0)
   end
 
   def slots_in_time?(slots, time)
@@ -29,7 +29,7 @@ module Web::SchedulesHelper
   end
 
   def day_selected(day)
-    if DateTime.now > DateTime.new(2014, 4, 11, 18, 0, 0)
+    if DateTime.now > DateTime.new(2015, 4, 11, 18, 0, 0)
       if day.day == configus.schedule.first_day.date.day
         ""
       elsif day.day == configus.schedule.second_day.date.day

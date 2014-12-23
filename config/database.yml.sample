@@ -52,7 +52,7 @@ production:
 staging:
   adapter: postgresql
   encoding: unicode
-  database: nastachku_staging_2014
+  database: nastachku_staging_2015
   pool: 5
-  username: nastachku_staging_2014
+  username: nastachku_staging_2015
 
