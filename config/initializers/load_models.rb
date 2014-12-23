@@ -3,10 +3,7 @@ def load_models_if_development_initilizer
     def require_all_in(folder)
       Dir.foreach(folder) do |name|
         if name =~ /\.rb$/ and not (name =~ /^\.#/ or name =~ /^#/)
-          puts "REQUIRING DEPENDENCY: #{name}"
           require_dependency name unless name == "." || name == ".."
-        else
-          puts "SKIP #{name}"
         end
       end
     end
@@ -14,6 +11,7 @@ def load_models_if_development_initilizer
     require_all_in("#{Rails.root}/app/decorators")
   end
 end
+
 ActionDispatch::Reloader.to_prepare do
   load_models_if_development_initilizer
 end
