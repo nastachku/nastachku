@@ -56,6 +56,7 @@ gem 'newrelic_rpm'
 gem 'smarter_csv'
 gem 'weary'
 gem "mail_view", "~> 2.0.4"
+gem 'bundler-audit'
 
 # Gems used only for assets and not required
 # in production environments by default.
