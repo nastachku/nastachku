@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/ulmic/nastachku.png?branch=develop)](https://travis-ci.org/ulmic/nastachku)
-[![Coverage Status](https://coveralls.io/repos/ulmic/nastachku/badge.png?branch=master)](https://coveralls.io/r/ulmic/nastachku?branch=2013-master)
+[![Build Status](https://travis-ci.org/rocket-11/nastachku.svg?branch=develop)](https://travis-ci.org/rocket-11/nastachku)
+
 ## Installation and running way
 ```sh
-  git clone https://github.com/kaize/nastachku.git
+  git clone https://github.com/rocket-11/nastachku.git
   cd nastachku
   bundle install
   bundle exec rake db:create db:migrate db:seed
