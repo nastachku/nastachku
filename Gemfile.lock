@@ -142,6 +142,8 @@ GEM
     dotenv (1.0.2)
     dotenv-rails (1.0.2)
       dotenv (= 1.0.2)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
     draper (1.2.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
