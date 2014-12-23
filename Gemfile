@@ -9,9 +9,9 @@ gem 'jquery-ui-rails'
 gem 'modernizr-rails'
 gem 'less-rails'
 gem 'simple_form'
-gem "airbrake"
-gem "mini_magick"
-gem "carrierwave"
+gem 'airbrake'
+gem 'mini_magick'
+gem 'carrierwave'
 gem 'ckeditor'
 gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
@@ -86,7 +86,7 @@ group :test do
   gem 'factory_girl_sequences'
   gem 'turn'
   gem 'tconsole'
-  gem "rake"
+  gem 'rake'
   gem 'coveralls', require: false
   gem 'mocha', require: false
   gem 'pry'
@@ -104,7 +104,7 @@ group :development do
   gem 'bundler-audit'
 
   gem 'capistrano'
-  gem "capistrano-resque", github: "sshingler/capistrano-resque", require: false
+  gem 'capistrano-resque', github: 'sshingler/capistrano-resque', require: false
   gem 'rvm-capistrano'
   gem 'capistrano-ext'
   gem 'capistrano_colors'
