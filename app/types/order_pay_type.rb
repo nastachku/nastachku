@@ -1,7 +1,7 @@
 class OrderPayType
   include ActiveModel::Validations
   include ActiveModel::Conversion
-  include Virtus
+  include Virtus.model
 
   attribute :ticket_order, TicketOrder
   attribute :shirt_order, ShirtOrder
