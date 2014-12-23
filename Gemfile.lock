@@ -57,10 +57,22 @@ GEM
       open4 (~> 1.3.0)
       thor (>= 0.15.4, < 2)
     bcrypt-ruby (3.0.1)
+    better_errors (2.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.0.4)
+    bullet (4.14.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (>= 1.6.0)
     bundler-audit (0.3.1)
       bundler (~> 1.2)
       thor (~> 0.18)
+    byebug (2.7.0)
+      columnize (~> 0.3)
+      debugger-linecache (~> 1.2)
     capi (0.1.1)
       capistrano
     capistrano (2.14.2)
@@ -77,6 +89,8 @@ GEM
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+    celluloid (0.16.0)
+      timers (~> 4.0.0)
     chattyproc (1.0.0)
     chosen-rails (0.9.12)
       coffee-rails (>= 3.2)
@@ -99,6 +113,7 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     colorize (0.5.8)
+    columnize (0.9.0)
     commonjs (0.2.6)
     compass (0.12.2)
       chunky_png (~> 1.2)
@@ -114,7 +129,12 @@ GEM
       rest-client
       simplecov (>= 0.7)
       thor
+    debug_inspector (0.0.2)
+    debugger-linecache (1.2.0)
     descendants_tracker (0.0.1)
+    dotenv (1.0.2)
+    dotenv-rails (1.0.2)
+      dotenv (= 1.0.2)
     draper (1.2.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -129,13 +149,28 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
+    factory_girl_sequences (4.3.1)
+      activesupport (>= 3.0.0)
+      factory_girl (~> 4.0)
     faraday (0.8.6)
       multipart-post (~> 1.1)
+    ffi (1.9.6)
+    foreman (0.76.0)
+      dotenv (~> 1.0.2)
+      thor (~> 0.19.1)
+    formatador (0.2.5)
     fssm (0.2.10)
     gon (4.0.2)
       actionpack (>= 2.3.0)
       json
     google-analytics-rails (0.0.4)
+    guard (2.10.5)
+      formatador (>= 0.2.4)
+      listen (~> 2.7)
+      lumberjack (~> 1.0)
+      nenv (~> 0.1)
+      pry (>= 0.9.12)
+      thor (>= 0.18.1)
     haml (4.0.0)
       tilt
     haml-rails (0.4)
@@ -153,6 +188,7 @@ GEM
     hashie (1.2.0)
     highline (1.6.16)
     hike (1.2.3)
+    hitimes (1.2.2)
     httpauth (0.2.0)
     i18n (0.6.9)
     jbuilder (1.0.2)
@@ -183,6 +219,11 @@ GEM
       less (~> 2.3.1)
     libv8 (3.16.14.7)
     libxml-ruby (2.6.0)
+    listen (2.8.4)
+      celluloid (>= 0.15.2)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+    lumberjack (1.0.9)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -202,6 +243,7 @@ GEM
     mono_logger (1.1.0)
     multi_json (1.3.7)
     multipart-post (1.2.0)
+    nenv (0.1.1)
     net-scp (1.1.0)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.1)
@@ -248,6 +290,11 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pry-byebug (1.3.2)
+      byebug (~> 2.7)
+      pry (~> 0.9.12)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -279,6 +326,9 @@ GEM
       actionpack (~> 3.0)
       activerecord (~> 3.0)
       polyamorous (~> 0.5.0)
+    rb-fsevent (0.9.4)
+    rb-inotify (0.9.5)
+      ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
     redcarpet (2.2.2)
@@ -330,12 +380,14 @@ GEM
       tilt (~> 1.3, >= 1.3.4)
     slop (3.4.7)
     smarter_csv (1.0.17)
+    spring (1.2.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.7)
+    squasher (0.1.4)
     state_machine (1.1.2)
     subexec (0.2.2)
     tconsole (1.2.8)
@@ -343,11 +395,18 @@ GEM
       minitest (~> 4.3.0)
       term-ansicolor (~> 1.0.7)
     term-ansicolor (1.0.7)
+    terminal-notifier-guard (1.6.4)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
     thor (0.19.1)
     tilt (1.4.1)
+    timecop (0.7.1)
+    timecop-console (0.3.1)
+      railties (>= 3.1, < 5.0)
+      timecop (>= 0.5)
+    timers (4.0.1)
+      hitimes
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -371,6 +430,7 @@ GEM
     unicorn-rails (1.0.0)
       rack
       unicorn
+    uniform_notifier (1.6.2)
     untranslated (1.0.2)
       hash-deep-merge
       i18n
@@ -403,6 +463,9 @@ DEPENDENCIES
   auditable!
   backup
   bcrypt-ruby (~> 3.0.0)
+  better_errors
+  binding_of_caller
+  bullet
   bundler-audit
   capi
   capistrano
@@ -419,12 +482,16 @@ DEPENDENCIES
   compass-rails
   configus
   coveralls
+  dotenv-rails
   draper
   enumerize
   execjs
   factory_girl_rails
+  factory_girl_sequences
+  foreman
   gon
   google-analytics-rails
+  guard
   haml-rails
   haml_coffee_assets
   jbuilder
@@ -449,6 +516,8 @@ DEPENDENCIES
   platidoma (>= 0.0.4)
   pre-commit
   pry
+  pry-byebug
+  pry-rails
   rack-rewrite
   rails (~> 3.2.17)
   rake
@@ -466,11 +535,15 @@ DEPENDENCIES
   simplecov
   sinatra (>= 1.3.0)
   smarter_csv
+  spring
   sprockets
   sqlite3
+  squasher
   state_machine
   tconsole
+  terminal-notifier-guard (~> 1.6.1)
   therubyracer
+  timecop-console
   turbo-sprockets-rails3
   turn
   twitter-bootstrap-rails

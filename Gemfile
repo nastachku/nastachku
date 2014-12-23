@@ -55,8 +55,7 @@ gem 'sinatra', '>= 1.3.0', :require => nil
 gem 'newrelic_rpm'
 gem 'smarter_csv'
 gem 'weary'
-gem "mail_view", "~> 2.0.4"
-gem 'bundler-audit'
+gem 'mail_view', '~> 2.0.4'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -74,6 +73,9 @@ end
 group :test, :development do
   gem 'sqlite3'
   gem 'pre-commit'
+
+  gem 'guard'
+  gem 'dotenv-rails'
 end
 
 group :test do
@@ -81,6 +83,7 @@ group :test do
   gem 'simplecov', :require => false
   gem 'ci_reporter'
   gem 'factory_girl_rails'
+  gem 'factory_girl_sequences'
   gem 'turn'
   gem 'tconsole'
   gem "rake"
@@ -90,6 +93,16 @@ group :test do
 end
 
 group :development do
+  gem 'spring'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'squasher'
+  gem 'foreman'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'bullet'
+  gem 'bundler-audit'
+
   gem 'capistrano'
   gem "capistrano-resque", github: "sshingler/capistrano-resque", require: false
   gem 'rvm-capistrano'
@@ -98,4 +111,12 @@ group :development do
   gem 'capi'
   gem 'capistrano-maintenance'
   gem 'ruby-prof'
+end
+
+group :development, :staging do
+  gem 'timecop-console', require: 'timecop_console'
+end
+
+group :test, :darwin do
+  gem 'terminal-notifier-guard', '~> 1.6.1'
 end
