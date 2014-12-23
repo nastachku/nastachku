@@ -21,6 +21,9 @@ class Web::Account::PasswordsControllerTest < ActionController::TestCase
     new_password = "tgyWBJ123$%^"
     attrs = { password: new_password, password_confirmation: new_password }
 
+    Web::Account::PasswordsController.any_instance
+      .expects(:get_auth_token).returns('murder,kill')
+
     put :update, auth_token: @token.authentication_token, user: attrs
     assert_response :redirect
 

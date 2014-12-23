@@ -1,14 +1,9 @@
 FactoryGirl.define do
-
-  sequence :email do |n|
-    "email_#{n}@mail.com"
-  end
-
   sequence :items_count do |n|
     n
   end
 
-  [:string, :company, :slug, :title, :thesises, :body, :photo, :description, :about, :color].each do |trait|
+  [:company, :thesises, :photo, :about].each do |trait|
     sequence trait do |n|
       "#{trait}_#{n}"
     end
