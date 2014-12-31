@@ -1,8 +1,8 @@
 class FileDownloadInput < SimpleForm::Inputs::FileInput
-  def input
+  def input(wrapper_options)
     style = options.delete(:preview_style)
     out = super
-    if object.persisted? 
+    if object.persisted?
       out << template.content_tag(:div) do
         if object.send("#{attribute_name}_url")
           template.link_to( object.send("#{attribute_name}_identifier"), object.send("#{attribute_name}_url"))

@@ -58,7 +58,7 @@ class Web::Admin::NewsControllerTest < ActionController::TestCase
     delete :destroy, id: @news
 
     assert_response :redirect
-    assert !News.exists?(@news)
+    assert !News.exists?(@news.id)
   end
 
 end

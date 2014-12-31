@@ -2,7 +2,7 @@ class Web::AccountsController < Web::ApplicationController
   before_filter :authenticate_user!
 
   def edit
-    @user = AccountEditType.find current_user
+    @user = AccountEditType.find current_user.id
     @ticket_order = TicketOrder.new
     @shirt_order = ShirtOrder.new
     if params[:discount_code]
@@ -14,7 +14,7 @@ class Web::AccountsController < Web::ApplicationController
 
   def update
     expire_page controller: "users", action: "index"
-    @user = AccountEditType.find current_user
+    @user = AccountEditType.find current_user.id
     @user.changed_by = current_user
     if @user.update_attributes params[:user]
       flash_success
