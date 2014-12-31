@@ -4,7 +4,7 @@ rvm:
 env:
   - DB=postgresql
 script:
-  - RAILS_ENV=test bundle exec rake --trace db:migrate test
+  - RAILS_ENV=test bundle exec rake db:migrate test
 before_script:
   - psql -c 'create database nastachku_test' -U postgres
   - cp config/database.yml.sample config/database.yml
