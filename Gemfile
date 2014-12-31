@@ -29,7 +29,7 @@ gem 'jbuilder'
 gem 'unicorn-rails'
 gem 'usefull_scopes'
 gem 'ya_acl'
-gem 'state_machine'
+gem 'state_machine' # TODO: пора от избавляться от этого старья
 gem 'untranslated'
 gem 'configus'
 gem 'russian'
