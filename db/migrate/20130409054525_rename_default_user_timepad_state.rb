@@ -1,7 +1,7 @@
 class RenameDefaultUserTimepadState < ActiveRecord::Migration
   def up
     User.reset_column_information
-    User.update_all({timepad_state: :unsynchronized}, timepad_state: :new)
+    User.where(timepad_state: :new).update_all(timepad_state: :unsynchronized)
   end
 
   def down

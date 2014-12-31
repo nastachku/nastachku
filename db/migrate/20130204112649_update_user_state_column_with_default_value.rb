@@ -1,7 +1,7 @@
 class UpdateUserStateColumnWithDefaultValue < ActiveRecord::Migration
   def up
     User.reset_column_information
-    User.update_all({:state => :active}, :state => nil)
+    User.where(state: nil).update_all(state: :active)
   end
 
   def down

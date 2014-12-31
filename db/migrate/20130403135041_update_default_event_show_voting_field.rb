@@ -1,7 +1,7 @@
 class UpdateDefaultEventShowVotingField < ActiveRecord::Migration
   def up
     Event.reset_column_information
-    Event.update_all({show_voting: false}, show_voting: nil)
+    Event.where(show_voting: nil).update_all(show_voting: false)
   end
 
   def down

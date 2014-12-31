@@ -1,7 +1,7 @@
 class UpdateDefaultUserTimepadState < ActiveRecord::Migration
   def up
     User.reset_column_information
-    User.update_all({timepad_state: :new}, timepad_state: nil)
+    User.where(timepad_state: nil).update_all(timepad_state: :new)
   end
 
   def down

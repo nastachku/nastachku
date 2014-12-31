@@ -1,7 +1,7 @@
 class UpdateDefaultHallsState < ActiveRecord::Migration
   def up
     Hall.reset_column_information
-    Hall.update_all({:state => :new}, :state => nil)
+    Hall.where(state: nil).update_all(state: :new)
   end
 
   def down
