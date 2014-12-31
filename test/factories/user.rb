@@ -1,9 +1,7 @@
-# coding: utf-8
-
 FactoryGirl.define do
   #TODO  first_name, first_name, city to russian sequence
   factory :user do
-    password              "ashQDR123!@#"
+    password "ashQDR123!@#"
     first_name "Строка"
     last_name "Строка"
     city "Строка"
@@ -12,7 +10,6 @@ FactoryGirl.define do
     show_as_participant
     email
     twitter_name ""
-#    process_personal_data
 
     after(:create) do |user|
       user.activate
@@ -21,7 +18,7 @@ FactoryGirl.define do
 
   end
 
-  factory :admin, :parent => :user do
+  factory :admin, parent: :user do
     admin true
   end
 

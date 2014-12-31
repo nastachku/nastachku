@@ -34,6 +34,7 @@ class Order < ActiveRecord::Base
   end
 
   def unpaid_or_declined?
+    # NOTE: здесь может не быть self? а у кого мы тогда вызываем метод, интересно?
     self && (self.unpaid? || self.declined?)
   end
 
