@@ -1,10 +1,20 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.17'
+gem 'rails', '~> 4.2.0'
+gem 'rails-observers'
+gem 'activerecord-session_store'
+gem 'protected_attributes' # TODO: избавиться от наследия третьей версии
+gem 'responders', '~> 2.0'
+
+# NOTE: для поддержки хелпера caches_action
+# TODO: выяснить действительно ли нам необходимо кэширование
+gem 'actionpack-action_caching'
+
 gem 'pg'
+gem 'rake'
 gem 'unicorn'
 gem 'haml-rails'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', '~> 2'
 gem 'jquery-ui-rails'
 gem 'modernizr-rails'
 gem 'less-rails'
@@ -34,14 +44,14 @@ gem 'kaminari-bootstrap'
 gem 'ransack'
 gem 'chosen-rails'
 gem 'select2-rails'
-gem 'auditable', :github => 'harleyttd/auditable'
+gem 'auditable', github: 'harleyttd/auditable'
 gem 'enumerize'
 gem 'rack-rewrite'
 gem 'cocoon'
 gem 'gon'
 gem 'redcarpet'
-gem 'multi_json', '~> 1.3.0'
-gem 'platidoma', '>= 0.0.4'
+gem 'multi_json'
+gem 'platidoma', github: 'rocket-11/platidoma'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
@@ -57,18 +67,14 @@ gem 'smarter_csv'
 gem 'weary'
 gem 'mail_view', '~> 2.0.4'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'therubyracer', :platforms => :ruby
-  gem 'uglifier', '>= 1.0.3'
-  gem 'compass-rails'
-  gem 'turbo-sprockets-rails3'
-  gem 'haml_coffee_assets'
-  gem 'execjs'
-end
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'therubyracer', :platforms => :ruby
+gem 'uglifier'
+gem 'compass-rails'
+gem 'turbo-sprockets-rails3'
+gem 'haml_coffee_assets'
+gem 'execjs'
 
 group :test, :development do
   gem 'sqlite3'
@@ -76,6 +82,8 @@ group :test, :development do
 
   gem 'guard'
   gem 'dotenv-rails'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :test do
@@ -84,18 +92,12 @@ group :test do
   gem 'ci_reporter'
   gem 'factory_girl_rails'
   gem 'factory_girl_sequences'
-  gem 'turn'
-  gem 'tconsole'
-  gem 'rake'
   gem 'coveralls', require: false
   gem 'mocha', require: false
-  gem 'pry'
 end
 
 group :development do
   gem 'spring'
-  gem 'pry-rails'
-  gem 'pry-byebug'
   gem 'squasher'
   gem 'foreman'
   gem 'better_errors'
