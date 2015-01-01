@@ -264,11 +264,11 @@ GEM
       kaminari (>= 0.13.0)
       rails
     kgio (2.9.2)
-    less (2.6.0)
-      commonjs (~> 0.2.7)
-    less-rails (2.6.0)
+    less (2.3.3)
+      commonjs (~> 0.2.6)
+    less-rails (2.3.3)
       actionpack (>= 3.1)
-      less (~> 2.6.0)
+      less (~> 2.3.1)
     libv8 (3.16.14.7)
     libxml-ruby (2.7.0)
     listen (2.8.4)
@@ -576,7 +576,7 @@ DEPENDENCIES
   js-routes
   kaminari
   kaminari-bootstrap
-  less-rails
+  less-rails (= 2.3.3)
   mail_view (~> 2.0.4)
   mini_magick
   minitest
