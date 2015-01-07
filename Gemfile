@@ -60,18 +60,18 @@ gem 'draper'
 gem 'resque', :require => 'resque/server'
 gem 'resque_mailer'
 gem 'resque-scheduler'
-gem 'sprockets'
-gem 'sinatra', '>= 1.3.0', :require => nil
+gem 'sprockets', '2.11.0'
+gem 'sinatra', '>= 1.3.0', require: nil
 gem 'newrelic_rpm'
 gem 'smarter_csv'
 gem 'weary'
 gem 'mail_view', '~> 2.0.4'
 
-gem 'sass-rails'
+gem 'sass-rails', '~> 4.0.2'
 gem 'coffee-rails'
 gem 'therubyracer', :platforms => :ruby
 gem 'uglifier'
-gem 'compass-rails'
+gem 'compass-rails', '2.0.0'
 gem 'turbo-sprockets-rails3'
 gem 'haml_coffee_assets'
 gem 'execjs'
