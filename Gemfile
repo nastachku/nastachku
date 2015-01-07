@@ -17,7 +17,7 @@ gem 'haml-rails'
 gem 'twitter-bootstrap-rails', '~> 2'
 gem 'jquery-ui-rails'
 gem 'modernizr-rails'
-gem 'less-rails'
+gem 'less-rails', '2.3.3'
 gem 'simple_form'
 gem 'airbrake'
 gem 'mini_magick'
@@ -57,7 +57,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'mobylette'
 gem 'draper'
-gem 'resque', :require => 'resque/server'
+gem 'resque', require: 'resque/server'
 gem 'resque_mailer'
 gem 'resque-scheduler'
 gem 'sprockets', '2.11.0'
@@ -69,7 +69,7 @@ gem 'mail_view', '~> 2.0.4'
 
 gem 'sass-rails', '~> 4.0.2'
 gem 'coffee-rails'
-gem 'therubyracer', :platforms => :ruby
+gem 'therubyracer', platforms: :ruby
 gem 'uglifier'
 gem 'compass-rails', '2.0.0'
 gem 'turbo-sprockets-rails3'
@@ -88,7 +88,7 @@ end
 
 group :test do
   gem 'minitest'
-  gem 'simplecov', :require => false
+  gem 'simplecov', require: false
   gem 'ci_reporter'
   gem 'factory_girl_rails'
   gem 'factory_girl_sequences'
