@@ -13,7 +13,6 @@ class Web::AccountsController < Web::ApplicationController
   end
 
   def update
-    expire_page controller: "users", action: "index"
     @user = AccountEditType.find current_user.id
     @user.changed_by = current_user
     if @user.update_attributes params[:user]
