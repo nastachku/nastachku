@@ -8,7 +8,7 @@ class Web::UsersController < Web::ApplicationController
   }
 
   def index
-    @search = User.ransack(params)
+    @search = User.ransack(params[:q])
     @users = @search.result.activated.attended.alphabetically
     #FIXME некрасиво
     @users = @users.as_lectors if params[:s] and params[:s].include? 'as_lectors'

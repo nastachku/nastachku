@@ -2,7 +2,7 @@
   %h1=t('.title')
 
 .well
-  = simple_form_for @search, url: admin_users_path, html: { class: 'nomargin' }, method: :get do |f|
+  = search_form_for @search, url: admin_users_path, html: { class: 'nomargin' }, method: :get do |f|
     .row-fluid
       .span4
         = f.input_field :last_name_cont, placeholder: t(".last_name"), label: false, required: false
