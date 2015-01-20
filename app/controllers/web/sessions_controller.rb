@@ -18,10 +18,12 @@ class Web::SessionsController < Web::ApplicationController
       user = @type.user
       flash_success
       sign_in user
-      if params[:from] == registrator_root_url
-        redirect_to registrator_root_url
+      redirect_to if params[:from] == registrator_root_url
+        registrator_root_url
+      elsif configus.cs_cart.enable_auth
+        auth_cs_cart_user_url get_auth_token user
       else
-        redirect_to auth_cs_cart_user_url get_auth_token user
+        welcome_index_path
       end
     else
       flash[:error] = @type.errors.full_messages

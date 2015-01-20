@@ -63,6 +63,7 @@ Configus.build Rails.env do
 
     cs_cart do
       secret_key credentials_hash["production"]["cs-cart"]["secret_key"]
+      enable_auth false
     end
 
     platidoma do
