@@ -9,9 +9,6 @@ class Web::SessionsControllerTest < ActionController::TestCase
   test "should authenticate" do
     attrs = { email: @user.email, password: @user.password }
 
-    Web::SessionsController.any_instance
-      .expects(:get_auth_token).returns('murder,kill')
-
     post :create, user_sign_in_type: attrs
 
     assert_response :redirect

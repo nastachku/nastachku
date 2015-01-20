@@ -15,9 +15,6 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
 
     request.env['omniauth.auth'] = @auth_hash
 
-    Web::SocialNetworksController.any_instance
-      .expects(:get_auth_token).returns('murder,kill')
-
     get :facebook
 
     assert_response :redirect
@@ -42,9 +39,6 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     @user.save
 
     request.env['omniauth.auth'] = @auth_hash
-
-    Web::SocialNetworksController.any_instance
-      .expects(:get_auth_token).returns('murder,kill')
 
     get :facebook
 
