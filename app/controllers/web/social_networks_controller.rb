@@ -14,7 +14,13 @@ class Web::SocialNetworksController < Web::ApplicationController
       sign_in authorization.user
       flash_success
 
-      return redirect_to auth_cs_cart_user_url get_auth_token authorization.user
+      redirect_path = if configus.cs_cart.enable_auth
+        auth_cs_cart_user_url get_auth_token authorization.user
+      else
+        :root
+      end
+
+      return redirect_to redirect_path
     else
       user = User.find_by_email(auth_hash[:info][:email])
       if !user
@@ -31,7 +37,14 @@ class Web::SocialNetworksController < Web::ApplicationController
         user.activate
         sign_in user
         flash_success
-        return redirect_to auth_cs_cart_user_url get_auth_token user
+
+        redirect_path = if configus.cs_cart.enable_auth
+          auth_cs_cart_user_url get_auth_token user
+        else
+          :root
+        end
+
+        return redirect_to redirect_path
       else
         flash_error
         return redirect_to new_session_path
