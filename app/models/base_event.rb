@@ -11,7 +11,7 @@ class BaseEvent < ActiveRecord::Base
 
   mount_uploader :presentation, EventPresentationUploader
 
-  audit :title, :thesises, :thesises, :workshop
+  audit :title, :thesises, :workshop
 
   state_machine :state, initial: :new do
     state :new
@@ -22,7 +22,7 @@ class BaseEvent < ActiveRecord::Base
     event :move_to_schedule do
       transition [:new, :voted] => :in_schedule
     end
-    
+
     event :move_to_voting do
       transition :new => :voted
     end
