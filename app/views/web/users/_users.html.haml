@@ -1,5 +1,8 @@
-- # FIXME заменить unless-else на if-else
-- unless @users.empty?
+- if @users.empty?
+  %h5
+    = t '.zero_participants'
+  = link_to t('.be_the_first'), new_user_path, class: 'btn btn-shine'
+- else
   =t '.registred_title', activated_count: attended_users, participant: shown_as_participants
   %ul.members__list
     - @users.shown_as_participants.each do |user|
@@ -19,7 +22,3 @@
             %a.social__icon.social__icon-fb{ title: "Фейсбук", href: user.facebook}
           - unless user.vkontakte.blank?
             %a.social__icon.social__icon-vk{ title: "Вконтакте", href: user.vkontakte}
-- else
-  %h5
-    = t '.zero_participants'
-  = link_to t('.be_the_first'), new_user_path, class: 'btn btn-shine'
