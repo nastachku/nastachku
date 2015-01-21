@@ -1,5 +1,4 @@
 class Web::SessionsController < Web::ApplicationController
-
   def new
     if params[:auth_token]
       token = User::AuthToken.find_by_authentication_token params[:auth_token]

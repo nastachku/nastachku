@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 class Web::SocialNetworksController < Web::ApplicationController
-
   def facebook
     authorization = Authorization.find_by_provider_and_uid(
       auth_hash[:provider], auth_hash[:uid])
