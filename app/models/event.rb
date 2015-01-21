@@ -12,6 +12,8 @@ class Event < ActiveRecord::Base
   has_many :users, through: :event_users
   has_many :event_votings, as: :voteable, extend: [Extensions::VotingExtension]
 
+  audit :title, :state
+
   state_machine initial: :inactive do
     state :inactive
     state :active
