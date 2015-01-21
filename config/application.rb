@@ -1,5 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
+# https://github.com/activerecord-hackery/ransack/pull/341
 ENV['RANSACK_FORM_BUILDER'] = '::SimpleForm::FormBuilder'
 
 require 'rails/all'
