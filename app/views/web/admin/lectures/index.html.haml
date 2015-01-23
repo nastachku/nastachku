@@ -9,7 +9,7 @@
 .container
   .row
     .well.span12
-      = simple_form_for @search, url: admin_lectures_path, method: :get do |f|
+      = search_form_for @search, url: admin_lectures_path, method: :get do |f|
         .span2.span-nomargin= f.input_field :title_cont, placeholder: Lecture.human_attribute_name(:title), label: false, required: false, class: 'span2'
         .span2= f.input_field :user_id_in, as: :chosen_select, collection: User.web, placeholder: Lecture.human_attribute_name(:user), label: false, required: false, class: 'span2 span-nomargin'
         .span2= f.input_field :state_in, as: :chosen_select, collection: Lecture.state_machine.states.map { |s| [s.human_name, s.name] }, placeholder: Lecture.human_attribute_name(:state), label: false, required: false, class: 'span2 span-nomargin'

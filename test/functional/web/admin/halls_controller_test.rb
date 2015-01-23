@@ -41,7 +41,7 @@ class Web::Admin::HallsControllerTest < ActionController::TestCase
   test 'should delete destroy' do
     delete :destroy, id: @hall.id
     assert_response :redirect
-    assert !Hall.exists?(@hall)
+    assert !Hall.exists?(@hall.id)
   end
 
 end

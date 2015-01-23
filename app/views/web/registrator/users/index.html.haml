@@ -8,7 +8,7 @@
 
   = link_to t(".new_user"), new_registrator_users_path, class: 'btn btn-info btn-large'
 .well
-  = simple_form_for @search, url: registrator_root_path, html: { class: 'nomargin' }, method: :get do |f|
+  = search_form_for @search, url: registrator_root_path, html: { class: 'nomargin' }, method: :get do |f|
     .row-fluid
       .span4
         = f.input_field :last_name_cont, placeholder: t(".last_name"), label: false, required: false

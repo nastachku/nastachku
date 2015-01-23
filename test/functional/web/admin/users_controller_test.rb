@@ -59,7 +59,7 @@ class Web::Admin::UsersControllerTest < ActionController::TestCase
   test "should delete destroy" do
     delete :destroy, id: @user
     assert_response :redirect
-    assert !User.exists?(@user)
+    assert !User.exists?(@user.id)
   end
 
 end

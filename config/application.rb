@@ -1,10 +1,13 @@
 require File.expand_path('../boot', __FILE__)
 
+# https://github.com/activerecord-hackery/ransack/pull/341
+ENV['RANSACK_FORM_BUILDER'] = '::SimpleForm::FormBuilder'
+
 require 'rails/all'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
+  Bundler.require(*Rails.groups)
   # If you want your assets lazily compiled in production, use this line
   # Bundler.require(:default, :assets, Rails.env)
 end
@@ -54,6 +57,8 @@ module Nastachku
     config.active_record.whitelist_attributes = true
     config.active_record.observers = :user_observer
 
+    config.active_record.raise_in_transactional_callbacks = true
+
     ActionMailer::Base.default charset: "UTF-8"
 
     # Enable the asset pipeline
@@ -61,7 +66,7 @@ module Nastachku
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    
+
     config.generators do |g|
       g.template_engine :haml
       g.test_framework  :test_unit, :fixture => true, :fixture_replacement => :factory_girl
@@ -72,7 +77,7 @@ module Nastachku
     # catch 404/500 errors
     config.exceptions_app = self.routes
 
-    config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
+    config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
       r301 '/reporters.html', 'http://2012.nastachku.ru/reporters.html'
       r301 '/vote-comment.html', 'http://2012.nastachku.ru/'
       r301 '/day-zero.html', 'http://2012.nastachku.ru/'

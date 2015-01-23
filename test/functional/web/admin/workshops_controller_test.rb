@@ -41,7 +41,7 @@ class Web::Admin::WorkshopsControllerTest < ActionController::TestCase
   test 'should delete destroy' do
     delete :destroy, id: @workshop.id
     assert_response :redirect
-    assert !Workshop.exists?(@workshop)
+    assert !Workshop.exists?(@workshop.id)
   end
 
 end

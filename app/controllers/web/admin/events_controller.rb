@@ -6,7 +6,7 @@ class Web::Admin::EventsController < Web::Admin::ApplicationController
     @events = @search.result.page(params[:page]).per(configus.pagination.admin_per_page)
   end
 
-  def new 
+  def new
     @event = ::Admin::EventEditType.new
   end
 

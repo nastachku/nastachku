@@ -1,5 +1,5 @@
 class ImagePreviewInput < SimpleForm::Inputs::FileInput
-  def input
+  def input(wrapper_options)
     style = options.delete(:preview_style)
     out = super
     if object.persisted? && object.send("#{attribute_name}?")

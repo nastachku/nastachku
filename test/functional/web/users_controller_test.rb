@@ -76,14 +76,4 @@ class Web::UsersControllerTest < ActionController::TestCase
     get :activate, auth_token: nil
     assert_redirected_to welcome_index_path
   end
-
-  test "should action cache index" do
-    cache_users_path = 'views/test.host' + users_path
-    ActionController::Base.perform_caching = true
-    Rails.cache.clear
-    assert not(ActionController::Base.cache_store.exist?(cache_users_path))
-    get :index
-    assert ActionController::Base.cache_store.exist?(cache_users_path)
-    ActionController::Base.perform_caching = false
-  end
 end

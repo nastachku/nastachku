@@ -32,7 +32,7 @@ class Web::Admin::UsersListsControllerTest < ActionController::TestCase
     @users_list = create :users_list
     delete :destroy, id: @users_list
     assert_response :redirect
-    assert !UsersList.exists?(@users_list)
+    assert !UsersList.exists?(@users_list.id)
   end
 
   test 'should put accept' do

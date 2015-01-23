@@ -53,7 +53,7 @@ class Web::Admin::TopicsControllerTest < ActionController::TestCase
 
   test "should delete destroy" do
     delete :destroy, id: @topic.id
-    assert !Topic.exists?(@topic)
+    assert !Topic.exists?(@topic.id)
   end
 
 end

@@ -8,7 +8,5 @@ class Web::Account::ShirtOrdersController < Web::Account::ApplicationController
       flash_error
       render :new
     end
-
   end
-
 end

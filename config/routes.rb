@@ -4,9 +4,9 @@ Nastachku::Application.routes.draw do
 
   get "audits/index"
 
-  match "/404", to: "web/errors#not_found"
-  match "/500", to: "web/errors#internal_server_error"
-  match "/banned", to: "web/errors#banned"
+  get "/404", to: "web/errors#not_found"
+  get "/500", to: "web/errors#internal_server_error"
+  get "/banned", to: "web/errors#banned"
   mount Preview => 'mailer_preview'
 
   root to: "web/welcome#index"
@@ -14,8 +14,9 @@ Nastachku::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   # omniauth-facebook, omniauth-twitter
-  get '/auth/:action/callback' => 'web/social_networks'
-  get '/auth/:action/failure' => 'web/social_networks#failure'
+  get '/auth/facebook/callback', to: 'web/social_networks#facebook'
+  get '/auth/twitter/callback', controller: 'web/social_networks#twitter'
+  get '/auth/:action/failure', to: 'web/social_networks#failure'
 
   namespace :api do
     resources :companies
@@ -125,9 +126,6 @@ Nastachku::Application.routes.draw do
       resources :users
       resources :audits, only: [:index]
       resources :topics
-      resources :user_events do
-        put :change_state
-      end
 
       resources :events
       resources :workshops
@@ -144,7 +142,7 @@ Nastachku::Application.routes.draw do
       resource :reports, only: [] do
         post :generate
       end
-      match '/downloads/reports/*filename' => 'reports#download', as: 'reports_file'
+      get '/downloads/reports/*filename' => 'reports#download', as: 'reports_file'
       mount Resque::Server, at: "resque", constraints: AdminConstraint.new, as: 'resque'
 
       root to: "welcome#index"
@@ -152,5 +150,5 @@ Nastachku::Application.routes.draw do
   end
 
 
-  match '*unmatched_route', to: "web/errors#not_found"
+  match '*unmatched_route', to: "web/errors#not_found", via: :all
 end

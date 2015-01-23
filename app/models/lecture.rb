@@ -20,7 +20,7 @@ class Lecture < ActiveRecord::Base
 
   mount_uploader :presentation, EventPresentationUploader
 
-  audit :title, :thesises, :thesises, :workshop, :user
+  audit :title, :thesises, :workshop, :user
 
   state_machine :state, initial: :new do
     state :new
