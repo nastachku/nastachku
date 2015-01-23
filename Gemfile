@@ -62,7 +62,6 @@ gem 'resque_mailer'
 gem 'resque-scheduler'
 gem 'sprockets', '2.11.0'
 gem 'sinatra', '>= 1.3.0', require: nil
-gem 'newrelic_rpm'
 gem 'smarter_csv'
 gem 'weary'
 gem 'mail_view', '~> 2.0.4'

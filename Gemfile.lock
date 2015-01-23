@@ -299,7 +299,6 @@ GEM
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
     netrc (0.10.2)
-    newrelic_rpm (3.9.9.275)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     oauth (0.4.7)
@@ -579,7 +578,6 @@ DEPENDENCIES
   mocha
   modernizr-rails
   multi_json
-  newrelic_rpm
   omniauth
   omniauth-facebook
   omniauth-twitter
