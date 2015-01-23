@@ -1,7 +1,7 @@
 class UserPasswordRemindType
   include ActiveModel::Validations
   include ActiveModel::Conversion
-  include Virtus
+  include Virtus.model
 
   attribute :email, String
 

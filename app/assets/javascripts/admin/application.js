@@ -24,6 +24,9 @@
 //= require admin/user_edit_form
 //= require admin/dates
 //= require admin/custom
-//= require jquery.ui.all
+
+// TODO: зарекваэрить из jquery только то, что нужно
+//= require jquery-ui
+
 //= require admin/sortable
 //= require admin/mail_preview

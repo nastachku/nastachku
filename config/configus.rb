@@ -17,14 +17,14 @@ Configus.build Rails.env do
 
     schedule do
       first_day do
-        date Time.utc(2014, 4, 11)
-        start_time DateTime.new(2014, 4, 11, 9, 0, 0)
-        finish_time DateTime.new(2014, 4, 11, 20, 30, 0)
+        date Time.utc(2015, 4, 11)
+        start_time DateTime.new(2015, 4, 11, 9, 0, 0)
+        finish_time DateTime.new(2015, 4, 11, 20, 30, 0)
       end
       second_day do
-        date Time.utc(2014, 4, 12)
-        start_time DateTime.new(2014, 4, 12, 10, 0, 0)
-        finish_time DateTime.new(2014, 4, 12, 17, 30, 0)
+        date Time.utc(2015, 4, 12)
+        start_time DateTime.new(2015, 4, 12, 10, 0, 0)
+        finish_time DateTime.new(2015, 4, 12, 17, 30, 0)
       end
     end
 
@@ -42,7 +42,7 @@ Configus.build Rails.env do
     end
 
     badges do
-      time_to_print_badges DateTime.new(2014, 4, 9, 18, 0, 0)
+      time_to_print_badges DateTime.new(2015, 4, 9, 18, 0, 0)
     end
 
     token do
@@ -63,6 +63,7 @@ Configus.build Rails.env do
 
     cs_cart do
       secret_key credentials_hash["production"]["cs-cart"]["secret_key"]
+      enable_auth false
     end
 
     platidoma do
@@ -72,6 +73,7 @@ Configus.build Rails.env do
       gate_password credentials_hash["production"]["platidoma"]["gate_password"]
       shirt_price 500
       afterparty_price 2500
+
       if Time.current.month == 2
         ticket_price 750
       elsif Time.current.month == 3
@@ -83,10 +85,6 @@ Configus.build Rails.env do
           ticket_price 1500
         end
       end
-    end
-
-    cache do
-      expires_in 5.minutes
     end
 
     timepad do
@@ -126,6 +124,7 @@ Configus.build Rails.env do
       login credentials_hash["development"]["platidoma"]["login"]
       gate_password credentials_hash["development"]["platidoma"]["gate_password"]
       shirt_price 500
+      ticket_price 100
     end
 
     timepad do
@@ -144,6 +143,7 @@ Configus.build Rails.env do
       login "test"
       gate_password "test"
       shirt_price 500
+      ticket_price 100
     end
   end
 
@@ -185,6 +185,7 @@ Configus.build Rails.env do
       login credentials_hash["staging"]["platidoma"]["login"]
       gate_password credentials_hash["staging"]["platidoma"]["gate_password"]
       shirt_price 500
+      ticket_price 100
     end
 
     timepad do
@@ -193,7 +194,5 @@ Configus.build Rails.env do
       maillist_id credentials_hash["staging"]["timepad"]["maillist_id"]
       api_key credentials_hash["staging"]["timepad"]["api_key"]
     end
-
   end
-
 end

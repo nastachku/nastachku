@@ -5,7 +5,7 @@ set :branch do
   raise "Use tags: TAG=v2" unless ENV['TAG']
   ENV['TAG']
 end
-set :user, 'nastachku_staging_2014'
+set :user, 'nastachku_staging_2015'
 set :keep_releases, 5
 set :rvm_ruby_string, "2.0.0-p451"
 

@@ -1,5 +1,5 @@
 class EventsInput < SimpleForm::Inputs::CollectionSelectInput
-  def input
+  def input(wrapper_options)
     type = object.send(:event_type)
     options.merge!(collection: type.present? ? type.constantize.admin : [], label_method: lambda { |hui|  hui.decorate.full_title })
     super

@@ -3,6 +3,8 @@ class TicketOrder < Order
   extend Enumerize
   extend ActiveModel::Naming
 
+  attr_writer :discount
+
   def its_cost
     configus.platidoma.ticket_price
   end

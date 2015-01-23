@@ -69,5 +69,4 @@ class Web::Account::OrdersControllerTest < ActionController::TestCase
     @order.reload
     assert @order.paid?
   end
-
 end

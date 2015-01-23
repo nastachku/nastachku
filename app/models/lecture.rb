@@ -1,4 +1,5 @@
 require 'carrierwave/orm/activerecord' # for load_models initializer, remove if remove its
+
 class Lecture < ActiveRecord::Base
   include LectureRepository
 
@@ -19,7 +20,7 @@ class Lecture < ActiveRecord::Base
 
   mount_uploader :presentation, EventPresentationUploader
 
-  audit :title, :thesises, :thesises, :workshop, :user
+  audit :title, :thesises, :workshop, :user
 
   state_machine :state, initial: :new do
     state :new

@@ -10,6 +10,7 @@ class Web::SessionsControllerTest < ActionController::TestCase
     attrs = { email: @user.email, password: @user.password }
 
     post :create, user_sign_in_type: attrs
+
     assert_response :redirect
     assert signed_in?
   end

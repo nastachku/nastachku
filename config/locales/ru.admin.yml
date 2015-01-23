@@ -20,7 +20,7 @@ ru:
           accept: Принять
       users:
         form:
-          attending_conference_state: "Идёт ли пользователь на СТАЧКУ 2014"
+          attending_conference_state: "Идёт ли пользователь на СТАЧКУ 2015"
           attended: "Идёт"
           not_decided: "Не идёт"
           attended: "Пойдёт"

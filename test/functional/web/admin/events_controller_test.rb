@@ -16,7 +16,7 @@ class Web::Admin::EventsControllerTest < ActionController::TestCase
 
 
   test "should get new" do
-    get :new 
+    get :new
     assert_response :success
   end
 
@@ -44,6 +44,6 @@ class Web::Admin::EventsControllerTest < ActionController::TestCase
   test "should delete destroy" do
     delete :destroy, id: @event.id
     assert_response :redirect
-    assert !Event.exists?(@event)
+    assert !Event.exists?(@event.id)
   end
 end

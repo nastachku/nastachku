@@ -15,21 +15,17 @@
 !public/images
 /coverage
 /downloads
+/bin
 
 #ignore idea project files
 .idea
 *~
 \#*\#
 .\#*
-*.swn
-*.swp
-*.swo
-*.swm
 /config/database.yml
 /.sass-cache
 .vagrant
 *.sqlite3-journal
-.directory
 /config/database.yml
 /config/credentials.yml
 nastachku_development

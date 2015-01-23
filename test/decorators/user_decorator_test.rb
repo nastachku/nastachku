@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserDecoratorTest < Draper::TestCase
   setup do
-    @user = (create :user).decorate
+    @user = create(:user).decorate
   end
 
   test "assets user pic" do

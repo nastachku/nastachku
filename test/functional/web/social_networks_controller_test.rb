@@ -14,6 +14,7 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     @user.save
 
     request.env['omniauth.auth'] = @auth_hash
+
     get :facebook
 
     assert_response :redirect
@@ -38,6 +39,7 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     @user.save
 
     request.env['omniauth.auth'] = @auth_hash
+
     get :facebook
 
     assert_response :redirect

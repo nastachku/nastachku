@@ -38,6 +38,7 @@ class UserDecorator < Draper::Decorator
     end
   end
 
+  # FIXME: этому здесь не место, тем более в таком виде
   def ticket
     model.ticket_orders.select { |ticket| ticket.paid? }.first
   end

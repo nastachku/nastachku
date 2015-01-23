@@ -3,7 +3,7 @@ class StateEventInput < SimpleForm::Inputs::CollectionSelectInput
     object.send(transitions)
   end
 
-  def input
+  def input(wrapper_input)
     label_method = :human_event
     value_method = :event
     current_state = template.content_tag(:div, template.content_tag(:span, "Current state: #{object.send(human_name)}", :class => "label label-info")  )
