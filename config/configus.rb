@@ -86,10 +86,6 @@ Configus.build Rails.env do
       end
     end
 
-    cache do
-      expires_in 5.minutes
-    end
-
     timepad do
       maillist_add_items_url credentials_hash["production"]["timepad"]["maillist_add_items_url"]
       organization_id credentials_hash["production"]["timepad"]["organization_id"]

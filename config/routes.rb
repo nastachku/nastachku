@@ -126,9 +126,6 @@ Nastachku::Application.routes.draw do
       resources :users
       resources :audits, only: [:index]
       resources :topics
-      resources :user_events do
-        put :change_state
-      end
 
       resources :events
       resources :workshops
