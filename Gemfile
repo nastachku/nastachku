@@ -60,7 +60,7 @@ gem 'draper'
 gem 'resque', require: 'resque/server'
 gem 'resque_mailer'
 gem 'resque-scheduler'
-gem 'sprockets', '2.11.0'
+gem 'sprockets'
 gem 'sinatra', '>= 1.3.0', require: nil
 gem 'smarter_csv'
 gem 'weary'
@@ -71,7 +71,6 @@ gem 'coffee-rails'
 gem 'therubyracer', platforms: :ruby
 gem 'uglifier'
 gem 'compass-rails', '2.0.0'
-gem 'turbo-sprockets-rails3'
 gem 'haml_coffee_assets'
 gem 'execjs'
 
@@ -106,7 +105,7 @@ group :development do
 
   gem 'capistrano'
   gem 'capistrano-resque', github: 'sshingler/capistrano-resque', require: false
-  gem 'rvm-capistrano'
+  gem 'capistrano-rbenv'
   gem 'capistrano-ext'
   gem 'capistrano_colors'
   gem 'capi'
