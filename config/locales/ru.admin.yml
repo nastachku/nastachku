@@ -144,21 +144,6 @@ ru:
         form:
           cancel: 'Отменить'
 
-      user_events:
-        index:
-          title: 'Пользовательские доклады'
-          actions: 'Действия'
-          edit: 'Редактировать'
-          move_to_voting: 'На голосование'
-          reject: 'Заблокировать'
-        edit:
-          title: 'Редактирование доклада'
-          speaker: 'Докладчик: '
-        update:
-          title: 'Редактирование доклада'
-        form:
-          presentation_link: 'Ссылка на презентацию'
-
       lectures:
         index:
           title: 'Доклады'

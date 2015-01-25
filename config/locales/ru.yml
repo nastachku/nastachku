@@ -92,8 +92,6 @@ ru:
         info: 'Мои данные'
         my_events: 'Мои доклады'
         my_orders: 'Мои заказы'
-        add_user_event_text: 'Вами пока не добавлено ни одного доклада.'
-        add_user_event: 'Добавить доклад'
         link_twitter: 'Привязать аккаунт'
         unlink_twitter: 'Отключить'
         twitter_account: 'Твиттер'
@@ -102,8 +100,6 @@ ru:
         buy_shirt: 'Купить футболку'
         buy_more: "Оформить еще один заказ"
         cost: "Стоимость"
-        add_more_user_event_text: 'Есть еще один умопомрачительный доклад?'
-        add_more_user_event_link: 'Добавляй!'
         pay: Оплата участия
         enter_promo_code: Ввести промо-код
         stachka_ticket: Билет на Стачку
@@ -339,17 +335,6 @@ ru:
         timepad_state: "Состояние timepad.ru"
         about: "О себе"
 
-      base_event:
-        title: 'Название'
-        presentation: 'Добавить презентацию'
-        thesises: 'Тезисы'
-        speaker: 'Докладчик'
-        start_time: 'Время начала'
-        finish_time: 'Время окончания'
-        state: 'Статус'
-        workshop: 'Секция'
-        hall: 'Зал'
-
       workshop:
         title: 'Название'
         color: 'Цвет'
@@ -441,13 +426,6 @@ ru:
             update:
               success: 'Пользователь изменен.'
               error:   'Не удалось изменить пользователя, есть ошибки в заполнении форм.'
-          user_events:
-            change_state:
-              success: 'Статус изменен.'
-              error: 'Не удалось изменить статус доклада.'
-            update:
-              success: 'Доклад изменен.'
-              error:   'Не удалось изменить доклад, есть ошибки в заполнении форм.'
           events:
             create:
               success: 'Событие добавлено.'

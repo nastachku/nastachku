@@ -8,14 +8,9 @@ class Web::ApplicationController < ApplicationController
   include SecureHelper
   include CsCartHelper
 
-  #helper :all
-  helper_method :edit_admin_event_cpath, :workshops
-
-
   protect_from_forgery
 
   helper_method :title
-
 
   before_filter do
     title t('base_name')

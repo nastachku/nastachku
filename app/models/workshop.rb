@@ -4,7 +4,6 @@ class Workshop < ActiveRecord::Base
   attr_accessible :title, :color, :icon
 
   has_many :lectures
-  #has_many :user_events
 
   audit :title
 
