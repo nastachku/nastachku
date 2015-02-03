@@ -67,7 +67,7 @@ module AuthHelper
 
     #FIXME Скипаем валиадцию, так как в бд присутствуют невалидные пользователи
     #(юзеры успели зарегаться до ввода некоторых валидаций)
-    user.save(validate: false)
+    # user.save(validate: false)
   end
 
   def deny_banned_user!

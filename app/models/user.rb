@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   include UserRepository
   extend Enumerize
 
+  has_secure_password
+
   attr_accessible :email, :password, :first_name, :last_name, :city, :company, :position,
     :show_as_participant, :photo, :state_event, :about, :carousel_info, :in_carousel,
     :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event,
@@ -15,8 +17,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: {case_sensitive: false}, email: true
   validates :last_name, presence: true, human_name: true
   validates :first_name, presence: true, human_name: true
-  validates :city, city_name: true
-  validates :company, company_name: true
+  # validates :city, city_name: true
+  # validates :company, company_name: true
   validates :position, position_name: true, allow_blank: true
   validates :facebook, url: true, allow_blank: true
   validates :vkontakte, url: true, allow_blank: true
