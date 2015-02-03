@@ -13,8 +13,10 @@ Nastachku::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
+  # FIXME
   # omniauth-facebook, omniauth-twitter
   get '/auth/facebook/callback', to: 'web/social_networks#facebook'
+  get '/auth/vkontakte/callback', to: 'web/social_networks#vkontakte'
   get '/auth/twitter/callback', controller: 'web/social_networks#twitter'
   get '/auth/:action/failure', to: 'web/social_networks#failure'
 

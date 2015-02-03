@@ -49,6 +49,29 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     assert !current_user.authorizations.blank?
   end
 
+  test "should get authorization with vkontakte on existing user" do
+    @user.email = @auth_hash[:info][:email]
+    @user.save
+
+    request.env['omniauth.auth'] = @auth_hash
+
+    get :vkontakte
+
+    assert_response :redirect
+    @user.reload
+    assert @user.active?
+    assert signed_in?
+    assert !current_user.authorizations.blank?
+  end
+
+  test "should get authorization with vkontakte on new user" do
+    request.env['omniauth.auth'] = @auth_hash
+    get :vkontakte
+
+    assert_response :redirect
+    assert session_auth_hash
+  end
+
   test "should get authorization with facebook on new user" do
     request.env['omniauth.auth'] = @auth_hash
     get :facebook
@@ -95,6 +118,7 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
 
     assert_redirected_to new_session_path
   end
+
   test "should get failure" do
     get :failure
     assert_response :redirect
