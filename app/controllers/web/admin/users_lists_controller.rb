@@ -26,7 +26,17 @@ class Web::Admin::UsersListsController < Web::Admin::ApplicationController
     Resque.enqueue  BroadcastMailerJobAfterCreate, @users.select { |user| not user.paid_part? } if Rails.env.production?
 
     @other_users.each_with_index do |other_user, i|
-      user = UserCreatePaidType.new(email: other_user[I18n.t('users_lists.data.email').to_sym], first_name: other_user[I18n.t('users_lists.data.fio').to_sym].split(' ')[1], last_name: other_user[I18n.t('users_lists.data.fio').to_sym].split(' ')[0], company: other_user[I18n.t('users_lists.data.company').to_sym], password: generate_password, city: "Ульяновск", reason_to_give_ticket: @users_list.description)
+      # FIXME >_<
+      attrs = ActionController::Parameters.new({
+        email: other_user[I18n.t('users_lists.data.email').to_sym],
+        first_name: other_user[I18n.t('users_lists.data.fio').to_sym].split(' ')[1],
+        last_name: other_user[I18n.t('users_lists.data.fio').to_sym].split(' ')[0],
+        company: other_user[I18n.t('users_lists.data.company').to_sym],
+        password: generate_password,
+        city: "Ульяновск",
+        reason_to_give_ticket: @users_list.description
+      })
+      user = UserCreatePaidType.new(attrs)
       if user.save
         user.pay_part
         User::PromoCode.create(code: generate_promo_code, user_id: user.id)

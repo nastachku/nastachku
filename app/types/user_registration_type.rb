@@ -1,9 +1,10 @@
 class UserRegistrationType < User
   include BasicType
 
-  attr_accessible :password_confirmation, :state_event, :process_personal_data
+  attr_accessible :password_confirmation, :process_personal_data
 
-  #has_secure_password
+  permit :password_confirmation, :password, :state_event, :process_personal_data,
+         :first_name, :last_name, :city, :company, :position, :email
 
   validates :city, presence: true
   validates :password, presence: true, confirmation: true

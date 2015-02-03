@@ -1,7 +1,7 @@
 class Admin::EventEditType < Event
   include BasicType
 
-  attr_accessible :state_event
+  permit :state_event, :title, :description, :color, :show_voting, :user_id
 
   validates :title, presence: true
 end
