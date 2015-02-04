@@ -6,10 +6,6 @@ gem 'activerecord-session_store'
 gem 'protected_attributes' # TODO: избавиться от наследия третьей версии
 gem 'responders', '~> 2.0'
 
-# NOTE: для поддержки хелпера caches_action
-# TODO: выяснить действительно ли нам необходимо кэширование
-gem 'actionpack-action_caching'
-
 gem 'pg'
 gem 'rake'
 gem 'unicorn'
@@ -111,12 +107,4 @@ group :development do
   gem 'capi'
   gem 'capistrano-maintenance'
   gem 'ruby-prof'
-end
-
-group :development, :staging do
-  gem 'timecop-console', require: 'timecop_console'
-end
-
-group :test, :darwin do
-  gem 'terminal-notifier-guard', '~> 1.6.1'
 end

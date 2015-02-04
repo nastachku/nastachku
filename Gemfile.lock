@@ -40,8 +40,6 @@ GEM
       rack-test (~> 0.6.2)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
-    actionpack-action_caching (1.1.1)
-      actionpack (>= 4.0.0, < 5.0)
     actionview (4.2.0)
       activesupport (= 4.2.0)
       builder (~> 3.1)
@@ -464,17 +462,12 @@ GEM
     state_machine (1.2.0)
     term-ansicolor (1.3.0)
       tins (~> 1.0)
-    terminal-notifier-guard (1.6.4)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    timecop (0.7.1)
-    timecop-console (0.3.1)
-      railties (>= 3.1, < 5.0)
-      timecop (>= 0.5)
     timers (4.0.1)
       hitimes
     tins (1.3.3)
@@ -527,7 +520,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack-action_caching
   activerecord-session_store
   airbrake
   auditable!
@@ -611,9 +603,7 @@ DEPENDENCIES
   sqlite3
   squasher
   state_machine
-  terminal-notifier-guard (~> 1.6.1)
   therubyracer
-  timecop-console
   twitter-bootstrap-rails (~> 2)
   uglifier
   unicorn
