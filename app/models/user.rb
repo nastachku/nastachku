@@ -17,8 +17,6 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: {case_sensitive: false}, email: true
   validates :last_name, presence: true, human_name: true
   validates :first_name, presence: true, human_name: true
-  # validates :city, city_name: true
-  # validates :company, company_name: true
   validates :position, position_name: true, allow_blank: true
   validates :facebook, url: true, allow_blank: true
   validates :vkontakte, url: true, allow_blank: true

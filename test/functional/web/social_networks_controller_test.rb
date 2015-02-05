@@ -3,17 +3,18 @@ require 'test_helper'
 class Web::SocialNetworksControllerTest < ActionController::TestCase
 
   setup do
-    @auth_hash = generate(:facebook_auth_hash)
+    @facebook_auth_hash = generate(:facebook_auth_hash)
+    @vkontakte_auth_hash = generate(:vkontakte_auth_hash)
     @twitter_auth_hash = generate(:twitter_auth_hash)
     @user = create :user
   end
 
   test "should get authorization with facebook" do
     @user.activate
-    @user.authorizations << build_authorization(@auth_hash)
+    @user.authorizations << build_authorization(@facebook_auth_hash)
     @user.save
 
-    request.env['omniauth.auth'] = @auth_hash
+    request.env['omniauth.auth'] = @facebook_auth_hash
 
     get :facebook
 
@@ -24,10 +25,10 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
 
   test "should fail authorization with facebook" do
     @user.deactivate
-    @user.authorizations << build_authorization(@auth_hash)
+    @user.authorizations << build_authorization(@facebook_auth_hash)
     @user.save
 
-    request.env['omniauth.auth'] = @auth_hash
+    request.env['omniauth.auth'] = @facebook_auth_hash
     get :facebook
 
     assert_response :redirect
@@ -35,10 +36,10 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
   end
 
   test "should get authorization with facebook on existing user" do
-    @user.email = @auth_hash[:info][:email]
+    @user.email = @facebook_auth_hash[:info][:email]
     @user.save
 
-    request.env['omniauth.auth'] = @auth_hash
+    request.env['omniauth.auth'] = @facebook_auth_hash
 
     get :facebook
 
@@ -46,14 +47,14 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     @user.reload
     assert @user.active?
     assert signed_in?
-    assert !current_user.authorizations.blank?
+    assert current_user.authorizations.where(provider: 'facebook').any?
   end
 
   test "should get authorization with vkontakte on existing user" do
-    @user.email = @auth_hash[:info][:email]
+    @user.email = @vkontakte_auth_hash[:info][:email]
     @user.save
 
-    request.env['omniauth.auth'] = @auth_hash
+    request.env['omniauth.auth'] = @vkontakte_auth_hash
 
     get :vkontakte
 
@@ -61,11 +62,11 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     @user.reload
     assert @user.active?
     assert signed_in?
-    assert !current_user.authorizations.blank?
+    assert current_user.authorizations.where(provider: 'vkontakte').any?
   end
 
   test "should get authorization with vkontakte on new user" do
-    request.env['omniauth.auth'] = @auth_hash
+    request.env['omniauth.auth'] = @vkontakte_auth_hash
     get :vkontakte
 
     assert_response :redirect
@@ -73,7 +74,7 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
   end
 
   test "should get authorization with facebook on new user" do
-    request.env['omniauth.auth'] = @auth_hash
+    request.env['omniauth.auth'] = @facebook_auth_hash
     get :facebook
 
     assert_response :redirect
@@ -81,10 +82,10 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
   end
 
   test "should fail authorization with facebook on inactive user" do
-    @user.email = @auth_hash[:info][:email]
+    @user.email = @facebook_auth_hash[:info][:email]
     @user.deactivate
 
-    request.env['omniauth.auth'] = @auth_hash
+    request.env['omniauth.auth'] = @facebook_auth_hash
     get :facebook
 
     assert_response :redirect
