@@ -10,6 +10,7 @@ class UserRegistrationType < User
   validates :password, presence: true, confirmation: true
   validates :password_confirmation, presence: true
   validates :process_personal_data, acceptance: true
+  validates :email, presence: true
 
   def city=(city)
     write_attribute(:city, city.mb_chars.downcase)

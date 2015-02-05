@@ -12,8 +12,10 @@
     .popup__auth__form-social
       %p
         = t('.auth_with_social')
-      = link_to '', sign_in_via_social_network_cpath(:facebook), class: "social__icon social__icon-fb"
-      = link_to '', sign_in_via_social_network_cpath(:vkontakte), class: "social__icon social__icon-vk"
+      .popup__auth__form--links
+        = link_to '', sign_in_via_social_network_cpath(:facebook), class: "social__icon social__icon-fb"
+        = link_to '', sign_in_via_social_network_cpath(:vkontakte), class: "social__icon social__icon-vk"
+        = link_to '', sign_in_via_social_network_cpath(:twitter), class: "social__icon social__icon-tw"
     .popup__auth__form-reg
       %p
         = t('.you_are_not_user_please_welcome')

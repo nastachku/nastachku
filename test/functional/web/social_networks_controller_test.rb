@@ -16,7 +16,7 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
 
     request.env['omniauth.auth'] = @facebook_auth_hash
 
-    get :facebook
+    get :auth, provider: :facebook
 
     assert_response :redirect
     assert signed_in?
@@ -29,7 +29,7 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     @user.save
 
     request.env['omniauth.auth'] = @facebook_auth_hash
-    get :facebook
+    get :auth, provider: :facebook
 
     assert_response :redirect
     assert !signed_in?
@@ -41,7 +41,7 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
 
     request.env['omniauth.auth'] = @facebook_auth_hash
 
-    get :facebook
+    get :auth, provider: :facebook
 
     assert_response :redirect
     @user.reload
@@ -56,7 +56,7 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
 
     request.env['omniauth.auth'] = @vkontakte_auth_hash
 
-    get :vkontakte
+    get :auth, provider: :vkontakte
 
     assert_response :redirect
     @user.reload
@@ -65,9 +65,23 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     assert current_user.authorizations.where(provider: 'vkontakte').any?
   end
 
+  test "should get authorization with twitter on existing user" do
+    @user.activate
+    @user.authorizations << build_authorization(@twitter_auth_hash)
+    @user.save
+
+    request.env['omniauth.auth'] = @twitter_auth_hash
+
+    get :auth, provider: :twitter
+
+    assert_response :redirect
+    assert signed_in?
+    assert_equal current_user, @user
+  end
+
   test "should get authorization with vkontakte on new user" do
     request.env['omniauth.auth'] = @vkontakte_auth_hash
-    get :vkontakte
+    get :auth, provider: :vkontakte
 
     assert_response :redirect
     assert session_auth_hash
@@ -75,7 +89,15 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
 
   test "should get authorization with facebook on new user" do
     request.env['omniauth.auth'] = @facebook_auth_hash
-    get :facebook
+    get :auth, provider: :facebook
+
+    assert_response :redirect
+    assert session_auth_hash
+  end
+
+  test "should get authorization with twitter on new user" do
+    request.env['omniauth.auth'] = @twitter_auth_hash
+    get :auth, provider: :twitter
 
     assert_response :redirect
     assert session_auth_hash
@@ -86,38 +108,12 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     @user.deactivate
 
     request.env['omniauth.auth'] = @facebook_auth_hash
-    get :facebook
+    get :auth, provider: :facebook
 
     assert_response :redirect
     @user.reload
     assert @user.inactive?
     assert !signed_in?
-  end
-
-
-  test "should get save auth_hash to session " do
-    @user.activate
-    sign_in @user
-    clear_session_auth_hash
-
-    request.env['omniauth.auth'] = @twitter_auth_hash
-
-    get :twitter
-
-    assert_response :redirect
-    assert session_auth_hash
-
-  end
-
-  test "should not get save auth_hash to session " do
-    @user.activate
-    clear_session_auth_hash
-
-    request.env['omniauth.auth'] = @twitter_auth_hash
-
-    get :twitter
-
-    assert_redirected_to new_session_path
   end
 
   test "should get failure" do

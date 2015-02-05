@@ -1,9 +1,9 @@
-class UserFacebookType < User
+class UserVkontakteType < User
   include BasicType
 
   has_secure_password validations: false
 
-  permit :email, :first_name, :last_name, :photo, :facebook
+  permit :email, :first_name, :last_name, :photo, :vkontakte
 
   validates :email, presence: true
 

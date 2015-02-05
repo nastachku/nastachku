@@ -4,5 +4,5 @@ class Admin::UserCreateType < User
   permit :state_event, :admin, :role, :topic_ids,
          :email, :last_name, :first_name, :city, :password, :password_confirmation
 
-  #validates :password
+  validates :email, presence: true
 end

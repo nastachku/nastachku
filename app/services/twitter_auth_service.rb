@@ -1,4 +1,4 @@
-class VkontakteAuthService
+class TwitterAuthService
   class << self
     def register(auth_hash)
       attrs = user_attrs(auth_hash)
@@ -8,7 +8,7 @@ class VkontakteAuthService
       if authorization.persisted?
         user = authorization.user
       else
-        user = UserVkontakteType.where(email: attrs[:email]).first_or_create(attrs)
+        user = UserTwitterType.where(twitter_name: attrs[:twitter_name]).first_or_create(attrs)
         user.authorizations << authorization
       end
 
@@ -17,15 +17,15 @@ class VkontakteAuthService
 
     private
     def user_attrs(auth_hash)
-      vkontakte_info = {
-        first_name: auth_hash[:info][:first_name],
-        last_name: auth_hash[:info][:last_name],
+      name = auth_hash[:info][:name].split
+      twitter_info = {
+        first_name: name.first,
+        last_name: name.last,
         photo: auth_hash[:info][:image],
-        vkontakte: auth_hash[:info][:urls][:Vkontakte],
-        email: auth_hash[:info][:email]
+        twitter_name: auth_hash[:info][:nickname]
       }
 
-      ActionController::Parameters.new vkontakte_info
+      ActionController::Parameters.new twitter_info
     end
   end
 end

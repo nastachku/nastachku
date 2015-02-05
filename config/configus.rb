@@ -53,8 +53,8 @@ Configus.build Rails.env do
     end
 
     vkontakte do
-      app_id ENV['APP_ID']
-      secure_key ENV['SECURE_KEY']
+      app_id ENV['VK_APP_ID']
+      secure_key ENV['VK_SECURE_KEY']
     end
 
     twitter do
