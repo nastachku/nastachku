@@ -25,7 +25,6 @@ class Web::UsersControllerTest < ActionController::TestCase
 
   test "should create user" do
     attrs = attributes_for :user
-    attrs[:password_confirmation] = attrs[:password]
     attrs[:process_personal_data] = "1"
 
     post :create, user: attrs
@@ -37,7 +36,6 @@ class Web::UsersControllerTest < ActionController::TestCase
 
   test "should create/activate/sign in user by social network" do
     attrs = attributes_for :user
-    attrs[:password_confirmation] = attrs[:password]
     attrs[:process_personal_data] = "1"
 
     @auth_hash = generate(:facebook_auth_hash)

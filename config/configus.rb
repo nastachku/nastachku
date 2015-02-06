@@ -52,11 +52,6 @@ Configus.build Rails.env do
       app_secret credentials_hash["production"]["facebook"]["app_secret"]
     end
 
-    vkontakte do
-      app_id ENV['VK_APP_ID']
-      secure_key ENV['VK_SECURE_KEY']
-    end
-
     twitter do
        key credentials_hash["production"]["twitter"]["key"]
        secret credentials_hash["production"]["twitter"]["secret"]

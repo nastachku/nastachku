@@ -5,8 +5,6 @@ class User < ActiveRecord::Base
   include UserRepository
   extend Enumerize
 
-  has_secure_password
-
   attr_accessible :email, :password, :first_name, :last_name, :city, :company, :position,
     :show_as_participant, :photo, :state_event, :about, :carousel_info, :in_carousel,
     :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event,

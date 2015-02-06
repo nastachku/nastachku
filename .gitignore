@@ -11,6 +11,7 @@
 *.sqlite3-journal
 /config/database.yml
 /config/credentials.yml
+/config/secrets.yml
 nastachku_development
 nastachku_test
 log/untranslated.*.yml

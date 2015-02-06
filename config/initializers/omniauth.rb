@@ -4,8 +4,8 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     configus.facebook.app_secret
 
   provider :vkontakte,
-    configus.vkontakte.app_id,
-    configus.vkontakte.secure_key
+    Rails.application.secrets.vk_app_id,
+    Rails.application.secrets.vk_secure_key,
     { scope: 'email' }
 
   provider :twitter,
