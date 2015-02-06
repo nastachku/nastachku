@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 4.2.0'
-gem 'rails-observers'
 gem 'activerecord-session_store'
 gem 'protected_attributes' # TODO: избавиться от наследия третьей версии
 gem 'responders', '~> 2.0'
