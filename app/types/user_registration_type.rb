@@ -1,14 +1,16 @@
 class UserRegistrationType < User
   include BasicType
 
-  attr_accessible :password_confirmation, :state_event, :process_personal_data
+  has_secure_password
 
-  #has_secure_password
+  attr_accessible :process_personal_data
+
+  permit :password_confirmation, :password, :state_event, :process_personal_data,
+         :first_name, :last_name, :city, :company, :position, :email
 
   validates :city, presence: true
-  validates :password, presence: true, confirmation: true
-  validates :password_confirmation, presence: true
   validates :process_personal_data, acceptance: true
+  validates :email, presence: true
 
   def city=(city)
     write_attribute(:city, city.mb_chars.downcase)

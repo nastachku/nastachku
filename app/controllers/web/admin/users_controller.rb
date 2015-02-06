@@ -5,7 +5,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
   end
 
   def create
-    @user = ::Admin::UserEditType.new(params[:user])
+    @user = ::Admin::UserCreateType.new(params[:user])
     @user.changed_by = current_user
 
     if @user.save

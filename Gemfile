@@ -6,10 +6,6 @@ gem 'activerecord-session_store'
 gem 'protected_attributes' # TODO: избавиться от наследия третьей версии
 gem 'responders', '~> 2.0'
 
-# NOTE: для поддержки хелпера caches_action
-# TODO: выяснить действительно ли нам необходимо кэширование
-gem 'actionpack-action_caching'
-
 gem 'pg'
 gem 'rake'
 gem 'unicorn'
@@ -24,7 +20,7 @@ gem 'mini_magick'
 gem 'carrierwave'
 gem 'ckeditor'
 gem 'jquery-rails'
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt', '~> 3.1.7'
 gem 'jbuilder'
 gem 'unicorn-rails'
 gem 'usefull_scopes'
@@ -54,6 +50,7 @@ gem 'multi_json'
 gem 'platidoma', github: 'rocket-11/platidoma'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 gem 'omniauth-twitter'
 gem 'mobylette'
 gem 'draper'
@@ -111,12 +108,4 @@ group :development do
   gem 'capi'
   gem 'capistrano-maintenance'
   gem 'ruby-prof'
-end
-
-group :development, :staging do
-  gem 'timecop-console', require: 'timecop_console'
-end
-
-group :test, :darwin do
-  gem 'terminal-notifier-guard', '~> 1.6.1'
 end

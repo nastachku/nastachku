@@ -12,11 +12,9 @@ class User < ActiveRecord::Base
 
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
-  validates :email, presence: true, uniqueness: {case_sensitive: false}, email: true
+  validates :email, uniqueness: { case_sensitive: false }, email: true, allow_nil: true
   validates :last_name, presence: true, human_name: true
   validates :first_name, presence: true, human_name: true
-  validates :city, city_name: true
-  validates :company, company_name: true
   validates :position, position_name: true, allow_blank: true
   validates :facebook, url: true, allow_blank: true
   validates :vkontakte, url: true, allow_blank: true

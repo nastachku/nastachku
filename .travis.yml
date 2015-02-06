@@ -8,6 +8,7 @@ script:
 before_script:
   - cp config/database.yml.sample config/database.yml
   - cp config/credentials.yml.sample config/credentials.yml
+  - cp config/secrets.yml.sample config/secrets.yml
   - RAILS_ENV=test bundle exec rake db:create db:migrate
   - mkdir tmp && mkdir tmp/cache
 services:
