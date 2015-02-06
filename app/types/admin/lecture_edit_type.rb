@@ -1,7 +1,7 @@
 class Admin::LectureEditType < Lecture
   include BasicType
 
-  attr_accessible :state_event, :user_id
+  permit :state_event, :user_id, :thesises, :workshop_id, :title, :presentation
 
   validates :thesises, presence: true
 end
