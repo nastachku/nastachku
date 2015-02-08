@@ -1,36 +1,39 @@
-- @lectures.each do |lecture|
-  %li.lectures__item{id: "lecture_#{lecture.id}"}
-    .lectures__item-img
-      - if lecture.user
-        = image_tag lecture.user.user_pic, width: 350
-      - else
-        = image_tag "default-user-image.png", width: 350
-      = lecture.workshop_color_icon
-    .lectures__item-name
-      - if lecture.user
-        %b
-          = lecture.user.full_name
-        = lecture.user.company
-        ,
-        = lecture.user.position
-    .lectures__item-about
-      %h4
-        = lecture.title
-    .lectures__item-desc
-      %p.open_this
-        = lecture.thesises
-    .lectures__item__adding
-      .lectures__item__add
-        - if signed_in?
-          - unless lecture_voted_by_current_user?(lecture, @current_user_votings)
-            %span.voting_button.lectures__item__add-add{ data: { id: lecture.id } } Я пойду на доклад
-            %p.lecture_added.lectures__item__add-added{ style: "display: none" } Доклад добавлен в вашу программу
-          - else
-            %span.voting_button.lectures__item__add-add.added{ data: { id: lecture.id } } Удалить доклад
-            %p.lecture_added.lectures__item__add-added Доклад добавлен в вашу программу
+- if @lectures.empty?
+  = render 'shared/empty_lectures'
+- else
+  - @lectures.each do |lecture|
+    %li.lectures__item{id: "lecture_#{lecture.id}"}
+      .lectures__item-img
+        - if lecture.user
+          = image_tag lecture.user.user_pic, width: 350
         - else
-          %span.lectures__item__add-add.added Я пойду на доклад
-          %p.lectures__item__add-added Требуется регистрация на конференции
-      .lectures__item-social
-        %p.open_this Поделиться с друзьями:
-        .share42init{data: {path: root_url + "assets/", url: lecture.by_id_url, title: lecture.another_full_title, image: asset_url(lecture.user ? lecture.user.user_pic : "default-user-image.png"), description: lecture.thesises}}
+          = image_tag "default-user-image.png", width: 350
+        = lecture.workshop_color_icon
+      .lectures__item-name
+        - if lecture.user
+          %b
+            = lecture.user.full_name
+          = lecture.user.company
+          ,
+          = lecture.user.position
+      .lectures__item-about
+        %h4
+          = lecture.title
+      .lectures__item-desc
+        %p.open_this
+          = lecture.thesises
+      .lectures__item__adding
+        .lectures__item__add
+          - if signed_in?
+            - unless lecture_voted_by_current_user?(lecture, @current_user_votings)
+              %span.voting_button.lectures__item__add-add{ data: { id: lecture.id } } Я пойду на доклад
+              %p.lecture_added.lectures__item__add-added{ style: "display: none" } Доклад добавлен в вашу программу
+            - else
+              %span.voting_button.lectures__item__add-add.added{ data: { id: lecture.id } } Удалить доклад
+              %p.lecture_added.lectures__item__add-added Доклад добавлен в вашу программу
+          - else
+            %span.lectures__item__add-add.added Я пойду на доклад
+            %p.lectures__item__add-added Требуется регистрация на конференции
+        .lectures__item-social
+          %p.open_this Поделиться с друзьями:
+          .share42init{data: {path: root_url + "assets/", url: lecture.by_id_url, title: lecture.another_full_title, image: asset_url(lecture.user ? lecture.user.user_pic : "default-user-image.png"), description: lecture.thesises}}

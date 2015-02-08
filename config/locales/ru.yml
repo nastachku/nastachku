@@ -76,7 +76,10 @@ ru:
             workshops: 'Секции'
             halls: 'Залы'
             events: 'События'
-
+  shared:
+    empty_lectures:
+      not_added_yet: 'Пока не добавлено ни одного доклада. Вы можете'
+      first_speaker: 'стать первым докладчиком.'
   web:
     accounts:
       edit:
@@ -217,8 +220,6 @@ ru:
         user_lectures_title_link: 'предложите его'
         user_lectures_title_after_link: 'и выступите на конференции.'
       lectures:
-        not_added_yet: 'Пока не добавлено ни одного доклада. Вы можете'
-        first_speaker: 'стать первым докладчиком.'
         sort_by: 'Сортировать'
         by_lecture_votings_count: 'По количеству голосов'
         by_created_at: 'По дате добавления'
@@ -276,6 +277,7 @@ ru:
         auth_for_vote: 'Авторизуйтесь, чтобы проголосовать'
 
       show:
+        schedule_empty: 'Программа формируется'
         show_scheme: 'Схема залов'
         buy_ticket_right_now: "Купить билет на Стачку"
     errors:

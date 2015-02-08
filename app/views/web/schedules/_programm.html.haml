@@ -1,0 +1,71 @@
+.content.programm
+  .content__tabs__line
+  .layout-line
+    %h1.pagetitle__title Программа
+    - if signed_in?
+      .programm__my
+        %input#my_programm.checkbox_type-3{ type:"checkbox", name: "my_programm", value:"Y", data: {my: "in_my_schedule"}}
+        %label{ for:"my_programm"} Моя программа
+    %dl.content__tabs
+      = render "day", day: configus.schedule.first_day.date, start_time: configus.schedule.first_day.start_time, finish_time: configus.schedule.first_day.finish_time
+      = render "day", day: configus.schedule.second_day.date, start_time: configus.schedule.second_day.start_time, finish_time: configus.schedule.second_day.finish_time
+:javascript
+    jQuery(document).ready(function ($) {
+            function setHeightOfDivInTd() {
+              $("td[data-hall]").children(".programm__schedule__lectures__lecture").each(function(){
+                  var $local_this = $(this);
+                  var parent = $local_this.parent();
+                  if (!(parent.prop("height") || parseInt(parent.css('height')) == 0)) {
+                      var parent_height = parent.css('height');
+                      parent.data('height-save', parent_height).attr('data-height-save', parent_height);
+                  }
+              });
+              $("td[data-hall]").children(".programm__schedule__lectures__lecture").each(function(){
+                  var $local_this = $(this);
+                  var parent = $local_this.parent();
+                  var parent_height = parent.data('height-save');
+                  if (parseInt($local_this.css('min-height')) != 0 && parseInt($local_this.css('height')) < parseInt(parent_height)) {
+                      $local_this.css('min-height', parent_height);
+                      parent.prop('height', parent_height);
+                  }
+              });
+            }
+
+            setHeightOfDivInTd();
+            $('.tab_button').on('click', function() {
+                $(this).siblings().removeClass('selected').end().next('dd').andSelf().addClass('selected');
+                setHeightOfDivInTd();
+            });
+
+            var next=$('.programm__next'), prev=$('.programm__prev');
+            next.on('click',function() {
+                programm_next(next, prev);
+            });
+            prev.on('click',function() {
+                programm_prev(prev, next);
+            });
+
+            var lectures=$('.programm__schedule__lectures__lecture');
+            $('.schedule__filter').on('change', function() {
+                var lecture_class = $(this).data('lecture');
+                if ($(this).is(':checked')) {
+                    $('[data-lecture=' + lecture_class + ']').prop("checked", true);
+                    lectures.addClass('disable');
+                    $('.'+ lecture_class).addClass('enable');
+                } else {
+                    $('[data-lecture=' + lecture_class + ']').prop("checked", false);
+                    $('.'+ lecture_class).removeClass('enable');
+                }
+                if (!$(this).parents('.programm__filter__checkboxs').find(':checked').length) {
+                    lectures.removeClass('disable');
+                }
+            });
+        });
+- if signed_in?
+  :javascript
+    check_my_program_slots(#{my_program_slots})
+.layout-line
+  %a{ href: "#", onclick: "display_hide('#scheme');return false;" }
+    = t('.show_scheme')
+  #scheme{ style: "display:none;" }
+    %img{ src: "/images/areas-scheme.jpg", alt: "Scheme" }
