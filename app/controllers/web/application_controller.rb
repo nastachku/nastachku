@@ -1,6 +1,5 @@
 class Web::ApplicationController < ApplicationController
   include FlashHelper
-  include Web::LectorsHelper
   include SocNetworkHelper
   include Web::WorkshopsHelper
   include CustomUrlHelper

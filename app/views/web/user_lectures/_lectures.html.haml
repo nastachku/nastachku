@@ -1,9 +1,5 @@
 - if @lectures.empty?
-  %br
-  = t(".not_added_yet")
-  = link_to t(".first_speaker"), 'mailto:info@nastachku.ru'
-  %br
-  %br
+  = render 'shared/empty_lectures'
 - else
   - @lectures.each do |lecture|
     %li.lectures__item{id: "lecture_#{lecture.id}"}

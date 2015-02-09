@@ -9,6 +9,9 @@ class Web::SocialNetworksController < Web::ApplicationController
       return redirect_to new_session_path
     end
 
+    # FIXME странная концепция с промо-кодами. Выпилить это, когда приведутся в порядок промо-коды
+    User::PromoCode.create({ code: generate_promo_code, user_id: user.id }) unless user.promo_code
+
     sign_in user
     save_auth_hash_to_session
 
