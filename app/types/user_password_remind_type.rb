@@ -17,7 +17,6 @@ class UserPasswordRemindType
     false
   end
 
-
   def user
     @user ||= User.find_by_email(email)
   end
