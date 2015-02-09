@@ -24,6 +24,8 @@ class AccountEditType < User
     end
   end
 
+  permit :first_name, :last_name, :email, :city, :old_password, :password, :state_event, :photo
+
   def city=(city)
     write_attribute(:city, city.mb_chars.downcase)
   end
