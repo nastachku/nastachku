@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 Nastachku::Application.routes.draw do
   require 'admin_constraint'
 
@@ -113,6 +112,9 @@ Nastachku::Application.routes.draw do
       end
     end
 
+    get 'payments/check/payanyway', to: 'payments#check_payanyway', defaults: {format: 'xml'}
+    get 'payments/paid/payanyway', to: 'payments#paid_payanyway', defaults: {format: 'xml'}
+
     namespace :admin do
       resources :users_lists, except: [:edit, :update] do
         member do
@@ -149,7 +151,6 @@ Nastachku::Application.routes.draw do
       root to: "welcome#index"
     end
   end
-
 
   match '*unmatched_route', to: "web/errors#not_found", via: :all
 end

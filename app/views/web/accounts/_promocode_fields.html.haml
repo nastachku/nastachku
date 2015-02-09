@@ -1,0 +1,9 @@
+%li.order__new__item.order__new__item__promo
+  Также вы можете оплатить участие или получить скидку с помощью
+  %span.order__new__item__promo-open.open_this промокода
+  %br
+  #promo_code_form.order__new__item__promo-code
+    -# два тега form нельзя вкладвать друг в друга. Обход в accounts.js
+    = form_tag accept_account_promo_code_path(@user.promo_code), method: :put, html: { class: 'form-horizontal' } do |f|
+      = text_field_tag :code, nil, class: "input_type-1", placeholder: "Введите промо-код"
+      %button_tag#submit_promo_code.order__new__item__promo-button

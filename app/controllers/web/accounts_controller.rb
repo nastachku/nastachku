@@ -4,12 +4,6 @@ class Web::AccountsController < Web::ApplicationController
   def edit
     @user = AccountEditType.find current_user.id
     @ticket_order = TicketOrder.new
-    @shirt_order = ShirtOrder.new
-    if params[:discount_code]
-      @discount = Discount.find_by_code params[:discount_code]
-      @price_with_discount = @discount.cost
-    end
-    gon.promo_code_action = accept_account_promo_code_path(@user.promo_code)
   end
 
   def update

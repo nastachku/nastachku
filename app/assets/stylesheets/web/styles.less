@@ -29,8 +29,8 @@ audio,
 canvas,
 video {
     display:inline-block;
-    *display:inline;
-    *zoom:1;
+    *display:inline; // TODO: fix this hack
+    *zoom:1; // and this one too
 }
 audio:not([controls]) {
     display:none;
@@ -1109,9 +1109,7 @@ footer {
 }
 
 .order__new__item {
-    border-top: 1px solid #e5e5e5;
-    border-left: 1px solid #e5e5e5;
-    border-right: 1px solid #e5e5e5;
+    border: 1px solid #e5e5e5;
     padding: 30px 20px;
 }
 

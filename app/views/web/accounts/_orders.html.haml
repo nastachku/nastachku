@@ -1,79 +1,25 @@
-= simple_form_for @shirt_order, url: pay_account_buy_path, method: :put do |f|
-  #order_form.order__new
-    %ul.order__new__items
-      - unless current_user.paid_part?
-        %li.order__new__item.order__new__item__days
-          .order__new__item__name
-            = check_box_tag :ticket_order, nil, false, id: "two_days", class: 'checkbox_type-1'
-            %label{for: "two_days"}
-              = t('.stachka_ticket')
-          .order__new__item__price
-            %h4
-              - if @price_with_discount
-                = hidden_field_tag(:discount, @discount.code)
-                %del
-                  = configus.platidoma.ticket_price
-                %span#ticket_price_score
-                  = @price_with_discount
-              - else
-                %span#ticket_price_score
-                  = configus.platidoma.ticket_price
-              %span.rouble i
-        %li.order__new__item.order__new__item__promo
-          Также вы можете оплатить участие или получить скидку с помощью
-          %span.order__new__item__promo-open.open_this промокода
-          %br
-          #promo_code_form.order__new__item__promo-code
-            -# два тега form нельзя вкладвать друг в друга. Обход в accounts.js
-            = form_tag accept_account_promo_code_path(@user.promo_code), method: :put, html: { class: 'form-horizontal' } do |f|
-              = text_field_tag :code, nil, class: "input_type-1", placeholder: "Введите промо-код"
-              %button_tag#submit_promo_code.order__new__item__promo-button
-      - else
-        %h3.ticket_paid
-          Вы купили билет на Стачку!
-      - unless user_paid_afterparty?
-        %li.order__new__item.order__new__item__afterparty
-          .order__new__item__name
-            %input#afterparty.checkbox_type-1{ name: "afterparty_order", type: "checkbox" }
-            %label{ for: "afterparty" } Афтепати
-          .order__new__item__price
-            %h4#afterparty_score
-              = configus.platidoma.afterparty_price
-              %span.rouble i
-          .order__new__item__desc
-            %p.open_this
-              В пятницу, 11 апреля мы ждем вас на СТАЧКА-party!
-              %br
-              Это отличная возможность завести новые знакомства с лучшими людьми IT-сферы, пообщаться за бокалом шампанского со спикерами и просто приятно провести время!
-              %br
-              В стоимость билета включается: вход, выпивка, закуска, развлекательная программа от организаторов и бесконечное количество положительных эмоций.
-              %br
-              Успейте попасть на закрытую вечеринку, количество билетов ограничено.
-              %br
-              %br
-              P.S. Билеты найдут своих законных обладателей в день конференции - 11 апреля.
-      - else
-        %h3.ticket_paid
-          Вы купили билет на афтепати!
-        В пятницу, 11 апреля мы ждем вас на СТАЧКА-party!
-        %br
-        Это отличная возможность завести новые знакомства с лучшими людьми IT-сферы, пообщаться за бокалом шампанского со спикерами и просто приятно провести время!
-        %br
-        В стоимость билета включается: вход, выпивка, закуска, развлекательная программа от организаторов и бесконечное количество положительных эмоций.
-        %br
-        %br
-        P.S. Билеты найдут своих законных обладателей в день конференции - 11 апреля.
-    - unless user_paid_afterparty? and current_user.paid_part?
-      .order__new__total
-        %p Итог:
-        %h3
-          %span#total_score
-            0
-          %span.rouble i
+#order_form.order__new
+  .order__new__items
+    - if current_user.paid_part?
+      %h3.ticket_paid
+        Вы купили билет на Стачку!
+    - else
+      .order__new__item.order__new__item__days
+        .order__new__item__name
+          = t('.stachka_ticket')
+        .order__new__item__price
+          %h4
+            %span#ticket_price_score
+              = TicketOrder.ticket_price
+            %span.rouble i
       .order__new__submit
-        %button#submit_order.btn_main.btn_main-pay{ type: "submit", disabled: true } Оплатить заказ
-      С помощью электронных кошельков оплатить участие можно через систему
-      %a{ href: "http://srit.timepad.ru/event/105416/"} Timepad
+        = simple_form_for @ticket_order, url: pay_account_buy_path, method: :put do |f|
+          = hidden_field_tag :payment_system, :payanyway
+          %button#submit_order.btn_main.btn_main-pay{ type: "submit" } Оплатить заказ
+        / = simple_form_for @ticket_order, url: pay_account_buy_path, method: :put do |f|
+        /   = hidden_field_tag :payment_system, :platidoma
+        /   %button#submit_order.btn_main.btn_main-pay{ type: "submit" } Оплатить заказ
+
 .orderlist
   .layout-line
     %ul.orderslist__info
