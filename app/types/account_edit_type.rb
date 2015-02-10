@@ -23,7 +23,8 @@ class AccountEditType < User
     end
   end
 
-  permit :first_name, :last_name, :email, :city, :old_password, :password, :state_event, :photo,
+  permit :first_name, :last_name, :email, :city, :old_password,
+         :password, :state_event, :photo,
          :twitter_name, :vkontakte, :facebook, :company
 
   def city=(city)
