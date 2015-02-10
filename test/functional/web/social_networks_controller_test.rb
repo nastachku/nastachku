@@ -46,6 +46,7 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     assert_response :redirect
     @user.reload
     assert @user.active?
+    assert @user.facebook = @facebook_auth_hash[:info][:urls][:Facebook]
     assert signed_in?
     assert current_user.authorizations.where(provider: 'facebook').any?
   end
@@ -61,6 +62,7 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     assert_response :redirect
     @user.reload
     assert @user.active?
+    assert @user.vkontakte = @vkontakte_auth_hash[:info][:urls][:Vkontakte]
     assert signed_in?
     assert current_user.authorizations.where(provider: 'vkontakte').any?
   end

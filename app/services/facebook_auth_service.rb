@@ -9,8 +9,14 @@ class FacebookAuthService
         user = authorization.user
       else
         user = UserFacebookType.where.not(email: nil)
-                               .where(email: attrs[:email]).first_or_create(attrs)
+                               .where(email: attrs[:email])
+                               .first_or_create(attrs)
         user.authorizations << authorization
+      end
+
+      if user.facebook.blank?
+        user.facebook = attrs[:facebook]
+        user.save
       end
 
       user
