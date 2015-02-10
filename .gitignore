@@ -12,11 +12,3 @@
 /config/database.yml
 /config/credentials.yml
 /config/secrets.yml
-nastachku_development
-nastachku_test
-log/untranslated.*.yml
-nastachku_development
-nastachku_production
-nastachku_test
-nastachku_staging_2014
-nastachku_test-journal
