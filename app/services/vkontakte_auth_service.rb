@@ -8,7 +8,8 @@ class VkontakteAuthService
       if authorization.persisted?
         user = authorization.user
       else
-        user = UserVkontakteType.where(email: attrs[:email]).first_or_create(attrs)
+        user = UserVkontakteType.where.not(email: nil)
+                                .where(email: attrs[:email]).first_or_create(attrs)
         user.authorizations << authorization
       end
 

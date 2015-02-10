@@ -8,7 +8,8 @@ class FacebookAuthService
       if authorization.persisted?
         user = authorization.user
       else
-        user = UserFacebookType.where(email: attrs[:email]).first_or_create(attrs)
+        user = UserFacebookType.where.not(email: nil)
+                               .where(email: attrs[:email]).first_or_create(attrs)
         user.authorizations << authorization
       end
 
