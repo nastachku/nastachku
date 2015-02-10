@@ -24,9 +24,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jbuilder'
 gem 'unicorn-rails'
 gem 'usefull_scopes'
-gem 'ya_acl'
 gem 'state_machine' # TODO: пора от избавляться от этого старья
-gem 'untranslated'
 gem 'configus'
 gem 'russian'
 gem 'google-analytics-rails'
@@ -58,7 +56,6 @@ gem 'resque', require: 'resque/server'
 gem 'resque_mailer'
 gem 'resque-scheduler'
 gem 'sprockets'
-gem 'sinatra', '>= 1.3.0', require: nil
 gem 'smarter_csv'
 gem 'weary'
 gem 'mail_view', '~> 2.0.4'
@@ -92,6 +89,7 @@ group :test do
 end
 
 group :development do
+  gem 'rack-mini-profiler'
   gem 'spring'
   gem 'squasher'
   gem 'foreman'
