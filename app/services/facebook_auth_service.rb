@@ -13,6 +13,11 @@ class FacebookAuthService
         user.authorizations << authorization
       end
 
+      if user.facebook.blank?
+        user.facebook = attrs[:facebook]
+        user.save
+      end
+
       user
     end
 

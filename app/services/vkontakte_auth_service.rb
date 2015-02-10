@@ -13,6 +13,11 @@ class VkontakteAuthService
         user.authorizations << authorization
       end
 
+      if user.vkontakte.blank?
+        user.vkontakte = attrs[:vkontakte]
+        user.save
+      end
+
       user
     end
 
