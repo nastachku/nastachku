@@ -39,13 +39,14 @@
       - unless in_account?
         = render "layouts/web/shared/organizers"
         = render "layouts/web/shared/strategy_partners"
-        = render "layouts/web/shared/partners"
-        = render "layouts/web/shared/sponsors"
-        = render "layouts/web/shared/restoran_partners"
-        = render "layouts/web/shared/info_partners"
+        -# = render "layouts/web/shared/partners"
+        -# = render "layouts/web/shared/sponsors"
+        -# = render "layouts/web/shared/restoran_partners"
+        -# = render "layouts/web/shared/info_partners"
       = render "layouts/web/shared/footer"
     #overlay.overlay
-    = render "layouts/web/shared/authpopup"
+    - unless current_user
+      = render "layouts/web/shared/authpopup"
     :javascript
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-47395104-1']);

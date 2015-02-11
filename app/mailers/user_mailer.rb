@@ -2,9 +2,8 @@ class UserMailer < AsyncMailer
   default_url_options[:host] = configus.mailer.default_host
   default from: configus.mailer.default_from
 
-  def confirm_registration(user_id, token_id)
+  def confirm_registration(user_id)
     @user = User.find_by_id user_id
-    @token = User::AuthToken.find_by_id token_id
     mail :to => @user.email
   end
 
@@ -42,7 +41,7 @@ class UserMailer < AsyncMailer
     @subject = @subject.force_encoding("KOI8-R").force_encoding("UTF-8").encode("KOI8-R")
     mail :to => @user.email, subject: @subject
   end
-  
+
   def conference_is_open(user_id, token_id, mail_params_id)
     params = MailParams.find_by_id mail_params_id
     @user = UserDecorator.decorate(User.find_by_id user_id)

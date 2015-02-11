@@ -10,8 +10,6 @@ class User < ActiveRecord::Base
     :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event,
     :pay_state_event, :facebook, :vkontakte, :reason_to_give_ticket, :badge_state_event
 
-  audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
-
   validates :email, uniqueness: { case_sensitive: false }, email: true, allow_nil: true
   validates :last_name, presence: true, human_name: true
   validates :first_name, presence: true, human_name: true
@@ -19,7 +17,6 @@ class User < ActiveRecord::Base
   validates :facebook, url: true, allow_blank: true
   validates :vkontakte, url: true, allow_blank: true
 
-  enumerize :role, in: [ :lector, :user, :registrator ], default: :user
   has_many :lectures, dependent: :destroy
   has_many :lecture_votings
   has_many :listener_votings
@@ -27,11 +24,6 @@ class User < ActiveRecord::Base
   has_many :shirt_orders
   has_many :afterparty_orders
   has_many :ticket_orders
-
-  accepts_nested_attributes_for :lectures, reject_if: :all_blank, allow_destroy: true
-
-  mount_uploader :photo, UsersPhotoUploader
-
   has_many :auth_tokens
   has_many :topics, through: :user_topics
   has_many :user_topics
@@ -39,6 +31,14 @@ class User < ActiveRecord::Base
   has_many :event_users
   has_many :events, through: :event_users
   has_one :promo_code
+
+  accepts_nested_attributes_for :lectures, reject_if: :all_blank, allow_destroy: true
+
+  mount_uploader :photo, UsersPhotoUploader
+
+  audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
+
+  enumerize :role, in: [ :lector, :user, :registrator ], default: :user
 
   state_machine :state, initial: :new do
     state :new
@@ -82,10 +82,11 @@ class User < ActiveRecord::Base
     end
   end
 
+  # WTF FIXME English, do you speak it?
   state_machine :pay_state, initial: :not_paid_part do
     state :not_paid_part
     state :paid_part
-    after_transition :to => :paid_part do |user, transition|
+    after_transition to: :paid_part do |user, transition|
       user.activate
       user.attend
     end
@@ -99,6 +100,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  # FIXME WTF English, do you speak it?
   state_machine :badge_state, initial: :not_get_badge do
     state :not_get_badge
     state :get_badge
@@ -107,7 +109,6 @@ class User < ActiveRecord::Base
       transition not_get_badge: :get_badge
     end
 
-    #0_0 may be ;)
     event :take_badge_back do
       transition get_badge: :not_get_badge
     end
@@ -139,11 +140,12 @@ class User < ActiveRecord::Base
     UserDecorator.decorate(self).full_name
   end
 
+  # FIXME WTF
   def password=(password)
-    if password.present?
-      @real_password = password
-      self.password_digest = Digest::MD5.hexdigest(password)
-    end
+    return unless  password.present?
+
+    @real_password = password
+    self.password_digest = Digest::MD5.hexdigest(password)
   end
 
   def password
