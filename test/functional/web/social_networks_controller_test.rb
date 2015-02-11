@@ -86,6 +86,8 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     get :auth, provider: :vkontakte
 
     assert_response :redirect
+    assert signed_in?
+    assert User.find_by(email: @vkontakte_auth_hash[:info][:email]).active?
   end
 
   test "should get authorization with facebook on new user" do
@@ -93,6 +95,8 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     get :auth, provider: :facebook
 
     assert_response :redirect
+    assert signed_in?
+    assert User.find_by(email: @facebook_auth_hash[:info][:email]).active?
   end
 
   test "should get authorization with twitter on new user" do
@@ -100,6 +104,8 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     get :auth, provider: :twitter
 
     assert_response :redirect
+    assert signed_in?
+    assert User.find_by(twitter_name: @twitter_auth_hash[:info][:nickname]).active?
   end
 
   test "should fail authorization with facebook on inactive user" do

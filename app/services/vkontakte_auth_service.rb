@@ -14,6 +14,8 @@ class VkontakteAuthService
         user.authorizations << authorization
       end
 
+      user.activate if user.new?
+
       if user.vkontakte.blank?
         user.vkontakte = attrs[:vkontakte]
         user.save

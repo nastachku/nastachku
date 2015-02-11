@@ -12,6 +12,8 @@ class TwitterAuthService
         user.authorizations << authorization
       end
 
+      user.activate if user.new?
+
       user
     end
 
