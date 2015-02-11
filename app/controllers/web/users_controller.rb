@@ -15,11 +15,6 @@ class Web::UsersController < Web::ApplicationController
 
   def new
     @user = UserRegistrationType.new
-
-    if registration_by_soc_network?
-      @user = UserPopulator.via_facebook(@user, session_auth_hash)
-    end
-
   end
 
   def activate
@@ -44,21 +39,11 @@ class Web::UsersController < Web::ApplicationController
     @user.show_as_participant = true
     if @user.save
       User::PromoCode.create({ code: generate_promo_code, user_id: @user.id })
-      if registration_by_soc_network?
-        @user.authorizations << build_authorization(session_auth_hash)
-        @user.activate
-        clear_session_auth_hash
-        sign_in @user
-        redirect_to lectures_path
-      else
-        token = @user.create_auth_token
-        #FIXME убрать создание токена
-        @user.activate
-        sign_in @user
-        UserMailer.confirm_registration(@user.id, token.id).deliver_in(10.seconds)
-        flash_success
-        redirect_to new_session_path
-      end
+      @user.activate
+      sign_in @user
+      UserMailer.confirm_registration(@user.id).deliver_in(10.seconds)
+      flash_success
+      redirect_to root_path
     else
       flash_error
       render action: "new"

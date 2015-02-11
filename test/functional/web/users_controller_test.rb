@@ -35,24 +35,6 @@ class Web::UsersControllerTest < ActionController::TestCase
     assert user
   end
 
-  test "should create/activate/sign in user by social network" do
-    attrs = attributes_for :user
-    attrs[:process_personal_data] = "1"
-
-    @auth_hash = generate(:facebook_auth_hash)
-    request.env['omniauth.auth'] = @auth_hash
-    save_auth_hash_to_session
-
-    post :create, user: attrs
-
-    assert_response :redirect
-    user = User.find_by_email(attrs[:email])
-    assert user
-    assert user.authorizations
-    assert user.active?
-    assert signed_in?
-  end
-
   test "should put attend on conference" do
     sign_in @user
     put :attend, id: @user
