@@ -280,6 +280,10 @@ ru:
         schedule_empty: 'Программа формируется'
         show_scheme: 'Схема залов'
         buy_ticket_right_now: "Купить билет на Стачку"
+
+      programm:
+        show_scheme: 'Схема залов'
+
     errors:
       banned:
         banned: 'Ваш аккаунт заблокирован.'

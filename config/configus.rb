@@ -13,14 +13,14 @@ Configus.build Rails.env do
 
     schedule do
       first_day do
-        date Time.utc(2015, 4, 11)
-        start_time DateTime.new(2015, 4, 11, 9, 0, 0)
-        finish_time DateTime.new(2015, 4, 11, 20, 30, 0)
+        date Time.utc(2015, 4, 10)
+        start_time DateTime.new(2015, 4, 10, 9, 0, 0)
+        finish_time DateTime.new(2015, 4, 10, 20, 30, 0)
       end
       second_day do
-        date Time.utc(2015, 4, 12)
-        start_time DateTime.new(2015, 4, 12, 10, 0, 0)
-        finish_time DateTime.new(2015, 4, 12, 17, 30, 0)
+        date Time.utc(2015, 4, 11)
+        start_time DateTime.new(2015, 4, 11, 10, 0, 0)
+        finish_time DateTime.new(2015, 4, 11, 17, 30, 0)
       end
     end
 
