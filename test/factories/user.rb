@@ -6,7 +6,7 @@ FactoryGirl.define do
     last_name "Строка"
     city "Строка"
     company
-    position "Строка"
+    position { generate :string }
     show_as_participant
     email
     twitter_name ""
