@@ -86,7 +86,6 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     get :auth, provider: :vkontakte
 
     assert_response :redirect
-    assert session_auth_hash
   end
 
   test "should get authorization with facebook on new user" do
@@ -94,7 +93,6 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     get :auth, provider: :facebook
 
     assert_response :redirect
-    assert session_auth_hash
   end
 
   test "should get authorization with twitter on new user" do
@@ -102,7 +100,6 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     get :auth, provider: :twitter
 
     assert_response :redirect
-    assert session_auth_hash
   end
 
   test "should fail authorization with facebook on inactive user" do

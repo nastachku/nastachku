@@ -13,7 +13,6 @@ class Web::SocialNetworksController < Web::ApplicationController
     User::PromoCode.create({ code: generate_promo_code, user_id: user.id }) unless user.promo_code
 
     sign_in user
-    save_auth_hash_to_session
 
     flash_success
 
