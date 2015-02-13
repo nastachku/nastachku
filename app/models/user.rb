@@ -5,15 +5,16 @@ class User < ActiveRecord::Base
   include UserRepository
   extend Enumerize
 
+  has_secure_password
+
   attr_accessible :email, :password, :first_name, :last_name, :city, :company, :position,
     :show_as_participant, :photo, :state_event, :about, :carousel_info, :in_carousel,
     :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event,
     :pay_state_event, :facebook, :vkontakte, :reason_to_give_ticket, :badge_state_event
 
   validates :email, uniqueness: { case_sensitive: false }, email: true, allow_nil: true
-  validates :last_name, presence: true, human_name: true
-  validates :first_name, presence: true, human_name: true
-  validates :position, position_name: true, allow_blank: true
+  validates :last_name, presence: true
+  validates :first_name, presence: true
   validates :facebook, url: true, allow_blank: true
   validates :vkontakte, url: true, allow_blank: true
 
@@ -27,7 +28,7 @@ class User < ActiveRecord::Base
   has_many :auth_tokens
   has_many :topics, through: :user_topics
   has_many :user_topics
-  has_many :authorizations
+  has_many :authorizations, dependent: :destroy
   has_many :event_users
   has_many :events, through: :event_users
   has_one :promo_code
@@ -132,23 +133,7 @@ class User < ActiveRecord::Base
     auth_tokens.create! :authentication_token => token, :expired_at => expired_at
   end
 
-  def authenticate(password)
-    self.password_digest == Digest::MD5.hexdigest(password)
-  end
-
   def to_s
     UserDecorator.decorate(self).full_name
-  end
-
-  # FIXME WTF
-  def password=(password)
-    return unless  password.present?
-
-    @real_password = password
-    self.password_digest = Digest::MD5.hexdigest(password)
-  end
-
-  def password
-    @real_password
   end
 end

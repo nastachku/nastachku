@@ -16,5 +16,6 @@ Nastachku::Application.configure do
   config.active_support.deprecation = :notify
 
   GA.tracker = "UA-38587983-1"
-  ActionMailer::Base.smtp_settings[:enable_starttls_auto] = false
+  # ActionMailer::Base.smtp_settings[:enable_starttls_auto] = false
+  ActionMailer::Base.delivery_method = :sendmail
 end
