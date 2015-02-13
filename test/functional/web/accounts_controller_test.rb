@@ -19,9 +19,20 @@ class Web::AccountsControllerTest < ActionController::TestCase
     attrs = attributes_for :user
     put :update, id: @user.id, user: attrs
 
-    assert_response :redirect
     @user.reload
+    assert_response :redirect
     assert @user.position == attrs[:position]
+  end
+
+  test "should update password" do
+    old_password_digest = @user.password_digest
+    attrs = { password: "123456", password_confirmation: "123456" }
+
+    put :update, id: @user.id, user: attrs
+
+    @user.reload
+    assert old_password_digest != @user.password_digest
+    assert @user.try(:authenticate, attrs[:password])
   end
 
 end
