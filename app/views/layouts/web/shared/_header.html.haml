@@ -23,7 +23,7 @@
       - if signed_in?
         .header__login__user
           .header__login__user-name
-            = link_to current_user_decorate.full_name, edit_account_path
+            = link_to current_user_decorate.reverse_full_name, edit_account_path
           .header__login__user-avatar
             %a{ href: '' }
               = image_tag current_user_decorate.user_pic
