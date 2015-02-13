@@ -11,9 +11,9 @@ class User < ActiveRecord::Base
     :pay_state_event, :facebook, :vkontakte, :reason_to_give_ticket, :badge_state_event
 
   validates :email, uniqueness: { case_sensitive: false }, email: true, allow_nil: true
-  validates :last_name, presence: true, human_name: true
-  validates :first_name, presence: true, human_name: true
-  validates :position, position_name: true, allow_blank: true
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :position, allow_blank: true
   validates :facebook, url: true, allow_blank: true
   validates :vkontakte, url: true, allow_blank: true
 
@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   has_many :auth_tokens
   has_many :topics, through: :user_topics
   has_many :user_topics
-  has_many :authorizations
+  has_many :authorizations, dependent: :destroy
   has_many :event_users
   has_many :events, through: :event_users
   has_one :promo_code
