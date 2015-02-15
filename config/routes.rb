@@ -103,8 +103,8 @@ Nastachku::Application.routes.draw do
       end
     end
 
-    get 'payments/check/payanyway', to: 'payments#check_payanyway', defaults: {format: 'xml'}
-    get 'payments/paid/payanyway', to: 'payments#paid_payanyway', defaults: {format: 'xml'}
+    post 'payments/check/payanyway', to: 'payments#check_payanyway', defaults: {format: 'xml'}
+    post 'payments/paid/payanyway', to: 'payments#paid_payanyway', defaults: {format: 'xml'}
 
     namespace :admin do
       resources :users_lists, except: [:edit, :update] do

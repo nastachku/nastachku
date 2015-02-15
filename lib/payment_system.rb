@@ -12,12 +12,12 @@ class PaymentSystem
     @payment_system.pay_url(order)
   end
 
-  def check_payment(params)
-    @payment_system.check_payment(params)
+  def check_payment!(params)
+    @payment_system.check_payment!(params)
   end
 
-  def pay(params)
-    @payment_system.pay(params)
+  def pay!(params)
+    @payment_system.pay!(params)
   end
 
   private

@@ -38,7 +38,7 @@ module PaymentSystems
       amount = format_amount order.cost
 
       validate_check_request_signature! params[:MNT_SIGNATURE], transaction_id: transaction_id, amount: amount
-      validate_amount! order.cost, params[:MNT_AMOUNT]
+      validate_amount! amount, params[:MNT_AMOUNT]
       signature = sign_check_response(transaction_id, amount)
 
       Struct.new(:id, :order_number, :result_code, :order_state, :amount, :response_signature).new(
