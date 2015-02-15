@@ -99,10 +99,9 @@ namespace :log do
   end
 end
 
-
 before 'deploy:finalize_update', 'deploy:symlink_db'
 after 'deploy:update_code', 'deploy:checkout'
 after 'deploy:symlink_db', 'deploy:symlink_secrets', 'deploy:symlink_backup'
 after 'deploy:symlink_backup', 'deploy:symlink_credentials'
-after "deploy:restart", "unicorn:stop"
-after "resque:stop", "resque:start", "resque:scheduler_start"
+after "deploy:restart", "resque:stop", "unicorn:stop"
+after "resque:stop", "resque:start", "resque:scheduler_start", 'resque:mailer_start'
