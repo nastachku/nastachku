@@ -7,7 +7,6 @@ module PaymentSystems
     ORDER_INVALID = 500
 
     def initialize
-      # TODO: move to configuration
       @id = config.id
       @currency_code = config.currency
       @test_mode = config.test_mode

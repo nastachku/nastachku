@@ -1,10 +1,11 @@
 module PlatidomaHelper
+  # TODO: заменить здесь все на использование PaymentSystems::Platidoma
 
   def platidoma_client
     params = {
-      shop_id: configus.platidoma.shop_id,
-      login: configus.platidoma.login,
-      gate_password: configus.platidoma.gate_password,
+      shop_id: PaymentSystems::Platidoma.config.shop_id,
+      login: PaymentSystems::Platidoma.config.login,
+      gate_password: PaymentSystems::Platidoma.config.gate_password,
     }
 
     @platidoma_client ||= Platidoma::Client.new params
@@ -22,7 +23,7 @@ module PlatidomaHelper
   def build_status_sign(order, salt)
     params = {
       rnd: salt,
-      order_id: order.id,
+      order_id: order.number,
       trans_id: order.transaction_id,
       amount: order.cost
     }
@@ -36,7 +37,7 @@ module PlatidomaHelper
 
     params = {
       amount: order.cost,
-      order_id: order.id,
+      order_id: order.number,
       email: order.user.email,
       sign: sign,
       rnd: salt
@@ -50,7 +51,7 @@ module PlatidomaHelper
     sign = build_status_sign(order, salt)
 
     params = {
-      pd_shop_id: configus.platidoma.shop_id,
+      pd_shop_id: PaymentSystems::Platidoma.config.shop_id, # FIXME: эти данные уже есть в клиенте, надо использовать их
       pd_trans_id: order.transaction_id,
       pd_rnd: salt,
       pd_sign: sign

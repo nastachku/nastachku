@@ -19,7 +19,7 @@ class Web::Account::OrdersControllerTest < ActionController::TestCase
     Platidoma::Client.any_instance.expects(:get_status).returns("paid")
 
     params = {
-      pd_order_id: @order.id,
+      pd_order_id: @order.number,
       pd_trans_id: 1
     }
 
@@ -34,7 +34,7 @@ class Web::Account::OrdersControllerTest < ActionController::TestCase
     Platidoma::Client.any_instance.expects(:get_status).returns("reverse")
 
     params = {
-      pd_order_id: @order.id,
+      pd_order_id: @order.number,
       pd_trans_id: 1
     }
 
@@ -49,7 +49,7 @@ class Web::Account::OrdersControllerTest < ActionController::TestCase
     Platidoma::Client.any_instance.expects(:get_status).returns("declined")
 
     params = {
-      pd_order_id: @order.id,
+      pd_order_id: @order.number,
       pd_trans_id: 1
     }
 

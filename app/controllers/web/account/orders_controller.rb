@@ -2,18 +2,20 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:approve, :cancel, :decline]
   include OrderHelper
 
+  # TODO: всю логику - в сервисы!
   def approve
-    order = Order.find params[:pd_order_id]
+    order = Order.find_by number: params[:pd_order_id]
     order.transaction_id = params[:pd_trans_id]
     order.save
+
     update_payment_state(order)
-    put_paid_status_with_other_orders order
+
     flash_success
     redirect_to edit_account_path anchor: :my_orders
   end
 
   def cancel
-    order = Order.find params[:pd_order_id]
+    order = Order.find_by number: params[:pd_order_id]
     order.transaction_id = params[:pd_trans_id]
     order.save
 
@@ -24,7 +26,7 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
   end
 
   def decline
-    order = Order.find params[:pd_order_id]
+    order = Order.find_by number: params[:pd_order_id]
     order.transaction_id = params[:pd_trans_id]
     order.save
 
@@ -45,14 +47,13 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
     end
 
     redirect_to edit_account_path anchor: :my_orders
-
   end
 
   def pay
     order = current_user.orders.find params[:id]
 
     if order.unpaid_or_declined?
-      redirect_to build_payment_curl(order)
+      redirect_to PaymentSystem.new(:platidoma).pay_url order
       return
     else
       flash_error
