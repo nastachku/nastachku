@@ -1,0 +1,26 @@
+.lecture_voting_count {
+  padding: 9px 20px;
+  border: 1px solid #e0e0e0;
+  margin: 0 0 0 10px;
+  float: left;
+  color: #8b8b8b;
+}
+
+.about_input_on_user_lectures_form {
+  float: left;
+  width: 50%;
+}
+
+.about_input_on_user_lectures_form div div textarea {
+  height: 288px;
+}
+
+.about_input_on_user_lectures_form div div textarea:focus {
+  height: 288px;
+  margin-bottom: 0;
+}
+
+.photo_input_on_user_lectures_form {
+  width: 50%;
+  margin-top: 15px;
+}

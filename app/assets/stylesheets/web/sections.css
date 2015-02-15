@@ -1,0 +1,41 @@
+.sprite {
+    background-image: url("/images/web/sections_spritesheet.png");
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-section-d_big {
+    width: 235px;
+    height: 235px;
+    background-position: 0 0;
+}
+
+.sprite-section-e_big {
+    width: 235px;
+    height: 234px;
+    background-position: -235px 0;
+}
+
+.sprite-section-i_big {
+    width: 235px;
+    height: 235px;
+    background-position: -235px -234px;
+}
+
+.sprite-section-m_big {
+    width: 235px;
+    height: 235px;
+    background-position: -470px 0;
+}
+
+.sprite-section-mob_big {
+    width: 235px;
+    height: 235px;
+    background-position: 0 -235px;
+}
+
+.sprite-section-t_big {
+    width: 235px;
+    height: 235px;
+    background-position: -470px -235px;
+}
