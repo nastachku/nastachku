@@ -37,8 +37,9 @@ module ApplicationHelper
     params[:controller] == 'web/accounts'
   end
 
+  # FIXME сложно распарсить это условие. надо будет выпились, как только разберусь со всеми нюансами
   def current_user_not_going_to_conference?
-    current_user.not_decided?
+    !current_user.show_as_patricipant
   end
 
   def current_user_paid_for_conference?

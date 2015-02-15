@@ -2085,7 +2085,9 @@ footer {
 
 ////////////////////////////////////////// CUSTOM CHECKBOX
 .checkbox_type-1 {
-    display:none;
+    opacity: 0;
+    width: 34px;
+    height: 34px;
     &+label {
         display: inline-block;
         vertical-align: middle;
@@ -2100,7 +2102,7 @@ footer {
         display: block;
         height: 34px;
         width: 34px;
-        margin: -6px 10px 0 0;
+        margin: -6px 10px 0 -34px;
         background: @sprite 0 -150px no-repeat;
     }
     &:checked + label::before {

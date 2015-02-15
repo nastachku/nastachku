@@ -42,12 +42,9 @@
       %h5 Ваш персональный номер
       %h2= @user.id
     .margin_of_information
-      - unless @user.attended?
-        %ul.form__group
-          %li.form__element
-            = check_box_tag :i_will_come_to_stachka, nil, false, id: "i_will_come_to_stachka", class: 'checkbox_type-1', data: {url: attend_user_path(@user)}
-            %label{for: "i_will_come_to_stachka"}
-              = t('.i_will_come_to_stachka')
+      %ul.form__group
+        %li.form__element
+          = f.input :show_as_participant, as: :stachka_checkbox, label: false
     .personal__identity__social
       %ul.form__group
         - f.with_options input_html: { class: "input_type-1" } do |f|

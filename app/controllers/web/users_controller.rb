@@ -5,7 +5,7 @@ class Web::UsersController < Web::ApplicationController
 
   def index
     @search = User.ransack(params[:q])
-    @users = @search.result.activated.attended.alphabetically
+    @users = @search.result.activated.participants.alphabetically
     #FIXME некрасиво
     @users = @users.as_lectors if params[:s] and params[:s].include? 'as_lectors'
     #FIXME придумать как задекорировать выборку
@@ -50,11 +50,6 @@ class Web::UsersController < Web::ApplicationController
     end
   rescue Net::SMTPAuthenticationError, SocketError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError, Errno::ECONNREFUSED => e
     flash[:error] = t(".flash.controllers.web.users.create.net_error") + e.message
-  end
-
-  def attend
-    current_user.attend
-    redirect_to edit_account_path
   end
 
 end

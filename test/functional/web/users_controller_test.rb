@@ -35,15 +35,6 @@ class Web::UsersControllerTest < ActionController::TestCase
     assert user
   end
 
-  test "should put attend on conference" do
-    sign_in @user
-    put :attend, id: @user
-    assert_response :redirect
-
-    @user.reload
-    assert_equal true, @user.attended?
-  end
-
   test "should activate user" do
     @user.deactivate
     auth_token = @user.create_auth_token

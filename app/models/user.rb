@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :first_name, :last_name, :city, :company, :position,
     :show_as_participant, :photo, :state_event, :about, :carousel_info, :in_carousel,
-    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event, :attending_conference_state_event,
+    :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event,
     :pay_state_event, :facebook, :vkontakte, :reason_to_give_ticket, :badge_state_event
 
   validates :email, uniqueness: { case_sensitive: false }, email: true, allow_nil: true
@@ -70,26 +70,12 @@ class User < ActiveRecord::Base
     end
   end
 
-  state_machine :attending_conference_state, initial: :attended do
-    state :attended
-    state :not_decided
-
-    event :not_decide do
-      transition attended: :not_decided # for testing
-    end
-
-    event :attend do
-      transition not_decided: :attended
-    end
-  end
-
   # WTF FIXME English, do you speak it?
   state_machine :pay_state, initial: :not_paid_part do
     state :not_paid_part
     state :paid_part
     after_transition to: :paid_part do |user, transition|
       user.activate
-      user.attend
     end
 
     event :not_pay_part do
