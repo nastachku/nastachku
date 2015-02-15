@@ -31,7 +31,7 @@ class UserSignInType
 
   def check_authenticate
     if !user.try(:authenticate, password)
-      record.errors.add(:email, :user_or_password_invalid)
+      errors.add(:email, :user_or_password_invalid)
     end
   end
 end
