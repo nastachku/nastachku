@@ -5,12 +5,13 @@
       %dt.tabs__title#user_attributes_title Личные данные
       %dd.tabs__content#user_attributes
         = render "user_attributes"
-      / %dt.tabs__title#orders_title Заказы
-      / %dd.tabs__content#orders
-      /   = render "orders"
+      %dt.tabs__title#orders_title Заказы
+      %dd.tabs__content#orders
+        = render "orders"
       / %dt.tabs__title#products_title Товары
       / %dd.tabs__content#products
       /   = render "products"
+
 :javascript
   if ($("#two_days")) {
     $("#two_days").attr('checked', true);
