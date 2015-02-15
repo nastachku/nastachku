@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208190106) do
+ActiveRecord::Schema.define(version: 20150215101444) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
@@ -25,11 +28,11 @@ ActiveRecord::Schema.define(version: 20150208190106) do
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "audits", ["action"], name: "index_audits_on_action"
-  add_index "audits", ["auditable_id", "auditable_type"], name: "auditable_index"
-  add_index "audits", ["created_at"], name: "index_audits_on_created_at"
-  add_index "audits", ["tag"], name: "index_audits_on_tag"
-  add_index "audits", ["user_id", "user_type"], name: "user_index"
+  add_index "audits", ["action"], name: "index_audits_on_action", using: :btree
+  add_index "audits", ["auditable_id", "auditable_type"], name: "auditable_index", using: :btree
+  add_index "audits", ["created_at"], name: "index_audits_on_created_at", using: :btree
+  add_index "audits", ["tag"], name: "index_audits_on_tag", using: :btree
+  add_index "audits", ["user_id", "user_type"], name: "user_index", using: :btree
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider",   limit: 255
@@ -52,8 +55,8 @@ ActiveRecord::Schema.define(version: 20150208190106) do
     t.datetime "updated_at",                    null: false
   end
 
-  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
-  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "discounts", force: :cascade do |t|
     t.string   "code",       limit: 255
@@ -157,8 +160,8 @@ ActiveRecord::Schema.define(version: 20150208190106) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id"
-  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", using: :btree
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
 
   create_table "slots", force: :cascade do |t|
     t.integer  "event_id"
@@ -200,42 +203,41 @@ ActiveRecord::Schema.define(version: 20150208190106) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                      limit: 255
-    t.string   "password_digest",            limit: 255
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "city",                       limit: 255
-    t.string   "company",                    limit: 255
+    t.string   "email",                   limit: 255
+    t.string   "password_digest",         limit: 255
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "city",                    limit: 255
+    t.string   "company",                 limit: 255
     t.boolean  "show_as_participant"
-    t.string   "position",                   limit: 255
+    t.string   "position",                limit: 255
     t.boolean  "admin"
-    t.string   "password",                   limit: 255
-    t.string   "photo",                      limit: 255
-    t.string   "state",                      limit: 255
+    t.string   "password",                limit: 255
+    t.string   "photo",                   limit: 255
+    t.string   "state",                   limit: 255
     t.text     "about"
-    t.string   "first_name",                 limit: 255
-    t.string   "last_name",                  limit: 255
-    t.string   "role",                       limit: 255
+    t.string   "first_name",              limit: 255
+    t.string   "last_name",               limit: 255
+    t.string   "role",                    limit: 255
     t.integer  "sign_in_count"
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",         limit: 255
-    t.string   "last_sign_in_ip",            limit: 255
+    t.string   "current_sign_in_ip",      limit: 255
+    t.string   "last_sign_in_ip",         limit: 255
     t.text     "carousel_info"
     t.boolean  "in_carousel"
-    t.string   "twitter_name",               limit: 255
+    t.string   "twitter_name",            limit: 255
     t.boolean  "invisible_lector"
-    t.string   "timepad_state",              limit: 255
+    t.string   "timepad_state",           limit: 255
     t.boolean  "not_going_to_conference"
-    t.string   "attending_conference_state", limit: 255
-    t.string   "pay_state",                  limit: 255
+    t.string   "pay_state",               limit: 255
     t.text     "facebook"
     t.text     "vkontakte"
     t.text     "reason_to_give_ticket"
-    t.string   "badge_state",                limit: 255
+    t.string   "badge_state",             limit: 255
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   create_table "users_lists", force: :cascade do |t|
     t.text     "file"

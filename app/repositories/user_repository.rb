@@ -5,9 +5,8 @@ module UserRepository
 
   included do
     scope :web, -> { by_created_at }
-    scope :shown_as_participants, -> { where show_as_participant: true }
+    scope :participants, -> { where show_as_participant: true }
     scope :activated, -> { where state: :active }
-    scope :attended, -> { where attending_conference_state: :attended }
     scope :as_lectors, -> { where role: :lector }
     scope :lecture_in_schedule, -> { joins(:lectures).where(lectures: {state: :in_schedule})  }
     scope :alphabetically, -> { asc_by_last_name }

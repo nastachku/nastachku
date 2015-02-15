@@ -5,7 +5,7 @@
 - else
   =t '.registred_title', activated_count: attended_users, participant: shown_as_participants
   %ul.members__list
-    - @users.shown_as_participants.each do |user|
+    - @users.each do |user|
       %li.members__list__item.members__list__item__alphabet.open_this
         .members__list__item__img
           -#FIXME в контроллере трудности есть при декорировании, начальникэ.

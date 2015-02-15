@@ -1,7 +1,7 @@
 class Timepad
 
   def user_synchronization
-    User.activated.attended.nonsynchronized.find_each do |user|
+    User.activated.participants.nonsynchronized.find_each do |user|
 
       uri = URI(configus.timepad.maillist_add_items_url)
 

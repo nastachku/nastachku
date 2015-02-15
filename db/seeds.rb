@@ -9,7 +9,6 @@ user = User.find_or_initialize_by(email: configus.admin.email) do |u|
   u.company = "Компания"
   u.save!
   u.activate
-  u.attend
   u.pay_part
 end
 
