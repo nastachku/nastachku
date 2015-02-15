@@ -22,6 +22,8 @@ class Order < ActiveRecord::Base
       transition [:unpaid, :declined] => :paid
     end
 
+    after_transition to: :paid, :do => :mark_user_as_participant
+
     event :cancel do
       transition [:unpaid] => :canceled
     end
@@ -40,6 +42,10 @@ class Order < ActiveRecord::Base
   end
 
   private
+  def mark_user_as_participant
+    user.pay_part if user
+  end
+
   def generate_number
     self.number = SecureRandom.uuid
   end
