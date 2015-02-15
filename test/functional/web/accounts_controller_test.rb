@@ -17,11 +17,13 @@ class Web::AccountsControllerTest < ActionController::TestCase
 
   test "should update user" do
     attrs = attributes_for :user
+    attrs[:show_as_participant] = 1
     put :update, id: @user.id, user: attrs
 
     @user.reload
     assert_response :redirect
     assert @user.position == attrs[:position]
+    assert @user.show_as_participant
   end
 
   test "should update password" do

@@ -9,13 +9,6 @@ ru:
           events:
             give_badge: Выдать бейдж
             take_badge_back: Забрать бейдж
-        attending_conference_state:
-          states:
-            attended: "Идёт"
-            not_decided: "Не идёт"
-          events:
-            attend: "Пойдёт"
-            not_decide: "Не пойдёт"
         state:
           states:
             new: "Новый"

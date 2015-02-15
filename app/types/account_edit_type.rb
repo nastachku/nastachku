@@ -20,7 +20,8 @@ class AccountEditType < User
 
   permit :first_name, :last_name, :email, :city, :old_password,
          :password, :state_event, :photo,
-         :twitter_name, :vkontakte, :facebook, :company, :position
+         :twitter_name, :vkontakte, :facebook, :company, :position,
+         :show_as_participant
 
   def city=(city)
     write_attribute(:city, city.mb_chars.downcase)
