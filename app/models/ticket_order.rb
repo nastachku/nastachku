@@ -1,16 +1,33 @@
-# -*- coding: utf-8 -*-
 class TicketOrder < Order
   extend Enumerize
   extend ActiveModel::Naming
 
   attr_writer :discount
 
-  def its_cost
-    configus.platidoma.ticket_price
+  # TODO: перенести логику формировани цены в более удачное место
+  def self.ticket_price
+    case Time.current.strftime('%B')
+    when 'February'
+      750
+    when 'March'
+      1100
+    when 'April'
+      if Time.current.day <= 8
+        1500
+      else
+        2000
+      end
+    else
+      10000
+    end
   end
 
-  #FIXME заменить TicketOrder на чтото вроде self, если возможно`
+  # FIXME: убрать это. Стоимость заказа должна быть зафиксирована на момент оплаты
+  def its_cost
+    self.class.ticket_price
+  end
+
   def to_s
-    TicketOrder.model_name.human
+    self.class.model_name.human
   end
 end

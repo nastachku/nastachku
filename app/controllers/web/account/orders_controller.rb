@@ -1,6 +1,6 @@
 class Web::Account::OrdersController < Web::Account::ApplicationController
-
   skip_before_filter :verify_authenticity_token, only: [:approve, :cancel, :decline]
+  include OrderHelper
 
   def approve
     order = Order.find params[:pd_order_id]

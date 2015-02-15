@@ -8,9 +8,7 @@ class Web::Account::BuysControllerTest < ActionController::TestCase
 
   test "should put buy" do
     ticket = create :ticket_order
-    discount = create :discount
-    afterparty = create :afterparty_order
-    put :pay, ticket_order: ticket, discount: discount, afterparty_order: afterparty
+    put :pay, payment_system: :payanyway
     assert_response :redirect
   end
 

@@ -62,8 +62,6 @@ module AuthHelper
 
     user.sign_in_count ||= 0
     user.sign_in_count += 1
-
-    user.changed_by = user
   end
 
   def deny_banned_user!
