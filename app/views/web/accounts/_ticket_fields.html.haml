@@ -1,0 +1,17 @@
+%li.order__new__item.order__new__item__days
+  .order__new__item__name
+    = check_box_tag :ticket_order, nil, false, id: "two_days", class: 'checkbox_type-1'
+    %label{for: "two_days"}
+      = t('.stachka_ticket')
+  .order__new__item__price
+    %h4
+      - if @price_with_discount
+        = hidden_field_tag(:discount, @discount.code)
+        %del
+          = TicketOrder.ticket_price
+        %span#ticket_price_score
+          = @price_with_discount
+      - else
+        %span#ticket_price_score
+          = TicketOrder.ticket_price
+      %span.rouble i
