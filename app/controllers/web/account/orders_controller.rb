@@ -11,7 +11,7 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
     update_payment_state(order)
 
     flash_success
-    redirect_to edit_account_path anchor: :my_orders
+    redirect_to edit_account_path anchor: :orders
   end
 
   def cancel
@@ -22,7 +22,7 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
     update_payment_state(order)
     flash_notice
 
-    redirect_to edit_account_path anchor: :my_orders
+    redirect_to edit_account_path anchor: :orders
   end
 
   def decline
@@ -33,7 +33,7 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
     update_payment_state(order)
     flash_notice
 
-    redirect_to edit_account_path anchor: :my_orders
+    redirect_to edit_account_path anchor: :orders
   end
 
   def update
@@ -59,6 +59,6 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
       flash_error
     end
 
-    redirect_to edit_account_path anchor: :my_orders
+    redirect_to edit_account_path anchor: :orders
   end
 end
