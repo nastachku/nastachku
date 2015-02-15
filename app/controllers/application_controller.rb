@@ -2,7 +2,6 @@
 class ApplicationController < ActionController::Base
   include AuthHelper
   include Mobylette::RespondToMobileRequests
-  include OrderHelper
 
   helper_method :current_user, :signed_in?, :signed_as_admin?
 
