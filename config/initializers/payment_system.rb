@@ -1,3 +1,4 @@
 PaymentSystem.available_systems = {
-  :payanyway => PaymentSystems::Payanyway
+  :payanyway => PaymentSystems::Payanyway,
+  :platidoma => PaymentSystems::Platidoma
 }

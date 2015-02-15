@@ -13,12 +13,12 @@
               = TicketOrder.ticket_price
             %span.rouble i
       .order__new__submit
-        = simple_form_for @ticket_order, url: pay_account_buy_path, method: :put do |f|
-          = hidden_field_tag :payment_system, :payanyway
-          %button#submit_order.btn_main.btn_main-pay{ type: "submit" } Оплатить заказ
         / = simple_form_for @ticket_order, url: pay_account_buy_path, method: :put do |f|
-        /   = hidden_field_tag :payment_system, :platidoma
-        /   %button#submit_order.btn_main.btn_main-pay{ type: "submit" } Оплатить заказ
+        /   = hidden_field_tag :payment_system, :payanyway
+        /   %button#submit_order.btn_main{ type: "submit" } Оплатить через PayAnyWay
+        = simple_form_for @ticket_order, url: pay_account_buy_path, method: :put do |f|
+          = hidden_field_tag :payment_system, :platidoma
+          %button#submit_order.btn_main{ type: "submit" } Оплатить через Платидома
 
 .orderlist
   .layout-line
