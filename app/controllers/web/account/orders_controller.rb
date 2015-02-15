@@ -1,6 +1,5 @@
 class Web::Account::OrdersController < Web::Account::ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:approve, :cancel, :decline]
-  include OrderHelper
 
   # TODO: всю логику - в сервисы!
   def approve
