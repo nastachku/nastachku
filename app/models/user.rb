@@ -122,4 +122,23 @@ class User < ActiveRecord::Base
   def to_s
     UserDecorator.decorate(self).full_name
   end
+
+  # NOTE: наследство. bcrypt использует sha1 для шифровки паролей.
+  # не понятно, чем не устроил sha1, но старые пароли и явки надо было
+  # сохранить и пользователи должны входить без дополнительных действий,
+  # оставлю это здесь. В перспективе переезд на sha1 и это выпилится.
+  def authenticate(password)
+    self.password_digest == Digest::MD5.hexdigest(password)
+  end
+
+  def password=(password)
+    if password.present?
+      @real_password = password
+      self.password_digest = Digest::MD5.hexdigest(password)
+    end
+  end
+
+  def password
+    @real_password
+  end
 end
