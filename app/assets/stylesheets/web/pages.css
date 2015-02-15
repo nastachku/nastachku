@@ -1,0 +1,17 @@
+.sutochno {
+  text-align: center;
+}
+
+.sutochno img {
+  margin-top: 10px;
+  margin-right: 30px;
+}
+
+ .sutochno .text p {
+  margin: 0 auto;
+ }
+
+
+.clearfix {
+  clear: both;
+}

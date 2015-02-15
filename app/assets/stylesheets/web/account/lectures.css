@@ -1,0 +1,14 @@
+.lectures .controls input {
+  margin: 10px 0;
+  padding: 5px;
+}
+
+.lectures .controls textarea {
+  margin: 10px 0;
+  padding: 5px;
+}
+
+.lectures .controls select {
+  margin: 10px 0;
+  padding: 5px;
+}

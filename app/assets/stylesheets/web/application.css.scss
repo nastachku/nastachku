@@ -1,7 +1,16 @@
 // Place all the styles related to the admin/application controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-//= require_tree .
+//= require ./accounts
+//= require ./fonts
+//= require ./pages
+//= require ./schedules
+//= require ./sections
+//= require ./styles
+//= require ./user_lectures
+//= require ./users
+//= require ./account/discounts
+//= require ./account/lectures
 
 .controls textarea {
   height: 150px;
