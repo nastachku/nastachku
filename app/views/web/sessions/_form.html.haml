@@ -1,23 +1,21 @@
+- if flash[:success]
+  = flash[:success]
+  %br
+
 = simple_form_for @type, url: session_path(from: params[:from]), html: { class: 'form-type-login' } do |f|
-  .row
-    .span6
-      .formy
-        = f.input :email, :tabindex => 1, input_html: { value: @email}
-        = f.input :password, :tabindex => 2
+  .layout-line
+    = f.input :email, tabindex: 1, input_html: { value: @email, class: 'input_type-1' }
+    = f.input :password, tabindex: 2, input_html: { class: 'input_type-1' }
+    %br
+    = f.button :submit, value: t('.login'), class: 'btn_main btn_main-auth', tabindex: 3
+  .pull-left
+    = link_to sign_in_via_social_network_cpath(:facebook), class: 'social-auth-enter' do
+      %i.ficon-facebook-rect
+    .pull-right
+      = link_to t('.remind_password'), new_remind_password_path
 
-      .clearfix
-        .pull-left
-          .pull-left
-            %br
-            = f.button :submit, :value => t('.login'), :class => 'btn_main btn_main-auth', :tabindex => 3
-          .pull-left
-            = link_to sign_in_via_social_network_cpath(:facebook), :class => 'social-auth-enter' do
-              %i.ficon-facebook-rect
-        .pull-right
-          = link_to t('.remind_password'), new_remind_password_path
+%br
+Ещё не зарегистрировались?!
 
-      %br
-      Ещё не зарегистрировались?!
-
-      %a{ :href => new_user_path, :tabindex => 4}
-        Сделайте это прямо сейчас!
+%a{ href: new_user_path, tabindex: 4}
+  Сделайте это прямо сейчас!
