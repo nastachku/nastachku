@@ -15,7 +15,9 @@ class Web::RemindPasswordsControllerTest < ActionController::TestCase
     attrs = { email: @user.email }
 
     post :create, user_password_remind_type: attrs
+
     assert_response :redirect
+    assert @user.auth_tokens.any?
   end
 
   test "should not post create" do
@@ -23,6 +25,6 @@ class Web::RemindPasswordsControllerTest < ActionController::TestCase
     @user.deactivate
 
     post :create, user_password_remind_type: attrs
-    assert_response :redirect
+    assert_response :success
   end
 end

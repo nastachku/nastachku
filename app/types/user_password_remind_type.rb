@@ -8,8 +8,14 @@ class UserPasswordRemindType
   validates :email, presence: true, email: true
 
   validates_each :email do |record, attr, value|
-    unless record.user
+    user = record.user
+
+    unless user
       record.errors.add(attr, I18n.t('activemodel.errors.models.user_password_remind_type.attributes.email.user_should_not_exists'))
+    end
+
+    if user && user.inactive?
+      record.errors.add(attr, I18n.t('activemodel.errors.models.user_password_remind_type.attributes.email.user_inactive'))
     end
   end
 
