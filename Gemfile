@@ -96,6 +96,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'bullet'
   gem 'bundler-audit'
+  gem 'quiet_assets'
 
   gem 'capistrano', require: false
   gem 'capistrano-rails', require: false
