@@ -26,10 +26,14 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
 
   def decline
     order = Order.find_by number: params[:pd_order_id]
-    order.transaction_id = params[:pd_trans_id]
-    order.save
 
-    update_payment_state(order)
+    if order
+      order.transaction_id = params[:pd_trans_id]
+      order.save
+
+      update_payment_state(order)
+    end
+
     flash_notice
 
     redirect_to edit_account_path anchor: :orders
