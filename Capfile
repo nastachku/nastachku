@@ -1,9 +1,12 @@
-load 'deploy'
+require 'capistrano/setup'
+require 'capistrano/deploy'
 
-require 'bundler/capistrano'
-require 'capi/unicorn'
+require 'capistrano/rbenv'
+require 'capistrano/bundler'
+require 'capistrano/rails/assets'
+require 'capistrano/rails/migrations'
+require 'capistrano3/unicorn'
+require 'capistrano-resque'
+require 'whenever/capistrano'
 
-load 'deploy/assets'
-
-Dir['vendor/gems/*/recipes/*.rb','vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
-load 'config/deploy' # remove this line to skip loading any of the default tasks
+Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }

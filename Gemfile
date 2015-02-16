@@ -97,12 +97,11 @@ group :development do
   gem 'bullet'
   gem 'bundler-audit'
 
-  gem 'capistrano'
+  gem 'capistrano', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano3-unicorn', require: false
   gem 'capistrano-resque', github: 'sshingler/capistrano-resque', require: false
-  gem 'capistrano-rbenv'
-  gem 'capistrano-ext'
-  gem 'capistrano_colors'
-  gem 'capi'
-  gem 'capistrano-maintenance'
   gem 'ruby-prof'
 end
