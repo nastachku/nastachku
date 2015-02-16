@@ -1,12 +1,12 @@
 class Web::Account::LecturesController < Web::Account::ApplicationController
 
   def new
-    @user = UserLecturesEditType.find current_user
+    @user = UserLecturesEditType.find current_user.id
     @user.lectures.build
   end
 
   def create
-    @user = UserLecturesEditType.find current_user
+    @user = UserLecturesEditType.find current_user.id
     @user.changed_by = current_user
     if @user.update_attributes params[:user]
       flash_success
