@@ -29,7 +29,7 @@ class Web::SessionsController < Web::ApplicationController
       redirect_to redirect_path
     else
       flash[:error] = @type.errors.full_messages
-      redirect_to new_session_path
+      render :new
     end
   end
 

@@ -8,19 +8,15 @@ class Web::RemindPasswordsController < Web::ApplicationController
     if @type.valid?
       user = @type.user
       user.changed_by = current_user
-      if user && user.active?
-        token = user.create_remind_password_token
-        UserMailer.remind_password(user.id, token.id).deliver_in(10.seconds)
-        flash_success
-        return redirect_to new_session_path
-      else
-        flash[:error] = t :inactive, scope: [:activemodel, :errors, :models, :user_password_remind_type]
-      end
+      token = user.create_remind_password_token
+      UserMailer.remind_password(user.id, token.id).deliver_in(10.seconds)
+      flash_success
+      redirect_to new_session_path
     else
       flash[:error] = @type.errors.messages.values.flatten.first
+      render :new
     end
-    
-    return redirect_to new_remind_password_path
+
   rescue Net::SMTPAuthenticationError, SocketError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError, Errno::ECONNREFUSED => e
     flash[:error] = t(".flash.controllers.web.remind_passwords.create.net_error") + e.message
     return redirect_to new_remind_password_path

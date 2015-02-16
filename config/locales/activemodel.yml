@@ -9,6 +9,7 @@ ru:
               blank: 'Email не может быть пустым'
               email: 'Введите корректный email!'
               user_should_not_exists: 'Пользователь с таким email не существует!'
+              user_inactive: "Ваш аккаунт заблокирован. Для возобновления работы аккаунта обратитесь в оргкомитет сайта info@nastachku.ru"
         user_sign_in_type:
           attributes:
             email:
