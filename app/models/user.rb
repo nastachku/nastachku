@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
     :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event,
     :pay_state_event, :facebook, :vkontakte, :reason_to_give_ticket, :badge_state_event
 
-  validates :email, uniqueness: { case_sensitive: false }, email: true, allow_nil: true
+  validates :email, uniqueness: { case_sensitive: false }, email: true, allow_blank: true
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :facebook, url: true, allow_blank: true
