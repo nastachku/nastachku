@@ -27,4 +27,7 @@ class AccountEditType < User
     write_attribute(:city, city.mb_chars.downcase)
   end
 
+  def email=(email)
+    write_attribute(:email, nil) if email.empty?
+  end
 end
