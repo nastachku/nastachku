@@ -1,0 +1,8 @@
+= simple_form_for [:admin, @propagator], html: { class: 'form-horizontal' } do |f|
+  = f.input :title
+  = f.input :address
+  = f.input :contacts
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to t('.cancel'), admin_propagators_path, class: 'btn'

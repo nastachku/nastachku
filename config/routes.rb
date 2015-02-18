@@ -120,6 +120,8 @@ Nastachku::Application.routes.draw do
       resources :users
       resources :audits, only: [:index]
       resources :topics
+      resources :propagators, only: [:index, :new, :create, :edit, :update, :destroy]
+      resources :ticket_codes, only: [:index, :new, :create]
 
       resources :events
       resources :workshops

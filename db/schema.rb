@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150215101444) do
+ActiveRecord::Schema.define(version: 20150218152015) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
@@ -25,11 +28,11 @@ ActiveRecord::Schema.define(version: 20150215101444) do
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "audits", ["action"], name: "index_audits_on_action"
-  add_index "audits", ["auditable_id", "auditable_type"], name: "auditable_index"
-  add_index "audits", ["created_at"], name: "index_audits_on_created_at"
-  add_index "audits", ["tag"], name: "index_audits_on_tag"
-  add_index "audits", ["user_id", "user_type"], name: "user_index"
+  add_index "audits", ["action"], name: "index_audits_on_action", using: :btree
+  add_index "audits", ["auditable_id", "auditable_type"], name: "auditable_index", using: :btree
+  add_index "audits", ["created_at"], name: "index_audits_on_created_at", using: :btree
+  add_index "audits", ["tag"], name: "index_audits_on_tag", using: :btree
+  add_index "audits", ["user_id", "user_type"], name: "user_index", using: :btree
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider",   limit: 255
@@ -52,8 +55,8 @@ ActiveRecord::Schema.define(version: 20150215101444) do
     t.datetime "updated_at",                    null: false
   end
 
-  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
-  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "discounts", force: :cascade do |t|
     t.string   "code",       limit: 255
@@ -150,6 +153,14 @@ ActiveRecord::Schema.define(version: 20150215101444) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "propagators", force: :cascade do |t|
+    t.string   "title"
+    t.string   "address"
+    t.string   "contacts"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.string   "session_id", limit: 255, null: false
     t.text     "data"
@@ -157,8 +168,8 @@ ActiveRecord::Schema.define(version: 20150215101444) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id"
-  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", using: :btree
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
 
   create_table "slots", force: :cascade do |t|
     t.integer  "event_id"
@@ -169,6 +180,16 @@ ActiveRecord::Schema.define(version: 20150215101444) do
     t.datetime "updated_at",              null: false
     t.string   "event_type",  limit: 255
   end
+
+  create_table "ticket_codes", force: :cascade do |t|
+    t.string   "code"
+    t.integer  "propagator_id"
+    t.string   "category"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "ticket_codes", ["propagator_id"], name: "index_ticket_codes_on_propagator_id", using: :btree
 
   create_table "topics", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -234,7 +255,7 @@ ActiveRecord::Schema.define(version: 20150215101444) do
     t.string   "badge_state",             limit: 255
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   create_table "users_lists", force: :cascade do |t|
     t.text     "file"
@@ -261,4 +282,5 @@ ActiveRecord::Schema.define(version: 20150215101444) do
     t.text     "icon"
   end
 
+  add_foreign_key "ticket_codes", "propagators"
 end
