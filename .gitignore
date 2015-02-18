@@ -12,3 +12,4 @@
 /config/database.yml
 /config/credentials.yml
 /config/secrets.yml
+.capistrano
