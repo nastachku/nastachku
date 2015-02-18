@@ -58,6 +58,7 @@ gem 'sprockets'
 gem 'smarter_csv'
 gem 'weary'
 gem 'mail_view', '~> 2.0.4'
+gem 'auto_strip_attributes', '~> 2.0'
 
 gem 'sass-rails', '~> 4.0.2'
 gem 'coffee-rails'
