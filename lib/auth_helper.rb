@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 module AuthHelper
-
   def sign_in(user)
     session[:user_id] = user.id
     track_user user
@@ -19,13 +18,12 @@ module AuthHelper
   end
 
   def signed_as_registrator?
-    signed_in? && (current_user.role.registrator? or current_user.admin?)
+    signed_in? && (current_user.role.registrator? || current_user.admin?)
   end
 
   def authenticate_user!
-    unless signed_in?
-      redirect_to new_session_path(from: request.url)
-    end
+    return if signed_in?
+    redirect_to new_session_path(from: request.url)
   end
 
   def authenticate_admin!
@@ -39,12 +37,6 @@ module AuthHelper
   def current_user
     session ||= request.session
     @current_user ||= User.find_by_id(session[:user_id])
-  end
-
-  def basic_auth
-    authenticate_or_request_with_http_basic do |user, password|
-      user == configus.basic_auth.username && password == configus.basic_auth.password
-    end
   end
 
   def track_user(user)
@@ -65,10 +57,9 @@ module AuthHelper
   end
 
   def deny_banned_user!
-    if signed_in? && current_user.inactive?
-      sign_out
-      redirect_to banned_path
-    end
-  end
+    return unless signed_in? && current_user.inactive?
 
+    sign_out
+    redirect_to banned_path
+  end
 end

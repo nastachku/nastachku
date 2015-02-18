@@ -73,4 +73,8 @@ Nastachku::Application.configure do
     :authentication => :plain,
   }
 
+  config.middleware.use '::Rack::Auth::Basic' do |u, p|
+    u == configus.basic_auth.username &&
+      p == configus.basic_auth.password
+  end
 end
