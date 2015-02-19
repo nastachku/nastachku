@@ -4,5 +4,4 @@ FactoryGirl.define do
     address { generate :string }
     contacts { generate :string }
   end
-
 end

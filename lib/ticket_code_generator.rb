@@ -1,7 +1,7 @@
 class TicketCodeGenerator
   class << self
     def generate(params)
-      Array.new(params[:count].to_i) do |i|
+      Array.new(params[:count].to_i) do
         {
           category: params[:category],
           propagator_id: params[:propagator_id],
@@ -11,13 +11,13 @@ class TicketCodeGenerator
     end
 
     private
-    def generate_code category, propagator_id
+    def generate_code(category, propagator_id)
       random_string = SecureRandom.hex(3)
 
       "#{category_code(category)}#{propagator_id}#{random_string}"
     end
 
-    def category_code category
+    def category_code(category)
       {
         listener: 0,
         student: 1,

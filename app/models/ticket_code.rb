@@ -3,6 +3,6 @@ class TicketCode < ActiveRecord::Base
 
   belongs_to :propagator
 
-  enum category: [ :listener, :student, :organizer, :sponsor, :vip,
-                  :speaker, :participant, :media, :volunteer ]
+  enum category: [:listener, :student, :organizer, :sponsor, :vip,
+                  :speaker, :participant, :media, :volunteer]
 end
