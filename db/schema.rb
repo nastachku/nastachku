@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(version: 20150218152015) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "propagators", force: :cascade do |t|
+  create_table "distributors", force: :cascade do |t|
     t.string   "title"
     t.string   "address"
     t.string   "contacts"
@@ -183,13 +183,15 @@ ActiveRecord::Schema.define(version: 20150218152015) do
 
   create_table "ticket_codes", force: :cascade do |t|
     t.string   "code"
-    t.integer  "propagator_id"
+    t.integer  "distributor_id"
     t.string   "category"
+    t.string   "state"
+    t.integer  "price"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
-  add_index "ticket_codes", ["propagator_id"], name: "index_ticket_codes_on_propagator_id", using: :btree
+  add_index "ticket_codes", ["distributor_id"], name: "index_ticket_codes_on_distributor_id", using: :btree
 
   create_table "topics", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -282,5 +284,5 @@ ActiveRecord::Schema.define(version: 20150218152015) do
     t.text     "icon"
   end
 
-  add_foreign_key "ticket_codes", "propagators"
+  add_foreign_key "ticket_codes", "distributors"
 end

@@ -1,23 +1,17 @@
 .page-header
-  %h1=t '.category'
+  %h1= link_to t('.title'), admin_ticket_codes_path
 
 = link_to t('.new'), new_admin_ticket_code_path, class: 'btn btn-primary'
 
 %table.table.table-striped
   %thead
     %tr
-      %th= TicketCode.human_attribute_name :category
-      %th= TicketCode.human_attribute_name :propagator
+      %th= TicketCode.human_attribute_name :distributor
+      %th= TicketCode.human_attribute_name :price
       %th= TicketCode.human_attribute_name :code
       %th
         .nowrap= TicketCode.human_attribute_name :created_at
   %tbody
-    - @ticket_codes.each do |ticket_code|
-      %tr
-        %td= ticket_code.category
-        %td= ticket_code.propagator.title
-        %td= ticket_code.code
-        %td
-          .nowrap= l ticket_code.created_at
+    = render @ticket_codes
 
 = link_to t('.new'), new_admin_ticket_code_path, class: 'btn btn-primary'

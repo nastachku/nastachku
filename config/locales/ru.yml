@@ -76,11 +76,34 @@ ru:
             workshops: 'Секции'
             halls: 'Залы'
             events: 'События'
+            tickets: 'Билеты'
+            distributors: 'Распространители'
+            ticket_codes: 'Коды активации'
   shared:
     empty_lectures:
       not_added_yet: 'Пока не добавлено ни одного доклада. Вы можете'
       first_speaker: 'стать первым докладчиком.'
   web:
+    admin:
+      distributors:
+        index:
+          title: 'Распространители'
+          new: 'Создать'
+        new:
+          title: 'Создание распространителя'
+      ticket_codes:
+        index:
+          title: 'Коды активации'
+          new: 'Создать'
+        new:
+          title: Создание кодов активации
+        form:
+          create: Создать
+          category: Категория
+          distributor: Распространитель
+          price: Цена
+          count: Количество
+
     accounts:
       edit:
         title: 'Редактирование аккаунта'
@@ -349,6 +372,11 @@ ru:
 
     errors:
       models:
+        ticket_code:
+          attributes:
+            code:
+              code_activated: 'Код уже был активирован'
+
         page:
           attributes:
             slug:

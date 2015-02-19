@@ -1,6 +1,6 @@
-class CreatePropagators < ActiveRecord::Migration
+class CreateDistributors < ActiveRecord::Migration
   def change
-    create_table :propagators do |t|
+    create_table :distributors do |t|
       t.string :title
       t.string :address
       t.string :contacts

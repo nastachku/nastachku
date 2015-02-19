@@ -1,9 +1,8 @@
 FactoryGirl.define do
   factory :ticket_code do
-    skip_create
-
     category "participant"
-    count 10
+    price 300
+    code "7001f2f4g1"
+    distributor
   end
-
 end

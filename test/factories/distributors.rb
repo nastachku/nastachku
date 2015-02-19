@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :propagator do
+  factory :distributor do
     title { generate :string }
     address { generate :string }
     contacts { generate :string }

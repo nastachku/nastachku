@@ -1,0 +1,6 @@
+%br
+= simple_form_for @ticket_code, url: activate_account_tickets_path, html: { class: 'form-type-login' } do |f|
+  .layout-line
+    = f.input :code, tabindex: 1, input_html: { class: 'input_type-1' }
+    %br
+    = f.button :submit, value: "Активировать", class: 'btn_main btn_main-auth', tabindex: 3

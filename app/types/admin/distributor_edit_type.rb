@@ -1,4 +1,4 @@
-class Admin::PropagatorEditType < Propagator
+class Admin::DistributorEditType < Distributor
   include BasicType
 
   validates :title, presence: true

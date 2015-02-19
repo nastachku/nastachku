@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Web::Admin::TicketCodesControllerTest < ActionController::TestCase
   setup do
-    @propagator = create :propagator
+    @distributor = create :distributor
     @user = create :admin
     sign_in @user
   end
@@ -20,7 +20,12 @@ class Web::Admin::TicketCodesControllerTest < ActionController::TestCase
   end
 
   test "should post create" do
-    params = attributes_for :ticket_code, propagator_id: @propagator.id
+    params = {
+      category: 'participant',
+      count: 10,
+      price: 1000,
+      distributor_id: @distributor.id
+    }
     count = TicketCode.count
 
     post :create, admin_ticket_code_create_type: params
