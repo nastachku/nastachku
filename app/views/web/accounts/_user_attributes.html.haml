@@ -1,4 +1,4 @@
-= simple_form_for @user, url: account_path, html: { class: 'form-horizontal profile-form' } do |f|
+= simple_form_for @user, url: account_path, html: { class: 'form-horizontal profile-form', autocomplete: 'off' } do |f|
   .personal__userpic
     .personal__userpic__img
       - if not @user.photo or @user.photo.to_s.empty?
