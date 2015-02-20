@@ -1,5 +1,6 @@
 class AccountEditType < User
   include BasicType
+  auto_strip_attributes :email, :first_name, :last_name
 
   attr_accessor :old_password
   attr_accessible :state_event, :old_password
@@ -25,9 +26,5 @@ class AccountEditType < User
 
   def city=(city)
     write_attribute(:city, city.mb_chars.downcase)
-  end
-
-  def email=(email)
-    write_attribute(:email, nil) if email.empty?
   end
 end
