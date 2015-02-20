@@ -12,6 +12,9 @@ class FacebookAuthService
                                .where(email: attrs[:email])
                                .first_or_create(attrs)
         user.authorizations << authorization
+
+        user.show_as_participant = true
+        user.save
       end
 
       user.activate if user.new?

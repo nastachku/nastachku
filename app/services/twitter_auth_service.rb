@@ -10,6 +10,9 @@ class TwitterAuthService
       else
         user = UserTwitterType.where(twitter_name: attrs[:twitter_name]).first_or_create(attrs)
         user.authorizations << authorization
+
+        user.show_as_participant = true
+        user.save
       end
 
       user.activate if user.new?
