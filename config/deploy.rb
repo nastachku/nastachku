@@ -11,9 +11,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.2.0'
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
-set :ssh_options, {
-  forward_agent: true
-}
+set :ssh_options, { forward_agent: true }
 
 set :pty, true
 

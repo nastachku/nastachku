@@ -8,13 +8,15 @@ class Web::AccountsController < Web::ApplicationController
 
   def update
     @user = AccountEditType.find current_user.id
+    @ticket_order = TicketOrder.new
+
     @user.changed_by = current_user
     if @user.update_attributes params[:user]
       flash_success
       redirect_to edit_account_path
     else
       flash[:error] = @user.errors.full_messages
-      redirect_to action: "edit"
+      render :edit
     end
   end
 
