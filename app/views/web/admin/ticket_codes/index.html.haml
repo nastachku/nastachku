@@ -5,6 +5,8 @@
 
 %h3= t('.total', count: @ticket_codes.length)
 
+= paginate @ticket_codes
+
 %table.table.table-striped
   %thead
     %tr
@@ -15,5 +17,8 @@
         .nowrap= TicketCode.human_attribute_name :created_at
   %tbody
     = render @ticket_codes
+
+= paginate @ticket_codes
+
 
 = link_to t('.new'), new_admin_ticket_code_path, class: 'btn btn-primary'
