@@ -64,13 +64,14 @@ Nastachku::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-    :user_name => 'nastachku-staging123-726c284e131f6298',
-    :password => '201be72c787fb008',
-    :address => 'mailtrap.io',
-    :port => '2525',
-    :authentication => :plain,
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name: Rails.application.secrets.mailtrap["username"],
+    password: Rails.application.secrets.mailtrap["password"],
+    address: 'mailtrap.io',
+    domain: 'mailtrap.io',
+    port: '2525',
+    authentication: :cram_md5
   }
 
   config.middleware.use '::Rack::Auth::Basic' do |u, p|
