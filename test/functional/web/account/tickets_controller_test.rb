@@ -13,8 +13,10 @@ class Web::Account::TicketsControllerTest < ActionController::TestCase
     }
     post :activate, ticket_code: attrs
 
+    @ticket_code.reload
     assert_response :redirect
     assert @user.ticket_orders.first.transaction_id == attrs[:code]
     assert @user.ticket_orders.first.cost == @ticket_code.price
+    assert @ticket_code.active?
   end
 end

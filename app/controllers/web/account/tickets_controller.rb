@@ -4,7 +4,9 @@ class Web::Account::TicketsController < Web::Account::ApplicationController
   end
 
   def activate
-    @ticket_code = TicketCodeEditType.find_by(code: params[:ticket_code][:code])
+    code = params[:ticket_code][:code].downcase
+    @ticket_code = TicketCodeEditType.where(code: code)
+                                     .first_or_initialize
 
     if @ticket_code.valid?
       TicketService.activate(@ticket_code, current_user)

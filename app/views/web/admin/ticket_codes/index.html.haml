@@ -3,6 +3,8 @@
 
 = link_to t('.new'), new_admin_ticket_code_path, class: 'btn btn-primary'
 
+%h3= t('.total', count: @ticket_codes.length)
+
 %table.table.table-striped
   %thead
     %tr

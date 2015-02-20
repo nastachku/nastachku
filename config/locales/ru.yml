@@ -95,6 +95,7 @@ ru:
         index:
           title: 'Коды активации'
           new: 'Создать'
+          total: 'Всего: %{count}'
         new:
           title: Создание кодов активации
         form:
@@ -376,6 +377,7 @@ ru:
           attributes:
             code:
               code_activated: 'Код уже был активирован'
+              code_not_exist: 'Неверный код'
 
         page:
           attributes:

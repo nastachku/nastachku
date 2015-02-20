@@ -3,8 +3,6 @@ class TicketCode < ActiveRecord::Base
 
   belongs_to :distributor
 
-  validates :code, uniqueness: true
-
   enum category: {
                     listener: 0,
                     student: 1,
