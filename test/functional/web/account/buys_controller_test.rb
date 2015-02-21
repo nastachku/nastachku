@@ -16,8 +16,10 @@ class Web::Account::BuysControllerTest < ActionController::TestCase
     post :ticket
     assert_response :redirect
   end
-  test "should put afterparty buy" do
-    post :afterparty
-    assert_response :redirect
-  end
+
+  # NOTE: temporarily disabled
+  # test "should put afterparty buy" do
+  #   post :afterparty
+  #   assert_response :redirect
+  # end
 end
