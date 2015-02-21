@@ -1,3 +1,3 @@
 Platidoma.configure do |config|
-  config.host = 'pg.platidoma.ru'
+  config.host = configus.platidoma.host
 end
