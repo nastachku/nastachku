@@ -29,14 +29,6 @@ Configus.build Rails.env do
       default_from "noreply@nastachku.ru"
     end
 
-    admin do
-      email "admin@np.kaize.ru"
-      password "123456"
-      first_name "Админ"
-      last_name "Админов"
-      city 'Москва'
-    end
-
     badges do
       time_to_print_badges DateTime.new(2015, 4, 9, 18, 0, 0)
     end
@@ -77,13 +69,6 @@ Configus.build Rails.env do
 
   env :development, parent: :production do
 
-    admin do
-      email "admin@np.kaize.ru"
-      password "123456"
-      first_name "Админ"
-      last_name "Админов"
-    end
-
     facebook do
       app_id credentials_hash["development"]["facebook"]["app_id"]
       app_secret credentials_hash["development"]["facebook"]["app_secret"]
@@ -113,13 +98,6 @@ Configus.build Rails.env do
   end
 
   env :staging, parent: :production do
-
-    admin do
-      email "admin@np.kaize.ru"
-      password "123456"
-      first_name "Админ"
-      last_name "Админов"
-    end
 
     mailer do
       default_host "stg.nastachku.ru"
