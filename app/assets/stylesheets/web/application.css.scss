@@ -51,3 +51,15 @@
 .girl_shirt_text {
   font-size: 2.4em !important;
 }
+
+// за неимением лучшего стащил эту кислоту из vendor/assets/stylesheets/mania-style/bootstrap.css
+.alert{padding:8px 35px 8px 14px;margin-bottom:20px;background-color:#ff7518;border:1px solid transparent;-webkit-border-radius:0px;-moz-border-radius:0px;border-radius:0px;text-align:center;}
+.alert,.alert h4{color:#ffffff;}
+.alert h4{margin:0;}
+.alert .close{position:relative;top:-2px;right:-21px;line-height:20px;}
+.alert-success{background-color:#3fb618;border-color:transparent;color:#ffffff;}
+.alert-success h4{color:#ffffff;}
+.alert-danger,.alert-error{background-color:#ff0039;border-color:transparent;color:#ffffff;}
+.alert-danger h4,.alert-error h4{color:#ffffff;}
+.alert-info{background-color:#9954bb;border-color:transparent;color:#ffffff;}
+.alert-info h4{color:#ffffff;}
