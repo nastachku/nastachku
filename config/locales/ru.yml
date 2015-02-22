@@ -373,12 +373,6 @@ ru:
 
     errors:
       models:
-        ticket_code:
-          attributes:
-            code:
-              code_activated: 'Код уже был активирован'
-              code_not_exist: 'Неверный код'
-
         page:
           attributes:
             slug:

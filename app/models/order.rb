@@ -1,5 +1,6 @@
 class Order < ActiveRecord::Base
-  attr_accessible :user_id, :items_count, :payment_state, :cost, :payment_system, :discount_id
+  attr_accessible :user_id, :items_count, :payment_state, :cost, :payment_system, :discount_id,
+                  :transaction_id
 
   belongs_to :discount
   belongs_to :user

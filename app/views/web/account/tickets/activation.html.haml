@@ -1,5 +1,5 @@
 %br
-= simple_form_for @ticket_code, url: activate_account_tickets_path, method: :post, html: { class: 'form-type-login' } do |f|
+= simple_form_for @code_activation_form, url: activate_account_tickets_path, method: :post, html: { class: 'form-type-login' } do |f|
   .layout-line
     = f.input :code, tabindex: 1, input_html: { class: 'input_type-1' }
     %br

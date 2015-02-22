@@ -1,9 +1,11 @@
-class TicketCodeEditType < TicketCode
-  include BasicType
+class TicketCodeActivationType
+  include ActiveModel::Validations
+  include ActiveModel::Conversion
+  include Virtus.model
+
+  attribute :code, String
 
   validates :code, presence: true
-
-  permit :code
 
   validates_each :code do |record, attr, value|
     ticket_code = record.ticket_code
@@ -17,11 +19,11 @@ class TicketCodeEditType < TicketCode
     end
   end
 
-  def code=(code)
-    write_attribute(:code, code.downcase)
-  end
-
   def ticket_code
     @ticket_code ||= TicketCode.find_by(code: code.downcase)
+  end
+
+  def persisted?
+    false
   end
 end
