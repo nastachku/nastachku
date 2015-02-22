@@ -29,14 +29,6 @@ Configus.build Rails.env do
       default_from "noreply@nastachku.ru"
     end
 
-    admin do
-      email "admin@np.kaize.ru"
-      password "123456"
-      first_name "Админ"
-      last_name "Админов"
-      city 'Москва'
-    end
-
     badges do
       time_to_print_badges DateTime.new(2015, 4, 9, 18, 0, 0)
     end
@@ -63,12 +55,7 @@ Configus.build Rails.env do
     end
 
     platidoma do
-      host credentials_hash["production"]["platidoma"]["host"]
-      shop_id credentials_hash["production"]["platidoma"]["shop_id"]
-      login credentials_hash["production"]["platidoma"]["login"]
-      gate_password credentials_hash["production"]["platidoma"]["gate_password"]
-      shirt_price 500
-      afterparty_price 2500
+      host 'pg.platidoma.ru'
     end
 
     timepad do
@@ -82,13 +69,6 @@ Configus.build Rails.env do
 
   env :development, parent: :production do
 
-    admin do
-      email "admin@np.kaize.ru"
-      password "123456"
-      first_name "Админ"
-      last_name "Админов"
-    end
-
     facebook do
       app_id credentials_hash["development"]["facebook"]["app_id"]
       app_secret credentials_hash["development"]["facebook"]["app_secret"]
@@ -99,11 +79,7 @@ Configus.build Rails.env do
     end
 
     platidoma do
-      host credentials_hash["development"]["platidoma"]["host"]
-      shop_id credentials_hash["development"]["platidoma"]["shop_id"]
-      login credentials_hash["development"]["platidoma"]["login"]
-      gate_password credentials_hash["development"]["platidoma"]["gate_password"]
-      shirt_price 500
+      host 'pg-test.platidoma.ru'
     end
 
     timepad do
@@ -117,22 +93,11 @@ Configus.build Rails.env do
 
   env :test, parent: :production do
     platidoma do
-      url "https://pg-test.platidoma.ru/"
-      shop_id 7
-      login "test"
-      gate_password "test"
-      shirt_price 500
+      host 'pg-test.platidoma.ru'
     end
   end
 
   env :staging, parent: :production do
-
-    admin do
-      email "admin@np.kaize.ru"
-      password "123456"
-      first_name "Админ"
-      last_name "Админов"
-    end
 
     mailer do
       default_host "stg.nastachku.ru"
@@ -154,11 +119,7 @@ Configus.build Rails.env do
     end
 
     platidoma do
-      host credentials_hash["staging"]["platidoma"]["host"]
-      shop_id credentials_hash["staging"]["platidoma"]["shop_id"]
-      login credentials_hash["staging"]["platidoma"]["login"]
-      gate_password credentials_hash["staging"]["platidoma"]["gate_password"]
-      shirt_price 500
+      host 'pg-test.platidoma.ru'
     end
 
     timepad do
