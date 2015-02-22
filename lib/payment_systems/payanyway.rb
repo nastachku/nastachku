@@ -39,7 +39,7 @@ module PaymentSystems
         amount: amount
       )
 
-      order
+      order.transaction_id = params[:MNT_OPERATION_ID]
     end
 
     private

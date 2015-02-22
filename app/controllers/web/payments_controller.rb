@@ -4,6 +4,7 @@ class Web::PaymentsController < Web::ApplicationController
   def paid_payanyway
     order = PaymentSystem.new(:payanyway).pay!(params)
     order.pay unless order.paid?
+    order.save
 
     render text: 'SUCCESS', content_type: 'text/plain'
   rescue PaymentSystem::SignatureError, ActiveRecord::RecordNotFound => e
