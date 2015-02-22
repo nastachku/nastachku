@@ -28,6 +28,7 @@ set :resque_kill_signal, 'TERM'
 set :resque_log_file, -> { File.join(current_path, 'log', 'resque_worker.log') }
 
 after 'deploy:publishing', 'deploy:restart'
+after 'deploy:finished', 'airbrake:deploy'
 
 namespace :deploy do
   task :restart do
@@ -36,4 +37,3 @@ namespace :deploy do
     invoke 'resque:restart'
   end
 end
-
