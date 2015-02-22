@@ -103,7 +103,7 @@ Nastachku::Application.routes.draw do
       end
     end
 
-    post 'payments/paid/payanyway', to: 'payments#paid_payanyway', defaults: {format: 'xml'}
+    post 'payments/paid/payanyway', to: 'payments#paid_payanyway'
     get 'payments/success/payanyway', to: 'payments#success_payanyway'
     get 'payments/decline/payanyway', to: 'payments#decline_payanyway'
     get 'payments/cancel/payanyway', to: 'payments#cancel_payanyway'

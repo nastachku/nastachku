@@ -40,6 +40,7 @@ module PaymentSystems
       )
 
       order.transaction_id = params[:MNT_OPERATION_ID]
+      order
     end
 
     private
