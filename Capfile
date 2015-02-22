@@ -3,6 +3,7 @@ require 'capistrano/deploy'
 
 require 'capistrano/rbenv'
 require 'capistrano/bundler'
+require 'airbrake/capistrano3'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 require 'capistrano3/unicorn'
