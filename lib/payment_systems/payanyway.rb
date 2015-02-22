@@ -27,20 +27,6 @@ module PaymentSystems
       uri.to_s
     end
 
-    def check_payment!(params)
-      order = Order.find_by number: params[:MNT_TRANSACTION_ID]
-      transaction_id = order.number
-      amount = format_amount order.cost
-
-      validate_check_request_signature! params[:MNT_SIGNATURE], transaction_id: transaction_id, amount: amount
-      validate_amount! amount, params[:MNT_AMOUNT]
-      signature = sign_check_response(transaction_id, amount)
-
-      Struct.new(:id, :order_number, :result_code, :order_state, :amount, :response_signature).new(
-        @id, transaction_id, result_code_for(order), order.payment_state, amount, signature
-      )
-    end
-
     def pay!(params)
       order = Order.find_by! number: params[:MNT_TRANSACTION_ID]
       transaction_id = order.number
@@ -57,13 +43,6 @@ module PaymentSystems
     end
 
     private
-    def validate_check_request_signature!(their_signature, transaction_id:, amount:)
-      our_signature = Digest::MD5.hexdigest "CHECK#{@id}#{transaction_id}#{amount}#{@currency_code}#{@test_mode}#{@integrity_check_code}"
-
-      log "Invalid signature. their_signature: '#{their_signature}', transaction_id '#{transaction_id}', amount: '#{amount}'"
-      raise PaymentSystem::SignatureError unless our_signature == their_signature
-    end
-
     def validate_pay_request_signature!(their_signature, operation_id:, transaction_id:, amount:)
       our_signature = Digest::MD5.hexdigest "#{@id}#{transaction_id}#{operation_id}#{amount}#{@currency_code}#{@test_mode}#{@integrity_check_code}"
 
@@ -76,10 +55,6 @@ module PaymentSystems
     end
 
     def sign_payment_request(transaction_id, amount)
-      Digest::MD5.hexdigest "#{@id}#{transaction_id}#{amount}#{@currency_code}#{@test_mode}#{@integrity_check_code}"
-    end
-
-    def sign_check_response(transaction_id, amount)
       Digest::MD5.hexdigest "#{@id}#{transaction_id}#{amount}#{@currency_code}#{@test_mode}#{@integrity_check_code}"
     end
 
