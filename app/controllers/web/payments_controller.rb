@@ -6,7 +6,12 @@ class Web::PaymentsController < Web::ApplicationController
   end
 
   def paid_payanyway
-    @result = PaymentSystem.new(:payanyway).pay!(params)
+    order = PaymentSystem.new(:payanyway).pay!(params)
+    order.pay unless order.paid?
+
+    render text: 'SUCCESS', content_type: 'text/plain'
+  rescue PaymentSystem::SignatureError, ActiveRecord::RecordNotFound => e
+    render text: 'FAIL', content_type: 'text/plain'
   end
 
   rescue_from PaymentSystem::SignatureError, PaymentSystem::InvalidAmountError do |exception|
