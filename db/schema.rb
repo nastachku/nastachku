@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218152015) do
+ActiveRecord::Schema.define(version: 20150223121019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,14 @@ ActiveRecord::Schema.define(version: 20150218152015) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "cost"
+  end
+
+  create_table "distributors", force: :cascade do |t|
+    t.string   "title"
+    t.string   "address"
+    t.string   "contacts"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "event_users", force: :cascade do |t|
@@ -153,14 +161,6 @@ ActiveRecord::Schema.define(version: 20150218152015) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "distributors", force: :cascade do |t|
-    t.string   "title"
-    t.string   "address"
-    t.string   "contacts"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "sessions", force: :cascade do |t|
     t.string   "session_id", limit: 255, null: false
     t.text     "data"
@@ -187,8 +187,8 @@ ActiveRecord::Schema.define(version: 20150218152015) do
     t.string   "category"
     t.string   "state"
     t.integer  "price"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "ticket_codes", ["distributor_id"], name: "index_ticket_codes_on_distributor_id", using: :btree
@@ -225,8 +225,8 @@ ActiveRecord::Schema.define(version: 20150218152015) do
   create_table "users", force: :cascade do |t|
     t.string   "email",                   limit: 255
     t.string   "password_digest",         limit: 255
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.string   "city",                    limit: 255
     t.string   "company",                 limit: 255
     t.boolean  "show_as_participant"
@@ -255,6 +255,8 @@ ActiveRecord::Schema.define(version: 20150218152015) do
     t.text     "vkontakte"
     t.text     "reason_to_give_ticket"
     t.string   "badge_state",             limit: 255
+    t.integer  "code_activation_count",               default: 0, null: false
+    t.datetime "last_code_activation_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

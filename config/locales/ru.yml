@@ -142,6 +142,9 @@ ru:
           add_event: 'Добавить доклад'
         event_fields:
           remove_event: 'Удалить доклад'
+      tickets:
+        activate:
+          too_frequent_activations: 'Слишком много попыток активации. Повторите через 10 минут.'
 
       passwords:
         edit:

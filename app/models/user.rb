@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :first_name, :last_name, :city, :company, :position,
     :show_as_participant, :photo, :state_event, :about, :carousel_info, :in_carousel,
     :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event,
-    :pay_state_event, :facebook, :vkontakte, :reason_to_give_ticket, :badge_state_event
+    :pay_state_event, :facebook, :vkontakte, :reason_to_give_ticket, :badge_state_event,
+    :code_activation_count, :last_code_activation_at
 
   validates :email, uniqueness: { case_sensitive: false }, email: true, allow_nil: true
   validates :last_name, presence: true

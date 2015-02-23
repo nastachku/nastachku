@@ -62,4 +62,27 @@ module AuthHelper
     sign_out
     redirect_to banned_path
   end
+
+  def can_activate_code?
+    current_user.code_activation_count < 10
+  end
+
+  def update_code_activation_count
+    current_user.update(
+      last_code_activation_at: Time.current,
+      code_activation_count: current_user.code_activation_count += 1
+    )
+  end
+
+  def clear_code_activation_count
+    current_user.update(code_activation_count: 0)
+  end
+
+  def manage_code_activation_count
+    if can_activate_code?
+      update_code_activation_count
+    elsif current_user.last_code_activation_at && current_user.last_code_activation_at < 10.minutes.ago
+      clear_code_activation_count
+    end
+  end
 end
