@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223121019) do
+ActiveRecord::Schema.define(version: 20150223210157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -193,6 +193,19 @@ ActiveRecord::Schema.define(version: 20150223121019) do
 
   add_index "ticket_codes", ["distributor_id"], name: "index_ticket_codes_on_distributor_id", using: :btree
 
+  create_table "tickets", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "user_id"
+    t.integer  "ticket_code_id"
+    t.float    "price"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "tickets", ["order_id"], name: "index_tickets_on_order_id", using: :btree
+  add_index "tickets", ["ticket_code_id"], name: "index_tickets_on_ticket_code_id", using: :btree
+  add_index "tickets", ["user_id"], name: "index_tickets_on_user_id", using: :btree
+
   create_table "topics", force: :cascade do |t|
     t.string   "title",       limit: 255
     t.text     "description"
@@ -287,4 +300,7 @@ ActiveRecord::Schema.define(version: 20150223121019) do
   end
 
   add_foreign_key "ticket_codes", "distributors"
+  add_foreign_key "tickets", "orders"
+  add_foreign_key "tickets", "ticket_codes"
+  add_foreign_key "tickets", "users"
 end

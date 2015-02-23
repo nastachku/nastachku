@@ -15,8 +15,8 @@ class Web::Account::TicketsControllerTest < ActionController::TestCase
 
     @ticket_code.reload
     assert_response :redirect
-    assert @user.ticket_orders.first.transaction_id == attrs[:code]
-    assert @user.ticket_orders.first.cost == @ticket_code.price
+    assert @user.ticket.ticket_code == @ticket_code
+    assert @user.ticket.price == @ticket_code.price
     assert @ticket_code.active?
   end
 
@@ -28,8 +28,8 @@ class Web::Account::TicketsControllerTest < ActionController::TestCase
 
     @ticket_code.reload
     assert_response :redirect
-    assert @user.ticket_orders.first.transaction_id == attrs[:code].downcase
-    assert @user.ticket_orders.first.cost == @ticket_code.price
+    assert @user.ticket.ticket_code == @ticket_code
+    assert @user.ticket.price == @ticket_code.price
     assert @ticket_code.active?
   end
 
