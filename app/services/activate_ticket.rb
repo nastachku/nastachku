@@ -1,17 +1,8 @@
 class ActivateTicket
-  class << self
-    def call(user, ticket_code)
+  def self.call(user, ticket_code)
+    ActiveRecord::Base.transaction do
+      user.create_ticket! price: ticket_code.price
       ticket_code.activate!
-
-      order = user.ticket_orders
-                  .create(
-                    cost: ticket_code.price,
-                    transaction_id: ticket_code.code,
-                    payment_system: 'paper_ticket',
-                    items_count: 1
-                  )
-
-      order.pay!
     end
   end
 end
