@@ -75,7 +75,11 @@ module PlatidomaHelper
         declined: :decline
       }
 
-      order.fire_payment_state_event(state_event_hash[status.to_sym])
+      if state_event_hash[status.to_sym] == :pay
+        ProcessPaidOrder.call order
+      else
+        order.fire_payment_state_event(state_event_hash[status.to_sym])
+      end
     end
 
   end

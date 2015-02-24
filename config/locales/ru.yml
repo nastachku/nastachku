@@ -110,6 +110,7 @@ ru:
         title: 'Редактирование аккаунта'
       orders:
         stachka_ticket: Билет на Стачку
+        afterparty_ticket: Билет на вечеринку
       user_attributes:
         i_will_come_to_stachka: "Я приду на Стачку!"
         save: 'Обновить информацию'
