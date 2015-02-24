@@ -9,9 +9,9 @@ set :log_level, :info
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.2.0'
-set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+set :rbenv_map_bins, %w(rake gem bundle ruby rails)
 
-set :ssh_options, { forward_agent: true }
+set :ssh_options, forward_agent: true
 
 set :pty, true
 
@@ -21,7 +21,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp/pids', 'tmp/ca
 set :unicorn_pid, -> { File.join(shared_path, "pids", "unicorn.pid") }
 set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.rb") }
 
-set :workers, { '*' => 1, 'mailer' => 1 }
+set :workers, '*' => 1, 'mailer' => 1
 set :resque_environment_task, true
 set :resque_pid_path, -> { File.join(shared_path, 'pids') }
 set :resque_kill_signal, 'TERM'
@@ -35,5 +35,6 @@ namespace :deploy do
     invoke 'unicorn:stop'
     invoke 'unicorn:start'
     invoke 'resque:restart'
+    invoke 'resque:scheduler:restart'
   end
 end

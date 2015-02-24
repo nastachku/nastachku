@@ -73,9 +73,4 @@ Nastachku::Application.configure do
     port: '2525',
     authentication: :cram_md5
   }
-
-  config.middleware.use '::Rack::Auth::Basic' do |u, p|
-    u == configus.basic_auth.username &&
-      p == configus.basic_auth.password
-  end
 end
