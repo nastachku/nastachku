@@ -1,9 +1,22 @@
 class ChangeOrdersData < ActiveRecord::Migration
-  # class Ticket < ActiveRecord::Base
-  # end
+  class Order < ActiveRecord::Base
+    has_many :tickets
+    belongs_to :user
+    def paid?
+      payment_state == 'paid'
+    end
+  end
 
-  # class Order < ActiveRecord::Base
-  # end
+  class Ticket < ActiveRecord::Base
+    attr_accessible :price
+    belongs_to :order
+    belongs_to :user
+  end
+
+  class User < ActiveRecord::Base
+    has_many :orders
+    has_one :ticket
+  end
 
   def up
     Order.find_each do |order|
