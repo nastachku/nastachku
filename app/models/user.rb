@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   has_many :orders
 
   has_one :ticket
+  has_one :afterparty_ticket
 
   # NOTE: кандидаты на удаление
   has_many :shirt_orders
