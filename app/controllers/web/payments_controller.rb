@@ -1,12 +1,10 @@
 class Web::PaymentsController < Web::ApplicationController
+  skip_before_filter :basic_auth_if_staging, only: [:paid_payanyway, :success_payanyway, :decline_payanyway, :cancel_payanyway]
   skip_before_filter :verify_authenticity_token, only: [:paid_payanyway, :success_payanyway, :decline_payanyway, :cancel_payanyway]
 
   def paid_payanyway
-    Rails.logger.warn "#{params.inspect}"
     order = PaymentSystem.new(:payanyway).pay!(params)
-    Rails.logger.warn "#{order.inspect}"
     ProcessPaidOrder.call order
-    Rails.logger.warn "#{order.inspect}"
 
     render text: 'SUCCESS'
   rescue PaymentSystem::SignatureError, ActiveRecord::RecordNotFound => e
@@ -33,9 +31,5 @@ class Web::PaymentsController < Web::ApplicationController
 
     flash_error now: false
     redirect_to edit_account_path anchor: :orders
-  end
-
-  rescue_from PaymentSystem::SignatureError, PaymentSystem::InvalidAmountError do |exception|
-    head :not_found
   end
 end
