@@ -73,6 +73,13 @@ Nastachku::Application.routes.draw do
         end
         resources :shirt_orders, only: [:new, :create]
         resources :ticket_orders, only: :create
+        resource :tickets, only: [] do
+          collection do
+            post :activate
+            get :activation
+          end
+        end
+
         resources :order_options, only: :create
         get "code/:code" => "discounts#show"
         post "discount" => "accounts#edit"
@@ -122,6 +129,8 @@ Nastachku::Application.routes.draw do
       resources :users
       resources :audits, only: [:index]
       resources :topics
+      resources :distributors, except: :show
+      resources :ticket_codes, only: [:index, :new, :create]
 
       resources :events
       resources :workshops

@@ -1,8 +1,10 @@
 class Order < ActiveRecord::Base
-  attr_accessible :user_id, :items_count, :payment_state, :cost, :payment_system, :discount_id
+  attr_accessible :user_id, :items_count, :payment_state, :cost, :payment_system, :discount_id,
+                  :transaction_id
 
   belongs_to :discount
   belongs_to :user
+  has_many :tickets
 
   validates :items_count, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
