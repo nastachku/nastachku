@@ -2,8 +2,11 @@ class Web::PaymentsController < Web::ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:paid_payanyway, :success_payanyway, :decline_payanyway, :cancel_payanyway]
 
   def paid_payanyway
+    Rails.logger.warn "#{params.inspect}"
     order = PaymentSystem.new(:payanyway).pay!(params)
+    Rails.logger.warn "#{order.inspect}"
     ProcessPaidOrder.call order
+    Rails.logger.warn "#{order.inspect}"
 
     render text: 'SUCCESS'
   rescue PaymentSystem::SignatureError, ActiveRecord::RecordNotFound => e
