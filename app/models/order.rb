@@ -25,8 +25,6 @@ class Order < ActiveRecord::Base
       transition [:unpaid, :declined] => :paid
     end
 
-    after_transition to: :paid, :do => :mark_user_as_participant
-
     event :cancel do
       transition [:unpaid] => :canceled
     end
@@ -44,11 +42,17 @@ class Order < ActiveRecord::Base
     unpaid? || declined?
   end
 
-  private
-  def mark_user_as_participant
-    user.pay_part if user
+  def recalculate_cost!
+    total_cost = (tickets.pluck(:price) | afterparty_tickets.pluck(:price)).inject(:+)
+    update_attributes cost: total_cost
   end
 
+  def recalculate_items_count!
+    total_items_count = tickets.count + afterparty_tickets.count
+    update_attributes items_count: total_items_count
+  end
+
+  private
   def generate_number
     self.number = SecureRandom.uuid
   end

@@ -1,26 +1,39 @@
 #order_form.order__new
   .order__new__items
-    - if current_user.paid_part?
-      %h3.ticket_paid
-        Вы купили билет на Стачку!
-    - else
-      .order__new__item.order__new__item__days
-        .order__new__item__name
-          = t('.stachka_ticket')
-        .order__new__item__price
-          %h4
-            %span#ticket_price_score
-              = TicketOrder.ticket_price
-            %span.rouble i
-      .order__new__submit
-        / = simple_form_for @ticket_order, url: pay_account_buy_path, method: :put do |f|
-        /   = hidden_field_tag :payment_system, :payanyway
-        /   %button#submit_order.btn_main{ type: "submit" } Оплатить через PayAnyWay
-        = link_to activation_account_tickets_path do
-          %button#submit_order.btn_main{ type: "submit" } У меня уже есть билет!
-        = simple_form_for @ticket_order, url: pay_account_buy_path, method: :put do |f|
-          = hidden_field_tag :payment_system, :platidoma
-          %button#submit_order.btn_main{ type: "submit" } Оплатить через Платидома
+    %ul.order__new__items
+      = simple_form_for @order, url: pay_account_buy_path, method: :put do |f|
+        %li.order__new__item.order__new__item__days
+          - if current_user.ticket
+            %h3.ticket_paid Вы купили билет на Стачку!
+          - else
+            .order__new__item__name
+              = check_box_tag :ticket, nil, true, id: "two_days", class: 'checkbox_type-1'
+              = label_tag 'two_days', t('.stachka_ticket')
+            .order__new__item__price
+              %h4
+                %span#ticket_price_score
+                  = Pricelist.ticket_price
+                %span.rouble i
+        %li.order__new__item
+          - if current_user.afterparty_ticket
+            %h3.ticket_paid Вы купили билет вечеринку!
+          - else
+            .order__new__item__name
+              = check_box_tag :afterparty_ticket, nil, false, id: "afterparty", class: 'checkbox_type-1'
+              = label_tag 'afterparty', t('.afterparty_ticket')
+            .order__new__item__price
+              %h4
+                %span#ticket_price_score
+                  = Pricelist.afterparty_ticket_price
+                %span.rouble i
+        .order__new__submit
+          / = simple_form_for @ticket_order, url: pay_account_buy_path, method: :put do |f|
+          /   = hidden_field_tag :payment_system, :payanyway
+          /   %button#submit_order.btn_main{ type: "submit" } Оплатить через PayAnyWay
+          = link_to activation_account_tickets_path do
+            %button.btn_main{ type: "submit" } У меня уже есть билет!
+            =# hidden_field_tag :payment_system, :platidoma
+            %button#submit_order.btn_main{ type: "submit", name: 'payment_system', value: 'platidoma' } Оплатить через Платидома
 
 .orderlist
   .layout-line

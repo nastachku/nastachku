@@ -1,6 +1,6 @@
 class AfterpartyOrder < Order
-  attr_accessible :order_option_id
-  belongs_to :order_option
+  belongs_to :order
+  belongs_to :user
 
   #FIXME найти другой вариант реализации перевода
   def to_s
@@ -10,5 +10,4 @@ class AfterpartyOrder < Order
   def its_cost
     self.items_count * configus.platidoma.afterparty_price
   end
-
 end
