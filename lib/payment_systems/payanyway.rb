@@ -22,7 +22,7 @@ module PaymentSystems
         :MNT_SIGNATURE => signature
       }
 
-      uri = Addressable::URI.heuristic_parse 'https://www.moneta.ru/assistant.htm' # TODO: move to config
+      uri = Addressable::URI.heuristic_parse config.payment_url
       uri.query_values = params
       uri.to_s
     end
