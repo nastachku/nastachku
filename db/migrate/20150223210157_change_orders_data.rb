@@ -7,6 +7,9 @@ class ChangeOrdersData < ActiveRecord::Migration
     end
   end
 
+  class TicketOrder < Order
+  end
+
   class Ticket < ActiveRecord::Base
     attr_accessible :price
     belongs_to :order
