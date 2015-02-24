@@ -43,12 +43,8 @@ ru:
               success: "Введите новый пароль"
 
           social_networks:
-            link_twitter:
-              success: "Twitter успешно связан с аккаунтом"
-              error: "Twitter не связан с аккаунтом"
-            unlink_twitter:
-              success: "Twitter успешно отвязан от аккаунта"
-              error: "Twitter не отвязан от аккаунта"
+            auth:
+              success: "Вы вошли на сайт"
 
           orders:
             update:
