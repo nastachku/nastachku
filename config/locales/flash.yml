@@ -87,7 +87,7 @@ ru:
 
         sessions:
           create:
-            success: 'Вы вошли на сайт.'
+            success: 'Вы вошли на сайт'
             error:   'Аутентификация не удалась. Проверьте логин/пароль.'
 
         remind_passwords:
