@@ -102,6 +102,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def bought_tickets?
+    ticket && afterparty_ticket
+  end
+
   def create_auth_token
     create_token(configus.token.auth_lifetime)
   end

@@ -29,8 +29,9 @@
         .order__new__submit
           = link_to activation_account_tickets_path do
             %button.btn_main{ type: "submit" } У меня уже есть билет!
-          %button#submit_order.btn_main{ type: "submit", name: 'payment_system', value: 'payanyway' } Оплатить через PayAnyWay
-          %button#submit_order.btn_main{ type: "submit", name: 'payment_system', value: 'platidoma' } Оплатить через Платидома
+          - unless current_user.bought_tickets?
+            %button#submit_order.btn_main{ type: "submit", name: 'payment_system', value: 'payanyway' } Оплатить через PayAnyWay
+            %button#submit_order.btn_main{ type: "submit", name: 'payment_system', value: 'platidoma' } Оплатить через Платидома
 
 .orderlist
   .layout-line
