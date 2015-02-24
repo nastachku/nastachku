@@ -9,24 +9,15 @@ class UserDecoratorTest < Draper::TestCase
     assert @user.assets_user_pic
   end
 
-  test "ticket" do
-    ticket = create :ticket_order
-    ticket.pay
-    @user.orders << ticket
-    assert @user.ticket
-  end
-
   test "ticket_price" do
-    ticket = create :ticket_order
-    ticket.pay
-    @user.orders << ticket
+    @user.create_ticket price: Pricelist.ticket_price
+
     assert @user.ticket_price
   end
 
   test "ticket_date" do
-    ticket = create :ticket_order
-    ticket.pay
-    @user.orders << ticket
+    @user.create_ticket
+
     assert @user.ticket_date
   end
 

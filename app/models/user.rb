@@ -23,15 +23,9 @@ class User < ActiveRecord::Base
   has_many :lecture_votings
   has_many :listener_votings
   has_many :orders
-
   has_one :ticket
   has_one :afterparty_ticket
-
-  # NOTE: кандидаты на удаление
   has_many :shirt_orders
-  has_many :afterparty_orders
-  has_many :ticket_orders
-
   has_many :auth_tokens
   has_many :topics, through: :user_topics
   has_many :user_topics

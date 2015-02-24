@@ -72,7 +72,6 @@ Nastachku::Application.routes.draw do
           end
         end
         resources :shirt_orders, only: [:new, :create]
-        resources :ticket_orders, only: :create
         resource :tickets, only: [] do
           collection do
             post :activate
@@ -85,8 +84,6 @@ Nastachku::Application.routes.draw do
         post "discount" => "accounts#edit"
         resource :buy, only: [] do
           put :pay
-          post :ticket
-          post :afterparty
         end
         resources :promo_codes, only: []  do
           member do

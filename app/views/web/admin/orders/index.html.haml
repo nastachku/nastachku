@@ -8,7 +8,6 @@
     %tr
       %th= sort_link(@search, :id)
       %th= sort_link(@search, :user_id, t(".buyer"))
-      %th= sort_link(@search, :type)
       %th= sort_link(@search, :items_count)
       %th= t(".cost")
       %th= sort_link(@search, :payment_state)
@@ -18,7 +17,6 @@
       %tr
         %td= order.id
         %td= link_to order.user, admin_user_path(order.user) if order.user
-        %td= order
         %td= order.items_count
         %td= order.cost
         %td= order.human_payment_state_name
