@@ -10,6 +10,14 @@ ru:
             success: 'Ваш аккаунт успешно активирован!'
             error: "Ссылка не действительна, возможно истекло время её жизни"
 
+        payments:
+          success_payanyway:
+            success: 'Вы успешно приобрели билет!'
+          decline_payanyway:
+            notice: 'Вы отказались от платежа =['
+          cancel_payanyway:
+            error: 'Не удалось совершить платеж, попробуйте еще раз позже.'
+
         account:
           ticket_orders:
             create:

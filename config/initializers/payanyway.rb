@@ -4,5 +4,5 @@ PaymentSystems::Payanyway.configure do |config|
   config.id = Rails.application.secrets.payanyway_id
   config.integrity_check_code = Rails.application.secrets.payanyway_integrity_check_code
   config.currency = 'RUB'
-  config.test_mode = 1
+  config.test_mode = configus.payanyway.test_mode
 end

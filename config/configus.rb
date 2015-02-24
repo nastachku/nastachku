@@ -58,6 +58,10 @@ Configus.build Rails.env do
       host 'pg.platidoma.ru'
     end
 
+    payanyway do
+      test_mode 0
+    end
+
     timepad do
       maillist_add_items_url credentials_hash["production"]["timepad"]["maillist_add_items_url"]
       organization_id credentials_hash["production"]["timepad"]["organization_id"]
@@ -82,6 +86,10 @@ Configus.build Rails.env do
       host 'pg-test.platidoma.ru'
     end
 
+    payanyway do
+      test_mode 1
+    end
+
     timepad do
       maillist_add_items_url credentials_hash["development"]["timepad"]["maillist_add_items_url"]
       organization_id credentials_hash["development"]["timepad"]["organization_id"]
@@ -94,6 +102,10 @@ Configus.build Rails.env do
   env :test, parent: :production do
     platidoma do
       host 'pg-test.platidoma.ru'
+    end
+
+    payanyway do
+      test_mode 1
     end
   end
 
@@ -120,6 +132,10 @@ Configus.build Rails.env do
 
     platidoma do
       host 'pg-test.platidoma.ru'
+    end
+
+    payanyway do
+      test_mode 1
     end
 
     timepad do
