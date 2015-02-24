@@ -59,6 +59,7 @@ Configus.build Rails.env do
     end
 
     payanyway do
+      host 'https://payanyway.ru'
       test_mode 0
     end
 
@@ -87,7 +88,8 @@ Configus.build Rails.env do
     end
 
     payanyway do
-      test_mode 1
+      host 'https://demo.moneta.ru'
+      test_mode 0
     end
 
     timepad do
@@ -105,7 +107,8 @@ Configus.build Rails.env do
     end
 
     payanyway do
-      test_mode 1
+      host 'https://demo.moneta.ru'
+      test_mode 0
     end
   end
 
@@ -135,7 +138,8 @@ Configus.build Rails.env do
     end
 
     payanyway do
-      test_mode 1
+      host 'https://demo.moneta.ru'
+      test_mode 0
     end
 
     timepad do

@@ -22,15 +22,18 @@ module PaymentSystems
         :MNT_SIGNATURE => signature
       }
 
-      uri = Addressable::URI.heuristic_parse 'https://www.moneta.ru/assistant.htm' # TODO: move to config
+      uri = Addressable::URI.heuristic_parse config.payment_url
       uri.query_values = params
       uri.to_s
     end
 
     def pay!(params)
+      log "params: #{params.inspect}"
       order = Order.find_by! number: params[:MNT_TRANSACTION_ID]
       transaction_id = order.number
       amount = format_amount order.cost
+
+      log 'entering signature validation'
 
       validate_pay_request_signature!(
         params[:MNT_SIGNATURE],
@@ -38,6 +41,8 @@ module PaymentSystems
         transaction_id: transaction_id,
         amount: amount
       )
+
+      log 'passed signature validation'
 
       order.transaction_id = params[:MNT_OPERATION_ID]
       order
@@ -47,7 +52,7 @@ module PaymentSystems
     def validate_pay_request_signature!(their_signature, operation_id:, transaction_id:, amount:)
       our_signature = Digest::MD5.hexdigest "#{@id}#{transaction_id}#{operation_id}#{amount}#{@currency_code}#{@test_mode}#{@integrity_check_code}"
 
-      log "Invalid signature. their_signature: '#{their_signature}', operation_id: '#{operation_id}', transaction_id '#{transaction_id}', amount: '#{amount}'"
+      log "our_signature: '#{our_signature}', their_signature: '#{their_signature}', operation_id: '#{operation_id}', transaction_id '#{transaction_id}', amount: '#{amount}'"
       raise PaymentSystem::SignatureError unless our_signature == their_signature
     end
 
