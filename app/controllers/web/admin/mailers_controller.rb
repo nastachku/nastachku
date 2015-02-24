@@ -3,7 +3,7 @@ class Web::Admin::MailersController < Web::Admin::ApplicationController
     @user = UserDecorator.decorate(User.first)
     @token = @user.create_user_welcome_token
     @attended_users_size = User.where(show_as_participant: false).size
-    @users_size =  User.joins(:orders).merge(Order.paid).count
+    @users_size = User.joins(:orders).merge(Order.paid).count
     @admins_size = User.where(admin: true).count
   end
 
