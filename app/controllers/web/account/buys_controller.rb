@@ -9,7 +9,12 @@ class Web::Account::BuysController < Web::Account::ApplicationController
       }
     )
 
-    pay_url = PaymentSystem.new(params[:payment_system]).pay_url order
-    redirect_to pay_url
+    if order.tickets.any? || order.afterparty_tickets.any?
+      pay_url = PaymentSystem.new(params[:payment_system]).pay_url order
+      redirect_to pay_url
+    else
+      flash_notice
+      redirect_to edit_account_path anchor: :orders
+    end
   end
 end

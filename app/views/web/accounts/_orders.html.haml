@@ -4,7 +4,7 @@
       = simple_form_for @order, url: pay_account_buy_path, method: :put do |f|
         %li.order__new__item.order__new__item__days
           - if current_user.ticket
-            %h3.ticket_paid Вы купили билет на Стачку!
+            %h3 Вы купили билет на Стачку!
           - else
             .order__new__item__name
               = check_box_tag :ticket, nil, true, id: "two_days", class: 'checkbox_type-1'
@@ -16,10 +16,10 @@
                 %span.rouble i
         %li.order__new__item
           - if current_user.afterparty_ticket
-            %h3.ticket_paid Вы купили билет вечеринку!
+            %h3 Вы купили билет вечеринку!
           - else
             .order__new__item__name
-              = check_box_tag :afterparty_ticket, nil, false, id: "afterparty", class: 'checkbox_type-1'
+              = check_box_tag :afterparty_ticket, nil, true, id: "afterparty", class: 'checkbox_type-1'
               = label_tag 'afterparty', t('.afterparty_ticket')
             .order__new__item__price
               %h4
