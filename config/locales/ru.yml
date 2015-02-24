@@ -76,16 +76,41 @@ ru:
             workshops: 'Секции'
             halls: 'Залы'
             events: 'События'
+            tickets: 'Билеты'
+            distributors: 'Распространители'
+            ticket_codes: 'Коды активации'
   shared:
     empty_lectures:
       not_added_yet: 'Пока не добавлено ни одного доклада. Вы можете'
       first_speaker: 'стать первым докладчиком.'
   web:
+    admin:
+      distributors:
+        index:
+          title: 'Распространители'
+          new: 'Создать'
+        new:
+          title: 'Создание распространителя'
+      ticket_codes:
+        index:
+          title: 'Коды активации'
+          new: 'Создать'
+          total: 'Всего: %{count}'
+        new:
+          title: Создание кодов активации
+        form:
+          create: Создать
+          category: Категория
+          distributor: Распространитель
+          price: Цена
+          count: Количество
+
     accounts:
       edit:
         title: 'Редактирование аккаунта'
       orders:
         stachka_ticket: Билет на Стачку
+        afterparty_ticket: Билет на вечеринку
       user_attributes:
         i_will_come_to_stachka: "Я приду на Стачку!"
         save: 'Обновить информацию'
@@ -118,6 +143,9 @@ ru:
           add_event: 'Добавить доклад'
         event_fields:
           remove_event: 'Удалить доклад'
+      tickets:
+        activate:
+          too_frequent_activations: 'Слишком много попыток активации. Повторите через 10 минут.'
 
       passwords:
         edit:

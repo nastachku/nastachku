@@ -38,22 +38,11 @@ class UserDecorator < Draper::Decorator
     end
   end
 
-  # FIXME: этому здесь не место, тем более в таком виде
-  def ticket
-    model.ticket_orders.select { |ticket| ticket.paid? }.first
-  end
-
   def ticket_price
-    ticket = model.ticket_orders.select { |ticket| ticket.paid? }.first
-    if ticket
-      ticket.its_cost
-    end
+    model.ticket.price
   end
 
   def ticket_date
-    ticket = model.ticket_orders.select { |ticket| ticket.paid? }.first
-    if ticket.present?
-      ticket.created_at.to_date
-    end
+    model.ticket.created_at.to_date
   end
 end

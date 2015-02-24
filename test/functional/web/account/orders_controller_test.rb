@@ -4,7 +4,8 @@ class Web::Account::OrdersControllerTest < ActionController::TestCase
   setup do
     @user = create :user
     sign_in @user
-    @order = create :afterparty_order
+
+    @order = create :order, :with_tickets
     @order.user = current_user
     @order.save
   end

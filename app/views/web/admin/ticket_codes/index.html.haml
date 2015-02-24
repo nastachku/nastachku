@@ -1,0 +1,24 @@
+.page-header
+  %h1= link_to t('.title'), admin_ticket_codes_path
+
+= link_to t('.new'), new_admin_ticket_code_path, class: 'btn btn-primary'
+
+%h3= t('.total', count: @ticket_codes.total_count)
+
+= paginate @ticket_codes
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= TicketCode.human_attribute_name :distributor
+      %th= TicketCode.human_attribute_name :price
+      %th= TicketCode.human_attribute_name :code
+      %th
+        .nowrap= TicketCode.human_attribute_name :created_at
+  %tbody
+    = render @ticket_codes
+
+= paginate @ticket_codes
+
+
+= link_to t('.new'), new_admin_ticket_code_path, class: 'btn btn-primary'

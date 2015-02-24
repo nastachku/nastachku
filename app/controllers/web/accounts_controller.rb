@@ -3,12 +3,12 @@ class Web::AccountsController < Web::ApplicationController
 
   def edit
     @user = AccountEditType.find current_user.id
-    @ticket_order = TicketOrder.new
+    @order = Order.new
   end
 
   def update
     @user = AccountEditType.find current_user.id
-    @ticket_order = TicketOrder.new
+    @order = Order.new
 
     @user.changed_by = current_user
     if @user.update_attributes params[:user]

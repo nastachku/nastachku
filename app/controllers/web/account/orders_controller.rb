@@ -7,6 +7,7 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
     order.transaction_id = params[:pd_trans_id]
     order.save
 
+    # TODO: смотреть что сервис прислал вместо того, чтобы ходить за состоянием платежа
     update_payment_state(order)
 
     flash_success

@@ -31,8 +31,27 @@ ru:
       afterparty_order: 'Билет на афтепати'
       shirt_order: 'Футболка'
       ticket_order: Билет на Стачку
+      distributor: Распространитель
+      ticket_code: Код активации
 
     attributes:
+      distributor:
+        title: 'Название'
+        created_at: 'Время создания'
+        address: 'Адрес'
+        contacts: 'Контакты'
+      ticket_code:
+        price: 'Цена'
+        distributor: 'Распространитель'
+        code: 'Код'
+        category: 'Категория'
+        created_at: 'Время создания'
+      ticket_code:
+        price: 'Цена'
+        distributor: 'Распространитель'
+        code: 'Код'
+        category: 'Категория'
+        created_at: 'Время создания'
       workshop:
         icon: Иконка
       ticket_order:
