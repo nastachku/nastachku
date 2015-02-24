@@ -27,5 +27,5 @@
             = link_to current_user_decorate.reverse_full_name, edit_account_path
           .header__login__user-avatar
             %a{ href: '' }
-              = image_tag current_user_decorate.user_pic
+              = link_to image_tag(current_user_decorate.user_pic), edit_account_path
           = link_to '', session_path, method: :delete, class: "header__login__user-logout"
