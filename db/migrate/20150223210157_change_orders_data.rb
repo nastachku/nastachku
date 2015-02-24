@@ -1,13 +1,12 @@
 class ChangeOrdersData < ActiveRecord::Migration
   class Order < ActiveRecord::Base
+    self.inheritance_column = :_fake
+
     has_many :tickets
     belongs_to :user
     def paid?
       payment_state == 'paid'
     end
-  end
-
-  class TicketOrder < Order
   end
 
   class Ticket < ActiveRecord::Base
