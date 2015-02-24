@@ -123,7 +123,7 @@ ru:
         link_twitter: 'Привязать аккаунт'
         unlink_twitter: 'Отключить'
         twitter_account: 'Твиттер'
-        buy_it_now: 'У Вас пока нет ни одной покупки.'
+        buy_it_now: 'У Вас пока нет ни одной покупки'
         buy_afterparty_ticket: 'Купить билет на афтепати'
         buy_shirt: 'Купить футболку'
         buy_more: "Оформить еще один заказ"
@@ -145,7 +145,7 @@ ru:
           remove_event: 'Удалить доклад'
       tickets:
         activate:
-          too_frequent_activations: 'Слишком много попыток активации. Повторите через 10 минут.'
+          too_frequent_activations: 'Слишком много попыток активации. Повторите через 10 минут'
 
       passwords:
         edit:
@@ -432,7 +432,7 @@ ru:
 
         sessions:
           create:
-            success: 'Вы вошли на сайт.'
+            success: 'Вы вошли на сайт'
             error:   'Аутентификация не удалась. Проверьте логин/пароль.'
 
         remind_passwords:

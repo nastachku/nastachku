@@ -33,6 +33,10 @@
             %button#submit_order.btn_main{ type: "submit", name: 'payment_system', value: 'payanyway' } Оплатить через PayAnyWay
             %button#submit_order.btn_main{ type: "submit", name: 'payment_system', value: 'platidoma' } Оплатить через Платидома
 
+      - unless current_user.ticket
+        = link_to activation_account_tickets_path do
+          %button.btn_main{ type: "submit" } Активировать билет на Стачку!
+
 .orderlist
   .layout-line
     %ul.orderslist__info

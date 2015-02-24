@@ -154,7 +154,7 @@ ru:
 
     errors:
       messages:
-        password_is_wrong: 'не верный'
+        password_is_wrong: 'неверный пароль'
         password_not_valid: 'Пароль не соответствует требованиям'
         blank: 'Поле не может быть пустым'
         confirmation: 'Не совпадает с подтверждением'
