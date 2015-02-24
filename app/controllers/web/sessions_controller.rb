@@ -23,7 +23,7 @@ class Web::SessionsController < Web::ApplicationController
       elsif configus.cs_cart.enable_auth
         auth_cs_cart_user_url get_auth_token user
       else
-        :root
+        edit_account_path(anchor: :orders)
       end
 
       redirect_to redirect_path
