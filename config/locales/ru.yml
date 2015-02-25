@@ -79,6 +79,8 @@ ru:
             tickets: 'Билеты'
             distributors: 'Распространители'
             ticket_codes: 'Коды активации'
+            stachka_tickets: 'Билеты на Стачку'
+            afterparty_tickets: 'Билеты на Afterparty'
   shared:
     empty_lectures:
       not_added_yet: 'Пока не добавлено ни одного доклада. Вы можете'
@@ -104,6 +106,14 @@ ru:
           distributor: Распространитель
           price: Цена
           count: Количество
+      tickets:
+        index:
+          title: Билеты на Стачку!
+          total: 'Всего: %{count}'
+      afterparty_tickets:
+        index:
+          title: Билеты на Afterparty
+          total: 'Всего: %{count}'
 
     accounts:
       edit:

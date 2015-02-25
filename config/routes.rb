@@ -1,4 +1,10 @@
 Nastachku::Application.routes.draw do
+  namespace :web do
+  namespace :admin do
+    get 'afterparty_tickets/index'
+    end
+  end
+
   require 'admin_constraint'
 
   get "audits/index"
@@ -128,6 +134,8 @@ Nastachku::Application.routes.draw do
       resources :topics
       resources :distributors, except: :show
       resources :ticket_codes, only: [:index, :new, :create]
+      resources :tickets, only: [:index]
+      resources :afterparty_tickets, only: [:index]
 
       resources :events
       resources :workshops

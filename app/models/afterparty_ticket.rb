@@ -3,4 +3,6 @@ class AfterpartyTicket < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :order
+
+  scope :with_user, -> { where.not(user: nil) }
 end
