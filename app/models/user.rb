@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :first_name, :last_name, :city, :company, :position,
     :show_as_participant, :photo, :state_event, :about, :carousel_info, :in_carousel,
     :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event,
-    :pay_state_event, :facebook, :vkontakte, :reason_to_give_ticket, :badge_state_event
+    :pay_state_event, :facebook, :vkontakte, :reason_to_give_ticket, :badge_state_event,
+    :code_activation_count, :last_code_activation_at
 
   validates :email, uniqueness: { case_sensitive: false }, email: true, allow_nil: true
   validates :last_name, presence: true
@@ -22,9 +23,9 @@ class User < ActiveRecord::Base
   has_many :lecture_votings
   has_many :listener_votings
   has_many :orders
+  has_one :ticket
+  has_one :afterparty_ticket
   has_many :shirt_orders
-  has_many :afterparty_orders
-  has_many :ticket_orders
   has_many :auth_tokens
   has_many :topics, through: :user_topics
   has_many :user_topics
@@ -99,6 +100,10 @@ class User < ActiveRecord::Base
     event :take_badge_back do
       transition get_badge: :not_get_badge
     end
+  end
+
+  def bought_tickets?
+    ticket && afterparty_ticket
   end
 
   def create_auth_token

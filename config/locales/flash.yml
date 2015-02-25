@@ -10,6 +10,14 @@ ru:
             success: 'Ваш аккаунт успешно активирован!'
             error: "Ссылка не действительна, возможно истекло время её жизни"
 
+        payments:
+          success_payanyway:
+            success: 'Вы успешно приобрели билет!'
+          decline_payanyway:
+            notice: 'Вы отказались от платежа =['
+          cancel_payanyway:
+            error: 'Не удалось совершить платеж, попробуйте еще раз позже.'
+
         account:
           ticket_orders:
             create:
@@ -33,14 +41,6 @@ ru:
             edit:
               error: "Ссылка не действительна, возможно истекло время её жизни"
               success: "Введите новый пароль"
-
-          social_networks:
-            link_twitter:
-              success: "Twitter успешно связан с аккаунтом"
-              error: "Twitter не связан с аккаунтом"
-            unlink_twitter:
-              success: "Twitter успешно отвязан от аккаунта"
-              error: "Twitter не отвязан от аккаунта"
 
           orders:
             update:
@@ -79,7 +79,7 @@ ru:
 
         sessions:
           create:
-            success: 'Вы вошли на сайт.'
+            success: 'Вы вошли на сайт'
             error:   'Аутентификация не удалась. Проверьте логин/пароль.'
 
         remind_passwords:

@@ -1,4 +1,10 @@
 Nastachku::Application.routes.draw do
+  namespace :web do
+  namespace :admin do
+    get 'afterparty_tickets/index'
+    end
+  end
+
   require 'admin_constraint'
 
   get "audits/index"
@@ -72,14 +78,18 @@ Nastachku::Application.routes.draw do
           end
         end
         resources :shirt_orders, only: [:new, :create]
-        resources :ticket_orders, only: :create
+        resource :tickets, only: [] do
+          collection do
+            post :activate
+            get :activation
+          end
+        end
+
         resources :order_options, only: :create
         get "code/:code" => "discounts#show"
         post "discount" => "accounts#edit"
         resource :buy, only: [] do
           put :pay
-          post :ticket
-          post :afterparty
         end
         resources :promo_codes, only: []  do
           member do
@@ -103,8 +113,10 @@ Nastachku::Application.routes.draw do
       end
     end
 
-    post 'payments/check/payanyway', to: 'payments#check_payanyway', defaults: {format: 'xml'}
-    post 'payments/paid/payanyway', to: 'payments#paid_payanyway', defaults: {format: 'xml'}
+    post 'payments/paid/payanyway', to: 'payments#paid_payanyway'
+    get 'payments/success/payanyway', to: 'payments#success_payanyway'
+    get 'payments/decline/payanyway', to: 'payments#decline_payanyway'
+    get 'payments/cancel/payanyway', to: 'payments#cancel_payanyway'
 
     namespace :admin do
       resources :users_lists, except: [:edit, :update] do
@@ -120,6 +132,10 @@ Nastachku::Application.routes.draw do
       resources :users
       resources :audits, only: [:index]
       resources :topics
+      resources :distributors, except: :show
+      resources :ticket_codes, only: [:index, :new, :create]
+      resources :tickets, only: [:index]
+      resources :afterparty_tickets, only: [:index]
 
       resources :events
       resources :workshops

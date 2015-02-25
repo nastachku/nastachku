@@ -1,0 +1,18 @@
+.page-header
+  %h1= link_to t('.title'), admin_afterparty_tickets_path
+
+%h3= t('.total', count: @afterparty_tickets.total_count)
+
+= paginate @afterparty_tickets
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= AfterpartyTicket.human_attribute_name :user
+      %th= AfterpartyTicket.human_attribute_name :price
+      %th
+        .nowrap= AfterpartyTicket.human_attribute_name :created_at
+  %tbody
+    = render @afterparty_tickets
+
+= paginate @afterparty_tickets

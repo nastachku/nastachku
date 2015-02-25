@@ -4,5 +4,11 @@ FactoryGirl.define do
   factory :order do
     user
     items_count
+
+    trait :with_tickets do
+      after(:create) do |instance|
+        create_list :ticket, 1, order: instance
+      end
+    end
   end
 end

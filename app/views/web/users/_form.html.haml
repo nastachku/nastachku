@@ -48,12 +48,12 @@
             Стоимость участия за оба дня конференции:
             %br
             %b
-              = TicketOrder.ticket_price
+              = Pricelist.ticket_price
               рублей
           %p
             %b Условия допуска:
             %br
-            Документ, удостоверяющие личность, предъявление номера (доступен в личном кабинете).
+            Документ, удостоверяющий личность, предъявление номера (доступен в личном кабинете).
       .personal__identity__social
         %ul.form__group
           - f.with_options input_html: { class: "input_type-1" } do |f|

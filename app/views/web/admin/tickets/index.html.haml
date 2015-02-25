@@ -1,0 +1,19 @@
+.page-header
+  %h1= link_to t('.title'), admin_tickets_path
+
+%h3= t('.total', count: @tickets.total_count)
+
+= paginate @tickets
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Ticket.human_attribute_name :user
+      %th= Ticket.human_attribute_name :price
+      %th= Ticket.human_attribute_name :code
+      %th
+        .nowrap= Ticket.human_attribute_name :created_at
+  %tbody
+    = render @tickets
+
+= paginate @tickets

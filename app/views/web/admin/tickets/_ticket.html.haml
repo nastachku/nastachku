@@ -1,0 +1,6 @@
+%tr
+  %td= link_to ticket.user, admin_user_path(ticket.user) if ticket.user
+  %td= ticket.price
+  %td= ticket.ticket_code.code if ticket.ticket_code
+  %td
+    .nowrap= l ticket.created_at

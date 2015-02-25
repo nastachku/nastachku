@@ -1,0 +1,18 @@
+.page-header
+  %h1=t '.title'
+
+= link_to t('.new'), new_admin_distributor_path, class: 'btn btn-primary'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Distributor.human_attribute_name :title
+      %th= Distributor.human_attribute_name :address
+      %th= Distributor.human_attribute_name :contacts
+      %th
+        .nowrap= Distributor.human_attribute_name :created_at
+      %th= Distributor.human_attribute_name :actions
+  %tbody
+    = render @distributors
+
+= link_to t('.new'), new_admin_distributor_path, class: 'btn btn-primary'

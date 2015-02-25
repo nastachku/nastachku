@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :signed_in?, :signed_as_admin?
 
+  before_filter :basic_auth_if_staging
   before_filter :deny_banned_user!
 
   # FIXME запхать это в конфигас как-нить
@@ -20,6 +21,14 @@ class ApplicationController < ActionController::Base
   def expire_my_action(controller, action)
     expire_action controller: controller, action: action
     expire_action controller: controller, action: action, format: :js
+  end
+
+  def basic_auth_if_staging
+    if Rails.env.staging?
+      authenticate_or_request_with_http_basic 'Staging' do |name, password|
+        name == configus.basic_auth.username && password == configus.basic_auth.password
+      end
+    end
   end
 
 end

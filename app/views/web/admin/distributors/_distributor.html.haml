@@ -1,0 +1,10 @@
+%tr
+  %td= link_to distributor.title, admin_distributor_path(distributor)
+  %td= distributor.address
+  %td= distributor.contacts
+  %td
+    .nowrap= l distributor.created_at
+  %td
+    .btn-group.btn-group-vertical
+      = link_to t('.edit'), edit_admin_distributor_path(distributor), class: 'btn btn-mini'
+      = link_to t('.destroy'), admin_distributor_path(distributor), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-mini btn-danger'

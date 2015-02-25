@@ -76,16 +76,51 @@ ru:
             workshops: 'Секции'
             halls: 'Залы'
             events: 'События'
+            tickets: 'Билеты'
+            distributors: 'Распространители'
+            ticket_codes: 'Коды активации'
+            stachka_tickets: 'Билеты на Стачку'
+            afterparty_tickets: 'Билеты на Afterparty'
   shared:
     empty_lectures:
       not_added_yet: 'Пока не добавлено ни одного доклада. Вы можете'
       first_speaker: 'стать первым докладчиком.'
   web:
+    admin:
+      distributors:
+        index:
+          title: 'Распространители'
+          new: 'Создать'
+        new:
+          title: 'Создание распространителя'
+      ticket_codes:
+        index:
+          title: 'Коды активации'
+          new: 'Создать'
+          total: 'Всего: %{count}'
+        new:
+          title: Создание кодов активации
+        form:
+          create: Создать
+          category: Категория
+          distributor: Распространитель
+          price: Цена
+          count: Количество
+      tickets:
+        index:
+          title: Билеты на Стачку!
+          total: 'Всего: %{count}'
+      afterparty_tickets:
+        index:
+          title: Билеты на Afterparty
+          total: 'Всего: %{count}'
+
     accounts:
       edit:
         title: 'Редактирование аккаунта'
       orders:
         stachka_ticket: Билет на Стачку
+        afterparty_ticket: Билет на вечеринку
       user_attributes:
         i_will_come_to_stachka: "Я приду на Стачку!"
         save: 'Обновить информацию'
@@ -98,7 +133,7 @@ ru:
         link_twitter: 'Привязать аккаунт'
         unlink_twitter: 'Отключить'
         twitter_account: 'Твиттер'
-        buy_it_now: 'У Вас пока нет ни одной покупки.'
+        buy_it_now: 'У Вас пока нет ни одной покупки'
         buy_afterparty_ticket: 'Купить билет на афтепати'
         buy_shirt: 'Купить футболку'
         buy_more: "Оформить еще один заказ"
@@ -118,6 +153,9 @@ ru:
           add_event: 'Добавить доклад'
         event_fields:
           remove_event: 'Удалить доклад'
+      tickets:
+        activate:
+          too_frequent_activations: 'Слишком много попыток активации. Повторите через 10 минут'
 
       passwords:
         edit:
@@ -390,18 +428,25 @@ ru:
       web:
         users:
           create:
-            success: 'Регистрация прошла успешно. На указанный электронный адрес отправлено письмо с персональным номер для участия в конференции.'
+            success: 'Регистрация прошла успешно. На указанный электронный адрес отправлено письмо с персональным номером для участия в конференции.'
             error:   'Не удалось добавить запись, есть ошибки в заполнении форм.'
+
+        social_networks:
+          auth:
+            success: "Вы вошли на сайт"
 
         account:
           accounts:
             update:
               success: 'Аккаунт успешно изменён!'
               error:   'Не удалось изменить аккаунт, есть ошибки в заполнении форм.'
+          buys:
+            pay:
+              notice: 'Не выбран билет для покупки'
 
         sessions:
           create:
-            success: 'Вы вошли на сайт.'
+            success: 'Вы вошли на сайт'
             error:   'Аутентификация не удалась. Проверьте логин/пароль.'
 
         remind_passwords:
