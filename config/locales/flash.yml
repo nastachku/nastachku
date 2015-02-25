@@ -10,6 +10,10 @@ ru:
             success: 'Ваш аккаунт успешно активирован!'
             error: "Ссылка не действительна, возможно истекло время её жизни"
 
+        social_networks:
+          auth:
+            success: "Вы вошли на сайт"
+
         payments:
           success_payanyway:
             success: 'Вы успешно приобрели билет!'
@@ -41,10 +45,6 @@ ru:
             edit:
               error: "Ссылка не действительна, возможно истекло время её жизни"
               success: "Введите новый пароль"
-
-          social_networks:
-            auth:
-              success: "Вы вошли на сайт"
 
           orders:
             update:
