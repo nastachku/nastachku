@@ -10,7 +10,7 @@
           %td
             %select.price-select{:onchange => "changeTicketPrice(this.value);"}
               %option 0
-              %option 1
+              %option{selected: true} 1
               %option 2
               %option 3
               %option 4
@@ -29,7 +29,7 @@
           %td
             %select.price-select{:onchange => "changeAfterpartyPrice(this.value);"}
               %option 0
-              %option 1
+              %option{selected: true} 1
               %option 2
               %option 3
               %option 4
