@@ -70,6 +70,7 @@ Configus.build Rails.env do
       api_key credentials_hash["production"]["timepad"]["api_key"]
     end
 
+    default_distributor 'nastachku.ru'
   end
 
   env :development, parent: :production do
