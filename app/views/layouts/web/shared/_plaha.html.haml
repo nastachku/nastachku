@@ -3,3 +3,6 @@
     %p.infoline__left
       %b 10-11 апреля 2015 года,
       Ленинский мемориал, Ульяновск
+    %p.infoline__right
+      - unless current_user
+        = link_to "Купить билет (#{Pricelist.ticket_price}р.)", buy_now_path
