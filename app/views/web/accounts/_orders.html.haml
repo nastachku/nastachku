@@ -30,13 +30,4 @@
         %button#submit_order.btn_main{ type: "submit", name: 'payment_system', value: 'platidoma' } Оплатить через Платидома
       - unless current_user.ticket
         = link_to activation_account_tickets_path do
-          .btn_main.layout__center Активировать билет!
-
-/ .orderlist
-/   .layout-line
-/     %ul.orderslist__info
-/       .orderslist__info__desc
-/         %span
-/         %p По всем вопросам альтернативной оплаты или отмены заказа, обращаться:
-/       .orderslist__info__contacts
-/         %a{ href: "mailto:info@nastachku.ru" } info@nastachku.ru
+          .btn_main.activate_button Активировать билет!
