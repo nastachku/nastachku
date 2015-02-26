@@ -6,16 +6,18 @@ class Web::BuyNowOrdersController < Web::ApplicationController
   end
 
   def create
-    @order = BuyNowOrderType.new params[:order]
-    if @order.valid?
-      order = CreateOrder.call(tickets: @order.tickets,
-                               afterparty_tickets: @order.afterparty_tickets,
-                               params: {
-                                 payment_system: @order.payment_system,
-                                 customer_info: @order.to_hash
-                               })
+    @form = BuyNowOrderType.new params[:order]
+    if @form.valid?
+      order = CreateOrder.call(
+        tickets: @form.tickets,
+        afterparty_tickets: @form.afterparty_tickets,
+        params: {
+          payment_system: @form.payment_system,
+          customer_info: @form.to_hash
+        }
+      )
 
-      pay_url = PaymentSystem.new(params[:payment_system]).pay_url order
+      pay_url = PaymentSystem.new(@form.payment_system).pay_url order
       redirect_to pay_url
     else
       flash_notice

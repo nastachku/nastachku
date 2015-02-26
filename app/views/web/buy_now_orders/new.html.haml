@@ -71,8 +71,8 @@
           -#   %label{:for => "radio_pay-1"} Cчет
           -#   %br/
           .forFizicFace
-            %input#radio_pay-2.radio_pay{:name => "radio_pay", :type => "radio"}
-            %label{:for => "radio_pay-2"} Платидома
-            %input#radio_pay-3.radio_pay{:name => "radio_pay", :type => "radio"}
-            %label{:for => "radio_pay-3"} PayAnyWay
+            = radio_button_tag 'payment_system', 'platidoma', false, class: 'radio_pay'
+            = label_tag 'payment_system_platidoma', 'Платидома'
+            = radio_button_tag 'payment_system', 'payanyway', false, class: 'radio_pay'
+            = label_tag 'payment_system_payanyway', 'PayAnyWay'
         = f.button :submit, "Оплатить", class: 'inputSubmit2'
