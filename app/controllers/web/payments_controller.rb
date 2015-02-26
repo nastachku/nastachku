@@ -4,7 +4,11 @@ class Web::PaymentsController < Web::ApplicationController
 
   def paid_payanyway
     order = PaymentSystem.new(:payanyway).pay!(params)
-    ProcessPaidOrder.call order, :regular
+    if order.user
+      ProcessPaidOrder.call order, :regular
+    else
+      ProcessPaidOrder.call order, :buy_now
+    end
 
     render text: 'SUCCESS'
   rescue PaymentSystem::SignatureError, ActiveRecord::RecordNotFound => e
