@@ -3,7 +3,7 @@
 
 $(document).ready(function(){
     $('#flipTimer').timeTo({
-        timeTo: new Date(2015, 1, 28,23, 59),
+        timeTo: new Date(2015, 1, 28, 23, 59),
         displayDays: 2,
         theme: "black",
         displayCaptions: true,
@@ -13,7 +13,6 @@ $(document).ready(function(){
     });
     SliderColleagues();
   
-  //reg.html payment variant
   $('input[name="radioFace"]').change(function(){
     if($('input[name="radioFace"]:checked').val() == 'forFizicFace')
     {
