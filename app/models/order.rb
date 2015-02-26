@@ -43,7 +43,7 @@ class Order < ActiveRecord::Base
   end
 
   def recalculate_cost!
-    total_cost = (tickets.pluck(:price) | afterparty_tickets.pluck(:price)).inject(:+)
+    total_cost = (tickets.pluck(:price) + afterparty_tickets.pluck(:price)).inject(:+)
     update_attributes cost: total_cost
   end
 
@@ -53,6 +53,7 @@ class Order < ActiveRecord::Base
   end
 
   private
+
   def generate_number
     self.number = SecureRandom.uuid
   end
