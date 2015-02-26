@@ -1,35 +1,20 @@
 class ProcessPaidOrder
+  STRATEGIES = {
+    regular: ProcessOrderStrategies::RegularOrder,
+    buy_now: ProcessOrderStrategies::BuyNow
+  }
   attr_reader :user, :order
 
-  def initialize(order)
+  def initialize(order, strategy)
     @order = order
+    @strategy = STRATEGIES.fetch(strategy)
   end
 
   def call
-    order.pay!
-
-    link_ticket_to_user
-    link_afterparty_ticket_to_user
-
-    order
+    @strategy.call order
   end
 
   def self.call(*args)
     new(*args).call
-  end
-
-  private
-  def link_ticket_to_user
-    # NOTE: возможно стоит проверять есть ли уже билета у пользователя
-    return unless order.tickets.any?
-
-    order.user.ticket = order.tickets.first
-  end
-
-  def link_afterparty_ticket_to_user
-    # NOTE: возможно стоит проверять есть ли уже билета у пользователя
-    return unless order.afterparty_tickets.any?
-
-    order.user.afterparty_ticket = order.afterparty_tickets.first
   end
 end

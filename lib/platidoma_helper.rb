@@ -76,12 +76,10 @@ module PlatidomaHelper
       }
 
       if state_event_hash[status.to_sym] == :pay
-        ProcessPaidOrder.call order
+        ProcessPaidOrder.call order, :regular
       else
         order.fire_payment_state_event(state_event_hash[status.to_sym])
       end
     end
-
   end
-
 end
