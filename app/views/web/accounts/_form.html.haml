@@ -2,12 +2,9 @@
   .content__tabs__line
   .layout-line
     %dl.content__tabs#tabs
-      %dt.tabs__title#user_attributes_title Личные данные
-      %dd.tabs__content#user_attributes
+      %dd.tabs__content#user_attributes.selected
         = render "user_attributes"
-      %dt.tabs__title#orders_title Заказы
-      %dd.tabs__content#orders
-        = render "orders"
+        / = render "orders"
       / %dt.tabs__title#products_title Товары
       / %dd.tabs__content#products
       /   = render "products"
@@ -20,18 +17,4 @@
     }
     var cost = parseInt($('#ticket_price_score').text()) ? parseInt($('#ticket_price_score').text()) : 0;
     $("#total_score").text(cost);
-  }
-
-  if ("#{@discount}" != "") {
-      $("#orders").addClass("selected");
-      $("#orders_title").addClass("selected");
-  } else if (window.location.hash == "") {
-    $("#user_attributes").addClass("selected");
-    $("#user_attributes_title").addClass("selected");
-  } else if (window.location.hash == "#orders") {
-      $("#orders").addClass("selected");
-      $("#orders_title").addClass("selected");
-  } else {
-    $("#products").addClass("selected");
-    $("#products_title").addClass("selected");
   }
