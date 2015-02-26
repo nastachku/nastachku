@@ -12,28 +12,32 @@ class CreateOrderTest < ActiveSupport::TestCase
   end
 
   test 'creates order with ticket' do
-    order = CreateOrder.call user: @user, with_ticket: true
+    ticket_count = 1
+    order = CreateOrder.call user: @user, tickets: ticket_count
 
     assert order.tickets.any?
-    assert order.items_count == 1
-    assert order.cost == Pricelist.ticket_price
+    assert order.items_count == ticket_count
+    assert order.cost == Pricelist.ticket_price * ticket_count
   end
 
-  test 'creates order with afterparty ticket' do
-    order = CreateOrder.call user: @user, with_afterparty_ticket: true
+  test 'creates order with afterparty tickets' do
+    afterparty_ticket_count = 2
+    order = CreateOrder.call user: @user, afterparty_tickets: afterparty_ticket_count
 
     assert order.afterparty_tickets.any?
-    assert order.items_count == 1
-    assert order.cost == Pricelist.afterparty_ticket_price
+    assert order.items_count == afterparty_ticket_count
+    assert order.cost == Pricelist.afterparty_ticket_price * afterparty_ticket_count
   end
 
   test 'creates order with ticket and afterparty ticket' do
-    order = CreateOrder.call user: @user, with_ticket: true, with_afterparty_ticket: true
-    total_cost = Pricelist.afterparty_ticket_price + Pricelist.ticket_price
+    ticket_count = 1
+    afterparty_ticket_count = 2
+    order = CreateOrder.call user: @user, tickets: ticket_count, afterparty_tickets: afterparty_ticket_count
+    total_cost = (Pricelist.afterparty_ticket_price * afterparty_ticket_count) + (Pricelist.ticket_price * ticket_count)
 
     assert order.afterparty_tickets.any?
     assert order.tickets.any?
-    assert order.items_count == 2
+    assert order.items_count == ticket_count + afterparty_ticket_count
     assert order.cost == total_cost
   end
 

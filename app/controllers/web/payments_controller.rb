@@ -14,6 +14,7 @@ class Web::PaymentsController < Web::ApplicationController
   def success_payanyway
     flash_success
 
+    # TODO: MNT_TRASNACTION_ID
     redirect_to edit_account_path anchor: :orders
   end
 
