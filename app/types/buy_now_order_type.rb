@@ -25,4 +25,12 @@ class BuyNowOrderType
   def persisted?
     false
   end
+
+  def to_hash
+    {
+      name: name,
+      phone: phone,
+      email: email
+    }
+  end
 end

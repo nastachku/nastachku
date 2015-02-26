@@ -42,8 +42,9 @@ class CreateOrderTest < ActiveSupport::TestCase
   end
 
   test 'creates order with params' do
-    order = CreateOrder.call params: { payment_system: 'blah' }
+    order = CreateOrder.call params: { payment_system: 'blah', customer_info: {name: 'blah', phone: '1234567897', email: 'lala@example.com'} }
 
-    assert order.payment_system == 'blah'
+    assert_equal order.payment_system, 'blah'
+    assert_equal order.customer_info[:email], 'lala@example.com'
   end
 end

@@ -11,7 +11,8 @@ class Web::BuyNowOrdersController < Web::ApplicationController
       order = CreateOrder.call(tickets: @order.tickets,
                                afterparty_tickets: @order.afterparty_tickets,
                                params: {
-                                 payment_system: @order.payment_system
+                                 payment_system: @order.payment_system,
+                                 customer_info: @order.to_hash
                                })
 
       pay_url = PaymentSystem.new(params[:payment_system]).pay_url order
