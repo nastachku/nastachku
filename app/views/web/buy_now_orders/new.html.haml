@@ -4,6 +4,7 @@
   .line
     %table.price_calc
       %tbody
+        -# = simple_form_for @order, url:  do |f|
         %tr
           %td
             Билет на стачку
@@ -65,16 +66,16 @@
     .pay_col1
       .pay_information_title
         Данные покупателя
-      .wrapper
-        %input#radio-1.radio{:checked => "checked", :name => "radioFace", :type => "radio", :value => "forFizicFace"}/
-        %label{:for => "radio-1"} Физическое лицо
-        %br/
-        %input#radio-2.radio{:name => "radioFace", :type => "radio", :value => "forYuricFace"}/
-        %label{:for => "radio-2"} Юридическое лицо
-      %br/
+      -# .wrapper
+      -#   %input#radio-1.radio{:checked => "checked", :name => "radioFace", :type => "radio", :value => "forFizicFace"}/
+      -#   %label{:for => "radio-1"} Физическое лицо
+      -#   %br/
+      -#   %input#radio-2.radio{:name => "radioFace", :type => "radio", :value => "forYuricFace"}/
+      -#   %label{:for => "radio-2"} Юридическое лицо
+      -# %br/
       %input.input_type-1{:placeholder => "ФИО/ Название организации", :type => "text", :value => ""}/
       .forYuricFace
-        %input.input_type-1{:placeholder => "ИНН", :type => "text", :value => ""}/
+        -# %input.input_type-1{:placeholder => "ИНН", :type => "text", :value => ""}/
       %div
         %input.input_type-1{:placeholder => "Телефон", :type => "text", :value => ""}/
         %br/
