@@ -1,12 +1,13 @@
 class TicketCodeGenerator
   class << self
     def call(params)
-      params.count.times.map do
+      # FIXME сомнительно
+      params[:count].times.map do
         {
-          category: params.category,
-          distributor_id: params.distributor_id,
-          price: params.price,
-          code: generate_code(params.category, params.distributor_id)
+          category: params[:category],
+          distributor_id: params[:distributor_id],
+          price: params[:price],
+          code: generate_code(params[:category], params[:distributor_id])
         }
       end
     end
