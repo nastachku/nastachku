@@ -1,8 +1,9 @@
 class TicketCode < ActiveRecord::Base
-  attr_accessible :code, :distributor_id, :category, :state_event, :price
+  attr_accessible :code, :distributor_id, :category, :state_event, :price, :ticket, :afterparty_ticket
 
   belongs_to :distributor
   has_one :ticket
+  has_one :afterparty_ticket
 
   enum category: {
     listener: 0,
