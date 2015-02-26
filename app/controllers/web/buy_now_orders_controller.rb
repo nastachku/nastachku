@@ -11,7 +11,7 @@ class Web::BuyNowOrdersController < Web::ApplicationController
       order = CreateOrder.call(tickets: @order.tickets,
                                afterparty_tickets: @order.afterparty_tickets,
                                params: {
-                                 payment_system: params[:payment_system]
+                                 payment_system: @order.payment_system
                                })
 
       pay_url = PaymentSystem.new(params[:payment_system]).pay_url order
@@ -20,5 +20,9 @@ class Web::BuyNowOrdersController < Web::ApplicationController
       flash_notice
       redirect_to buy_now_path
     end
+  end
+
+  def success
+    @order = Order.find_by(number: params[:order_number])
   end
 end

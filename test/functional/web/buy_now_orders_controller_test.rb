@@ -10,4 +10,12 @@ class Web::BuyNowOrdersControllerTest < ActionController::TestCase
     post :create, order: attributes_for(:buy_now_order), payment_system: 'payanyway'
     assert_response :redirect
   end
+
+  test '#success' do
+    order = create :order, :with_tickets
+    create :distributor, :nastachku
+    ProcessPaidOrder.call order, :buy_now
+    get :success, order_number: order.number
+    assert_response :success
+  end
 end
