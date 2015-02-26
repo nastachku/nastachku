@@ -57,7 +57,9 @@ Nastachku::Application.routes.draw do
     resource :remind_password, only: [:new, :create]
     resource :session, only: [:new, :create, :destroy]
     resource :schedule, only: [:show]
-    resource :buy_now_order, only: [:new, :create]
+    resource :buy_now_order, only: [:new, :create] do
+      get :success
+    end
     get 'buy_now', to: 'buy_now_orders#new'
 
     resource :user, only: [] do
