@@ -1,0 +1,123 @@
+.cont.title
+  Купить билеты на Стачку - 2015
+.cont
+  .line
+    %table.price_calc
+      %tbody
+        %tr
+          %td
+            Билет на стачку
+          %td
+            %select.price-select{:onchange => "changeTicketPrice(this.value);"}
+              %option 0
+              %option 1
+              %option 2
+              %option 3
+              %option 4
+              %option 5
+              %option 6
+              %option 7
+              %option 8
+              %option 9
+              %option 10
+          %td.price
+            %span#ticketPrice 750
+            = image_tag 'web/buy_now/rubl.png', class: 'rubl_medium'
+        %tr
+          %td
+            Билет на Афтепати
+          %td
+            %select.price-select{:onchange => "changeAfterpartyPrice(this.value);"}
+              %option 0
+              %option 1
+              %option 2
+              %option 3
+              %option 4
+              %option 5
+              %option 6
+              %option 7
+              %option 8
+              %option 9
+              %option 10
+          %td.price
+            %span#afterpartyPrice 2500
+            = image_tag 'web/buy_now/rubl.png', class: 'rubl_medium'
+  .line
+    %table.price_calc
+      %tbody
+        %tr
+          %td
+            ИТОГО:
+          %td
+          %td.price
+            %span#allPrice 3250
+            = image_tag 'web/buy_now/rubl.png', class: 'rubl_medium'
+  -# %table.kupon
+  -#   %tbody
+  -#     %tr
+  -#       %td.first_kup
+  -#         Купон
+  -#       %td
+  -#         %input.input_type-1.kup_inp{:placeholder => "", :type => "text", :value => ""}/
+  -#       %td.but
+  -#         %input.inputSubmit{:type => "submit", :value => "Применить"}/
+  .pay_information
+    .pay_col1
+      .pay_information_title
+        Данные покупателя
+      .wrapper
+        %input#radio-1.radio{:checked => "checked", :name => "radioFace", :type => "radio", :value => "forFizicFace"}/
+        %label{:for => "radio-1"} Физическое лицо
+        %br/
+        %input#radio-2.radio{:name => "radioFace", :type => "radio", :value => "forYuricFace"}/
+        %label{:for => "radio-2"} Юридическое лицо
+      %br/
+      %input.input_type-1{:placeholder => "ФИО/ Название организации", :type => "text", :value => ""}/
+      .forYuricFace
+        %input.input_type-1{:placeholder => "ИНН", :type => "text", :value => ""}/
+      %div
+        %input.input_type-1{:placeholder => "Телефон", :type => "text", :value => ""}/
+        %br/
+        %input.input_type-1{:placeholder => "E-mail", :type => "text", :value => ""}/
+        -# %br/
+        -# .check-block
+        -#   %input#checkbox3.css-checkbox{:checked => "checked", :type => "checkbox"}/
+        -#   %label.css-label.lite-red-check{:for => "checkbox3", :name => "checkbox2_lbl"} Активировать автоматически (покупаю себе)
+    .pay_col2
+      .pay_information_title
+        Вид оплаты
+      .wrapper.pay_view
+        .forYuricFace
+          %input#radio_pay-1.radio_pay{:name => "radio_pay", :type => "radio"}/
+          %label{:for => "radio_pay-1"} Cчет
+          %br/
+        .forFizicFace
+          %input#radio_pay-2.radio_pay{:name => "radio_pay", :type => "radio"}/
+          %label{:for => "radio_pay-2"} Пластиковая карта (Платидома)
+          %br/
+          %input#radio_pay-3.radio_pay{:name => "radio_pay", :type => "radio"}/
+          %label{:for => "radio_pay-3"} Пластиковая карта (PayANyWay)
+          %br/
+          %input#radio_pay-4.radio_pay{:name => "radio_pay", :type => "radio"}/
+          %label{:for => "radio_pay-4"} Яндекс.Деньги (Яндекс. Касса)
+          %br/
+          %input#radio_pay-5.radio_pay{:name => "radio_pay", :type => "radio"}/
+          %label{:for => "radio_pay-5"} WebMoney (PayANyWay)
+          %br/
+          %input#radio_pay-6.radio_pay{:name => "radio_pay", :type => "radio"}/
+          %label{:for => "radio_pay-6"} Другое (PayANyWay)
+          %br/
+          %input#radio_pay-7.radio_pay{:name => "radio_pay", :type => "radio"}/
+          %label{:for => "radio_pay-7"} Другое (Яндекс. Касса)
+      %input.inputSubmit2{:type => "submit", :value => "Отправить"}/
+  /
+    <div class="pagetitle__select pagetitle__select__lecture">
+    <div class="fancy-select"><select class="custom_select fancified" style="width: 1px; height: 1px; display: block; position: absolute; top: 0px; left: 0px; opacity: 0;">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option selected="selected">Все доклады</option>
+    </select><div class="trigger">Все доклады</div><ul class="options"><li data-raw-value="Техническая секция">Техническая секция</li><li data-raw-value="Мобильная разработка">Мобильная разработка</li><li data-raw-value="Стартапы">Стартапы</li><li data-raw-value="Digital-коммуникации">Digital-коммуникации</li><li data-raw-value="IT-проекты">IT-проекты</li><li data-raw-value="Менеджмент">Менеджмент</li><li data-raw-value="Все доклады" class="selected">Все доклады</li></ul></div>
