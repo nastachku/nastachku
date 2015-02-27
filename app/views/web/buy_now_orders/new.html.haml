@@ -1,4 +1,4 @@
-= flash[:notice]
+= bootstrap_flash
 .cont.title
   Купить билеты на Стачку - 2015
 .cont
@@ -70,8 +70,8 @@
           -#   %label{:for => "radio_pay-1"} Cчет
           -#   %br/
           .forFizicFace
-            = radio_button_tag 'payment_system', 'platidoma', false, class: 'radio_pay'
-            = label_tag 'payment_system_platidoma', 'Платидома'
-            = radio_button_tag 'payment_system', 'payanyway', false, class: 'radio_pay'
+            =# radio_button_tag 'payment_system', 'platidoma', false, class: 'radio_pay'
+            =# label_tag 'payment_system_platidoma', 'Платидома'
+            = radio_button_tag 'payment_system', 'payanyway', true, class: 'radio_pay'
             = label_tag 'payment_system_payanyway', 'PayAnyWay'
         = f.button :submit, "Оплатить", class: 'inputSubmit2'

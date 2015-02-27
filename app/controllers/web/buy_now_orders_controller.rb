@@ -24,7 +24,7 @@ class Web::BuyNowOrdersController < Web::ApplicationController
       pay_url = PaymentSystem.new(@form.payment_system).pay_url order
       redirect_to pay_url
     else
-      flash_notice message: @form.errors.inspect
+      flash_notice message: "Введены некорректные данные"
       redirect_to buy_now_path
     end
   end
