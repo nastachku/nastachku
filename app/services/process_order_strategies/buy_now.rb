@@ -18,7 +18,7 @@ module ProcessOrderStrategies
 
       order.afterparty_tickets.each do |ticket|
         attrs = TicketCodeGenerator.call(count: 1,
-                                         category: "listener",
+                                         category: "participant",
                                          distributor_id: distributor.id,
                                          price: ticket.price)
         TicketCode.create attrs.first.merge(afterparty_ticket: ticket)
