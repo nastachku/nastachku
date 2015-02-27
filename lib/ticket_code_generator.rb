@@ -5,6 +5,7 @@ class TicketCodeGenerator
       params[:count].times.map do
         {
           category: params[:category],
+          kind: params[:kind],
           distributor_id: params[:distributor_id],
           price: params[:price],
           code: generate_code(params[:category], params[:distributor_id])
