@@ -12,7 +12,7 @@
             %td
               = f.input :tickets, label: false, input_html: {class: 'price-select', onchange: "changeTicketPrice(this.value);"}, as: :select, collection: (0..10).map { |i| [i, i] }, selected: 1
             %td.price
-              %span#ticketPrice 750
+              %span#ticketPrice{data: {price: Pricelist.ticket_price}}= Pricelist.ticket_price
               = image_tag 'web/buy_now/rubl.png', class: 'rubl_medium'
           %tr
             %td
@@ -20,7 +20,7 @@
             %td
               = f.input :afterparty_tickets, label: false, input_html: {class: 'price-select', onchange: "changeAfterpartyPrice(this.value);"}, as: :select, collection: (0..10).map { |i| [i, i] }, selected: 1
             %td.price
-              %span#afterpartyPrice 2500
+              %span#afterpartyPrice{data: {price: Pricelist.afterparty_ticket_price}}= Pricelist.afterparty_ticket_price
               = image_tag 'web/buy_now/rubl.png', class: 'rubl_medium'
     .line
       %table.price_calc
@@ -30,7 +30,7 @@
               ИТОГО:
             %td
             %td.price
-              %span#allPrice 3250
+              %span#allPrice= Pricelist.afterparty_ticket_price + Pricelist.ticket_price
               = image_tag 'web/buy_now/rubl.png', class: 'rubl_medium'
     -# %table.kupon
     -#   %tbody

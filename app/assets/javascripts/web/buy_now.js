@@ -60,13 +60,13 @@ function SliderColleagues(){
 
 function changeTicketPrice(value) {
   var price = $('#ticketPrice');
-  price.html(value * 750);
+  price.html(value * price.data('price'));
   changeAllPrice();
 }
 
 function changeAfterpartyPrice(value) {
   var price = $('#afterpartyPrice');
-  price.html(value * 2500);
+  price.html(value * price.data("price"));
   changeAllPrice();
 }
 
