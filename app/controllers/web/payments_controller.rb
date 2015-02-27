@@ -23,7 +23,7 @@ class Web::PaymentsController < Web::ApplicationController
     if order.user
       redirect_to edit_account_path anchor: :orders
     else
-      redirect_to success_buy_now_order_path, order_number: order_number
+      redirect_to success_buy_now_order_path order_number: order_number
     end
   end
 
