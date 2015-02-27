@@ -1,5 +1,5 @@
-//= require web/buy_now/reset
-//= require web/buy_now/time_to
+//= require web/promo/reset
+//= require web/promo/time_to
 
 /*
 * Author: Prohorov Evgeniy
@@ -64,7 +64,7 @@ header .location-text{
 .line_sliders .slider_colleagues{
 }
 .line_sliders .slider_colleagues .controls{
-    background-image: image-url("web/buy_now/slider_colleagues_controls.png");
+    background-image: image-url("web/promo/slider_colleagues_controls.png");
     display: inline-block;
     width: 30px;
     height: 42px;
@@ -166,7 +166,7 @@ header .location-text{
     background-color: #ff5259;
     background-position: center center;
     background-repeat: no-repeat;
-    background-image: image-url("web/buy_now/redLine.png");
+    background-image: image-url("web/promo/redLine.png");
     height: 82px;
     margin-top: 60px;
 }
@@ -220,7 +220,18 @@ header .location-text{
     background-color: #ff5259;
     background-position: center center;
     background-repeat: no-repeat;
-    background-image: image-url("web/buy_now/buy_now_btn.png");
+    background-image: url("promo/buy_now_btn.png");
+    height: 52px;
+    width: 305px;
+    font-size: 0px;
+    display: block;
+    margin-top: 15px;
+}
+.promo_btn{
+    background-color: #ff5259;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: image-url("web/promo/promo_btn.png");
     height: 52px;
     width: 305px;
     font-size: 0px;
@@ -371,7 +382,7 @@ footer .footerForm .inputSubmit{
     padding: 0px;
     vertical-align: top;
     background-color: #ff5259;
-    background-image: image-url("web/buy_now/submit_btn.png");
+    background-image: image-url("web/promo/submit_btn.png");
     background-position: center center;
     background-repeat: no-repeat;
     color: #fff;
@@ -386,7 +397,7 @@ footer .footerForm .inputSubmit{
     padding: 0px;
     vertical-align: top;
     background-color: #ff5259;
-    background-image: image-url("web/buy_now/oplata.png");
+    background-image: image-url("web/promo/oplata.png");
     background-position: center center;
     background-repeat: no-repeat;
     color: #fff;
@@ -409,7 +420,7 @@ footer .footerForm .inputSubmit{
     margin-right: 0px;
 }
 .socila_box .item .icon{
-    background: image-url("web/buy_now/social-icon.png");
+    background: image-url("web/promo/social-icon.png");
     width: 50px;
     height: 50px;
     margin: 0px auto;
@@ -477,7 +488,7 @@ font-weight: 500;
   text-overflow: ellipsis;
   z-index: 51;
   transition: all 0.2s ease-in-out;
-  background: image-url("web/buy_now/select.png") no-repeat right;
+  background: image-url("web/promo/select.png") no-repeat right;
   -webkit-appearance: none;      -moz-appearance: none;      appearance: none;
   }
 
@@ -509,7 +520,7 @@ width:150px;
     padding: 0px;
     vertical-align: top;
     background-color: #ff5259;
-    background-image: image-url("web/buy_now/submit_btn.png");
+    background-image: image-url("web/promo/submit_btn.png");
     background-position: center center;
     background-repeat: no-repeat;
     color: #fff;
@@ -637,7 +648,7 @@ vertical-align: top;
     padding: 0px;
     vertical-align: top;
     background-color: #ff5259;
-    background-image: image-url("web/buy_now/submit_btn.png");
+    background-image: image-url("web/promo/submit_btn.png");
     background-position: center center;
     background-repeat: no-repeat;
     color: #fff;
@@ -681,7 +692,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 }
 
 .lite-red-check{
-background-image: image-url("web/buy_now/check.png");
+background-image: image-url("web/promo/check.png");
 }
 
 

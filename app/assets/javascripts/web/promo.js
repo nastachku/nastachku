@@ -2,16 +2,16 @@
 //= require jquery.timeTo.min
 
 $(document).ready(function(){
-    // $('#flipTimer').timeTo({
-    //     timeTo: new Date(2015, 1, 28, 23, 59),
-    //     displayDays: 2,
-    //     theme: "black",
-    //     displayCaptions: true,
-    //     fontSize: 44,
-    //     captionSize: 14,
-    //     lang: 'ru'
-    // });
-    // SliderColleagues();
+  // $('#flipTimer').timeTo({
+  //     timeTo: new Date(2015, 1, 28, 23, 59),
+  //     displayDays: 2,
+  //     theme: "black",
+  //     displayCaptions: true,
+  //     fontSize: 44,
+  //     captionSize: 14,
+  //     lang: 'ru'
+  // });
+  SliderColleagues();
 
   $('input[name="radioFace"]').change(function(){
     if($('input[name="radioFace"]:checked').val() == 'forFizicFace')

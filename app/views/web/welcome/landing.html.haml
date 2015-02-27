@@ -1,0 +1,134 @@
+.line
+  .cont.title
+    На СТАЧКУ приходят, чтобы:
+.line.line_sliders
+  .cont
+    .title
+      Пообщаться с коллегами со всей страны
+    .slider_colleagues
+      %a.controls.next{:href => "javascript:void(0)"}  
+      %a.controls.preview{:href => "javascript:void(0)"}  
+      .slider_box
+        .slider_big_box
+          .item
+            = image_tag "web/promo/slider_colleagues/item1.jpg", :alt => "Фото с открытия"
+            %span Фото с открытия
+          .item
+            = image_tag "web/promo/slider_colleagues/item2.jpg", :alt => "Фото с секции Develop"
+            %span Фото с секции Develop
+          .item
+            = image_tag "web/promo/slider_colleagues/item3.jpg", :alt => "Фото с доклада Яндекса"
+            %span Фото с доклада Яндекса
+          .item
+            = image_tag "web/promo/slider_colleagues/item4.jpg", alt: "Microsoft выступает"
+            %span Microsoft выступает
+          .item
+            = image_tag "web/promo/slider_colleagues/item5.jpg", alt: ""
+            %span Техническая секция
+          .item
+            = image_tag "web/promo/slider_colleagues/item6.jpg", alt: ""
+            %span Доклад от Wargaming.net
+          .item
+            = image_tag "web/promo/slider_colleagues/item7.jpg", alt: ""
+            %span Фото с Афтепати
+    .title
+      Послушать гуру ИТ
+    .speakers_box
+      .item
+        = image_tag "web/promo/speakers/olegbatrunov.jpg", alt: ""
+        %span Олег Бартунов
+      .item
+        = image_tag "web/promo/speakers/andreysitnik.jpg", alt: ""
+        %span Андрей Ситник
+      .item
+        = image_tag "web/promo/speakers/vasiliyvasilkov.jpg", alt: ""
+        %span Василий Васильков
+      .item
+        = image_tag "web/promo/speakers/item3.jpg", alt: ""
+        %span Кирилл Мокевнин
+      .item
+        = image_tag "web/promo/speakers/konstantinnazarov.jpg", alt: ""
+        %span Константин Назаров
+      .item
+        = image_tag "web/promo/speakers/alexanderchistyakov.jpg", alt: ""
+        %span Александр Чистяков
+      .item
+        = image_tag "web/promo/speakers/dmitrijyamanov.jpg", alt: ""
+        %span Дмитрий Яманов
+    .title
+      и еще более 100 спикеров со всей страны
+.line
+  .title
+    Посмотрите как это было:
+.cont.movies
+  .item
+    .flash
+      %iframe{:allowfullscreen => "", :frameborder => "0", :height => "254", :src => "https://www.youtube.com/embed/ewtNB7lVFKA", :width => "450"}
+    .name
+      2014 год
+  .item
+    .flash
+      %iframe{:allowfullscreen => "", :frameborder => "0", :height => "254", :src => "https://www.youtube.com/embed/aYibTdQIrOk", :width => "450"}
+    .name
+      2013 год
+.redLine  
+.line.price-line
+  .cont
+    .block.block1
+      .ticket_box
+        = image_tag "web/promo/bilet.png", alt: ""
+        .text
+          Билет на Стачку — 2015
+      .hot_price_box
+        %div
+          %span.big_price
+            750
+            = image_tag "web/promo/rubl.png", class: 'rubl_big'
+          до 28.02.2015
+        = link_to 'Купить прямо сейчас', new_buy_now_order_path, class: 'buy_now_btn'
+      .other_price
+        потом будет дороже
+        %table.price_date
+          %tr
+            %td
+              1100
+              = image_tag "web/promo/rubl.png", class: 'rubl_small'
+            %td
+              до 31.03.2015
+          %tr
+            %td
+              1500
+              = image_tag "web/promo/rubl.png", class: 'rubl_small'
+            %td
+              до 08.04.2015
+          %tr
+            %td
+              2000
+              = image_tag "web/promo/rubl.png", class: 'rubl_small'
+            %td
+              до 15.04.2015
+.line
+  .title
+    Следите за нами в соц.сетях
+  .soc
+    .social
+      .social-block
+        %iframe{:frameborder => "0", :height => "300", :scrolling => "no", :src => "http://vk.com/widget_community.php?gid=36051360&width=220&height=300", :width => "220"}
+      .social-block
+        %iframe{:allowtransparency => "true", :frameborder => "0", :scrolling => "no", :src => "//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fnastachku&width=220&height=300&colorscheme=light&show_faces=true&header=false&stream=false&show_border=true", :style => "border:none; overflow:hidden; width:220px; height:300px;"}
+      .social-block
+        %div{:style => "width:220px;"}
+          %a.twitter-timeline{"data-widget-id" => "570350621841039360", :href => "https://twitter.com/nastachku"} Твиты от @nastachku
+          :javascript
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+  .goto
+    .title
+      Помогаем приезжим
+    .cont.goto_text
+      Если вы думаете, как приехать из другого города, где жить, остановиться, как использовать время максимально эффективно, мы с радостью поможем Вам. Звоните - 8 902 355 55 99
+    %script{:charset => "utf-8", :src => "http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=RXsZ0QcBcn_LtipNFf2pj7v6NDHgH2EK&width=100%&height=450", :type => "text/javascript"}
+  %footer
+    .cont
+      .title
+        %a{:href => "http://nastachku.ru/users/new"} Регистрируйтесь на Стачку и будьте в курсе
+      %p.footer_info Связаться с оргкомитетом +7(902)-355-55-99 info@nastachku.ru
