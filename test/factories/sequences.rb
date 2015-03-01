@@ -35,6 +35,7 @@ FactoryGirl.define do
   sequence :file do |n|
     fixture_file_upload 'users_list.csv'
   end
+
   sequence :user_with_lectures do |n|
     {
         about:             FactoryGirl.generate(:about),
