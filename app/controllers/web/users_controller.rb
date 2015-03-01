@@ -6,11 +6,9 @@ class Web::UsersController < Web::ApplicationController
   def index
     @search = User.ransack(params[:q])
     @users = @search.result.activated.participants.alphabetically
-    #FIXME некрасиво
-    @users = @users.as_lectors if params[:s] and params[:s].include? 'as_lectors'
-    #FIXME придумать как задекорировать выборку
+    @users = @users.lectors if params[:s] and params[:s].include? 'only_lectors'
 
-    respond_with(@users)
+    respond_with @users
   end
 
   def new

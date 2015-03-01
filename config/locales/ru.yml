@@ -328,6 +328,10 @@ ru:
         info: 'Для возобновления работы аккаунта обратитесь в оргкомитет сайта info@nastachku.ru'
         home: 'Перейти на домашнюю страницу'
 
+    payment_systems:
+      payanyway: PayAnyWay
+      platidoma: Платидома
+
   helpers:
     submit:
       session:

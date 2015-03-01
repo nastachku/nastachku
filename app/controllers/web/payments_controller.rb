@@ -4,7 +4,7 @@ class Web::PaymentsController < Web::ApplicationController
 
   def paid_payanyway
     order = PaymentSystem.new(:payanyway).pay!(params)
-    ProcessPaidOrder.call order
+    ProcessPaidOrder.call order, :regular
 
     render text: 'SUCCESS'
   rescue PaymentSystem::SignatureError, ActiveRecord::RecordNotFound => e
@@ -14,7 +14,13 @@ class Web::PaymentsController < Web::ApplicationController
   def success_payanyway
     flash_success
 
-    redirect_to edit_account_path anchor: :orders
+    order_number = params[:MNT_TRANSACTION_ID]
+    order = Order.find_by(number: order_number)
+    if order.user
+      redirect_to edit_account_path anchor: :orders
+    else
+      redirect_to success_buy_now_order_path, order_number: order_number
+    end
   end
 
   def decline_payanyway

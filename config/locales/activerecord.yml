@@ -16,7 +16,7 @@ ru:
             inactive: "Не активирован"
           events:
             activate: "Активировать"
-            deactivate: "Дезактивировать"
+            deactivate: "Деактивировать"
         pay_state:
           states:
             not_paid_part: "Участие не оплачено"

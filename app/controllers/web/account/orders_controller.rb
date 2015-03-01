@@ -3,15 +3,21 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
 
   # TODO: всю логику - в сервисы!
   def approve
-    order = Order.find_by number: params[:pd_order_id]
+    order_number = params[:pd_order_id]
+    order = Order.find_by number: order_number
     order.transaction_id = params[:pd_trans_id]
     order.save
 
     # TODO: смотреть что сервис прислал вместо того, чтобы ходить за состоянием платежа
-    update_payment_state(order)
+    if order.user
+      update_payment_state(order)
 
-    flash_success
-    redirect_to edit_account_path anchor: :orders
+      flash_success
+      redirect_to edit_account_path anchor: :orders
+    else
+      ProcessPaidOrder.call order, :buy_now
+      redirect_to success_buy_now_order_path, order_number: order_number
+    end
   end
 
   def cancel

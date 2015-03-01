@@ -72,7 +72,6 @@ group :test, :development do
   gem 'sqlite3'
   gem 'pre-commit'
 
-  gem 'guard'
   gem 'dotenv-rails'
   gem 'pry-rails'
   gem 'pry-byebug'
@@ -80,12 +79,14 @@ end
 
 group :test do
   gem 'minitest'
-  gem 'simplecov', require: false
-  gem 'ci_reporter'
+  gem 'wrong'
   gem 'factory_girl_rails'
   gem 'factory_girl_sequences'
-  gem 'coveralls', require: false
   gem 'mocha', require: false
+
+  gem 'ci_reporter'
+  gem 'coveralls', require: false
+  gem 'simplecov', require: false
 end
 
 group :development do
@@ -105,5 +106,4 @@ group :development do
   gem 'capistrano-rbenv', require: false
   gem 'capistrano3-unicorn', require: false
   gem 'capistrano-resque', github: 'sshingler/capistrano-resque', require: false
-  gem 'ruby-prof'
 end

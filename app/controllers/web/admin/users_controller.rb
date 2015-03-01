@@ -1,22 +1,4 @@
 class Web::Admin::UsersController < Web::Admin::ApplicationController
-
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = ::Admin::UserCreateType.new(params[:user])
-    @user.changed_by = current_user
-
-    if @user.save
-      flash_success
-      redirect_to edit_admin_user_path(@user)
-    else
-      flash_error
-      render :new
-    end
-  end
-
   def index
     query = { s: 'created_at desc' }.merge(params[:q] || {})
     @search = User.ransack(query)

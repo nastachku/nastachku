@@ -35,6 +35,7 @@ FactoryGirl.define do
   sequence :file do |n|
     fixture_file_upload 'users_list.csv'
   end
+
   sequence :user_with_lectures do |n|
     {
         about:             FactoryGirl.generate(:about),
@@ -46,4 +47,6 @@ FactoryGirl.define do
   sequence :code do |n|
     (100000000 + n).to_s
   end
+
+  sequence(:phone) { rand(10**9..10**10) }
 end

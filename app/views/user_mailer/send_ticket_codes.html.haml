@@ -1,0 +1,16 @@
+%p
+  Добрый день, #{@customer[:name]}
+%p
+  Поздравляем Вас! Вы получили билет на Стачку!
+  = link_to 'nastachku.ru', root_url
+%p
+  - if @order.tickets.any?
+    Для участия в Стачке вам необходимо зарегистрировать коды ваших билетов:
+    - @order.tickets.each do |ticket|
+      %strong= ticket.ticket_code.code
+  - if @order.afterparty_tickets.any?
+    Для участия в афтепати вам необходимо зарегистрировать коды ваших билетов:
+    - @order.afterparty_tickets.each do |ticket|
+      %strong= ticket.ticket_code.code
+%p
+  Встретимся на СТАЧКЕ!

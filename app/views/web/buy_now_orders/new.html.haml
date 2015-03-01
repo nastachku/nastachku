@@ -1,0 +1,78 @@
+.cont.title
+  Купить билеты на Стачку - 2015
+.cont
+  = simple_form_for @order, as: :order, url: buy_now_order_path, method: :post do |f|
+    .line
+      %table.price_calc
+        %tbody
+          %tr
+            %td
+              Билет на стачку
+            %td
+              = f.input :tickets, label: false, input_html: {class: 'price-select', onchange: "changeTicketPrice(this.value);"}, as: :select, collection: (0..10).map { |i| [i, i] }, selected: 1
+            %td.price
+              %span#ticketPrice 750
+              = image_tag 'web/buy_now/rubl.png', class: 'rubl_medium'
+          %tr
+            %td
+              Билет на Афтепати
+            %td
+              = f.input :tickets, label: false, input_html: {class: 'price-select', onchange: "changeAfterpartyPrice(this.value);"}, as: :select, collection: (0..10).map { |i| [i, i] }, selected: 1
+            %td.price
+              %span#afterpartyPrice 2500
+              = image_tag 'web/buy_now/rubl.png', class: 'rubl_medium'
+    .line
+      %table.price_calc
+        %tbody
+          %tr
+            %td
+              ИТОГО:
+            %td
+            %td.price
+              %span#allPrice 3250
+              = image_tag 'web/buy_now/rubl.png', class: 'rubl_medium'
+    -# %table.kupon
+    -#   %tbody
+    -#     %tr
+    -#       %td.first_kup
+    -#         Купон
+    -#       %td
+    -#         %input.input_type-1.kup_inp{:placeholder => "", :type => "text", :value => ""}/
+    -#       %td.but
+    -#         %input.inputSubmit{:type => "submit", :value => "Применить"}/
+    .pay_information
+      .pay_col1
+        .pay_information_title
+          Данные покупателя
+        -# .wrapper
+        -#   %input#radio-1.radio{:checked => "checked", :name => "radioFace", :type => "radio", :value => "forFizicFace"}/
+        -#   %label{:for => "radio-1"} Физическое лицо
+        -#   %br/
+        -#   %input#radio-2.radio{:name => "radioFace", :type => "radio", :value => "forYuricFace"}/
+        -#   %label{:for => "radio-2"} Юридическое лицо
+        -# %br/
+        -# %input.input_type-1{:placeholder => "ФИО/ Название организации", :type => "text", :value => ""}/
+        = f.input :name, label: false, placeholder:  "ФИО/ Название организации", input_html: {class: 'input_type-1'}
+        -# .forYuricFace
+        -#   %input.input_type-1{:placeholder => "ИНН", :type => "text", :value => ""}/
+        %div
+          = f.input :phone, label: false, placeholder: 'Телефон', input_html: {class: 'input_type-1', type: 'tel'}
+          = f.input :email, label: false, placeholder: 'E-mail', input_html: {class: 'input_type-1', type: 'email'}
+          -# %br/
+          -# .check-block
+          -#   %input#checkbox3.css-checkbox{:checked => "checked", :type => "checkbox"}/
+          -#   %label.css-label.lite-red-check{:for => "checkbox3", :name => "checkbox2_lbl"} Активировать автоматически (покупаю себе)
+      .pay_col2
+        .pay_information_title
+          Вид оплаты
+        .wrapper.pay_view
+          -# .forYuricFace
+          -#   %input#radio_pay-1.radio_pay{:name => "radio_pay", :type => "radio"}/
+          -#   %label{:for => "radio_pay-1"} Cчет
+          -#   %br/
+          .forFizicFace
+            = radio_button_tag 'payment_system', 'platidoma', false, class: 'radio_pay'
+            = label_tag 'payment_system_platidoma', 'Платидома'
+            = radio_button_tag 'payment_system', 'payanyway', false, class: 'radio_pay'
+            = label_tag 'payment_system_payanyway', 'PayAnyWay'
+        = f.button :submit, "Оплатить", class: 'inputSubmit2'

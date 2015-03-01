@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
   attr_accessible :user_id, :items_count, :payment_state, :cost, :payment_system, :discount_id,
-                  :transaction_id
+                  :transaction_id, :customer_info
 
   belongs_to :discount
   belongs_to :user
@@ -11,6 +11,8 @@ class Order < ActiveRecord::Base
 
   scope :web, -> { order(created_at: :desc) }
   scope :paid, -> { where(payment_state: :paid) }
+
+  serialize :customer_info, Hash
 
   after_initialize :generate_number, if: :new_record?
 
@@ -43,7 +45,7 @@ class Order < ActiveRecord::Base
   end
 
   def recalculate_cost!
-    total_cost = (tickets.pluck(:price) | afterparty_tickets.pluck(:price)).inject(:+)
+    total_cost = (tickets.pluck(:price) + afterparty_tickets.pluck(:price)).inject(:+)
     update_attributes cost: total_cost
   end
 
@@ -53,6 +55,7 @@ class Order < ActiveRecord::Base
   end
 
   private
+
   def generate_number
     self.number = SecureRandom.uuid
   end

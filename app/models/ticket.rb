@@ -1,5 +1,5 @@
 class Ticket < ActiveRecord::Base
-  attr_accessible :price
+  attr_accessible :price, :ticket_code
 
   belongs_to :order
   belongs_to :user

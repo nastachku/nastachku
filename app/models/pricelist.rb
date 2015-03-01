@@ -1,10 +1,15 @@
 class Pricelist
+  # TODO: зарефакторить
   def self.ticket_price
     case Time.current.strftime('%B')
     when 'February'
       750
     when 'March'
-      1100
+      if Time.current.day <= 3
+        750
+      else
+        1100
+      end
     when 'April'
       if Time.current.day <= 8
         1500
@@ -21,7 +26,11 @@ class Pricelist
     when 'February'
       1500
     when 'March'
-      2000
+      if Time.current.day <= 3
+        1500
+      else
+        2000
+      end
     when 'April'
       2500
     else

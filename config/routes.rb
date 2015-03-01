@@ -1,7 +1,7 @@
 Nastachku::Application.routes.draw do
   namespace :web do
-  namespace :admin do
-    get 'afterparty_tickets/index'
+    namespace :admin do
+      get 'afterparty_tickets/index'
     end
   end
 
@@ -43,13 +43,12 @@ Nastachku::Application.routes.draw do
         resource :event_votings, only: [:create, :destroy]
       end
     end
-
   end
 
   scope module: :web do
     resources :users, only: [:new, :create, :index]
-    resources :welcome, only: [ :index ]
-    resources :lectures, only: [ :index ]
+    resources :welcome, only: [:index]
+    resources :lectures, only: [:index]
     resources :pages, only: [:show]
     resources :news, only: [:index]
     resources :user_lectures, only: [:index]
@@ -58,6 +57,10 @@ Nastachku::Application.routes.draw do
     resource :remind_password, only: [:new, :create]
     resource :session, only: [:new, :create, :destroy]
     resource :schedule, only: [:show]
+    resource :buy_now_order, only: [:new, :create] do
+      get :success
+    end
+    get 'buy_now', to: 'buy_now_orders#new'
 
     resource :user, only: [] do
       get :activate
@@ -66,7 +69,7 @@ Nastachku::Application.routes.draw do
     resource :account, only: [:edit, :update] do
       scope module: :account do
         resource :password, only: [:edit, :update]
-        resources :lectures, only: [ :new, :create, :update ]
+        resources :lectures, only: [:new, :create, :update]
 
         resources :orders, only: [:update] do
           put :pay, on: :member
@@ -105,7 +108,7 @@ Nastachku::Application.routes.draw do
 
     namespace :registrator do
       root to: "users#index"
-      resource :users, only: [ :index, :new, :create ] do
+      resource :users, only: [:index, :new, :create] do
         get :with_badge
         member do
           put :give_badge
@@ -129,7 +132,7 @@ Nastachku::Application.routes.draw do
       resources :lectures
       resources :pages
       resources :news
-      resources :users
+      resources :users, except: [:new, :create]
       resources :audits, only: [:index]
       resources :topics
       resources :distributors, except: :show
@@ -141,7 +144,7 @@ Nastachku::Application.routes.draw do
       resources :workshops
       resources :halls
       resources :event_breaks
-      resources :orders, only: [ :index, :edit, :update ]
+      resources :orders, only: [:index, :edit, :update]
       resource :mailers, only: [] do
         get :index
         post :broadcast_to_not_attended
@@ -156,8 +159,8 @@ Nastachku::Application.routes.draw do
       mount Resque::Server, at: "resque", constraints: AdminConstraint.new, as: 'resque'
 
       root to: "welcome#index"
-    end
-  end
+    end # admin
+  end # web
 
   match '*unmatched_route', to: "web/errors#not_found", via: :all
 end

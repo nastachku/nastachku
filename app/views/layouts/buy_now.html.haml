@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %title Стачка!
+    = stylesheet_link_tag 'web/buy_now'
+    = javascript_include_tag 'web/buy_now'
+  %body
+    %header
+      .cont
+        .location-text
+          %b> 10-11 апреля 2015 года,
+          Ленинский мемориал, Ульяновск
+        %a.logo{:href => ""}
+          = image_tag 'web/buy_now/logo.png', alt: 'Стачка'
+    = yield

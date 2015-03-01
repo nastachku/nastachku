@@ -1,6 +1,6 @@
 class Web::LectorsController < Web::ApplicationController
   def index
-    @lectors = UserDecorator.decorate(User.activated.participants.as_lectors.visible.by_created_at.ransack(params[:q]).result(distinct: true))
+    @lectors = UserDecorator.decorate(User.visible.lectors.web.ransack(params[:q]).result(distinct: true))
     @workshops = Workshop.web
   end
 end
