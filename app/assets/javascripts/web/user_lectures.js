@@ -57,11 +57,4 @@ jQuery(document).ready(function ($) {
       }
      })
    });
-
-  $(document).ready(function (){
-    $("#add_user_lecture").attr("disabled", true);
-    $("#workshop_select").change(function(){
-      $("#add_user_lecture").attr("disabled", $(this)[0].selectedIndex == 0);
-    });
-  });
 });
