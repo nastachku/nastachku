@@ -4,4 +4,7 @@ class Web::WelcomeController < Web::ApplicationController
     @lectures = LectureDecorator.decorate_collection Lecture.includes(:workshop, :user).scheduled.with_active_speaker.shuffle.first 30
   end
 
+  def landing
+    render layout: 'promo'
+  end
 end

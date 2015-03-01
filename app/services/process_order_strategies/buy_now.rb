@@ -9,18 +9,22 @@ module ProcessOrderStrategies
     def call
       # FIXME
       order.tickets.each do |ticket|
-        attrs = TicketCodeGenerator.call(count: 1,
-                                         category: "listener",
-                                         distributor_id: distributor.id,
-                                         price: ticket.price)
+        attrs = TicketCodeGenerator.call(
+          count: 1,
+          category: "participant",
+          distributor_id: distributor.id,
+          kind: "ticket",
+          price: ticket.price)
         TicketCode.create attrs.first.merge(ticket: ticket)
       end
 
       order.afterparty_tickets.each do |ticket|
-        attrs = TicketCodeGenerator.call(count: 1,
-                                         category: "listener",
-                                         distributor_id: distributor.id,
-                                         price: ticket.price)
+        attrs = TicketCodeGenerator.call(
+          count: 1,
+          category: "participant",
+          distributor_id: distributor.id,
+          kind: "afterparty_ticket",
+          price: ticket.price)
         TicketCode.create attrs.first.merge(afterparty_ticket: ticket)
       end
 

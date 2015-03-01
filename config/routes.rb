@@ -48,6 +48,7 @@ Nastachku::Application.routes.draw do
   scope module: :web do
     resources :users, only: [:new, :create, :index]
     resources :welcome, only: [:index]
+    get '/promo', to: 'welcome#landing'
     resources :lectures, only: [:index]
     resources :pages, only: [:show]
     resources :news, only: [:index]

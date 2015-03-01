@@ -1,5 +1,6 @@
 %tr
   %td= link_to ticket_code.distributor.title, admin_ticket_codes_path(q: {distributor_id_eq: ticket_code.distributor.id})
+  %td= ticket_code.kind
   %td= ticket_code.price
   %td= ticket_code.code
   %td

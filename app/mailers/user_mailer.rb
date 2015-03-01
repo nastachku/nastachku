@@ -59,6 +59,6 @@ class UserMailer < AsyncMailer
   def send_ticket_codes(order_id)
     @order = Order.find order_id
     @customer = @order.customer_info
-    mail to: @order.customer_info[:email]
+    mail to: @order.customer_info[:email], subject: I18n.t("you_have_received_ticket")
   end
 end

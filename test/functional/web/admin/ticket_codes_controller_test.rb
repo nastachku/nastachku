@@ -22,6 +22,7 @@ class Web::Admin::TicketCodesControllerTest < ActionController::TestCase
   test "should post create" do
     params = {
       category: 'participant',
+      kind: 'afterparty_ticket',
       count: 10,
       price: 1000,
       distributor_id: @distributor.id

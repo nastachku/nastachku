@@ -6,9 +6,11 @@ class Admin::TicketCodeCreateType
   attribute :count, Integer
   attribute :price, Integer
   attribute :category, String
+  attribute :kind, String
   attribute :distributor_id, Integer
 
   validates :category, presence: true
+  validates :kind, presence: true
   validates :price, presence: true
   validates :distributor_id, presence: true
   validates :count, presence: true,

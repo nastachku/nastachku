@@ -9,8 +9,8 @@
     %header
       .cont
         .location-text
-          %b> 10-11 апреля 2015 года,
+          %b 10-11 апреля 2015 года,
           Ленинский мемориал, Ульяновск
-        %a.logo{:href => ""}
+        = link_to 'http://nastachku.ru', class: 'logo' do
           = image_tag 'web/buy_now/logo.png', alt: 'Стачка'
     = yield

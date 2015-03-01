@@ -15,7 +15,7 @@ class Web::Account::TicketsController < Web::Account::ApplicationController
 
     if @code_activation_form.valid?
       ticket_code = @code_activation_form.ticket_code
-      ActivateTicket.call(current_user, ticket_code)
+      ActivateTicketCode.call(current_user, ticket_code)
 
       redirect_to edit_account_path
     else

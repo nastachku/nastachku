@@ -19,5 +19,5 @@
     .popup__auth__form-reg
       %p
         = t('.you_are_not_user_please_welcome')
-      = link_to t('.registration'), new_user_path, title: t('.registration')
+      = link_to t('.registration'), new_user_path, title: t('.registration'), onclick: "try{ga('send', 'event', 'users', 'register');}catch(e){}"
   %span.popup__close.close_popup

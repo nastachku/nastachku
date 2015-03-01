@@ -4,7 +4,11 @@ class Web::PaymentsController < Web::ApplicationController
 
   def paid_payanyway
     order = PaymentSystem.new(:payanyway).pay!(params)
-    ProcessPaidOrder.call order, :regular
+    if order.user
+      ProcessPaidOrder.call order, :regular
+    else
+      ProcessPaidOrder.call order, :buy_now
+    end
 
     render text: 'SUCCESS'
   rescue PaymentSystem::SignatureError, ActiveRecord::RecordNotFound => e
@@ -19,12 +23,12 @@ class Web::PaymentsController < Web::ApplicationController
     if order.user
       redirect_to edit_account_path anchor: :orders
     else
-      redirect_to success_buy_now_order_path, order_number: order_number
+      redirect_to success_buy_now_order_path(order_number: order_number)
     end
   end
 
   def decline_payanyway
-    order = current_user.orders.find_by number: params[:MNT_TRANSACTION_ID]
+    order = Order.find_by number: params[:MNT_TRANSACTION_ID]
     order.try :decline
 
     flash_notice
@@ -32,7 +36,7 @@ class Web::PaymentsController < Web::ApplicationController
   end
 
   def cancel_payanyway
-    order = current_user.orders.find_by number: params[:MNT_TRANSACTION_ID]
+    order = Order.find_by number: params[:MNT_TRANSACTION_ID]
     order.try :cancel
 
     flash_error now: false

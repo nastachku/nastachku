@@ -8,6 +8,6 @@ class Admin::UserEditType < User
     :badge_state_event, :reason_to_give_ticket
 
   def email=(val)
-    self[:email] = nil if val.blank?
+    self[:email] = val.presence
   end
 end
