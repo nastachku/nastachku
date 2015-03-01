@@ -129,7 +129,7 @@ Nastachku::Application.routes.draw do
       resources :lectures
       resources :pages
       resources :news
-      resources :users
+      resources :users, except: [:new, :create]
       resources :audits, only: [:index]
       resources :topics
       resources :distributors, except: :show
