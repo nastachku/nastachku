@@ -1,2 +1,16 @@
-- @order.tickets.each do |ticket|
-  = ticket.ticket_code.code
+- if @order.tickets.any?
+  .cont.title
+    Коды купленных билетов
+  .cont
+    - @order.tickets.each do |ticket|
+      %p
+        %strong
+          = ticket.ticket_code.code
+- if @order.afterparty_tickets.any?
+  .cont.title
+    Коды билетов на афтепати
+  .cont
+    - @order.afterparty_tickets.each do |ticket|
+      %p
+        %strong
+          = ticket.ticket_code.code

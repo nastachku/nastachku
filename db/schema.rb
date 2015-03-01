@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226220748) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20150227125945) do
 
   create_table "afterparty_tickets", force: :cascade do |t|
     t.integer  "user_id"
@@ -25,9 +22,9 @@ ActiveRecord::Schema.define(version: 20150226220748) do
     t.integer  "ticket_code_id"
   end
 
-  add_index "afterparty_tickets", ["order_id"], name: "index_afterparty_tickets_on_order_id", using: :btree
-  add_index "afterparty_tickets", ["ticket_code_id"], name: "index_afterparty_tickets_on_ticket_code_id", using: :btree
-  add_index "afterparty_tickets", ["user_id"], name: "index_afterparty_tickets_on_user_id", using: :btree
+  add_index "afterparty_tickets", ["order_id"], name: "index_afterparty_tickets_on_order_id"
+  add_index "afterparty_tickets", ["ticket_code_id"], name: "index_afterparty_tickets_on_ticket_code_id"
+  add_index "afterparty_tickets", ["user_id"], name: "index_afterparty_tickets_on_user_id"
 
   create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
@@ -41,11 +38,11 @@ ActiveRecord::Schema.define(version: 20150226220748) do
     t.datetime "updated_at"
   end
 
-  add_index "audits", ["action"], name: "index_audits_on_action", using: :btree
-  add_index "audits", ["auditable_id", "auditable_type"], name: "auditable_index", using: :btree
-  add_index "audits", ["created_at"], name: "index_audits_on_created_at", using: :btree
-  add_index "audits", ["tag"], name: "index_audits_on_tag", using: :btree
-  add_index "audits", ["user_id", "user_type"], name: "user_index", using: :btree
+  add_index "audits", ["action"], name: "index_audits_on_action"
+  add_index "audits", ["auditable_id", "auditable_type"], name: "auditable_index"
+  add_index "audits", ["created_at"], name: "index_audits_on_created_at"
+  add_index "audits", ["tag"], name: "index_audits_on_tag"
+  add_index "audits", ["user_id", "user_type"], name: "user_index"
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider"
@@ -68,8 +65,8 @@ ActiveRecord::Schema.define(version: 20150226220748) do
     t.datetime "updated_at"
   end
 
-  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
-  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
   create_table "discounts", force: :cascade do |t|
     t.string   "code"
@@ -181,8 +178,8 @@ ActiveRecord::Schema.define(version: 20150226220748) do
     t.datetime "updated_at"
   end
 
-  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", using: :btree
-  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
 
   create_table "slots", force: :cascade do |t|
     t.integer  "event_id"
@@ -200,11 +197,12 @@ ActiveRecord::Schema.define(version: 20150226220748) do
     t.string   "category"
     t.string   "state"
     t.integer  "price"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "kind",           default: "ticket"
   end
 
-  add_index "ticket_codes", ["distributor_id"], name: "index_ticket_codes_on_distributor_id", using: :btree
+  add_index "ticket_codes", ["distributor_id"], name: "index_ticket_codes_on_distributor_id"
 
   create_table "tickets", force: :cascade do |t|
     t.integer  "order_id"
@@ -215,9 +213,9 @@ ActiveRecord::Schema.define(version: 20150226220748) do
     t.datetime "updated_at",     null: false
   end
 
-  add_index "tickets", ["order_id"], name: "index_tickets_on_order_id", using: :btree
-  add_index "tickets", ["ticket_code_id"], name: "index_tickets_on_ticket_code_id", using: :btree
-  add_index "tickets", ["user_id"], name: "index_tickets_on_user_id", using: :btree
+  add_index "tickets", ["order_id"], name: "index_tickets_on_order_id"
+  add_index "tickets", ["ticket_code_id"], name: "index_tickets_on_ticket_code_id"
+  add_index "tickets", ["user_id"], name: "index_tickets_on_user_id"
 
   create_table "topics", force: :cascade do |t|
     t.string   "title"
@@ -285,7 +283,7 @@ ActiveRecord::Schema.define(version: 20150226220748) do
     t.datetime "last_code_activation_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
   create_table "users_lists", force: :cascade do |t|
     t.text     "file"
@@ -312,5 +310,4 @@ ActiveRecord::Schema.define(version: 20150226220748) do
     t.text     "icon"
   end
 
-  add_foreign_key "afterparty_tickets", "ticket_codes"
 end

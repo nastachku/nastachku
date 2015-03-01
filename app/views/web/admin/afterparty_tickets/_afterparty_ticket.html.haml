@@ -1,5 +1,6 @@
 %tr
   %td= link_to afterparty_ticket.user, admin_user_path(afterparty_ticket.user) if afterparty_ticket.user
   %td= afterparty_ticket.price
+  %td= afterparty_ticket.ticket_code.code if ticket.ticket_code
   %td
     .nowrap= l afterparty_ticket.created_at

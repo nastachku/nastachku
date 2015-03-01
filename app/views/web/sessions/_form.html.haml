@@ -17,5 +17,4 @@
 %br
 Ещё не зарегистрировались?!
 
-%a{ href: new_user_path, tabindex: 4}
-  Сделайте это прямо сейчас!
+= link_to 'Сделайте это прямо сейчас!', new_user_path, tabindex: 4, onclick: "try{ga('send', 'event', 'users', 'register');}catch(e){}"

@@ -16,7 +16,7 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
       redirect_to edit_account_path anchor: :orders
     else
       ProcessPaidOrder.call order, :buy_now
-      redirect_to success_buy_now_order_path, order_number: order_number
+      redirect_to success_buy_now_order_path(order_number: order_number)
     end
   end
 

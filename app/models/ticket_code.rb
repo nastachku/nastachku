@@ -1,5 +1,5 @@
 class TicketCode < ActiveRecord::Base
-  attr_accessible :code, :distributor_id, :category, :state_event, :price, :ticket, :afterparty_ticket
+  attr_accessible :code, :distributor_id, :category, :state_event, :price, :ticket, :afterparty_ticket, :kind
 
   belongs_to :distributor
   has_one :ticket
@@ -15,6 +15,12 @@ class TicketCode < ActiveRecord::Base
     participant: 7,
     media: 8,
     volunteer: 9
+  }
+
+  # NOTE: refactor it!
+  enum kind: {
+    conference: "ticket",
+    party: "afterparty_ticket"
   }
 
   state_machine :state, initial: :new do

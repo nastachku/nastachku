@@ -4,7 +4,6 @@ FactoryGirl.define do
   factory :order do
     user
     items_count
-    customer_info { {email: 'example@example.com'} }
 
     trait :with_tickets do
       after(:create) do |instance|

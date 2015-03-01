@@ -1,7 +1,8 @@
+= bootstrap_flash
 .cont.title
   Купить билеты на Стачку - 2015
 .cont
-  = simple_form_for @order, as: :order, url: buy_now_order_path, method: :post do |f|
+  = simple_form_for @form, as: :order, url: buy_now_order_path, method: :post do |f|
     .line
       %table.price_calc
         %tbody
@@ -11,16 +12,16 @@
             %td
               = f.input :tickets, label: false, input_html: {class: 'price-select', onchange: "changeTicketPrice(this.value);"}, as: :select, collection: (0..10).map { |i| [i, i] }, selected: 1
             %td.price
-              %span#ticketPrice 750
-              = image_tag 'web/buy_now/rubl.png', class: 'rubl_medium'
+              %span#ticketPrice{data: {price: Pricelist.ticket_price}}= Pricelist.ticket_price
+              = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
           %tr
             %td
               Билет на Афтепати
             %td
-              = f.input :tickets, label: false, input_html: {class: 'price-select', onchange: "changeAfterpartyPrice(this.value);"}, as: :select, collection: (0..10).map { |i| [i, i] }, selected: 1
+              = f.input :afterparty_tickets, label: false, input_html: {class: 'price-select', onchange: "changeAfterpartyPrice(this.value);"}, as: :select, collection: (0..10).map { |i| [i, i] }, selected: 1
             %td.price
-              %span#afterpartyPrice 2500
-              = image_tag 'web/buy_now/rubl.png', class: 'rubl_medium'
+              %span#afterpartyPrice{data: {price: Pricelist.afterparty_ticket_price}}= Pricelist.afterparty_ticket_price
+              = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
     .line
       %table.price_calc
         %tbody
@@ -29,8 +30,8 @@
               ИТОГО:
             %td
             %td.price
-              %span#allPrice 3250
-              = image_tag 'web/buy_now/rubl.png', class: 'rubl_medium'
+              %span#allPrice= Pricelist.afterparty_ticket_price + Pricelist.ticket_price
+              = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
     -# %table.kupon
     -#   %tbody
     -#     %tr
@@ -50,14 +51,12 @@
         -#   %br/
         -#   %input#radio-2.radio{:name => "radioFace", :type => "radio", :value => "forYuricFace"}/
         -#   %label{:for => "radio-2"} Юридическое лицо
-        -# %br/
-        -# %input.input_type-1{:placeholder => "ФИО/ Название организации", :type => "text", :value => ""}/
-        = f.input :name, label: false, placeholder:  "ФИО/ Название организации", input_html: {class: 'input_type-1'}
+        = f.input :name, label: false, placeholder:  "ФИО / Название организации", input_html: {class: 'input_type-1'}, error: false
         -# .forYuricFace
         -#   %input.input_type-1{:placeholder => "ИНН", :type => "text", :value => ""}/
         %div
-          = f.input :phone, label: false, placeholder: 'Телефон', input_html: {class: 'input_type-1', type: 'tel'}
-          = f.input :email, label: false, placeholder: 'E-mail', input_html: {class: 'input_type-1', type: 'email'}
+          = f.input :phone, label: false, placeholder: 'Телефон', input_html: {class: 'input_type-1', type: 'tel'}, error: false
+          = f.input :email, label: false, placeholder: 'E-mail', input_html: {class: 'input_type-1', type: 'email'}, error: false
           -# %br/
           -# .check-block
           -#   %input#checkbox3.css-checkbox{:checked => "checked", :type => "checkbox"}/
@@ -71,8 +70,8 @@
           -#   %label{:for => "radio_pay-1"} Cчет
           -#   %br/
           .forFizicFace
-            = radio_button_tag 'payment_system', 'platidoma', false, class: 'radio_pay'
-            = label_tag 'payment_system_platidoma', 'Платидома'
-            = radio_button_tag 'payment_system', 'payanyway', false, class: 'radio_pay'
+            =# radio_button_tag 'payment_system', 'platidoma', false, class: 'radio_pay'
+            =# label_tag 'payment_system_platidoma', 'Платидома'
+            = radio_button_tag 'payment_system', 'payanyway', true, class: 'radio_pay'
             = label_tag 'payment_system_payanyway', 'PayAnyWay'
-        = f.button :submit, "Оплатить", class: 'inputSubmit2'
+        = f.button :submit, "Оплатить", class: 'inputSubmit2', onclick: "try{ga('send', 'event', 'tickets', 'buy');}catch(e){}"

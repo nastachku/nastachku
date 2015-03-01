@@ -22,3 +22,8 @@ ru:
             code:
               code_activated: 'Код уже был активирован'
               code_not_exist: 'Неверный код'
+        buy_now_order_type:
+          attributes:
+            base:
+              at_least_one_ticket_should_be_bought: 'Не выбрано ни одного билета'
+

@@ -12,7 +12,7 @@ class Web::BuyNowOrdersControllerTest < ActionController::TestCase
   end
 
   test '#success' do
-    order = create :order, :with_tickets
+    order = create :order, :with_tickets, customer_info: {email: 'test@example.com'}
     create :distributor, :nastachku
     ProcessPaidOrder.call order, :buy_now
     get :success, order_number: order.number

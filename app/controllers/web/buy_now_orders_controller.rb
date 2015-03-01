@@ -1,12 +1,16 @@
 class Web::BuyNowOrdersController < Web::ApplicationController
-  layout "buy_now"
+  layout "promo"
 
   def new
-    @order = BuyNowOrderType.new
+    @form = BuyNowOrderType.new
   end
 
   def create
+    # FIXME
+    params[:order][:payment_system] = params[:payment_system]
+
     @form = BuyNowOrderType.new params[:order]
+
     if @form.valid?
       order = CreateOrder.call(
         tickets: @form.tickets,
@@ -20,8 +24,8 @@ class Web::BuyNowOrdersController < Web::ApplicationController
       pay_url = PaymentSystem.new(@form.payment_system).pay_url order
       redirect_to pay_url
     else
-      flash_notice
-      redirect_to buy_now_path
+      flash_error message: @form.errors
+      render :new
     end
   end
 
