@@ -13,19 +13,6 @@ class Web::Admin::UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should post create" do
-    attributes = attributes_for :user
-    post :create, user: attributes
-
-    assert_response :redirect
-    assert { attributes[:email] == User.last.email }
-  end
-
   test "should get show" do
     get :show, id: @user.id
 

@@ -20,7 +20,6 @@
         = f.submit t(".search"), :class => 'btn btn-primary'
 
 
-= link_to t('.new_user'), new_admin_user_path, :class => 'btn btn-primary'
 %br
 %br
 = paginate @users
@@ -55,5 +54,3 @@
           = link_to t('.edit'), edit_admin_user_path(user), :class => 'btn btn-mini'
           = link_to t('.destroy'), admin_user_path(user), :method => :delete, :data => { :confirm => t('.confirm') }, :class => 'btn btn-mini btn-danger'
 = paginate @users
-
-= link_to t('.new_user'), new_admin_user_path, :class => 'btn btn-primary'
