@@ -28,7 +28,7 @@ class Web::PaymentsController < Web::ApplicationController
   end
 
   def decline_payanyway
-    order = current_user.orders.find_by number: params[:MNT_TRANSACTION_ID]
+    order = Order.find_by number: params[:MNT_TRANSACTION_ID]
     order.try :decline
 
     flash_notice
@@ -36,7 +36,7 @@ class Web::PaymentsController < Web::ApplicationController
   end
 
   def cancel_payanyway
-    order = current_user.orders.find_by number: params[:MNT_TRANSACTION_ID]
+    order = Order.find_by number: params[:MNT_TRANSACTION_ID]
     order.try :cancel
 
     flash_error now: false
