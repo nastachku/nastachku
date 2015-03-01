@@ -1,5 +1,4 @@
 class Web::Admin::LecturesController < Web::Admin::ApplicationController
-  
   def index
     query = { s: 'created_at desc' }.merge(params[:q] || {})
     @search = Lecture.ransack(query)
