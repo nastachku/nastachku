@@ -1,5 +1,9 @@
-require 'simplecov'
-SimpleCov.start('rails') if ENV["COVERAGE"]
+if ENV["COVERAGE"]
+  require 'simplecov'
+  SimpleCov.start('rails') do
+   add_group 'Services', 'app/services'
+  end
+end
 
 if ENV["TRAVIS"]
   require 'coveralls'
