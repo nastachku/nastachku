@@ -1,5 +1,6 @@
 class BuyNowOrderType
   include ActiveModel::Validations
+  include ActiveModel::Conversion
   include Virtus.model
 
   attribute :tickets, Integer
@@ -15,11 +16,13 @@ class BuyNowOrderType
   validates :tickets, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, presence: true
   validates :afterparty_tickets, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, presence: true
   validates :payment_system, presence: true
+  validate :buys_at_least_one_ticket
 
-  def payment_system_collection
-    %w(payanyway platidoma).map do |system|
-      [I18n.t("web.payment_systems.#{system}"), system]
-    end
+  attr_reader :errors
+
+  def initialize(*args)
+    @errors = ActiveModel::Errors.new(self)
+    super(*args)
   end
 
   def persisted?
@@ -32,5 +35,10 @@ class BuyNowOrderType
       phone: phone,
       email: email
     }
+  end
+
+  private
+  def buys_at_least_one_ticket
+    errors.add(:base, :at_least_one_ticket_should_be_bought) if tickets.zero? && afterparty_tickets.zero?
   end
 end

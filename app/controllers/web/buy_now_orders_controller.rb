@@ -2,7 +2,7 @@ class Web::BuyNowOrdersController < Web::ApplicationController
   layout "promo"
 
   def new
-    @order = BuyNowOrderType.new
+    @form = BuyNowOrderType.new
   end
 
   def create
@@ -24,8 +24,8 @@ class Web::BuyNowOrdersController < Web::ApplicationController
       pay_url = PaymentSystem.new(@form.payment_system).pay_url order
       redirect_to pay_url
     else
-      flash_notice message: "Введены некорректные данные"
-      redirect_to buy_now_path
+      flash_error message: @form.errors
+      render :new
     end
   end
 
