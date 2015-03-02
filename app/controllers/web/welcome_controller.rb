@@ -5,6 +5,6 @@ class Web::WelcomeController < Web::ApplicationController
   end
 
   def landing
-    render layout: 'promo'
+    render layout: 'web/promo'
   end
 end
