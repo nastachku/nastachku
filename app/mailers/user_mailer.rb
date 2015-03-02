@@ -1,6 +1,7 @@
 class UserMailer < AsyncMailer
   default_url_options[:host] = configus.mailer.default_host
   default from: configus.mailer.default_from
+  add_template_helper(ApplicationHelper)
 
   def confirm_registration(user_id)
     @user = User.find_by_id user_id
