@@ -4,7 +4,8 @@ class Web::Account::TicketsController < Web::Account::ApplicationController
   end
 
   def activate
-    @code_activation_form = TicketCodeActivationType.new(params[:ticket_code_activation_type])
+    attrs = params[:ticket_code_activation_type].merge(current_user: current_user)
+    @code_activation_form = TicketCodeActivationType.new(attrs)
 
     manage_code_activation_count
 

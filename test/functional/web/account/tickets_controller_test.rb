@@ -57,4 +57,16 @@ class Web::Account::TicketsControllerTest < ActionController::TestCase
     assert @user.afterparty_ticket.price == @ticket_code.price
     assert @ticket_code.active?
   end
+
+  test "should fail if user has ticket" do
+    ticket = create :paper_ticket
+    sign_in ticket.user
+
+    attrs = {
+      code: ticket.ticket_code.code
+    }
+    post :activate, ticket_code_activation_type: attrs
+
+    assert_response :success
+  end
 end

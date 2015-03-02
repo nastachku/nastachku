@@ -22,6 +22,8 @@ ru:
             code:
               code_activated: 'Код уже был активирован'
               code_not_exist: 'Неверный код'
+              ticket_already_exists: 'У вас уже есть билет на Стачку!'
+              afterparty_ticket_already_exists: 'У вас уже есть билет на вечеринку!'
         buy_now_order_type:
           attributes:
             base:

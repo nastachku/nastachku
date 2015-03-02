@@ -27,11 +27,9 @@
                   = Pricelist.afterparty_ticket_price
                 %span.rouble i
         .order__new__submit
-          - unless current_user.ticket
-            = link_to activation_account_tickets_path do
-              .btn_main Активировать билет на Стачку!
-
           - unless current_user.bought_tickets?
+            = link_to activation_account_tickets_path do
+              .btn_main Активировать билет
             %button#submit_order.btn_main{ type: "submit", name: 'payment_system', value: 'payanyway' } Оплатить через PayAnyWay
             %button#submit_order.btn_main{ type: "submit", name: 'payment_system', value: 'platidoma' } Оплатить через Платидома
 
