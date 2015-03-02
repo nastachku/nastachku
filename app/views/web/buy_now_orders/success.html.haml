@@ -1,16 +1,18 @@
-- if @order.tickets.any?
-  .cont.title
-    Коды купленных билетов
-  .cont
-    - @order.tickets.each do |ticket|
-      %p
-        %strong
-          = ticket.ticket_code.code
-- if @order.afterparty_tickets.any?
-  .cont.title
-    Коды билетов на афтепати
-  .cont
-    - @order.afterparty_tickets.each do |ticket|
-      %p
-        %strong
-          = ticket.ticket_code.code
+.cont
+  - if @order.tickets.any?
+    .title
+      Коды купленных билетов
+    %ol.ticket-codes
+      - @order.tickets.each do |ticket|
+        %li= ticket.ticket_code.code
+  - if @order.afterparty_tickets.any?
+    .title
+      Коды билетов на афтепати
+    %ol.ticket-codes
+      - @order.afterparty_tickets.each do |ticket|
+        %li= ticket.ticket_code.code
+
+  %p
+    Запомните или запишите их. Полученные коды билетов подлежат обязательной активации в личном кабинете на сайте #{link_to 'nastachku.ru', root_path}. Это необходимо сделать индивидуально для каждого слушателя в течение трёх календарных дней с момента покупки. Без активации билеты недействительны. По данными из личного кабинета (фио, компания, должность) будут сформированы бейджи и списки на вход. Вход на мероприятие — по документу, удостоверяющему личность.
+  %p
+    На вашу электронную почту отправлена инструкция по использованию кодов активации в личном кабинете. По всем вопросам звоните по телефону #{link_to_tel configus.phones.valeriy} или пишите на #{mail_to configus.mail.info}
