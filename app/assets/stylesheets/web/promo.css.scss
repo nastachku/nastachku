@@ -2,446 +2,487 @@
 //= require web/promo/time_to
 
 /*
-* Author: Prohorov Evgeniy
-* Web-site: http://catine.ru/
-* Company: PromoZ
-* Web-site: http://promo-z.ru/
-*/
+ * Author: Prohorov Evgeniy
+ * Web-site: http://catine.ru/
+ * Company: PromoZ
+ * Web-site: http://promo-z.ru/
+ */
+
+$basic-gray: #333333;
+
 @charset "utf-8";
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic-ext,latin-ext,cyrillic);
 @font-face {
-    font-family: 'ALSRubl';
-    src: url('fonts/rouble.ttf');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'ALSRubl';
+  src: url('fonts/rouble.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
 
-a{
-color:#fff;
-text-decoration:none;
+a {
+  color: blue;
+  text-decoration:none;
 }
 
 a:hover{
-text-decoration:underline;
+  text-decoration:underline;
 }
 
 body{
   font-size:16px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    color: #333333;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: $basic-gray;
 }
+
 .cont{
-    width: 960px;
-    margin: 0px auto;
+  width: 960px;
+  margin: 0px auto;
 }
+
 .title{
-    text-align: center;
-    font-size: 26px;
-    padding: 22px 0px;
+  text-align: center;
+  font-size: 26px;
+  padding: 22px 0px;
 }
+
 header{
-    height: 100px;
-    background-color: #121212;
-    color: #fff;
+  height: 100px;
+  background-color: #121212;
+  color: #fff;
 }
+
 header .logo{
-    margin-top: 14px;
-    text-decoration: none;
-    display: inline-block;
+  margin-top: 14px;
+  text-decoration: none;
+  display: inline-block;
 }
+
 header .location-text{
-    float: right;
-    margin-top: 45px;
-    font-size: 18px;
+  float: right;
+  margin-top: 45px;
+  font-size: 18px;
 }
+
 .line{
-    border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
 }
 .line_sliders .title{
-    padding: 30px 0px;
+  padding: 30px 0px;
 }
+
 .line_sliders .slider_colleagues{
 }
-.line_sliders .slider_colleagues .controls{
-    background-image: image-url("web/promo/slider_colleagues_controls.png");
-    display: inline-block;
-    width: 30px;
-    height: 42px;
-    text-decoration: none;
-    vertical-align: top;
-    margin: 58px 25px 0px 25px;
-}
-.line_sliders .slider_colleagues .controls:hover{
-    opacity: 0.80;
-}
-.line_sliders .slider_colleagues .controls.preview{
-    background-position: top left;
-}
-.line_sliders .slider_colleagues .controls.next{
-    background-position: top right;
-    float: right;
 
+.line_sliders .slider_colleagues .controls{
+  background-image: image-url("web/promo/slider_colleagues_controls.png");
+  display: inline-block;
+  width: 30px;
+  height: 42px;
+  text-decoration: none;
+  vertical-align: top;
+  margin: 58px 25px 0px 25px;
 }
+
+.line_sliders .slider_colleagues .controls:hover{
+  opacity: 0.80;
+}
+
+.line_sliders .slider_colleagues .controls.preview{
+  background-position: top left;
+}
+
+.line_sliders .slider_colleagues .controls.next{
+  background-position: top right;
+  float: right;
+}
+
 .line_sliders .slider_colleagues .slider_box{
-    overflow: hidden;
-    width: 785px;
-    height: 215px;
-    display: inline-block;
+  overflow: hidden;
+  width: 785px;
+  height: 215px;
+  display: inline-block;
 }
+
 .line_sliders .slider_colleagues .slider_box .slider_big_box{
-    font-size: 0px;
-    overflow: visible;
-    width: 5000px;
+  font-size: 0px;
+  overflow: visible;
+  width: 5000px;
 }
+
 .line_sliders .slider_colleagues .slider_box .slider_big_box .item{
-    font-size: 15px;
-    display: inline-block;
-    width: 180px;
-    text-align: center;
-    margin-right: 22px;
-    vertical-align: top;
+  font-size: 15px;
+  display: inline-block;
+  width: 180px;
+  text-align: center;
+  margin-right: 22px;
+  vertical-align: top;
 }
+
 .line_sliders .slider_colleagues .slider_box .slider_big_box .item img{
-    display: block;
-    width: 180px;
-    height: 180px;
+  display: block;
+  width: 180px;
+  height: 180px;
 }
+
 .line_sliders .slider_colleagues .slider_box .slider_big_box .item span{
-    display: block;
-    margin-top: 10px;
-    color: #656565;
+  display: block;
+  margin-top: 10px;
+  color: #656565;
 }
+
 .line_sliders .slider_colleagues .slider_box .slider_big_box .item:hover img{
-    opacity: 0.80;
+  opacity: 0.80;
 }
+
 .line_sliders .speakers_box{
-    font-size: 0px;
-    margin-left: 83px;
+  font-size: 0px;
+  margin-left: 83px;
 }
+
 .line_sliders .speakers_box .item{
-    font-size: 15px;
-    display: inline-block;
-    width: 180px;
-    text-align: center;
-    margin-right: 22px;
-    vertical-align: top;
+  font-size: 15px;
+  display: inline-block;
+  width: 180px;
+  text-align: center;
+  margin-right: 22px;
+  vertical-align: top;
 }
+
 .line_sliders .speakers_box .item img{
-    display: block;
-    width: 180px;
-    height: 180px;
+  display: block;
+  width: 180px;
+  height: 180px;
 }
+
 .line_sliders .speakers_box .item span{
-    display: block;
-    margin-top: 10px;
-    color: #656565;
+  display: block;
+  margin-top: 10px;
+  color: #656565;
 }
+
 .movies{
-    width: 940px;
-    font-size: 0px;
-    margin-top: 40px;
+  width: 940px;
+  font-size: 0px;
+  margin-top: 40px;
 }
+
 .movies *{
-    font-size: 18px;
+  font-size: 18px;
 }
+
 .movies .item{
-    display: inline-block;
-    width: 450px;
+  display: inline-block;
+  width: 450px;
 }
+
 .movies .item:first-child{
-    margin-right: 35px;
+  margin-right: 35px;
 }
+
 .movies .item .flash{
-    width: 450px;
-    height: 254px;
-    overflow: hidden;
+  width: 450px;
+  height: 254px;
+  overflow: hidden;
 }
+
 .movies .item .name{
-    color: #656565;
-    text-align: center;
-    margin-top: 10px;
+  color: #656565;
+  text-align: center;
+  margin-top: 10px;
 }
+
 .redLine{
-    background-color: #ff5259;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-image: image-url("web/promo/redLine.png");
-    height: 82px;
-    margin-top: 60px;
+  background-color: #ff5259;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: image-url("web/promo/redLine.png");
+  height: 82px;
+  margin-top: 60px;
 }
+
 .line.price-line{
-    margin-top: 30px;
-    padding-bottom: 65px;
+  margin-top: 30px;
+  padding-bottom: 65px;
 }
+
 .price-line .block{
-    border: 2px solid #e1e1e1;
-    box-shadow: 6px 6px 0px #f2f2f2;
-    margin: 0px auto;
+  border: 2px solid #e1e1e1;
+  box-shadow: 6px 6px 0px #f2f2f2;
+  margin: 0px auto;
 }
+
 .price-line .block.block1{
-    width: 951px;
-    height: 350px;
+  width: 951px;
+  height: 350px;
 }
+
 .block1 .ticket_box{
-    display: inline-block;
-    margin-left: 85px;
-    margin-top: 35px;
-    width: 150px;
-    vertical-align: top;
+  display: inline-block;
+  margin-left: 85px;
+  margin-top: 35px;
+  width: 150px;
+  vertical-align: top;
 }
+
 .block1 .ticket_box img{
-    width:92px;
-    height: 258px;
+  width:92px;
+  height: 258px;
 }
+
 .block1 .ticket_box .text{
-    font-size: 14px;
-    color: #656565;
-    margin-top: 14px;
-    width: 200px;
+  font-size: 14px;
+  color: #656565;
+  margin-top: 14px;
+  width: 200px;
 }
+
 .block1 .hot_price_box{
-    display: inline-block;
-    vertical-align: top;
-    color: #333333;
-    font-weight: 500;
-    font-size: 24px;
-    margin-top: 68px;
-    width: 306px;
+  display: inline-block;
+  vertical-align: top;
+  color: $basic-gray;
+  font-weight: 500;
+  font-size: 24px;
+  margin-top: 68px;
+  width: 306px;
 }
+
 .rubl{
-    font-family: 'ALSRubl', sans-serif;
+  font-family: 'ALSRubl', sans-serif;
 }
+
 .block1 .hot_price_box .big_price{
-    font-size: 45px;
-    margin-right: 20px;
+  font-size: 45px;
+  margin-right: 20px;
 }
+
 .buy_now_btn{
-    background-color: #ff5259;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-image: url("promo/buy_now_btn.png");
-    height: 52px;
-    width: 305px;
-    font-size: 0px;
-    display: block;
-    margin-top: 15px;
+  background-color: #ff5259;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url("promo/buy_now_btn.png");
+  height: 52px;
+  width: 305px;
+  font-size: 0px;
+  display: block;
+  margin-top: 15px;
 }
+
 .promo_btn{
-    background-color: #ff5259;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-image: image-url("web/promo/promo_btn.png");
-    height: 52px;
-    width: 305px;
-    font-size: 0px;
-    display: block;
-    margin-top: 15px;
+  background-color: #ff5259;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: image-url("web/promo/promo_btn.png");
+  height: 52px;
+  width: 305px;
+  font-size: 0px;
+  display: block;
+  margin-top: 15px;
 }
 .block1 .other_price{
-    display: inline-block;
-    vertical-align: top;
-    color: #333333;
-    font-size: 20px;
-    margin-left: 90px;
-    margin-top: 90px;
+  display: inline-block;
+  vertical-align: top;
+  color: $basic-gray;
+  font-size: 20px;
+  margin-left: 90px;
+  margin-top: 90px;
 }
 .block1 .other_price .price_date{
-    margin-top: 10px;
+  margin-top: 10px;
 }
 .block1 .other_price .price_date tr td:last-child{
-    padding-left: 40px;
+  padding-left: 40px;
 }
 .block1 .other_price .price_date tr{
-    padding: 2px 0px;
+  padding: 2px 0px;
 }
 .block.block2{
-    margin-top: 40px;
-    width: 905px;
-    height: 402px;
+  margin-top: 40px;
+  width: 905px;
+  height: 402px;
 }
 .block2 .ticket_box{
-    display: inline-block;
-    width: 123px;
-    margin-top: 40px;
-    margin-left: 33px;
-    padding-right: 55px;
+  display: inline-block;
+  width: 123px;
+  margin-top: 40px;
+  margin-left: 33px;
+  padding-right: 55px;
 }
 .block2 .ticket_box img{
-    width: 123px;
-    height: 277px;
+  width: 123px;
+  height: 277px;
 }
 .block2 .ticket_box .text{
-    font-size: 14px;
-    color: #656565;
-    width: 230px;
-    margin-top: 15px;
+  font-size: 14px;
+  color: #656565;
+  width: 230px;
+  margin-top: 15px;
 }
 .block2 .price_box{
-    font-size: 45px;
-    font-weight: 500;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 70px;
-    width: 575px;
+  font-size: 45px;
+  font-weight: 500;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 70px;
+  width: 575px;
 }
 .block2 .price_box .marginR{
-    margin-right: 15px;
+  margin-right: 15px;
 }
 .block2 .price_box .oldPrice:after{
-    content: "";
-    display: block;
-    width: 155px;
-    float: right;
-    margin-top: -30px;
+  content: "";
+  display: block;
+  width: 155px;
+  float: right;
+  margin-top: -30px;
   margin-right: 7px;
-    border-bottom: 2px solid #ff5259;
-    -webkit-transform: rotate(165deg);
-    -moz-transform: rotate(165deg);
-    -ms-transform: rotate(165deg);
-    -o-transform: rotate(165deg);
+  border-bottom: 2px solid #ff5259;
+  -webkit-transform: rotate(165deg);
+  -moz-transform: rotate(165deg);
+  -ms-transform: rotate(165deg);
+  -o-transform: rotate(165deg);
 }
 .block2 .btn_newPrice{
-    position: absolute;
-    margin-left: 216px;
-    margin-top: -240px;
-    width: 575px;
+  position: absolute;
+  margin-left: 216px;
+  margin-top: -240px;
+  width: 575px;
 }
 .block2 .btn_newPrice .newPrice{
-    float: right;
-    font-size: 45px;
-    font-weight: 500;
+  float: right;
+  font-size: 45px;
+  font-weight: 500;
 }
 .block2 .time_box{
-    width: 420px;
-    position: absolute;
-    margin-left: 488px;
-    margin-top: -175px;
+  width: 420px;
+  position: absolute;
+  margin-left: 488px;
+  margin-top: -175px;
 }
 .block2 .time_box .title{
-    font-size: 28px;
+  font-size: 28px;
 }
 .block2 .time_box .timer{
 }
 .timeTo.timeTo-black div{
-    border-radius: 5px;
+  border-radius: 5px;
 }
 .reviews{
-    width: 785px;
-    padding-bottom: 65px;
+  width: 785px;
+  padding-bottom: 65px;
 }
 .reviews .item{
-    margin-top: 50px;
-    min-height: 180px;
+  margin-top: 50px;
+  min-height: 180px;
 }
 .reviews .item img{
-    width: 180px;
-    height: 180px;
-    float: left;
-    margin-right: 40px;
+  width: 180px;
+  height: 180px;
+  float: left;
+  margin-right: 40px;
 }
 .reviews .item .text{
-    font-size: 16px;
-    color: #656565;
-    overflow: hidden;
+  font-size: 16px;
+  color: #656565;
+  overflow: hidden;
 }
 .reviews .item .text h3{
-    color: #333;
-    font-weight: 300;
-    font-size: 20px;
-    padding-top: 10px;
-    padding-bottom: 35px;
+  color: #333;
+  font-weight: 300;
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 35px;
 }
 footer{
-    height: 265px;
-    background-color: #000;
+  height: 265px;
+  background-color: #000;
 }
 footer .title{
-    font-size: 26px;
-    color: #fff;
-    padding-top: 28px;
+  font-size: 26px;
+  color: #fff;
+  padding-top: 28px;
 }
 footer .footerForm{
-    text-align: center;
-    font-size: 0px;
-    margin-top: 5px;
+  text-align: center;
+  font-size: 0px;
+  margin-top: 5px;
 }
 footer .footerForm .inputMail{
-    width: 330px;
-    height: 48px;
-    border: none;
-    font-size: 16px;
-    color: #656565;
-    padding: 0px 15px;
-    vertical-align: top;
+  width: 330px;
+  height: 48px;
+  border: none;
+  font-size: 16px;
+  color: #656565;
+  padding: 0px 15px;
+  vertical-align: top;
 }
 footer .footerForm .inputSubmit{
-    width: 240px;
-    height: 48px;
-    border: none;
-    padding: 0px;
-    vertical-align: top;
-    background-color: #ff5259;
-    background-image: image-url("web/promo/submit_btn.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    color: #fff;
-    cursor: pointer;
-    font-size: 0px;
+  width: 240px;
+  height: 48px;
+  border: none;
+  padding: 0px;
+  vertical-align: top;
+  background-color: #ff5259;
+  background-image: image-url("web/promo/submit_btn.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0px;
 }
 
 .inputSubmit2{
-    width: 240px;
-    height: 48px;
-    border: none;
-    padding: 0px;
-    vertical-align: top;
-    background-color: #ff5259;
-    background-image: image-url("web/promo/oplata.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    color: #fff;
-    cursor: pointer;
-    font-size: 0px;
+  width: 240px;
+  height: 48px;
+  border: none;
+  padding: 0px;
+  vertical-align: top;
+  background-color: #ff5259;
+  background-image: image-url("web/promo/oplata.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0px;
 }
 
 .socila_box{
-    text-align: center;
-    padding-bottom: 30px;
+  text-align: center;
+  padding-bottom: 30px;
 }
 .socila_box .item{
-    display: inline-block;
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    margin-right: 45px;
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  margin-right: 45px;
 }
 .socila_box .item:last-child{
-    margin-right: 0px;
+  margin-right: 0px;
 }
 .socila_box .item .icon{
-    background: image-url("web/promo/social-icon.png");
-    width: 50px;
-    height: 50px;
-    margin: 0px auto;
+  background: image-url("web/promo/social-icon.png");
+  width: 50px;
+  height: 50px;
+  margin: 0px auto;
 }
 .socila_box .item .icon.fb{
-    background-position: 0px 0px;
+  background-position: 0px 0px;
 }
 .socila_box .item .icon.vk{
-    background-position: -100px 0px;
+  background-position: -100px 0px;
 }
 .socila_box .item .icon.tw{
-    background-position: -50px 0px;
+  background-position: -50px 0px;
 }
 .socila_box .item .text{
-    margin-top: 10px;
+  margin-top: 10px;
 }
 .goto{
 }
 .goto .goto_text{
-    width: 600px;
-    padding-bottom: 30px;
+  width: 600px;
+  padding-bottom: 30px;
 }
 
 .input_type-1 {
@@ -454,18 +495,18 @@ footer .footerForm .inputSubmit{
 }
 
 .price_calc{
-font-size:25px;
-padding: 0 60px;
+  font-size:25px;
+  padding: 0 60px;
 }
 
 .price_calc td{
-width:310px;
-padding: 8px 0px;
+  width:310px;
+  padding: 8px 0px;
 }
 
 .price_calc .price{
-text-align:right;
-font-weight: 500;
+  text-align:right;
+  font-weight: 500;
 }
 
 .price-select{
@@ -490,42 +531,42 @@ font-weight: 500;
   transition: all 0.2s ease-in-out;
   background: image-url("web/promo/select.png") no-repeat right;
   -webkit-appearance: none;      -moz-appearance: none;      appearance: none;
-  }
+}
 
-  .kupon{
+.kupon{
   margin-top: 20px;
-font-size:25px;
-padding: 0 60px;
+  font-size:25px;
+  padding: 0 60px;
 }
 
 .kupon td{
-text-align:left;
-width:280px;
-padding: 8px 0px;
+  text-align:left;
+  width:280px;
+  padding: 8px 0px;
 }
 
 .kupon .but{
-text-align:right;
-font-weight: 500;
+  text-align:right;
+  font-weight: 500;
 }
 
 .kupon .first_kup{
-width:150px;
+  width:150px;
 }
 
-  .kupon .inputSubmit{
-    width: 240px;
-    height: 48px;
-    border: none;
-    padding: 0px;
-    vertical-align: top;
-    background-color: #ff5259;
-    background-image: image-url("web/promo/submit_btn.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    color: #fff;
-    cursor: pointer;
-    font-size: 0px;
+.kupon .inputSubmit{
+  width: 240px;
+  height: 48px;
+  border: none;
+  padding: 0px;
+  vertical-align: top;
+  background-color: #ff5259;
+  background-image: image-url("web/promo/submit_btn.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0px;
 }
 
 .radio {
@@ -573,12 +614,12 @@ width:150px;
 }
 
 .wrapper{
-line-height:1.5;
+  line-height:1.5;
 }
 
 .wrapper label, input{
-margin-top:3px;
-margin-bottom:3px;
+  margin-top:3px;
+  margin-bottom:3px;
 }
 
 .radio_pay {
@@ -626,121 +667,130 @@ margin-bottom:3px;
 }
 
 .pay_information{
-display: block;
-padding: 0px 60px 40px 60px;
+  display: block;
+  padding: 0px 60px 40px 60px;
 }
 
 .pay_information .pay_col1{
-display: inline-block;
-width:470px;
-min-height: 370px;
+  display: inline-block;
+  width:470px;
+  min-height: 370px;
 }
 
 .pay_information .pay_col2{
-display: inline-block;
-vertical-align: top;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .pay_information .inputSubmit{
-    width: 240px;
-    height: 48px;
-    border: none;
-    padding: 0px;
-    vertical-align: top;
-    background-color: #ff5259;
-    background-image: image-url("web/promo/submit_btn.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    color: #fff;
-    cursor: pointer;
-    font-size: 0px;
+  width: 240px;
+  height: 48px;
+  border: none;
+  padding: 0px;
+  vertical-align: top;
+  background-color: #ff5259;
+  background-image: image-url("web/promo/submit_btn.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0px;
 }
 
 .kup_inp{
-font-size:16px;
+  font-size:16px;
 }
 
 .pay_information_title{
-font-size:25px;
-margin: 60px 0 20px 0;
+  font-size:25px;
+  margin: 60px 0 20px 0;
 }
 
 .pay_view{
-margin-bottom:30px;
-min-height:145px;
+  margin-bottom:30px;
+  min-height:145px;
 }
 
 .check_text{
-font-size:14px;
+  font-size:14px;
 }
 
 input[type=checkbox].css-checkbox + label.css-label {
   padding-left:30px;
-    height:15px;
+  height:15px;
   display:inline-block;
   line-height:15px;
   background-repeat:no-repeat;
   background-position: 0 0;
   font-size:15px;
   vertical-align:middle;
-    cursor:pointer;
+  cursor:pointer;
 }
 
 input[type=checkbox].css-checkbox:checked + label.css-label {
 
-    background-position: 0 -15px;
+  background-position: 0 -15px;
 }
 
 .lite-red-check{
-background-image: image-url("web/promo/check.png");
+  background-image: image-url("web/promo/check.png");
 }
 
 
 input[type=checkbox].css-checkbox {
-      position: absolute;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    height:1px;
-    width:1px;
-    margin:-1px;
-    padding:0;
-    border:0;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height:1px;
+  width:1px;
+  margin:-1px;
+  padding:0;
+  border:0;
 }
 
 .check-block{
-margin-top:10px;
+  margin-top:10px;
 }
 
 .footer_info{
-text-align:center;
-color: #656565;
+  text-align:center;
+  color: #656565;
 }
 .soc{
-width:680px;
-margin:0 auto;
+  width:680px;
+  margin:0 auto;
 }
 .social{
-display: inline;
+  display: inline;
 }
 
 .social-block{
-display:inline-block;
+  display:inline-block;
 }
 
 .rubl_small{
-height:14px;
+  height:14px;
 }
 
 .rubl_medium{
-height:18px;
+  height:18px;
 }
 
 .rubl_big{
-height:31px;
+  height:31px;
 }
 
 .oldPrice{
-margin-left:20px;
+  margin-left:20px;
+}
+
+p {
+  margin-top: 2em;
+}
+
+ol.ticket-codes {
+  list-style-type: none;
+  font-weight: 400;
 }
 
 // FIXME за неимением лучшего стащил эту кислоту из vendor/assets/stylesheets/mania-style/bootstrap.css

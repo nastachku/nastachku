@@ -29,6 +29,10 @@ Configus.build Rails.env do
       default_from "noreply@nastachku.ru"
     end
 
+    mail do
+      info 'info@nastachku.ru'
+    end
+
     badges do
       time_to_print_badges DateTime.new(2015, 4, 9, 18, 0, 0)
     end
@@ -71,6 +75,10 @@ Configus.build Rails.env do
     end
 
     default_distributor 'nastachku.ru'
+
+    phones do
+      valeriy '+7(902)355-55-99'
+    end
   end
 
   env :development, parent: :production do

@@ -35,4 +35,8 @@ module ApplicationHelper
   def in_account?
     params[:controller] == 'web/accounts'
   end
+
+  def link_to_tel(phone)
+    link_to phone, "tel:#{phone}"
+  end
 end
