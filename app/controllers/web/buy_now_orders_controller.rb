@@ -1,5 +1,5 @@
 class Web::BuyNowOrdersController < Web::ApplicationController
-  layout "promo"
+  layout "web/promo"
 
   def new
     @form = BuyNowOrderType.new

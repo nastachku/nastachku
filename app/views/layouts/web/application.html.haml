@@ -29,8 +29,9 @@
     = javascript_include_tag "application"
     = include_gon
     %script{ src: "http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js", type: "text/javascript" }
+      = render 'layouts/web/shared/google_analytics'
   %body
-    = render "layouts/web/shared/counters"
+    = render 'layouts/web/shared/yandex_metrics'
     #layout
       = render "layouts/web/shared/header"
       = render "layouts/web/shared/plaha"
@@ -48,5 +49,3 @@
     - unless current_user
       = render "layouts/web/shared/authpopup"
 
-    = render 'layouts/web/shared/yandex_metrics'
-    = render 'layouts/web/shared/google_analytics'

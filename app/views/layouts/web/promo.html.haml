@@ -3,14 +3,16 @@
   %head
     %meta{:charset => "utf-8"}/
     %title Стачка!
-    = stylesheet_link_tag 'web/buy_now'
-    = javascript_include_tag 'web/buy_now'
+    = stylesheet_link_tag 'web/promo'
+    = javascript_include_tag 'web/promo'
+    = render 'layouts/web/shared/google_analytics'
   %body
+    = render 'layouts/web/shared/yandex_metrics'
     %header
       .cont
         .location-text
           %b 10-11 апреля 2015 года,
           Ленинский мемориал, Ульяновск
         = link_to 'http://nastachku.ru', class: 'logo' do
-          = image_tag 'web/buy_now/logo.png', alt: 'Стачка'
+          = image_tag 'web/promo/logo.png', alt: 'Стачка'
     = yield
