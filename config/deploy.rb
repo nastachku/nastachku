@@ -33,8 +33,8 @@ after 'deploy:finished', 'airbrake:deploy'
 namespace :deploy do
   task :restart do
     invoke 'unicorn:stop'
-    invoke 'unicorn:start'
     invoke 'resque:restart'
     invoke 'resque:scheduler:restart'
+    invoke 'unicorn:start'
   end
 end
