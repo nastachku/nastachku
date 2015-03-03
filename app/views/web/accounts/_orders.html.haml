@@ -1,6 +1,6 @@
 .order__new__items
   = simple_form_for @order, url: pay_account_buy_path, method: :put do |f|
-    .order__new__item.order__new__item__days
+    .order__new__item
       - if current_user.ticket
         %h3 Вы купили билет на Стачку!
       - else
@@ -24,10 +24,9 @@
             %span#ticket_price_score
               = Pricelist.afterparty_ticket_price
             %span.rouble i
-    .order__new__submit
-      - unless current_user.bought_tickets?
-        %button#submit_order.btn_main{ type: "submit", name: 'payment_system', value: 'payanyway' } Оплатить через PayAnyWay
-        %button#submit_order.btn_main{ type: "submit", name: 'payment_system', value: 'platidoma' } Оплатить через Платидома
-      - unless current_user.ticket
+    - unless current_user.bought_tickets?
+      .order__new__submit
+        = select_tag :payment_system, options_for_select([["PayAnyWay", "payanyway"], ["Платидома", "platidoma"]]), class: "custom_select"
+        %button#submit_order.btn_main{ type: "submit" } Оплатить
         = link_to activation_account_tickets_path do
           .btn_main.activate_button Активировать билет!
