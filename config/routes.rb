@@ -118,9 +118,9 @@ Nastachku::Application.routes.draw do
     end
 
     post 'payments/paid/payanyway', to: 'payments#paid_payanyway'
-    get 'payments/success/payanyway', to: 'payments#success_payanyway'
-    get 'payments/decline/payanyway', to: 'payments#decline_payanyway'
-    get 'payments/cancel/payanyway', to: 'payments#cancel_payanyway'
+    match 'payments/success/payanyway', to: 'payments#success_payanyway', via: [:get, :post]
+    match 'payments/decline/payanyway', to: 'payments#decline_payanyway', via: [:get, :post]
+    match 'payments/cancel/payanyway', to: 'payments#cancel_payanyway', via: [:get, :post]
 
     namespace :admin do
       resources :users_lists, except: [:edit, :update] do
