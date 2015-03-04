@@ -51,6 +51,7 @@ Nastachku::Application.routes.draw do
     get '/promo', to: 'welcome#landing'
     resources :lectures, only: [:index]
     resources :pages, only: [:show]
+    resources :promo, only: [:show]
     resources :news, only: [:index]
     resources :user_lectures, only: [:index]
     resources :lectors, only: [:index]
