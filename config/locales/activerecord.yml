@@ -59,7 +59,7 @@ ru:
       lecture:
         state_event: 'Действие'
         title: 'Название'
-        presentation: 'Добавить презентацию'
+        presentation: 'Добавить презентацию (Файлы ppt, pptx, pdf, odp, не более 10Mb)'
         thesises: 'Тезисы'
         user: 'Докладчик'
         start_time: 'Время начала'
