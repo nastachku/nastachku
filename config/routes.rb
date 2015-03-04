@@ -138,14 +138,14 @@ Nastachku::Application.routes.draw do
       resources :topics
       resources :distributors, except: :show
       resources :ticket_codes, only: [:index, :new, :create]
-      resources :tickets, only: [:index]
-      resources :afterparty_tickets, only: [:index]
+      resources :tickets, only: [:index, :show]
+      resources :afterparty_tickets, only: [:index, :show]
 
       resources :events
       resources :workshops
       resources :halls
       resources :event_breaks
-      resources :orders, only: [:index, :edit, :update]
+      resources :orders, only: [:index, :edit, :update, :show]
       resource :mailers, only: [] do
         get :index
         post :broadcast_to_not_attended

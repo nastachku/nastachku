@@ -31,6 +31,27 @@
   %strong= User::PromoCode.human_attribute_name :code
   %br= @user.promo_code.code if @user.promo_code
 
+  %strong= User.human_attribute_name :orders
+  - @user.orders.each do |order|
+    %div
+      = link_to order.id, admin_order_path(order.id)
+      %span= "(#{order.human_payment_state_name})"
+
+  %strong= User.human_attribute_name :ticket
+  %br
+  - if @user.ticket.present?
+    = link_to @user.ticket.id, admin_ticket_path(@user.ticket)
+  - else
+    нет
+
+  %br
+  %strong= User.human_attribute_name :afterparty_ticket
+  %br
+  - if @user.afterparty_ticket.present?
+    = link_to @user.afterparty_ticket.id, admin_afterparty_ticket_path(@user.afterparty_ticket)
+  - else
+    нет
+
 
   - if @user.photo.present?
     %strong= User.human_attribute_name :photo

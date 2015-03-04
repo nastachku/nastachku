@@ -1,0 +1,37 @@
+.page-header
+  %h1=t '.title'
+
+.span6.clearfix
+  %table.table.table-hover
+    %thead
+      %tr
+    %tbody
+      %tr
+        %th= Order.human_attribute_name :id
+        %td= @order.id
+      %tr
+        %th= Order.human_attribute_name :user
+        %td= link_to @order.user, admin_user_path(@order.user.id) if @order.user
+      %tr
+        %th= Order.human_attribute_name :items_count
+        %td= @order.items_count
+      %tr
+        %th= Order.human_attribute_name :cost
+        %td= @order.cost
+      %tr
+        %th= Order.human_attribute_name :payment_state
+        %td= @order.human_payment_state_name
+      %tr
+        %th= Order.human_attribute_name :created_at
+        %td= @order.created_at
+      %tr
+        %th= Order.human_attribute_name :payment_system
+        %td= @order.payment_system
+      %tr
+        %th= Order.human_attribute_name :transaction_id
+        %td= link_to @order.transaction_id, url_to_payment(@order), target: :_blank if @order.transaction_id
+
+
+.form-actions
+  = link_to t('.back'), admin_orders_path, :class => 'btn'
+  = link_to t('.edit'), edit_admin_order_path(@order), :class => 'btn'
