@@ -4,15 +4,13 @@
   .span6
     %h3
       Отчеты
-    = link_to "Сгенерировать csv", generate_admin_reports_path, method: :post
+    = link_to "Сгенерировать csv", generate_admin_reports_path, method: :post, class: 'btn'
     %br
     = link_to "Отчет по билетам", admin_reports_file_path("ticketorders.csv")
     %br
     = link_to "Отчет по афтепати", admin_reports_file_path("afterpartyorders.csv")
     %br
-    = link_to "Отчет по бейджам", admin_reports_file_path("badges.csv")
-    %br
-    = link_to "Отчет по бейджам", admin_reports_file_path("paid_users.csv")
+    = link_to "Пользователи с билетами", admin_reports_file_path("paid_users.csv")
 %h2
   = t('.lists')
 = link_to t('.view_lists'), admin_users_lists_path, class: 'btn btn-large  btn-success'
