@@ -29,8 +29,12 @@ class Web::Admin::TicketCodesController < Web::Admin::ApplicationController
   end
 
   def destroy
-    ticket_code = TicketCode.where(state: :new).find(params[:id])
-    ticket_code.destroy
+    ticket_code = TicketCode.where(state: :new).find_by(id: params[:id])
+    if ticket_code
+      ticket_code.destroy
+    else
+      flash_error message: t('.code_is_activated')
+    end
     redirect_to admin_ticket_codes_path
   end
 end

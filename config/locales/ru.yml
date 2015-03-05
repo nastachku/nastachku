@@ -99,6 +99,9 @@ ru:
           title: 'Коды активации'
           new: 'Создать'
           total: 'Всего: %{count}'
+        ticket_code:
+          destroy: 'Удалить'
+          confirm: 'Точно?'
         new:
           title: Создание кодов активации
         form:
