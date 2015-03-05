@@ -1,7 +1,7 @@
-- if @page.title and not @page.blank?
+- if @page.title
   .pagetitle
     .layout-line
       %h1.pagetitle__title= @page.title
 .content
   .layout-line
-    != @page.body
+    = @page.body.html_safe

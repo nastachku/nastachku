@@ -2,11 +2,12 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
 
   def new
     @page = Page.new
+    @layouts = Page.layout.values
   end
 
   def create
     @page = ::Admin::PageEditType.new params[:page]
-    @page.changed_by = current_user
+    @layouts = Page.layout.values
 
     if @page.save
       flash_success
@@ -29,11 +30,12 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
 
   def edit
     @page = Page.find params[:id]
+    @layouts = Page.layout.values
   end
 
   def update
     @page = ::Admin::PageEditType.find params[:id]
-    @page.changed_by = current_user
+    @layouts = Page.layout.values
 
     if @page.update_attributes params[:page]
       flash_success

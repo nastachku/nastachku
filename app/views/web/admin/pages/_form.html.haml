@@ -2,6 +2,7 @@
 
   = f.input :slug
   = f.input :title
+  = f.input :layout, collection: @layouts
   = f.input :body, as: :ckeditor
 
   .form-actions
