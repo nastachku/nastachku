@@ -33,6 +33,8 @@ ru:
       ticket_order: Билет на Стачку
       distributor: Распространитель
       ticket_code: Код активации
+      lecture: Доклад
+
 
     attributes:
       distributor:
@@ -59,7 +61,7 @@ ru:
       lecture:
         state_event: 'Действие'
         title: 'Название'
-        presentation: 'Добавить презентацию (Файлы ppt, pptx, pdf, odp, не более 10Mb)'
+        presentation: Презентация
         thesises: 'Тезисы'
         user: 'Докладчик'
         start_time: 'Время начала'

@@ -8,9 +8,9 @@ ru:
   errors:
     messages:
       extension_white_list_error: 'Неверный формат!'
-      wrong_size: "неверного размера"
-      size_too_small: "слишком маленький (должен быть минимум %{file_size})"
-      size_too_big: "слишком большой (должен быть максимум %{file_size})"
+      wrong_size: "Файл неверного размера"
+      size_too_small: "Файл слишком маленький (должен быть минимум %{file_size})"
+      size_too_big: "Файл слишком большой (должен быть максимум %{file_size})"
 
   time:
     formats:
@@ -157,6 +157,8 @@ ru:
           add_event: 'Добавить доклад'
         event_fields:
           remove_event: 'Удалить доклад'
+        lecture_fields:
+          presentation: 'Добавить презентацию (файлы pdf, ppt, pptx, odp, не более 10Mb)'
       tickets:
         activate:
           too_frequent_activations: 'Слишком много попыток активации. Повторите через 10 минут'
