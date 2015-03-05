@@ -32,9 +32,11 @@ class Web::Account::OrdersControllerTest < ActionController::TestCase
   end
 
   test 'should redirect to buy now' do
-    order = create :order, :with_tickets, user: nil
+    order = create :order, :with_tickets, user: nil, customer_info: {email: 'test@example.com'}
     create :distributor, :nastachku
+
     post :approve, pd_order_id: order.number, pd_trans_id: 1
+
     assert_redirected_to success_buy_now_order_path(order_number: order.number)
     assert order.reload.paid?
   end

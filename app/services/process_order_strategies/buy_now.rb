@@ -29,6 +29,7 @@ module ProcessOrderStrategies
       end
 
       order.pay!
+      UserMailer.send_ticket_codes(order.id).deliver
     end
 
     def self.call(*args)
