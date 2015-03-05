@@ -106,5 +106,4 @@ group :development do
   gem 'capistrano-rbenv', require: false
   gem 'capistrano3-unicorn', require: false
   gem 'capistrano-resque', github: 'sshingler/capistrano-resque', require: false
-  gem "capistrano-db-tasks", require: false
 end

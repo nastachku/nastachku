@@ -1,7 +1,5 @@
-lock '3.3.5'
+lock '3.4.0'
 
-require 'capistrano-db-tasks'
-set :disallow_pushing, true
 
 set :application, 'nastachku'
 set :repo_url, 'git@github.com:rocket-11/nastachku.git'

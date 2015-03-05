@@ -16,7 +16,7 @@
                 %span.rouble i
         %li.order__new__item
           - if current_user.afterparty_ticket
-            %h3 Вы купили билет вечеринку!
+            %h3 Вы купили билет на вечеринку!
           - else
             .order__new__item__name
               = check_box_tag :afterparty_ticket, nil, true, id: "afterparty", class: 'checkbox_type-1'
