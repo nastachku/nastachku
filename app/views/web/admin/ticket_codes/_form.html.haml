@@ -6,5 +6,5 @@
   = f.input :count, label: t('.count')
 
   .form-actions
-    = f.submit t('.create'), class: 'btn btn-primary'
+    = f.submit t('.create'), class: 'btn btn-danger', data: { confirm: "Вы уверены? Точно-точно?" }
     = link_to t('.cancel'), admin_ticket_codes_path, class: 'btn'

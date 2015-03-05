@@ -16,6 +16,7 @@
       %th= TicketCode.human_attribute_name :code
       %th
         .nowrap= TicketCode.human_attribute_name :created_at
+      %th= TicketCode.human_attribute_name :actions
   %tbody
     = render @ticket_codes
 

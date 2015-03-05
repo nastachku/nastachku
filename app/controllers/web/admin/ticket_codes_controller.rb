@@ -27,4 +27,10 @@ class Web::Admin::TicketCodesController < Web::Admin::ApplicationController
       render :new
     end
   end
+
+  def destroy
+    ticket_code = TicketCode.where(state: :new).find(params[:id])
+    ticket_code.destroy
+    redirect_to admin_ticket_codes_path
+  end
 end
