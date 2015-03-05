@@ -1,5 +1,12 @@
+Documentation:
+  Enabled: false
 Metrics/LineLength:
   Max: 120
-
 Style/StringLiterals:
+  Enabled: false
+AllCops:
+  RunRailsCops: true
+SpaceInsideHashLiteralBraces:
+  EnforcedStyle: 'no_space'
+AsciiComments:
   Enabled: false
