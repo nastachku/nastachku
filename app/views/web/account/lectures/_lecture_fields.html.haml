@@ -6,7 +6,7 @@
         = f.input :thesises, label: false, placeholder: Lecture.human_attribute_name(:thesises), class: :input_without_ul
         = f.association :workshop, input_html: { id: "workshop_select" }, include_blank: false
       .span3
-        = f.input :presentation, as: :file
+        = f.input :presentation, as: :file, label: t('.presentation'), input_html: {accept: 'application/pdf, application/vnd.ms-powerpoint, pplication/vnd.oasis.opendocument.presentation, application/x-vnd.oasis.opendocument.presentation, pplication/vnd.openxmlformats-officedocument.presentationml.presentation'}
       .span1
         .pull-right
           = link_to_remove_association f do
