@@ -36,7 +36,8 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :facebook, url: true, allow_blank: true
   validates :vkontakte, url: true, allow_blank: true
-  validates :twitter_name, format: { with: /[A-Za-z0-9_]{1,15}/, message: "неправильный формат никнейма" }
+  validates :twitter_name, format: { with: /[A-Za-z0-9_]{1,15}/, message: "неправильный формат никнейма" },
+    allow_blank: true
 
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
