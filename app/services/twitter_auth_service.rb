@@ -15,7 +15,7 @@ class TwitterAuthService
         user.save
       end
 
-      user.activate if user.new?
+      user.activate! if user.new?
 
       user
     end

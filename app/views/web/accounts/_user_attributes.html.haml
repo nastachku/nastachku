@@ -37,14 +37,11 @@
           %span.form__element__pass-icon.form_showpass
         %li.form__element
           = f.input :password, placeholder: "Новый пароль", label: false
+
+    %ul.form__group
+      %li.form__element
+        = f.input :show_as_participant, as: :stachka_checkbox, label: false
   .personal__identity
-    .personal__identity__number
-      %h5 Ваш персональный номер
-      %h2= @user.id
-    .margin_of_information
-      %ul.form__group
-        %li.form__element
-          = f.input :show_as_participant, as: :stachka_checkbox, label: false
     .personal__identity__social
       %ul.form__group
         - f.with_options input_html: { class: "input_type-1" } do |f|
@@ -56,3 +53,5 @@
             = f.input :vkontakte, placeholder: "http://vk.com", as: :string, label: false
   .personal__submit
     = f.button :submit, t('.save'), class: 'btn_main btn_main-refresh'
+
+= render 'orders'

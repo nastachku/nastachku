@@ -1,43 +1,33 @@
-#order_form.order__new
-  .order__new__items
-    %ul.order__new__items
-      = simple_form_for @order, url: pay_account_buy_path, method: :put do |f|
-        %li.order__new__item.order__new__item__days
-          - if current_user.ticket
-            %h3 Вы купили билет на Стачку!
-          - else
-            .order__new__item__name
-              = check_box_tag :ticket, nil, true, id: "two_days", class: 'checkbox_type-1'
-              = label_tag 'two_days', t('.stachka_ticket')
-            .order__new__item__price
-              %h4
-                %span#ticket_price_score
-                  = Pricelist.ticket_price
-                %span.rouble i
-        %li.order__new__item
-          - if current_user.afterparty_ticket
-            %h3 Вы купили билет на вечеринку!
-          - else
-            .order__new__item__name
-              = check_box_tag :afterparty_ticket, nil, true, id: "afterparty", class: 'checkbox_type-1'
-              = label_tag 'afterparty', t('.afterparty_ticket')
-            .order__new__item__price
-              %h4
-                %span#ticket_price_score
-                  = Pricelist.afterparty_ticket_price
-                %span.rouble i
-        .order__new__submit
-          - unless current_user.bought_tickets?
-            = link_to activation_account_tickets_path do
-              .btn_main Активировать билет
-            %button#submit_order.btn_main{ type: "submit", name: 'payment_system', value: 'payanyway' } Оплатить через PayAnyWay
-            %button#submit_order.btn_main{ type: "submit", name: 'payment_system', value: 'platidoma' } Оплатить через Платидома
-
-.orderlist
-  .layout-line
-    %ul.orderslist__info
-      .orderslist__info__desc
-        %span
-        %p По всем вопросам альтернативной оплаты или отмены заказа, обращаться:
-      .orderslist__info__contacts
-        %a{ href: "mailto:info@nastachku.ru" } info@nastachku.ru
+.order__new__items
+  = simple_form_for @order, url: pay_account_buy_path, method: :put do |f|
+    .order__new__item
+      - if current_user.ticket
+        %h3 Вы купили билет на Стачку!
+      - else
+        .order__new__item__name
+          = check_box_tag :ticket, nil, true, id: "two_days", class: 'checkbox_type-1'
+          = label_tag 'two_days', t('.stachka_ticket')
+        .order__new__item__price
+          %h4
+            %span#ticket_price_score
+              = Pricelist.ticket_price
+            %span.rouble i
+    .order__new__item
+      - if current_user.afterparty_ticket
+        %h3 Вы купили билет вечеринку!
+      - else
+        .order__new__item__name
+          = check_box_tag :afterparty_ticket, nil, true, id: "afterparty", class: 'checkbox_type-1'
+          = label_tag 'afterparty', t('.afterparty_ticket')
+        .order__new__item__price
+          %h4
+            %span#ticket_price_score
+              = Pricelist.afterparty_ticket_price
+            %span.rouble i
+    - unless current_user.bought_tickets?
+      .order__new__submit
+        = select_tag :payment_system, options_for_select([["PayAnyWay", "payanyway"], ["Платидома", "platidoma"]]), class: "custom_select"
+        %br
+        %button#submit_order.btn_main.btn_main-pay-btn{ type: "submit" } Оплатить
+        = link_to activation_account_tickets_path do
+          .btn_main.btn_main-activate_ticket.activate_button Активировать билет!
