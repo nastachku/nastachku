@@ -5,10 +5,6 @@
 .content
   .layout-line
     = simple_form_for @user, url: account_lectures_path, method: :post do |f|
-      - if @user.errors.any?
-        - @user.errors.full_messages.each do |msg|
-          %li
-            = msg
       %ul.form__group.one_column_form
         .personal__userpic.photo_input_on_user_lectures_form
           .personal__userpic__img

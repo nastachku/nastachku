@@ -20,6 +20,7 @@ class Lecture < ActiveRecord::Base
   validates :title, presence: true
   validates :thesises, presence: true
   validates :workshop, presence: true
+  validates :presentation, file_size: {maximum: 10.megabytes.to_i}
 
   audit :title, :thesises, :workshop, :user
 
