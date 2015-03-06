@@ -27,6 +27,7 @@
     - unless current_user.bought_tickets?
       .order__new__submit
         = select_tag :payment_system, options_for_select([["PayAnyWay", "payanyway"], ["Платидома", "platidoma"]]), class: "custom_select"
-        %button#submit_order.btn_main{ type: "submit" } Оплатить
+        %br
+        %button#submit_order.btn_main.btn_main-pay-btn{ type: "submit" } Оплатить
         = link_to activation_account_tickets_path do
-          .btn_main.activate_button Активировать билет!
+          .btn_main.btn_main-activate_ticket.activate_button Активировать билет!
