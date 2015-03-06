@@ -34,7 +34,7 @@ ru:
       distributor: Распространитель
       ticket_code: Код активации
       lecture: Доклад
-
+      coupon: "Купон"
 
     attributes:
       distributor:
@@ -153,6 +153,15 @@ ru:
         payment_state: "Состояние платежа"
         type: "Тип товара"
         item_size: "Размер"
+
+      coupon:
+        partner: "Партнер"
+        code: "Код"
+        discount: "Скидка пользователю, %"
+        commission: "Вознаграждение партнеру, %"
+        url: "Переход на страницу"
+        state: "Статус"
+        state_event: "Действие"
 
     errors:
       messages:

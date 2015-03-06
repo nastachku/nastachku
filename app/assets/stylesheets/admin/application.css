@@ -36,3 +36,7 @@ label.checkbox {
 .wide-input {
   width: 100%;
 }
+
+.clearfix {
+  float: none;
+}

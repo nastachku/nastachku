@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304182727) do
+ActiveRecord::Schema.define(version: 20150308212935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,17 @@ ActiveRecord::Schema.define(version: 20150304182727) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
+  create_table "coupons", force: :cascade do |t|
+    t.string   "partner"
+    t.integer  "discount"
+    t.integer  "commission"
+    t.string   "code"
+    t.string   "url"
+    t.string   "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "discounts", force: :cascade do |t|
     t.string   "code",       limit: 255
@@ -164,7 +175,10 @@ ActiveRecord::Schema.define(version: 20150304182727) do
     t.integer  "discounts"
     t.string   "number"
     t.text     "customer_info"
+    t.integer  "coupon_id"
   end
+
+  add_index "orders", ["coupon_id"], name: "index_orders_on_coupon_id", using: :btree
 
   create_table "pages", force: :cascade do |t|
     t.string   "slug",       limit: 255
@@ -317,6 +331,7 @@ ActiveRecord::Schema.define(version: 20150304182727) do
   add_foreign_key "afterparty_tickets", "orders"
   add_foreign_key "afterparty_tickets", "ticket_codes"
   add_foreign_key "afterparty_tickets", "users"
+  add_foreign_key "orders", "coupons"
   add_foreign_key "ticket_codes", "distributors"
   add_foreign_key "tickets", "orders"
   add_foreign_key "tickets", "ticket_codes"

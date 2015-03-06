@@ -14,8 +14,8 @@
           %li= link_to t('.halls'), admin_halls_path
           %li= link_to t('.workshops'), admin_workshops_path
           %li= link_to t('.events'), admin_events_path
-          %li= link_to t('.users'),   admin_users_path
-          %li= link_to t('.audits'),   admin_audits_path
+          %li= link_to t('.users'), admin_users_path
+          %li= link_to t('.audits'), admin_audits_path
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "true", "data-toggle" => "dropdown"}
               = t('.tickets')
@@ -26,6 +26,7 @@
               %li= link_to t('.ticket_codes'), admin_ticket_codes_path
               %li= link_to t('.stachka_tickets'), admin_tickets_path
               %li= link_to t('.afterparty_tickets'), admin_afterparty_tickets_path
+              %li= link_to t('.coupons'), admin_coupons_path
           %li= link_to t('.mailers'),   admin_mailers_path
           %li= link_to t('.Resque'),   admin_resque_path
         %ul.nav.nav-collapse.pull-right

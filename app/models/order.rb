@@ -4,6 +4,7 @@ class Order < ActiveRecord::Base
 
   belongs_to :discount
   belongs_to :user
+  belongs_to :coupon
   has_many :tickets
   has_many :afterparty_tickets
 
@@ -46,6 +47,7 @@ class Order < ActiveRecord::Base
 
   def recalculate_cost!
     total_cost = (tickets.pluck(:price) + afterparty_tickets.pluck(:price)).inject(:+)
+    total_cost = coupon.with_discount(total_cost) if coupon.present?
     update_attributes cost: total_cost
   end
 

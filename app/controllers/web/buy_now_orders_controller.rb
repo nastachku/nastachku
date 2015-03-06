@@ -15,6 +15,7 @@ class Web::BuyNowOrdersController < Web::ApplicationController
       order = CreateOrder.call(
         tickets: @form.tickets,
         afterparty_tickets: @form.afterparty_tickets,
+        coupon: current_coupon,
         params: {
           payment_system: @form.payment_system,
           customer_info: @form.to_hash

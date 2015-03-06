@@ -3,6 +3,7 @@ class Web::Account::BuysController < Web::Account::ApplicationController
     order = CreateOrder.call(
       user: current_user,
       tickets: !!params[:ticket] ? 1 : 0,
+      coupon: current_coupon,
       afterparty_tickets: !!params[:afterparty_ticket] ? 1 : 0,
       params: {
         payment_system: params[:payment_system]

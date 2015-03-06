@@ -10,3 +10,12 @@ ru:
             canceled: 'Отменен'
             refunded: 'Возврат'
             declined: 'Отказ от оплаты'
+
+      coupon:
+        state:
+          states:
+            active: 'Активен'
+            inactive: 'Отключен'
+          events:
+            activate: 'Включить'
+            deactivate: 'Отключить'
