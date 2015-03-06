@@ -76,3 +76,18 @@ function changeAllPrice() {
   var priceAfterparty =  parseInt($('#afterpartyPrice').html());
   all.html(priceTicket + priceAfterparty);
 }
+
+$(document).ready(function(){
+  $('.popup .close_window, .overlay').click(function (){
+    $('.popup, .overlay').css('opacity','0');
+    $('.popup, .overlay').css('visibility','hidden');
+  });
+});
+
+function lal(id)
+  {
+    $('#'+id).css('opacity','1');
+    $('.overlay').css('opacity','1');
+    $('#'+id).css('visibility','visible');
+    $('.overlay').css('visibility','visible');
+  }
