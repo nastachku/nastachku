@@ -37,6 +37,10 @@
           %span.form__element__pass-icon.form_showpass
         %li.form__element
           = f.input :password, placeholder: "Новый пароль", label: false
+
+    %ul.form__group
+      %li.form__element
+        = f.input :show_as_participant, as: :stachka_checkbox, label: false
   .personal__identity
     .personal__identity__social
       %ul.form__group
@@ -47,9 +51,6 @@
             = f.input :facebook, placeholder: "http://facebook.com", as: :string, label: false
           %li.form__element.form__element__vk
             = f.input :vkontakte, placeholder: "http://vk.com", as: :string, label: false
-      %ul.form__group
-        %li.form__element
-          = f.input :show_as_participant, as: :stachka_checkbox, label: false
   .personal__submit
     = f.button :submit, t('.save'), class: 'btn_main btn_main-refresh'
 
