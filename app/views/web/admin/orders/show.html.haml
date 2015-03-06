@@ -30,6 +30,24 @@
       %tr
         %th= Order.human_attribute_name :transaction_id
         %td= link_to @order.transaction_id, url_to_payment(@order), target: :_blank if @order.transaction_id
+      %tr
+        %th= Order.human_attribute_name :tickets
+        %td
+          - @order.tickets.each do |ticket|
+            .div
+              = link_to ticket.id, admin_ticket_path(ticket.id)
+              - if ticket.ticket_code.present?
+                = "код: (#{ticket.ticket_code.code})"
+
+
+      %tr
+        %th= Order.human_attribute_name :afterparty_tickets
+        %td
+          - @order.afterparty_tickets.each do |ticket|
+            .div
+              = link_to ticket.id, admin_ticket_path(ticket.id)
+              - if ticket.ticket_code.present?
+                = "код: (#{ticket.ticket_code.code})"
 
 
 .form-actions

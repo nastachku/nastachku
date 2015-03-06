@@ -19,12 +19,7 @@ ru:
         price: 'Цена'
         distributor: 'Распространитель'
         code: 'Код'
-        category: 'Категория'
-        created_at: 'Время создания'
-      ticket_code:
-        price: 'Цена'
-        distributor: 'Распространитель'
-        code: 'Код'
+        state: 'Статус'
         category: 'Категория'
         created_at: 'Время создания'
       workshop:

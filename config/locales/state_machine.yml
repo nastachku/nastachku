@@ -1,6 +1,12 @@
 ru:
   activerecord:
     state_machines:
+      ticket_code:
+        state:
+          states:
+            new: 'Новый'
+            active: 'Активирован'
+            canceled: 'Отменен'
       order:
         payment_state:
           states:

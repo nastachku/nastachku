@@ -60,10 +60,12 @@ Configus.build Rails.env do
 
     platidoma do
       host 'pg.platidoma.ru'
+      transaction_view_host 'https://cabinet.paygate.platidoma.ru'
     end
 
     payanyway do
       host 'https://payanyway.ru'
+      transaction_view_host 'https://moneta.ru'
       test_mode 0
     end
 
@@ -144,10 +146,12 @@ Configus.build Rails.env do
 
     platidoma do
       host 'pg-test.platidoma.ru'
+      transaction_view_host 'https://cabinet.paygate-test.platidoma.ru'
     end
 
     payanyway do
       host 'https://demo.moneta.ru'
+      transaction_view_host 'https://demo.moneta.ru'
       test_mode 0
     end
 
