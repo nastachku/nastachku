@@ -19,7 +19,7 @@ class UsersPhotoUploader < CarrierWave::Uploader::Base
   process resize_to_fill: [455, 450]
 
   def extension_white_list
-   %w(jpg jpeg gif png)
+   %w(jpg jpeg png)
   end
 
 end
