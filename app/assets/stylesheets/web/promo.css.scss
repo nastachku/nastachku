@@ -857,6 +857,149 @@ p {
   margin-top: 2em;
 }
 
+.open_window{
+cursor:pointer;
+}
+
+.popup img{
+float:left;
+padding: 0 10px 10px 0;
+max-width:230px;
+}
+
+.popup .content{
+display:table;
+}
+
+.popup .content div{
+display:table-cell;
+vertical-align:top;
+}
+
+.popup p {
+margin: 5px 0;
+text-align:left;
+}
+
+.line-top{
+height:1px;
+background:#e1e1e1;
+}
+
+.mainpage__sections {
+width: 100%;
+margin-top: 7px;
+border-bottom: 1px solid #e5e5e5;
+padding-bottom: 50px;
+}
+
+.layout-line {
+position: relative;
+max-width: 960px;
+margin: 0 auto;
+padding: 0 10px;
+}
+
+.mainpage__sections .mainpage__sections__cont {
+width: 100%;
+}
+
+.mainpage__sections-img {
+vertical-align: top;
+width: 40%;
+display: table-cell;
+}
+
+.sprite {
+background-image: url("../img/sections_spritesheet.png");
+background-repeat: no-repeat;
+display: block;
+}
+
+.mainpage__sections-desc {
+vertical-align: middle;
+padding-left: 4%;
+width: 54%;
+display: table-cell;
+}
+
+.mainpage__sections-desc h4 {
+font-family: 'Roboto', sans-serif;
+font-size: 1.1875em;
+color: #383838;
+}
+
+.mainpage__sections-desc p {
+font-size: 0.9375em;
+line-height: 1.5em;
+margin: 5px 0 0 0;
+max-width: 270px;
+color: #656565;
+}
+
+.mainpage__sections li {
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+width: 49%;
+display: inline-block;
+vertical-align: top;
+border: 1px solid #e0e0e0;
+box-shadow: 6px 6px 0 #f2f2f2;
+padding: .7%;
+margin-top: 23px;
+}
+
+ul, ol {
+padding: 0;
+margin: 0;
+list-style: none;
+}
+
+.sprite-section-d_big {
+width: 180px;
+height: 180px;
+background-position: 0 0;
+}
+
+
+.sprite-section-t_big {
+width: 180px;
+height: 180px;
+background-position: -360px -180px;
+}
+
+.sprite-section-m_big {
+width: 180px;
+height: 180px;
+background-position: -360px 0;
+}
+
+.sprite-section-mob_big {
+width: 180px;
+height: 180px;
+background-position: 0 -180px;
+}
+
+.sprite-section-i_big {
+width: 180px;
+height: 180px;
+background-position: -180px -180px;
+}
+
+.sprite-section-e_big {
+width: 180px;
+height: 179px;
+background-position: -180px 0;
+}
+
+.layout-line a{
+text-decoration:none;
+}
+
+.layout-line a:hover{
+text-decoration:none;
+}
+
 ol.ticket-codes {
   list-style-type: none;
   font-weight: 400;
