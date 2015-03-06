@@ -45,7 +45,7 @@
         %td
           - @order.afterparty_tickets.each do |ticket|
             .div
-              = link_to ticket.id, admin_ticket_path(ticket.id)
+              = link_to ticket.id, admin_afterparty_ticket_path(ticket.id)
               - if ticket.ticket_code.present?
                 = "код: (#{ticket.ticket_code.code})"
 

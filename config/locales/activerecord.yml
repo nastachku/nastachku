@@ -126,6 +126,8 @@ ru:
         payment_system: "Платежная система"
         user: "Покупатель"
         payment_state_event: "Действие"
+        tickets: "Билеты на конференцию"
+        afterparty_tickets: "Билеты на Afterparty"
       ticket:
         order: "Заказ"
         user: "Пользователь"

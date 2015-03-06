@@ -8,6 +8,7 @@
 %table.table.table-striped
   %thead
     %tr
+      %th= Ticket.human_attribute_name :id
       %th= Ticket.human_attribute_name :user
       %th= Ticket.human_attribute_name :price
       %th= Ticket.human_attribute_name :code
