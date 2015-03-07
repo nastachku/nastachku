@@ -2,7 +2,7 @@
   = f.input :title, input_html: { class: 'span7' }
   = f.input :state_event, as: :state_event, input_html: { class: 'span7' }
   = f.input :thesises, input_html: { class: 'span7' }
-  = f.association :workshop, as: :chosen_select, input_html: { class: 'span7 span-nomargin' }
+  = f.association :workshop, as: :chosen_select, input_html: { class: 'span7 span-nomargin' }, include_blank: false
   = f.association :user, collection: User.alphabetically, as: :chosen_select, input_html: { class: 'span7 span-nomargin' }
   - if @type.user
     .control-group
