@@ -34,4 +34,23 @@ class Web::Admin::TicketCodesControllerTest < ActionController::TestCase
     assert_response :redirect
     assert TicketCode.count - count == params[:count]
   end
+
+  test "should delete destroy" do
+    ticket_code = create :ticket_code
+
+    delete :destroy, id: ticket_code.id
+
+    assert !TicketCode.exists?(ticket_code.id)
+    assert_response :redirect
+  end
+
+  test "should not delete if code activated" do
+    ticket_code = create :ticket_code
+    ticket_code.activate!
+
+    delete :destroy, id: ticket_code.id
+
+    assert TicketCode.exists?(ticket_code.id)
+    assert_response :redirect
+  end
 end
