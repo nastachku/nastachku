@@ -15,7 +15,9 @@ class Web::BuyNowOrdersControllerTest < ActionController::TestCase
     order = create :order, :with_tickets, customer_info: {email: 'test@example.com'}
     create :distributor, :nastachku
     ProcessPaidOrder.call order, :buy_now
+
     get :success, order_number: order.number
+
     assert_response :success
   end
 end

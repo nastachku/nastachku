@@ -31,6 +31,5 @@ class Web::BuyNowOrdersController < Web::ApplicationController
 
   def success
     @order = Order.find_by(number: params[:order_number])
-    UserMailer.send_ticket_codes(@order.id).deliver
   end
 end
