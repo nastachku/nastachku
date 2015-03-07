@@ -12,11 +12,11 @@
           %a{ href: "http://2014.nastachku.ru", title: "2014", target: '_blank' } 2014
     %span.btn_main-menu
     %nav.header__nav
-      -# %a{ href: "/pages/social_wall", title: "#nastachku" } #nastachku
       %a{ href: lectures_path, title: "Доклады" } Доклады
       %a{ href: user_lectures_path, title: "Доклады 2.0" } Доклады 2.0
       %a{ href: schedule_path, title: "Программа" } Программа
       %a{ href: users_path, title: "Участники" } Участники
+      %a{ href: "/pages/social_wall", title: "#nastachku" } #nastachku
       %a{ href: "/pages/contacts", title: "Контакты" } Контакты
     .header__login
       - unless signed_in?
