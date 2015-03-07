@@ -1,7 +1,7 @@
 = simple_form_for @user, url: account_path, html: { class: 'form-horizontal profile-form', autocomplete: 'off' } do |f|
   .personal__userpic
     .personal__userpic__upload
-      = f.input :photo, as: :image_preview
+      = f.input :photo, as: :image_preview, label: false
   .personal__info
     - f.with_options input_html: { class: "input_type-1" } do |f|
       %ul.form__group
