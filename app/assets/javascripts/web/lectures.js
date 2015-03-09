@@ -13,10 +13,14 @@ jQuery(document).ready(function ($) {
       url: Routes.lectures_path(),
       type: "GET",
       dataType: "script",
-      data: {workshop_id_eq: $('#filter_by_workshop option:selected').val()},
+      data: {
+        q: {
+          workshop_id_eq: $('#filter_by_workshop option:selected').val()
+        }
+      },
       success: function() {
         startShare42();
-        window.history.pushState('string', 'Доклады', Routes.lectures_path() + "?workshop_id_eq=" + $('#filter_by_workshop option:selected').val());
+        window.history.pushState('string', 'Доклады', Routes.lectures_path() + "?q[workshop_id_eq]=" + $('#filter_by_workshop option:selected').val());
       }
     })
   });
