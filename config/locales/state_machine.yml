@@ -1,7 +1,12 @@
 ru:
   activerecord:
     state_machines:
-
+      ticket_code:
+        state:
+          states:
+            new: 'Новый'
+            active: 'Активирован'
+            canceled: 'Отменен'
       order:
         payment_state:
           states:
@@ -10,3 +15,28 @@ ru:
             canceled: 'Отменен'
             refunded: 'Возврат'
             declined: 'Отказ от оплаты'
+          events:
+            refund: "Вернуть"
+      user:
+        badge_state:
+          states:
+            not_get_badge: Не выдан
+            get_badge: Выдан
+          events:
+            give_badge: Выдать бейдж
+            take_badge_back: Забрать бейдж
+        state:
+          states:
+            new: "Новый"
+            active: "Активирован"
+            inactive: "Не активирован"
+          events:
+            activate: "Активировать"
+            deactivate: "Деактивировать"
+        pay_state:
+          states:
+            not_paid_part: "Участие не оплачено"
+            paid_part: "Участие оплачено"
+          events:
+            pay_part: "Оплатить участие"
+            not_pay_part: "Не оплачивать участие"

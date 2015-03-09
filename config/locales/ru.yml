@@ -91,6 +91,13 @@ ru:
       first_speaker: 'стать первым докладчиком.'
   web:
     admin:
+      orders:
+        show:
+          title: 'Заказ'
+          back: 'К списку заказов'
+          edit: 'Редактировать'
+        edit:
+          title: 'Редактировать заказ'
       distributors:
         index:
           title: 'Распространители'
@@ -117,10 +124,16 @@ ru:
         index:
           title: Билеты на Стачку!
           total: 'Всего: %{count}'
+        show:
+          title: Билет на Стачку
+          back: 'К списку билетов'
       afterparty_tickets:
         index:
           title: Билеты на Afterparty
           total: 'Всего: %{count}'
+        show:
+          title: Билет на Afterparty
+          back: 'К списку билетов'
 
     accounts:
       edit:
@@ -391,12 +404,16 @@ ru:
         state: "Состояние"
         timepad_state: "Состояние timepad.ru"
         about: "О себе"
+        ticket: "Билет на конференцию"
+        afterparty_ticket: "Билет на afterparty"
+        orders: "Заказы"
 
       workshop:
         title: 'Название'
         color: 'Цвет'
       hall:
         title: 'Название'
+
 
     errors:
       models:

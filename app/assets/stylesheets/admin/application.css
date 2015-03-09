@@ -36,3 +36,27 @@ label.checkbox {
 .wide-input {
   width: 100%;
 }
+.clearfix {
+  float: none;
+}
+
+.input-control {
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 4px 6px;
+  height: 20px;
+  line-height: 20px;
+  color: #555555;
+  margin-left: 0;
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+  float: none;
+}
+.input-control.span7 {
+  width: 656px;
+}
+.input-control.disable {
+  cursor: not-allowed;
+  background-color: #eee;
+}

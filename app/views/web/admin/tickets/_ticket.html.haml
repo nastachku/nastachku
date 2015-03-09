@@ -1,4 +1,5 @@
 %tr
+  %td= link_to ticket.id, admin_ticket_path(ticket)
   %td= link_to ticket.user, admin_user_path(ticket.user) if ticket.user
   %td= ticket.price
   %td= ticket.ticket_code.code if ticket.ticket_code

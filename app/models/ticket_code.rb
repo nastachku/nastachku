@@ -26,9 +26,14 @@ class TicketCode < ActiveRecord::Base
   state_machine :state, initial: :new do
     state :new
     state :active
+    state :canceled
 
     event :activate do
       transition [:new] => :active
+    end
+
+    event :cancel do
+      transition any => :canceled
     end
   end
 end

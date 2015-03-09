@@ -4,4 +4,8 @@ class Web::Admin::AfterpartyTicketsController < Web::Admin::ApplicationControlle
     @search = AfterpartyTicket.with_user.ransack(query)
     @afterparty_tickets = @search.result.page(params[:page])
   end
+
+  def show
+    @ticket = AfterpartyTicket.find(params[:id])
+  end
 end
