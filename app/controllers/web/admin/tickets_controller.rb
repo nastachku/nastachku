@@ -4,4 +4,8 @@ class Web::Admin::TicketsController < Web::Admin::ApplicationController
     @search = Ticket.with_user.ransack(query)
     @tickets = @search.result.page(params[:page])
   end
+
+  def show
+    @ticket = Ticket.find(params[:id])
+  end
 end

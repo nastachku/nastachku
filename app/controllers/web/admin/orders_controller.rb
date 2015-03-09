@@ -18,4 +18,8 @@ class Web::Admin::OrdersController < Web::Admin::ApplicationController
       render action: :edit
     end
   end
+
+  def show
+    @order = Order.find(params[:id])
+  end
 end

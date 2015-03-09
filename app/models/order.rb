@@ -1,9 +1,10 @@
 class Order < ActiveRecord::Base
   attr_accessible :user_id, :items_count, :payment_state, :cost, :payment_system, :discount_id,
-                  :transaction_id, :customer_info
+                  :transaction_id, :customer_info, :payment_state_event
 
   belongs_to :discount
   belongs_to :user
+  belongs_to :coupon
   has_many :tickets
   has_many :afterparty_tickets
 
@@ -22,6 +23,8 @@ class Order < ActiveRecord::Base
     state :canceled
     state :refunded
     state :declined
+
+    after_transition any => :refunded, do: :cancel_tickets
 
     event :pay do
       transition [:unpaid, :declined] => :paid
@@ -52,6 +55,11 @@ class Order < ActiveRecord::Base
   def recalculate_items_count!
     total_items_count = tickets.count + afterparty_tickets.count
     update_attributes items_count: total_items_count
+  end
+
+  def cancel_tickets
+    tickets.each(&:cancel)
+    afterparty_tickets.each(&:cancel)
   end
 
   private

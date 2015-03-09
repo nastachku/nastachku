@@ -10,7 +10,10 @@
         .order__new__item__price
           %h4
             %span#ticket_price_score
-              = Pricelist.ticket_price
+              - if current_coupon
+                = current_coupon.with_discount(Pricelist.ticket_price)
+              - else
+                = Pricelist.ticket_price
             %span.rouble i
     .order__new__item
       - if current_user.afterparty_ticket
@@ -22,7 +25,10 @@
         .order__new__item__price
           %h4
             %span#ticket_price_score
-              = Pricelist.afterparty_ticket_price
+              - if current_coupon
+                = current_coupon.with_discount(Pricelist.afterparty_ticket_price)
+              - else
+                = Pricelist.afterparty_ticket_price
             %span.rouble i
     - unless current_user.bought_tickets?
       .order__new__submit
@@ -31,3 +37,11 @@
         %button#submit_order.btn_main.btn_main-pay-btn{ type: "submit" } Оплатить
         = link_to activation_account_tickets_path do
           .btn_main.btn_main-activate_ticket.activate_button Активировать билет!
+  - unless current_user.bought_tickets?
+    .order_coupon
+      - if current_coupon
+        = "Скидка по промо-коду #{current_coupon.discount}%"
+      = form_for current_user, url: coupons_path, method: :post do
+        %input{type: :hidden, value: url_for, name: :back_url}
+        %input.input_type-1{name: "coupon", placeholder: "Введите промо-код", value: current_coupon.try(:code)}
+        %button.btn_main Применить

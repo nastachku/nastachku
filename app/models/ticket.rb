@@ -6,4 +6,10 @@ class Ticket < ActiveRecord::Base
   belongs_to :ticket_code # TODO: belongs_to :code, class_name: 'TicketCode'
 
   scope :with_user, -> { where.not(user: nil) }
+
+  def cancel
+    self.user = nil
+    ticket_code.cancel if ticket_code.present?
+    save
+  end
 end

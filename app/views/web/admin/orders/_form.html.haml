@@ -1,10 +1,29 @@
-= simple_form_for @order, url: admin_orders_path, html: { class: 'form-horizontal' } do |f|
-  = f.input :user_id
-  = f.input :item_size
-  = f.input :payment_state
-  = f.input :transaction_id
-  = f.input :item_color
-  = f.input :cost
+= simple_form_for [:admin, @order], html: { class: 'form-horizontal' } do |f|
+  .control-group
+    = f.label :id
+    .controls
+      .span7.input-control.disable= @order.id
+  = f.input :payment_state_event, as: :state_event, input_html: { class: 'span7' }
+  .control-group
+    = f.label :user
+    .controls
+      .span7.input-control.disable= @order.user
+  .control-group
+    = f.label :items_count
+    .controls
+      .span7.input-control.disable= @order.items_count
+  .control-group
+    = f.label :cost
+    .controls
+      .span7.input-control.disable= @order.cost
+  .control-group
+    = f.label :payment_system
+    .controls
+      .span7.input-control.disable= @order.payment_system
+  .control-group
+    = f.label :transaction_id
+    .controls
+      .span7.input-control.disable= @order.transaction_id
+
   .form-actions
-    = f.button :submit, class: 'btn btn-primary'
-    = link_to t('.cancel', default: t("helpers.links.cancel")), admin_orders_path, class: 'btn'
+    = f.submit class: 'btn btn-primary'

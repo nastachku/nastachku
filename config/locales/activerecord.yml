@@ -1,31 +1,5 @@
 ru:
   activerecord:
-    state_machines:
-      user:
-        badge_state:
-          states:
-            not_get_badge: Не выдан
-            get_badge: Выдан
-          events:
-            give_badge: Выдать бейдж
-            take_badge_back: Забрать бейдж
-        state:
-          states:
-            new: "Новый"
-            active: "Активирован"
-            inactive: "Не активирован"
-          events:
-            activate: "Активировать"
-            deactivate: "Деактивировать"
-        pay_state:
-          states:
-            not_paid_part: "Участие не оплачено"
-            paid_part: "Участие оплачено"
-          events:
-            pay_part: "Оплатить участие"
-            not_pay_part: "Не оплачивать участие"
-
-
     models:
       hall: 'Зал'
       afterparty_order: 'Билет на афтепати'
@@ -34,7 +8,8 @@ ru:
       distributor: Распространитель
       ticket_code: Код активации
       lecture: Доклад
-
+      order: 'Заказ'
+      coupon: "Купон"
 
     attributes:
       distributor:
@@ -46,12 +21,7 @@ ru:
         price: 'Цена'
         distributor: 'Распространитель'
         code: 'Код'
-        category: 'Категория'
-        created_at: 'Время создания'
-      ticket_code:
-        price: 'Цена'
-        distributor: 'Распространитель'
-        code: 'Код'
+        state: 'Статус'
         category: 'Категория'
         created_at: 'Время создания'
       workshop:
@@ -151,8 +121,34 @@ ru:
         items_count: 'Количество'
         created_at: "Дата заказа"
         payment_state: "Состояние платежа"
+        cost: "Цена"
         type: "Тип товара"
         item_size: "Размер"
+        transaction_id: "Номер транзакции в платежке"
+        payment_system: "Платежная система"
+        user: "Покупатель"
+        payment_state_event: "Действие"
+        tickets: "Билеты на конференцию"
+        afterparty_tickets: "Билеты на Afterparty"
+      ticket:
+        order: "Заказ"
+        user: "Пользователь"
+        ticket_code: "Код активации"
+        price: "Цена"
+      afterparty_ticket:
+        order: "Заказ"
+        user: "Пользователь"
+        ticket_code: "Код активации"
+        price: "Цена"
+
+      coupon:
+        partner: "Партнер"
+        code: "Код"
+        discount: "Скидка пользователю, %"
+        commission: "Вознаграждение партнеру, %"
+        url: "Переход на страницу"
+        state: "Статус"
+        state_event: "Действие"
 
     errors:
       messages:

@@ -1,0 +1,32 @@
+.page-header
+  %h1=t '.title'
+
+.span6.clearfix
+  %table.table.table-hover
+    %thead
+      %tr
+    %tbody
+      %tr
+        %th= Ticket.human_attribute_name :id
+        %td= @ticket.id
+      %tr
+        %th= Ticket.human_attribute_name :order
+        - if @ticket.order.present?
+          %td= link_to @ticket.order.id, admin_order_path(@ticket.order)
+        - else
+          %td
+      %tr
+        %th= Ticket.human_attribute_name :user
+        - if @ticket.user
+          %td= link_to @ticket.user, admin_user_path(@ticket.user.id)
+        - else
+          %td
+      %tr
+        %th= Ticket.human_attribute_name :ticket_code
+        %td= @ticket.ticket_code.try(:code)
+      %tr
+        %th= Ticket.human_attribute_name :price
+        %td= @ticket.price
+
+.form-actions
+  = link_to t('.back'), admin_tickets_path, :class => 'btn'
