@@ -1,0 +1,11 @@
+%tr
+  %td= campaign.name
+  %td= campaign.tickets_count
+  %td= campaign.afterparty_tickets_count
+  %td= campaign.start_date
+  %td= campaign.end_date
+  %td
+    .nowrap= l campaign.created_at
+  %td
+    .btn-group.btn-group-vertical
+      = link_to t('.destroy'), admin_campaign_path(campaign), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-mini btn-danger'

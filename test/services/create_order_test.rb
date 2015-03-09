@@ -47,4 +47,14 @@ class CreateOrderTest < ActiveSupport::TestCase
     assert_equal order.payment_system, 'blah'
     assert_equal order.customer_info[:email], 'lala@example.com'
   end
+
+  test 'creates order with discount' do
+    campaign = create :campaign
+    order = CreateOrder.call tickets: 1, afterparty_tickets: 1
+
+    order.reload
+
+    assert { order.campaign == campaign }
+    assert { order.cost < order.full_cost }
+  end
 end

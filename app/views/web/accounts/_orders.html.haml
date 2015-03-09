@@ -5,11 +5,11 @@
         %h3 Вы купили билет на Стачку!
       - else
         .order__new__item__name
-          = check_box_tag :ticket, nil, true, id: "two_days", class: 'checkbox_type-1'
+          = check_box_tag :ticket, nil, true, id: "ticket", class: 'ticket checkbox_type-1'
           = label_tag 'two_days', t('.stachka_ticket')
         .order__new__item__price
           %h4
-            %span#ticket_price_score
+            %span#ticket-price
               - if current_coupon
                 = current_coupon.with_discount(Pricelist.ticket_price)
               - else
@@ -20,17 +20,22 @@
         %h3 Вы купили билет вечеринку!
       - else
         .order__new__item__name
-          = check_box_tag :afterparty_ticket, nil, true, id: "afterparty", class: 'checkbox_type-1'
+          = check_box_tag :afterparty_ticket, nil, true, id: "afterparty", class: 'ticket checkbox_type-1'
           = label_tag 'afterparty', t('.afterparty_ticket')
         .order__new__item__price
           %h4
-            %span#ticket_price_score
+            %span#ticket-price
               - if current_coupon
                 = current_coupon.with_discount(Pricelist.afterparty_ticket_price)
               - else
                 = Pricelist.afterparty_ticket_price
             %span.rouble i
     - unless current_user.bought_tickets?
+      .order__new__total
+        %p Итого:
+        %h3
+          %span#total-price
+          %span.rouble i
       .order__new__submit
         = select_tag :payment_system, options_for_select([["PayAnyWay", "payanyway"], ["Платидома", "platidoma"]]), class: "custom_select"
         %br

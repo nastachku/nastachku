@@ -5,6 +5,7 @@ class Order < ActiveRecord::Base
   belongs_to :discount
   belongs_to :user
   belongs_to :coupon
+  has_one :campaign
   has_many :tickets
   has_many :afterparty_tickets
 
@@ -65,6 +66,10 @@ class Order < ActiveRecord::Base
   def cancel_tickets
     tickets.each(&:cancel)
     afterparty_tickets.each(&:cancel)
+  end
+
+  def full_cost
+    (tickets.pluck(:price) + afterparty_tickets.pluck(:price)).inject(:+)
   end
 
   private

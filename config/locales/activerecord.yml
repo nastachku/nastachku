@@ -12,6 +12,12 @@ ru:
       coupon: "Купон"
 
     attributes:
+      campaign:
+        name: 'Название'
+        tickets_count: 'Количество билетов'
+        afterparty_tickets_count: 'Количество билетов на пати'
+        start_date: 'Дата начала'
+        end_date: 'Дата конца'
       distributor:
         title: 'Название'
         created_at: 'Время создания'

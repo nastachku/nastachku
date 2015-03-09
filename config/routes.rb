@@ -25,6 +25,7 @@ Nastachku::Application.routes.draw do
   get '/auth/:action/failure', to: 'web/social_networks#failure'
 
   namespace :api do
+    get 'campaigns/discount', to: 'campaigns#discount'
     resources :companies
     resources :cities
     resources :halls, only: [] do
@@ -142,6 +143,7 @@ Nastachku::Application.routes.draw do
       resources :ticket_codes, only: [:index, :new, :create, :destroy]
       resources :tickets, only: [:index, :show]
       resources :afterparty_tickets, only: [:index, :show]
+      resources :campaigns, only: [:index, :new, :create, :destroy]
 
       resources :coupons
       resources :events

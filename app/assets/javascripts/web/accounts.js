@@ -32,4 +32,23 @@ jQuery(document).ready(function ($) {
   $("#user_photo").change(function() {
     readURL(this);
   })
+
+  ticketChanged();
+
+  $('.ticket').change(function() {
+    ticketChanged();
+  });
 });
+
+function ticketChanged() {
+  var ticketCount = $('#ticket').is(':checked') ? 1 : 0;
+  var afterpartyCount = $('#afterparty').is(':checked') ? 1 : 0;
+
+  var ticketPrice = parseInt($('#ticket-price').text());
+  var afterpartyPrice = parseInt($('#afterparty-price').text());
+  var total = ticketPrice * ticketCount + afterpartyPrice * afterpartyCount;
+
+  calculateDiscount(ticketCount, afterpartyCount, total, function(priceWithDiscount) {
+    $('#total-price').html(priceWithDiscount);
+  });
+}

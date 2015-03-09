@@ -63,6 +63,7 @@ ru:
       admin:
         shared:
           navigation:
+            campaigns: 'Акции'
             title: 'На главную'
             pages: 'Страницы'
             news: 'Новости'
@@ -99,6 +100,15 @@ ru:
           edit: 'Редактировать'
         edit:
           title: 'Редактировать заказ'
+      campaigns:
+        index:
+          title: 'Акции'
+          new: 'Создать'
+        new:
+          title: 'Создание акции'
+        campaign:
+          destroy: 'Удалить акцию'
+          confirm: 'Вы точно хотите удалить акцию?'
       distributors:
         index:
           title: 'Распространители'

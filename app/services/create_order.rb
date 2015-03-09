@@ -17,6 +17,7 @@ class CreateOrder
 
     order.recalculate_cost!
     order.recalculate_items_count!
+    ApplyCampaign.call campaign_params
 
     order
   end
@@ -47,5 +48,13 @@ class CreateOrder
     afterparty_tickets.times do
       order.afterparty_tickets.create price: coupon.present? ? coupon.with_discount(Pricelist.afterparty_ticket_price) : Pricelist.afterparty_ticket_price
     end
+  end
+
+  def campaign_params
+    {
+      id: order.id,
+      tickets_count: order.tickets.count,
+      afterparty_tickets_count: order.afterparty_tickets.count
+    }
   end
 end

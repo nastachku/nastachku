@@ -1,5 +1,7 @@
 //= require jquery
 //= require jquery.timeTo.min
+//= require ../routes
+//= require ./campaigns
 
 $(document).ready(function(){
   // $('#flipTimer').timeTo({
@@ -12,6 +14,7 @@ $(document).ready(function(){
   //     lang: 'ru'
   // });
   SliderColleagues();
+  ticketsCountChanged();
 
   $('input[name="radioFace"]').change(function(){
     if($('input[name="radioFace"]:checked').val() == 'forFizicFace')
@@ -58,23 +61,30 @@ function SliderColleagues(){
     }
 }
 
+function ticketsCountChanged() {
+  var afterpartyTickets = $("#order_afterparty_tickets").val();
+  var tickets = $("#order_tickets").val();
+
+  var ticketPrice = parseInt($("#ticketPrice").text());
+  var afterpartyPrice = parseInt($("#afterpartyPrice").text());
+  var totalPrice = ticketPrice + afterpartyPrice;
+
+
+  var priceWithDiscount = calculateDiscount(tickets, afterpartyTickets, totalPrice, function(priceWithDiscount) {
+    $("#allPrice").html(priceWithDiscount);
+  });
+}
+
 function changeTicketPrice(value) {
   var price = $('#ticketPrice');
   price.html(value * price.data('price'));
-  changeAllPrice();
+  ticketsCountChanged();
 }
 
 function changeAfterpartyPrice(value) {
   var price = $('#afterpartyPrice');
   price.html(value * price.data("price"));
-  changeAllPrice();
-}
-
-function changeAllPrice() {
-  var all = $('#allPrice');
-  var priceTicket =  parseInt($('#ticketPrice').html());
-  var priceAfterparty =  parseInt($('#afterpartyPrice').html());
-  all.html(priceTicket + priceAfterparty);
+  ticketsCountChanged();
 }
 
 $(document).ready(function(){
