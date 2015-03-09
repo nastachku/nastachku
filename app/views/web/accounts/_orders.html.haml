@@ -37,10 +37,11 @@
         %button#submit_order.btn_main.btn_main-pay-btn{ type: "submit" } Оплатить
         = link_to activation_account_tickets_path do
           .btn_main.btn_main-activate_ticket.activate_button Активировать билет!
-  .order_coupon
-    - if current_coupon
-      = "Скидка по промо-коду #{current_coupon.discount}%"
-    = form_for current_user, url: coupons_path, method: :post do
-      %input{type: :hidden, value: url_for, name: :back_url}
-      %input.input_type-1{name: "coupon", placeholder: "Введите промо-код", value: current_coupon.try(:code)}
-      %button.btn_main Применить
+  - unless current_user.bought_tickets?
+    .order_coupon
+      - if current_coupon
+        = "Скидка по промо-коду #{current_coupon.discount}%"
+      = form_for current_user, url: coupons_path, method: :post do
+        %input{type: :hidden, value: url_for, name: :back_url}
+        %input.input_type-1{name: "coupon", placeholder: "Введите промо-код", value: current_coupon.try(:code)}
+        %button.btn_main Применить
