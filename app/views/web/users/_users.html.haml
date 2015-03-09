@@ -17,8 +17,8 @@
         .members__list__item__city= user.city.mb_chars.capitalize if user.city
         .members__list__item__social
           - unless user.twitter_name.blank?
-            %a.social__icon.social__icon-tw{ title: "Твиттер", href: "https://twitter.com/#{user.twitter_name}"}
+            %a.social__icon.social__icon-tw{ title: "Твиттер", href: "https://twitter.com/#{user.twitter_name}", target: "_blank"}
           - unless user.facebook.blank?
-            %a.social__icon.social__icon-fb{ title: "Фейсбук", href: user.facebook}
+            %a.social__icon.social__icon-fb{ title: "Фейсбук", href: user.facebook, target: "_blank"}
           - unless user.vkontakte.blank?
-            %a.social__icon.social__icon-vk{ title: "Вконтакте", href: user.vkontakte}
+            %a.social__icon.social__icon-vk{ title: "Вконтакте", href: user.vkontakte, target: "_blank"}

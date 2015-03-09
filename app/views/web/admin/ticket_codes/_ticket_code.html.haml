@@ -1,7 +1,9 @@
 %tr
+  %td= ticket_code.id
   %td= link_to ticket_code.distributor.title, admin_ticket_codes_path(q: {distributor_id_eq: ticket_code.distributor.id})
   %td= ticket_code.kind
   %td= ticket_code.price
   %td= ticket_code.code
   %td
     .nowrap= l ticket_code.created_at
+  %td= link_to t('.destroy'), admin_ticket_code_path(ticket_code), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-mini btn-danger' if ticket_code.new?

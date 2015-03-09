@@ -10,12 +10,14 @@
 %table.table.table-striped
   %thead
     %tr
+      %th= TicketCode.human_attribute_name :id
       %th= TicketCode.human_attribute_name :distributor
       %th= TicketCode.human_attribute_name :kind
       %th= TicketCode.human_attribute_name :price
       %th= TicketCode.human_attribute_name :code
       %th
         .nowrap= TicketCode.human_attribute_name :created_at
+      %th= TicketCode.human_attribute_name :actions
   %tbody
     = render @ticket_codes
 

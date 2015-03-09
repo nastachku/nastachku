@@ -2,8 +2,7 @@ require 'test_helper'
 
 class ProcessPaidOrderTest < ActiveSupport::TestCase
   def setup
-    @order = Order.create
-    @order.tickets.create
+    @order = create :order, :with_tickets, customer_info: {email: 'test@example.com'}
     @order.afterparty_tickets.create
   end
 
@@ -20,7 +19,7 @@ class ProcessPaidOrderTest < ActiveSupport::TestCase
   test 'creates codes for tickets in order' do
     create :distributor, :nastachku
     ProcessPaidOrder.call @order, :buy_now
-    
+
     assert @order.paid?
     assert @order.tickets.map(&:ticket_code).present?
     assert @order.afterparty_tickets.map(&:ticket_code).present?
