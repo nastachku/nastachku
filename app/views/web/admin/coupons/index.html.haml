@@ -1,0 +1,37 @@
+.page-header
+  %h1=t '.title'
+
+= link_to t('.new'), new_admin_coupon_path, class: 'btn btn-primary'
+
+= paginate @coupons
+
+- if @coupons.any?
+  %table.table.table-hover
+    %thead
+      %tr
+        %th= Coupon.human_attribute_name :id
+        %th= Coupon.human_attribute_name :partner
+        %th= Coupon.human_attribute_name :code
+        %th= Coupon.human_attribute_name :discount
+        %th= Coupon.human_attribute_name :commission
+        %th= Coupon.human_attribute_name :url
+        %th= Coupon.human_attribute_name :state
+        %th Ссылка на купон
+        %th
+    %tbody
+      - @coupons.each do |coupon|
+        %tr
+          %td= link_to coupon.id, admin_coupon_path(coupon)
+          %td= coupon.partner
+          %td= coupon.code
+          %td= coupon.discount
+          %td= coupon.commission
+          %td= coupon.url
+          %td= coupon.state
+          %td= link_to coupon_path(coupon.code), coupon_path(coupon.code)
+          %td
+            = link_to edit_admin_coupon_path(coupon) do
+              %i.icon-pencil
+
+
+= paginate @coupons

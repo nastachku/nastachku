@@ -4,6 +4,7 @@ class Order < ActiveRecord::Base
 
   belongs_to :discount
   belongs_to :user
+  belongs_to :coupon
   has_many :tickets
   has_many :afterparty_tickets
 

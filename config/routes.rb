@@ -68,6 +68,7 @@ Nastachku::Application.routes.draw do
       get :activate
     end
 
+    resources :coupons, only: [:create, :show]
     resource :account, only: [:edit, :update] do
       scope module: :account do
         resource :password, only: [:edit, :update]
@@ -142,6 +143,7 @@ Nastachku::Application.routes.draw do
       resources :tickets, only: [:index, :show]
       resources :afterparty_tickets, only: [:index, :show]
 
+      resources :coupons
       resources :events
       resources :workshops
       resources :halls

@@ -1,0 +1,32 @@
+.page-header
+  %h1=t '.title'
+
+.span6.clearfix
+  %table.table
+    %thead
+    %tbody
+      %tr
+        %th= Coupon.human_attribute_name :id
+        %td= @coupon.id
+      %tr
+        %th= Coupon.human_attribute_name :partner
+        %td= @coupon.partner
+      %tr
+        %th= Coupon.human_attribute_name :code
+        %td= @coupon.code
+      %tr
+        %th= Coupon.human_attribute_name :discount
+        %td= @coupon.discount
+      %tr
+        %th= Coupon.human_attribute_name :commission
+        %td= @coupon.commission
+      %tr
+        %th= Coupon.human_attribute_name :url
+        %td= @coupon.url
+      %tr
+        %th= Coupon.human_attribute_name :state
+        %td= @coupon.state
+
+
+.form-actions
+  = link_to t('.back'), admin_coupons_path, :class => 'btn'

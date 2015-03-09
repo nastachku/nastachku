@@ -12,7 +12,10 @@
             %td
               = f.input :tickets, label: false, input_html: {class: 'price-select', onchange: "changeTicketPrice(this.value);"}, as: :select, collection: (0..10).map { |i| [i, i] }, selected: 1
             %td.price
-              %span#ticketPrice{data: {price: Pricelist.ticket_price}}= Pricelist.ticket_price
+              - if current_coupon
+                %span#ticketPrice{data: {price: current_coupon.with_discount(Pricelist.ticket_price)}}= current_coupon.with_discount(Pricelist.ticket_price)
+              - else
+                %span#ticketPrice{data: {price: Pricelist.ticket_price}}= Pricelist.ticket_price
               = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
           %tr
             %td
@@ -20,27 +23,27 @@
             %td
               = f.input :afterparty_tickets, label: false, input_html: {class: 'price-select', onchange: "changeAfterpartyPrice(this.value);"}, as: :select, collection: (0..10).map { |i| [i, i] }, selected: 1
             %td.price
-              %span#afterpartyPrice{data: {price: Pricelist.afterparty_ticket_price}}= Pricelist.afterparty_ticket_price
+              - if current_coupon
+                %span#afterpartyPrice{data: {price: current_coupon.with_discount(Pricelist.afterparty_ticket_price)}}= current_coupon.with_discount(Pricelist.afterparty_ticket_price)
+              - else
+                %span#afterpartyPrice{data: {price: Pricelist.afterparty_ticket_price}}= Pricelist.afterparty_ticket_price
               = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
     .line
       %table.price_calc
         %tbody
           %tr
             %td
-              ИТОГО:
+              - if current_coupon
+                = "ИТОГО (скидка #{current_coupon.discount}%):"
+              - else
+                ИТОГО:
             %td
             %td.price
-              %span#allPrice= Pricelist.afterparty_ticket_price + Pricelist.ticket_price
+              - if current_coupon
+                %span#allPrice= current_coupon.with_discount(Pricelist.afterparty_ticket_price + Pricelist.ticket_price)
+              - else
+                %span#allPrice= Pricelist.afterparty_ticket_price + Pricelist.ticket_price
               = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
-    -# %table.kupon
-    -#   %tbody
-    -#     %tr
-    -#       %td.first_kup
-    -#         Купон
-    -#       %td
-    -#         %input.input_type-1.kup_inp{:placeholder => "", :type => "text", :value => ""}/
-    -#       %td.but
-    -#         %input.inputSubmit{:type => "submit", :value => "Применить"}/
     .pay_information
       .pay_col1
         .pay_information_title
@@ -75,3 +78,14 @@
             = radio_button_tag 'payment_system', 'payanyway', true, class: 'radio_pay'
             = label_tag 'payment_system_payanyway', 'PayAnyWay'
         = f.button :submit, "Оплатить", class: 'inputSubmit2', onclick: "try{ga('send', 'event', 'tickets', 'buy');}catch(e){}"
+
+  = simple_form_for @form, url: coupons_path, method: :post do
+    %table.kupon
+      %tbody
+        %tr
+          %td.first_kup
+            Промо-код
+          %td
+            %input.input_type-1.kup_inp{name: :coupon, :placeholder => "", :type => "text", :value => current_coupon.try(:code)}/
+          %td.but
+            %input.inputSubmit{:type => "submit", :value => "Применить"}/

@@ -85,6 +85,7 @@ ru:
             ticket_codes: 'Коды активации'
             stachka_tickets: 'Билеты на Стачку'
             afterparty_tickets: 'Билеты на Afterparty'
+            coupons: 'Купоны'
   shared:
     empty_lectures:
       not_added_yet: 'Пока не добавлено ни одного доклада. Вы можете'
@@ -134,6 +135,15 @@ ru:
         show:
           title: Билет на Afterparty
           back: 'К списку билетов'
+      coupons:
+        index:
+          title: "Купоны партнерам"
+          new: "Создать"
+        new:
+          title: "Создать купон"
+        edit:
+          title: "Редактировать купон"
+
 
     accounts:
       edit:
@@ -372,7 +382,7 @@ ru:
         update: "Изменить новость"
 
     links:
-      cancel: 'Отменить (я ru.helpers.links.cancel!)'
+      cancel: 'Отменить'
 
   success: 'Успех (я ru.success!)'
 

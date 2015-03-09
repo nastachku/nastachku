@@ -1,8 +1,9 @@
 class CreateOrder
-  attr_accessor :user, :order, :tickets, :afterparty_tickets, :params
+  attr_accessor :user, :order, :tickets, :afterparty_tickets, :params, :coupon
 
-  def initialize(user: nil, tickets: 0, afterparty_tickets: 0, params: {})
+  def initialize(user: nil, tickets: 0, afterparty_tickets: 0, coupon: nil, params: {})
     @user = user
+    @coupon = coupon
     @tickets = tickets
     @afterparty_tickets = afterparty_tickets
     @params = params
@@ -28,6 +29,7 @@ class CreateOrder
 
   def create_order
     self.order = Order.create params
+    self.order.coupon = coupon
     user.orders << order if user
   end
 
@@ -35,7 +37,7 @@ class CreateOrder
     return unless tickets > 0
 
     tickets.times do
-      order.tickets.create price: Pricelist.ticket_price
+      order.tickets.create price: coupon.present? ? coupon.with_discount(Pricelist.ticket_price) : Pricelist.ticket_price
     end
   end
 
@@ -43,7 +45,7 @@ class CreateOrder
     return unless afterparty_tickets > 0
 
     afterparty_tickets.times do
-      order.afterparty_tickets.create price: Pricelist.afterparty_ticket_price
+      order.afterparty_tickets.create price: coupon.present? ? coupon.with_discount(Pricelist.afterparty_ticket_price) : Pricelist.afterparty_ticket_price
     end
   end
 end

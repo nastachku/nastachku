@@ -40,3 +40,12 @@ ru:
           events:
             pay_part: "Оплатить участие"
             not_pay_part: "Не оплачивать участие"
+
+      coupon:
+        state:
+          states:
+            active: 'Активен'
+            inactive: 'Отключен'
+          events:
+            activate: 'Включить'
+            deactivate: 'Отключить'
