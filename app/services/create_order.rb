@@ -19,7 +19,7 @@ class CreateOrder
     order.recalculate_items_count!
     ApplyCampaign.call campaign_params
 
-    order
+    order.reload
   end
 
   def self.call(*args)
