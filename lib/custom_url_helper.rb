@@ -24,16 +24,18 @@ module CustomUrlHelper
     attr_name = attribute.to_s
     options = {}
     query_hash = {
+      q: {
         s: "#{attr_name} #{direction}"
+      }
     }
 
     options.merge!(query_hash)
     options.merge!(format: format) if format
-    url = if routing_proxy && respond_to?(routing_proxy)
-            send(routing_proxy).url_for(options)
-          else
-            url_for(options)
-          end
+    if routing_proxy && respond_to?(routing_proxy)
+      send(routing_proxy).url_for(options)
+    else
+      url_for(options)
+    end
   end
 
 end

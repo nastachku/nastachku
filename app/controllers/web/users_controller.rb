@@ -6,7 +6,7 @@ class Web::UsersController < Web::ApplicationController
   def index
     @search = User.ransack(params[:q])
     @users = @search.result.activated.participants.alphabetically
-    @users = @users.lectors if params[:s] and params[:s].include? 'only_lectors'
+    @users = @users.lectors if params[:q] && params[:q]['s'].include?('only_lectors')
 
     respond_with @users
   end

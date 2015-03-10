@@ -2,7 +2,8 @@
   .layout-line
     %h1.pagetitle__title Доклады
     .pagetitle__select.pagetitle__select__lecture
-      = select_tag :filter_by_workshop, options_for_select([["Все доклады", " "]] + @workshops.collect{ |w| [w.title, w.id, {'data-icon' => w.icon}]}), class: "custom_select"
+      - current_workshop = params[:q].present? ? params[:q]['workshop_id_eq'] : '';
+      = select_tag :filter_by_workshop, options_for_select([["Все доклады", " "]] + @workshops.collect{ |w| [w.title, w.id, {'data-icon' => w.icon}]}, current_workshop), class: "custom_select"
 .content.lectures
   .layout-line
     %ul#lectures.lectures__items
