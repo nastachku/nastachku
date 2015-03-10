@@ -2,6 +2,7 @@ require 'digest/md5'
 
 class User < ActiveRecord::Base
   include UsefullScopes # FIXME: убрать нахрен useless_scopes
+  include Concerns::NormalizeBlankValues
   extend Enumerize
 
   has_secure_password
