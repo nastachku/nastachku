@@ -271,10 +271,12 @@ ru:
       users:
         registred_title: "Зарегистрировалось – %{activated_count} %{participant}. "
         zero_participants: "Пока не зарегистрировалось ни одного участника международной конференции СТАЧКА 2015."
+        zero_filter: "По вашему запросу никого не найдено"
         one_participant: 'участник'
         two_participant: 'участника'
         many_participant: 'участников'
         be_the_first: 'Станьте первым!'
+        be_participant: 'Станьте одним из участников!'
 
     welcome:
       index:
