@@ -9,8 +9,6 @@
       %th= Campaign.human_attribute_name :discount_amount
       %th= Campaign.human_attribute_name :start_date
       %th= Campaign.human_attribute_name :end_date
-      %th
-        .nowrap= Campaign.human_attribute_name :created_at
       %th= Campaign.human_attribute_name :actions
   %tbody
     = render @campaigns

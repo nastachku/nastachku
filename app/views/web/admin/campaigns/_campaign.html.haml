@@ -3,10 +3,8 @@
   %td= campaign.tickets_count
   %td= campaign.afterparty_tickets_count
   %td= campaign.discount_amount
-  %td= campaign.start_date
-  %td= campaign.end_date
-  %td
-    .nowrap= l campaign.created_at
+  %td= l campaign.start_date
+  %td= l campaign.end_date
   %td
     .btn-group.btn-group-vertical
       = link_to t('.edit'), edit_admin_campaign_path(campaign), class: 'btn btn-mini'
