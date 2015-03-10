@@ -2,12 +2,12 @@
   - if User.any?
     %h5
       = t '.zero_filter'
-    - if signed_in?
+    - unless signed_in?
       = link_to t('.be_participant'), new_user_path, class: 'btn btn-shine', onclick: "try{ga('send', 'event', 'users', 'register');}catch(e){}"
   - else
     %h5
       = t '.zero_participants'
-    - if signed_in?
+    - unless signed_in?
       = link_to t('.be_the_first'), new_user_path, class: 'btn btn-shine', onclick: "try{ga('send', 'event', 'users', 'register');}catch(e){}"
 - else
   =t '.registred_title', activated_count: attended_users, participant: shown_as_participants
