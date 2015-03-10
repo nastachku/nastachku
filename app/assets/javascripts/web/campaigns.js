@@ -9,7 +9,7 @@ function calculateDiscount(ticketsCount, afterpartyTicketsCount, totalPrice, cha
     data: params,
     success: function(response) {
       var discountAmount = response["discount_amount"];
-      changeTotal(discountAmount);
+      changeTotal(totalPrice - discountAmount);
     }
   })
 }

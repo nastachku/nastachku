@@ -5,6 +5,8 @@ class Web::Admin::CampaignsControllerTest < ActionController::TestCase
     admin = create :admin
 
     sign_in admin
+
+    @campaign = create :campaign
   end
 
   test 'GET #index' do
@@ -27,12 +29,27 @@ class Web::Admin::CampaignsControllerTest < ActionController::TestCase
     assert { Campaign.exists?(name: attrs[:name]) }
   end
 
-  test 'DELETE #dstroy' do
-    campaign = create :campaign
+  test 'GET #edit' do
+    get :edit, id: @campaign.id
 
-    delete :destroy, id: campaign.id
+    assert_response :success
+  end
+
+  test 'PUT #update' do
+    params = attributes_for :campaign
+
+    put :update, id: @campaign.id, campaign: params
+
+    @campaign.reload
 
     assert_response :redirect
-    assert { !Campaign.exists?(id: campaign.id) }
+    assert { @campaign.name == params[:name] }
+  end
+
+  test 'DELETE #destroy' do
+    delete :destroy, id: @campaign.id
+
+    assert_response :redirect
+    assert { !Campaign.exists?(id: @campaign.id) }
   end
 end

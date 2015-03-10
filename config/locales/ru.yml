@@ -106,8 +106,11 @@ ru:
           new: 'Создать'
         new:
           title: 'Создание акции'
+        edit:
+          title: 'Редактирование акции'
         campaign:
-          destroy: 'Удалить акцию'
+          edit: 'Изменить'
+          destroy: 'Удалить'
           confirm: 'Вы точно хотите удалить акцию?'
       distributors:
         index:
