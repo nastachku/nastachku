@@ -12,6 +12,7 @@ class TicketCode < ActiveRecord::Base
     sponsor: 3,
     vip: 4,
     speaker: 5,
+    schoolboy: 6,
     participant: 7,
     media: 8,
     volunteer: 9
