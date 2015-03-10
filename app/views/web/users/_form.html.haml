@@ -1,18 +1,8 @@
 .registration__form
   = simple_form_for @user do |f|
     .personal__userpic
-      .personal__userpic__img
-        = image_tag "web/no-userpic.jpg", alt: ""
       .personal__userpic__upload
-        = f.input :photo, input_html: {style: "display: none;"}, label_html: {style: "display: none;"}
-        %a#false_photo_input{ title: "Загрузить фотографию", href: "#"} Загрузить фотографию
-        :javascript
-          $(document).ready( function() {
-            $('#false_photo_input').click(function(){
-              $("#user_photo").click();
-              return false;
-            });
-          });
+        = f.input :photo, as: :image_preview, label: false
     .personal__info
       %ul.form__group
         %li.form__element
