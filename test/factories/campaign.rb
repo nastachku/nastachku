@@ -5,6 +5,6 @@ FactoryGirl.define do
     afterparty_tickets_count 1
     start_date { Time.current - 1.day }
     end_date { Time.current + 1.day }
-    discount_percentage 10
+    discount_amount 10
   end
 end

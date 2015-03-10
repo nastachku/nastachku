@@ -8,14 +8,8 @@ function calculateDiscount(ticketsCount, afterpartyTicketsCount, totalPrice, cha
     url: Routes.api_campaigns_discount_path(),
     data: params,
     success: function(response) {
-      var discountPercentage = response["discount_percentage"];
-      var total = calculatePriceWithDiscount(totalPrice, discountPercentage);
-      changeTotal(total)
+      var discountAmount = response["discount_amount"];
+      changeTotal(discountAmount);
     }
   })
-}
-
-function calculatePriceWithDiscount(totalPrice, discountPercentage) {
-  var total = totalPrice * ((100 - discountPercentage) / 100);
-  return total;
 }

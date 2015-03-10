@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20150311103547) do
     t.integer  "afterparty_tickets_count"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.integer  "discount_percentage",      default: 0, null: false
+    t.integer  "discount_amount",          default: 0, null: false
     t.integer  "order_id"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false

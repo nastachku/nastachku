@@ -24,7 +24,7 @@
           = label_tag 'afterparty', t('.afterparty_ticket')
         .order__new__item__price
           %h4
-            %span#ticket-price
+            %span#afterparty-price
               - if current_coupon
                 = current_coupon.with_discount(Pricelist.afterparty_ticket_price)
               - else

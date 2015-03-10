@@ -29,8 +29,7 @@ class ApplyCampaign
   private
 
   def link_campaign_to_order
-    discount_cost = order.cost * ((100 - suitable_campaign.discount_percentage) / 100.0)
-    order.cost = discount_cost
+    order.cost -= suitable_campaign.discount_amount
     order.campaign = suitable_campaign
     order.save
   end

@@ -13,7 +13,7 @@ class ApplyCamplaignTest < ActiveSupport::TestCase
   test 'returns correct campaign' do
     campaign = ApplyCampaign.call(@order_hash)
 
-    assert { campaign.discount_percentage == 10 }
+    assert { campaign.discount_amount == 10 }
   end
 
   test 'links order to campaign' do
@@ -22,7 +22,7 @@ class ApplyCamplaignTest < ActiveSupport::TestCase
     @order.reload
 
     assert { campaign.order == @order }
-    assert { @order.cost == (@order.full_cost - @order.full_cost * campaign.discount_percentage / 100) }
+    assert { @order.cost == @order.full_cost - campaign.discount_amount }
   end
 
   test 'applies compaign if tickets_count is nil' do
@@ -31,6 +31,6 @@ class ApplyCamplaignTest < ActiveSupport::TestCase
     @order.reload
 
     assert { campaign.order == @order }
-    assert { @order.cost == (@order.full_cost - @order.full_cost * campaign.discount_percentage / 100) }
+    assert { @order.cost == @order.full_cost - campaign.discount_amount }
   end
 end
