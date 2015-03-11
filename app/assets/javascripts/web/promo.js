@@ -78,16 +78,16 @@ function changeAllPrice() {
 }
 
 $(document).ready(function(){
-  $('.popup .close_window, .overlay').click(function (){
-    $('.popup, .overlay').css('opacity','0');
-    $('.popup, .overlay').css('visibility','hidden');
+  $('.promo .popup .close_window, .promo .overlay').click(function (){
+    $('.promo .popup, .promo .overlay').css('opacity','0');
+    $('.promo popup, .promo .overlay').css('visibility','hidden');
   });
 });
 
 function lal(id)
   {
     $('#'+id).css('opacity','1');
-    $('.overlay').css('opacity','1');
+    $('.promo .overlay').css('opacity','1');
     $('#'+id).css('visibility','visible');
-    $('.overlay').css('visibility','visible');
+    $('.promo .overlay').css('visibility','visible');
   }
