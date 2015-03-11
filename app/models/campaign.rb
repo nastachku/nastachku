@@ -9,4 +9,17 @@ class Campaign < ActiveRecord::Base
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :discount_amount, presence: true, numericality: { only_integer: true }
+
+  def self.suitable_for(tickets_count, afterparty_count, date)
+    where(
+      "(campaigns.tickets_count <= :tc OR campaigns.tickets_count IS NULL)
+      AND
+      (campaigns.afterparty_tickets_count <= :atc OR campaigns.afterparty_tickets_count IS NULL)
+      AND
+      :date BETWEEN campaigns.start_date AND campaigns.end_date",
+      tc: tickets_count,
+      atc: afterparty_count,
+      date: date
+    ).first
+  end
 end

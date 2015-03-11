@@ -18,10 +18,7 @@ class ApplyCampaign
   end
 
   def suitable_campaign
-    @campaign ||= Campaign.where(
-      tickets_count: [@tickets_count, nil],
-      afterparty_tickets_count: [@afterparty_tickets_count, nil]
-    ).where(":date BETWEEN campaigns.start_date AND campaigns.end_date", date: Time.current).first
+    @campaign = Campaign.suitable_for(@tickets_count, @afterparty_tickets_count, Time.current)
 
     @campaign || Campaign.new
   end
