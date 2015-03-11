@@ -44,8 +44,8 @@ function ticketChanged() {
   var ticketCount = $('#ticket').is(':checked') ? 1 : 0;
   var afterpartyCount = $('#afterparty').is(':checked') ? 1 : 0;
 
-  var ticketPrice = parseInt($('#ticket-price').text());
-  var afterpartyPrice = parseInt($('#afterparty-price').text());
+  var ticketPrice = parseInt($('#ticket-price').text()) || 0;
+  var afterpartyPrice = parseInt($('#afterparty-price').text()) || 0;
   var total = ticketPrice * ticketCount + afterpartyPrice * afterpartyCount;
 
   calculateDiscount(ticketCount, afterpartyCount, total, function(priceWithDiscount) {
