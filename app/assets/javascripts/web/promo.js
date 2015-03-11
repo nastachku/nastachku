@@ -72,6 +72,11 @@ function ticketsCountChanged() {
 
   var priceWithDiscount = calculateDiscount(tickets, afterpartyTickets, totalPrice, function(priceWithDiscount) {
     $("#allPrice").html(priceWithDiscount);
+    if (priceWithDiscount < totalPrice) {
+      $('#without-discount').html(totalPrice);
+    } else {
+      $('#without-discount').html('');
+    }
   });
 }
 

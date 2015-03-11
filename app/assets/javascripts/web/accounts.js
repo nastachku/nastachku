@@ -50,5 +50,10 @@ function ticketChanged() {
 
   calculateDiscount(ticketCount, afterpartyCount, total, function(priceWithDiscount) {
     $('#total-price').html(priceWithDiscount);
+    if (priceWithDiscount < total) {
+      $('#without-discount').html(total);
+    } else {
+      $('#without-discount').html('');
+    }
   });
 }
