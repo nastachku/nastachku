@@ -1,5 +1,6 @@
 class Web::Account::OrdersController < Web::Account::ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:approve, :cancel, :decline]
+  skip_before_filter :authenticate_user!
 
   # TODO: всю логику - в сервисы!
   def approve
@@ -9,14 +10,14 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
     order.save
 
     # TODO: смотреть что сервис прислал вместо того, чтобы ходить за состоянием платежа
-    if order.user
+    if order.buy_now?
+      ProcessPaidOrder.call order, :buy_now
+      redirect_to success_buy_now_order_path(order_number: order_number)
+    else
       update_payment_state(order)
 
       flash_success
       redirect_to edit_account_path anchor: :orders
-    else
-      ProcessPaidOrder.call order, :buy_now
-      redirect_to success_buy_now_order_path(order_number: order_number)
     end
   end
 
@@ -28,7 +29,11 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
     update_payment_state(order)
     flash_notice
 
-    redirect_to edit_account_path anchor: :orders
+    if order.buy_now?
+      redirect_to buy_now_order_path
+    else
+      redirect_to edit_account_path anchor: :orders
+    end
   end
 
   def decline
@@ -43,7 +48,11 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
 
     flash_notice
 
-    redirect_to edit_account_path anchor: :orders
+    if order.buy_now?
+      redirect_to buy_now_order_path
+    else
+      redirect_to edit_account_path anchor: :orders
+    end
   end
 
   def update
@@ -56,7 +65,11 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
       flash_error
     end
 
-    redirect_to edit_account_path anchor: :my_orders
+    if order.buy_now?
+      redirect_to buy_now_order_path
+    else
+      redirect_to edit_account_path anchor: :orders
+    end
   end
 
   def pay
@@ -69,6 +82,10 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
       flash_error
     end
 
-    redirect_to edit_account_path anchor: :orders
+    if order.buy_now?
+      redirect_to buy_now_order_path
+    else
+      redirect_to edit_account_path anchor: :orders
+    end
   end
 end

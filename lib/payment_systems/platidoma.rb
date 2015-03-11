@@ -16,10 +16,11 @@ module PaymentSystems
       salt = rand
       sign = payment_sign(order.cost, salt)
 
+      email = order.user ? order.user.email : order.customer_info[:email]
       params = {
         amount: order.cost,
         order_id: order.number,
-        email: order.user.email,
+        email: email,
         sign: sign,
         rnd: salt
       }

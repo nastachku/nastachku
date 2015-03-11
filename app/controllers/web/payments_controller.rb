@@ -4,15 +4,16 @@ class Web::PaymentsController < Web::ApplicationController
 
   def paid_payanyway
     order = PaymentSystem.new(:payanyway).pay!(params)
-    if order.user
-      ProcessPaidOrder.call order, :regular
-    else
+
+    if order.buy_now?
       ProcessPaidOrder.call order, :buy_now
+    else
+      ProcessPaidOrder.call order, :regular
     end
 
     render text: 'SUCCESS'
-  rescue PaymentSystem::SignatureError, ActiveRecord::RecordNotFound => e
-    render text: 'FAIL'
+  rescue PaymentSystem::SignatureError, ActiveRecord::RecordNotFound
+    render text: "FAIL"
   end
 
   def success_payanyway
@@ -20,10 +21,11 @@ class Web::PaymentsController < Web::ApplicationController
 
     order_number = params[:MNT_TRANSACTION_ID]
     order = Order.find_by(number: order_number)
-    if order.user
-      redirect_to edit_account_path anchor: :orders
-    else
+
+    if order.buy_now?
       redirect_to success_buy_now_order_path(order_number: order_number)
+    else
+      redirect_to edit_account_path anchor: :orders
     end
   end
 
@@ -32,7 +34,11 @@ class Web::PaymentsController < Web::ApplicationController
     order.try :decline
 
     flash_notice
-    redirect_to edit_account_path anchor: :orders
+    if order.buy_now?
+      redirect_to buy_now_order_path
+    else
+      redirect_to edit_account_path anchor: :orders
+    end
   end
 
   def cancel_payanyway
@@ -40,6 +46,10 @@ class Web::PaymentsController < Web::ApplicationController
     order.try :cancel
 
     flash_error now: false
-    redirect_to edit_account_path anchor: :orders
+    if order.buy_now?
+      redirect_to buy_now_order_path
+    else
+      redirect_to edit_account_path anchor: :orders
+    end
   end
 end
