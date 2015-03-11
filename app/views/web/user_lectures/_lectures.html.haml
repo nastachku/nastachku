@@ -21,7 +21,7 @@
           = lecture.title
       .lectures__item-desc
         %p.open_this
-          = lecture.thesises
+          = simple_format(lecture.thesises)
       .lectures__item__adding
         .lectures__item__add
           - if signed_in?
