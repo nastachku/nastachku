@@ -1,6 +1,6 @@
 class Web::Admin::TicketCodesController < Web::Admin::ApplicationController
   def index
-    query = { s: 'created_at desc' }.merge(params.fetch(:q, {}))
+    query = { s: 'id desc' }.merge(params.fetch(:q, {}))
     @search = TicketCode.ransack(query)
     @ticket_codes = @search.result.page(params[:page])
   end
