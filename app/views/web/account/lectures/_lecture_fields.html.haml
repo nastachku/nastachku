@@ -2,8 +2,8 @@
   .formy.formy-issue.nested-fields
     .row-fluid
       .span8
-        = f.input :title, label: false, placeholder: Lecture.human_attribute_name(:title), class: :input_without_ul
-        = f.input :thesises, label: false, placeholder: Lecture.human_attribute_name(:thesises), class: :input_without_ul
+        = f.input :title, placeholder: Lecture.human_attribute_name(:title), class: :input_without_ul
+        = f.input :thesises, placeholder: Lecture.human_attribute_name(:thesises), class: :input_without_ul
         = f.association :workshop, input_html: { id: "workshop_select" }, include_blank: false
       .span3
         = f.input :presentation, as: :file, label: t('.presentation'), input_html: {accept: 'application/pdf, application/vnd.ms-powerpoint, pplication/vnd.oasis.opendocument.presentation, application/x-vnd.oasis.opendocument.presentation, pplication/vnd.openxmlformats-officedocument.presentationml.presentation'}
