@@ -35,7 +35,7 @@ class Web::PaymentsController < Web::ApplicationController
 
     flash_notice
     if order.buy_now?
-      redirect_to buy_now_order_path
+      redirect_to new_buy_now_order_path
     else
       redirect_to edit_account_path anchor: :orders
     end
@@ -47,7 +47,7 @@ class Web::PaymentsController < Web::ApplicationController
 
     flash_error now: false
     if order.buy_now?
-      redirect_to buy_now_order_path
+      redirect_to new_buy_now_order_path
     else
       redirect_to edit_account_path anchor: :orders
     end
