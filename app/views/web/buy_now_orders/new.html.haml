@@ -77,6 +77,9 @@
             =# label_tag 'payment_system_platidoma', 'Платидома'
             = radio_button_tag 'payment_system', 'payanyway', true, class: 'radio_pay'
             = label_tag 'payment_system_payanyway', 'PayAnyWay'
+          .forFizicFace
+            = radio_button_tag 'payment_system', 'platidoma', false, class: 'radio_pay'
+            = label_tag 'payment_system_platidoma', 'Платидома'
         = f.button :submit, "Оплатить", class: 'inputSubmit2', onclick: "try{ga('send', 'event', 'tickets', 'buy');}catch(e){}"
 
   = simple_form_for @form, url: coupons_path, method: :post do
