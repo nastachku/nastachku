@@ -6,6 +6,7 @@ class Web::Account::BuysController < Web::Account::ApplicationController
       coupon: current_coupon,
       afterparty_tickets: !!params[:afterparty_ticket] ? 1 : 0,
       params: {
+        from: :account_order,
         payment_system: params[:payment_system]
       }
     )

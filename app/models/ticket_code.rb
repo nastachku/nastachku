@@ -38,4 +38,8 @@ class TicketCode < ActiveRecord::Base
       transition any => :canceled
     end
   end
+
+  def can_delete?
+    new? && !ticket && !afterparty_ticket
+  end
 end
