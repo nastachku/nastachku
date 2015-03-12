@@ -8,4 +8,4 @@
 
   %td
     .nowrap= l ticket_code.created_at
-  %td= link_to t('.destroy'), admin_ticket_code_path(ticket_code), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-mini btn-danger' if ticket_code.new?
+  %td= link_to t('.destroy'), admin_ticket_code_path(ticket_code), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-mini btn-danger' if ticket_code.can_delete?
