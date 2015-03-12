@@ -25,11 +25,13 @@ Nastachku::Application.routes.draw do
   get '/auth/:action/failure', to: 'web/social_networks#failure'
 
   namespace :api do
-    get 'campaigns/discount', to: 'campaigns#discount'
     resources :companies
     resources :cities
     resources :halls, only: [] do
       put :sort, on: :collection
+    end
+    resource :order, only: [] do
+      get :prices, on: :member
     end
 
     resources :lectures do
@@ -60,10 +62,10 @@ Nastachku::Application.routes.draw do
     resource :remind_password, only: [:new, :create]
     resource :session, only: [:new, :create, :destroy]
     resource :schedule, only: [:show]
-    resource :buy_now_order, only: [:new, :create] do
+    resource :buy_now, only: [:new, :create] do
       get :success
     end
-    get 'buy_now', to: 'buy_now_orders#new'
+    get 'buy_now', to: 'buy_nows#new'
 
     resource :user, only: [] do
       get :activate

@@ -48,6 +48,12 @@
               = link_to ticket.id, admin_afterparty_ticket_path(ticket.id)
               - if ticket.ticket_code.present?
                 = "код: (#{ticket.ticket_code.code})"
+      %tr
+        %th= Order.human_attribute_name :campaign_discount
+        %td= link_to @order.campaign_discount_value, admin_campaign_path(@order.campaign) if @order.campaign
+      %tr
+        %th= Order.human_attribute_name :coupon_discount
+        %td= link_to @order.coupon_discount_value, admin_coupon_path(@order.coupon) if @order.coupon
 
 
 .form-actions

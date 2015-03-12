@@ -3,6 +3,10 @@ class Web::Admin::CampaignsController < Web::Admin::ApplicationController
     @campaigns = Campaign.order(start_date: :desc)
   end
 
+  def show
+    @campaign = Campaign.find(params[:id])
+  end
+
   def new
     @campaign = Campaign.new
   end

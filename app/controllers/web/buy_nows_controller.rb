@@ -1,8 +1,9 @@
-class Web::BuyNowOrdersController < Web::ApplicationController
+class Web::BuyNowsController < Web::ApplicationController
   layout "web/promo"
 
   def new
     @form = BuyNowOrderType.new
+    build_order
   end
 
   def create
@@ -27,6 +28,7 @@ class Web::BuyNowOrdersController < Web::ApplicationController
       pay_url = PaymentSystem.new(@form.payment_system).pay_url order
       redirect_to pay_url
     else
+      build_order
       flash_error message: @form.errors
       render :new
     end
@@ -35,4 +37,24 @@ class Web::BuyNowOrdersController < Web::ApplicationController
   def success
     @order = Order.find_by(number: params[:order_number])
   end
+
+  private
+    def build_order
+      @order = Order.new
+      params_hash = params[:order] || {}
+
+      tickets_count = (params_hash[:tickets] || 1).to_i
+      tickets_count.times do
+        @order.tickets.build(price: Pricelist.ticket_price)
+      end
+
+      afterparty_tickets_count = (params_hash[:afterparty_tickets] || 1).to_i
+      afterparty_tickets_count.times do
+        @order.afterparty_tickets.build(price: Pricelist.afterparty_ticket_price)
+      end
+
+      @order.coupon = current_coupon
+      @order.campaign = Campaign.suitable_for(@order.tickets.length, @order.afterparty_tickets.length, Time.current)
+      @order.recalculate_cost
+    end
 end

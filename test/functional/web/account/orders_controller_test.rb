@@ -37,7 +37,7 @@ class Web::Account::OrdersControllerTest < ActionController::TestCase
 
     post :approve, pd_order_id: order.number, pd_trans_id: 1
 
-    assert_redirected_to success_buy_now_order_path(order_number: order.number)
+    assert_redirected_to success_buy_now_path(order_number: order.number)
     assert order.reload.paid?
   end
 

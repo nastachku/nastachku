@@ -9,11 +9,7 @@
           = label_tag 'two_days', t('.stachka_ticket')
         .order__new__item__price
           %h4
-            %span#ticket-price
-              - if current_coupon
-                = current_coupon.with_discount(Pricelist.ticket_price)
-              - else
-                = Pricelist.ticket_price
+            %span#ticket-price= price_format(@ticket.price)
             %span.rouble i
     .order__new__item
       - if current_user.afterparty_ticket
@@ -24,19 +20,33 @@
           = label_tag 'afterparty', t('.afterparty_ticket')
         .order__new__item__price
           %h4
-            %span#afterparty-price
-              - if current_coupon
-                = current_coupon.with_discount(Pricelist.afterparty_ticket_price)
-              - else
-                = Pricelist.afterparty_ticket_price
+            %span#afterparty-price= price_format(@afterparty_ticket.price)
             %span.rouble i
     - unless current_user.bought_tickets?
       .order__new__total
-        %p Итого:
-        %h3
-          %span#without-discount.striked
-          %span#total-price
-          %span.rouble i
+        - if @order.campaign
+          #campaign_discount
+            %p= "Скидка по акции “#{@order.campaign.name}”:"
+            %h3.discount_value
+              %span#campaign_discount_value= price_format(@order.campaign_discount_value)
+              %span.rouble i
+        - if @order.coupon
+          #coupon_discount
+            %p= "Скидка #{@order.coupon.discount}% по промо-коду “#{@order.coupon.code}”:"
+            %h3.discount_value
+              %span#coupon_discount_value= price_format(@order.coupon_discount_value)
+              %span.rouble i
+
+        #total
+          %p Итого:
+          %h3.discount_value
+            -#- if @order.has_discount?
+              -#%span#without-discount.striked
+                -#= price_format(@order.full_cost)
+              -#%span.rouble i
+            %span#total-price
+              = price_format(@order.cost)
+            %span.rouble i
       .order__new__submit
         = select_tag :payment_system, options_for_select([["PayAnyWay", "payanyway"], ["Платидома", "platidoma"]]), class: "custom_select"
         %br
@@ -45,8 +55,6 @@
           .btn_main.btn_main-activate_ticket.activate_button Активировать билет!
   - unless current_user.bought_tickets?
     .order_coupon
-      - if current_coupon
-        = "Скидка по промо-коду #{current_coupon.discount}%"
       = form_for current_user, url: coupons_path, method: :post do
         %input{type: :hidden, value: url_for, name: :back_url}
         %input.input_type-1{name: "coupon", placeholder: "Введите промо-код", value: current_coupon.try(:code)}

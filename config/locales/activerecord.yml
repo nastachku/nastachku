@@ -129,6 +129,8 @@ ru:
         created_at: "Дата заказа"
         payment_state: "Состояние платежа"
         cost: "Цена"
+        campaign_discount: "Скидка по акции"
+        coupon_discount: "Скидка по купону"
         type: "Тип товара"
         item_size: "Размер"
         transaction_id: "Номер транзакции в платежке"
@@ -177,6 +179,12 @@ ru:
               taken: 'Такой слаг уже есть, выберите другой'
 
       models:
+        campaign:
+          attributes:
+            start_date:
+              date_collision: "Дата пересекается с другой акцией"
+            end_date:
+              date_collision: "Дата пересекается с другой акцией"
         user:
           attributes:
             first_name:

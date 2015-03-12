@@ -15,9 +15,10 @@ class CreateOrder
     add_tickets
     add_afterparty_tickets
 
+    order.campaign = Campaign.suitable_for(order.tickets.count, order.afterparty_tickets.count, Time.current)
+
     order.recalculate_cost!
     order.recalculate_items_count!
-    ApplyCampaign.call campaign_params
 
     order.reload
   end
@@ -31,6 +32,7 @@ class CreateOrder
   def create_order
     self.order = Order.create params
     self.order.coupon = coupon
+
     user.orders << order if user
   end
 
@@ -38,7 +40,7 @@ class CreateOrder
     return unless tickets > 0
 
     tickets.times do
-      order.tickets.create price: coupon.present? ? coupon.with_discount(Pricelist.ticket_price) : Pricelist.ticket_price
+      order.tickets.create price: Pricelist.ticket_price
     end
   end
 
@@ -46,15 +48,7 @@ class CreateOrder
     return unless afterparty_tickets > 0
 
     afterparty_tickets.times do
-      order.afterparty_tickets.create price: coupon.present? ? coupon.with_discount(Pricelist.afterparty_ticket_price) : Pricelist.afterparty_ticket_price
+      order.afterparty_tickets.create price: Pricelist.afterparty_ticket_price
     end
-  end
-
-  def campaign_params
-    {
-      id: order.id,
-      tickets_count: order.tickets.count,
-      afterparty_tickets_count: order.afterparty_tickets.count
-    }
   end
 end

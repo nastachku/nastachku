@@ -1,7 +1,7 @@
 //= require jquery
 //= require jquery.timeTo.min
-//= require ../routes
-//= require ./campaigns
+//= require js-routes
+//= require ./web/campaigns
 
 $(document).ready(function(){
   // $('#flipTimer').timeTo({
@@ -14,7 +14,7 @@ $(document).ready(function(){
   //     lang: 'ru'
   // });
   SliderColleagues();
-  ticketsCountChanged();
+  //ticketsCountChanged();
 
   $('input[name="radioFace"]').change(function(){
     if($('input[name="radioFace"]:checked').val() == 'forFizicFace')
@@ -62,33 +62,38 @@ function SliderColleagues(){
 }
 
 function ticketsCountChanged() {
-  var afterpartyTickets = $("#order_afterparty_tickets").val();
   var tickets = $("#order_tickets").val();
+  var afterpartyTickets = $("#order_afterparty_tickets").val();
 
-  var ticketPrice = parseInt($("#ticketPrice").text());
-  var afterpartyPrice = parseInt($("#afterpartyPrice").text());
-  var totalPrice = ticketPrice + afterpartyPrice;
+  calculatePrices(tickets, afterpartyTickets, function(prices) {
+    var price = $('#ticketPrice');
+    price.html($('#order_tickets').val() * price.data('price'));
 
+    var price = $('#afterpartyPrice');
+    price.html($('#order_afterparty_tickets').val() * price.data("price"));
 
-  var priceWithDiscount = calculateDiscount(tickets, afterpartyTickets, totalPrice, function(priceWithDiscount) {
-    $("#allPrice").html(priceWithDiscount);
-    if (priceWithDiscount < totalPrice) {
-      $('#without-discount').html(totalPrice);
+    if(prices.campaign) {
+      $("#campaign_discount").show();
+      $("#campaign_name").html("“" + prices.campaign.name + "”:")
+      $("#campaign_discount_value").html(prices.campaign_discount_value);
     } else {
-      $('#without-discount').html('');
+      $("#campaign_discount").hide();
     }
+    if(prices.coupon) {
+      $("#coupon_discount").show();
+      $("#coupon_discount_value").html(prices.coupon_discount_value);
+    } else {
+      $("#coupon_discount").hide();
+    }
+    $('#total-price').html(prices.cost);
   });
 }
 
-function changeTicketPrice(value) {
-  var price = $('#ticketPrice');
-  price.html(value * price.data('price'));
+function changeTicketPrice() {
   ticketsCountChanged();
 }
 
-function changeAfterpartyPrice(value) {
-  var price = $('#afterpartyPrice');
-  price.html(value * price.data("price"));
+function changeAfterpartyPrice() {
   ticketsCountChanged();
 }
 

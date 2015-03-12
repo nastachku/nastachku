@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
   belongs_to :discount
   belongs_to :user
   belongs_to :coupon
-  has_one :campaign
+  belongs_to :campaign
   has_many :tickets
   has_many :afterparty_tickets
 
@@ -53,9 +53,40 @@ class Order < ActiveRecord::Base
     unpaid? || declined?
   end
 
+  def recalculate_cost
+    total_cost = full_cost
+
+    if total_cost > 0
+      total_cost -= campaign_discount_value
+      total_cost -= coupon_discount_value
+    end
+
+    self.cost = total_cost
+  end
+
   def recalculate_cost!
-    total_cost = (tickets.pluck(:price) + afterparty_tickets.pluck(:price)).inject(:+)
-    update_attributes cost: total_cost
+    recalculate_cost
+    save
+  end
+
+  def campaign_discount_value
+    if campaign.present?
+      rate_tickets = campaign.tickets_count ? tickets.length / campaign.tickets_count : nil
+      rate_afterparty_tickets = campaign.afterparty_tickets_count ? afterparty_tickets.length / campaign.afterparty_tickets_count : nil
+      rate = [rate_tickets, rate_afterparty_tickets].compact.min
+      (full_cost - campaign.with_discount(full_cost)) * rate
+    else
+      0
+    end
+  end
+
+  def coupon_discount_value
+    if coupon.present?
+      with_campaign_discount = full_cost - campaign_discount_value
+      with_campaign_discount - coupon.with_discount(with_campaign_discount)
+    else
+      0
+    end
   end
 
   def recalculate_items_count!
@@ -69,7 +100,11 @@ class Order < ActiveRecord::Base
   end
 
   def full_cost
-    (tickets.pluck(:price) + afterparty_tickets.pluck(:price)).inject(:+)
+    (tickets.map(&:price) + afterparty_tickets.map(&:price)).inject(:+) || 0
+  end
+
+  def has_discount?
+    full_cost > cost
   end
 
   private

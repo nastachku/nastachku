@@ -9,7 +9,7 @@ class Web::ApplicationController < ApplicationController
 
   protect_from_forgery
 
-  helper_method :title, :current_coupon
+  helper_method :title
 
   before_filter do
     title t('base_name')
@@ -34,10 +34,6 @@ class Web::ApplicationController < ApplicationController
       return @parts.reverse.join(' | ')
     end
     @parts << part
-  end
-
-  def current_coupon
-    @current_coupon ||= Coupon.active.find_by(code: session[:coupon_code]) if session[:coupon_code]
   end
 
 end

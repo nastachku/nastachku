@@ -104,6 +104,10 @@ ru:
         index:
           title: 'Акции'
           new: 'Создать'
+        show:
+          title: 'Акция'
+          back: 'К списку акций'
+          edit: 'Редактировать'
         new:
           title: 'Создание акции'
         edit:

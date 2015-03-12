@@ -33,7 +33,7 @@ jQuery(document).ready(function ($) {
     readURL(this);
   })
 
-  ticketChanged();
+  fixMarkup();
 
   $('.ticket').change(function() {
     ticketChanged();
@@ -44,16 +44,26 @@ function ticketChanged() {
   var ticketCount = $('#ticket').is(':checked') ? 1 : 0;
   var afterpartyCount = $('#afterparty').is(':checked') ? 1 : 0;
 
-  var ticketPrice = parseInt($('#ticket-price').text()) || 0;
-  var afterpartyPrice = parseInt($('#afterparty-price').text()) || 0;
-  var total = ticketPrice * ticketCount + afterpartyPrice * afterpartyCount;
-
-  calculateDiscount(ticketCount, afterpartyCount, total, function(priceWithDiscount) {
-    $('#total-price').html(priceWithDiscount);
-    if (priceWithDiscount < total) {
-      $('#without-discount').html(total);
+  calculatePrices(ticketCount, afterpartyCount, function(prices) {
+    if(prices.campaign) {
+      $("#campaign_discount").show();
+      $("#campaign_discount_value").html(prices.campaign_discount_value);
     } else {
-      $('#without-discount').html('');
+      $("#campaign_discount").hide();
     }
+    if(prices.coupon) {
+      $("#coupon_discount").show();
+      $("#coupon_discount_value").html(prices.coupon_discount_value);
+    } else {
+      $("#coupon_discount").hide();
+    }
+    $('#total-price').html(prices.cost);
+
+    fixMarkup();
   });
+}
+
+function fixMarkup() {
+  var newMargin = $(".order__new__items").height() + 180;
+  $(".personal__identity__social").css('marginTop', newMargin + "px");
 }
