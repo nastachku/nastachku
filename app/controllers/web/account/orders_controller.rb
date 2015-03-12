@@ -48,7 +48,9 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
 
     flash_notice
 
-    if order.buy_now?
+    if order && order.buy_now?
+      redirect_to new_buy_now_order_path
+    elsif !order && !signed_in?
       redirect_to new_buy_now_order_path
     else
       redirect_to edit_account_path anchor: :orders
