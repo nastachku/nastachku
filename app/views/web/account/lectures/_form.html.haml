@@ -10,7 +10,7 @@
           .personal__userpic__upload
             = f.input :photo, as: :image_preview, label: false
         %li.form__element.about_input_on_user_lectures_form
-          = f.input :about, label: false, placeholder: User.human_attribute_name(:about), class: 'user-summary'
+          = f.input :about, placeholder: User.human_attribute_name(:about), class: 'user-summary'
         %li.form__element
           #events
             = f.simple_fields_for :lectures do |lecture|

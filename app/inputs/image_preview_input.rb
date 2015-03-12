@@ -1,6 +1,6 @@
 class ImagePreviewInput < SimpleForm::Inputs::FileInput
   def input(wrapper_options)
-    style = options.delete(:preview_style)
+    #style = options.delete(:preview_style)
     out = super
 
     img = if object.persisted? && object.send("#{attribute_name}?")
@@ -14,7 +14,7 @@ class ImagePreviewInput < SimpleForm::Inputs::FileInput
       template.image_tag(img, id: "user_photo_preview"),
       class: ["personal__userpic__img"],
     )
-    out << template.content_tag(:a, "Загрузить фотографию", id: "false_photo_input")
+    out << template.content_tag(:a, "* Загрузить фотографию", id: "false_photo_input")
 
     out
   end
