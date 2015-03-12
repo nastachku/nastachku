@@ -15,7 +15,8 @@ class TicketCode < ActiveRecord::Base
     schoolboy: 6,
     participant: 7,
     media: 8,
-    volunteer: 9
+    volunteer: 9,
+    staff: 10
   }
 
   # NOTE: refactor it!
