@@ -46,7 +46,7 @@ class Web::PaymentsController < Web::ApplicationController
     order.try :cancel
 
     flash_error now: false
-    if order.buy_now?
+    if (order && order.buy_now?) || (!order && !signed_in?)
       redirect_to new_buy_now_path
     else
       redirect_to edit_account_path anchor: :orders
