@@ -25,20 +25,20 @@
     - unless current_user.bought_tickets?
       .order__new__total
         - if @order.campaign
-          #campaign_discount
-            %p= "Скидка по акции “#{@order.campaign.name}”:"
+          #campaign_discount.discount
+            %p.discount_name= "Скидка по акции “#{@order.campaign.name}”:"
             %h3.discount_value
               %span#campaign_discount_value= price_format(@order.campaign_discount_value)
               %span.rouble i
         - if @order.coupon
-          #coupon_discount
-            %p= "Скидка #{@order.coupon.discount}% по промо-коду “#{@order.coupon.code}”:"
+          #coupon_discount.discount
+            %p.discount_name= "Скидка #{@order.coupon.discount}% по промо-коду “#{@order.coupon.code}”:"
             %h3.discount_value
               %span#coupon_discount_value= price_format(@order.coupon_discount_value)
               %span.rouble i
 
-        #total
-          %p Итого:
+        #total.discount
+          %p.discount_name Итого:
           %h3.discount_value
             -#- if @order.has_discount?
               -#%span#without-discount.striked
