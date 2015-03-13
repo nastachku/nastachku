@@ -70,7 +70,7 @@ class Order < ActiveRecord::Base
   end
 
   def campaign_discount_value
-    if campaign.present?
+    if campaign.present? && (campaign.tickets_count || campaign.afterparty_tickets_count)
       rate_tickets = campaign.tickets_count ? tickets.length / campaign.tickets_count : nil
       rate_afterparty_tickets = campaign.afterparty_tickets_count ? afterparty_tickets.length / campaign.afterparty_tickets_count : nil
       rate = [rate_tickets, rate_afterparty_tickets].compact.min
