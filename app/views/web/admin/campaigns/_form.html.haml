@@ -2,8 +2,8 @@
   = f.input :name
   = f.input :tickets_count
   = f.input :afterparty_tickets_count
-  = f.input :start_date, as: :date_time_picker
-  = f.input :end_date, as: :date_time_picker
+  = f.input :start_date, as: :date_time_picker, input_html: {value: l(@campaign.start_date, format: :full)}
+  = f.input :end_date, as: :date_time_picker, input_html: {value: l(@campaign.end_date, format: :full)}
   = f.input :discount_amount
 
   .form-actions
