@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery.timeTo.min
 //= require js-routes
+//= require ./web/alerts
 //= require ./web/campaigns
 
 $(document).ready(function(){
