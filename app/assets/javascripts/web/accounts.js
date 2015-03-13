@@ -44,13 +44,14 @@ function ticketChanged() {
   var afterpartyCount = $('#afterparty').is(':checked') ? 1 : 0;
 
   calculatePrices(ticketCount, afterpartyCount, function(prices) {
-    if(prices.campaign) {
+    if(prices.campaign && prices.campaign_discount_value > 0) {
       $("#campaign_discount").show();
+      $("#campaign_name").html("“" + prices.campaign.name + "”:")
       $("#campaign_discount_value").html(prices.campaign_discount_value);
     } else {
       $("#campaign_discount").hide();
     }
-    if(prices.coupon) {
+    if(prices.coupon && prices.coupon_discount_value > 0) {
       $("#coupon_discount").show();
       $("#coupon_discount_value").html(prices.coupon_discount_value);
     } else {

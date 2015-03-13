@@ -30,8 +30,4 @@ class Campaign < ActiveRecord::Base
       date: date
     ).first
   end
-
-  def with_discount(cost)
-    cost - discount_amount
-  end
 end

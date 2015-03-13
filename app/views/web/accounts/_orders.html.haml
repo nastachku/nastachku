@@ -24,11 +24,21 @@
             %span.rouble i
     - unless current_user.bought_tickets?
       .order__new__total
-        - if @order.campaign
+        - if @order.campaign && @order.has_active_campaign?
           #campaign_discount.discount
-            %p.discount_name= "Скидка по акции “#{@order.campaign.name}”:"
+            %p.discount_name
+              = "Скидка по акции "
+              %span#campaign_name= "“#{@order.campaign.name}”:"
             %h3.discount_value
               %span#campaign_discount_value= price_format(@order.campaign_discount_value)
+              %span.rouble i
+        - else
+          #campaign_discount.discount{style: "display: none;"}
+            %p.discount_name
+              = "Скидка по акции "
+              %span#campaign_name
+            %h3.discount_value
+              %span#campaign_discount_value
               %span.rouble i
         - if @order.coupon
           #coupon_discount.discount

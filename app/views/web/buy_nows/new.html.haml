@@ -26,7 +26,7 @@
       %table.price_calc
         %tbody
 
-          - if @order.campaign
+          - if @order.has_active_campaign?
             %tr#campaign_discount
               %td{colspan: 2}
                 = "Скидка по акции "

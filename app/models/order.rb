@@ -71,7 +71,7 @@ class Order < ActiveRecord::Base
   end
 
   def campaign_discount_value
-    if campaign.present?
+    discount = if campaign.present?
       # скидка на все билеты
       if !campaign.tickets_count && !campaign.afterparty_tickets_count
         rate = afterparty_tickets.length + tickets.length
@@ -81,10 +81,16 @@ class Order < ActiveRecord::Base
         rate_afterparty_tickets = campaign.afterparty_tickets_count ? afterparty_tickets.length / campaign.afterparty_tickets_count : nil
         rate = [rate_tickets, rate_afterparty_tickets].compact.min
       end
-      (full_cost - campaign.with_discount(full_cost)) * rate
+      campaign.discount_amount * rate
     else
       0
     end
+
+    if discount > full_cost
+      discount = 0
+    end
+
+    discount
   end
 
   def coupon_discount_value
@@ -112,6 +118,10 @@ class Order < ActiveRecord::Base
 
   def has_discount?
     full_cost > cost
+  end
+
+  def has_active_campaign?
+    campaign && campaign_discount_value > 0
   end
 
   private
