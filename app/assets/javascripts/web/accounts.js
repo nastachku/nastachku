@@ -33,7 +33,6 @@ jQuery(document).ready(function ($) {
     readURL(this);
   })
 
-  fixMarkup();
 
   $('.ticket').change(function() {
     ticketChanged();
@@ -58,14 +57,6 @@ function ticketChanged() {
       $("#coupon_discount").hide();
     }
     $('#total-price').html(prices.cost);
-
-    fixMarkup();
   });
 }
 
-function fixMarkup() {
-  if($(".order__new__items").length > 0) {
-    var newMargin = $(".order__new__items").height() + 180;
-    $(".personal__identity__social").css('marginTop', newMargin + "px");
-  }
-}
