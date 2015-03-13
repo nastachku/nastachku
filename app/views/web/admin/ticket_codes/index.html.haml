@@ -5,6 +5,17 @@
 
 %h3= t('.total', count: @ticket_codes.total_count)
 
+.well
+  = search_form_for @search, url: admin_ticket_codes_path, html: { class: 'nomargin' }, method: :get do |f|
+    .row-fluid
+      .span3
+        = f.select :distributor_id_eq, Distributor.asc_by(:title).collect{|c| [c.to_s, c.id]}, placeholder: TicketCode.human_attribute_name(:distributor), label: false, required: false
+      .span3
+        = f.search_field :code_eq, placeholder: TicketCode.human_attribute_name(:code), label: false, required: false
+      .span3
+        = f.submit t(".search"), :class => 'btn btn-primary'
+        = link_to t(".reset"), admin_ticket_codes_path, :class => 'btn btn-primary'
+
 = paginate @ticket_codes
 
 %table.table.table-striped
