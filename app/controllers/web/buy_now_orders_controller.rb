@@ -16,7 +16,6 @@ class Web::BuyNowOrdersController < Web::ApplicationController
         tickets: @form.tickets,
         afterparty_tickets: @form.afterparty_tickets,
         coupon: current_coupon,
-        user: current_user,
         params: {
           from: :buy_now,
           payment_system: @form.payment_system,
