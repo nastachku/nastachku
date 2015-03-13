@@ -64,6 +64,8 @@ function ticketChanged() {
 }
 
 function fixMarkup() {
-  var newMargin = $(".order__new__items").height() + 180;
-  $(".personal__identity__social").css('marginTop', newMargin + "px");
+  if($(".order__new__items").length > 0) {
+    var newMargin = $(".order__new__items").height() + 180;
+    $(".personal__identity__social").css('marginTop', newMargin + "px");
+  }
 }
