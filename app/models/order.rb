@@ -61,6 +61,7 @@ class Order < ActiveRecord::Base
       total_cost -= coupon_discount_value
     end
 
+    total_cost = 0 if total_cost < 0
     self.cost = total_cost
   end
 
