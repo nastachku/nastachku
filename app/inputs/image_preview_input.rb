@@ -14,7 +14,8 @@ class ImagePreviewInput < SimpleForm::Inputs::FileInput
       template.image_tag(img, id: "user_photo_preview"),
       class: ["personal__userpic__img"],
     )
-    out << template.content_tag(:a, "* Загрузить фотографию", id: "false_photo_input")
+    require_flag = required_field? ? '* ' : '';
+    out << template.content_tag(:a, "#{require_flag}Загрузить фотографию", id: "false_photo_input")
 
     out
   end
