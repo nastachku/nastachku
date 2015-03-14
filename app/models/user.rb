@@ -117,6 +117,7 @@ class User < ActiveRecord::Base
   scope :paid, -> { where pay_state: :paid_part }
   scope :with_badge, -> { where badge_state: :get_badge }
   scope :without_badge, -> { where badge_state: :not_get_badge }
+  scope :with_ticket, -> { joins(:ticket) }
 
   def self.companies_by_term(company = nil)
     if company

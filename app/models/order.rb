@@ -17,6 +17,7 @@ class Order < ActiveRecord::Base
 
   scope :web, -> { order(created_at: :desc) }
   scope :paid, -> { where(payment_state: :paid) }
+  scope :except_unpaid, -> { where.not(payment_state: :unpaid) }
 
   serialize :customer_info, Hash
 

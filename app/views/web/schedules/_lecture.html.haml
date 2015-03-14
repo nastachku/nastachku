@@ -1,8 +1,8 @@
 .programm__schedule__lectures__lecture{ class: "#{lecture.workshop_color}", id: "lecture-#{lecture.id}"}
   %h4.lecture__lecturer
-    = slot.start_time.to_time.strftime("%H:%M")
+    = l(slot.start_time, format: :only_time)
     \-
-    = slot.finish_time.to_time.strftime("%H:%M")
+    = l(slot.finish_time, format: :only_time)
   - if lecture.user
     %h4.lecture__lecturer
       = lecture.user.full_name

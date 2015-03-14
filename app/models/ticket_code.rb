@@ -5,6 +5,8 @@ class TicketCode < ActiveRecord::Base
   has_one :ticket
   has_one :afterparty_ticket
 
+  scope :activated, -> { where state: :active }
+
   enum category: {
     listener: 0,
     student: 1,
@@ -41,5 +43,9 @@ class TicketCode < ActiveRecord::Base
 
   def can_delete?
     new? && !ticket && !afterparty_ticket
+  end
+
+  def to_s
+    code
   end
 end
