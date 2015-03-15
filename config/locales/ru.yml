@@ -16,7 +16,7 @@ ru:
     formats:
       default: "%d-%m-%Y %H:%M"
       admin_date_time_picker: "%Y-%m-%d %H:%M:%S"
-      full: "%Y-%m-%d %H:%M"
+      full: "%Y-%m-%d %H:%M:%S"
       minutes: "%M"
 
   layouts:
