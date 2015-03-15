@@ -10,9 +10,21 @@ class Campaign < ActiveRecord::Base
   validates :end_date, presence: true
   validates :discount_amount, presence: true, numericality: { only_integer: true }
 
-  validates_each :start_date, :end_date do |record, attr, value|
-    if self.in_range(record[:start_date], record[:end_date]).where('id != ?', record[:id]).any?
-      record.errors.add(attr, :date_collision)
+  validate :collision_date, :correct_date_range
+
+  def collision_date
+    query = self.class.in_range(start_date, end_date)
+    query = query.where('id != ?', id) unless new_record?
+    if query.any?
+      errors.add(:start_date, :date_collision)
+      errors.add(:end_date, :date_collision)
+    end
+  end
+
+  def correct_date_range
+    if start_date > end_date
+      errors.add(:start_date, :invalid_date_range)
+      errors.add(:end_date, :invalid_date_range)
     end
   end
 

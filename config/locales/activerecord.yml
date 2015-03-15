@@ -183,8 +183,10 @@ ru:
           attributes:
             start_date:
               date_collision: "Дата пересекается с другой акцией"
+              invalid_date_range: "Начало акции должно быть раньше окончания"
             end_date:
               date_collision: "Дата пересекается с другой акцией"
+              invalid_date_range: "Окончание акции должно быть после начала"
         user:
           attributes:
             first_name:
