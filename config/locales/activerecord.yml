@@ -17,6 +17,7 @@ ru:
         created_at: 'Время создания'
         address: 'Адрес'
         contacts: 'Контакты'
+        codes: 'Коды'
       ticket_code:
         price: 'Цена'
         distributor: 'Распространитель'

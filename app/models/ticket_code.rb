@@ -27,6 +27,9 @@ class TicketCode < ActiveRecord::Base
     party: "afterparty_ticket"
   }
 
+  scope :desc_by, ->(attr) { order(attr => :desc) }
+  scope :asc_by, ->(attr) { order(attr => :asc) }
+
   state_machine :state, initial: :new do
     state :new
     state :active

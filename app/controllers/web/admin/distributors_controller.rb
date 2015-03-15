@@ -7,6 +7,10 @@ class Web::Admin::DistributorsController < Web::Admin::ApplicationController
     @distributor = ::Admin::DistributorEditType.new
   end
 
+  def show
+    @distributor = Distributor.find(params[:id])
+  end
+
   def create
     @distributor = ::Admin::DistributorEditType.new params[:distributor]
 

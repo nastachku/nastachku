@@ -106,11 +106,18 @@ ru:
           new: 'Создать'
         new:
           title: 'Создание распространителя'
+        show:
+          title: 'Распространитель'
+          back: 'К списку распространителей'
+          edit: 'Редактировать'
+
       ticket_codes:
         index:
           title: 'Коды активации'
           new: 'Создать'
           total: 'Всего: %{count}'
+          search: 'Найти'
+          reset: 'Сбросить'
         ticket_code:
           destroy: 'Удалить'
           confirm: 'Точно?'
