@@ -1,0 +1,35 @@
+.page-header
+  %h1=t '.title'
+
+.span6.clearfix
+  %table.table.table-hover
+    %thead
+      %tr
+    %tbody
+      %tr
+        %th= Distributor.human_attribute_name :id
+        %td= @distributor.id
+      %tr
+        %th= Distributor.human_attribute_name :title
+        %td= @distributor.title
+      %tr
+        %th= Distributor.human_attribute_name :address
+        %td= @distributor.address
+      %tr
+        %th= Distributor.human_attribute_name :contacts
+        %td= @distributor.contacts
+      %tr
+        %th= Distributor.human_attribute_name :codes
+        %td
+          - prev_date = nil
+          - @distributor.codes.desc_by(:created_at).each_with_index do |code, index|
+            - if !prev_date || (prev_date.to_i - code.created_at.to_i) > 10
+              %br
+              %strong= l(code.created_at, format: :short)
+            .div= code
+            - prev_date = code.created_at
+
+
+.form-actions
+  = link_to t('.back'), admin_distributors_path, :class => 'btn'
+  = link_to t('.edit'), edit_admin_distributor_path(@distributor), :class => 'btn'
