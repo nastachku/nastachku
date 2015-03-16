@@ -56,6 +56,7 @@ Configus.build Rails.env do
     cs_cart do
       secret_key credentials_hash["production"]["cs-cart"]["secret_key"]
       enable_auth false
+      shop_url "nastachku.ru/shop"
     end
 
     platidoma do
@@ -92,6 +93,7 @@ Configus.build Rails.env do
 
     cs_cart do
       secret_key credentials_hash["development"]["cs-cart"]["secret_key"]
+      shop_url "10.10.10.10/shop"
     end
 
     platidoma do
@@ -142,6 +144,7 @@ Configus.build Rails.env do
 
     cs_cart do
       secret_key credentials_hash["staging"]["cs-cart"]["secret_key"]
+      shop_url "staging.nastachku.ru/shop"
     end
 
     platidoma do
