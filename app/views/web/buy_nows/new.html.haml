@@ -101,8 +101,11 @@
         %tr
           %td.first_kup
             Купон
-            %small Введите скидочный купон при его наличии
+            %br
+            %small (введите скидочный купон при его наличии)
           %td
             %input.input_type-1.kup_inp{name: :coupon, :placeholder => "", :type => "text", :value => @order.coupon.try(:code)}/
           %td.but
-            %input.inputSubmit{:type => "submit", :value => "Применить"}/
+            %button.btn_main Применить
+        %tr
+          %td
