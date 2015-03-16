@@ -22,7 +22,7 @@ class Web::Admin::CampaignsControllerTest < ActionController::TestCase
   end
 
   test 'POST #create' do
-    attrs = attributes_for :campaign
+    attrs = attributes_for :campaign, start_date: @campaign.start_date - 3.day, end_date: @campaign.start_date - 2.day
     post :create, campaign: attrs
 
     assert_response :redirect
