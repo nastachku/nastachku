@@ -155,6 +155,7 @@ ru:
       messages:
         password_is_wrong: 'Старый пароль неверный'
         password_not_valid: 'Введите новый пароль'
+        old_password_blank: 'Введите старый пароль'
         blank: 'Поле не может быть пустым'
         confirmation: 'Не совпадает с подтверждением'
         user_should_not_exists: 'Пользователь с таким email не найден!'
