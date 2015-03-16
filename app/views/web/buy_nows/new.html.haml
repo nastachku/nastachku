@@ -46,7 +46,7 @@
           - if @order.coupon
             %tr#coupon_discount
               %td{colspan: 2}
-                = "Скидка #{@order.coupon.discount}% по промо-коду “#{@order.coupon.code}”:"
+                = "Скидка #{@order.coupon.discount}% по купону “#{@order.coupon.code}”:"
               %td.price
                 %span#coupon_discount_value= price_format(@order.coupon_discount_value)
                 = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
@@ -100,7 +100,8 @@
       %tbody
         %tr
           %td.first_kup
-            Промо-код
+            Купон
+            %small Введите скидочный купон при его наличии
           %td
             %input.input_type-1.kup_inp{name: :coupon, :placeholder => "", :type => "text", :value => @order.coupon.try(:code)}/
           %td.but

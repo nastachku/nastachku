@@ -42,7 +42,7 @@
               %span.rouble i
         - if @order.coupon
           #coupon_discount.discount
-            %p.discount_name= "Скидка #{@order.coupon.discount}% по промо-коду “#{@order.coupon.code}”:"
+            %p.discount_name= "Скидка #{@order.coupon.discount}% по купону “#{@order.coupon.code}”:"
             %h3.discount_value
               %span#coupon_discount_value= price_format(@order.coupon_discount_value)
               %span.rouble i
@@ -67,5 +67,5 @@
     .order_coupon
       = form_for current_user, url: coupons_path, method: :post do
         %input{type: :hidden, value: url_for, name: :back_url}
-        %input.input_type-1{name: "coupon", placeholder: "Введите промо-код", value: current_coupon.try(:code)}
+        %input.input_type-1{name: "coupon", placeholder: "Введите купон", value: current_coupon.try(:code)}
         %button.btn_main Применить
