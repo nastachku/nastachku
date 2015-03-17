@@ -46,7 +46,7 @@
                   = minute_to_timeline(i_time.minute)
               %td{ colspan: @halls.count + 1 }
                 %h4
-                  = @first_hall.slot_at_the_time(i_time).event.title
+                  = link_to_if @first_hall.slot_at_the_time(i_time).event.url.present?, @first_hall.slot_at_the_time(i_time).event.title, @first_hall.slot_at_the_time(i_time).event.url
           - elsif @first_hall.has_event?(i_time)
             - next
           - elsif @first_hall.timeline_need_finish_event_correction?(i_time)
