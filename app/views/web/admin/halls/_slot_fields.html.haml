@@ -8,8 +8,8 @@
       .controls
         .row-fluid
           .span4
-            = f.input_field :start_time, as: :date_time_picker, class: 'span8 start_time', time_zone: "Moscow"
+            = f.input_field :start_time, as: :date_time_picker, class: 'span8 start_time', value: (f.object.start_time ? l(f.object.start_time, format: :full) : nil)
           .span4
-            = f.input_field :finish_time, as: :date_time_picker, class: 'span8 finish_time', time_zone: "Moscow"
+            = f.input_field :finish_time, as: :date_time_picker, class: 'span8 finish_time', value: (f.object.finish_time ? l(f.object.finish_time, format: :full) : nil)
           .span4
             = link_to_remove_association t('.delete'), f, class: 'btn btn-danger'
