@@ -46,6 +46,15 @@
             });
 
             var lectures=$('.programm__schedule__lectures__lecture');
+            var sectionId = window.location.hash.split('#')[1];
+            if(sectionId) {
+              var lecture_class = $('[data-section-id=' + sectionId + ']').data('lecture');
+              if(lecture_class) {
+                $('[data-lecture=' + lecture_class + ']').prop("checked", true);
+                lectures.addClass('disable');
+                $('.'+ lecture_class).addClass('enable');
+              }
+            }
             $('.schedule__filter').on('change', function() {
                 var lecture_class = $(this).data('lecture');
                 if ($(this).is(':checked')) {

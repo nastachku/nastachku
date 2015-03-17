@@ -5,54 +5,60 @@
   .layout-line
     %ul
       %li
-        .mainpage__sections__cont
-          .mainpage__sections-img
-            %i.sprite.sprite-section-d_big
-          .mainpage__sections-desc
-            %h4.open_this Digital-коммуникации
-            %p
-              Креатив, дизайн, SMM, маркетинг, SEO, PR, PM, бренды.
+        = link_to schedule_path(anchor: 'yellow'), class: 'main_workshop_link' do
+          .mainpage__sections__cont
+            .mainpage__sections-img
+              %i.sprite.sprite-section-d_big
+            .mainpage__sections-desc
+              %h4.open_this Digital-коммуникации
+              %p
+                Креатив, дизайн, SMM, маркетинг, SEO, PR, PM, бренды.
       %li
-        .mainpage__sections__cont
-          .mainpage__sections-img
-            %i.sprite.sprite-section-t_big
-          .mainpage__sections-desc
-            %h4.open_this Техническая
-            %p
-              Методологии, разработка, highload, языки программирования и технологии,
-              облачные технологии, client­side, архитектура кода и проектов.
+        = link_to schedule_path(anchor: 'green'), class: 'main_workshop_link' do
+          .mainpage__sections__cont
+            .mainpage__sections-img
+              %i.sprite.sprite-section-t_big
+            .mainpage__sections-desc
+              %h4.open_this Техническая
+              %p
+                Методологии, разработка, highload, языки программирования и технологии,
+                облачные технологии, client­side, архитектура кода и проектов.
       %li
-        .mainpage__sections__cont
-          .mainpage__sections-img
-            %i.sprite.sprite-section-m_big
-          .mainpage__sections-desc
-            %h4.open_this Менеджмент и образование
-            %p
-              Организация IT-компании, управление, образование и кадры,
-              методологии и подходы к разработке.
+        = link_to schedule_path(anchor: 'red'), class: 'main_workshop_link' do
+          .mainpage__sections__cont
+            .mainpage__sections-img
+              %i.sprite.sprite-section-m_big
+            .mainpage__sections-desc
+              %h4.open_this Менеджмент и образование
+              %p
+                Организация IT-компании, управление, образование и кадры,
+                методологии и подходы к разработке.
       %li
-        .mainpage__sections__cont
-          .mainpage__sections-img
-            %i.sprite.sprite-section-mob_big
-          .mainpage__sections-desc
-            %h4.open_this Мобильная разработка
-            %p
-              Платформы, технологии, рождение и жизнь приложений, мобильное проектирование,
-              концепции и тренды.
+        = link_to schedule_path(anchor: 'orange'), class: 'main_workshop_link' do
+          .mainpage__sections__cont
+            .mainpage__sections-img
+              %i.sprite.sprite-section-mob_big
+            .mainpage__sections-desc
+              %h4.open_this Мобильная разработка
+              %p
+                Платформы, технологии, рождение и жизнь приложений, мобильное проектирование,
+                концепции и тренды.
       %li
-        .mainpage__sections__cont
-          .mainpage__sections-img
-            %i.sprite.sprite-section-i_big
-          .mainpage__sections-desc
-            %h4.open_this Контент
-            %p
-              Все о том как зарабатывать на контенте и благодаря контенту.
+        = link_to schedule_path(anchor: 'blue'), class: 'main_workshop_link' do
+          .mainpage__sections__cont
+            .mainpage__sections-img
+              %i.sprite.sprite-section-i_big
+            .mainpage__sections-desc
+              %h4.open_this Контент
+              %p
+                Все о том как зарабатывать на контенте и благодаря контенту.
       %li
-        .mainpage__sections__cont
-          .mainpage__sections-img
-            %i.sprite.sprite-section-e_big
-          .mainpage__sections-desc
-            %h4.open_this E-commerce
-            %p
-              Платформы, мировые тренды, успешные кейсы, российский рынок электронной коммерции.
+        = link_to schedule_path(anchor: 'purple'), class: 'main_workshop_link' do
+          .mainpage__sections__cont
+            .mainpage__sections-img
+              %i.sprite.sprite-section-e_big
+            .mainpage__sections-desc
+              %h4.open_this E-commerce
+              %p
+                Платформы, мировые тренды, успешные кейсы, российский рынок электронной коммерции.
 
