@@ -39,4 +39,8 @@ module ApplicationHelper
   def link_to_tel(phone)
     link_to phone, "tel:#{phone}"
   end
+
+  def price_format(price)
+    price.to_i
+  end
 end

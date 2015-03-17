@@ -1100,7 +1100,7 @@ footer {
 }
 
 .personal__identity__social {
-    margin-top: 330px;
+    margin-top: 120px;
 }
 
 .personal__submit {
@@ -1130,7 +1130,7 @@ footer {
 .order__new__items {
     width: 35%;
     float: right;
-    margin-top: -655px;
+    margin-top: 52px;
 }
 
 .order__new__item {
@@ -1236,17 +1236,19 @@ footer {
 }
 
 .order__new__total {
+    .discount {
+      display: block;
+    }
     width: 100%;
-    background-color: black;
     height: 45px;
     padding-top: 15px;
     display: inline-block;
-    color: white;
     text-align: right;
     font-family: @roboto_med;
     p {
         display: inline-block;
         vertical-align: middle;
+        text-align: left;
         font-size: .9375em;
         margin: 0 10px 0 0;
     }
@@ -1254,7 +1256,13 @@ footer {
         display: inline-block;
         vertical-align: middle;
         font-size: 1.5em;
-        margin-right: 25px;
+    }
+    p.discount_name {
+      text-align: right;
+      width: 65%;
+    }
+    h3.discount_value {
+      width: 31%;
     }
 }
 
@@ -1262,6 +1270,7 @@ footer {
     text-align: center;
     margin-top: 70px;
     padding: 6%;
+    padding-top: 0;
     form {
         display: inline-block;
     }
@@ -4660,7 +4669,7 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
 }
 
 .order_coupon {
-  margin-top: -200px;
+  margin-top: -180px;
 
   input.input_type-1 {
     width: 65%;

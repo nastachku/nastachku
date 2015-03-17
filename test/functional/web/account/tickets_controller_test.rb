@@ -59,7 +59,7 @@ class Web::Account::TicketsControllerTest < ActionController::TestCase
   end
 
   test "should fail if user has ticket" do
-    ticket = create :paper_ticket
+    ticket = create :ticket, :with_ticket_code
     sign_in ticket.user
 
     attrs = {

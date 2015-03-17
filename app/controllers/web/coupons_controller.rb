@@ -3,7 +3,7 @@ class Web::CouponsController < Web::ApplicationController
     coupon = Coupon.active.find_by(code: params[:id])
     if coupon
       session[:coupon_code] = coupon.code
-      redirect_to coupon.url || buy_now_order_path
+      redirect_to coupon.url || buy_now_path
     else
       redirect_to root_path
     end

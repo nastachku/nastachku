@@ -1,7 +1,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require_tree .
+//= require js-routes
+//= require_tree ./templates
+//= require_tree ./web
 
 $(function() {
   if (window.pluso)if (typeof window.pluso.start == "function") return;

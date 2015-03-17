@@ -17,6 +17,7 @@ ru:
       default: "%d-%m-%Y %H:%M"
       admin_date_time_picker: "%Y-%m-%d %H:%M:%S"
       only_time: "%H:%M"
+      full: "%Y-%m-%d %H:%M:%S"
       minutes: "%M"
 
   layouts:
@@ -64,6 +65,7 @@ ru:
       admin:
         shared:
           navigation:
+            campaigns: 'Акции'
             title: 'На главную'
             pages: 'Страницы'
             news: 'Новости'
@@ -100,6 +102,22 @@ ru:
           edit: 'Редактировать'
         edit:
           title: 'Редактировать заказ'
+      campaigns:
+        index:
+          title: 'Акции'
+          new: 'Создать'
+        show:
+          title: 'Акция'
+          back: 'К списку акций'
+          edit: 'Редактировать'
+        new:
+          title: 'Создание акции'
+        edit:
+          title: 'Редактирование акции'
+        campaign:
+          edit: 'Изменить'
+          destroy: 'Удалить'
+          confirm: 'Вы точно хотите удалить акцию?'
       distributors:
         index:
           title: 'Распространители'

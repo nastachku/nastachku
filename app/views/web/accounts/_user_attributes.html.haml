@@ -1,3 +1,5 @@
+= render 'orders'
+
 = simple_form_for @user, url: account_path, html: { class: 'form-horizontal profile-form', autocomplete: 'off' } do |f|
   .personal__userpic
     .personal__userpic__upload
@@ -28,6 +30,9 @@
     %ul.form__group
       %li.form__element
         = f.input :show_as_participant, as: :stachka_checkbox, label: false
+    %ul.form__group
+      %li.form__element
+        = f.button :submit, t('.save'), class: 'btn_main btn_main-refresh'
   .personal__identity
     .personal__identity__social
       %ul.form__group
@@ -38,7 +43,3 @@
             = f.input :facebook, placeholder: "http://facebook.com", as: :string, label: false
           %li.form__element.form__element__vk
             = f.input :vkontakte, placeholder: "http://vk.com", as: :string, label: false
-  .personal__submit
-    = f.button :submit, t('.save'), class: 'btn_main btn_main-refresh'
-
-= render 'orders'

@@ -10,6 +10,8 @@
       %th= sort_link(@search, :user_id, t(".buyer"))
       %th= sort_link(@search, :items_count)
       %th= t(".cost")
+      %th= Order.human_attribute_name :campaign_discount
+      %th= Order.human_attribute_name :coupon_discount
       %th= sort_link(@search, :payment_state)
       %th= sort_link(@search, :created_at)
   %tbody
@@ -19,6 +21,8 @@
         %td= link_to order.user, admin_user_path(order.user) if order.user
         %td= order.items_count
         %td= order.cost
+        %td= link_to order.campaign_discount_value, admin_campaign_path(order.campaign) if order.campaign
+        %td= link_to order.coupon_discount_value, admin_coupon_path(order.coupon) if order.coupon
         %td= order.human_payment_state_name
         %td= l order.created_at
 

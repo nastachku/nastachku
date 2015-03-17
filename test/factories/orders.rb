@@ -8,6 +8,7 @@ FactoryGirl.define do
     trait :with_tickets do
       after(:create) do |instance|
         create_list :ticket, 1, order: instance
+        create_list :afterparty_ticket, 1, order: instance
       end
     end
   end
