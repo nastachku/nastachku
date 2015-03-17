@@ -30,6 +30,9 @@ Nastachku::Application.routes.draw do
     resources :halls, only: [] do
       put :sort, on: :collection
     end
+    resource :order, only: [] do
+      get :prices, on: :member
+    end
 
     resources :lectures do
       scope module: :lectures do
@@ -59,10 +62,10 @@ Nastachku::Application.routes.draw do
     resource :remind_password, only: [:new, :create]
     resource :session, only: [:new, :create, :destroy]
     resource :schedule, only: [:show]
-    resource :buy_now_order, only: [:new, :create] do
+    resource :buy_now, only: [:new, :create] do
       get :success
     end
-    get 'buy_now', to: 'buy_now_orders#new'
+    get 'buy_now', to: 'buy_nows#new'
 
     resource :user, only: [] do
       get :activate
@@ -142,6 +145,7 @@ Nastachku::Application.routes.draw do
       resources :ticket_codes, only: [:index, :new, :create, :destroy]
       resources :tickets, only: [:index, :show]
       resources :afterparty_tickets, only: [:index, :show]
+      resources :campaigns
 
       resources :coupons
       resources :events

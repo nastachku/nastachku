@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Web::BuyNowOrdersControllerTest < ActionController::TestCase
+class Web::BuyNowsControllerTest < ActionController::TestCase
   test '#index' do
     get :new
     assert_response :success

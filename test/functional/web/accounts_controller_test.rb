@@ -13,6 +13,7 @@ class Web::AccountsControllerTest < ActionController::TestCase
 
   test "should update user" do
     attrs = attributes_for :user
+    attrs.delete(:password)
     attrs[:show_as_participant] = 1
 
     put :update, id: @user.id, user: attrs
@@ -26,7 +27,7 @@ class Web::AccountsControllerTest < ActionController::TestCase
 
   test "should update password" do
     old_password_digest = @user.password_digest
-    attrs = { password: "123456", password_confirmation: "123456" }
+    attrs = { old_password: "ashQDR123!@#", password: "123456", password_confirmation: "123456" }
 
     put :update, id: @user.id, user: attrs
 

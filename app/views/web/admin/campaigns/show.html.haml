@@ -1,0 +1,30 @@
+.page-header
+  %h1=t '.title'
+
+.span6.clearfix
+  %table.table.table-hover
+    %thead
+      %tr
+    %tbody
+      %tr
+        %th= Campaign.human_attribute_name :name
+        %td= @campaign.name
+      %tr
+        %th= Campaign.human_attribute_name :tickets_count
+        %td= @campaign.tickets_count
+      %tr
+        %th= Campaign.human_attribute_name :afterparty_tickets_count
+        %td= @campaign.afterparty_tickets_count
+      %tr
+        %th= Campaign.human_attribute_name :start_date
+        %td= @campaign.start_date
+      %tr
+        %th= Campaign.human_attribute_name :end_date
+        %td= @campaign.end_date
+      %tr
+        %th= Campaign.human_attribute_name :discount_amount
+        %td= @campaign.discount_amount
+
+.form-actions
+  = link_to t('.back'), admin_campaigns_path, :class => 'btn'
+  = link_to t('.edit'), edit_admin_campaign_path(@campaign), :class => 'btn'

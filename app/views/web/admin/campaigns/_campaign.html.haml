@@ -1,0 +1,12 @@
+%tr
+  %td= campaign.name
+  %td= campaign.tickets_count
+  %td= campaign.afterparty_tickets_count
+  %td= campaign.discount_amount
+  %td= l campaign.start_date
+  %td= l campaign.end_date
+  %td
+    .btn-group.btn-group-vertical
+      = link_to t('.edit'), edit_admin_campaign_path(campaign), class: 'btn btn-mini'
+      - unless campaign.orders.any?
+        = link_to t('.destroy'), admin_campaign_path(campaign), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-mini btn-danger'

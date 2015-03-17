@@ -1,0 +1,11 @@
+= simple_form_for [:admin, @campaign], html: {class: 'form-horizontal'} do |f|
+  = f.input :name
+  = f.input :tickets_count
+  = f.input :afterparty_tickets_count
+  = f.input :start_date, as: :date_time_picker, input_html: {value: @campaign.start_date ? l(@campaign.start_date, format: :full) : nil}
+  = f.input :end_date, as: :date_time_picker, input_html: {value: @campaign.end_date ? l(@campaign.end_date, format: :full) : nil}
+  = f.input :discount_amount, readonly: !@campaign.new_record?
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to t('.cancel'), admin_campaigns_path, class: 'btn'

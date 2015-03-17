@@ -14,6 +14,9 @@ class AccountEditType < User
     end
   end
   validates_each :password do |record, attr, value|
+    if !@old_password_is_present && value.present?
+      record.errors.add(:old_password, I18n.t(:old_password_blank, scope: [:activerecord, :errors, :messages]))
+    end
     if @old_password_is_present && value.blank?
       record.errors.add(attr, I18n.t(:password_not_valid, scope: [:activerecord, :errors, :messages]))
     end

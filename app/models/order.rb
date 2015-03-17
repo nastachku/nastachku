@@ -5,6 +5,7 @@ class Order < ActiveRecord::Base
   belongs_to :discount
   belongs_to :user
   belongs_to :coupon
+  belongs_to :campaign
   has_many :tickets
   has_many :afterparty_tickets
 
@@ -53,9 +54,53 @@ class Order < ActiveRecord::Base
     unpaid? || declined?
   end
 
+  def recalculate_cost
+    total_cost = full_cost
+
+    if total_cost > 0
+      total_cost -= campaign_discount_value
+      total_cost -= coupon_discount_value
+    end
+
+    total_cost = 0 if total_cost < 0
+    self.cost = total_cost
+  end
+
   def recalculate_cost!
-    total_cost = (tickets.pluck(:price) + afterparty_tickets.pluck(:price)).inject(:+)
-    update_attributes cost: total_cost
+    recalculate_cost
+    save
+  end
+
+  def campaign_discount_value
+    discount = if campaign.present?
+      # скидка на все билеты
+      if !campaign.tickets_count && !campaign.afterparty_tickets_count
+        rate = afterparty_tickets.length + tickets.length
+      # высчитываем, сколько комплектов попало в диапазон
+      else
+        rate_tickets = campaign.tickets_count ? tickets.length / campaign.tickets_count : nil
+        rate_afterparty_tickets = campaign.afterparty_tickets_count ? afterparty_tickets.length / campaign.afterparty_tickets_count : nil
+        rate = [rate_tickets, rate_afterparty_tickets].compact.min
+      end
+      campaign.discount_amount * rate
+    else
+      0
+    end
+
+    if discount > full_cost
+      discount = 0
+    end
+
+    discount
+  end
+
+  def coupon_discount_value
+    if coupon.present?
+      with_campaign_discount = full_cost - campaign_discount_value
+      with_campaign_discount - coupon.with_discount(with_campaign_discount)
+    else
+      0
+    end
   end
 
   def recalculate_items_count!
@@ -66,6 +111,18 @@ class Order < ActiveRecord::Base
   def cancel_tickets
     tickets.each(&:cancel)
     afterparty_tickets.each(&:cancel)
+  end
+
+  def full_cost
+    (tickets.map(&:price) + afterparty_tickets.map(&:price)).inject(:+) || 0
+  end
+
+  def has_discount?
+    full_cost > cost
+  end
+
+  def has_active_campaign?
+    campaign && campaign_discount_value > 0
   end
 
   private

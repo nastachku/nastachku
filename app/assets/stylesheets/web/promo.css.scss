@@ -12,11 +12,23 @@ $basic-gray: #333333;
 
 @charset "utf-8";
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic-ext,latin-ext,cyrillic);
+
 @font-face {
   font-family: 'ALSRubl';
   src: url('fonts/rouble.ttf');
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotomedium';
+    src: url('../Roboto-Medium-webfont.eot');
+    src: url('../Roboto-Medium-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../Roboto-Medium-webfont.woff') format('woff'),
+    url('../Roboto-Medium-webfont.ttf') format('truetype'),
+    url('../Roboto-Medium-webfont.svg#robotomedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 a {
@@ -553,6 +565,10 @@ footer .footerForm .inputSubmit{
   width:150px;
 }
 
+.kupon small{
+  font-size: 0.53em;
+}
+
 .kupon .inputSubmit{
   width: 240px;
   height: 48px;
@@ -1006,6 +1022,10 @@ ol.ticket-codes {
   font-weight: 400;
 }
 
+.striked {
+  text-decoration: line-through;
+}
+
 // FIXME за неимением лучшего стащил эту кислоту из vendor/assets/stylesheets/mania-style/bootstrap.css
 .alert{padding:8px 35px 8px 14px;background-color:#ff7518;border:1px solid transparent;-webkit-border-radius:0px;-moz-border-radius:0px;border-radius:0px;text-align:center;}
 .alert,.alert h4{color:#ffffff;}
@@ -1017,3 +1037,28 @@ ol.ticket-codes {
 .alert-danger h4,.alert-error h4{color:#ffffff;}
 .alert-info{background-color:#9954bb;border-color:transparent;color:#ffffff;}
 .alert-info h4{color:#ffffff;}
+
+.btn_main {
+    display: inline-block;
+    position: relative;
+    font-family: 'robotomedium';
+    width: 160px;
+    font-size: 0.65em;
+    padding: 0 15px;
+    height: 48px;
+    line-height: 44px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    text-shadow: 0 1px 1px rgba(0,0,0,.33);
+    background-color: #ff4e54;
+    border: 1px solid #d23d42;
+    background-repeat: no-repeat;
+
+    &:hover {opacity: .8}
+
+    &:disabled {opacity: .8}
+}

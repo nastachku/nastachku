@@ -1,5 +1,8 @@
 //= require jquery
 //= require jquery.timeTo.min
+//= require js-routes
+//= require ./web/alerts
+//= require ./web/campaigns
 
 $(document).ready(function(){
   // $('#flipTimer').timeTo({
@@ -12,6 +15,7 @@ $(document).ready(function(){
   //     lang: 'ru'
   // });
   SliderColleagues();
+  //ticketsCountChanged();
 
   $('input[name="radioFace"]').change(function(){
     if($('input[name="radioFace"]:checked').val() == 'forFizicFace')
@@ -58,23 +62,40 @@ function SliderColleagues(){
     }
 }
 
-function changeTicketPrice(value) {
-  var price = $('#ticketPrice');
-  price.html(value * price.data('price'));
-  changeAllPrice();
+function ticketsCountChanged() {
+  var tickets = $("#order_tickets").val();
+  var afterpartyTickets = $("#order_afterparty_tickets").val();
+
+  calculatePrices(tickets, afterpartyTickets, function(prices) {
+    var price = $('#ticketPrice');
+    price.html($('#order_tickets').val() * price.data('price'));
+
+    var price = $('#afterpartyPrice');
+    price.html($('#order_afterparty_tickets').val() * price.data("price"));
+
+    if(prices.campaign && prices.campaign_discount_value > 0) {
+      $("#campaign_discount").show();
+      $("#campaign_name").html("“" + prices.campaign.name + "”:")
+      $("#campaign_discount_value").html(prices.campaign_discount_value);
+    } else {
+      $("#campaign_discount").hide();
+    }
+    if(prices.coupon && prices.coupon_discount_value > 0) {
+      $("#coupon_discount").show();
+      $("#coupon_discount_value").html(prices.coupon_discount_value);
+    } else {
+      $("#coupon_discount").hide();
+    }
+    $('#total-price').html(prices.cost);
+  });
 }
 
-function changeAfterpartyPrice(value) {
-  var price = $('#afterpartyPrice');
-  price.html(value * price.data("price"));
-  changeAllPrice();
+function changeTicketPrice() {
+  ticketsCountChanged();
 }
 
-function changeAllPrice() {
-  var all = $('#allPrice');
-  var priceTicket =  parseInt($('#ticketPrice').html());
-  var priceAfterparty =  parseInt($('#afterpartyPrice').html());
-  all.html(priceTicket + priceAfterparty);
+function changeAfterpartyPrice() {
+  ticketsCountChanged();
 }
 
 $(document).ready(function(){

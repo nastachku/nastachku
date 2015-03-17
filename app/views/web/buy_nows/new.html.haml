@@ -2,7 +2,7 @@
 .cont.title
   Купить билеты на Стачку 2015
 .cont
-  = simple_form_for @form, as: :order, url: buy_now_order_path, method: :post do |f|
+  = simple_form_for @form, as: :order, url: buy_now_path, method: :post do |f|
     .line
       %table.price_calc
         %tbody
@@ -10,39 +10,52 @@
             %td
               Билет на стачку
             %td
-              = f.input :tickets, label: false, input_html: {class: 'price-select', onchange: "changeTicketPrice(this.value);"}, as: :select, collection: (0..10).map { |i| [i, i] }, selected: 1
+              = f.input :tickets, label: false, input_html: {class: 'price-select', onchange: "changeTicketPrice(this.value);"}, as: :select, collection: (0..10).map { |i| [i, i] }, selected: @order.tickets.length
             %td.price
-              - if current_coupon
-                %span#ticketPrice{data: {price: current_coupon.with_discount(Pricelist.ticket_price)}}= current_coupon.with_discount(Pricelist.ticket_price)
-              - else
-                %span#ticketPrice{data: {price: Pricelist.ticket_price}}= Pricelist.ticket_price
+              %span#ticketPrice{data: {price: Pricelist.ticket_price}}= Pricelist.ticket_price
               = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
           %tr
             %td
               Билет на Афтепати
             %td
-              = f.input :afterparty_tickets, label: false, input_html: {class: 'price-select', onchange: "changeAfterpartyPrice(this.value);"}, as: :select, collection: (0..10).map { |i| [i, i] }, selected: 1
+              = f.input :afterparty_tickets, label: false, input_html: {class: 'price-select', onchange: "changeAfterpartyPrice(this.value);"}, as: :select, collection: (0..10).map { |i| [i, i] }, selected: @order.afterparty_tickets.length
             %td.price
-              - if current_coupon
-                %span#afterpartyPrice{data: {price: current_coupon.with_discount(Pricelist.afterparty_ticket_price)}}= current_coupon.with_discount(Pricelist.afterparty_ticket_price)
-              - else
-                %span#afterpartyPrice{data: {price: Pricelist.afterparty_ticket_price}}= Pricelist.afterparty_ticket_price
+              %span#afterpartyPrice{data: {price: Pricelist.afterparty_ticket_price}}= Pricelist.afterparty_ticket_price
               = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
     .line
       %table.price_calc
         %tbody
+
+          - if @order.has_active_campaign?
+            %tr#campaign_discount
+              %td{colspan: 2}
+                = "Скидка по акции "
+                %span#campaign_name= "“#{@order.campaign.name}”:"
+              %td.price
+                %span#campaign_discount_value= price_format(@order.campaign_discount_value)
+                = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
+          - else
+            %tr#campaign_discount{style: "display: none;"}
+              %td{colspan: 2}
+                = "Скидка по акции "
+                %span#campaign_name
+              %td.price
+                %span#campaign_discount_value
+                = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
+
+          - if @order.coupon
+            %tr#coupon_discount
+              %td{colspan: 2}
+                = "Скидка #{@order.coupon.discount}% по купону “#{@order.coupon.code}”:"
+              %td.price
+                %span#coupon_discount_value= price_format(@order.coupon_discount_value)
+                = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
           %tr
             %td
-              - if current_coupon
-                = "ИТОГО (скидка #{current_coupon.discount}%):"
-              - else
-                ИТОГО:
+              ИТОГО:
             %td
             %td.price
-              - if current_coupon
-                %span#allPrice= current_coupon.with_discount(Pricelist.afterparty_ticket_price + Pricelist.ticket_price)
-              - else
-                %span#allPrice= Pricelist.afterparty_ticket_price + Pricelist.ticket_price
+              %span#total-price= price_format(@order.cost)
               = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
     .pay_information
       .pay_col1
@@ -87,8 +100,12 @@
       %tbody
         %tr
           %td.first_kup
-            Промо-код
+            Купон
+            %br
+            %small (введите скидочный купон при его наличии)
           %td
-            %input.input_type-1.kup_inp{name: :coupon, :placeholder => "", :type => "text", :value => current_coupon.try(:code)}/
+            %input.input_type-1.kup_inp{name: :coupon, :placeholder => "", :type => "text", :value => @order.coupon.try(:code)}/
           %td.but
-            %input.inputSubmit{:type => "submit", :value => "Применить"}/
+            %button.btn_main Применить
+        %tr
+          %td

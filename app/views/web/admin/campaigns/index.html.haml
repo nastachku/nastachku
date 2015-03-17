@@ -1,0 +1,16 @@
+= link_to t('.new'), new_admin_campaign_path, class: 'btn btn-primary'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Campaign.human_attribute_name :name
+      %th= Campaign.human_attribute_name :tickets_count
+      %th= Campaign.human_attribute_name :afterparty_tickets_count
+      %th= Campaign.human_attribute_name :discount_amount
+      %th= Campaign.human_attribute_name :start_date
+      %th= Campaign.human_attribute_name :end_date
+      %th= Campaign.human_attribute_name :actions
+  %tbody
+    = render @campaigns
+
+= link_to t('.new'), new_admin_campaign_path, class: 'btn btn-primary'

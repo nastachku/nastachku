@@ -12,7 +12,7 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
     # TODO: смотреть что сервис прислал вместо того, чтобы ходить за состоянием платежа
     if order.buy_now?
       ProcessPaidOrder.call order, :buy_now
-      redirect_to success_buy_now_order_path(order_number: order_number)
+      redirect_to success_buy_now_path(order_number: order_number)
     else
       update_payment_state(order)
 
@@ -30,7 +30,7 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
     flash_notice
 
     if order.buy_now?
-      redirect_to new_buy_now_order_path
+      redirect_to new_buy_now_path
     else
       redirect_to edit_account_path anchor: :orders
     end
@@ -49,9 +49,9 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
     flash_notice
 
     if order && order.buy_now?
-      redirect_to new_buy_now_order_path
+      redirect_to new_buy_now_path
     elsif !order && !signed_in?
-      redirect_to new_buy_now_order_path
+      redirect_to new_buy_now_path
     else
       redirect_to edit_account_path anchor: :orders
     end
@@ -68,7 +68,7 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
     end
 
     if order.buy_now?
-      redirect_to new_buy_now_order_path
+      redirect_to new_buy_now_path
     else
       redirect_to edit_account_path anchor: :orders
     end
@@ -85,7 +85,7 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
     end
 
     if order.buy_now?
-      redirect_to new_buy_now_order_path
+      redirect_to new_buy_now_path
     else
       redirect_to edit_account_path anchor: :orders
     end
