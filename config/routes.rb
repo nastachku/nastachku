@@ -75,7 +75,7 @@ Nastachku::Application.routes.draw do
     resource :account, only: [:edit, :update] do
       scope module: :account do
         resource :password, only: [:edit, :update]
-        resources :lectures, only: [:new, :create, :update]
+        resources :lectures, only: [:new, :create, :update, :edit]
 
         resources :orders, only: [:update] do
           put :pay, on: :member

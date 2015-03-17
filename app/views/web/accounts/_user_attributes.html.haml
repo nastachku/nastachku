@@ -4,6 +4,9 @@
   .personal__userpic
     .personal__userpic__upload
       = f.input :photo, as: :image_preview, label: false
+
+    .account_lectures
+      = render 'lectures', lectures: @user.lectures
   .personal__info
     - f.with_options input_html: { class: "input_type-1" } do |f|
       %ul.form__group
