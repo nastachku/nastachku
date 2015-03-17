@@ -5,7 +5,7 @@
   .layout-line
     %ul
       %li
-        = link_to schedule_path(anchor: 'yellow'), class: 'main_workshop_link' do
+        = link_to lectures_path(q: {workshop_id_eq: 10}), class: 'main_workshop_link' do
           .mainpage__sections__cont
             .mainpage__sections-img
               %i.sprite.sprite-section-d_big
@@ -14,7 +14,7 @@
               %p
                 Креатив, дизайн, SMM, маркетинг, SEO, PR, PM, бренды.
       %li
-        = link_to schedule_path(anchor: 'green'), class: 'main_workshop_link' do
+        = link_to lectures_path(q: {workshop_id_eq: 11}), class: 'main_workshop_link' do
           .mainpage__sections__cont
             .mainpage__sections-img
               %i.sprite.sprite-section-t_big
@@ -24,7 +24,7 @@
                 Методологии, разработка, highload, языки программирования и технологии,
                 облачные технологии, client­side, архитектура кода и проектов.
       %li
-        = link_to schedule_path(anchor: 'red'), class: 'main_workshop_link' do
+        = link_to lectures_path(q: {workshop_id_eq: 15}), class: 'main_workshop_link' do
           .mainpage__sections__cont
             .mainpage__sections-img
               %i.sprite.sprite-section-m_big
@@ -34,7 +34,7 @@
                 Организация IT-компании, управление, образование и кадры,
                 методологии и подходы к разработке.
       %li
-        = link_to schedule_path(anchor: 'orange'), class: 'main_workshop_link' do
+        = link_to lectures_path(q: {workshop_id_eq: 13}), class: 'main_workshop_link' do
           .mainpage__sections__cont
             .mainpage__sections-img
               %i.sprite.sprite-section-mob_big
@@ -44,7 +44,7 @@
                 Платформы, технологии, рождение и жизнь приложений, мобильное проектирование,
                 концепции и тренды.
       %li
-        = link_to schedule_path(anchor: 'blue'), class: 'main_workshop_link' do
+        = link_to lectures_path(q: {workshop_id_eq: 14}), class: 'main_workshop_link' do
           .mainpage__sections__cont
             .mainpage__sections-img
               %i.sprite.sprite-section-i_big
@@ -53,7 +53,7 @@
               %p
                 Все о том как зарабатывать на контенте и благодаря контенту.
       %li
-        = link_to schedule_path(anchor: 'purple'), class: 'main_workshop_link' do
+        = link_to lectures_path(q: {workshop_id_eq: 12}), class: 'main_workshop_link' do
           .mainpage__sections__cont
             .mainpage__sections-img
               %i.sprite.sprite-section-e_big
