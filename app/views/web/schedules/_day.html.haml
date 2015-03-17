@@ -24,7 +24,7 @@
             %span.programm__next{ data: { page: "1" }}
       %tbody
         - (minutes_count(start_time)...minutes_count(finish_time)).each_slice(5).to_a.each do |i|
-          - i_time = DateTime.new(day.year, day.month, day.day, i.first / 60, i.first % 60, 0)
+          - i_time = DateTime.new(day.year, day.month, day.day, i.first / 60, i.first % 60, 0, start_time.zone)
           - if not slots_in_time?(@slots, i_time)
             - if before_after_party?(i_time, @lectures_slots)
               %tr{ id: "#{i_time.hour}_#{i_time.minute}_tr"  }
