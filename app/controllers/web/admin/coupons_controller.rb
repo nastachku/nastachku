@@ -11,6 +11,11 @@ class Web::Admin::CouponsController < Web::Admin::ApplicationController
     @coupon = AdminCouponType.new
   end
 
+  def reports
+    @coupons = Coupon.all
+    @reports = @coupons.map { |c| CouponReport.new(c) }
+  end
+
   def create
     @coupon = AdminCouponType.new(params[:coupon])
     if @coupon.save

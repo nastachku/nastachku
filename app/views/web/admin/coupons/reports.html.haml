@@ -1,0 +1,30 @@
+.page-header
+  %h1=t '.title'
+
+- if @reports.any?
+  %table.table.table-hover
+    %thead
+      %tr
+        %th Купон
+        %th Всего заказов
+        %th Оплаченных заказов
+        %th Сумма заказов без скидки
+        %th Сумма заказов со скидками
+        %th Скидка по акциям
+        %th Скидка по купону, %
+        %th Скидка по купону, в рублях
+        %th Вознаграждение партнеру, %
+        %th Вознаграждение партнеру, в рублях
+    %tbody
+      - @reports.each do |report|
+        %tr
+          %td= link_to report.coupon.code, admin_coupon_path(report.coupon)
+          %td= report.orders.count
+          %td= report.orders_paid.count
+          %td= report.orders_sum_without_discount
+          %td= report.orders_sum_with_discount
+          %td= report.campaign_discount
+          %td= report.coupon.discount
+          %td= report.coupons_discount
+          %td= report.coupon.commission
+          %td= report.partners_commission

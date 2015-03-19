@@ -2,6 +2,8 @@
   %h1=t '.title'
 
 = link_to t('.new'), new_admin_coupon_path, class: 'btn btn-primary'
+%div
+  = link_to t('.report'), reports_admin_coupons_path
 
 = paginate @coupons
 
