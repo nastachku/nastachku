@@ -4,7 +4,7 @@
  * dev.firsov@gmail.com
 */
 function setNextAndPrevButtons(page, enableAll, disablePrev){
-      var $next = $('.programm__next'), $prev=$('.programm__prev'); 
+      var $next = $('.programm__next'), $prev=$('.programm__prev');
       $next.attr('data-page', page);
       $prev.attr('data-page', page);
       if (enableAll) {
@@ -37,20 +37,20 @@ function showAdapticTable() {
       }
       hideAllTd();
       if (check_width(604)) {
-        setNextAndPrevButtons(page, (page != 1 && page != 7), (page == 1))
+        setNextAndPrevButtons(page, (page != 1 && page != 8), (page == 1))
         showTdOfTable([page]);
       } else if (check_width(964)) {
         if(page > 2) {
           setPageOne();
         }
         if(page == 1) {
-          showTdOfTable([1,2,3]);
+          showTdOfTable([1,2,3,4]);
         } else if (page == 2) {
-          showTdOfTable([4,5,6,7]);
+          showTdOfTable([5,6,7,8]);
         }
       } else {
         setPageOne();
-        showTdOfTable([1,2,3,4,5,6,7]);
+        showTdOfTable([1,2,3,4,5,6,7,8]);
       }
     }
 }
@@ -61,7 +61,7 @@ jQuery(document).ready(function ($) {
     });
     $(window).resize(function(){
       showAdapticTable();
-    });  
+    });
     showAdapticTable();
     if (check_width(604)) {
         var options = {
@@ -112,8 +112,8 @@ function check_width (data_width) {
 function programm_next (next, prev) {
     var page=Number(next.attr('data-page'));
     if (check_width(604)) {
-        if (page<7){
-            if (page==6) next.addClass('disable');
+        if (page<8){
+            if (page==7) next.addClass('disable');
             next.attr('data-page', (page + 1));
             prev.removeClass('disable').attr('data-page', (page + 1));
             next.parents('table').attr('class', 'page-' + (page + 1));
@@ -125,7 +125,7 @@ function programm_next (next, prev) {
             next.addClass('disable').attr('data-page',2);
             prev.removeClass('disable').attr('data-page',2);
             next.parents('table').attr('class','page-2')
-            showTdOfTable([4,5,6,7]);
+            showTdOfTable([5,6,7,8]);
         }
     }
 }
@@ -146,7 +146,7 @@ function programm_prev (prev, next) {
             next.removeClass('disable').attr('data-page',1);
             prev.addClass('disable').attr('data-page',1);
             next.parents('table').attr('class','page-1')
-            showTdOfTable([1,2,3]);
+            showTdOfTable([1,2,3,4]);
         }
     }
 }
@@ -156,7 +156,7 @@ function showTdOfTable(halls) {
   hideAllTd();
   halls.map(function(hall) {
     $("td[data-hall=" + hall + "]").show();
-  });           
+  });
 }
 
 function hideAllTd() {
