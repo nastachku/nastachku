@@ -1,0 +1,611 @@
+@media (min-width: 620px) and (max-width: 979px) { ////////////////////////////////////////// 640
+
+    #layout {
+        padding-bottom: 150px;
+    }
+
+    ////////////////////////////////////////// HEADER
+    header {
+        height: 170px;
+    }
+
+    .header__logo {
+        height: 75px;
+        width: 220px;
+        margin-left: 15px;
+    }
+
+    .header__nav {
+        width: 100%;
+        margin: 12px 0 0 0;
+        padding: 22px 0;
+        display: block;
+        text-align: center;
+        border-top: 1px solid #e7e7e7;
+        a {padding: 0 1.65%}
+    }
+
+    .header__login {
+        width: 180px;
+        position: absolute;
+        top: 0;
+        right: 15px;
+    }
+    .header__login__user-logout {
+        display: block;
+    }
+
+    ////////////////////////////////////////// MAIN ADV
+    .mainadv {
+        height: 350px;
+        background-position: 25% 0;
+    }
+
+    .mainadv__banner {
+        height: 290px;
+        top: 30px;
+        h2 {
+            font-size: 4.5em;
+            margin: 30px 0 0 0;
+        }
+        p {
+            font-size: 0.9375em;
+            margin: 0;
+            color: #444;
+        }
+        a {
+            margin: 20px 0 0 0;
+            width: 190px;
+            height: 46px;
+            line-height: 44px;
+        }
+    }
+
+    .mainadv__banner__dollar {
+      .mainadv__banner();
+    }
+
+    .mainadv__banner__ok {
+      .mainadv__banner();
+    }
+
+    ////////////////////////////////////////// MAINPAGE SECTIONS
+    .mainpage__sections {
+        padding-bottom: 40px;
+        li {
+            width: 94%;
+            margin: 20px 0 0 2% !important;
+            padding: 1%;
+        }
+    }
+    .mainpage__sections-img {
+        width: 33%;
+        display: table-cell;
+    }
+    .mainpage__sections-desc {
+        display: table-cell;
+        width: 61%;
+        p {max-width: 90%; width: 90%}
+    }
+
+    ////////////////////////////////////////// MAINPAGE SPEAKERS
+    .mainpage__speakers {
+        li {
+            &:nth-child(2n) {border-left: none}
+        }
+    }
+    .mainpage__speakers__about {
+        margin-top: 15px;
+        text-align: left;
+        h4 {
+            font-size: 1.0625em;
+            width: 100%;
+        }
+        h5 {width: 100%}
+    }
+    .mainpage__speakers__desc {
+        text-align: left;
+        p {width: 100%}
+    }
+
+    ////////////////////////////////////////// ORG SPONSORS
+    .mainpage__org {
+        padding-bottom: 30px;
+    }
+    .mainpage__sponsors {
+        padding-bottom: 15px;
+    }
+    .company__logos ul {width: 100% !important;}
+    .company__logos li {
+        height: 150px;
+        width: 25%;
+        padding: 2%;
+    }
+
+    ////////////////////////////////////////// FOOTER
+    .footer__topbar {
+        padding: 3% 0;
+        p {display: none}
+    }
+    .footer__madeby {width: 49%; margin-left: 2%}
+    .footer__social {width: 47%; margin-top: 12px}
+
+    ////////////////////////////////////////// OTHER
+    .pagetitle__select__lecture {
+        div.fancy-select div.trigger {
+            width: 190px;
+        }
+        div.fancy-select ul.options {
+            width: 190px;
+            li:first-child {line-height: 1.4em}
+            li:nth-child(3), li:nth-child(5), li:nth-child(6), li:nth-child(7) {
+                line-height: 40px;
+            }
+        }
+    }
+
+
+    ////////////////////////////////////////// ABOUT
+    .about__stachka-desc, .about__stachka-imgs {
+        width: 96%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    .about__stachka__social__carousel li {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    ////////////////////////////////////////// LECTURES
+    .lectures__item {
+        margin: 4% 2% 2% 2%;
+        width: 96%;
+    }
+
+    .lectures__item-name {
+        margin-top: .8%;
+    }
+
+    .lectures__item-about {
+        margin-top: 2%;
+        h4 {
+            font-size: 1em;
+        }
+    }
+
+    .lectures__item-desc {
+        font-size: 0.875em;
+        margin-top: .5%;
+        p {
+            position: relative;
+            width: 100%;
+            cursor: pointer;
+            max-height: 4.5em;
+            overflow: hidden;
+
+            &::after {
+                .three_dots
+            }
+            &.open {
+                cursor: default;
+                max-height: none;
+                &::after {display: none}
+            }
+        }
+    }
+
+    .lectures__item__add {
+        width: 100%;
+    }
+
+    .lectures__item-social {
+        width: 100%;
+        margin-top: 2%;
+        text-align: left;
+    }
+
+
+    ////////////////////////////////////////// PERSONAL
+    .content__tabs {
+        text-align: center;
+    }
+    .personal__userpic {
+        width: 35%;
+        float: left;
+        margin: 40px 0 0 2%;
+    }
+
+    .personal__info {
+        float: right;
+        width: 57%;
+        margin: 210px 2% 0 0;
+        .form__group {margin-bottom: 30px}
+    }
+
+    .personal__identity__number {
+        position: absolute;
+        top: 40px;
+        right: 2%;
+        width: 57%;
+
+    }
+
+    .personal__identity {
+        float: right;
+        width: 57%;
+        margin: 0 2% 0 0;
+        h2 {
+            font-size: 2.1875em;
+        }
+    }
+
+    .personal__identity__social {
+        margin-top: 0;
+    }
+
+    .personal__submit {
+        width: 57%;
+        margin-top: 30px;
+        margin-left: 41%;
+    }
+
+
+    ////////////////////////////////////////// REGISTRATION
+    .registration .personal__identity {
+        position: static;
+    }
+
+    .registration .personal__identity__number {
+        top: 40px;
+        left: auto;
+    }
+
+    .registration .personal__info {
+        margin-top: 340px;
+    }
+
+    .registration .personal__identity__social {margin-top: 0}
+
+    ////////////////////////////////////////// ORDER
+    .order__new__items {
+        margin-top: 40px;
+        margin-right: 20px;
+        width: 57%;
+    }
+
+    .order__new {
+        width: 96%;
+        margin-left: 2%;
+        margin-right: 2%;
+        border-bottom: none;
+    }
+
+    .order__new__submit {
+        padding: 4%;
+    }
+    .orderslist {
+        width: 96%;
+        margin: 0 2%;
+    }
+    .orderslist__items__head div, .orderslist__item div {
+        width: 24%;
+    }
+    .orderslist__items__title, .orderslist__info {
+        text-align: left;
+    }
+
+
+    ////////////////////////////////////////// PROGRAMM
+
+    .programm {
+        border-bottom: 0;
+        padding-bottom: 20px;
+    }
+    .programm__filter {
+        width: 80%;
+        margin: 15px 10% 25px 10%;
+    }
+
+    .programm .pagetitle__title {
+        top: -70px;
+        left: 50%;
+        margin-left: -75px;
+    }
+
+    .programm__my {
+        top: -60px;
+    }
+
+    .programm__filter__checkboxs-title {
+        width: 100%;
+        margin: 0 0 5px 0;
+    }
+
+    .programm__filter__checkboxs {
+        width: 100%;
+        display: inline-block;
+        vertical-align: top;
+        .checkbox_type-2 + label {font-size: .9375em}
+        li {
+            vertical-align: top;
+            width: 48.5%;
+            margin: 10px 1% 10px 0;
+            &:nth-child(1), &:last-child {width: 48.5%}
+            &:nth-child(2),&:nth-child(4) {
+                .checkbox_type-2 + label::before {margin-top: -6px}
+            }
+        }
+    }
+
+    .checkbox_type-2 + label.checkbox_type-2-blue::before {
+      margin: 5px 10px 0 0 !important;
+
+    }
+
+
+    .programm .content__tabs {
+        margin-top: 100px;
+    }
+
+    .programm__schedule th:first-child {text-align: left; padding: 0}
+    .programm__schedule th:last-child {text-align: right; padding: 0}
+
+    .programm__schedule {
+        th {
+            padding-top: 0;
+            padding-bottom: 0;
+            vertical-align: middle;
+        }
+        .page-1 {
+            th {
+                &:nth-child(6), &:nth-child(7),&:nth-child(8),&:nth-child(9){
+                    display: none;
+                }
+            }
+            .programm__schedule__lectures td {
+                &:first-child {width: 4%}
+                width: 26%;
+                &:nth-child(6), &:nth-child(7),&:nth-child(8),&:nth-child(9),&:nth-child(10){
+                    display: none;
+                }
+                &:last-child {
+                  border-left: 0px;
+                }
+            }
+        }
+        .page-2 {
+            th {
+                &:nth-child(2), &:nth-child(3),&:nth-child(4),&:nth-child(5){
+                    display: none;
+                }
+            }
+            .programm__schedule__lectures td {
+                &:first-child {width: 4%}
+                width: 26%;
+                &:nth-child(2), &:nth-child(3),&:nth-child(4),&:nth-child(5){
+                    display: none;
+                }
+            }
+        }
+    }
+    .lecture__lecturer, .lecture__company, .lecture__desc {font-size: .875em}
+    .programm__print {display: none}
+
+
+    ////////////////////////////////////////// RECOVERY
+    .recovery__pass {
+        margin-top: 5%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+
+    ////////////////////////////////////////// MEMBERS
+    .members {
+        border-bottom: 0;
+        padding-bottom: 0;
+    }
+    .pagetitle__select__members {
+        right: 2%;
+        div.fancy-select div.trigger {width: 190px}
+        div.fancy-select ul.options {width: 158px}
+    }
+    .members__list {
+        width: 96%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .members__list__item__img {
+        float: left;
+        width: 15%;
+    }
+    .members__list__item__name {
+        width: 85%;
+        float: left;
+        cursor: pointer;
+    }
+
+    .members__list__item {
+        padding-top: 2.5%;
+        padding-bottom: 3%;
+        &.open {padding-bottom: 2%}
+    }
+
+    .members__list__section-icon {width: 15%}
+
+    .members__list__item__alphabet {
+        .members__list__item__position {
+            float: left;
+            width: auto;
+            margin-left: 0;
+            cursor: pointer;
+        }
+        .members__list__item__company {
+            float: left;
+            position: relative;
+            margin-left: 4px;
+            cursor: pointer;
+            &::before {
+                content: '/';
+            }
+        }
+
+        .members__list__item__city {
+            display: none;
+            width: 50%;
+            padding: 20px 0 5px 15%;
+            border-top: 1px solid #e5e5e5;
+            margin-top:10px;
+            margin-left: 0;
+            vertical-align: top;
+        }
+
+        .members__list__item__social {
+            display: none;
+            width: 35%;
+            border-top: 1px solid #e5e5e5;
+            margin-left: 0;
+            margin-top: 8px;
+            padding-top: 10px;
+            vertical-align: top;
+        }
+        &.open {
+            .members__list__item__city, .members__list__item__social {display: inline-block}
+        }
+    }
+
+    .members__list__item__bycity {
+        .members__list__item__city {
+            float: left;
+            width: 85%;
+            margin-left: 0;
+            cursor: pointer;
+        }
+
+        .members__list__item__position {
+            display: none;
+            width: 45%;
+            padding: 20px 0 5px 15%;
+            border-top: 1px solid #e5e5e5;
+            margin-top:10px;
+            margin-left: 0;
+            vertical-align: top;
+        }
+
+        .members__list__item__company {
+            display: none;
+            position: relative;
+            margin-left: 0;
+            cursor: pointer;
+            width: 20%;
+            padding: 20px 0 5px 4px;
+            border-top: 1px solid #e5e5e5;
+            vertical-align: top;
+            margin-top: 10px;
+            text-align: left;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+
+        .members__list__item__social {
+            display: none;
+            width: 20%;
+            border-top: 1px solid #e5e5e5;
+            margin-left: 0;
+            margin-top: 10px;
+            padding-top: 10px;
+            vertical-align: top;
+        }
+        &.open {
+            .members__list__item__position, .members__list__item__company, .members__list__item__social {display: inline-block}
+        }
+    }
+
+    ////////////////////////////////////////// CONTACTS
+    .contacts {
+        border-bottom: 0;
+        padding-bottom: 0;
+    }
+    .contacts__address {
+        width: 94%;
+        margin-left: 3%;
+        margin-right: 3%;
+        font-size: .9375em;
+        a {display: none}
+    }
+    .contacts__map {
+        width: 94%;
+        margin-left: 3%;
+    }
+    .contacts__info {position: relative}
+    .contacts__info__item {
+        width: 100%;
+        min-height: 200px;
+        display: none;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 20px;
+        border: none;
+        &:first-child {display: block}
+    }
+    .contacts__info__title {
+        text-align: center;
+        height: 55px;
+        line-height: 55px;
+        font-family: @roboto_reg;
+        width: 100%;
+        background-color: black;
+        color: white;
+        font-size: 1.1875em;
+        margin-top: 0;
+    }
+
+    .contacts__info__desc {
+        width: 100%;
+        padding: 0 55px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        margin-top: 20px;
+    }
+
+    .contacts__info__prev, .contacts__info__next {
+        position: absolute;
+        top: 20px;
+        display: block;
+        width: 55px;
+        height: 55px;
+        background-color: black;
+        cursor: pointer;
+        &.disable:after {opacity: .5}
+    }
+    .contacts__info__next {
+        right: 0;
+        border-left: 1px solid #333;
+        &:after {
+            content: '';
+            position: absolute;
+            top: 23px;
+            right: 20px;
+            border-left: 5px solid white;
+            border-right: 5px solid transparent;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+    }
+    .contacts__info__prev {
+        left: 0;
+        border-right: 1px solid #333;
+        &:after {
+            content: '';
+            position: absolute;
+            top: 23px;
+            left: 19px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid white;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+    }
+}
