@@ -11,7 +11,7 @@
         %td= @ticket.id
       %tr
         %th= AfterpartyTicket.human_attribute_name :order
-        %td= link_to @ticket.order.id, admin_order_path(@ticket.order)
+        %td= link_to @ticket.order, admin_order_path(@ticket.order) if @ticket.order.present?
       %tr
         %th= AfterpartyTicket.human_attribute_name :user
         - if @ticket.user
