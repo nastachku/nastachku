@@ -205,6 +205,10 @@ ru:
           code_not_true: "Код не верен"
           stachka_ticket: Билет на Стачку
       lectures:
+        edit_form:
+          presentation: 'Презентация (файлы pdf, ppt, pptx, odp, не более 10Mb)'
+          title: "Редактировать доклад"
+          save: 'Обновить информацию'
         form:
           add_event: 'Добавить доклад'
         event_fields:

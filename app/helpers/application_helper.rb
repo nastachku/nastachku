@@ -33,7 +33,7 @@ module ApplicationHelper
   end
 
   def in_account?
-    params[:controller] == 'web/accounts'
+    params[:controller].include?('web/account')
   end
 
   def link_to_tel(phone)

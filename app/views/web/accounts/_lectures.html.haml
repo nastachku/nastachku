@@ -1,0 +1,5 @@
+- if lectures.any?
+  %h3 Мои доклады:
+  - lectures.each do |lecture|
+    %div
+      = link_to lecture.title, edit_account_lecture_path(lecture)

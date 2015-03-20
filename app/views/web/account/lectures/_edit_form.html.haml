@@ -1,23 +1,26 @@
-%tr
-  %td= lecture.title
-  %td.center= l lecture.created_at
-  %td.center= lecture.human_state_name
-  %td.center
-    .btn-group.pull-right
-      %a.btn.btn-mini.edit-event
-        %i.icon-pencil
-%tr
-  %td.no-padding( colspan="4" )
-    - if @updated
-      .alert.alert-success
-        Доклад успешно обновлен!
-        %button.close{"data-dismiss" => "alert", :type => "button"} &times;
-    = simple_form_for lecture, url: account_lecture_path(lecture), remote: true, html: { class: 'edit-event' }  do |lecture|
-      .formy.formy-issue.nested-fields
-        .row-fluid
-          .span12
-            = lecture.input :title, input_html: { class: 'span12' }
-            = lecture.input :thesises, input_html: {rows: 5, class: 'span12' }
-        .row-fluid
-          .span3
-            = lecture.submit 'Сохранить', class: 'btn btn-shine'
+.pagetitle
+  .layout-line
+    %h1.pagetitle__title
+      =t '.title'
+.content
+  .layout-line
+    = simple_form_for lecture, url: account_lecture_path(lecture), method: :put do |f|
+
+      .personal__userpic
+        .personal__userpic__img
+          = image_tag f.object.user.photo
+
+      .personal__info
+        - f.with_options input_html: { class: "input_type-1" } do |f|
+          %ul.form__group
+            %li.form__element
+              = f.input :title, placeholder: Lecture.human_attribute_name(:title), class: :input_without_ul
+            %li.form__element
+              = f.input :thesises, placeholder: Lecture.human_attribute_name(:thesises), class: :input_without_ul
+            %li.form__element
+              = f.input :presentation, as: :file, label: t('.presentation'), input_html: {accept: 'application/pdf, application/vnd.ms-powerpoint, pplication/vnd.oasis.opendocument.presentation, application/x-vnd.oasis.opendocument.presentation, pplication/vnd.openxmlformats-officedocument.presentationml.presentation'}
+
+      .personal__submit
+        = f.button :submit, t('.save'), class: 'btn_main btn_main-refresh'
+
+.clearfix
