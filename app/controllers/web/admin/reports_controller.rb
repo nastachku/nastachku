@@ -19,4 +19,13 @@ class Web::Admin::ReportsController < Web::Admin::ApplicationController
       raise ActionController::RoutingError, "resource not found"
     end
   end
+
+  def users_email
+    @csv_streamer = UsersCsvStreamer.new
+
+    response.headers["Cache-Control"] ||= "no-store, no-cache, must-revalidate"
+    response.headers["Content-Type"] ||= "text/csv"
+    response.headers["Content-Disposition"] ||= "attachment; filename=#{@csv_streamer.filename}"
+    self.response_body = @csv_streamer
+  end
 end

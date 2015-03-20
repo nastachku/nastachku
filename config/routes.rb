@@ -162,6 +162,9 @@ Nastachku::Application.routes.draw do
       end
       resource :reports, only: [] do
         post :generate
+        collection do
+          get :users_email
+        end
       end
       get '/downloads/reports/*filename' => 'reports#download', as: 'reports_file'
       mount Resque::Server, at: "resque", constraints: AdminConstraint.new, as: 'resque'
