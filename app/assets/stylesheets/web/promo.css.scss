@@ -1062,3 +1062,12 @@ ol.ticket-codes {
 
     &:disabled {opacity: .8}
 }
+
+.form-errors {
+  font-size: 16px;
+  color: red;
+}
+
+.control-group.error .form-errors {
+  margin-left: 10px;
+}
