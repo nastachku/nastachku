@@ -39,7 +39,7 @@ ru:
       lecture:
         state_event: 'Действие'
         title: 'Название'
-        presentation: Презентация
+        presentation: 'Презентация'
         thesises: 'Тезисы'
         user: 'Докладчик'
         start_time: 'Время начала'
