@@ -102,6 +102,9 @@ ru:
           edit: 'Редактировать'
         edit:
           title: 'Редактировать заказ'
+        index:
+          search: 'Найти'
+          reset: 'Сбросить'
       campaigns:
         index:
           title: 'Акции'
