@@ -5,4 +5,6 @@
       Ленинский мемориал, Ульяновск
     %p.infoline__right
       - unless current_user
+        = link_to "Регистрация", new_user_path
+        = link_to "Афтепати", page_path('afterparty')
         = link_to "Купить билет (#{Pricelist.ticket_price}р.)", buy_now_path
