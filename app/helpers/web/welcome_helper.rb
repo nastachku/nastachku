@@ -5,7 +5,7 @@ module Web::WelcomeHelper
       short_lecture = {
         id: lecture.id,
         title: lecture.title,
-        thesises: lecture.thesises.first(140),
+        thesises: truncate(lecture.thesises, length: 140),
         workshop_icon: lecture.workshop.icon,
         lector: {
           id: lector.id,
