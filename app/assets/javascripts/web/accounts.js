@@ -20,7 +20,7 @@ jQuery(document).ready(function ($) {
   });
 
   function readURL(input) {
-    if (input.files && input.files[0]) {
+    if (input.files && input.files[0] && (input.files[0].type == 'image/png' || input.files[0].type == 'image/jpeg')) {
       var reader = new FileReader();
       reader.onload = function (e) {
           $('#user_photo_preview').attr('src', e.target.result);
