@@ -12,7 +12,7 @@ class BuyNowOrderType
 
   validates :name, presence: true
   validates :phone, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, email: true
   validates :tickets, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, presence: true
   validates :afterparty_tickets, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, presence: true
   validates :payment_system, presence: true
@@ -30,8 +30,11 @@ class BuyNowOrderType
     }
   end
 
+  def base
+  end
+
   private
   def buys_at_least_one_ticket
-    errors.add(:base, :at_least_one_ticket_should_be_bought) if tickets.zero? && afterparty_tickets.zero?
+    errors.add(:tickets, :at_least_one_ticket_should_be_bought) if tickets.zero? && afterparty_tickets.zero?
   end
 end

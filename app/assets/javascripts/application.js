@@ -1,4 +1,5 @@
 //= require jquery
+//= require jquery.timeTo.min
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require js-routes

@@ -28,7 +28,6 @@ class Web::BuyNowsController < Web::ApplicationController
       redirect_to pay_url
     else
       build_order
-      flash_error message: @form.errors
       render :new
     end
   end

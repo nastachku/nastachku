@@ -3,7 +3,7 @@
 = simple_form_for @user, url: account_path, html: { class: 'form-horizontal profile-form', autocomplete: 'off' } do |f|
   .personal__userpic
     .personal__userpic__upload
-      = f.input :photo, as: :image_preview, label: false
+      = f.input :photo, as: :image_preview, label: false, input_html: {accept: "image/jpeg, image/png"}
 
     .account_lectures
       = render 'lectures', lectures: @user.lectures
