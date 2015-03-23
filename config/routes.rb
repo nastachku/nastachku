@@ -22,7 +22,7 @@ Nastachku::Application.routes.draw do
   # omniauth-facebook, omniauth-twitter
   get '/auth/:provider/callback', to: 'web/social_networks#auth'
 
-  get '/auth/:action/failure', to: 'web/social_networks#failure'
+  get '/auth/failure', to: 'web/social_networks#failure'
 
   namespace :api do
     resources :companies
