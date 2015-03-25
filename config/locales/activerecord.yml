@@ -48,6 +48,7 @@ ru:
         workshop: 'Секция'
         hall: 'Зал'
         lecture_votings_count: 'Количество голосов'
+        lecture_votings: 'Голоса за доклад'
         listener_votings_count: 'Количество слушателей'
         created_at: "Дата отправки"
 

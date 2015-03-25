@@ -5,6 +5,10 @@ class Web::Admin::LecturesController < Web::Admin::ApplicationController
     @lectures = @search.result.page(params[:page]).per(configus.pagination.admin_per_page)
   end
 
+  def show
+    @lecture = Lecture.find(params[:id])
+  end
+
   def new
     @type = ::Admin::LectureEditType.new
   end

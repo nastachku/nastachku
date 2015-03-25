@@ -172,6 +172,10 @@ ru:
           title: "Создать купон"
         edit:
           title: "Редактировать купон"
+      lectures:
+        show:
+          back: 'К списку докладов'
+          edit: 'Редактировать'
 
 
     accounts:
