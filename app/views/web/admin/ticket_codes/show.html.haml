@@ -1,0 +1,42 @@
+.page-header
+  %h1 Код активации
+
+.span6.clearfix
+  %table.table.table-hover
+    %thead
+      %tr
+    %tbody
+      %tr
+        %th= TicketCode.human_attribute_name :id
+        %td= @ticket_code.id
+      %tr
+        %th= TicketCode.human_attribute_name :category
+        %td= @ticket_code.category
+      %tr
+        %th Пользователь
+        %td
+          - if @ticket_code.ticket && @ticket_code.ticket.user
+            = link_to @ticket_code.ticket.user, admin_user_path(@ticket_code.ticket.user)
+          - if @ticket_code.afterparty_ticket && @ticket_code.afterparty_ticket.user
+            = link_to @ticket_code.afterparty_ticket.user, admin_user_path(@ticket_code.afterparty_ticket.user)
+      %tr
+        %th= TicketCode.human_attribute_name :kind
+        %td= @ticket_code.kind
+      %tr
+        %th= TicketCode.human_attribute_name :distributor
+        %td= link_to @ticket_code.distributor, admin_distributors_path(@ticket_code.distributor)
+      %tr
+        %th= TicketCode.human_attribute_name :price
+        %td= @ticket_code.price
+      - if !@ticket_code.ticket && !@ticket_code.afterparty_ticket
+        %tr
+          %th Активировать для пользователя
+          %td
+            = simple_form_for(@ticket_code_activate, url: activate_admin_ticket_code_path(@ticket_code), method: :post) do |f|
+              = f.input :user_id, as: :chosen_select, label: false, collection: User.alphabetically, input_html: { class: 'span5 span-nomargin' }
+              = f.submit 'Активировать', class: 'btn'
+
+
+
+.form-actions
+  = link_to t('.back'), admin_ticket_codes_path, :class => 'btn'
