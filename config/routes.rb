@@ -160,13 +160,11 @@ Nastachku::Application.routes.draw do
         post :preview
         post :broadcast_to_admins
       end
-      resource :reports, only: [] do
-        post :generate
-        collection do
-          get :users_email
+      resources :reports, only: [:index, :show] do
+        member do
+          get :download
         end
       end
-      get '/downloads/reports/*filename' => 'reports#download', as: 'reports_file'
       mount Resque::Server, at: "resque", constraints: AdminConstraint.new, as: 'resque'
 
       root to: "welcome#index"
