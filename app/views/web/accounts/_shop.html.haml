@@ -1,8 +1,10 @@
+%iframe{src: auth_cs_cart_user_url(get_auth_token(current_user)), onload: "loadShop()", style: "width: 0px; height: 0px; border: none;" }
+
 #tygh_container.tygh
 :javascript
-  (function() {
-  var url = 'https:' == document.location.protocol ? "https%3A%2F%2F#{configus.cs_cart.shop_url}" : "http%3A%2F%2F#{configus.cs_cart.shop_url}";
-  var cw = document.createElement('script'); cw.type = 'text/javascript'; cw.async = true;
-  cw.src = '//widget.cart-services.com/static/init.js?url=' + url + '&layout=7';
-  document.getElementById('tygh_container').appendChild(cw);
-  })();
+  function loadShop() {
+    var url = 'https:' == document.location.protocol ? "https%3A%2F%2F#{configus.cs_cart.shop_url}" : "http%3A%2F%2F#{configus.cs_cart.shop_url}";
+    var cw = document.createElement('script'); cw.type = 'text/javascript'; cw.async = true;
+    cw.src = '//widget.cart-services.com/static/init.js?url=' + url + '&layout=7';
+    document.getElementById('tygh_container').appendChild(cw);
+  }
