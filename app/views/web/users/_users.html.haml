@@ -21,7 +21,7 @@
         .members__list__item__name= user
         .members__list__item__position= user.position
         .members__list__item__company= user.company
-        .members__list__item__city= user.city.mb_chars.capitalize if user.city
+        .members__list__item__city= user.city
         .members__list__item__social
           - unless user.twitter_name.blank?
             %a.social__icon.social__icon-tw{ title: "Твиттер", href: "https://twitter.com/#{user.twitter_name}", target: "_blank"}
