@@ -27,7 +27,4 @@ class AccountEditType < User
          :twitter_name, :vkontakte, :facebook, :company, :position,
          :show_as_participant
 
-  def city=(city)
-    write_attribute(:city, city.mb_chars.downcase)
-  end
 end
