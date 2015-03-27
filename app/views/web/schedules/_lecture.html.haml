@@ -1,4 +1,4 @@
-.programm__schedule__lectures__lecture{ class: "#{lecture.workshop_color}", id: "lecture-#{lecture.id}"}
+.programm__schedule__lectures__lecture{ class: "#{lecture.workshop_color}", id: "lecture-#{lecture.id}", onclick: "lectureClick(#{lecture.id}, this)", data: {id: lecture.id, state: lecture.state}}
   %h4.lecture__lecturer
     = l(slot.start_time, format: :only_time)
     \-
