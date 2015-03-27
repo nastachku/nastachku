@@ -56,8 +56,11 @@ function showAdapticTable() {
 }
 jQuery(document).ready(function ($) {
     var $layout=$('#layout'), $overlay=$('#overlay'), $popups=$('.popup');
-    $('.open_this').on('click', function() {
+    $('body').on('click', '.open_this', function() {
         $(this).toggleClass('open');
+    });
+    $('body').on('click', '.programm__filter__checkboxs-title', function() {
+        $(this).toggleClass('active');
     });
     $(window).resize(function(){
       showAdapticTable();
