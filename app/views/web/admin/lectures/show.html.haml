@@ -1,0 +1,41 @@
+.page-header
+  %h1=@lecture.title
+
+.span6.clearfix
+  %table.table.table-hover
+    %thead
+      %tr
+    %tbody
+      %tr
+        %th= Lecture.human_attribute_name :id
+        %td= @lecture.id
+      %tr
+        %th= Lecture.human_attribute_name :user
+        %td= link_to @lecture.user, admin_user_path(@lecture.user.id) if @lecture.user
+      %tr
+        %th= Lecture.human_attribute_name :title
+        %td= @lecture.title
+      %tr
+        %th= Lecture.human_attribute_name :thesises
+        %td= @lecture.thesises
+      %tr
+        %th= Lecture.human_attribute_name :workshop
+        %td= @lecture.workshop
+      %tr
+        %th= Lecture.human_attribute_name :state
+        %td= @lecture.state
+      %tr
+        %th= Lecture.human_attribute_name :lecture_votings
+        %td
+          - @lecture.lecture_votings.each do |vote|
+            .div
+              = link_to vote.user, admin_user_path(vote.user)
+              - if vote.user.ticket
+                С билетом
+              - else
+                Без билета
+
+
+.form-actions
+  = link_to t('.back'), admin_lectures_path, :class => 'btn'
+  = link_to t('.edit'), edit_admin_lecture_path(@lecture), :class => 'btn'
