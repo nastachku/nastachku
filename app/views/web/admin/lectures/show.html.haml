@@ -27,6 +27,9 @@
       %tr
         %th= Lecture.human_attribute_name :lecture_votings
         %td
+          = "Всего с билетом: #{@lecture.lecture_votings.select{|vote| vote.user.ticket.present? }.count}"
+          %br
+          = "Всего без билета: #{@lecture.lecture_votings.select{|vote| vote.user.ticket.nil? }.count}"
           - @lecture.lecture_votings.each do |vote|
             .div
               = link_to vote.user, admin_user_path(vote.user)
