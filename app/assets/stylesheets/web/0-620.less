@@ -750,7 +750,13 @@
         color: black;
         &:hover {background: none}
         &.added {
-            display: none;
+            width: 20%;
+            min-width: 60px;
+            background: none;
+            &+.lectures__item__add-added {
+              position: absolute;
+              display: block
+            }
         }
     }
 
@@ -762,9 +768,9 @@
         height: 50px;
         line-height: 50px;
         font-size: 0.875em;
-        width: 90%;
-        margin-left: 5%;
+        width: 60%;
         padding: 0;
+        margin-left: 20%;
     }
 
     .lectures__item-social {

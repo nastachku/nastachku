@@ -41,6 +41,7 @@ jQuery(document).ready(function ($) {
       success: function() {
         var $votings_count = $(self).siblings('.lecture_voting_count');
         $votings_count.html(parseInt($votings_count.html(), 10) + 1);
+        $(self).html('Убрать');
         $(self).addClass("added");
         $(self).siblings(".lecture_added").show();
       }
@@ -56,6 +57,7 @@ jQuery(document).ready(function ($) {
       success: function() {
         var $votings_count = $(self).siblings('.lecture_voting_count');
         $votings_count.html(parseInt($votings_count.html(), 10) - 1);
+        $(self).html('Я пойду на доклад');
         $(self).removeClass("added");
         $(self).siblings('.lecture_added').hide();
       }
