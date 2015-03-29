@@ -37,4 +37,21 @@ class Web::Admin::TicketCodesController < Web::Admin::ApplicationController
     end
     redirect_to admin_ticket_codes_path
   end
+
+  def show
+    @ticket_code = TicketCode.find(params[:id])
+    @ticket_code_activate = ::Admin::TicketCodeActivationType.new
+  end
+
+  def activate
+    @ticket_code = TicketCode.find(params[:id])
+    @ticket_code_activate = ::Admin::TicketCodeActivationType.new params[:admin_ticket_code_activation_type]
+    @ticket_code_activate.ticket_code = @ticket_code
+
+    if @ticket_code_activate.activate!
+      redirect_to admin_ticket_codes_path(@ticket_code)
+    else
+      render :show
+    end
+  end
 end

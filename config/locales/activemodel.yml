@@ -24,6 +24,10 @@ ru:
               code_not_exist: 'Неверный код'
               ticket_already_exists: 'У вас уже есть билет на Стачку!'
               afterparty_ticket_already_exists: 'У вас уже есть билет на вечеринку!'
+        admin/ticket_code_activation_type:
+          attributes:
+            user_id:
+              user_already_has_ticket: 'У пользователя уже есть билет'
         buy_now_order_type:
           attributes:
             email:
