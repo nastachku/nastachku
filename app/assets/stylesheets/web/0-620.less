@@ -750,7 +750,13 @@
         color: black;
         &:hover {background: none}
         &.added {
-            display: none;
+            width: 20%;
+            min-width: 60px;
+            background: none;
+            &+.lectures__item__add-added {
+              position: absolute;
+              display: block
+            }
         }
     }
 
@@ -762,9 +768,9 @@
         height: 50px;
         line-height: 50px;
         font-size: 0.875em;
-        width: 90%;
-        margin-left: 5%;
+        width: 60%;
         padding: 0;
+        margin-left: 20%;
     }
 
     .lectures__item-social {
@@ -822,7 +828,7 @@
     .personal__userpic {
         width: 92%;
         float: left;
-        margin: 20px 4% 0 4%;
+        margin: 200px 4% 0 4%;
         text-align: center;
     }
     .personal__userpic__img {
@@ -842,8 +848,11 @@
     .personal__info {
         float: left;
         width: 92%;
-        margin: 185px 4% 0 4%;
+        margin: 0 4% 0 4%;
         .form__group {margin-bottom: 30px}
+        .offset-block {
+          margin-top: 195px;
+        }
     }
 
     .personal__identity__number {
@@ -857,7 +866,7 @@
     .personal__identity {
         float: right;
         width: 92%;
-        margin: 0 4% 0 4%;
+        margin: -340px 4% 0 4%;
         h2 {
             font-size: 2.1875em;
         }

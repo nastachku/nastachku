@@ -1,5 +1,5 @@
 %tr
-  %td= ticket_code.id
+  %td= link_to ticket_code.id, admin_ticket_code_path(ticket_code.id)
   %td= link_to ticket_code.distributor.title, admin_distributor_path(ticket_code.distributor)
   %td= ticket_code.kind
   %td= ticket_code.price
