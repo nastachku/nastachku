@@ -223,11 +223,16 @@ header {
 
 .btn_main-menu {display: none}
 .btn_main-pay-btn {
-  width: 170px;
-  margin-right: 5px;
+  width: 172px;
+  @media (min-width: 620px) and (max-width: 1070px) {
+    width: 100px;
+  }
+  @media (max-width: 619px) {
+    margin-top: 15px;
+  }
 }
-.btn_main-activate-ticket {
-  width: 170px;
+.btn_main-activate_ticket {
+  width: 172px;
 }
 
 .header__nav {
@@ -1259,10 +1264,11 @@ footer {
     }
     p.discount_name {
       text-align: right;
-      width: 65%;
+      width: 64%;
     }
     h3.discount_value {
       width: 31%;
+      text-align: right;
     }
 }
 
@@ -2478,15 +2484,29 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
 
 .order_coupon {
   margin-top: -180px;
+  padding: 0 6%;
+
+  @media (max-width: 979px) {
+    padding: 0;
+    margin-top: -240px;
+  }
 
   input.input_type-1 {
-    width: 65%;
+    width: 60%;
+
+    @media (max-width: 979px) {
+      width: 55%;
+    }
   }
   button {
     float: right;
-    width: 25%;
+    width: 33%;
     height: 40px;
     line-height: 37px;
+    @media (max-width: 979px) {
+      width: 30%;
+      min-width: 110px;
+    }
   }
 }
 
