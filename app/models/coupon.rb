@@ -23,4 +23,8 @@ class Coupon < ActiveRecord::Base
   def with_discount(sum)
     (sum * (100 - discount) / 100.0).ceil
   end
+
+  def partner_commission(sum)
+    (sum * commission / 100.0).ceil
+  end
 end
