@@ -21,6 +21,7 @@ function setNextAndPrevButtons(page, enableAll, disablePrev){
       }
 }
 
+
 function showAdapticTable() {
     var table_class = $("dd.selected table").attr('class');
     if (table_class) {
@@ -188,4 +189,8 @@ function contacts_prev (prev, next) {
     if (page==2) {
         prev.addClass('disable');
     }
+}
+
+function showUser(_this) {
+  $(_this).parent().toggleClass('open');
 }
