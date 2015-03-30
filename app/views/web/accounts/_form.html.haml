@@ -2,8 +2,12 @@
   .content__tabs__line
   .layout-line
     %dl.content__tabs#tabs
-      %dd.tabs__content#user_attributes.selected
+      %dt.tabs__title#user_attributes_title Личные данные
+      %dd.tabs__content#user_attributes
         = render "user_attributes"
+      %dt.tabs__title#shop_title Магазин
+      %dd.tabs__content#shop
+        = render "shop"
 
 :javascript
   if ($("#two_days")) {
@@ -13,4 +17,12 @@
     }
     var cost = parseInt($('#ticket_price_score').text()) ? parseInt($('#ticket_price_score').text()) : 0;
     $("#total_score").text(cost);
+  }
+
+  if (window.location.hash == "#shop") {
+   $("#shop").addClass("selected");
+   $("#shop_title").addClass("selected");
+  } else {
+    $("#user_attributes").addClass("selected");
+    $("#user_attributes_title").addClass("selected");
   }

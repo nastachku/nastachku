@@ -105,6 +105,8 @@ Nastachku::Application.routes.draw do
             put :accept
           end
         end
+
+        resource :shop, only: [:show]
       end
     end
 
