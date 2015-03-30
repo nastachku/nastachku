@@ -22,7 +22,7 @@ class CsvStreamers::UsersWithAfterpartyTickets
   end
 
   def filename
-    "users_afterparty_#{DateTime.current.utc.strftime("%Y-%m-%d_%H-%M-%S")}.csv"
+    "users_afterparty_tickets_#{DateTime.current.utc.strftime("%Y-%m-%d_%H-%M-%S")}.csv"
   end
 
   def each
@@ -82,7 +82,7 @@ class CsvStreamers::UsersWithAfterpartyTickets
       user.company,
       user.position,
       user.city,
-      TicketCode.categories[user.afterparty_ticket.category]
+      I18n.t("reports.#{user.afterparty_ticket.category}")
     ]
   end
 end
