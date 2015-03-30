@@ -103,6 +103,15 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def partner_commission_value
+    if coupon.present?
+      with_campaign_discount = full_cost - campaign_discount_value
+      coupon.partner_commission(with_campaign_discount)
+    else
+      0
+    end
+  end
+
   def recalculate_items_count!
     total_items_count = tickets.count + afterparty_tickets.count
     update_attributes items_count: total_items_count

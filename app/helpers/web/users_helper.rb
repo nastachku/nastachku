@@ -1,4 +1,5 @@
 module Web::UsersHelper
+  include CsCartHelper
   def users_cache_key
     ( proc {
         user = User.activated.participants.alphabetically.order('updated_at DESC').first
