@@ -20,7 +20,7 @@ Configus.build Rails.env do
       second_day do
         date Time.utc(2015, 4, 11)
         start_time DateTime.new(2015, 4, 11, 10, 0, 0, "MSK")
-        finish_time DateTime.new(2015, 4, 11, 17, 30, 0, "MSK")
+        finish_time DateTime.new(2015, 4, 11, 18, 45, 0, "MSK")
       end
     end
 
