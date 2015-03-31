@@ -10,6 +10,9 @@
           %a{ href: "http://2012.nastachku.ru", title: "2012", target: '_blank' } 2012
           %a{ href: "http://2013.nastachku.ru", title: "2013", target: '_blank' } 2013
           %a{ href: "http://2014.nastachku.ru", title: "2014", target: '_blank' } 2014
+    .header__links
+      .header__links_container
+        = link_to "Купить билет (#{Pricelist.ticket_price}р.)", buy_now_path
     %span.btn_main-menu
     %nav.header__nav
       %a{ href: lectures_path, title: "Доклады" } Доклады
