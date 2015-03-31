@@ -1,6 +1,7 @@
 class CsvStreamers::UsersWithTickets
   attr_accessor :params
   IDENT_FIELD = 0
+  CSV_OPTIONS = {col_sep: ';'}
 
   def initialize(params = {})
     @report = params[:report]
@@ -35,7 +36,7 @@ class CsvStreamers::UsersWithTickets
       next if resume_mode? && already_has_field?(user)
 
       processed_fields.push(user)
-      yield user.to_csv(col_sep: ';').encode('windows-1251')
+      yield user.to_csv(CSV_OPTIONS).encode('windows-1251')
     end
 
     if !archive_mode? && processed_fields.any?
@@ -72,7 +73,7 @@ class CsvStreamers::UsersWithTickets
       "Position",
       "City",
       "Category"
-    ].to_csv
+    ].to_csv(CSV_OPTIONS)
   end
 
   def prepare_fields(user)
