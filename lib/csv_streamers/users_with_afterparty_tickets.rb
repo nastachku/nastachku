@@ -35,7 +35,7 @@ class CsvStreamers::UsersWithAfterpartyTickets
       next if resume_mode? && already_has_field?(user)
 
       processed_fields.push(user)
-      yield user.to_csv
+      yield user.to_csv.encode('windows-1251')
     end
 
     if !archive_mode? && processed_fields.any?
