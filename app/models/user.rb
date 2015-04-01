@@ -118,6 +118,7 @@ class User < ActiveRecord::Base
   scope :with_badge, -> { where badge_state: :get_badge }
   scope :without_badge, -> { where badge_state: :not_get_badge }
   scope :with_ticket, -> { joins(:ticket) }
+  scope :with_afterparty_ticket, -> { joins(:afterparty_ticket) }
 
   def self.companies_by_term(company = nil)
     if company
@@ -161,6 +162,10 @@ class User < ActiveRecord::Base
 
   def to_s
     UserDecorator.decorate(self).full_name
+  end
+
+  def full_name
+    "#{last_name} #{first_name}"
   end
 
   # NOTE: наследство. bcrypt использует sha1 для шифровки паролей.

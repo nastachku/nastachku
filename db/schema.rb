@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312164044) do
+ActiveRecord::Schema.define(version: 20150325130520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 20150312164044) do
     t.string   "color",               limit: 255
     t.integer  "event_votings_count"
     t.boolean  "show_voting"
+    t.string   "url"
   end
 
   create_table "halls", force: :cascade do |t|
@@ -173,16 +174,16 @@ ActiveRecord::Schema.define(version: 20150312164044) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "items_count",                default: 0, null: false
-    t.string   "item_size",      limit: 255
-    t.string   "payment_state",  limit: 255
-    t.string   "transaction_id", limit: 255
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "item_color",     limit: 255
-    t.string   "ticket_type",    limit: 255
+    t.integer  "items_count",    default: 0, null: false
+    t.string   "item_size"
+    t.string   "payment_state"
+    t.string   "transaction_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "item_color"
+    t.string   "ticket_type"
     t.integer  "cost"
-    t.string   "payment_system", limit: 255
+    t.string   "payment_system"
     t.integer  "discounts"
     t.string   "number"
     t.text     "customer_info"
@@ -201,6 +202,13 @@ ActiveRecord::Schema.define(version: 20150312164044) do
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
     t.string   "layout",                 default: "application", null: false
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.string   "data"
+    t.string   "kind"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -279,39 +287,39 @@ ActiveRecord::Schema.define(version: 20150312164044) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                   limit: 255
-    t.string   "password_digest",         limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.string   "city",                    limit: 255
-    t.string   "company",                 limit: 255
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "city"
+    t.string   "company"
     t.boolean  "show_as_participant"
-    t.string   "position",                limit: 255
+    t.string   "position"
     t.boolean  "admin"
-    t.string   "password",                limit: 255
-    t.string   "photo",                   limit: 255
-    t.string   "state",                   limit: 255
+    t.string   "password"
+    t.string   "photo"
+    t.string   "state"
     t.text     "about"
-    t.string   "first_name",              limit: 255
-    t.string   "last_name",               limit: 255
-    t.string   "role",                    limit: 255
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "role"
     t.integer  "sign_in_count"
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",      limit: 255
-    t.string   "last_sign_in_ip",         limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.text     "carousel_info"
     t.boolean  "in_carousel"
-    t.string   "twitter_name",            limit: 255
+    t.string   "twitter_name"
     t.boolean  "invisible_lector"
-    t.string   "timepad_state",           limit: 255
+    t.string   "timepad_state"
     t.boolean  "not_going_to_conference"
-    t.string   "pay_state",               limit: 255
+    t.string   "pay_state"
     t.text     "facebook"
     t.text     "vkontakte"
     t.text     "reason_to_give_ticket"
-    t.string   "badge_state",             limit: 255
-    t.integer  "code_activation_count",               default: 0, null: false
+    t.string   "badge_state"
+    t.integer  "code_activation_count",   default: 0, null: false
     t.datetime "last_code_activation_at"
   end
 
@@ -346,7 +354,10 @@ ActiveRecord::Schema.define(version: 20150312164044) do
   add_foreign_key "afterparty_tickets", "ticket_codes"
   add_foreign_key "afterparty_tickets", "users"
   add_foreign_key "orders", "campaigns"
+  add_foreign_key "orders", "campaigns"
   add_foreign_key "orders", "coupons"
+  add_foreign_key "orders", "coupons"
+  add_foreign_key "ticket_codes", "distributors"
   add_foreign_key "ticket_codes", "distributors"
   add_foreign_key "tickets", "orders"
   add_foreign_key "tickets", "ticket_codes"

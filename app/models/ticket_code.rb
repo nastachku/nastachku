@@ -8,17 +8,17 @@ class TicketCode < ActiveRecord::Base
   scope :activated, -> { where state: :active }
 
   enum category: {
-    listener: 0,
-    student: 1,
-    organizer: 2,
-    sponsor: 3,
-    vip: 4,
-    speaker: 5,
-    schoolboy: 6,
-    participant: 7,
-    media: 8,
-    volunteer: 9,
-    staff: 10
+    listener: "0",
+    student: "1",
+    organizer: "2",
+    sponsor: "3",
+    vip: "4",
+    speaker: "5",
+    schoolboy: "6",
+    participant: "7",
+    media: "8",
+    volunteer: "9",
+    staff: "10"
   }
 
   # NOTE: refactor it!

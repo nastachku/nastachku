@@ -13,7 +13,8 @@
   =t '.registred_title', activated_count: attended_users, participant: shown_as_participants
   %ul.members__list
     - @users.each do |user|
-      %li.members__list__item.members__list__item__alphabet.open_this
+      %li.members__list__item.members__list__item__alphabet
+        .item_overlay{onclick: "showUser(this)"}
         .members__list__item__img
           -#FIXME в контроллере трудности есть при декорировании, начальникэ.
           = user.decorate.lector_section_color

@@ -1,31 +1,27 @@
 class Web::Admin::ReportsController < Web::Admin::ApplicationController
-  def generate
-    FileUtils.mkdir_p('downloads')
-    FileUtils.mkdir_p('downloads/reports')
+  def index
+    @report_types = [
+      "users_email",
+      "users_with_tickets",
+      "users_with_afterparty_tickets"
+    ]
+  end
 
-    TicketReport.generate :ticket, 'downloads/reports/ticketorders.csv'
-    TicketReport.generate :afterparty_ticket, 'downloads/reports/afterpartyorders.csv'
-    download_orders_in_csv('downloads/reports/paid_users.csv')
-
-    redirect_to admin_root_path
+  def show
+    @report_type = params[:id]
+    @reports = Report.by_kind(@report_type)
+    @records_count = current_streamer.records.count
   end
 
   def download
-    filename = [params[:filename], params[:format]].join('.')
-    path = Rails.root.join( 'downloads/reports', filename )
-    if File.exists?(path)
-      send_file( path, x_sendfile: true )
-    else
-      raise ActionController::RoutingError, "resource not found"
-    end
-  end
-
-  def users_email
-    @csv_streamer = UsersCsvStreamer.new
-
     response.headers["Cache-Control"] ||= "no-store, no-cache, must-revalidate"
     response.headers["Content-Type"] ||= "text/csv"
-    response.headers["Content-Disposition"] ||= "attachment; filename=#{@csv_streamer.filename}"
-    self.response_body = @csv_streamer
+    response.headers["Content-Disposition"] ||= "attachment; filename=#{current_streamer.filename}"
+    self.response_body = current_streamer
+  end
+
+  private
+  def current_streamer
+    @current_streamer = ReportsCsvStreamer.new(params).streamer
   end
 end

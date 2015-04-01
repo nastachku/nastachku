@@ -12,4 +12,8 @@ class Ticket < ActiveRecord::Base
     ticket_code.cancel if ticket_code.present?
     save
   end
+
+  def category
+    ticket_code.present? ? ticket_code.category : "participant"
+  end
 end

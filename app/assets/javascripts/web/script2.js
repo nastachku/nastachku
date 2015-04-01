@@ -21,6 +21,7 @@ function setNextAndPrevButtons(page, enableAll, disablePrev){
       }
 }
 
+
 function showAdapticTable() {
     var table_class = $("dd.selected table").attr('class');
     if (table_class) {
@@ -56,8 +57,11 @@ function showAdapticTable() {
 }
 jQuery(document).ready(function ($) {
     var $layout=$('#layout'), $overlay=$('#overlay'), $popups=$('.popup');
-    $('.open_this').on('click', function() {
+    $('body').on('click', '.open_this', function() {
         $(this).toggleClass('open');
+    });
+    $('body').on('click', '.programm__filter__checkboxs-title', function() {
+        $(this).toggleClass('active');
     });
     $(window).resize(function(){
       showAdapticTable();
@@ -185,4 +189,8 @@ function contacts_prev (prev, next) {
     if (page==2) {
         prev.addClass('disable');
     }
+}
+
+function showUser(_this) {
+  $(_this).parent().toggleClass('open');
 }
