@@ -1,0 +1,15 @@
+.pagetitle.mainpage__title.pagetitle__withoutborder
+  .layout-line
+    %h1.pagetitle__title При поддержке
+.mainpage__sponsors
+  .layout-line
+    #with_support_logos.company__logos.logos_carousel.touchcarousel
+      %ul.touchcarousel-container
+        %li.touchcarousel-item
+          %div
+          = link_to "http://raec.ru/", target: "_blank" do
+            = image_tag "logos/raec.png"
+        %li.touchcarousel-item
+          %div
+          = link_to "http://region.rif.ru/", target: "_blank" do
+            = image_tag "logos/rif.png"
