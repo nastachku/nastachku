@@ -1,0 +1,8 @@
+.page-header
+  %h1 Отчеты
+
+.row-fluid
+  .span6
+    - @report_types.each do |report_type|
+      .div
+        = link_to t(".#{report_type}"), admin_report_path(report_type)

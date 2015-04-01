@@ -1,0 +1,13 @@
+ru:
+  reports:
+    listener: "Участник"
+    student: "Студент"
+    organizer: "Организатор"
+    sponsor: "Участник"
+    vip: "VIP"
+    speaker: "Спикер"
+    schoolboy: "Школьник"
+    participant: "Участник"
+    media: "СМИ"
+    volunteer: "Волонтер"
+    staff: "Stuff"

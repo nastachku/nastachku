@@ -1,0 +1,31 @@
+.page-header
+  %h1 Отчеты
+
+.row-fluid
+  В полном отчете сейчас #{@records_count} записей.
+  .div
+    = link_to "Скачать полный отчет", download_admin_report_path(@report_type)
+
+%br
+.row-fluid
+  .span10
+    %table.table.table-hover
+      %thead
+        %th
+          Последнее скачивание
+        %th
+          Ревизии
+        %th
+          Действие
+      %tbody
+      - @reports.each do |report|
+        %tr
+          %td
+            = l(report.updated_at, format: :full)
+            = " (#{report.fields_count} записей)"
+          %td
+            - report.fields.each do |rev, f|
+              .div
+                = link_to "Скачать ревизию №#{rev} (#{f.count} записей)", download_admin_report_path(@report_type, report_id: report.id, revision: rev, mode: :archive)
+          %td
+            = link_to "Скачать недостающие записи", download_admin_report_path(@report_type, report_id: report.id, mode: :resume)

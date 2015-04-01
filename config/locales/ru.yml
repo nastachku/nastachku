@@ -89,6 +89,7 @@ ru:
             stachka_tickets: 'Билеты на Стачку'
             afterparty_tickets: 'Билеты на Afterparty'
             coupons: 'Купоны'
+            reports: 'Отчеты'
   shared:
     empty_lectures:
       not_added_yet: 'Пока не добавлено ни одного доклада. Вы можете'
@@ -179,6 +180,11 @@ ru:
         show:
           back: 'К списку докладов'
           edit: 'Редактировать'
+      reports:
+        index:
+          users_email: "Email пользователей для рассылки"
+          users_with_tickets: "Пользователи с билетами на конфу"
+          users_with_afterparty_tickets: "Пользователи с билетами на пати"
 
 
     accounts:
