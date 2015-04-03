@@ -9,6 +9,7 @@ function display_hide(blockId) {
 function check_my_program_slots(slots) {
   $("#my_programm").on('change', function() {
     if ($(this).is(':checked')) {
+      $('.schedule__filter').prop('checked', false).change();
       $(".programm__schedule__lectures__lecture").addClass('disable');
       $.each(slots, function(index, value) {
         $("#lecture-" + value).addClass('enable');
@@ -57,5 +58,52 @@ function lectureClick(id, _this) {
       url = Routes.user_lectures_path({lecture_id: id});
     }
     if(url) window.location.href = url;
+  }
+}
+
+$(function() {
+  setTimeout(changeCurrentTimeLine, 1000);
+
+  var $timeline = $('.current_time_line');
+  if($timeline) {
+    var current_time = parseInt($timeline.closest('tr').data('time'));
+    $('.programm__schedule__lectures__lecture').each(function(index, el) {
+      var time_to = $(el).data('time-to');
+      // 600s = 10min
+      if(current_time > time_to && current_time - time_to > 600) {
+        $(el).addClass('passed');
+      }
+    });
+  }
+
+  $('body').on('click', '.show_passed', function() {
+    $(this).closest('tbody').toggleClass('force_show_passed');
+    changeCurrentTimeLine();
+  });
+});
+
+var changeCurrentTimeLine = function() {
+  var $timeline = $('.current_time_line');
+  if(!$timeline.length) return;
+  var current_time = parseInt($timeline.closest('tr').data('time'));
+  var $prev, next_time, prev_time, offset_percent;
+  var top = 0;
+
+  $('.programm__schedule tr').each(function(index, el) {
+    var time = $(el).data('time');
+    if(time > current_time && !$prev) {
+      $prev = $(el).prev();
+    }
+  });
+
+  if($prev) {
+    prev_time = $prev.data('time');
+    next_time = $prev.next().data('time');
+
+    offset_percent = 100 - (next_time - current_time) / ((next_time - prev_time) / 100);
+    top += $prev.position().top;
+    top += $prev.height() / 100 * offset_percent;
+    top -= $timeline.height();
+    $timeline.css('top', top + 'px');
   }
 }

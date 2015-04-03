@@ -29,6 +29,7 @@
                       parent.prop('height', parent_height);
                   }
               });
+              changeCurrentTimeLine();
             }
 
             setHeightOfDivInTd();
@@ -56,6 +57,12 @@
               }
             }
             $('.schedule__filter').on('change', function() {
+                if (!$(this).parents('.programm__filter__checkboxs').find(':checked').length) {
+                    lectures.removeClass('disable');
+                } else {
+                  $("#my_programm").prop('checked', false).change();
+                }
+
                 var lecture_class = $(this).data('lecture');
                 if ($(this).is(':checked')) {
                     $('[data-lecture=' + lecture_class + ']').prop("checked", true);
@@ -64,9 +71,6 @@
                 } else {
                     $('[data-lecture=' + lecture_class + ']').prop("checked", false);
                     $('.'+ lecture_class).removeClass('enable');
-                }
-                if (!$(this).parents('.programm__filter__checkboxs').find(':checked').length) {
-                    lectures.removeClass('disable');
                 }
             });
         });

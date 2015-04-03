@@ -5,6 +5,7 @@ Configus.build Rails.env do
   credentials_hash = YAML.load(File.read("config/credentials.yml"))
 
   env :production do
+    now_time Time.zone.now
 
     pagination do
       admin_per_page 50
@@ -85,6 +86,7 @@ Configus.build Rails.env do
   end
 
   env :development, parent: :production do
+    now_time Time.zone.now + 1.day
 
     facebook do
       app_id credentials_hash["development"]["facebook"]["app_id"]
@@ -126,6 +128,7 @@ Configus.build Rails.env do
   end
 
   env :staging, parent: :production do
+    now_time Time.zone.now + 1.day
 
     mailer do
       default_host "stg.nastachku.ru"

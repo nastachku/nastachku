@@ -29,7 +29,7 @@ module Web::SchedulesHelper
   end
 
   def day_selected(day)
-    if DateTime.now > DateTime.new(2015, 4, 11, 18, 0, 0)
+    if DateTime.now > DateTime.new(2015, 4, 10, 19, 0, 0)
       if day.day == configus.schedule.first_day.date.day
         ""
       elsif day.day == configus.schedule.second_day.date.day

@@ -23,6 +23,7 @@ function setNextAndPrevButtons(page, enableAll, disablePrev){
 
 
 function showAdapticTable() {
+    changeCurrentTimeLine();
     var table_class = $("dd.selected table").attr('class');
     if (table_class) {
       var page = Number(table_class.split('page-')[1]);
@@ -161,6 +162,27 @@ function showTdOfTable(halls) {
   halls.map(function(hall) {
     $("td[data-hall=" + hall + "]").show();
   });
+  hidePassedForHalls(halls);
+}
+
+function hidePassedForHalls(halls) {
+  $('.programm__schedule__lectures').removeClass('passed_tr');
+  var $highest_tr;
+  var trs = [];
+  halls.map(function(hall) {
+    var $lectures = $('.programm__schedule__lectures td[data-hall=' + hall + ']').find('.programm__schedule__lectures__lecture');
+    trs.push($lectures.not('.passed').first().closest('tr'));
+  });
+  trs.forEach(function(el) {
+    if(!$highest_tr) $highest_tr = el;
+    else if(el.data('time') < $highest_tr.data('time')) $highest_tr = el;
+  });
+  if($highest_tr) {
+    $highest_tr.prevAll().addClass('passed_tr');
+  } else {
+    $('.show_passed').hide();
+  }
+  changeCurrentTimeLine();
 }
 
 function hideAllTd() {

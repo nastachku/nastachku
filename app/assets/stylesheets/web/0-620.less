@@ -1390,4 +1390,28 @@
             border-bottom: 5px solid transparent;
         }
     }
+
+
+  .current_time_line {
+    margin-left: 5px;
+  }
+  .programm__schedule tr.passed_tr {
+    display: none;
+  }
+  .programm__schedule tr.current_time_line_tr.passed_tr {
+    display: table-row;
+  }
+  .programm__schedule .force_show_passed tr.passed_tr {
+    display: table-row;
+  }
+
+  .show_passed {
+    display: block;
+    .show_text { display: block; }
+    .hide_text { display: none; }
+  }
+  .force_show_passed .show_passed {
+    .show_text { display: none; }
+    .hide_text { display: block; }
+  }
 }

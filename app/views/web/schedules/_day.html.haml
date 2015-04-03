@@ -25,23 +25,36 @@
           %th
             %span.programm__next{ data: { page: "1" }}
       %tbody
+        - now = configus.now_time
+        - if now > start_time && now < finish_time
+          %tr.current_time_line_tr{data: {time: now.to_i}}
+            %td{colspan: 10}
+              .show_passed
+                .show_text
+                  Показать прошедшие
+                .hide_text
+                  Спрятать прошедшие
+              %div.current_time_line
+                %div.left_time.time
+                  %span.hours=now.strftime('%k')
+                  %span.minutes= now.strftime('%M')
         - (minutes_count(start_time)...minutes_count(finish_time)).each_slice(5).to_a.each do |i|
           - i_time = DateTime.new(day.year, day.month, day.day, i.first / 60, i.first % 60, 0, start_time.zone)
           - if not slots_in_time?(@slots, i_time)
             - if before_after_party?(i_time, @lectures_slots)
-              %tr{ id: "#{i_time.hour}_#{i_time.minute}_tr"  }
+              %tr{ id: "#{i_time.hour}_#{i_time.minute}_tr", data: { time: i_time.to_i }  }
                 %td.programm__time{ style: "border-left: 0px; border-top: 0px" }
                 - (1..@halls.count).each_with_index do |item, index|
                   %td{data: {hall: index} }
                 %td
             - else
-              %tr{ id: "#{i_time.hour}_#{i_time.minute}_tr"  }
+              %tr{ id: "#{i_time.hour}_#{i_time.minute}_tr", data: { time: i_time.to_i }  }
                 = render "timeline", i_time: i_time
                 - (1..@halls.count).each_with_index do |item, index|
                   %td{data: {hall: index} }
                 %td
           - elsif @first_hall.has_begin_event?(i_time)
-            %tr.programm__schedule__mainaction{ id: "#{i_time.hour}_#{i_time.minute}_tr"  }
+            %tr.programm__schedule__mainaction{ id: "#{i_time.hour}_#{i_time.minute}_tr", data: { time: i_time.to_i }  }
               %td.programm__time
                 = i_time.hour
                 %span
@@ -52,10 +65,10 @@
           - elsif @first_hall.has_event?(i_time)
             - next
           - elsif @first_hall.timeline_need_finish_event_correction?(i_time)
-            %tr.programm__schedule__lectures{ id: "#{i_time.hour}_#{i_time.minute}_tr"  }
+            %tr.programm__schedule__lectures{ id: "#{i_time.hour}_#{i_time.minute}_tr", data: { time: i_time.to_i }  }
               %td.programm__time{ style: "border-top: 0px" }
                 = render "program_table_row",  i_time: i_time
           - else
-            %tr.programm__schedule__lectures{ id: "#{i_time.hour}_#{i_time.minute}_tr"  }
+            %tr.programm__schedule__lectures{ id: "#{i_time.hour}_#{i_time.minute}_tr", data: { time: i_time.to_i }  }
               = render "timeline", i_time: i_time
               = render "program_table_row", i_time: i_time
