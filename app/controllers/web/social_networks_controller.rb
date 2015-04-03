@@ -16,7 +16,7 @@ class Web::SocialNetworksController < Web::ApplicationController
 
     flash_success
 
-    redirect_path = if configus.cs_cart.enable_auth
+    redirect_path = if configus.cs_cart.enable_auth && auth_cs_cart_valid_user?(user)
       auth_cs_cart_user_url get_auth_token user
     else
       edit_account_path(anchor: :orders)

@@ -2,6 +2,11 @@ require "cs_cart/client"
 
 module CsCartHelper
   include CsCart::Client
+
+  def auth_cs_cart_valid_user?(user)
+    user.id.present? && user.first_name.present? && user.last_name.present? && user.email.present?
+  end
+
   def auth_cs_cart_user_url(token)
     "http://#{configus.cs_cart.shop_url}/index.php?dispatch=auth.login_stachka&token=#{token}"
   end

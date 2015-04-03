@@ -7,7 +7,10 @@
         = render "user_attributes"
       %dt.tabs__title#shop_title Магазин
       %dd.tabs__content#shop
-        = render "shop"
+        - if auth_cs_cart_valid_user?(current_user)
+          = render "shop"
+        - else
+          Пожалуйста, заполните все обязательные поля в профиле.
 
 :javascript
   if ($("#two_days")) {
