@@ -1,0 +1,4 @@
+= simple_form_for form, url: activate_code_admin_user_path(user), method: :patch do |f|
+  = f.input :code, label: false
+
+  = f.button :submit, "Активировать", data: {confirm: 'Вы уверены? Старый код перезатрется'}

@@ -60,3 +60,6 @@ label.checkbox {
   cursor: not-allowed;
   background-color: #eee;
 }
+.red {
+  color: red;
+}

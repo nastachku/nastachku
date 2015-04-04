@@ -1,0 +1,24 @@
+.page-header
+  %h1= "Билеты пользователя #{@user.full_name}"
+
+.line
+  Билет на конференцию:
+  - if @user.ticket.present?
+    = link_to @user.ticket.id, admin_ticket_path(@user.ticket)
+    %span
+      = link_to 'Аннулировать', cancel_ticket_admin_user_path(@user, ticket_id: @user.ticket.id), class: 'red', method: :patch, data: {confirm: 'Точно?'}
+  - else
+    нет
+
+.line
+  Билет на афтепати:
+  - if @user.afterparty_ticket.present?
+    = link_to @user.afterparty_ticket.id, admin_afterparty_ticket_path(@user.afterparty_ticket)
+    %span
+      = link_to 'Аннулировать', cancel_ticket_admin_user_path(@user, ticket_id: @user.afterparty_ticket.id), class: 'red', method: :patch, data: {confirm: 'Точно?'}
+  - else
+    нет
+
+.line
+  Активация кода
+  = render 'tickets_form', form: @ticket_code_activation_form, user: @user

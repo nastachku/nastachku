@@ -34,6 +34,36 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     redirect_to admin_users_path
   end
 
+  def tickets
+    @user = User.find params[:id]
+    @ticket_code_activation_form = ::Admin::UserTicketCodeActivationType.new
+  end
+
+  def activate_code
+    @user = User.find params[:id]
+    @ticket_code_activation_form = ::Admin::UserTicketCodeActivationType.new(params[:admin_user_ticket_code_activation_type])
+    if @ticket_code_activation_form.valid?
+      AdminTicketActivationService.new(@user).activate_code(@ticket_code_activation_form.code)
+      redirect_to action: :tickets
+    else
+      render action: :tickets
+    end
+  end
+
+  def cancel_ticket
+    @user = User.find params[:id]
+    ticket = case params[:ticket_id].to_i
+             when @user.ticket.try(:id)
+               @user.ticket
+             when @user.afterparty_ticket.try(:id)
+               @user.afterparty_ticket
+             end
+    if ticket
+      ticket.cancel
+    end
+    redirect_to action: :tickets
+  end
+
   def pay_part
     @user = User.find params[:user_id]
     @user.pay_part
