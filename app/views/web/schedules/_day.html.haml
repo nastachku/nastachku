@@ -17,8 +17,10 @@
         %tr
           %th
             %span.programm__prev.disable{ data: { page: "1" }}
-          - @halls.each do |hall|
+          - @halls.each_with_index do |hall, index|
             %th
+              .hall-circle
+                = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'][index]
               = hall.title
           %th
             %span.programm__next{ data: { page: "1" }}
