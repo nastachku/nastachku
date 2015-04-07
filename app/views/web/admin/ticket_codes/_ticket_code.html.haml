@@ -5,6 +5,10 @@
   %td= ticket_code.price
   %td= ticket_code.code
   %td= ticket_code.human_state_name
+  %td
+    - if ticket_code.active?
+      - ticket = ticket_code.ticket || ticket_code.afterparty_ticket
+      = link_to ticket.user, admin_user_path(ticket.user.id) if ticket
 
   %td
     .nowrap= l ticket_code.created_at
