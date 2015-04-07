@@ -31,10 +31,8 @@
       %th= sort_link(@search, :first_name)
       %th= sort_link(@search, :email)
       %th= sort_link(@search, :city)
-      %th= sort_link(@search, :state)
-      %th= sort_link(@search, :timepad_state)
-      %th= sort_link(@search, :role)
-      %th= User::PromoCode.human_attribute_name :code
+      %th= sort_link(@search, :ticket)
+      %th= sort_link(@search, :afterparty_ticket)
       %th= sort_link(@search, :created_at)
       %th= t(".actions")
   %tbody
@@ -45,10 +43,22 @@
         %td= user.first_name
         %td= user.email
         %td= user.city
-        %td= user.state
-        %td= user.timepad_state
-        %td= user.role
-        %td= user.promo_code.code if user.promo_code
+        %td
+          - if user.ticket.present?
+            - if user.ticket.ticket_code.present?
+              Код:
+              = link_to user.ticket.ticket_code, admin_ticket_code_path(user.ticket.ticket_code)
+            - else
+              Заказ:
+              = link_to user.ticket.order, admin_order_path(user.ticket.order)
+        %td
+          - if user.afterparty_ticket.present?
+            - if user.afterparty_ticket.ticket_code.present?
+              Код:
+              = link_to user.afterparty_ticket.ticket_code, admin_ticket_code_path(user.afterparty_ticket.ticket_code)
+            - else
+              Заказ:
+              = link_to user.afterparty_ticket.order, admin_order_path(user.afterparty_ticket.order)
         %td= l user.created_at
         %td
           = link_to t('.edit'), edit_admin_user_path(user), :class => 'btn btn-mini'

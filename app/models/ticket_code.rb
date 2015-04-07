@@ -52,4 +52,8 @@ class TicketCode < ActiveRecord::Base
   def to_s
     code
   end
+
+  def self.state_names
+    state_machine.states.map(&:name)
+  end
 end

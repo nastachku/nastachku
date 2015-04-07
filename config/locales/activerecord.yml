@@ -10,6 +10,8 @@ ru:
       lecture: Доклад
       order: 'Заказ'
       coupon: "Купон"
+      ticket: 'Билет на конфу'
+      afterparty_ticket: 'Билет на пати'
 
     attributes:
       campaign:
@@ -51,21 +53,23 @@ ru:
         lecture_votings: 'Голоса за доклад'
         listener_votings_count: 'Количество слушателей'
         created_at: "Дата отправки"
-
+      workshop:
+        title: 'Название'
+        color: 'Цвет'
+      hall:
+        title: 'Название'
       page:
         slug:  "slug"
         title: "Заголовок"
         body:  "Содержимое"
         created_at: "Время создания"
-
       news:
         slug:  "slug"
         title: "Заголовок"
         body:  "Содержимое"
         created_at: "Время создания"
-
       user:
-        id: Hомер
+        id: 'Hомер'
         email: "Email"
         first_name: "Имя"
         last_name: "Фамилия"
@@ -77,6 +81,7 @@ ru:
         company: "Компания"
         position: "Должность"
         show_as_participant: "Показывать на странице участников"
+        timepad_state: "Состояние timepad.ru"
         process_personal_data: "Согласен на обработку моих персональных данных"
         photo: "Фото"
         state_event: "Состояние аккаунта"
@@ -89,11 +94,14 @@ ru:
         admin: "Администратор"
         role: 'Роль'
         topics: 'Топики'
-        created_at: Дата регистрации
+        created_at: 'Дата регистрации'
         invisible_lector: "Скрыть из списка докладчиков"
         not_going_to_conference: "Я не пойду на Стачку"
-        badge_state_event: Бейдж
-        badge_state: Бейдж
+        badge_state_event: 'Бейдж'
+        badge_state: 'Бейдж'
+        ticket: 'Билет на конфу'
+        afterparty_ticket: 'Билет на пати'
+        orders: "Заказы"
 
       topic:
         title: 'Название'
