@@ -6,6 +6,7 @@ class TicketCode < ActiveRecord::Base
   has_one :afterparty_ticket
 
   scope :activated, -> { where state: :active }
+  scope :can_activate, -> { where state: :new }
 
   enum category: {
     listener: "0",
