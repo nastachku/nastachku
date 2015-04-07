@@ -134,6 +134,10 @@ class Order < ActiveRecord::Base
     campaign && campaign_discount_value > 0
   end
 
+  def to_s
+    id.to_s
+  end
+
   private
 
   def generate_number
