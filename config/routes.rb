@@ -140,7 +140,13 @@ Nastachku::Application.routes.draw do
       resources :lectures
       resources :pages
       resources :news
-      resources :users, except: [:new, :create]
+      resources :users, except: [:new, :create] do
+        member do
+          get :tickets
+          patch :activate_code
+          patch :cancel_ticket
+        end
+      end
       resources :audits, only: [:index]
       resources :topics
       resources :distributors

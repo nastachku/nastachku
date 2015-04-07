@@ -28,6 +28,11 @@ ru:
           attributes:
             user_id:
               user_already_has_ticket: 'У пользователя уже есть билет'
+        admin/user_ticket_code_activation_type:
+          attributes:
+            code:
+              code_not_exist: 'Код не существует'
+              cant_activate: 'Код нельзя активировать (возможно он уже активирован)'
         buy_now_order_type:
           attributes:
             email:
