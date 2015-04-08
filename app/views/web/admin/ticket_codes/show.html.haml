@@ -32,8 +32,13 @@
         %tr
           %th Активировать для пользователя
           %td
-            = simple_form_for(@ticket_code_activate, url: activate_admin_ticket_code_path(@ticket_code), method: :post) do |f|
+            = simple_form_for(@ticket_code_activation_form, url: activate_admin_ticket_code_path(@ticket_code), method: :post) do |f|
+              Выберите пользователя
               = f.input :user_id, as: :chosen_select, label: false, collection: User.alphabetically, input_html: { class: 'span5 span-nomargin' }
+              Или создайте нового
+              = f.input :first_name, label: false, placeholder: 'Имя'
+              = f.input :last_name, label: false, placeholder: 'Фамилия'
+              = f.input :email, label: false, placeholder: 'Email'
               = f.submit 'Активировать', class: 'btn'
 
 

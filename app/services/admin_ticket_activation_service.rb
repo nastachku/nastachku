@@ -1,5 +1,5 @@
 class AdminTicketActivationService
-  def initialize(user)
+  def initialize(user = nil)
     @user = user
   end
 
@@ -19,10 +19,20 @@ class AdminTicketActivationService
         ticket = @user.build_afterparty_ticket
       end
 
-      ticket_code.activate
       ticket.ticket_code = ticket_code
       ticket.price = ticket_code.price
-      ticket.save
+      ticket.save && ticket_code.activate
     end
+  end
+
+  def activate_with_params(params)
+    @user = case params[:user_id].present?
+            when true
+              User.find(params[:user_id])
+            when false
+              UserStubType.create!(first_name: params[:first_name], last_name: params[:last_name], email: params[:email])
+            end
+
+    activate_code(params[:code])
   end
 end
