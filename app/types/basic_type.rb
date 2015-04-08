@@ -21,7 +21,11 @@ module BasicType
 
   def assign_attributes(attrs = {}, options = {})
     raise ArgumentError, "expected hash" if attrs.nil?
-    permitted_attrs = attrs.send :permit, self.class._args
+    if attrs.kind_of?(ActionController::Parameters)
+      permitted_attrs = attrs.send :permit, self.class._args
+    else
+      permitted_attrs = attrs.extract!(*self.class._args)
+    end
     super(permitted_attrs)
   end
 end

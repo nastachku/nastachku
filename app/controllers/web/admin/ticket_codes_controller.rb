@@ -40,16 +40,17 @@ class Web::Admin::TicketCodesController < Web::Admin::ApplicationController
 
   def show
     @ticket_code = TicketCode.find(params[:id])
-    @ticket_code_activate = ::Admin::TicketCodeActivationType.new
+    @ticket_code_activation_form = ::Admin::TicketCodeActivationType.new
   end
 
   def activate
     @ticket_code = TicketCode.find(params[:id])
-    @ticket_code_activate = ::Admin::TicketCodeActivationType.new params[:admin_ticket_code_activation_type]
-    @ticket_code_activate.ticket_code = @ticket_code
+    @ticket_code_activation_form = ::Admin::TicketCodeActivationType.new(params[:admin_ticket_code_activation_type])
+    @ticket_code_activation_form.ticket_code = @ticket_code
 
-    if @ticket_code_activate.activate!
-      redirect_to admin_ticket_codes_path(@ticket_code)
+    if @ticket_code_activation_form.valid?
+      AdminTicketActivationService.new.activate_with_params(@ticket_code_activation_form.as_activation_params)
+      redirect_to admin_ticket_codes_path
     else
       render :show
     end
