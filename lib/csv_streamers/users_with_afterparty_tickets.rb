@@ -72,7 +72,8 @@ class CsvStreamers::UsersWithAfterpartyTickets
       "Company",
       "Position",
       "City",
-      "Category"
+      "Category",
+      "Category Symbol"
     ].to_csv(CSV_OPTIONS)
   end
 
@@ -83,7 +84,8 @@ class CsvStreamers::UsersWithAfterpartyTickets
       user.company,
       user.position,
       user.city,
-      I18n.t("reports.#{user.afterparty_ticket.category}")
+      I18n.t("reports.#{user.afterparty_ticket.category}"),
+      user.afterparty_ticket.category
     ]
   end
 end
