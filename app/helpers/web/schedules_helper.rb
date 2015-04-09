@@ -29,7 +29,7 @@ module Web::SchedulesHelper
   end
 
   def day_selected(day)
-    if DateTime.now > DateTime.new(2015, 4, 11, 18, 0, 0)
+    if DateTime.now > DateTime.new(2015, 4, 10, 19, 0, 0)
       if day.day == configus.schedule.first_day.date.day
         ""
       elsif day.day == configus.schedule.second_day.date.day
@@ -64,12 +64,6 @@ module Web::SchedulesHelper
       curr_user_id = current_user ? "1" : "0"
       {tag: "#{hall.updated_at.to_i if hall}_#{curr_user_id}"}
     } ).call
-  end
-
-  def my_program_slots
-    ids = []
-    current_user.lecture_votings.each { |vote| ids << vote.voteable_id }
-    ids
   end
 
   def current_user_not_going_to_conference?

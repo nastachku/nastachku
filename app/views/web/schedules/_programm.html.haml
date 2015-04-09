@@ -29,6 +29,7 @@
                       parent.prop('height', parent_height);
                   }
               });
+              changeCurrentTimeLine();
             }
 
             setHeightOfDivInTd();
@@ -56,23 +57,30 @@
               }
             }
             $('.schedule__filter').on('change', function() {
-                var lecture_class = $(this).data('lecture');
-                if ($(this).is(':checked')) {
-                    $('[data-lecture=' + lecture_class + ']').prop("checked", true);
-                    lectures.addClass('disable');
-                    $('.'+ lecture_class).addClass('enable');
-                } else {
-                    $('[data-lecture=' + lecture_class + ']').prop("checked", false);
-                    $('.'+ lecture_class).removeClass('enable');
-                }
                 if (!$(this).parents('.programm__filter__checkboxs').find(':checked').length) {
                     lectures.removeClass('disable');
+                } else {
+                  $("#my_programm").prop('checked', false);
+                  $(".programm__schedule__lectures__lecture").removeClass('disable');
+                  $(".programm__schedule__lectures__lecture").removeClass('enable');
                 }
+
+                $('.schedule__filter').each(function(index, el) {
+                  var lecture_class = $(el).data('lecture');
+                  if ($(el).is(':checked')) {
+                      $('[data-lecture=' + lecture_class + ']').prop("checked", true);
+                      lectures.addClass('disable');
+                      $('.'+ lecture_class).addClass('enable');
+                  } else {
+                      $('[data-lecture=' + lecture_class + ']').prop("checked", false);
+                      $('.'+ lecture_class).removeClass('enable');
+                  }
+                })
             });
         });
 - if signed_in?
   :javascript
-    check_my_program_slots(#{my_program_slots})
+    check_my_program_slots()
 .layout-line
   %a{ href: "#", onclick: "display_hide('#scheme');return false;" }
     = t('.show_scheme')

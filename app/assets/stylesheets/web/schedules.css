@@ -6,3 +6,58 @@
 .buy_ticket_above_program {
   margin: 10px;
 }
+
+.programm__schedule tr.current_time_line_tr {
+  height: 0;
+}
+
+.programm__schedule tr.current_time_line_tr.passed_tr {
+  display: table-row;
+}
+
+.programm__schedule tr.current_time_line_tr td {
+  margin: 0;
+  padding: 0;
+}
+
+.current_time_line {
+  border-bottom: 2px solid #000;
+  position: absolute;
+  width: 100%;
+}
+
+.current_time_line .left_time {
+  float: left;
+}
+
+.current_time_line .right_time {
+  float: right;
+}
+
+.current_time_line .time {
+  background-color: #000;
+  color: #fff;
+  width: 46px;
+  padding: 4px 0;
+  text-align: center;
+}
+
+.current_time_line .hours {
+  font-family: 'robotoregular';
+  font-size: .875em;
+}
+
+.current_time_line .minutes {
+  vertical-align: super;
+  font-size: .6em;
+  padding-left: 3px;
+}
+
+.show_passed {
+  z-index: 1000;
+  display: none;
+  text-align: center;
+  font-size: 1.5em;
+  line-height: 2em;
+  position: relative;
+}
