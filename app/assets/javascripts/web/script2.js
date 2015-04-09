@@ -171,16 +171,29 @@ function hidePassedForHalls(halls) {
   var $highest_tr;
   var trs = [];
   halls.map(function(hall) {
-    var $lectures = $('.programm__schedule__lectures td[data-hall=' + hall + ']').find('.programm__schedule__lectures__lecture');
-    trs.push($lectures.not('.passed').first().closest('tr'));
+    var lastActiveLecture, $tr;
+    $('.programm__schedule__lectures td[data-hall=' + hall + ']').each(function(index, td) {
+      var $parent_tr = $(td).closest('tr');
+      var time = $parent_tr.data('time');
+      var $lecture = $(td).find('.programm__schedule__lectures__lecture');
+      var $timeslot = $parent_tr.find('.programm__time');
+
+      if(time > current_time) return false;
+      if($lecture.length) {
+        if(!$lecture.hasClass('passed') && !lastActiveLecture) {
+          lastActiveLecture = $lecture;
+          $tr = $parent_tr;
+        }
+      } else if($timeslot.length && time < current_time && !lastActiveLecture) {
+        $tr = $parent_tr;
+      }
+    });
+    trs.push($tr);
   });
   trs.forEach(function(el) {
     if(!$highest_tr) $highest_tr = el;
     else if(el.data('time') < $highest_tr.data('time')) $highest_tr = el;
   });
-  while($highest_tr && ($highest_tr.data('time') > current_time || $highest_tr.prev().find('.programm__time').length)) {
-    $highest_tr = $highest_tr.prev()
-  }
   if($highest_tr) {
     $highest_tr.prevAll().addClass('passed_tr');
   } else {
