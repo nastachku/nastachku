@@ -79,12 +79,12 @@ $(function() {
       }
     });
   }
-
-  function showPassedClick(self) {
-    $(self).closest('tbody').toggleClass('force_show_passed');
-    changeCurrentTimeLine();
-  }
 });
+
+function showPassedClick(self) {
+  $(self).closest('tbody').toggleClass('force_show_passed');
+  changeCurrentTimeLine();
+}
 
 var changeCurrentTimeLine = function() {
   var $timeline = $('.current_time_line');
