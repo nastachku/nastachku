@@ -42,6 +42,9 @@ Nastachku::Application.routes.draw do
     end
 
     resources :events, only: [:index] do
+      collection do
+        get :my_programm
+      end
       scope module: :events do
         resource :event_votings, only: [:create, :destroy]
       end

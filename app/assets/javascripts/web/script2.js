@@ -23,6 +23,7 @@ function setNextAndPrevButtons(page, enableAll, disablePrev){
 
 
 function showAdapticTable() {
+    changeCurrentTimeLine();
     var table_class = $("dd.selected table").attr('class');
     if (table_class) {
       var page = Number(table_class.split('page-')[1]);
@@ -161,6 +162,44 @@ function showTdOfTable(halls) {
   halls.map(function(hall) {
     $("td[data-hall=" + hall + "]").show();
   });
+  hidePassedForHalls(halls);
+}
+
+function hidePassedForHalls(halls) {
+  $('.programm__schedule__lectures').removeClass('passed_tr');
+  var current_time = parseInt($('.current_time_line').closest('tr').data('time'));
+  var $highest_tr;
+  var trs = [];
+  halls.map(function(hall) {
+    var lastActiveLecture, $tr;
+    $('.programm__schedule__lectures td[data-hall=' + hall + ']').each(function(index, td) {
+      var $parent_tr = $(td).closest('tr');
+      var time = $parent_tr.data('time');
+      var $lecture = $(td).find('.programm__schedule__lectures__lecture');
+      var $timeslot = $parent_tr.find('.programm__time');
+
+      if(time > current_time) return false;
+      if($lecture.length) {
+        if(!$lecture.hasClass('passed') && !lastActiveLecture) {
+          lastActiveLecture = $lecture;
+          $tr = $parent_tr;
+        }
+      } else if($timeslot.length && time < current_time && !lastActiveLecture) {
+        $tr = $parent_tr;
+      }
+    });
+    trs.push($tr);
+  });
+  trs.forEach(function(el) {
+    if(!$highest_tr) $highest_tr = el;
+    else if(el.data('time') < $highest_tr.data('time')) $highest_tr = el;
+  });
+  if($highest_tr) {
+    $highest_tr.prevAll().addClass('passed_tr');
+  } else {
+    $('.show_passed').hide();
+  }
+  changeCurrentTimeLine();
 }
 
 function hideAllTd() {
