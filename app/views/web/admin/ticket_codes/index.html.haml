@@ -22,7 +22,7 @@
       .span3
         = f.input :category_eq, as: :chosen_select, collection: TicketCode.categories, placeholder: 'Все категории', label: false, required: false
     .row-fluid
-      .span6
+      .span3
         = f.input :distributor_id_eq, as: :chosen_select, collection: Distributor.asc_by(:title).collect{|c| [c.to_s, c.id]}, placeholder: 'Все распространители', label: false, required: false
       .span3
         = f.submit t(".search"), :class => 'btn btn-primary'

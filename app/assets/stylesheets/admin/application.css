@@ -63,3 +63,6 @@ label.checkbox {
 .red {
   color: red;
 }
+.chosen_select {
+  width: 100%;
+}
