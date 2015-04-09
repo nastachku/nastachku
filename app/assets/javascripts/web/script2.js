@@ -178,7 +178,7 @@ function hidePassedForHalls(halls) {
     if(!$highest_tr) $highest_tr = el;
     else if(el.data('time') < $highest_tr.data('time')) $highest_tr = el;
   });
-  while($highest_tr.data('time') > current_time && $highest_tr) {
+  while($highest_tr && ($highest_tr.data('time') > current_time || $highest_tr.prev().find('.programm__time').length)) {
     $highest_tr = $highest_tr.prev()
   }
   if($highest_tr) {
