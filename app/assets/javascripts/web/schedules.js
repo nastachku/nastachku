@@ -80,10 +80,10 @@ $(function() {
     });
   }
 
-  $('body').on('click', '.show_passed', function() {
-    $(this).closest('tbody').toggleClass('force_show_passed');
+  function showPassedClick(self) {
+    $(self).closest('tbody').toggleClass('force_show_passed');
     changeCurrentTimeLine();
-  });
+  }
 });
 
 var changeCurrentTimeLine = function() {

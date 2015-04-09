@@ -54,6 +54,7 @@
 }
 
 .show_passed {
+  z-index: 1000;
   display: none;
   text-align: center;
   font-size: 1.5em;
