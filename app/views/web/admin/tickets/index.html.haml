@@ -2,6 +2,7 @@
   %h1= link_to t('.title'), admin_tickets_path
 
 %h3= t('.total', count: @tickets.total_count)
+%h4= "На сумму: #{tickets_all_price}"
 
 = paginate @tickets
 

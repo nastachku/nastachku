@@ -9,16 +9,20 @@
   = search_form_for @search, url: admin_ticket_codes_path, html: { class: 'nomargin' }, method: :get do |f|
     .row-fluid
       .span3
-        = f.search_field :code_eq, placeholder: TicketCode.human_attribute_name(:code), label: false, required: false
+        = f.search_field :code_cont, placeholder: TicketCode.human_attribute_name(:code), label: false, required: false
       .span3
-        = f.select :distributor_id_eq, Distributor.asc_by(:title).collect{|c| [c.to_s, c.id]}, prompt: 'Все распространители', label: false, required: false
-      .span3
-        = f.select :kind_eq, TicketCode.kinds, prompt: 'Все типы', label: false, required: false
+        = f.input :distributor_id_eq, as: :chosen_select, collection: Distributor.asc_by(:title).collect{|c| [c.to_s, c.id]}, placeholder: 'Все распространители', label: false, required: false
+      .span2
+        = f.input :kind_eq, as: :chosen_select, collection: TicketCode.kinds, placeholder: 'Все типы', label: false, required: false
+      .span2
+        = f.input :state_eq, as: :chosen_select, collection: TicketCode.state_names, placeholder: 'Все состояния', label: false, required: false
     .row-fluid
       .span3
-        = f.select :state_eq, TicketCode.state_names, prompt: 'Все состояния', label: false, required: false
+        = f.input :category_eq, as: :chosen_select, collection: TicketCode.categories, placeholder: 'Все категории', label: false, required: false
       .span3
-        = f.select :category_eq, TicketCode.categories, prompt: 'Все категории', label: false, required: false
+        = f.search_field :ticket_user_last_name_cont, placeholder: User.human_attribute_name(:last_name), label: false, required: false
+      .span3
+        = f.search_field :ticket_user_first_name_cont, placeholder: User.human_attribute_name(:first_name), label: false, required: false
       .span3
         = f.submit t(".search"), :class => 'btn btn-primary'
         = link_to t(".reset"), admin_ticket_codes_path, :class => 'btn btn-primary'
