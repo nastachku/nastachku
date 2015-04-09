@@ -167,6 +167,7 @@ function showTdOfTable(halls) {
 
 function hidePassedForHalls(halls) {
   $('.programm__schedule__lectures').removeClass('passed_tr');
+  var current_time = parseInt($('.current_time_line').closest('tr').data('time'));
   var $highest_tr;
   var trs = [];
   halls.map(function(hall) {
@@ -177,6 +178,9 @@ function hidePassedForHalls(halls) {
     if(!$highest_tr) $highest_tr = el;
     else if(el.data('time') < $highest_tr.data('time')) $highest_tr = el;
   });
+  while($highest_tr.data('time') > current_time && $highest_tr) {
+    $highest_tr = $highest_tr.prev()
+  }
   if($highest_tr) {
     $highest_tr.prevAll().addClass('passed_tr');
   } else {
