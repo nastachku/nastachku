@@ -7,4 +7,12 @@ module Web::Admin::ApplicationHelper
       "#{configus.payanyway.transaction_view_host}/operationInfoDetails.htm?operationId=#{order.transaction_id}"
     end
   end
+
+  def afterparty_tickets_all_price
+    @afterparty_tickets_all_price ||= AfterpartyTicket.all.map(&:price).inject(&:+)
+  end
+
+  def tickets_all_price
+    @tickets_all_price ||= Ticket.all.map(&:price).inject(&:+)
+  end
 end
