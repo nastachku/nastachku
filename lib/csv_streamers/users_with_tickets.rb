@@ -72,7 +72,8 @@ class CsvStreamers::UsersWithTickets
       "Company",
       "Position",
       "City",
-      "Category"
+      "Category",
+      "Category Symbol"
     ].to_csv(CSV_OPTIONS)
   end
 
@@ -83,7 +84,8 @@ class CsvStreamers::UsersWithTickets
       user.company,
       user.position,
       user.city,
-      I18n.t("reports.#{user.ticket.category}")
+      I18n.t("reports.#{user.ticket.category}"),
+      user.ticket.category
     ]
   end
 end
