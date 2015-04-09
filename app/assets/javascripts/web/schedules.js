@@ -6,20 +6,24 @@ function display_hide(blockId) {
   }
 }
 
-function check_my_program_slots(slots) {
+function check_my_program_slots() {
   $("#my_programm").on('change', function() {
-    if ($(this).is(':checked')) {
-      $('.schedule__filter').prop('checked', false).change();
-      $(".programm__schedule__lectures__lecture").addClass('disable');
-      $.each(slots, function(index, value) {
-        $("#lecture-" + value).addClass('enable');
-      });
-    } else {
-      $(".programm__schedule__lectures__lecture").removeClass('disable');
-      $.each(slots, function(index, value) {
-        $("#lecture-" + value).removeClass('enable');
-      });
-    }
+    self = this;
+    $.get(Routes.my_programm_api_events_path({format: 'json'}), function(res) {
+      var slots = res.events.map(function(e) { return e.voteable_id });
+      if ($(self).is(':checked')) {
+        $('.schedule__filter').prop('checked', false).change();
+        $(".programm__schedule__lectures__lecture").addClass('disable');
+        $.each(slots, function(index, value) {
+          $("#lecture-" + value).addClass('enable');
+        });
+      } else {
+        $(".programm__schedule__lectures__lecture").removeClass('disable');
+        $.each(slots, function(index, value) {
+          $("#lecture-" + value).removeClass('enable');
+        });
+      }
+    })
   });
 }
 

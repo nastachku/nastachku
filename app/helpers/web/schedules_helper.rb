@@ -66,12 +66,6 @@ module Web::SchedulesHelper
     } ).call
   end
 
-  def my_program_slots
-    ids = []
-    current_user.lecture_votings.each { |vote| ids << vote.voteable_id }
-    ids
-  end
-
   def current_user_not_going_to_conference?
     not signed_in? or (current_user.not_paid_part? if signed_in?)
   end
