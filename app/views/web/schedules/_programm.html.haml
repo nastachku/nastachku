@@ -64,8 +64,7 @@
                   $(".programm__schedule__lectures__lecture").removeClass('disable');
                   $(".programm__schedule__lectures__lecture").removeClass('enable');
                 }
-
-                $('.schedule__filter').each(function(index, el) {
+                $(this).closest('.programm__filter__checkboxs').find('.schedule__filter').each(function(index, el) {
                   var lecture_class = $(el).data('lecture');
                   if ($(el).is(':checked')) {
                       $('[data-lecture=' + lecture_class + ']').prop("checked", true);
