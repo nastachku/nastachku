@@ -9,10 +9,10 @@ module Web::Admin::ApplicationHelper
   end
 
   def afterparty_tickets_all_price
-    @afterparty_tickets_all_price ||= AfterpartyTicket.all.map(&:price).inject(&:+)
+    @afterparty_tickets_all_price ||= AfterpartyTicket.with_user.map(&:price).inject(&:+)
   end
 
   def tickets_all_price
-    @tickets_all_price ||= Ticket.all.map(&:price).inject(&:+)
+    @tickets_all_price ||= Ticket.with_user.map(&:price).inject(&:+)
   end
 end
