@@ -1,0 +1,2 @@
+json.lecture_id resource_lecture.id
+json.average_feedback_vote resource_lecture.average_feedback_vote

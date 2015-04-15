@@ -25,7 +25,18 @@ class Web::ApplicationController < ApplicationController
     @auth_user = UserSignInType.new
   end
 
+  before_filter :auth_by_token
+
   private
+
+  def auth_by_token
+    if params[:auth_token]
+      token = User::AuthToken.auth.find_by_authentication_token params[:auth_token]
+      if token && !token.expired?
+        sign_in(token.user)
+      end
+    end
+  end
 
   def title(part = nil)
     @parts ||= []

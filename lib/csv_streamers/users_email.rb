@@ -35,7 +35,7 @@ class CsvStreamers::UsersEmail
       next if resume_mode? && already_has_field?(user)
 
       processed_fields.push(user)
-      yield user.to_csv.encode('windows-1251')
+      yield user.to_csv
     end
 
     if !archive_mode? && processed_fields.any?
@@ -68,7 +68,8 @@ class CsvStreamers::UsersEmail
     [
       "FirstName",
       "LastName",
-      "Email"
+      "Email",
+      "Auth Link"
     ].to_csv
   end
 
@@ -76,7 +77,8 @@ class CsvStreamers::UsersEmail
     [
       user.first_name,
       user.last_name,
-      user.email
+      user.email,
+      Rails.application.routes.url_helpers.lectures_url(auth_token: user.create_auth_token.authentication_token, host: configus.mailer.default_host)
     ]
   end
 

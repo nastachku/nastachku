@@ -14,6 +14,7 @@ class Lecture < ActiveRecord::Base
   has_many :voted, through: :lecture_votings, source: :user
   has_one :slot, as: :event
   has_many :halls, through: :slots
+  has_many :feedbacks
 
   mount_uploader :presentation, EventPresentationUploader
 
@@ -41,5 +42,9 @@ class Lecture < ActiveRecord::Base
     event :reject do
       transition [:new, :in_schedule, :voted] => :rejected
     end
+  end
+
+  def average_feedback_vote
+    @average_feedback_vote ||= feedbacks.map(&:vote).inject(&:+)
   end
 end

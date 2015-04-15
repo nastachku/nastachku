@@ -39,7 +39,7 @@ Configus.build Rails.env do
     end
 
     token do
-      auth_lifetime 24.hour
+      auth_lifetime 3.days
       old_user_welcome_lifetime 3.month
       remind_password_lifetime 1.hour
     end

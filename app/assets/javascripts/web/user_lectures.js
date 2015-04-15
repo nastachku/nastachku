@@ -63,4 +63,55 @@ jQuery(document).ready(function ($) {
       }
      })
    });
+
+   function setResultForFeedback() {
+     $('.feedback_result').each(function(index, el) {
+       var res = parseInt($(el).data('average-result'));
+       if(res) {
+         changeAverageFeedback(res, $(el).closest('.lectures__item_feedback'));
+       }
+     })
+   };
+
+   function changeAverageFeedback(vote, $lecture) {
+     var $current = $lecture.find('.feedback_button_' + Math.round(vote));
+     $lecture.find('.feedback_result').html(vote);
+     $current.addClass('voted');
+     $current.prevAll().addClass('voted')
+     $current.nextAll().removeClass('voted')
+   };
+
+   setResultForFeedback();
+
+   $(document).on('mouseover', '.feedback_button', function() {
+     var $this = $(this);
+     $this.addClass('hover');
+     $this.prevAll().addClass('hover');
+     $this.nextAll().removeClass('hover');
+   });
+
+   $(document).on('mouseout', '.lectures__item__adding', function() {
+     $(this).find('.feedback_button').removeClass('hover');
+   });
+
+   $(document).on('click', '.feedback_button', function() {
+     var vote = $(this).data('value');
+     var lecture_id = $(this).closest('.lectures__item').data('id');
+     var $parent = $(this).parent();
+     $.ajax({
+       url: Routes.api_lecture_feedbacks_path(lecture_id),
+       data: {
+         vote: vote
+       },
+       type: "POST",
+       dataType: "json",
+       success: function(result) {
+         $parent.find('.feedback_no_vote_text').hide();
+         $parent.find('.feedback_text').show();
+         changeAverageFeedback(result.average_feedback_vote, $parent);
+         $parent.find('.feedback_success').fadeIn(500);
+         setTimeout(function() { $parent.find('.feedback_success').fadeOut(500); }, 2000);
+       }
+     })
+   });
 });

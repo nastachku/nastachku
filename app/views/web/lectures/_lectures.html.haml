@@ -2,7 +2,7 @@
   = render 'shared/empty_lectures'
 - else
   - @lectures.each do |lecture|
-    %li.lectures__item{id: "lecture_#{lecture.id}"}
+    %li.lectures__item{id: "lecture_#{lecture.id}", data: {id: lecture.id}}
       .lectures__item-img
         - if lecture.user
           = image_tag lecture.user.user_pic, width: 350
@@ -23,17 +23,30 @@
         %p.open_this
           = simple_format(lecture.thesises)
       .lectures__item__adding
-        .lectures__item__add
-          - if signed_in?
-            - unless lecture_voted_by_current_user?(lecture, @current_user_votings)
-              %span.voting_button.lectures__item__add-add{ data: { id: lecture.id } } Я пойду на доклад
-              %p.lecture_added.lectures__item__add-added{ style: "display: none" } Доклад добавлен в вашу программу
-            - else
-              %span.voting_button.lectures__item__add-add.added{ data: { id: lecture.id } } Убрать
-              %p.lecture_added.lectures__item__add-added Доклад добавлен в вашу программу
-          - else
-            %span.lectures__item__add-add.added Я пойду на доклад
-            %p.lectures__item__add-added Требуется регистрация на конференции
+        -#.lectures__item__add
+          -#- if signed_in?
+            -#- unless lecture_voted_by_current_user?(lecture, @current_user_votings)
+              -#%span.voting_button.lectures__item__add-add{ data: { id: lecture.id } } Я пойду на доклад
+              -#%p.lecture_added.lectures__item__add-added{ style: "display: none" } Доклад добавлен в вашу программу
+            -#- else
+              -#%span.voting_button.lectures__item__add-add.added{ data: { id: lecture.id } } Убрать
+              -#%p.lecture_added.lectures__item__add-added Доклад добавлен в вашу программу
+          -#- else
+            -#%span.lectures__item__add-add.added Я пойду на доклад
+            -#%p.lectures__item__add-added Требуется регистрация на конференции
+        - if signed_in?
+          .lectures__item_feedback{data: {user_vote: current_user_feedback_for(lecture)}}
+            %span.feedback_button.feedback_button_1{data: {value: 1}}
+            %span.feedback_button.feedback_button_2{data: {value: 2}}
+            %span.feedback_button.feedback_button_3{data: {value: 3}}
+            %span.feedback_button.feedback_button_4{data: {value: 4}}
+            %span.feedback_button.feedback_button_5{data: {value: 5}}
+            %span.feedback_average
+              %span.feedback_text{style: hidden_style(!lecture.average_feedback_vote.present?)} Средний голос:
+              %span.feedback_no_vote_text{style: hidden_style(lecture.average_feedback_vote.present?)} Нет голосов
+              %span.feedback_result{data: {average_result: lecture.average_feedback_vote}}
+                = lecture.average_feedback_vote
+            %div.feedback_success Ваш голос принят!
         .lectures__item-social
           %p.open_this Поделиться с друзьями:
           .share42init{data: {path: root_url + "assets/", url: lecture.by_id_url, title: lecture.another_full_title, image: asset_url(lecture.user ? lecture.user.user_pic : "default-user-image.png"), description: lecture.thesises}}

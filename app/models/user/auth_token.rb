@@ -2,11 +2,18 @@ class User::AuthToken < ActiveRecord::Base
 
   belongs_to :user
 
-  attr_accessible :authentication_token, :expired_at
+  attr_accessible :authentication_token, :expired_at, :token_type
 
   validates :user, :presence => true
   validates :authentication_token, :presence => true, :uniqueness => true
   validates :expired_at, :presence => true
+
+  enum token_type: {
+    auth: "auth",
+    other: "other"
+  }
+
+  scope :auth, -> { where(token_type: "auth") }
 
   def expired?
     expired_at < Time.current
