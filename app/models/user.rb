@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
   has_many :event_users
   has_many :events, through: :event_users
   has_one :promo_code
+  has_many :feedbacks
 
   accepts_nested_attributes_for :lectures, reject_if: :all_blank, allow_destroy: true
 
@@ -143,7 +144,7 @@ class User < ActiveRecord::Base
   end
 
   def create_auth_token
-    create_token(configus.token.auth_lifetime)
+    create_token(configus.token.auth_lifetime, "auth")
   end
 
   def create_remind_password_token
@@ -154,10 +155,10 @@ class User < ActiveRecord::Base
     create_token(configus.token.old_user_welcome_lifetime)
   end
 
-  def create_token(lifetime)
+  def create_token(lifetime, type = "other")
     token = SecureHelper.generate_token
     expired_at = Time.current + lifetime
-    auth_tokens.create! :authentication_token => token, :expired_at => expired_at
+    auth_tokens.create! :authentication_token => token, :expired_at => expired_at, token_type: type
   end
 
   def to_s

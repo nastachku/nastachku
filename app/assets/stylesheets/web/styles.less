@@ -2527,7 +2527,35 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
 .account_lectures {
   padding-top: 30px;
 }
-
+.feedback_button {
+    margin-right: 3px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: top;
+    text-indent: -9999em;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    float: left;
+    background: #f1f1f1 @sprite -55px -95px no-repeat;
+    cursor: pointer;
+    .animate();
+    &.hover {background-color: #FFEA6F}
+    &.voted {background-color: #FFEA6F;}
+    &.average {background-color: #faed8b;}
+}
+.feedback_average {
+  line-height: 36px;
+  margin-left: 3px;
+}
+.lectures__item_feedback {
+  float: left;
+}
+.feedback_success {
+  margin-top: 10px;
+  display: none;
+  position: absolute;
+}
 @import "web/0-620";
 @import "web/0-979";
 @import "web/1200-";

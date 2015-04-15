@@ -32,7 +32,7 @@ working_directory APP_PATH + "/current" # available in 0.94.0+
 listen APP_PATH + "/shared/.sock", :backlog => 64
 #listen 8080, :tcp_nopush => true
 
-timeout 60
+timeout 120
 
 # feel free to point this anywhere accessible on the filesystem
 pid APP_PATH + "/shared/pids/unicorn.pid"

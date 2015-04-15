@@ -27,6 +27,8 @@
       %th= sort_link(@search, :workshop)
       %th= sort_link(@search, :listener_votings_count)
       %th= sort_link(@search, :lecture_votings_count)
+      %th Голосов в фидбеке
+      %th Средний голос
       %th
   %tbody
     - @lectures.each do |lecture|
@@ -40,6 +42,8 @@
         %td= lecture.workshop.try(:title)
         %td= lecture.listener_votings.size
         %td= lecture.lecture_votings.size
+        %td= lecture.feedbacks.size
+        %td= lecture.average_feedback_vote
         %td
           .pull-right.btn-group
             = link_to edit_admin_lecture_path(lecture), class: 'btn btn-mini' do
