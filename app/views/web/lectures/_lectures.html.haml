@@ -42,10 +42,9 @@
             %span.feedback_button.feedback_button_4{data: {value: 4}}
             %span.feedback_button.feedback_button_5{data: {value: 5}}
             %span.feedback_average
-              %span.feedback_text{style: hidden_style(!lecture.average_feedback_vote.present?)} Средний голос:
-              %span.feedback_no_vote_text{style: hidden_style(lecture.average_feedback_vote.present?)} Нет голосов
-              %span.feedback_result{data: {average_result: lecture.average_feedback_vote}}
-                = lecture.average_feedback_vote
+              %span.feedback_text{style: hidden_style(!lecture.feedbacks.exists?)} Средний голос:
+              %span.feedback_no_vote_text{style: hidden_style(lecture.feedbacks.exists?)} Нет голосов
+              %span.feedback_result{data: {average_result: lecture.feedbacks.exists? ? lecture.average_feedback_vote : nil}}
             %div.feedback_success Ваш голос принят!
         .lectures__item-social
           %p.open_this Поделиться с друзьями:

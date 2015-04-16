@@ -45,6 +45,10 @@ class Lecture < ActiveRecord::Base
   end
 
   def average_feedback_vote
-    @average_feedback_vote ||= feedbacks.map(&:vote).inject(&:+)
+    @average_feedback_vote ||= if feedbacks.exists?
+      (feedbacks.map(&:vote).inject(&:+) / feedbacks.count.to_f).round(1)
+    else
+      0
+    end
   end
 end
