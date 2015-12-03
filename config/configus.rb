@@ -14,14 +14,14 @@ Configus.build Rails.env do
 
     schedule do
       first_day do
-        date Time.utc(2015, 4, 10)
-        start_time DateTime.new(2015, 4, 10, 9, 0, 0, "MSK")
-        finish_time DateTime.new(2015, 4, 10, 20, 30, 0, "MSK")
+        date Time.utc(2016, 4, 15)
+        start_time DateTime.new(2016, 4, 15, 9, 0, 0, "MSK")
+        finish_time DateTime.new(2016, 4, 15, 20, 30, 0, "MSK")
       end
       second_day do
-        date Time.utc(2015, 4, 11)
-        start_time DateTime.new(2015, 4, 11, 10, 0, 0, "MSK")
-        finish_time DateTime.new(2015, 4, 11, 18, 45, 0, "MSK")
+        date Time.utc(2016, 4, 16)
+        start_time DateTime.new(2016, 4, 16, 10, 0, 0, "MSK")
+        finish_time DateTime.new(2016, 4, 16, 18, 45, 0, "MSK")
       end
     end
 
@@ -35,7 +35,7 @@ Configus.build Rails.env do
     end
 
     badges do
-      time_to_print_badges DateTime.new(2015, 4, 9, 18, 0, 0)
+      time_to_print_badges DateTime.new(2016, 4, 14, 18, 0, 0)
     end
 
     token do
@@ -94,6 +94,7 @@ Configus.build Rails.env do
     end
 
     cs_cart do
+      enable_auth false
       secret_key credentials_hash["development"]["cs-cart"]["secret_key"]
       shop_url "10.10.10.10/shop"
     end
