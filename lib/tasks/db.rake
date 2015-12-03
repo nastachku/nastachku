@@ -2,7 +2,7 @@ namespace :db do
   desc 'Clean data except users'
   task :clean_except_users => :environment do
     models_to_destroy = [
-      AfterpartyTicket, Lecture::Feedback, Order, TicketCode, Ticket,
+      AfterpartyTicket, Lecture::Feedback, Ticket, Order, TicketCode,
       Campaign, Discount, EventUser, Event, Hall, Lecture, MailParams,
       News, Coupon, Page, Report, Slot, Distributor, Topic, UserTopic,
       UsersList, User::PromoCode, Voting, Workshop, Auditable::Audit
