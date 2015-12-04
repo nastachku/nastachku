@@ -19,20 +19,7 @@ class Pricelist
   end
 
   def self.afterparty_ticket_price
-    case Time.current.strftime('%B')
-    when 'February'
-      1500
-    when 'March'
-      if Time.current.day <= 3
-        1500
-      else
-        2000
-      end
-    when 'April'
-      2500
-    else
-      10000
-    end
+    2500
   end
 
   private
