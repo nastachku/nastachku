@@ -5,7 +5,7 @@ namespace :db do
       AfterpartyTicket, Lecture::Feedback, Ticket, Order, TicketCode,
       Campaign, Discount, EventUser, Event, Lecture, MailParams,
       News, Coupon, Report, Slot, Distributor, Topic, UserTopic,
-      UsersList, User::PromoCode, Voting, Workshop, Auditable::Audit
+      UsersList, User::PromoCode, Voting, Auditable::Audit
     ]
 
     models_to_destroy.each(&:destroy_all)
