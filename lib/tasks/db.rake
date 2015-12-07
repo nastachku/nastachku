@@ -4,7 +4,7 @@ namespace :db do
     models_to_destroy = [
       AfterpartyTicket, Lecture::Feedback, Ticket, Order, TicketCode,
       Campaign, Discount, EventUser, Event, Lecture, MailParams,
-      News, Coupon, Page, Report, Slot, Distributor, Topic, UserTopic,
+      News, Coupon, Report, Slot, Distributor, Topic, UserTopic,
       UsersList, User::PromoCode, Voting, Workshop, Auditable::Audit
     ]
 
