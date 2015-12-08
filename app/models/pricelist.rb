@@ -19,7 +19,15 @@ class Pricelist
   end
 
   def self.afterparty_ticket_price
-    2500
+    if before(2016, 01, 01)
+      2000
+    elsif before(2016, 04, 01)
+      2500
+    elsif before(2016, 04, 16)
+      3000
+    else
+      10000
+    end
   end
 
   private
