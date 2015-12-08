@@ -32,6 +32,18 @@ after 'deploy:publishing', 'deploy:restart'
 after 'deploy:finished', 'airbrake:deploy'
 
 namespace :deploy do
+  task :start do
+    invoke 'unicorn:start'
+    invoke 'resque:start'
+    invoke 'resque:scheduler:start'
+  end
+
+  task :stop do
+    invoke 'unicorn:stop'
+    invoke 'resque:stop'
+    invoke 'resque:scheduler:stop'
+  end
+
   task :restart do
     invoke 'unicorn:stop'
     invoke 'resque:restart'
