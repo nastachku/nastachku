@@ -2,6 +2,7 @@
 module AuthHelper
   def sign_in(user)
     session[:user_id] = user.id
+    mark_as_participant_on_first_login(user)
     track_user user
   end
 
@@ -39,6 +40,14 @@ module AuthHelper
     @current_user ||= User.find_by_id(session[:user_id])
   end
 
+  def mark_as_participant_on_first_login(user)
+    return if user.admin? || user.role == 'registrator'
+
+    if user.last_sign_in_at.blank?
+      user.update_attribute(:show_as_participant, true)
+    end
+  end
+
   def track_user(user)
     old_sign_in_at = user.current_sign_in_at
     new_sign_in_at = Time.zone.now.utc
@@ -54,6 +63,8 @@ module AuthHelper
 
     user.sign_in_count ||= 0
     user.sign_in_count += 1
+
+    user.save
   end
 
   def deny_banned_user!
