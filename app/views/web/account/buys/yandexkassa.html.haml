@@ -1,0 +1,6 @@
+/ Значения всех полей условны и приведены исключительно для примера
+%form{action: @payment_form_params[:url], method: @payment_form_params[:method]}
+  / Обязательные поля
+  - @payment_form_params[:fields].each do |name, value|
+    %input{name: name, type: "hidden", value: value}
+  %input{:type => "submit", :value => "Заплатить"}/
