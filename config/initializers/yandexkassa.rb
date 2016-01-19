@@ -4,4 +4,6 @@ PaymentSystems::Yandexkassa.configure do |config|
   config.shopId = Rails.application.secrets.yandexkassa_shopId
   config.scid = Rails.application.secrets.yandexkassa_scid
   config.currency = 'RUB'
+  config.paymentType = "AC"
+  config.shared_secret = Rails.application.secrets.yandexkassa_shared_secret
 end

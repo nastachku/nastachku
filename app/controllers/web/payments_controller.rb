@@ -2,6 +2,8 @@ class Web::PaymentsController < Web::ApplicationController
   skip_before_filter :basic_auth_if_staging, only: [:paid_payanyway, :success_payanyway, :decline_payanyway, :cancel_payanyway]
   skip_before_filter :verify_authenticity_token, only: [:paid_payanyway, :success_payanyway, :decline_payanyway, :cancel_payanyway]
 
+  ## PAYANYWAY
+
   def paid_payanyway
     order = PaymentSystem.new(:payanyway).pay!(params)
 
@@ -51,5 +53,16 @@ class Web::PaymentsController < Web::ApplicationController
     else
       redirect_to edit_account_path anchor: :orders
     end
+  end
+
+  ## Yandexkassa
+
+  def check_order_yandexkassa
+    result = PaymentSystems::Yandexkassa.check_order(params)
+    render xml: result
+  end
+
+  def payment_aviso_yandexkassa
+    result = PaymentSystems::Yandexkassa.payment_aviso(params)
   end
 end
