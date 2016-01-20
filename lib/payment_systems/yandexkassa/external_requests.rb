@@ -1,20 +1,4 @@
 module PaymentSystems::Yandexkassa::ExternalRequests
-  CHECK_ORDER_PARAMS = [
-    "requestDatetime", "action", "md5", "shopId", "shopArticleId",
-    "invoiceId", "customerNumber", "orderCreatedDatetime",
-    "orderSumAmount", "orderSumCurrencyPaycash",
-    "orderSumBankPaycash", "shopSumAmount", "shopSumCurrencyPaycash",
-    "shopSumBankPaycash", "paymentPayerCode", "paymentType"
-  ]
-
-  PAYMENT_AVISO_PARAMS = [
-    "requestDatetime", "action", "md5", "shopId", "shopArticleId",
-    "invoiceId", "customerNumber", "orderCreatedDatetime",
-    "orderSumAmount", "orderSumCurrencyPaycash",
-    "orderSumBankPaycash", "shopSumAmount", "shopSumCurrencyPaycash",
-    "shopSumBankPaycash", "paymentDatetime", "paymentPayerCode",
-    "paymentType"
-  ]
 
   CHECK_SUM_PARAMS = [
     "action", "orderSumAmount", "orderSumCurrencyPaycash",
@@ -51,7 +35,6 @@ module PaymentSystems::Yandexkassa::ExternalRequests
   end
 
   def payment_aviso(params)
-    payment_aviso_params = fetch_params(params, PAYMENT_AVISO_PARAMS)
     current_time = Time.now.to_formatted_s(:iso8601)
     response_params = {
       performedDatetime: current_time,
@@ -103,7 +86,7 @@ module PaymentSystems::Yandexkassa::ExternalRequests
     CHECK_SUM_PARAMS.each do |key|
       param_string.concat("#{params[key]};")
     end
-    param_string.concat(config.shared_secret)
+    param_string.concat(config.shared_secret.to_s)
 
     calculated_digest = Digest::MD5.hexdigest(param_string).upcase
     calculated_digest

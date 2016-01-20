@@ -70,5 +70,6 @@ class Web::PaymentsController < Web::ApplicationController
   def payment_aviso_yandexkassa
     request_params = request.request_parameters
     result = PaymentSystems::Yandexkassa.payment_aviso(request_params)
+    render xml: result
   end
 end
