@@ -18,8 +18,7 @@ module PaymentSystems::Yandexkassa::ExternalRequests
 
   CHECK_SUM_PARAMS = [
     "action", "orderSumAmount", "orderSumCurrencyPaycash",
-    "orderSumBankPaycash", "shopId", "invoiceId", "customerNumber",
-    "shopPassword"
+    "orderSumBankPaycash", "shopId", "invoiceId", "customerNumber"
   ]
 
   SUCCESS_CODE = "0"
@@ -28,8 +27,6 @@ module PaymentSystems::Yandexkassa::ExternalRequests
   REQUEST_ERROR_CODE = "200"
 
   def check_order(params)
-    check_order_params = fetch_params(params, CHECK_ORDER_PARAMS)
-
     current_time = Time.now.to_formatted_s(:iso8601)
     response_params = {
       performedDatetime: current_time,
@@ -38,13 +35,16 @@ module PaymentSystems::Yandexkassa::ExternalRequests
       orderSumAmount: params["orderSumAmount"]
     }
 
-    if !valid_sum?(params)
+    if !valid_digest?(params)
       response_params[:code] = AUTH_ERROR_CODE
+      log("Check order ##{params["orderNumber"]}: auth error")
     elsif !valid_order_params?(params)
       response_params[:code] = PARAMS_ERROR_CODE
       response_params[:message] = "Заказ с таким номером не существует"
+      log("Check order ##{params["orderNumber"]}: not found error")
     else
       response_params[:code] = SUCCESS_CODE
+      log("Check order ##{params["orderNumber"]}: succeed")
     end
 
     response.checkOrderResponse(response_params)
@@ -52,6 +52,25 @@ module PaymentSystems::Yandexkassa::ExternalRequests
 
   def payment_aviso(params)
     payment_aviso_params = fetch_params(params, PAYMENT_AVISO_PARAMS)
+    current_time = Time.now.to_formatted_s(:iso8601)
+    response_params = {
+      performedDatetime: current_time,
+      invoiceId: params["invoiceId"],
+      shopId: params["shopId"],
+      orderSumAmount: params["orderSumAmount"]
+    }
+
+    if !valid_digest?(params)
+      response_params[:code] = AUTH_ERROR_CODE
+      log("Payment aviso ##{params["orderNumber"]}: auth error")
+    else
+      response_params[:code] = SUCCESS_CODE
+      order = Order.find_by(number: params["orderNumber"])
+      order.pay!
+      log("Payment aviso ##{params["orderNumber"]}: succeed")
+    end
+
+    response.paymentAvisoResponse(response_params)
   end
 
   private
@@ -66,7 +85,7 @@ module PaymentSystems::Yandexkassa::ExternalRequests
     xml
   end
 
-  def valid_sum?(params)
+  def valid_digest?(params)
     received_sum = params["md5"]
     calculated_sum = params_digest(params)
 
@@ -79,11 +98,18 @@ module PaymentSystems::Yandexkassa::ExternalRequests
   end
 
   def params_digest(params)
-    param_string = CHECK_SUM_PARAMS.reduce do |param_string, key|
-      "#{param_string};#{params[key]}"
+    param_string = ""
+
+    CHECK_SUM_PARAMS.each do |key|
+      param_string.concat("#{params[key]};")
     end
-    param_string.concat(";#{config.shared_secret}")
+    param_string.concat(config.shared_secret)
+
     calculated_digest = Digest::MD5.hexdigest(param_string).upcase
     calculated_digest
+  end
+
+  def log(message)
+    Rails.logger.tagged('PAYMENT SYSTEM', 'YANDEXKASSA') { Rails.logger.warn(message) }
   end
 end

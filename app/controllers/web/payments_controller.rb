@@ -1,6 +1,10 @@
 class Web::PaymentsController < Web::ApplicationController
   skip_before_filter :basic_auth_if_staging, only: [:paid_payanyway, :success_payanyway, :decline_payanyway, :cancel_payanyway]
-  skip_before_filter :verify_authenticity_token, only: [:paid_payanyway, :success_payanyway, :decline_payanyway, :cancel_payanyway]
+  skip_before_filter :verify_authenticity_token, only: [
+                       :paid_payanyway, :success_payanyway,
+                       :decline_payanyway, :cancel_payanyway,
+                       :check_order_yandexkassa, :payment_aviso_yandexkassa
+                     ]
 
   ## PAYANYWAY
 
@@ -58,11 +62,13 @@ class Web::PaymentsController < Web::ApplicationController
   ## Yandexkassa
 
   def check_order_yandexkassa
-    result = PaymentSystems::Yandexkassa.check_order(params)
+    request_params = request.request_parameters
+    result = PaymentSystems::Yandexkassa.check_order(request_params)
     render xml: result
   end
 
   def payment_aviso_yandexkassa
-    result = PaymentSystems::Yandexkassa.payment_aviso(params)
+    request_params = request.request_parameters
+    result = PaymentSystems::Yandexkassa.payment_aviso(request_params)
   end
 end
