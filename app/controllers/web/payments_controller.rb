@@ -3,7 +3,8 @@ class Web::PaymentsController < Web::ApplicationController
   skip_before_filter :verify_authenticity_token, only: [
                        :paid_payanyway, :success_payanyway,
                        :decline_payanyway, :cancel_payanyway,
-                       :check_order_yandexkassa, :payment_aviso_yandexkassa
+                       :check_order_yandexkassa, :payment_aviso_yandexkassa,
+                       :success_yandexkassa, :fail_yandexkassa
                      ]
 
   ## PAYANYWAY
@@ -71,5 +72,27 @@ class Web::PaymentsController < Web::ApplicationController
     request_params = request.request_parameters
     result = PaymentSystems::Yandexkassa.payment_aviso(request_params)
     render xml: result
+  end
+
+  def success_yandexkassa
+    order_number = params["orderNumber"]
+    order = Order.find_by(number: order_number)
+
+    if (order && order.buy_now?) || (!order && !signed_in?)
+      redirect_to new_buy_now_path
+    else
+      redirect_to edit_account_path anchor: :orders
+    end
+  end
+
+  def fail_yandexkassa
+    order_number = params["orderNumber"]
+    order = Order.find_by(number: order_number)
+
+    if (order && order.buy_now?)
+      redirect_to new_buy_now_path
+    else
+      redirect_to edit_account_path anchor: :orders
+    end
   end
 end

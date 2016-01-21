@@ -135,6 +135,8 @@ Nastachku::Application.routes.draw do
 
     post 'payments/check_order/yandexkassa', to: 'payments#check_order_yandexkassa'
     post 'payments/payment_aviso/yandexkassa', to: 'payments#payment_aviso_yandexkassa'
+    match 'payments/success/yandexkassa', to: 'payments#success_yandexkassa'
+    match 'payments/fail/yandexkassa', to: 'payments#fail_yandexkassa'
 
     namespace :admin do
       resources :users_lists, except: [:edit, :update] do
