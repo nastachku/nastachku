@@ -43,4 +43,23 @@ module ApplicationHelper
   def price_format(price)
     price.to_i
   end
+
+  def meta_tags
+    if @meta_tags
+      names = @meta_tags.keys
+
+      names.each do |name|
+        @meta_tags["og:#{name}"] = @meta_tags[name]
+      end
+
+      @meta_tags
+    else
+      {}
+    end
+  end
+
+  def custom_title
+    meta_tags_title = @meta_tags && @meta_tags[:title]
+    meta_tags_title || "Стачка!"
+  end
 end

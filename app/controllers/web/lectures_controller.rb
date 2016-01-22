@@ -10,6 +10,13 @@ class Web::LecturesController < Web::ApplicationController
     @lecture_by_id = LectureDecorator.decorate Lecture.find @lecture_id if @lecture_id
     #
     @workshops = Workshop.web
+
+    @meta_tags = {
+      title: "Полный список докладов IT-конференции «Стачка!»",
+      description: "Перечень докладов международной IT-конференции «Стачка!» по всем категориям.",
+      keywords: "список докладов стачка"
+    }
+
     respond_to do |format|
        format.html
        format.js

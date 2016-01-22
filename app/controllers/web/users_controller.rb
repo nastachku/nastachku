@@ -8,6 +8,12 @@ class Web::UsersController < Web::ApplicationController
     @users = @search.result.activated.participants.alphabetically
     @users = @users.lectors if params[:q] && params[:q]['s'].include?('only_lectors')
 
+    @meta_tags = {
+      title: "«Стачка 2016» — участники",
+      description: "Полный список участников, зарегистрировавшихся на международную IT-конференцию «Стачка!».",
+      keywords: "стачка участники"
+    }
+
     respond_with @users
   end
 
