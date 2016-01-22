@@ -7,5 +7,11 @@ class Web::SchedulesController < Web::ApplicationController
     @lectures_slots = Slot.with(event_type: "Lecture")
     @slots = Slot.all
     @workshops = Workshop.all
+
+    @meta_tags = {
+      title: "«Стачка 2016» — расписание докладов и мероприятий",
+      description: "Программа докладов и других мероприятий международной IT-конференции «Стачка!» в Ульяновске.",
+      keywords: "стачка программа"
+    }
   end
 end

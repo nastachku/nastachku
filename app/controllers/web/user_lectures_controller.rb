@@ -11,10 +11,17 @@ class Web::UserLecturesController < Web::ApplicationController
     #
     @workshops = Workshop.web
     gon.remote_filter_action = user_lectures_path
+
+    @meta_tags = {
+      title: "«Стачка 2016» — доклады 2.0",
+      description: "Перечень докладов, предложенных пользователями для IT-конференции «Стачка!» в Ульяновске.",
+      keywords: "стачка доклады"
+    }
+
     respond_to do |format|
        format.html
        format.js
-     end
+    end
   end
 
 end

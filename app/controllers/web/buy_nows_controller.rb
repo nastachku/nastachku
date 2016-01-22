@@ -3,6 +3,13 @@ class Web::BuyNowsController < Web::ApplicationController
 
   def new
     @form = BuyNowOrderType.new
+
+    @meta_tags = {
+      title: "x",
+      description: "y",
+      keywords: "i"
+    }
+
     build_order
   end
 

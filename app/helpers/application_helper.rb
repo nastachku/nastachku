@@ -45,6 +45,16 @@ module ApplicationHelper
   end
 
   def meta_tags
-    return @meta_tags || {}
+    if @meta_tags
+      names = @meta_tags.keys
+
+      names.each do |name|
+        @meta_tags["og:#{name}"] = @meta_tags[name]
+      end
+
+      @meta_tags
+    else
+      {}
+    end
   end
 end
