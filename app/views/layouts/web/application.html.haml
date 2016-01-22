@@ -7,6 +7,8 @@
     %link{ href: "/assets/favicon.ico", rel: "icon", type: "image/x-icon" }
     %link{ href: "/assets/favicon.ico", rel: "shortcut icon", type: "image/x-icon" }
     %meta{ charset: "utf-8" }
+    - meta_tags.each do |name, content|
+      %meta{ content: content, name: name }
     %meta{ content: "Digital-коммуникации, Программирование, IT-стартапы, Электронная коммерция, Менеджмент в IT, IT на службе общества", name: "description" }
     %meta{ content: "Главная | Стачка!", name: "keywords" }
     %meta{ content: "Главная | Стачка!", property: "og:title" }

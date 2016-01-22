@@ -43,4 +43,8 @@ module ApplicationHelper
   def price_format(price)
     price.to_i
   end
+
+  def meta_tags
+    return @meta_tags || {}
+  end
 end
