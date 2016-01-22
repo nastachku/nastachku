@@ -11,7 +11,7 @@ class Pricelist
       2000
     elsif before(2016, 04, 11)
       2500
-    elsif before(2016, 04, 17)
+    elsif before(2016, 04, 24)
       3000
     else
       10000
@@ -23,7 +23,7 @@ class Pricelist
       2000
     elsif before(2016, 04, 01)
       2500
-    elsif before(2016, 04, 16)
+    elsif before(2016, 04, 23)
       3000
     else
       10000

@@ -14,14 +14,14 @@ Configus.build Rails.env do
 
     schedule do
       first_day do
-        date Time.utc(2016, 4, 15)
-        start_time DateTime.new(2016, 4, 15, 9, 0, 0, "MSK")
-        finish_time DateTime.new(2016, 4, 15, 20, 30, 0, "MSK")
+        date Time.utc(2016, 4, 22)
+        start_time DateTime.new(2016, 4, 22, 9, 0, 0, "MSK")
+        finish_time DateTime.new(2016, 4, 22, 20, 30, 0, "MSK")
       end
       second_day do
-        date Time.utc(2016, 4, 16)
-        start_time DateTime.new(2016, 4, 16, 10, 0, 0, "MSK")
-        finish_time DateTime.new(2016, 4, 16, 18, 45, 0, "MSK")
+        date Time.utc(2016, 4, 23)
+        start_time DateTime.new(2016, 4, 23, 10, 0, 0, "MSK")
+        finish_time DateTime.new(2016, 4, 23, 18, 45, 0, "MSK")
       end
     end
 
@@ -35,7 +35,7 @@ Configus.build Rails.env do
     end
 
     badges do
-      time_to_print_badges DateTime.new(2016, 4, 14, 18, 0, 0)
+      time_to_print_badges DateTime.new(2016, 4, 21, 18, 0, 0)
     end
 
     token do
