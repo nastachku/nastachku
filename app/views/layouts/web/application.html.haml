@@ -3,14 +3,12 @@
   %head
     /[if IE] <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
     %meta{ content: "width=device-width, initial-scale=1.0", name: "viewport" }
-    %title Стачка!
+    %title= custom_title
     %link{ href: "/assets/favicon.ico", rel: "icon", type: "image/x-icon" }
     %link{ href: "/assets/favicon.ico", rel: "shortcut icon", type: "image/x-icon" }
     %meta{ charset: "utf-8" }
-    %meta{ content: "Digital-коммуникации, Программирование, IT-стартапы, Электронная коммерция, Менеджмент в IT, IT на службе общества", name: "description" }
-    %meta{ content: "Главная | Стачка!", name: "keywords" }
-    %meta{ content: "Главная | Стачка!", property: "og:title" }
-    %meta{ content: "Digital-коммуникации, Программирование, IT-стартапы, Электронная коммерция, Менеджмент в IT, IT на службе общества", property: "og:description" }
+    - meta_tags.each do |name, content|
+      %meta{ content: content, name: name }
     %meta{ content: "Стачка!", property: "og:site_name" }
     - if @lecture_id and @lecture_by_id
       %meta{ content: "#{root_url}#{@lecture_by_id.lector_photo if @lecture_by_id.lector_photo}", property: "og:image" }

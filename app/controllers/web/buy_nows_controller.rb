@@ -3,6 +3,13 @@ class Web::BuyNowsController < Web::ApplicationController
 
   def new
     @form = BuyNowOrderType.new
+
+    @meta_tags = {
+      title: "Купить билеты на Стачку 2016",
+      description: "На этой странице вы можете приобрести билет на ежегодную IT-конференцию «Стачка».",
+      keywords: "стачка билеты"
+    }
+
     build_order
   end
 
