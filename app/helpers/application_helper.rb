@@ -57,4 +57,9 @@ module ApplicationHelper
       {}
     end
   end
+
+  def custom_title
+    meta_tags_title = @meta_tags && @meta_tags[:title]
+    meta_tags_title || "Стачка!"
+  end
 end
