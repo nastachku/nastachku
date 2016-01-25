@@ -49,7 +49,13 @@ module PaymentSystems::Yandexkassa::ExternalRequests
     else
       response_params[:code] = SUCCESS_CODE
       order = Order.find_by(number: params["orderNumber"])
-      order.pay!
+
+      if order.buy_now?
+        ProcessPaidOrder.call order, :buy_now
+      else
+        ProcessPaidOrder.call order, :regular
+      end
+
       log("Payment aviso ##{params["orderNumber"]}: succeed")
     end
 
