@@ -1,5 +1,11 @@
 class Web::PaymentsController < Web::ApplicationController
-  skip_before_filter :basic_auth_if_staging, only: [:paid_payanyway, :success_payanyway, :decline_payanyway, :cancel_payanyway]
+  skip_before_filter :basic_auth_if_staging, only: [
+                       :paid_payanyway, :success_payanyway,
+                       :decline_payanyway, :cancel_payanyway,
+                       :check_order_yandexkassa, :payment_aviso_yandexkassa,
+                       :success_yandexkassa, :fail_yandexkassa
+                     ]
+
   skip_before_filter :verify_authenticity_token, only: [
                        :paid_payanyway, :success_payanyway,
                        :decline_payanyway, :cancel_payanyway,
