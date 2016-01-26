@@ -9,6 +9,6 @@
           %input{name: name, type: "hidden", value: value}
 
         .yandexkassa__payment-type
-          = select_tag :payment_type, options_for_select(payment_type_options), class: "custom_select"
+          = select_tag :paymentType, options_for_select(payment_type_options), class: "custom_select"
 
-        #button.btn_main.btn_main-pay-btn{ type: "submit" } Перейти к оплате
+        %button.btn_main.btn_main-pay-btn{ type: "submit" } Перейти к оплате
