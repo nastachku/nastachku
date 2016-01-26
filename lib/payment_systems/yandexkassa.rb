@@ -21,7 +21,6 @@ module PaymentSystems
           sum: order.cost,
           customerNumber: order.user_id,
           # Необязательные поля
-          paymentType: config.paymentType,
           orderNumber: order.number,
         }
       }

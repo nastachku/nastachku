@@ -1,6 +1,14 @@
-/ Значения всех полей условны и приведены исключительно для примера
-%form{action: @payment_form_params[:url], method: @payment_form_params[:method]}
-  / Обязательные поля
-  - @payment_form_params[:fields].each do |name, value|
-    %input{name: name, type: "hidden", value: value}
-  %input{:type => "submit", :value => "Заплатить"}/
+.content
+  .layout-line
+    .yandexkassa
+
+      %h2.yandexkassa__title Выберите способ оплаты:
+
+      %form{action: @payment_form_params[:url], method: @payment_form_params[:method]}
+        - @payment_form_params[:fields].each do |name, value|
+          %input{name: name, type: "hidden", value: value}
+
+        .yandexkassa__payment-type
+          = select_tag :payment_type, options_for_select(payment_type_options), class: "custom_select"
+
+        #button.btn_main.btn_main-pay-btn{ type: "submit" } Перейти к оплате
