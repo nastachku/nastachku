@@ -5,7 +5,4 @@
   .layout-line
     #platin_sponsors_logos.company__logos.logos_carousel.touchcarousel
       %ul.touchcarousel-container
-        %li.touchcarousel-item
-          %div
-          = link_to "http://restream.rt.ru/", target: "_blank" do
-            = image_tag "logos/restream.svg"
+        = render_sponsors([{url: 'http://restream.rt.ru/', logo: 'logos/restream.svg'}])

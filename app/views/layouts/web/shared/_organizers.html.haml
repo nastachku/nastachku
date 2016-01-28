@@ -5,37 +5,4 @@
   .layout-line
     #org_logos.company__logos.logos_carousel.touchcarousel
       %ul.touchcarousel-container
-        %li.touchcarousel-item
-          %div
-          = link_to "http://interra-group.ru", target: "_blank" do
-            = image_tag "logos/interra.jpg"
-
-        %li.touchcarousel-item
-          %div
-          = link_to "http://m-st.ru", target: "_blank" do
-            = image_tag "logos/mst.jpg"
-
-        %li.touchcarousel-item
-          %div
-          = link_to "http://www.simtech.ru", target: "_blank" do
-            = image_tag "logos/simtech.jpg"
-
-        %li.touchcarousel-item
-          %div
-          = link_to "http://www.argenta-team.ru/", target: "_blank" do
-            = image_tag "logos/argenta.svg"
-
-        %li.touchcarousel-item
-          %div
-          = link_to "http://www.simbirsoft.com/ruru", target: "_blank" do
-            = image_tag "logos/simbirsoft.png"
-
-        %li.touchcarousel-item
-          %div
-          = link_to "http://itc73.ru", target: "_blank" do
-            = image_tag "logos/arit.png"
-
-        %li.touchcarousel-item
-          %div
-          = link_to "http://www.advantshop.net/", target: "_blank" do
-            = image_tag "logos/advantshop.png"
+        = render_sponsors(Sponsors.organizers)
