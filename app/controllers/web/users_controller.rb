@@ -19,6 +19,11 @@ class Web::UsersController < Web::ApplicationController
 
   def new
     @user = UserRegistrationType.new
+    @meta_tags = {
+      title: "«Стачка 2016» — форма регистрации участника",
+      description: "Участие в конференции – платное. Условия допуска: документ, удостоверяющий личность.",
+      keywords: "стачка регистрация"
+    }
   end
 
   def activate
