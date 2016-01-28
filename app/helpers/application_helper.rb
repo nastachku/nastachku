@@ -62,4 +62,14 @@ module ApplicationHelper
     meta_tags_title = @meta_tags && @meta_tags[:title]
     meta_tags_title || "Стачка!"
   end
+
+  def render_sponsors(sponsors)
+    return if sponsors.blank?
+
+    sponsor_templates = sponsors.shuffle.map do |sponsor|
+      render 'layouts/web/shared/sponsor', sponsor
+    end
+
+    sponsor_templates.reduce(&:+)
+  end
 end
