@@ -3,6 +3,13 @@
 //= require js-routes
 //= require ./web/alerts
 //= require ./web/campaigns
+//= require ./web/fancySelect
+jQuery(document).ready(function ($) {
+  $('.custom_select').fancySelect({
+    legacyEvents: true,
+  });
+});
+
 
 $(document).ready(function(){
   // $('#flipTimer').timeTo({
