@@ -1,0 +1,12 @@
+.yandexkassa {
+  text-align: center;
+}
+
+.yandexkassa__title {
+  margin-top: 15px;
+}
+
+.yandexkassa__payment-type {
+  margin: 15px;
+  margin-bottom: 20px;
+}

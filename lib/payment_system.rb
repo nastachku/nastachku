@@ -20,6 +20,18 @@ class PaymentSystem
     @payment_system.pay!(params)
   end
 
+  def form_params(order)
+    @payment_system.form_params(order)
+  end
+
+  def send_method
+    @payment_system.send_method
+  end
+
+  def name
+    @payment_system.class.to_s.demodulize.underscore
+  end
+
   private
   def system_by_id(id)
     self.class.available_systems[id.to_sym] || raise("No payment system for id '#{id}'")

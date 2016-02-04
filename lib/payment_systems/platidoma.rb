@@ -28,6 +28,10 @@ module PaymentSystems
       platidoma_client.build_payment_url params
     end
 
+    def send_method
+      :redirect
+    end
+
     private
     def payment_sign(cost, salt)
       params = {amount: cost, rnd: salt}

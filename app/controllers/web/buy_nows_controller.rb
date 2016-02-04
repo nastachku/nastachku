@@ -31,8 +31,18 @@ class Web::BuyNowsController < Web::ApplicationController
         }
       )
 
-      pay_url = PaymentSystem.new(@form.payment_system).pay_url order
-      redirect_to pay_url
+      payment_system = PaymentSystem.new(@form.payment_system)
+      case payment_system.send_method
+      when :redirect
+        pay_url = payment_system.pay_url order
+        redirect_to pay_url
+      when :form_submit
+        payment_system_template = payment_system.name
+        @payment_form_params = payment_system.form_params(order)
+        render payment_system_template
+      else
+        # whoa, how we got here?
+      end
     else
       build_order
       render :new
