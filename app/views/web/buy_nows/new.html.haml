@@ -97,6 +97,9 @@
           .forFizicFace
             = radio_button_tag 'payment_system', 'platidoma', false, class: 'radio_pay'
             = label_tag 'payment_system_platidoma', 'Платидома'
+          .forFizicFace
+            = radio_button_tag 'payment_system', 'yandexkassa', false, class: 'radio_pay'
+            = label_tag 'payment_system_yandexkassa', 'Яндекс Касса'
         = f.button :submit, "Оплатить", class: 'inputSubmit2', onclick: "try{ga('send', 'event', 'tickets', 'buy');}catch(e){}"
 
   = simple_form_for @form, url: coupons_path, method: :post do

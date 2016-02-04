@@ -133,6 +133,11 @@ Nastachku::Application.routes.draw do
     match 'payments/decline/payanyway', to: 'payments#decline_payanyway', via: [:get, :post]
     match 'payments/cancel/payanyway', to: 'payments#cancel_payanyway', via: [:get, :post]
 
+    post 'payments/check_order/yandexkassa', to: 'payments#check_order_yandexkassa'
+    post 'payments/payment_aviso/yandexkassa', to: 'payments#payment_aviso_yandexkassa'
+    match 'payments/success/yandexkassa', to: 'payments#success_yandexkassa', via: [:get, :post]
+    match 'payments/fail/yandexkassa', to: 'payments#fail_yandexkassa', via: [:get, :post]
+
     namespace :admin do
       resources :users_lists, except: [:edit, :update] do
         member do

@@ -43,6 +43,10 @@ module PaymentSystems
       order
     end
 
+    def send_method
+      :redirect
+    end
+
     private
     def validate_pay_request_signature!(their_signature, operation_id:, transaction_id:, amount:)
       our_signature = Digest::MD5.hexdigest "#{@id}#{transaction_id}#{operation_id}#{amount}#{@currency_code}#{@test_mode}#{@integrity_check_code}"

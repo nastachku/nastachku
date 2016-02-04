@@ -58,7 +58,7 @@
               = price_format(@order.cost)
             %span.rouble i
       .order__new__submit
-        = select_tag :payment_system, options_for_select([["PayAnyWay", "payanyway"], ["Платидома", "platidoma"]]), class: "custom_select"
+        = select_tag :payment_system, options_for_select([["PayAnyWay", "payanyway"], ["Платидома", "platidoma"], ["Яндекс Касса", "yandexkassa"]]), class: "custom_select"
         %br
         %button#submit_order.btn_main.btn_main-pay-btn{ type: "submit" } Оплатить
         = link_to activation_account_tickets_path do

@@ -71,6 +71,10 @@ Configus.build Rails.env do
       test_mode 0
     end
 
+    yandexkassa do
+      pay_url 'https://money.yandex.ru/eshop.xml'
+    end
+
     timepad do
       maillist_add_items_url credentials_hash["production"]["timepad"]["maillist_add_items_url"]
       organization_id credentials_hash["production"]["timepad"]["organization_id"]
@@ -106,6 +110,10 @@ Configus.build Rails.env do
     payanyway do
       host 'https://demo.moneta.ru'
       test_mode 0
+    end
+
+    yandexkassa do
+      pay_url 'https://demomoney.yandex.ru/eshop.xml'
     end
 
     timepad do
@@ -160,6 +168,10 @@ Configus.build Rails.env do
       host 'https://demo.moneta.ru'
       transaction_view_host 'https://demo.moneta.ru'
       test_mode 0
+    end
+
+    yandexkassa do
+      pay_url 'https://demomoney.yandex.ru/eshop.xml'
     end
 
     timepad do
