@@ -85,7 +85,7 @@ class Web::PaymentsController < Web::ApplicationController
     order = Order.find_by(number: order_number)
 
     if (order && order.buy_now?) || (!order && !signed_in?)
-      redirect_to new_buy_now_path
+      redirect_to success_buy_now_path(order_number: order_number)
     else
       redirect_to edit_account_path anchor: :orders
     end
