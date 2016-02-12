@@ -269,96 +269,100 @@ ActiveRecord::Schema.define(version: 20150415212814) do
   add_index "tickets", ["user_id"], name: "index_tickets_on_user_id", using: :btree
 
   create_table "topics", force: :cascade do |t|
-    t.string   "title",       limit: 255
+    t.string   "title"
     t.text     "description"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_auth_tokens", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "authentication_token", limit: 255
+    t.string   "authentication_token"
     t.datetime "expired_at"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "token_type"
   end
 
   create_table "user_promo_codes", force: :cascade do |t|
-    t.string   "code",       limit: 255
+    t.string   "code"
     t.integer  "user_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_topics", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "topic_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                   limit: 255
-    t.string   "password_digest",         limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.string   "city",                    limit: 255
-    t.string   "company",                 limit: 255
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "city"
+    t.string   "company"
     t.boolean  "show_as_participant"
-    t.string   "position",                limit: 255
+    t.string   "position"
     t.boolean  "admin"
-    t.string   "password",                limit: 255
-    t.string   "photo",                   limit: 255
-    t.string   "state",                   limit: 255
+    t.string   "password"
+    t.string   "photo"
+    t.string   "state"
     t.text     "about"
-    t.string   "first_name",              limit: 255
-    t.string   "last_name",               limit: 255
-    t.string   "role",                    limit: 255
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "role"
     t.integer  "sign_in_count"
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",      limit: 255
-    t.string   "last_sign_in_ip",         limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.text     "carousel_info"
     t.boolean  "in_carousel"
-    t.string   "twitter_name",            limit: 255
+    t.string   "twitter_name"
     t.boolean  "invisible_lector"
-    t.string   "timepad_state",           limit: 255
+    t.string   "timepad_state"
     t.boolean  "not_going_to_conference"
-    t.string   "pay_state",               limit: 255
+    t.string   "pay_state"
     t.text     "facebook"
     t.text     "vkontakte"
     t.text     "reason_to_give_ticket"
-    t.string   "badge_state",             limit: 255
-    t.integer  "code_activation_count",               default: 0, null: false
+    t.string   "badge_state"
+    t.integer  "code_activation_count",   default: 0, null: false
     t.datetime "last_code_activation_at"
+    t.string   "phone"
+    t.string   "middle_name"
+    t.string   "skype"
+    t.string   "shirt_size"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   create_table "users_lists", force: :cascade do |t|
     t.text     "file"
-    t.string   "state",       limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.text     "description"
   end
 
   create_table "votings", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.string   "type",          limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "type"
     t.integer  "voteable_id"
-    t.string   "voteable_type", limit: 255
+    t.string   "voteable_type"
   end
 
   create_table "workshops", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "color",      limit: 255
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "color"
     t.text     "icon"
   end
 
