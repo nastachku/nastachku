@@ -22,6 +22,8 @@ class Web::SessionsController < Web::ApplicationController
         registrator_root_url
       elsif configus.cs_cart.enable_auth && auth_cs_cart_valid_user?(user)
         auth_cs_cart_user_url get_auth_token user
+      elsif params[:from].present?
+        params[:from]
       else
         edit_account_path(anchor: :orders)
       end
