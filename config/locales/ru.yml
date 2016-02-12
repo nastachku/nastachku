@@ -366,6 +366,8 @@ ru:
         lectors: 'Докладчики'
 
     sessions:
+      new:
+        auth_with_social: "Авторизируйтесь с помощью социальной сети:"
       form:
         login: 'Войти'
         remind_password: 'Забыли пароль?'
