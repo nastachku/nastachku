@@ -1,0 +1,3 @@
+- [:last_name, :first_name, :middle_name, :company, :position, :city, :email, :phone, :skype, :shirt_size].each do |attribute|
+  %li.form__element
+    = f.input attribute, placeholder: User.human_attribute_name(attribute), class: 'user-summary'

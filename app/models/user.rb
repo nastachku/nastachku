@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
     :show_as_participant, :photo, :state_event, :about, :carousel_info, :in_carousel,
     :lectures_attributes, :twitter_name, :invisible_lector, :timepad_state_event,
     :pay_state_event, :facebook, :vkontakte, :reason_to_give_ticket, :badge_state_event,
-    :code_activation_count, :last_code_activation_at
+    :code_activation_count, :last_code_activation_at, :middle_name, :phone, :shirt_size, :skype
 
   has_many :lectures, dependent: :destroy
   has_many :lecture_votings
