@@ -56,6 +56,7 @@ Nastachku::Application.routes.draw do
     resources :users, only: [:new, :create, :index]
     resources :welcome, only: [:index]
     resources :lectures, only: [:index]
+    resources :speaker, only: [:index]
     resources :pages, only: [:show]
     resources :promo, only: [:show]
     get '/promo', to: redirect('/promo/programmers')
