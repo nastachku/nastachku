@@ -4,22 +4,28 @@
       =t '.title'
 .content
   .layout-line
-    = simple_form_for lecture, url: account_lecture_path(lecture), method: :put do |f|
+    = simple_form_for @user, url: account_lecture_path(lecture), method: :put do |f|
 
       .personal__userpic
         .personal__userpic__img
-          = image_tag f.object.user.photo
+          = image_tag f.object.photo
 
       .personal__info
-        - f.with_options input_html: { class: "input_type-1" } do |f|
-          %ul.form__group
-            %li.form__element
-              = f.input :title, placeholder: Lecture.human_attribute_name(:title), class: :input_without_ul
-            %li.form__element
-              = f.input :thesises, placeholder: Lecture.human_attribute_name(:thesises), class: :input_without_ul
-            %li.form__element
-              = f.input :presentation, as: :file, label: t('.presentation'), input_html: {accept: 'application/pdf, application/vnd.ms-powerpoint, pplication/vnd.oasis.opendocument.presentation, application/x-vnd.oasis.opendocument.presentation, pplication/vnd.openxmlformats-officedocument.presentationml.presentation'}
+        = f.simple_fields_for :lectures, @lecture do |f|
+          - f.with_options input_html: { class: "input_type-1" } do |f|
+            %ul.form__group
+              = f.input :id, as: :hidden
+              %li.form__element
+                = f.input :title, placeholder: Lecture.human_attribute_name(:title), class: :input_without_ul
+              %li.form__element
+                = f.input :thesises, placeholder: Lecture.human_attribute_name(:thesises), class: :input_without_ul
+              %li.form__element
+                = f.input :presentation, as: :file, label: t('.presentation'), input_html: {accept: 'application/pdf, application/vnd.ms-powerpoint, pplication/vnd.oasis.opendocument.presentation, application/x-vnd.oasis.opendocument.presentation, pplication/vnd.openxmlformats-officedocument.presentationml.presentation'}
 
+        %ul.form-group
+          = render 'additional_user_fields', f: f
+          %li.form__element.about_input_on_user_lectures_form
+            = f.input :about, placeholder: User.human_attribute_name(:about), class: 'user-summary'
       .personal__submit
         = f.button :submit, t('.save'), class: 'btn_main btn_main-refresh'
 

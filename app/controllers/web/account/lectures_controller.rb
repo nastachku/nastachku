@@ -18,9 +18,9 @@ class Web::Account::LecturesController < Web::Account::ApplicationController
   end
 
   def update
-    @lecture = current_user.lectures.find params[:id]
-    @lecture.changed_by = current_user
-    if @lecture.update(params[:lecture])
+    @user = UserLecturesEditType.find current_user.id
+    @user.changed_by = current_user
+    if @user.update_attributes(params[:user])
       redirect_to edit_account_path
     else
       render :edit
@@ -29,6 +29,8 @@ class Web::Account::LecturesController < Web::Account::ApplicationController
 
   def edit
     @lecture = current_user.lectures.find params[:id]
+    @user = @lecture.user
+    @user = @user.becomes UserLecturesEditType
 
     render :edit
   end
