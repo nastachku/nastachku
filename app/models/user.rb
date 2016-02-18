@@ -44,6 +44,7 @@ class User < ActiveRecord::Base
   audit :email, :first_name, :last_name, :city, :company, :photo, :state, :about
 
   enumerize :role, in: [ :lector, :user, :registrator ], default: :user
+  enumerize :shirt_size, in: [:S, :M, :L, :XL]
 
   state_machine :state, initial: :new do
     state :new
