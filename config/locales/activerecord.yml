@@ -48,6 +48,7 @@ ru:
         finish_time: 'Время окончания'
         state: 'Статус'
         workshop: 'Секция'
+        notes: Примечания
         hall: 'Зал'
         lecture_votings_count: 'Количество голосов'
         lecture_votings: 'Голоса за доклад'

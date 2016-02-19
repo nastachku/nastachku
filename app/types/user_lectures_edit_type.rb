@@ -4,7 +4,8 @@ class UserLecturesEditType < User
   permit :last_name, :first_name, :middle_name, :company, :position,
          :city, :phone, :email, :shirt_size, :skype,
          :photo, :about, lectures_attributes: [
-           :id, :_destroy, :title, :thesises, :workshop_id, :presentation, :user_id
+           :id, :_destroy, :title, :thesises, :workshop_id, :notes,
+           :presentation, :user_id
          ]
 
   validates :photo, presence: true

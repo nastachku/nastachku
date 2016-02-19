@@ -149,16 +149,17 @@ ActiveRecord::Schema.define(version: 20150415212814) do
   add_index "lecture_feedbacks", ["user_id"], name: "index_lecture_feedbacks_on_user_id", using: :btree
 
   create_table "lectures", force: :cascade do |t|
-    t.string   "state",                  limit: 255
-    t.string   "presentation",           limit: 255
-    t.integer  "listener_votings_count",             default: 0
-    t.integer  "lecture_votings_count",              default: 0
+    t.string   "state"
+    t.string   "presentation"
+    t.integer  "listener_votings_count", default: 0
+    t.integer  "lecture_votings_count",  default: 0
     t.integer  "user_id"
-    t.string   "title",                  limit: 255
+    t.string   "title"
     t.text     "thesises"
     t.integer  "workshop_id"
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "notes"
   end
 
   create_table "mail_params", force: :cascade do |t|

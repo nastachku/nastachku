@@ -20,6 +20,8 @@
               %li.form__element
                 = f.input :thesises, placeholder: Lecture.human_attribute_name(:thesises), class: :input_without_ul
               %li.form__element
+                = f.input :notes, placeholder: Lecture.human_attribute_name(:notes), class: :input_without_ul
+              %li.form__element
                 = f.input :presentation, as: :file, label: t('.presentation'), input_html: {accept: 'application/pdf, application/vnd.ms-powerpoint, pplication/vnd.oasis.opendocument.presentation, application/x-vnd.oasis.opendocument.presentation, pplication/vnd.openxmlformats-officedocument.presentationml.presentation'}
 
         %ul.form-group
