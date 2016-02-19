@@ -2,7 +2,9 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
   def index
     query = { s: 'created_at desc' }.merge(params[:q] || {})
     @search = User.ransack(query)
-    @users = @search.result.includes(:promo_code).page(params[:page]).per(50)
+    @users = @search.result
+    @users = @users.joins(:lectures) if lectors_only?
+    @users = @users.includes(:promo_code).page(params[:page]).per(50)
   end
 
   def show
@@ -84,5 +86,11 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     else
       redirect_to admin_users_list_path params[:id]
     end
+  end
+
+  private
+
+  def lectors_only?
+    params[:category] == "lectors"
   end
 end
