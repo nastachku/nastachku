@@ -26,6 +26,14 @@
       = f.input :badge_state_event, as: :state_event, input_html: { class: :span5 }
       = f.input :reason_to_give_ticket, input_html: { class: 'span5' }
 
+  - if @user.lectures.exists?
+    .row
+      .span10
+        %h4= t('.lectures')
+        %ul
+          - @user.lectures.each do |lecture|
+            %li= link_to lecture.title, admin_lecture_path(lecture.id)
+
   .form-actions
     = f.button :submit, :class => 'btn btn-primary'
     = link_to t('.cancel'), admin_users_path, :class => 'btn'

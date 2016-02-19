@@ -110,6 +110,7 @@ ru:
 
         form:
           cancel: 'Отменить'
+          lectures: "Доклады"
 
       orders:
         index:

@@ -3,7 +3,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     query = { s: 'created_at desc' }.merge(params[:q] || {})
     @search = User.ransack(query)
     @users = @search.result
-    @users = @users.joins(:lectures) if lectors_only?
+    @users = @users.joins(:lectures).distinct if lectors_only?
     @users = @users.includes(:promo_code).page(params[:page]).per(50)
   end
 
