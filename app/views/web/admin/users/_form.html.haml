@@ -10,6 +10,7 @@
       = f.input :state_event, as: :state_event, input_html: { class: 'span5' }
       = f.input :pay_state_event, as: :state_event,  input_html: { class: 'span5' }
       = f.input :first_name, input_html: { class: 'span5' }
+      = f.input :middle_name, input_html: { class: 'span5' }
       = f.input :last_name, input_html: { class: 'span5' }
       = f.input :city, input_html: { class: 'span5' }
       = f.input :company, input_html: { class: 'span5' }
@@ -19,10 +20,13 @@
       = f.input :carousel_info, as: :text, input_html: { cols: 50, rows: 3, class: 'span5' }
       = f.input :position, input_html: { class: 'span5' }
       = f.input :email, input_html: { class: 'span5' }
+      = f.input :phone, input_html: { class: 'span5' }
+      = f.input :skype, input_html: { class: 'span5' }
       = f.input :photo, as: :image_preview, input_html: { class: 'span5' }
       = f.input :show_as_participant, input_html: { class: 'checkbox' }
       = f.input :admin, input_html: { class: 'checkbox' }
       = f.input :role, include_blank: false, input_html: { class: 'span5' }
+      = f.input :shirt_size, placeholder: User.human_attribute_name(:shirt_size), class: 'user-summary', include_blank: false
       = f.input :badge_state_event, as: :state_event, input_html: { class: :span5 }
       = f.input :reason_to_give_ticket, input_html: { class: 'span5' }
 
