@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /session/new
+Disallow: /remind_password/new
+Disallow: /lectures?q%5Bworkshop_id_eq%5D=*
+Host: nastachku.ru
