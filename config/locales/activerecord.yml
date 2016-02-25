@@ -54,6 +54,7 @@ ru:
         lecture_votings: 'Голоса за доклад'
         listener_votings_count: 'Количество слушателей'
         created_at: "Дата отправки"
+        move_to_top: "Переместить наверхъ"
       workshop:
         title: 'Название'
         color: 'Цвет'

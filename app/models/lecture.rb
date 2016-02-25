@@ -5,7 +5,7 @@ class Lecture < ActiveRecord::Base
 
   attr_accessible :presentation, :thesises, :title, :workshop_id, :user_id,
     :listener_votings_count, :lecture_votings_count, :type, :state_event,
-    :notes
+    :notes, :move_to_top
 
   belongs_to :workshop
   belongs_to :user
