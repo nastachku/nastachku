@@ -43,7 +43,7 @@ module Web::SchedulesHelper
   include WorkshopsHelper
 
   def workshop_color(workshop_title)
-    workshops_color_hash[workshop_title]
+    Workshop.find_by(title: workshop_title).color
   end
 
   def minutes_count(time)
