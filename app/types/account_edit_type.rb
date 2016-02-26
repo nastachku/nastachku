@@ -27,4 +27,10 @@ class AccountEditType < User
          :twitter_name, :vkontakte, :facebook, :company, :position,
          :show_as_participant
 
+  validates :last_name, :first_name, :middle_name, :company, :position,
+            :city, :phone, :email, :shirt_size, presence: true, if: :has_lectures
+
+  def has_lectures
+    self.lectures.exists?
+  end
 end

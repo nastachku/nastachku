@@ -574,6 +574,13 @@ ru:
         L: "L"
         XL: "XL"
 
+    user:
+      shirt_size:
+        S: "S"
+        M: "M"
+        L: "L"
+        XL: "XL"
+
       item_color:
         white: "Белый"
         red: "Красный"
