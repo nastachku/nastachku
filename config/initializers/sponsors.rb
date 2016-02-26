@@ -28,4 +28,8 @@ Sponsors.configure do |config|
   config.digital = [
     {url: 'http://www.ruward.ru/', logo: 'logos/ruward.svg'}
   ]
+
+  config.analytics = [
+    {url: 'http://ivannikitin.com/', logo: 'logos/ivan-nikitin.png'}
+  ]
 end
