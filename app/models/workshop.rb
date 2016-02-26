@@ -5,6 +5,8 @@ class Workshop < ActiveRecord::Base
 
   has_many :lectures
 
+  validates :color, inclusion: { in: %w(green yellow orange blue red purple) }
+
   audit :title
 
   mount_uploader :icon, SectionIconUploader
