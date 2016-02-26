@@ -48,4 +48,4 @@
             %div.feedback_success Ваш голос принят!
         .lectures__item-social
           %p.open_this Поделиться с друзьями:
-          .share42init{data: {path: root_url + "assets/", url: lecture.by_id_url, title: lecture.another_full_title, image: asset_url(lecture.user ? lecture.user.user_pic : "default-user-image.png"), description: lecture.thesises}}
+          .share42init{data: {path: root_url + "assets/", url: lecture.by_id_url, title: truncate(lecture.another_full_title, length: 200, separator: ' '), image: asset_url(lecture.user ? lecture.user.user_pic : "default-user-image.png"), description: truncate(lecture.thesises, length: 350, separator: ' ')}}
