@@ -20,6 +20,8 @@ class Web::SessionsController < Web::ApplicationController
 
       redirect_path = if params[:from] == registrator_root_url
         registrator_root_url
+      elsif params[:from].present?
+        params[:from]
       elsif configus.cs_cart.enable_auth && auth_cs_cart_valid_user?(user)
         auth_cs_cart_user_url get_auth_token user
       else

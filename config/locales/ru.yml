@@ -366,6 +366,8 @@ ru:
         lectors: 'Докладчики'
 
     sessions:
+      new:
+        auth_with_social: "Авторизируйтесь с помощью социальной сети:"
       form:
         login: 'Войти'
         remind_password: 'Забыли пароль?'
@@ -567,6 +569,13 @@ ru:
   enumerize:
     shirt_order:
       item_size:
+        S: "S"
+        M: "M"
+        L: "L"
+        XL: "XL"
+
+    user:
+      shirt_size:
         S: "S"
         M: "M"
         L: "L"

@@ -19,7 +19,8 @@ class LectureDecorator < Draper::Decorator
   end
 
   def workshop_color
-    "lecture__#{workshops_color_hash[model.workshop.title]}"
+    color = workshop.color
+    "lecture__#{color}"
   end
 
   def lector_photo

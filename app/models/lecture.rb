@@ -4,7 +4,8 @@ class Lecture < ActiveRecord::Base
   include LectureRepository
 
   attr_accessible :presentation, :thesises, :title, :workshop_id, :user_id,
-    :listener_votings_count, :lecture_votings_count, :type, :state_event
+    :listener_votings_count, :lecture_votings_count, :type, :state_event,
+    :notes
 
   belongs_to :workshop
   belongs_to :user

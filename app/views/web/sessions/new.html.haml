@@ -2,3 +2,9 @@
   .layout-line
     %h1.pagetitle__title Войти
     = render 'form'
+    %p
+      = t('.auth_with_social')
+    .popup__auth__form--links
+      = link_to '', sign_in_via_social_network_cpath(:facebook), class: "social__icon social__icon-fb"
+      = link_to '', sign_in_via_social_network_cpath(:vkontakte), class: "social__icon social__icon-vk"
+      = link_to '', sign_in_via_social_network_cpath(:twitter), class: "social__icon social__icon-tw"

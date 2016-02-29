@@ -9,6 +9,10 @@ Sponsors.configure do |config|
     {url: 'http://www.advantshop.net/', logo: 'logos/advantshop.png'}
   ]
 
+  config.internet = [
+    {url: 'http://ul.ru/', logo: 'logos/ultramarine.jpg'}
+  ]
+
   config.general = [
     {url: 'http://www.microsoft.com/', logo: 'logos/microsoft_logo.png'}
   ]
@@ -18,7 +22,8 @@ Sponsors.configure do |config|
   ]
 
   config.silver = [
-    {url: 'http://litebox.ru/', logo: 'logos/litebox.svg'}
+    {url: 'http://litebox.ru/', logo: 'logos/litebox.svg'},
+    {url: 'https://cart-power.ru/', logo: 'logos/cart-power.svg'}
   ]
 
   config.seo = [
@@ -27,5 +32,9 @@ Sponsors.configure do |config|
 
   config.digital = [
     {url: 'http://www.ruward.ru/', logo: 'logos/ruward.svg'}
+  ]
+
+  config.analytics = [
+    {url: 'http://ivannikitin.com/', logo: 'logos/ivan-nikitin.png'}
   ]
 end
