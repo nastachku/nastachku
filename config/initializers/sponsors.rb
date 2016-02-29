@@ -18,7 +18,8 @@ Sponsors.configure do |config|
   ]
 
   config.silver = [
-    {url: 'http://litebox.ru/', logo: 'logos/litebox.svg'}
+    {url: 'http://litebox.ru/', logo: 'logos/litebox.svg'},
+    {url: 'https://cart-power.ru/', logo: 'logos/cart-power.svg'}
   ]
 
   config.seo = [
