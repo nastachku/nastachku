@@ -9,6 +9,10 @@ Sponsors.configure do |config|
     {url: 'http://www.advantshop.net/', logo: 'logos/advantshop.png'}
   ]
 
+  config.internet = [
+    {url: 'http://ul.ru/', logo: 'logos/ultramarine.jpg'}
+  ]
+
   config.general = [
     {url: 'http://www.microsoft.com/', logo: 'logos/microsoft_logo.png'}
   ]
