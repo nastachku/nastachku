@@ -4,6 +4,13 @@
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-38587983-1', 'auto');
-  ga('send', 'pageview');
+  ga('create', 'UA-38587983-1', 'nastachku.ru');
+  ga('require', 'displayfeatures');
+  ga('require', 'linkid', 'linkid.js');
+  /* Openstat parser v3 minimized */
+  var campaign={_params:{},_parsed:!1,_decode64:function(a){if('function'==typeof window.atob)return atob(a);var r,t,n,i,e,s,o,p,d='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',h=0,c=0,f='',m=[];if(!a)return a;a+='';do i=d.indexOf(a.charAt(h++)),e=d.indexOf(a.charAt(h++)),s=d.indexOf(a.charAt(h++)),o=d.indexOf(a.charAt(h++)),p=i<<18|e<<12|s<<6|o,r=p>>16&255,t=p>>8&255,n=255&p,m[c++]=64==s?String.fromCharCode(r):64==o?String.fromCharCode(r,t):String.fromCharCode(r,t,n);while(h<a.length);return f=m.join('')},_parse:function(){var a=window.location.search.substr(1),r=a.split('&');this._params={};for(var t=0;t<r.length;t++){var n=r[t].split('=');this._params[n[0]]=n[1]}this._parsed=!0},hasMarker:function(){return window.location.search.indexOf('utm_')>0?!1:(this._parsed||this._parse(),'undefined'!=typeof this._params._openstat?!0:!1)},buildCampaignParams:function(){if(!this.hasMarker())return!1;var a=this._decode64(this._params._openstat),r=a.split(';');return{campaignName:r[1],campaignSource:r[0],campaignMedium:'cpc',campaignContent:r[2]+' ('+r[3]+')'}}};
+  var hit=campaign.hasMarker()?campaign.buildCampaignParams():{};
+  hit.page=location.pathname+location.search+location.hash;
+  ga('send', 'pageview', hit);
+  /* Accurate bounce rate by time */
+  document.referrer&&0==document.referrer.split('/')[2].indexOf(location.hostname)||setTimeout(function(){ga('send','event','Сеансы','Сеансы без отказов',location.pathname)},15000);
