@@ -35,11 +35,7 @@ Nastachku::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name: Rails.application.secrets.mailtrap["username"],
-    password: Rails.application.secrets.mailtrap["password"],
-    address: 'mailtrap.io',
-    domain: 'mailtrap.io',
-    port: '2525',
-    authentication: :cram_md5
+    address: "mailcatcher_1",
+    port: 1025
   }
 end
