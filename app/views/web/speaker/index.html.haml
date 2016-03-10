@@ -1,106 +1,97 @@
 -# код страницы, взятый из wysiwyg
 .content
-  .layout-line
-    .title Приглашаем докладчиков
+  .layout-line.layout-wrapper
+    %h1.title Приглашаем докладчиков
     %p «Стачка» – международная профессиональная IT-конференция, которая уже пятый год подряд собирает в Поволжье лучших российских и западных экспертов из мира информационных технологий.
     %p В 2016 году «Стачка» пройдет 22 — 23 апреля в Ульяновске в «Ленинском мемориале».
     %p Аудитория конференции — программисты, маркетологи, дизайнеры, CEO IT-компаний, владельцы интернет-магазинов, представители бизнеса, студенты медийных и IT-специальностей со всего Поволжья.
     %p За четыре года в числе докладчиков «Стачки» отметились ведущие специалисты «Яндекса», «1С-Битрикс», Wargaming, Microsoft, Mail.Ru Group, PostgreSQL Europe, ivi.ru, ScrumTrek, Сoub, Aviasales, Express 42, Ruward, RedMadRobot, Tagline, Brand Mobile, Actis, Articul Media, Red Keds, CreativePeople, Grape и других знаменитых компаний из СНГ и дальнего зарубежья.
-    .line_speaker
-    .title Несколько фактов о конференции «Стачка» в 2015 году
-    .line_speaker
+    %h2.title.title--border Несколько фактов о конференции «Стачка» в 2015 году
     %p За 4 года «Стачка» стала самой крупной региональной IT-конференцией.
-    %ul.ul_inline
-      %li
-        .statistics_box
-          .statistics_number 3500
-          .statistics_text участников
-      %li
-        .statistics_box
-          .statistics_number 54
-          .statistics_text города мира
-      %li
-        .statistics_box
-          .statistics_number 130
-          .statistics_text докладчиков
-      %li
-        .statistics_box
-          .statistics_number 153
-          .statistics_text доклада
-      %li
-        .statistics_box
-          .statistics_number 2
-          .statistics_text дня
-      %li
-        .statistics_box
-          .statistics_number 8
-          .statistics_text параллельных потоков
-    .line_speaker
-    .title Тематика конференции
-    .line_speaker
-    .pagetitle.mainpage__title
-      .layout-line
-    .mainpage__sections
+  %ul.ul_inline
+    %li
+      .statistics_number 3500
+      .statistics_text участников
+    %li
+      .statistics_number 54
+      .statistics_text города мира
+    %li
+      .statistics_number 130
+      .statistics_text докладчиков
+    %li
+      .statistics_number 153
+      .statistics_text доклада
+    %li
+      .statistics_number 2
+      .statistics_text дня
+    %li
+      .statistics_number 8
+      .statistics_text параллельных потоков
+  %h3.title.title--border Тематика конференции
+  .mainpage__sections.mainpage__sections--noborder
+    .layout-line
       %ul
         %li
-          .mainpage__sections__cont
-            .mainpage__sections-img
-              %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/151/content_T.png", :style => "width: 235px; height: 234px;"}/
-            .mainpage__sections-desc
-              %h4.open_this
-                %a.main_workshop_link{:href => "/lectures?q%5Bworkshop_id_eq%5D=11"} Техническая
-              %p
-                %a.main_workshop_link{:href => "/lectures?q%5Bworkshop_id_eq%5D=11"} Методологии, разработка, highload, языки программирования и технологии, облачные технологии, client­side, архитектура кода и проектов.
+          = link_to lectures_path(q: {workshop_id_eq: 10}), class: 'main_workshop_link' do
+            .mainpage__sections__cont
+              .mainpage__sections-img
+                %i.sprite.sprite-section-d_big
+              .mainpage__sections-desc
+                %h4.open_this Digital-коммуникации
+                %p
+                  Креатив, дизайн, SMM, маркетинг, SEO, PR, PM, бренды.
+                %p
+                  3D-графика и видеопродакшн
         %li
-          .mainpage__sections__cont
-            .mainpage__sections-img
-              %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/152/content_D.png", :style => "width: 235px; height: 234px;"}/
-            .mainpage__sections-desc
-              %h4.open_this
-                %a.main_workshop_link{:href => "/lectures?q%5Bworkshop_id_eq%5D=10"} Digital-коммуникации
-              %p
-                %a.main_workshop_link{:href => "/lectures?q%5Bworkshop_id_eq%5D=10"} Креатив, дизайн, SMM, маркетинг, SEO, PR, PM, бренды.
-              %p
-                %a.main_workshop_link{:href => "/lectures?q%5Bworkshop_id_eq%5D=10"} 3D-графика и видеопродакшн
+          = link_to lectures_path(q: {workshop_id_eq: 11}), class: 'main_workshop_link' do
+            .mainpage__sections__cont
+              .mainpage__sections-img
+                %i.sprite.sprite-section-t_big
+              .mainpage__sections-desc
+                %h4.open_this Техническая
+                %p
+                  Методологии, разработка, highload, языки программирования и технологии,
+                  облачные технологии, client­side, архитектура кода и проектов.
         %li
-          .mainpage__sections__cont
-            .mainpage__sections-img
-              %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/153/content_MR.png", :style => "width: 235px; height: 234px;"}/
-            .mainpage__sections-desc
-              %h4.open_this
-                %a.main_workshop_link{:href => "/lectures?q%5Bworkshop_id_eq%5D=13"} Мобильная разработка
-              %p
-                %a.main_workshop_link{:href => "/lectures?q%5Bworkshop_id_eq%5D=13"} Платформы, технологии, рождение и жизнь приложений, мобильное проектирование, концепции и тренды.
+          = link_to lectures_path(q: {workshop_id_eq: 15}), class: 'main_workshop_link' do
+            .mainpage__sections__cont
+              .mainpage__sections-img
+                %i.sprite.sprite-section-m_big
+              .mainpage__sections-desc
+                %h4.open_this Менеджмент и образование
+                %p
+                  Организация IT-компании, управление, образование и кадры,
+                  методологии и подходы к разработке.
         %li
-          .mainpage__sections__cont
-            .mainpage__sections-img
-              %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/154/content_C.png", :style => "width: 235px; height: 234px;"}/
-            .mainpage__sections-desc
-              %h4.open_this
-                %a.main_workshop_link{:href => "/lectures?q%5Bworkshop_id_eq%5D=14"} Контент-маркетинг
-              %p
-                %a.main_workshop_link{:href => "/lectures?q%5Bworkshop_id_eq%5D=14"} Все о том как зарабатывать на контенте и благодаря контенту.
+          = link_to lectures_path(q: {workshop_id_eq: 13}), class: 'main_workshop_link' do
+            .mainpage__sections__cont
+              .mainpage__sections-img
+                %i.sprite.sprite-section-mob_big
+              .mainpage__sections-desc
+                %h4.open_this Мобильная разработка
+                %p
+                  Платформы, технологии, рождение и жизнь приложений, мобильное проектирование,
+                  концепции и тренды.
         %li
-          .mainpage__sections__cont
-            .mainpage__sections-img
-              %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/155/content_MO.png", :style => "width: 235px; height: 234px;"}/
-            .mainpage__sections-desc
-              %h4.open_this
-                %a.main_workshop_link{:href => "/lectures?q%5Bworkshop_id_eq%5D=15"} Менеджмент и образование
-              %p
-                %a.main_workshop_link{:href => "/lectures?q%5Bworkshop_id_eq%5D=15"} Организация IT-компании, управление, образование и кадры, методологии и подходы к разработке.
+          = link_to lectures_path(q: {workshop_id_eq: 14}), class: 'main_workshop_link' do
+            .mainpage__sections__cont
+              .mainpage__sections-img
+                %i.sprite.sprite-section-i_big
+              .mainpage__sections-desc
+                %h4.open_this Контент-маркетинг
+                %p
+                  Все о том как зарабатывать на контенте и благодаря контенту.
         %li
-          .mainpage__sections__cont
-            .mainpage__sections-img
-              %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/156/content_E.png", :style => "width: 235px; height: 234px;"}/
-            .mainpage__sections-desc
-              %h4.open_this
-                %a.main_workshop_link{:href => "/lectures?q%5Bworkshop_id_eq%5D=12"} E-commerce
-              %p
-                %a.main_workshop_link{:href => "/lectures?q%5Bworkshop_id_eq%5D=12"} Платформы, мировые тренды, успешные кейсы, российский рынок электронной коммерции.
-    .line_speaker
-    .title Как стать докладчиком
-    .line_speaker
+          = link_to lectures_path(q: {workshop_id_eq: 12}), class: 'main_workshop_link' do
+            .mainpage__sections__cont
+              .mainpage__sections-img
+                %i.sprite.sprite-section-e_big
+              .mainpage__sections-desc
+                %h4.open_this E-commerce
+                %p
+                  Платформы, мировые тренды, успешные кейсы, российский рынок электронной коммерции.
+  .layout-line.layout-wrapper
+    %h3.title.title--border Как стать докладчиком
     %p Ниже перечислены требования к докладчику и его выступлению. Все они связаны с поддержанием качества докладов и мастер-классов на традиционном для «Стачки» высоком уровне.
     %ul
       %li.li_speaker Эксперт должен иметь опыт не менее трех выступлений, подтверждаемый ссылками на программу или видеозапись.
@@ -111,9 +102,7 @@
       Чтобы разместить свой доклад, достаточно зарегистрироваться на сайте и перейти по
       = succeed "\u{a0}\u{438}\u{43b}\u{438}" do
         %a{:href => new_account_lecture_path} ссылке
-    .line_speaker
-    .title Сроки рассмотрения
-    .line_speaker
+    %h3.title.title--border Сроки рассмотрения
     %p
       %b> 8 марта
       — срок подачи заявки и тезисов выступления.
@@ -123,9 +112,7 @@
     %p
       %b> 14 апреля
       — срок подачи презентации.
-    .line_speaker
-    .title Преимущества докладчиков «Стачки»
-    .line_speaker
+    %h3.title.title--border Преимущества докладчиков «Стачки»
     %p.li_speaker
     %ul
       %li.li_speaker Опыт выступления на крупнейшей профильной конференции, по количеству участников приблизившейся к РИФ+КИБ и обогнавшей Highload++.
@@ -136,80 +123,30 @@
     %a{href: new_account_lecture_path}
       .speaker_button
         %button.btn_main Подать доклад
-    %table.speaker_table
-      %tbody
-        %tr
-          %td
-            %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/157/content_1.png", :style => "width: 300px; height: 199px;"}/
-          %td
-            %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/158/content_2.png", :style => "width: 300px; height: 199px;"}/
-          %td
-            %iframe{:allowfullscreen => "", :frameborder => "0", :height => "199", :src => "https://www.youtube.com/embed/Ici7gkckCpQ", :width => "300"}
-          %td
-            %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/160/content_4.png", :style => "width: 300px; height: 199px;"}/
-        %tr
-          %td
-            %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/161/content_5.png", :style => "width: 300px; height: 199px;"}/
-          %td
-            %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/162/content_6.png", :style => "width: 300px; height: 199px;"}/
-          %td
-            %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/163/content_7.png", :style => "width: 300px; height: 199px;"}/
-          %td
-            %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/164/content_8.png", :style => "width: 300px; height: 199px;"}/
+    %ul.speaker_table
+      %li
+        %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/157/content_1.png", :style => "width: 300px; height: 199px;"}/
+      %li
+        %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/158/content_2.png", :style => "width: 300px; height: 199px;"}/
+      %li
+        %iframe{:allowfullscreen => "", :frameborder => "0", :height => "199", :src => "https://www.youtube.com/embed/Ici7gkckCpQ", :width => "300"}
+      %li
+        %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/160/content_4.png", :style => "width: 300px; height: 199px;"}/
+      %li
+        %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/161/content_5.png", :style => "width: 300px; height: 199px;"}/
+      %li
+        %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/162/content_6.png", :style => "width: 300px; height: 199px;"}/
+      %li
+        %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/163/content_7.png", :style => "width: 300px; height: 199px;"}/
+      %li
+        %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/164/content_8.png", :style => "width: 300px; height: 199px;"}/
     %div
       :css
         .title{
           text-align: center;
           font-size: 26px;
-          padding: 16px 0px 0px;
+          padding: 16px 0px 16px 0px;
         }
         .line_speaker{
           border-bottom: 1px solid #e1e1e1;
-        }
-        ul.ul_inline{
-          text-align: justify;
-        }
-        ul.ul_inline li{
-          display: inline-block;
-        vertical-align: top;
-          position: relative;
-        }
-        ul.ul_inline:before{
-            content: '';
-            display: block;
-            width: 100%;
-        }
-        ul.ul_inline:after {
-            content: '';
-            display: inline-block;
-            width: 100%;
-        }
-        .statistics_box{
-          width: 180px;
-          text-align: center;
-        }
-        .statistics_number{
-          color: #e42d32;
-          font-size: 50pt;
-        }
-        .statistics_text{
-          font-size: 19pt;
-        }
-        li.li_speaker {
-            list-style-type: none;
-           }
-           li.li_speaker:before {
-            color: #e42d32;
-            content: "● ";
-            padding-right: 10px;
-           }
-        .speaker_button{
-        	text-align: center;
-        	padding: 20px 0px;
-        }
-        .speaker_table{
-          margin: 0 auto;
-          border: 0;
-          padding: 0;
-          border-spacing: 0;
         }

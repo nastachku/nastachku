@@ -68,6 +68,7 @@ jQuery(document).ready(function ($) {
       showAdapticTable();
     });
     showAdapticTable();
+    $(window).on("load resize", function (){
     if (check_width(604)) {
         var options = {
             pagingNav: false,
@@ -83,6 +84,10 @@ jQuery(document).ready(function ($) {
         };
         var logos_carousel=$(".touchcarousel").touchCarousel(options).data("touchCarousel");
     }
+    });
+    $('.touchcarousel-container').each(function(){
+      if ($(this).find('li').length==1) $(this).parents(".touchcarousel").addClass('touchcarousel--min');
+    });
 
 
     ////////////////////////////////////////// POPUPS
