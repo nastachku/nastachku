@@ -26,6 +26,10 @@ Sponsors.configure do |config|
     {url: 'https://cart-power.ru/', logo: 'logos/cart-power.svg'}
   ]
 
+  config.web = [
+    {url: 'http://kontora-ivanova.ru/', logo: 'logos/kontora-ivanova.svg'}
+  ]
+
   config.seo = [
     {url: 'http://seo.ru/', logo: 'logos/seoru.png'}
   ]
