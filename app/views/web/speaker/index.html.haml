@@ -1,0 +1,152 @@
+-# код страницы, взятый из wysiwyg
+.content
+  .layout-line.layout-wrapper
+    %h1.title Приглашаем докладчиков
+    %p «Стачка» – международная профессиональная IT-конференция, которая уже пятый год подряд собирает в Поволжье лучших российских и западных экспертов из мира информационных технологий.
+    %p В 2016 году «Стачка» пройдет 22 — 23 апреля в Ульяновске в «Ленинском мемориале».
+    %p Аудитория конференции — программисты, маркетологи, дизайнеры, CEO IT-компаний, владельцы интернет-магазинов, представители бизнеса, студенты медийных и IT-специальностей со всего Поволжья.
+    %p За четыре года в числе докладчиков «Стачки» отметились ведущие специалисты «Яндекса», «1С-Битрикс», Wargaming, Microsoft, Mail.Ru Group, PostgreSQL Europe, ivi.ru, ScrumTrek, Сoub, Aviasales, Express 42, Ruward, RedMadRobot, Tagline, Brand Mobile, Actis, Articul Media, Red Keds, CreativePeople, Grape и других знаменитых компаний из СНГ и дальнего зарубежья.
+    %h2.title.title--border Несколько фактов о конференции «Стачка» в 2015 году
+    %p За 4 года «Стачка» стала самой крупной региональной IT-конференцией.
+  %ul.ul_inline
+    %li
+      .statistics_number 3500
+      .statistics_text участников
+    %li
+      .statistics_number 54
+      .statistics_text города мира
+    %li
+      .statistics_number 130
+      .statistics_text докладчиков
+    %li
+      .statistics_number 153
+      .statistics_text доклада
+    %li
+      .statistics_number 2
+      .statistics_text дня
+    %li
+      .statistics_number 8
+      .statistics_text параллельных потоков
+  %h3.title.title--border Тематика конференции
+  .mainpage__sections.mainpage__sections--noborder
+    .layout-line
+      %ul
+        %li
+          = link_to lectures_path(q: {workshop_id_eq: 10}), class: 'main_workshop_link' do
+            .mainpage__sections__cont
+              .mainpage__sections-img
+                %i.sprite.sprite-section-d_big
+              .mainpage__sections-desc
+                %h4.open_this Digital-коммуникации
+                %p
+                  Креатив, дизайн, SMM, маркетинг, SEO, PR, PM, бренды.
+                %p
+                  3D-графика и видеопродакшн
+        %li
+          = link_to lectures_path(q: {workshop_id_eq: 11}), class: 'main_workshop_link' do
+            .mainpage__sections__cont
+              .mainpage__sections-img
+                %i.sprite.sprite-section-t_big
+              .mainpage__sections-desc
+                %h4.open_this Техническая
+                %p
+                  Методологии, разработка, highload, языки программирования и технологии,
+                  облачные технологии, client­side, архитектура кода и проектов.
+        %li
+          = link_to lectures_path(q: {workshop_id_eq: 15}), class: 'main_workshop_link' do
+            .mainpage__sections__cont
+              .mainpage__sections-img
+                %i.sprite.sprite-section-m_big
+              .mainpage__sections-desc
+                %h4.open_this Менеджмент и образование
+                %p
+                  Организация IT-компании, управление, образование и кадры,
+                  методологии и подходы к разработке.
+        %li
+          = link_to lectures_path(q: {workshop_id_eq: 13}), class: 'main_workshop_link' do
+            .mainpage__sections__cont
+              .mainpage__sections-img
+                %i.sprite.sprite-section-mob_big
+              .mainpage__sections-desc
+                %h4.open_this Мобильная разработка
+                %p
+                  Платформы, технологии, рождение и жизнь приложений, мобильное проектирование,
+                  концепции и тренды.
+        %li
+          = link_to lectures_path(q: {workshop_id_eq: 14}), class: 'main_workshop_link' do
+            .mainpage__sections__cont
+              .mainpage__sections-img
+                %i.sprite.sprite-section-i_big
+              .mainpage__sections-desc
+                %h4.open_this Контент-маркетинг
+                %p
+                  Все о том как зарабатывать на контенте и благодаря контенту.
+        %li
+          = link_to lectures_path(q: {workshop_id_eq: 12}), class: 'main_workshop_link' do
+            .mainpage__sections__cont
+              .mainpage__sections-img
+                %i.sprite.sprite-section-e_big
+              .mainpage__sections-desc
+                %h4.open_this E-commerce
+                %p
+                  Платформы, мировые тренды, успешные кейсы, российский рынок электронной коммерции.
+  .layout-line.layout-wrapper
+    %h3.title.title--border Как стать докладчиком
+    %p Ниже перечислены требования к докладчику и его выступлению. Все они связаны с поддержанием качества докладов и мастер-классов на традиционном для «Стачки» высоком уровне.
+    %ul
+      %li.li_speaker Эксперт должен иметь опыт не менее трех выступлений, подтверждаемый ссылками на программу или видеозапись.
+      %li.li_speaker Крайне желательно, чтобы ваш доклад был уникален и не звучал нигде ранее.
+      %li.li_speaker Мы против рекламы компании и ее продуктов в выступлениях наших экспертов.
+      %li.li_speaker Будьте готовы предоставить заранее краткий рассказ о себе, тезисы выступления и презентацию.
+    %p
+      Чтобы разместить свой доклад, достаточно зарегистрироваться на сайте и перейти по
+      = succeed "\u{a0}\u{438}\u{43b}\u{438}" do
+        %a{:href => new_account_lecture_path} ссылке
+    %h3.title.title--border Сроки рассмотрения
+    %p
+      %b> 8 марта
+      — срок подачи заявки и тезисов выступления.
+    %p
+      %b> 1 апреля
+      — срок рассмотрения заявки Программным комитетом.
+    %p
+      %b> 14 апреля
+      — срок подачи презентации.
+    %h3.title.title--border Преимущества докладчиков «Стачки»
+    %p.li_speaker
+    %ul
+      %li.li_speaker Опыт выступления на крупнейшей профильной конференции, по количеству участников приблизившейся к РИФ+КИБ и обогнавшей Highload++.
+      %li.li_speaker Внимание крупного регионального сегмента заинтересованной, профессиональной аудитории.
+      %li.li_speaker Уникальная атмосфера объединения, которую невозможно встретить ни на одном подобном мероприятии, выступление в антураже музея коммунизма и советской истории.
+      %li.li_speaker Неформальное знакомство с родиной Ленина и Колобка ;)
+      %li.li_speaker Бесплатный билет на закрытую Афтепати.
+    %a{href: new_account_lecture_path}
+      .speaker_button
+        %button.btn_main Подать доклад
+    %ul.speaker_table
+      %li
+        %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/157/content_1.png", :style => "width: 300px; height: 199px;"}/
+      %li
+        %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/158/content_2.png", :style => "width: 300px; height: 199px;"}/
+      %li
+        %iframe{:allowfullscreen => "", :frameborder => "0", :height => "199", :src => "https://www.youtube.com/embed/Ici7gkckCpQ", :width => "300"}
+      %li
+        %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/160/content_4.png", :style => "width: 300px; height: 199px;"}/
+      %li
+        %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/161/content_5.png", :style => "width: 300px; height: 199px;"}/
+      %li
+        %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/162/content_6.png", :style => "width: 300px; height: 199px;"}/
+      %li
+        %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/163/content_7.png", :style => "width: 300px; height: 199px;"}/
+      %li
+        %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/164/content_8.png", :style => "width: 300px; height: 199px;"}/
+    %div
+      :css
+        .title{
+          text-align: center;
+          font-size: 26px;
+          padding: 16px 0px 16px 0px;
+        }
+        .line_speaker{
+          border-bottom: 1px solid #e1e1e1;
+        }

@@ -81,20 +81,19 @@
     }
 
     .header__links {
-      display: block;
-      position: absolute;
-      line-height: 51px;
-      width: 100%;
+        display: inline-block;
+        line-height: 51px;
+        width: calc(~'100% - 118px');
+        padding-left: 59px;
       .header__links_container {
         text-align: center;
-        padding-right: 55px;
       }
     }
 
     .header__login {
         margin-top: 0;
         height: 55px;
-        width: 100%;
+        width: 55px;
         position: relative;
     }
 
@@ -447,11 +446,11 @@
 
 
     ////////////////////////////////////////// ORG SPONSORS
-    .mainpage__org {padding-bottom: 30px}
+    //.mainpage__org {padding-bottom: 30px}
     .logos_carousel {
         width: 250px;
         height: 240px;
-        margin: 20px auto 0 auto;
+        margin: 20px auto 24px auto;
         border: 1px solid #e1e1e1;
         position: relative;
 
@@ -474,7 +473,7 @@
         .arrow-holder {
             height: 100%;
             width: 18px;
-            border: 1px solid #e1e1e1;
+            //border: 1px solid #e1e1e1;
             position: absolute;
             top: -1px;
             display: block;
@@ -529,6 +528,9 @@
             &.last {
                 margin-right: 0 !important;
             }
+        }
+        &--min {
+            .arrow-holder {display: none;}
         }
 
         .grab-cursor{cursor:url('/assets/web/grab.png') 8 8, move}
@@ -1434,26 +1436,68 @@
     }
 
 
-  .current_time_line {
-    margin-left: 5px;
-  }
-  .programm__schedule tr.passed_tr {
-    display: none;
-  }
-  .programm__schedule tr.current_time_line_tr.passed_tr {
-    display: table-row;
-  }
-  .programm__schedule .force_show_passed tr.passed_tr {
-    display: table-row;
-  }
+    .current_time_line {
+        margin-left: 5px;
+    }
+    .programm__schedule tr.passed_tr {
+        display: none;
+    }
+    .programm__schedule tr.current_time_line_tr.passed_tr {
+        display: table-row;
+    }
+    .programm__schedule .force_show_passed tr.passed_tr {
+        display: table-row;
+    }
 
-  .show_passed {
-    display: block;
-    .show_text { display: block; }
-    .hide_text { display: none; }
-  }
-  .force_show_passed .show_passed {
+    .show_passed {
+        display: block;
+        .show_text { display: block; }
+        .hide_text { display: none; }
+    }
+    .force_show_passed .show_passed {
     .show_text { display: none; }
     .hide_text { display: block; }
-  }
+    }
+    ul.ul_inline {
+        font-size: 0;
+        margin-bottom: 30px;
+    }
+    ul.ul_inline li {
+        width: 50%;
+    }
+    .statistics_box {
+        width: 100%;
+    }
+    .statistics_number {
+        font-size: 40pt;
+    }
+    .statistics_text {
+        font-size: 14pt;
+    }
+    .speaker_table{
+    font-size: 0;
+        li {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 15px;
+            img {
+                width: 100% !important;
+            }
+        }
+    }
+    .layout-wrapper {
+        padding: 0 10px; 
+    }
+    .mainpage__sections {
+        &--noborder {
+            margin-bottom: -1px;
+        } 
+    }
+    .infoline__right {
+        display: none;
+    }
+    p.infoline__left {
+        width: 100%;
+        text-align: center;
+    }
 }
