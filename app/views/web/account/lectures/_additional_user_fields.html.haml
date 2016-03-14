@@ -2,4 +2,4 @@
   %li.form__element
     = f.input attribute, placeholder: User.human_attribute_name(attribute), class: 'user-summary'
 %li.form__element
-  = f.input :shirt_size, placeholder: User.human_attribute_name(:shirt_size), class: 'user-summary', include_blank: false
+  = f.input :shirt_size, placeholder: User.human_attribute_name(:shirt_size), class: 'user-summary', include_blank: false, collection: [:S, :M, :L, :XL]

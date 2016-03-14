@@ -26,7 +26,7 @@
       = f.input :show_as_participant, input_html: { class: 'checkbox' }
       = f.input :admin, input_html: { class: 'checkbox' }
       = f.input :role, include_blank: false, input_html: { class: 'span5' }
-      = f.input :shirt_size, placeholder: User.human_attribute_name(:shirt_size), class: 'user-summary', include_blank: false
+      = f.input :shirt_size, placeholder: User.human_attribute_name(:shirt_size), class: 'user-summary', include_blank: false, collection: [:S, :M, :L, :XL]
       = f.input :badge_state_event, as: :state_event, input_html: { class: :span5 }
       = f.input :reason_to_give_ticket, input_html: { class: 'span5' }
 
