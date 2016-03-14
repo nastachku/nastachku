@@ -1,7 +1,7 @@
 - if this.four_lectures
   .pagetitle.mainpage__title
     .layout-line
-      %h1.pagetitle__title Самые лучшие спикеры
+      %h1.pagetitle__title Самые лучшие спикеры (случайная выборка)
   .mainpage__speakers
     .layout-line
       %ul
