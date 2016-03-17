@@ -52,6 +52,7 @@ class Web::UsersController < Web::ApplicationController
       sign_in @user
       UserMailer.confirm_registration(@user.id).deliver_in(10.seconds)
       flash_success
+      GoogleAnalyticsClient.register_event(@user)
       redirect_to edit_account_path(anchor: :orders)
     else
       flash_error
