@@ -32,7 +32,7 @@ class Order < ActiveRecord::Base
     state :declined
 
     after_transition any => :refunded, do: :cancel_tickets
-    after_transition any => :paid, do |order, transition|
+    after_transition any => :paid do |order, transition|
       if order.buy_now? || order.user.blank?
         GoogleAnalyticsClient.buy_now_event
       else
