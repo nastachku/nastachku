@@ -3,7 +3,11 @@ class Sponsors
 
   class << self
     def method_missing(method)
-      self.config.send(method)
+      title_method = "#{method}_title".to_sym
+      Hashie::Mash.new({
+        title: self.config.send(title_method),
+        list: self.config.send(method)
+      })
     end
   end
 end

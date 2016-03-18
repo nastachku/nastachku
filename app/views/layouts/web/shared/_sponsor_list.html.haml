@@ -1,0 +1,7 @@
+.pagetitle.mainpage__title.pagetitle__withoutborder
+  .layout-line
+    %h1.pagetitle__title.pagetitle__title--margin.title.title--border= sponsors.title
+  .layout-line
+    .company__logos.logos_carousel.touchcarousel
+      %ul.touchcarousel-container
+        = render_sponsors(sponsors.list)

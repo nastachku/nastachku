@@ -13,6 +13,10 @@ module ApplicationHelper
     render 'helpers/web/dropdown', name: args[:name], items: args[:items]
   end
 
+  def render_sponsor_list(group)
+    render "layouts/web/shared/sponsor_list", sponsors: Sponsors.send(group.to_sym)
+  end
+
   def item(tag, name, path, link_options = {}, &block)
     options = {}
     options[:class] = :active if current_page?(path)
