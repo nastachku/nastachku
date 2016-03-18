@@ -8,12 +8,24 @@ module GoogleAnalyticsClient
       send_event("Пользователь", "Регистрация", nil, user.id)
     end
 
-    def buy_event(user)
-      send_event("Test", "Test Event", nil, user.id)
+    def buy_event(order)
+      if order.tickets.exists?
+        send_event("Покупка", "Билет на стачку", nil, user.id)
+      end
+
+      if order.afterparty_tickets.exists?
+        send_event("Покупка", "Билет на Afterparty", nil, user.id)
+      end
     end
 
     def buy_now_event
-      send_event("Test", "Test Event", nil, nil)
+      if order.tickets.exists?
+        send_event("Покупка", "Билет на стачку (без регистрации)", nil, nil)
+      end
+
+      if order.afterparty_tickets.exists?
+        send_event("Покупка", "Билет на Afterparty (без регистрации)", nil, nil)
+      end
     end
 
     def code_activation_event(user)
