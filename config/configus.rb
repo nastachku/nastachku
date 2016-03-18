@@ -4,9 +4,11 @@ Configus.build Rails.env do
   #TODO расширить configus
   credentials_hash = YAML.load(File.read("config/credentials.yml"))
 
-  analytics_host = 'nastachku.ru'
-
   env :production do
+    analytics do
+      host 'nastachku.ru'
+    end
+
     now_time -> {Time.zone.now}
 
     pagination do
@@ -52,8 +54,8 @@ Configus.build Rails.env do
     end
 
     twitter do
-       key credentials_hash["production"]["twitter"]["key"]
-       secret credentials_hash["production"]["twitter"]["secret"]
+      key credentials_hash["production"]["twitter"]["key"]
+      secret credentials_hash["production"]["twitter"]["secret"]
     end
 
     cs_cart do
@@ -94,7 +96,9 @@ Configus.build Rails.env do
   env :development, parent: :production do
     now_time -> {Time.zone.now + 16.hours}
 
-    analytics_host = 'staging.nastachku.ru'
+    analytics do
+      host 'staging.nastachku.ru'
+    end
 
     facebook do
       app_id credentials_hash["development"]["facebook"]["app_id"]
@@ -143,7 +147,9 @@ Configus.build Rails.env do
   env :staging, parent: :production do
     now_time -> {Time.zone.now + 16.hours}
 
-    analytics_host = 'staging.nastachku.ru'
+    analytics do
+      host 'staging.nastachku.ru'
+    end
 
     mailer do
       default_host "stg.nastachku.ru"
