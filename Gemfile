@@ -59,6 +59,7 @@ gem 'smarter_csv'
 gem 'weary'
 gem 'mail_view', '~> 2.0.4'
 gem 'auto_strip_attributes', '~> 2.0'
+gem 'gabba'
 
 gem 'sass-rails', '~> 4.0.2'
 gem 'coffee-rails'
@@ -73,8 +74,6 @@ group :test, :development do
   gem 'pre-commit'
 
   gem 'dotenv-rails'
-  gem 'pry-rails'
-  gem 'pry-byebug'
 end
 
 group :test do
