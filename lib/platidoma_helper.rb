@@ -67,7 +67,7 @@ module PlatidomaHelper
   def update_payment_state(order)
     status = get_status(order)
 
-    if !status_nonpaid?(status)
+    unless status_nonpaid?(status)
       state_event_hash = {
         paid: :pay,
         reverse: :cancel,

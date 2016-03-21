@@ -17,7 +17,10 @@ class VkontakteAuthService
         user.save
       end
 
-      user.activate! if user.new?
+      if user.new?
+        user.activate!
+        GoogleAnalyticsClient.register_event(user)
+      end
 
       if user.vkontakte.blank?
         user.vkontakte = attrs[:vkontakte]
