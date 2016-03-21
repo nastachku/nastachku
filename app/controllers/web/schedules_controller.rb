@@ -3,6 +3,7 @@ class Web::SchedulesController < Web::ApplicationController
 
   def show
     @halls = HallDecorator.decorate_collection Hall.includes(slots: [:event]).activated.by_position.uniq
+    gon.hall_count = @halls.count
     @first_hall = @halls.first
     @lectures_slots = Slot.with(event_type: "Lecture")
     @slots = Slot.all
