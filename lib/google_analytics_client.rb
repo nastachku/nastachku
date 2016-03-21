@@ -9,6 +9,8 @@ module GoogleAnalyticsClient
     end
 
     def buy_event(order)
+      user = order.user
+
       if order.tickets.exists?
         send_event("Покупка", "Билет на конференцию", user.id)
       end
@@ -18,7 +20,7 @@ module GoogleAnalyticsClient
       end
     end
 
-    def buy_now_event
+    def buy_now_event(order)
       if order.tickets.exists?
         send_event("Покупка", "Билет на конференцию (без регистрации)", nil)
       end

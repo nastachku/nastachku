@@ -2,7 +2,10 @@ FactoryGirl.define do
   #TODO  first_name, first_name, city to russian sequence
   factory :user do
     first_name { generate :string }
+    middle_name { generate :string }
     last_name { generate :string }
+    phone { generate :string }
+    shirt_size { "L" }
     email
     password "ashQDR123!@#"
 
