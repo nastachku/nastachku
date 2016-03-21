@@ -1,15 +1,16 @@
-.programm__schedule__lectures__lecture{ class: "#{lecture.workshop_color}", id: "lecture-#{lecture.id}", onclick: "lectureClick(#{lecture.id}, this)", data: {id: lecture.id, state: lecture.state, time_to: slot.finish_time.to_i}}
-  %h4.lecture__lecturer
-    = l(slot.start_time, format: :only_time)
-    \-
-    = l(slot.finish_time, format: :only_time)
-  - if lecture.user
+- if lecture.present?
+  .programm__schedule__lectures__lecture{ class: "#{lecture.workshop_color}", id: "lecture-#{lecture.id}", onclick: "lectureClick(#{lecture.id}, this)", data: {id: lecture.id, state: lecture.state, time_to: slot.finish_time.to_i}}
     %h4.lecture__lecturer
-      = lecture.user.full_name
-    %span.lecture__company
-      = lecture.user.company
-    %p.lecture__desc
-      = lecture.title
-  - else
-    %h4.lecture__lecturer
-      = lecture.title
+      = l(slot.start_time, format: :only_time)
+      \-
+      = l(slot.finish_time, format: :only_time)
+    - if lecture.user
+      %h4.lecture__lecturer
+        = lecture.user.full_name
+      %span.lecture__company
+        = lecture.user.company
+      %p.lecture__desc
+        = lecture.title
+    - else
+      %h4.lecture__lecturer
+        = lecture.title
