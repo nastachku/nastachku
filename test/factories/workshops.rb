@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :workshop do
     title
-    color
+    color { 'purple' }
   end
 end

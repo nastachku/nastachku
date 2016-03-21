@@ -34,9 +34,9 @@ class Order < ActiveRecord::Base
     after_transition any => :refunded, do: :cancel_tickets
     after_transition any => :paid do |order, transition|
       if order.buy_now? || order.user.blank?
-        GoogleAnalyticsClient.buy_now_event
+        GoogleAnalyticsClient.buy_now_event(order)
       else
-        GoogleAnalyticsClient.buy_event(order.user)
+        GoogleAnalyticsClient.buy_event(order)
       end
     end
 
