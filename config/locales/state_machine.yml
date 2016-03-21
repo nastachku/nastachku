@@ -40,7 +40,12 @@ ru:
           events:
             pay_part: "Оплатить участие"
             not_pay_part: "Не оплачивать участие"
-
+      lecture:
+        states:
+          new: Новый
+          in_schedule: В расписании
+          voted: На голосовании
+          rejected: Отклонён
       coupon:
         state:
           states:

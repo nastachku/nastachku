@@ -152,6 +152,7 @@ ru:
           actions: 'Действия'
           edit: 'Редактировать'
           new: 'Добавить доклад'
+          download_lecture_list: 'Скачать список докладов'
           workshops: 'Секции'
           halls: 'Залы'
           search: 'Поиск'
