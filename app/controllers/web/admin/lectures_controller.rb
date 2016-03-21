@@ -40,4 +40,8 @@ class Web::Admin::LecturesController < Web::Admin::ApplicationController
       render :edit
     end
   end
+
+  def report
+    @lectures = Lectures.all
+  end
 end
