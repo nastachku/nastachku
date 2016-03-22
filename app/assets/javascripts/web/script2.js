@@ -52,7 +52,9 @@ function showAdapticTable() {
         }
       } else {
         setPageOne();
-        showTdOfTable([1,2,3,4,5,6,7,8]);
+        var hallCount = gon.hall_count;
+        var hallIdArray = _.range(1, hallCount+1);
+        showTdOfTable(hallIdArray);
       }
     }
 }
@@ -163,7 +165,7 @@ function programm_prev (prev, next) {
 
 // halls = [1,2,3]
 function showTdOfTable(halls) {
-  hideAllTd();
+  // hideAllTd();
   halls.map(function(hall) {
     $("td[data-hall=" + hall + "]").show();
   });
