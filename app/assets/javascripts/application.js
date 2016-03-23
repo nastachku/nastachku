@@ -3,6 +3,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require js-routes
+//= require underscore
 //= require_tree ./templates
 //= require_tree ./web
 

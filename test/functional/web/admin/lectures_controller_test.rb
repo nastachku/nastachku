@@ -54,4 +54,9 @@ class Web::Admin::LecturesControllerTest < ActionController::TestCase
     put :update, id: @lecture.id, lecture: attrs
     assert_response :success
   end
+
+  test "should generate report" do
+    get :report
+    assert_response :success
+  end
 end

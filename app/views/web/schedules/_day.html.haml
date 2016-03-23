@@ -20,7 +20,7 @@
           - @halls.each_with_index do |hall, index|
             %th
               .hall-circle
-                = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'][index]
+                = ('A'..'Z').to_a[index]
               = hall.title
           %th
             %span.programm__next{ data: { page: "1" }}

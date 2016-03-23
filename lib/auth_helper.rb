@@ -63,6 +63,12 @@ module AuthHelper
 
     user.sign_in_count ||= 0
     user.sign_in_count += 1
+
+    begin
+      user.save(validate: false)
+    rescue
+      # NOTE: well, nothing is still not so bad
+    end
   end
 
   def deny_banned_user!

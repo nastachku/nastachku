@@ -2,8 +2,10 @@
   %h1=t '.title'
 
 .row
-  .span4
+  .span3
     = link_to t('.new'), new_admin_lecture_path, class: 'btn btn-primary'
+  .span3
+    = link_to t('.download_lecture_list'), report_admin_lectures_path, class: 'btn btn-warning'
 %br
 
 .container
