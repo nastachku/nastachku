@@ -25,10 +25,17 @@ Sponsors.configure do |config|
     {url: 'http://restream.rt.ru/', logo: 'logos/restream.svg'}
   ]
 
+  config.gold_title = 'Золотые спонсоры'
+  config.gold = [
+    {url: 'https://www.machinezone.com/', logo: 'logos/machine_zone.png'}
+  ]
+
   config.silver_title = 'Серебряные спонсоры'
   config.silver = [
     {url: 'http://litebox.ru/', logo: 'logos/litebox.svg'},
-    {url: 'https://cart-power.ru/', logo: 'logos/cart-power.svg'}
+    {url: 'https://cart-power.ru/', logo: 'logos/cart-power.svg'},
+    {url: 'http://www.mobirate.com/', logo: 'logos/mobirate.png'}
+
   ]
 
   config.web_title = 'Web-партнёры'
