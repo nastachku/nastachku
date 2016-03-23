@@ -40,4 +40,10 @@ class Web::Admin::LecturesController < Web::Admin::ApplicationController
       render :edit
     end
   end
+
+  def report
+    @lectures = Lecture.all
+    report = Reporters::LecturesReporter.make_csv(@lectures)
+    send_data report, filename: "Доклады (#{I18n.l(Time.now, format: :long)}).csv", disposition: :attachment
+  end
 end

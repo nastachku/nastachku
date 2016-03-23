@@ -147,7 +147,11 @@ Nastachku::Application.routes.draw do
           post "create_paid_part" => "users#create_paid_part"
         end
       end
-      resources :lectures
+      resources :lectures do
+        collection do
+          get 'report'
+        end
+      end
       resources :pages
       resources :news
       resources :users, except: [:new, :create] do
