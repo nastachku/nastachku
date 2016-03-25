@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 class Web::UserLecturesController < Web::ApplicationController
   def index
-    @top_lectures = LectureDecorator.decorate_collection Lecture.includes(:workshop).voted.by_lecture_votes.by_created_at.ransack(params[:q]).result
+    @top_lectures = LectureDecorator.decorate_collection Lecture.includes(:workshop).where(move_to_top: true).voted.by_lecture_votes.by_created_at.ransack(params[:q]).result
     @lectures_with_lector = LectureDecorator.decorate_collection Lecture.includes(:workshop, :user).voted.with_active_speaker.where.not(id: @top_lectures.map(&:id)).by_lecture_votes.by_created_at.ransack(params[:q]).result
     @lectures_without_lector = LectureDecorator.decorate_collection Lecture.includes(:workshop).voted.without_speaker.where.not(id: @top_lectures.map(&:id)).by_lecture_votes.by_created_at.ransack(params[:q]).result
     @lectures = @top_lectures + @lectures_with_lector + @lectures_without_lector
