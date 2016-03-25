@@ -31,14 +31,14 @@ ActiveRecord::Schema.define(version: 20160306201646) do
 
   create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
-    t.string   "auditable_type", limit: 255
+    t.string   "auditable_type"
     t.integer  "user_id"
-    t.string   "user_type",      limit: 255
+    t.string   "user_type"
     t.text     "modifications"
-    t.string   "action",         limit: 255
-    t.string   "tag",            limit: 255
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "action"
+    t.string   "tag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "audits", ["action"], name: "index_audits_on_action", using: :btree
@@ -48,11 +48,11 @@ ActiveRecord::Schema.define(version: 20160306201646) do
   add_index "audits", ["user_id", "user_type"], name: "user_index", using: :btree
 
   create_table "authorizations", force: :cascade do |t|
-    t.string   "provider",   limit: 255
-    t.string   "uid",        limit: 255
+    t.string   "provider"
+    t.string   "uid"
     t.integer  "user_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "campaigns", force: :cascade do |t|
@@ -67,16 +67,16 @@ ActiveRecord::Schema.define(version: 20160306201646) do
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
-    t.string   "data_file_name",    limit: 255, null: false
-    t.string   "data_content_type", limit: 255
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
     t.integer  "data_file_size"
     t.integer  "assetable_id"
     t.string   "assetable_type",    limit: 30
     t.string   "type",              limit: 30
     t.integer  "width"
     t.integer  "height"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
@@ -94,11 +94,11 @@ ActiveRecord::Schema.define(version: 20160306201646) do
   end
 
   create_table "discounts", force: :cascade do |t|
-    t.string   "code",       limit: 255
+    t.string   "code"
     t.datetime "begin_date"
     t.datetime "end_date"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "cost"
   end
 
@@ -113,27 +113,27 @@ ActiveRecord::Schema.define(version: 20160306201646) do
   create_table "event_users", force: :cascade do |t|
     t.integer  "event_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "events", force: :cascade do |t|
-    t.string   "title",               limit: 255
-    t.string   "state",               limit: 255
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.string   "title"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.text     "description"
-    t.string   "color",               limit: 255
+    t.string   "color"
     t.integer  "event_votings_count"
     t.boolean  "show_voting"
     t.string   "url"
   end
 
   create_table "halls", force: :cascade do |t|
-    t.string   "title",            limit: 255
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.string   "state",            limit: 255
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "state"
     t.integer  "position_sorting"
   end
 
@@ -160,6 +160,7 @@ ActiveRecord::Schema.define(version: 20160306201646) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "notes"
+    t.boolean  "move_to_top"
   end
 
   create_table "mail_params", force: :cascade do |t|
@@ -170,32 +171,32 @@ ActiveRecord::Schema.define(version: 20160306201646) do
     t.text     "before_link"
     t.text     "after_link"
     t.text     "goodbye"
-    t.string   "email",              limit: 255
+    t.string   "email"
     t.text     "recipient_name"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "news", force: :cascade do |t|
-    t.string   "slug",       limit: 255
-    t.string   "title",      limit: 255
+    t.string   "slug"
+    t.string   "title"
     t.text     "body"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "items_count",                default: 0, null: false
-    t.string   "item_size",      limit: 255
-    t.string   "payment_state",  limit: 255
-    t.string   "transaction_id", limit: 255
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "item_color",     limit: 255
-    t.string   "ticket_type",    limit: 255
+    t.integer  "items_count",    default: 0, null: false
+    t.string   "item_size"
+    t.string   "payment_state"
+    t.string   "transaction_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "item_color"
+    t.string   "ticket_type"
     t.integer  "cost"
-    t.string   "payment_system", limit: 255
+    t.string   "payment_system"
     t.integer  "discounts"
     t.string   "number"
     t.text     "customer_info"
@@ -208,12 +209,12 @@ ActiveRecord::Schema.define(version: 20160306201646) do
   add_index "orders", ["coupon_id"], name: "index_orders_on_coupon_id", using: :btree
 
   create_table "pages", force: :cascade do |t|
-    t.string   "slug",       limit: 255
-    t.string   "title",      limit: 255
+    t.string   "slug"
+    t.string   "title"
     t.text     "body"
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
-    t.string   "layout",                 default: "application", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "layout",     default: "application", null: false
   end
 
   create_table "reports", force: :cascade do |t|
@@ -224,10 +225,10 @@ ActiveRecord::Schema.define(version: 20160306201646) do
   end
 
   create_table "sessions", force: :cascade do |t|
-    t.string   "session_id", limit: 255, null: false
+    t.string   "session_id", null: false
     t.text     "data"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", using: :btree
@@ -238,9 +239,9 @@ ActiveRecord::Schema.define(version: 20160306201646) do
     t.integer  "hall_id"
     t.datetime "start_time"
     t.datetime "finish_time"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "event_type",  limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "event_type"
   end
 
   create_table "ticket_codes", force: :cascade do |t|
@@ -332,7 +333,7 @@ ActiveRecord::Schema.define(version: 20160306201646) do
     t.text     "vkontakte"
     t.text     "reason_to_give_ticket"
     t.string   "badge_state"
-    t.integer  "code_activation_count",   default: 0,  null: false
+    t.integer  "code_activation_count",   default: 0, null: false
     t.datetime "last_code_activation_at"
     t.string   "phone"
     t.string   "middle_name"

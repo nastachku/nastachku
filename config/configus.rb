@@ -9,6 +9,8 @@ Configus.build Rails.env do
       host 'nastachku.ru'
     end
 
+    move_to_top_count 10
+
     now_time -> {Time.zone.now}
 
     pagination do
@@ -94,6 +96,8 @@ Configus.build Rails.env do
   end
 
   env :development, parent: :production do
+    move_to_top_count 2
+
     now_time -> {Time.zone.now + 16.hours}
 
     analytics do

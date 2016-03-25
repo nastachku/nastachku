@@ -62,7 +62,8 @@ Sponsors.configure do |config|
   config.general_info = [
     {url: 'http://www.cmsmagazine.ru/', logo: 'logos/cms-magazine.svg'},
     {url: 'http://www.seonews.ru/', logo: 'logos/seo-news.png'},
-    {url: 'http://tagline.ru/', logo: 'logos/tagline.png'}
+    {url: 'http://tagline.ru/', logo: 'logos/tagline.png'},
+    {url: 'http://adindex.ru/', logo: 'logos/adindex.jpg'}
   ]
 
   config.info_title = 'Информационные партнёры'
@@ -75,6 +76,15 @@ Sponsors.configure do |config|
     {url: 'http://it-sobytie.ru/', logo: 'logos/it-sobytie.png'},
     {url: 'https://roi.rs/', logo: 'logos/roirs.png'},
     {url: 'https://runet-id.com/', logo: 'logos/runet-id.png'},
-    {url: 'https://www.expomap.ru/', logo: 'logos/expomap.svg'}
+    {url: 'https://www.expomap.ru/', logo: 'logos/expomap.svg'},
+    {url: 'http://media73.ru/', logo: 'logos/media73.jpg'},
+    {url: 'http://digitalhr.ru/', logo: 'logos/digitalhr.png'},
+    {url: 'http://simcat.ru/', logo: 'logos/simcat.jpg'},
+    {url: 'http://симбирск.рф/', logo: 'logos/simbirskrf.jpg'},
+    {url: 'http://www.realtime.ru/', logo: 'logos/realtimeschool.png'},
+    {url: 'http://apps4all.ru/', logo: 'logos/apps4all.png'},
+    {url: 'http://apptractor.ru/', logo: 'logos/apptractor.png'},
+    {url: 'http://gamanoid.ru/', logo: 'logos/gamanoid.png'},
+    {url: 'http://ulpressa.ru/', logo: 'logos/ulpressa.png'}
   ]
 end
