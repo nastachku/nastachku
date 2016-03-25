@@ -15,4 +15,8 @@ module Web::Admin::ApplicationHelper
   def tickets_all_price
     @tickets_all_price ||= Ticket.with_user.map(&:price).inject(&:+)
   end
+
+  def bool_mark(value)
+    value.present? ? "✓" : ""
+  end
 end

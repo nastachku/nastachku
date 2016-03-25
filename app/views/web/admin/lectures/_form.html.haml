@@ -5,6 +5,7 @@
   = f.association :workshop, as: :chosen_select, input_html: { class: 'span7 span-nomargin' }, include_blank: false
   = f.association :user, collection: User.alphabetically, as: :chosen_select, input_html: { class: 'span7 span-nomargin' }
   = f.input :notes, input_html: { class: 'span7' }
+  = f.input :move_to_top
   - if @type.user
     .control-group
       .controls
