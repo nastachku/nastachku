@@ -10,11 +10,6 @@ Sponsors.configure do |config|
     {url: 'http://www.advantshop.net/', logo: 'logos/advantshop.png'}
   ]
 
-  config.internet_title = 'Интернет-партнёр'
-  config.internet = [
-    {url: 'http://ul.ru/', logo: 'logos/ultramarine.jpg'}
-  ]
-
   config.general_title = 'Генеральный спонсор'
   config.general = [
     {url: 'http://www.microsoft.com/', logo: 'logos/microsoft_logo.png'}
@@ -35,7 +30,6 @@ Sponsors.configure do |config|
     {url: 'http://litebox.ru/', logo: 'logos/litebox.svg'},
     {url: 'https://cart-power.ru/', logo: 'logos/cart-power.svg'},
     {url: 'http://www.mobirate.com/', logo: 'logos/mobirate.png'}
-
   ]
 
   config.web_title = 'Web-партнёры'
@@ -43,14 +37,25 @@ Sponsors.configure do |config|
     {url: 'http://kontora-ivanova.ru/', logo: 'logos/kontora-ivanova.svg'}
   ]
 
+  config.internet_title = 'Интернет-партнёр'
+  config.internet = [
+    {url: 'http://ul.ru/', logo: 'logos/ultramarine.jpg'}
+  ]
+
+  config.mail_title = 'Партнер по Email-маркетингу'
+  config.mail = [
+    {url: 'http://www.1.1dma.ru/', logo: 'logos/1dma.jpg'}
+  ]
+
   config.seo_title = 'SEO-партнер'
   config.seo = [
     {url: 'http://seo.ru/', logo: 'logos/seoru.png'}
   ]
 
-  config.digital_title = 'Digital-партнер'
+  config.digital_title = 'Digital-партнеры'
   config.digital = [
-    {url: 'http://www.ruward.ru/', logo: 'logos/ruward.svg'}
+    {url: 'http://www.ruward.ru/', logo: 'logos/ruward.svg'},
+    {url: 'http://raec.ru/', logo: 'logos/raec.png'}
   ]
 
   config.analytics_title = 'Партнер по аналитике'
@@ -85,6 +90,7 @@ Sponsors.configure do |config|
     {url: 'http://apps4all.ru/', logo: 'logos/apps4all.png'},
     {url: 'http://apptractor.ru/', logo: 'logos/apptractor.png'},
     {url: 'http://gamanoid.ru/', logo: 'logos/gamanoid.png'},
-    {url: 'http://ulpressa.ru/', logo: 'logos/ulpressa.png'}
+    {url: 'http://ulpressa.ru/', logo: 'logos/ulpressa.png'},
+    {url: 'http://1ul.ru/', logo: 'logos/1UL.png'}
   ]
 end
