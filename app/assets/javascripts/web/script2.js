@@ -210,7 +210,7 @@ function hidePassedForHalls(halls) {
 function hideAllTd() {
   $("td[data-hall]").hide();
 }
-
+/*
 function contacts_next (next, prev) {
     var page=Number(next.attr('data-page')), contacts_info=$('#contacts_info');
     if (page<3) {
@@ -234,7 +234,7 @@ function contacts_prev (prev, next) {
         prev.addClass('disable');
     }
 }
-
+*/
 function showUser(_this) {
   $(_this).parent().toggleClass('open');
 }

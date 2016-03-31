@@ -1,0 +1,104 @@
+-# код страницы, взятый из wysiwyg
+.pagetitle.mainpage__title
+  .layout-line
+    %h1.pagetitle__title Контакты
+.content
+  .layout-line.layout-wrapper
+    
+    .content.contacts
+      .layout-line
+        %p
+          %b Адрес:
+          %span г.Ульяновск, Ленинский мемориал, пл. 100-летия со дня рождения В.И.Ленина, 1
+        .contacts__map
+          %a#2gis_mini_biglink{:href => "http://maps.2gis.ru/#/?history=project/ulyanovsk/center/48.40563461941,54.31981655519/zoom/16/", :title => "Организации Ульяновска"} Перейти к большой карте
+          %noscript#dg-widget-minigis-place-98a4d07c{:style => "color:#c00;font-size:16px;font-weight:bold;"} Код для вставки виджета на сайт
+          %script{:src => "http://mini.api.2gis.ru/js/ver_56fce22/loader.js"}
+          :javascript
+            new DG.Widget.Components.Loader({
+                wid: '98a4d07c',
+                params: {"projectSelector":{"id":55,"code":"ulyanovsk","name":"Ульяновск","centroid":"POINT(48.36538783112367 54.290735792596628)"},"search":{"rubrics":{"list":["_12","_18","_48","_43","_46","_10","_30","_8"],"iconsColor":"d4724b"},"_searchFirmBasePoint":{"lon":48.4056346194103,"lat":54.3198165551896},"searchBasePointName":"конференцией СТАЧКА!"},"customBalloon":{"content":"<img src=\"http://mini.api.2gis.ru/upload/images/ver_0/48/abf358c410b073a881.png\" width=\"43\" height=\"50\" />"},"Map":{"zoom":16,"lon":48.4056346194103,"lat":54.3198165551896,"customBalloon":true,"customBallonHidden":false},"resize":{"w":700,"h":430}}});
+        .contacts__links
+          %a{:href => "https://goo.gl/maps/baXJsCMsCUL2", :target => "_blank"} Посмотреть на карте Google
+        #contacts_info.contacts__info
+          %ul
+            %li.contacts__info__item
+              %h2.contacts__info__title Юридическое лицо
+              .contacts__info__desc
+                %p
+                  ООО "Стачка" Адрес: 432010, Ульяновская обл, Ульяновск г, Сиреневый проезд, дом 7А 
+                  %br/
+                  ИНН/КПП: 7328081691/732801001 ОГРН: 1147328005846
+            %li.contacts__info__item
+              %h2.contacts__info__title Связаться с оргкомитетом
+              .contacts__info__desc
+                %p +7(902)-355-55-99
+                %p
+                  info@nastachku.ru
+            %li.contacts__info__item
+              %h2.contacts__info__title Скачать файлы
+              .contacts__info__desc
+                %p
+                  %a{:href => "/system/uploads/ckeditor/attachments/166/for_sponsors_2016.PDF"} Для спонсоров
+                %h2.contacts__info__title
+                  %a{:href => "/pages/banners"} Баннеры Стачки 2016
+          %div
+            %p Вы сможете приобрести билет на V Международную IT-конференцию "Стачка" на нашем сайте. 
+            %p Всех, купивших билеты, ждём на "Стачке" 22 и 23 апреля 2016 года с 10-00 до 18-00 в Ленинском Мемориале по адресу г. Ульяновск, пл. 100-летия со дня рождения В.И.Ленина, дом 1 
+            %p Цена билета зависит от времени его приобретения. 
+            %p
+              При покупке до 31 декабря 2015 года цена 1 билета - 750 рублей.
+              %br/
+              %span с 01 по 31 января  - 1000 рублей
+              %br
+              %span с 01 по 29 февраля - 1500 рублей
+              %br
+              %span с 01 по 31 марта - 2000 рублей
+              %br
+              %span с 01 по 10 апреля - 2500 рублей
+              %br
+              с 10 по 23 апреля - 3000 рублей 
+            %p Цена билета на Афтепати:
+            %p
+              При покупке до 31 декабря 2015 года цена 1 билета - 2000 рублей
+              %br/
+              с 01 января по 31 марта - 2500 рублей
+              %br/
+              с 01 по 22 апреля - 3000 рублей
+            %p
+              %br/
+              Список интегрированных с нашим сайтом сервисов приема платежей: 
+            %div  
+            %ul.contacts__pay-list
+              %li.contacts__pay-item
+                %a.contacts__pay-link{:href => "https://kassa.yandex.ru/", :target => "_blank"}
+                  %img.contacts__pay-pic{:src => "http://nastachku.ru/images/logos/yandex.kassa.png"}  
+              %li.contacts__pay-item
+                %a.contacts__pay-link{:href => "https://payanyway.ru/", :target => "_blank"}
+                  %img.contacts__pay-pic{:src => "http://nastachku.ru/images/logos/payanyway.gif"} 
+              %li.contacts__pay-item
+                %a.contacts__pay-link{:href => "http://platidoma.ru/", :target => "_blank"}
+                  %img.contacts__pay-pic{:src => "http://nastachku.ru/images/logos/platidoma.jpg"}
+                %div   
+          %p
+            Получатель платежей: 
+            %br/
+            ООО "Стачка" Адрес: 432010, Ульяновская обл, Ульяновск г, Сиреневый проезд, дом 7А 
+            %br/
+            ИНН/КПП: 7328081691/732801001 ОГРН: 1147328005846 
+          %ul.contacts__pay-list
+            %li.contacts__pay-item
+              %img.contacts__pay-pic{:src => "/images/logos/webmoney-logo.png"}
+            %li.contacts__pay-item
+              %img.contacts__pay-pic{:src => "/images/logos/visa-logo.png", :style => "height: 34px;"}
+            %li.contacts__pay-item
+              %img.contacts__pay-pic{:src => "/images/logos/mastercard-logo.png", :style => "height: 50px;"} 
+          %p
+            %br/
+            Мы принимаем платежи по банковским картам платежных систем Visa и Master Card. Оплату гарантирует платежный агрегатор PayAnyWay. Безопасность платежей с помощью банковских карт обеспечивается технологиями защищенного соединения HTTPS и двухфакторной аутентификации пользователя 3D Secure. 
+            %br/
+            В соответствии с ФЗ «О защите прав потребителей» в случае, если вам была оказана услуга или реализован товар ненадлежащего качества, платеж может быть возвращен на банковскую карту, с которой производилась оплата.
+          %p
+            %a{:href => "/system/uploads/ckeditor/attachments/149/oferta_strike16.pdf"} Публичная оферта по организации участия слушателей в  Международной IT-конференции «Стачка»
+          %p
+            %a{:href => "/system/uploads/ckeditor/attachments/150/oferta_after_party16.pdf"} Публичная оферта по организации участия слушателей в мероприятии «After Party» в рамках Международной IT-конференции «Стачка»
