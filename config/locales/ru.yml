@@ -20,6 +20,10 @@ ru:
       full: "%Y-%m-%d %H:%M:%S"
       minutes: "%M"
 
+  date:
+    formats:
+      date_and_month: "%e %B"
+
   layouts:
     web:
       shared:
@@ -54,6 +58,8 @@ ru:
           logout: "Разлогиниться"
           login: 'Войти на сайт'
         plaha:
+          price_upto: "до %{date} — %{price}р."
+          price: "%{price}р."
           buy_a_ticket: "Купить билет!"
           we_waiting_for_you: "Ждём Вас на Стачке!"
           boy_shirt_costs: Стоимость футболки 450
