@@ -91,6 +91,7 @@ Sponsors.configure do |config|
     {url: 'http://apptractor.ru/', logo: 'logos/apptractor.png'},
     {url: 'http://gamanoid.ru/', logo: 'logos/gamanoid.png'},
     {url: 'http://ulpressa.ru/', logo: 'logos/ulpressa.png'},
-    {url: 'http://1ul.ru/', logo: 'logos/1UL.png'}
+    {url: 'http://1ul.ru/', logo: 'logos/1UL.png'},
+    {url: 'http://artsoda.ru/', logo: 'logos/soda.png'}
   ]
 end
