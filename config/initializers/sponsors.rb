@@ -10,6 +10,18 @@ Sponsors.configure do |config|
     {url: 'http://www.advantshop.net/', logo: 'logos/advantshop.png'}
   ]
 
+  config.strategy_title = 'Стратегические партнёры'
+  config.strategy = [
+    {url: 'http://ulgov.ru/', logo: 'logos/ulgov.jpg'},
+    {url: 'http://seo.ru/', logo: 'logos/seoru.png'},
+    {url: 'http://e-ul.ru/', logo: 'logos/el_ul.jpg'}
+  ]
+
+  config.syberfootball_title = 'Федерация киберфутбола России'
+  config.syberfootball = [
+    {url: 'https://vk.com/cyberfootball_russia', logo: 'logos/cyberfootball.png'}
+  ]
+
   config.general_title = 'Генеральный спонсор'
   config.general = [
     {url: 'http://www.microsoft.com/', logo: 'logos/microsoft_logo.png'}
@@ -37,19 +49,15 @@ Sponsors.configure do |config|
     {url: 'http://kontora-ivanova.ru/', logo: 'logos/kontora-ivanova.svg'}
   ]
 
-  config.internet_title = 'Интернет-партнёр'
+  config.internet_title = 'Интернет-партнёры'
   config.internet = [
-    {url: 'http://ul.ru/', logo: 'logos/ultramarine.jpg'}
+    {url: 'http://ul.ru/', logo: 'logos/ultramarine.jpg'},
+    {url: 'https://rt.ru/', logo: 'logos/rt.jpg'}
   ]
 
   config.mail_title = 'Партнер по Email-маркетингу'
   config.mail = [
     {url: 'http://www.1.1dma.ru/', logo: 'logos/1dma.jpg'}
-  ]
-
-  config.seo_title = 'SEO-партнер'
-  config.seo = [
-    {url: 'http://seo.ru/', logo: 'logos/seoru.png'}
   ]
 
   config.digital_title = 'Digital-партнеры'
