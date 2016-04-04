@@ -29,6 +29,8 @@
       %th= sort_link(@search, :workshop)
       %th= sort_link(@search, :listener_votings_count)
       %th= sort_link(@search, :lecture_votings_count)
+      %th Проголосовавших с билетом
+      %th Проголосовавших без билета
       %th Голосов в фидбеке
       %th Средний голос
       %th= Lecture.human_attribute_name(:move_to_top)
@@ -45,6 +47,8 @@
         %td= lecture.workshop.try(:title)
         %td= lecture.listener_votings.size
         %td= lecture.lecture_votings.size
+        %td= lecture.lecture_votings.select{|vote| vote.user.ticket.present? }.count
+        %td= lecture.lecture_votings.select{|vote| vote.user.ticket.blank? }.count
         %td= lecture.feedbacks.size
         %td= lecture.average_feedback_vote
         %td= bool_mark(lecture.move_to_top)
