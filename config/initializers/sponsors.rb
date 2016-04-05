@@ -14,7 +14,8 @@ Sponsors.configure do |config|
   config.strategy = [
     {url: 'http://ulgov.ru/', logo: 'logos/ulgov.jpg'},
     {url: 'http://seo.ru/', logo: 'logos/seoru.png'},
-    {url: 'http://e-ul.ru/', logo: 'logos/el_ul.jpg'}
+    {url: 'http://e-ul.ru/', logo: 'logos/el_ul.jpg'},
+    {url: 'http://ritg.ru/', logo: 'logos/russian-it-group.png'}
   ]
 
   config.syberfootball_title = 'Федерация киберфутбола России'
@@ -29,7 +30,9 @@ Sponsors.configure do |config|
 
   config.platin_title = 'Платиновые спонсоры'
   config.platin = [
-    {url: 'http://restream.rt.ru/', logo: 'logos/restream.svg'}
+    {url: 'http://restream.rt.ru/', logo: 'logos/restream.svg'},
+    {url: '', logo: 'logos/skoro-logo.png'}
+
   ]
 
   config.gold_title = 'Золотые спонсоры'
@@ -100,6 +103,7 @@ Sponsors.configure do |config|
     {url: 'http://gamanoid.ru/', logo: 'logos/gamanoid.png'},
     {url: 'http://ulpressa.ru/', logo: 'logos/ulpressa.png'},
     {url: 'http://1ul.ru/', logo: 'logos/1UL.png'},
-    {url: 'http://artsoda.ru/', logo: 'logos/soda.png'}
+    {url: 'http://artsoda.ru/', logo: 'logos/soda.png'},
+    {url: 'http://www.umi-cms.ru/', logo: 'logos/umi-cms.png'}
   ]
 end
