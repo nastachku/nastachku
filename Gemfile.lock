@@ -24,6 +24,13 @@ GIT
       resque
       resque-scheduler
 
+GIT
+  remote: git://github.com/vemperor/gabba.git
+  revision: 30078452bc1812b8672f3599920c0c5954cab8b1
+  specs:
+    gabba (1.0.1)
+      net-http-persistent (~> 2.9)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -188,7 +195,6 @@ GEM
       dotenv (~> 1.0.2)
       thor (~> 0.19.1)
     fssm (0.2.10)
-    gabba (1.0.1)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     gon (5.2.3)
@@ -269,6 +275,7 @@ GEM
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    net-http-persistent (2.9.4)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
@@ -519,7 +526,7 @@ DEPENDENCIES
   factory_girl_rails
   factory_girl_sequences
   foreman
-  gabba
+  gabba!
   gon
   google-analytics-rails
   haml-rails

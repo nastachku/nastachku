@@ -59,7 +59,7 @@ gem 'smarter_csv'
 gem 'weary'
 gem 'mail_view', '~> 2.0.4'
 gem 'auto_strip_attributes', '~> 2.0'
-gem 'gabba'
+gem 'gabba', github: 'vemperor/gabba'
 gem 'underscore-rails'
 
 gem 'sass-rails', '~> 4.0.2'
