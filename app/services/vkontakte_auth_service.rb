@@ -1,6 +1,6 @@
 class VkontakteAuthService
   class << self
-    def register(auth_hash)
+    def register(auth_hash, cookies)
       attrs = user_attrs(auth_hash)
       authorization = Authorization.where(provider: auth_hash[:provider], uid: auth_hash[:uid])
                                    .first_or_initialize
@@ -19,7 +19,7 @@ class VkontakteAuthService
 
       if user.new?
         user.activate!
-        GoogleAnalyticsClient.register_event(user)
+        GoogleAnalyticsClient.register_event(user, cookies)
       end
 
       if user.vkontakte.blank?

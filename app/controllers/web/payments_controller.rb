@@ -25,8 +25,10 @@ class Web::PaymentsController < Web::ApplicationController
     order = Order.find_by(number: order_number)
 
     if order.buy_now?
+      GoogleAnalyticsClient.buy_now_event(order, cookies)
       redirect_to success_buy_now_path(order_number: order_number)
     else
+      GoogleAnalyticsClient.buy_event(order, cookies)
       redirect_to edit_account_path anchor: :orders
     end
   end
@@ -74,8 +76,10 @@ class Web::PaymentsController < Web::ApplicationController
     order = Order.find_by(number: order_number)
 
     if (order && order.buy_now?) || (!order && !signed_in?)
+      GoogleAnalyticsClient.buy_now_event(order, cookies)
       redirect_to success_buy_now_path(order_number: order_number)
     else
+      GoogleAnalyticsClient.buy_event(order, cookies)
       redirect_to edit_account_path anchor: :orders
     end
   end

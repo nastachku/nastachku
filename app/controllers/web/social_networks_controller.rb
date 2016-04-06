@@ -2,7 +2,7 @@
 class Web::SocialNetworksController < Web::ApplicationController
   def auth
     social_network_service_name = params[:provider].titleize + "AuthService"
-    user = social_network_service_name.constantize.register(auth_hash)
+    user = social_network_service_name.constantize.register(auth_hash, cookies)
 
     if user.inactive?
       flash_notice
