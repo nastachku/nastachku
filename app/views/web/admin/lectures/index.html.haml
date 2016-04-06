@@ -47,8 +47,8 @@
         %td= lecture.workshop.try(:title)
         %td= lecture.listener_votings.size
         %td= lecture.lecture_votings.size
-        %td= lecture.lecture_votings.select{|vote| vote.user.ticket.present? }.count
-        %td= lecture.lecture_votings.select{|vote| vote.user.ticket.blank? }.count
+        %td= lecture.lecture_votings.select{|vote| vote.user && vote.user.ticket.present? }.count
+        %td= lecture.lecture_votings.select{|vote| vote.user && vote.user.ticket.blank? }.count
         %td= lecture.feedbacks.size
         %td= lecture.average_feedback_vote
         %td= bool_mark(lecture.move_to_top)
