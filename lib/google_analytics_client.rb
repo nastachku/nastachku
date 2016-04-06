@@ -1,7 +1,7 @@
 module GoogleAnalyticsClient
   class << self
-    def test_event
-      send_event("Test", "Test Event", 42)
+    def test_event(cookies = {})
+      send_event("Test", "Test Event", 42, cookies)
     end
 
     def register_event(user, cookies = {})
@@ -51,7 +51,7 @@ module GoogleAnalyticsClient
 
     def send_event(category, action, label = nil, cookies = {})
       cid = extract_cid_from_cookies(cookies)
-      event_params = [category, action, label, nil, false, nil, {cid: 1}]
+      event_params = [category, action, label, nil, false, nil, {cid: cid}]
       begin
         client = Gabba::Gabba.new("UA-38587983-1", configus.analytics.host)
         client.event(*event_params)
