@@ -5,37 +5,37 @@ module GoogleAnalyticsClient
     end
 
     def register_event(user, cookies = {})
-      send_event("Пользователь", "Регистрация", user.id)
+      send_event("Пользователь", "Регистрация", user.id, cookies)
     end
 
     def buy_event(order, cookies = {})
       user = order.user
 
       if order.tickets.exists?
-        send_event("Покупка", "Билет на конференцию", user.id)
+        send_event("Покупка", "Билет на конференцию", user.id, cookies)
       end
 
       if order.afterparty_tickets.exists?
-        send_event("Покупка", "Билет на вечеринку", user.id)
+        send_event("Покупка", "Билет на вечеринку", user.id, cookies)
       end
     end
 
-    def buy_now_event(order, cookies = {})
+    def buy_now_event(order = nil, cookies = {})
       if order.tickets.exists?
-        send_event("Покупка", "Билет на конференцию (без регистрации)", nil)
+        send_event("Покупка", "Билет на конференцию (без регистрации)", nil, cookies)
       end
 
       if order.afterparty_tickets.exists?
-        send_event("Покупка", "Билет на вечеринку (без регистрации)", nil)
+        send_event("Покупка", "Билет на вечеринку (без регистрации)", nil, cookies)
       end
     end
 
     def conference_code_activation_event(user, cookies = {})
-      send_event("Пользователь", "Активация кода билета на конференцию", user.id)
+      send_event("Пользователь", "Активация кода билета на конференцию", user.id, cookies)
     end
 
     def party_code_activation_event(user, cookies = {})
-      send_event("Пользователь", "Активация кода билета на вечеринку", user.id)
+      send_event("Пользователь", "Активация кода билета на вечеринку", user.id, cookies)
     end
 
     private
