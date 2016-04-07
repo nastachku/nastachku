@@ -85,8 +85,10 @@ class Web::Account::OrdersController < Web::Account::ApplicationController
     end
 
     if order.buy_now?
+      GoogleAnalyticsClient.buy_now_event(order, cookies)
       redirect_to new_buy_now_path
     else
+      GoogleAnalyticsClient.buy_event(order, cookies)
       redirect_to edit_account_path anchor: :orders
     end
   end

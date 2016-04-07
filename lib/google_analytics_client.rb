@@ -1,52 +1,43 @@
 module GoogleAnalyticsClient
+  extend GoogleAnalyticsClient::GaEvent
+
   class << self
-    def test_event
-      send_event("Test", "Test Event", 42)
+    def test_event(cookies = {})
+      send_event("Test", "Test Event", 42, nil, cookies)
     end
 
-    def register_event(user)
-      send_event("Пользователь", "Регистрация", user.id)
+    def register_event(user, cookies = {})
+      send_event("Пользователь", "Регистрация", user.id, nil, cookies)
     end
 
-    def buy_event(order)
+    def buy_event(order, cookies = {})
       user = order.user
 
       if order.tickets.exists?
-        send_event("Покупка", "Билет на конференцию", user.id)
+        send_event("Покупка", "Билет на конференцию", user.id, nil, cookies)
       end
 
       if order.afterparty_tickets.exists?
-        send_event("Покупка", "Билет на вечеринку", user.id)
+        send_event("Покупка", "Билет на вечеринку", user.id, nil, cookies)
       end
     end
 
-    def buy_now_event(order)
+    def buy_now_event(order = nil, cookies = {})
       if order.tickets.exists?
-        send_event("Покупка", "Билет на конференцию (без регистрации)", nil)
+        send_event("Покупка", "Билет на конференцию (без регистрации)", nil, nil, cookies)
       end
 
       if order.afterparty_tickets.exists?
-        send_event("Покупка", "Билет на вечеринку (без регистрации)", nil)
+        send_event("Покупка", "Билет на вечеринку (без регистрации)", nil, nil, cookies)
       end
     end
 
-    def conference_code_activation_event(user)
-      send_event("Пользователь", "Активация кода билета на конференцию", user.id)
+    def conference_code_activation_event(user, cookies = {})
+      send_event("Пользователь", "Активация кода билета на конференцию", user.id, nil, cookies)
     end
 
-    def party_code_activation_event(user)
-      send_event("Пользователь", "Активация кода билета на вечеринку", user.id)
-    end
-
-    private
-
-    def send_event(*event_params)
-      begin
-        client = Gabba::Gabba.new("UA-38587983-1", configus.analytics.host)
-        client.event(*event_params)
-      rescue
-        # well, it's just analytics, so let it crash
-      end
+    def party_code_activation_event(user, cookies = {})
+      GoogleAnalyticsClient::Event.send_event("Пользователь", "Активация кода билета на вечеринку", user.id, nil, cookies)
     end
   end
 end
