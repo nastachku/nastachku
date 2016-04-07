@@ -1,3 +1,5 @@
+require Rails.root.join('lib', 'gabba', 'gabba')
+
 module GoogleAnalyticsClient
   class << self
     def test_event(cookies = {})
