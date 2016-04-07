@@ -37,7 +37,7 @@ module GoogleAnalyticsClient
     end
 
     def party_code_activation_event(user, cookies = {})
-      GoogleAnalyticsClient::Event.send_event("Пользователь", "Активация кода билета на вечеринку", user.id, nil, cookies)
+      send_event("Пользователь", "Активация кода билета на вечеринку", user.id, nil, cookies)
     end
   end
 end
