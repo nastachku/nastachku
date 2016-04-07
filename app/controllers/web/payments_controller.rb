@@ -1,17 +1,6 @@
 class Web::PaymentsController < Web::ApplicationController
-  skip_before_filter :basic_auth_if_staging, only: [
-                       :paid_payanyway, :success_payanyway,
-                       :decline_payanyway, :cancel_payanyway,
-                       :check_order_yandexkassa, :payment_aviso_yandexkassa,
-                       :success_yandexkassa, :fail_yandexkassa
-                     ]
-
-  skip_before_filter :verify_authenticity_token, only: [
-                       :paid_payanyway, :success_payanyway,
-                       :decline_payanyway, :cancel_payanyway,
-                       :check_order_yandexkassa, :payment_aviso_yandexkassa,
-                       :success_yandexkassa, :fail_yandexkassa
-                     ]
+  skip_before_filter :basic_auth_if_staging
+  skip_before_filter :verify_authenticity_token
 
   ## PAYANYWAY
 
@@ -36,8 +25,10 @@ class Web::PaymentsController < Web::ApplicationController
     order = Order.find_by(number: order_number)
 
     if order.buy_now?
+      GoogleAnalyticsClient.buy_now_event(order, cookies)
       redirect_to success_buy_now_path(order_number: order_number)
     else
+      GoogleAnalyticsClient.buy_event(order, cookies)
       redirect_to edit_account_path anchor: :orders
     end
   end
@@ -85,8 +76,10 @@ class Web::PaymentsController < Web::ApplicationController
     order = Order.find_by(number: order_number)
 
     if (order && order.buy_now?) || (!order && !signed_in?)
+      GoogleAnalyticsClient.buy_now_event(order, cookies)
       redirect_to success_buy_now_path(order_number: order_number)
     else
+      GoogleAnalyticsClient.buy_event(order, cookies)
       redirect_to edit_account_path anchor: :orders
     end
   end
