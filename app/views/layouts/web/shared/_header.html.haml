@@ -22,7 +22,7 @@
       %a{ href: schedule_path, title: "Программа" } Программа
       %a{ href: users_path, title: "Участники" } Участники
       %a{ href: speaker_index_path, title: "Спикерам" } Спикерам
-      %a{ href: "/pages/contacts", title: "Контакты" } Контакты
+      %a{ href: contacts_path, title: "Контакты" } Контакты
     .header__login
       - unless signed_in?
         = content_tag :span, t(".login"), class: 'btn_main btn_main-auth open_popup', data: {popup: "auth"}, style: "color: white;"

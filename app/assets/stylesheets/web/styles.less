@@ -1786,7 +1786,7 @@ footer {
 
 ////////////////////////////////////////// CONTACTS
 .contacts {
-    border-bottom: 1px solid #e5e5e5;
+    //border-bottom: 1px solid #e5e5e5;
 }
 .contacts__address {
     height: 40px;
@@ -1809,17 +1809,19 @@ footer {
 .contacts__links {display: none}
 .contacts__info__item {
     width: 27.5%;
-    min-height: 250px;
+    min-height: 125px;
     padding-left: 3.5%;
     padding-right: 3%;
     display: inline-block;
     vertical-align: top;
     border-left: 1px solid #e5e5e5;
+    padding-bottom: 32px;
+    margin-top: 20px;
     &:first-child {
         border-left: 0;
         padding-left: 0;
         p:first-child {
-            margin-bottom: 25px;
+            //margin-bottom: 25px;
         }
     }
 }
@@ -1827,9 +1829,48 @@ footer {
     font-size: 1.1875em;
     font-family: @roboto_med;
     color: #383838;
-    margin-top: 32px;
+    margin-top: 24px;
 }
-
+.contacts__pay-list {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin: 0px auto;
+    min-height: 100px;
+    overflow: hidden;
+    text-align: center;
+    list-style: none;
+    color: rgb(68, 68, 68);
+    font-family: 'Open Sans', Calibri, Candara, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 28px;
+}
+.contacts__pay-item {
+    line-height: 104px; 
+    display: inline-block; 
+    background-image: url(http://nastachku.ru/images/logos_pl.png); 
+    width: 224px; 
+    height: 104px; 
+    vertical-align: top; 
+    margin: 0px 7px 15px; 
+    text-align: center; 
+    background-position: 0px 0px; 
+    background-repeat: no-repeat;
+}
+.contacts__pay-link {
+    text-decoration: none; 
+    display: block; 
+    width: 224px; 
+    height: 104px; 
+    color: rgb(212, 114, 75) !important;
+}
+.contacts__pay-pic {
+    max-width: 210px;
+    max-height: 90px;
+    height: auto;
+    vertical-align: middle;
+    border-width: 0px;
+    display: inline-block;
+}
 .contacts__info__desc p {
     font-size: .9375em;
     margin: 4px 0;
