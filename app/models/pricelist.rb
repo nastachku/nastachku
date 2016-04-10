@@ -9,7 +9,7 @@ class Pricelist
       1500
     elsif before(2016, 04, 01)
       2000
-    elsif before(2016, 04, 11)
+    elsif before(2016, 04, 13)
       2500
     elsif before(2016, 04, 24)
       3000
