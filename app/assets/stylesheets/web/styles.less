@@ -1512,6 +1512,7 @@ footer {
     }
 
     td {
+        word-wrap: break-word;
         border-left: 1px solid #eaeaeb;
         padding-top: 10px;
         width: 12%;
@@ -1554,7 +1555,12 @@ footer {
 
 .programm__schedule__lectures__lecture {
     cursor: pointer;
-    width: 88%;
+    @media (min-width: 980px) {
+      width: 70px;
+    }
+    @media (max-width: 979px) {
+      width: 88%;
+    }
     padding-left: 6%;
     border-left: 4px solid #cbcbcb;
     min-height: 120px;
@@ -1845,22 +1851,22 @@ footer {
     line-height: 28px;
 }
 .contacts__pay-item {
-    line-height: 104px; 
-    display: inline-block; 
-    background-image: url(http://nastachku.ru/images/logos_pl.png); 
-    width: 224px; 
-    height: 104px; 
-    vertical-align: top; 
-    margin: 0px 7px 15px; 
-    text-align: center; 
-    background-position: 0px 0px; 
+    line-height: 104px;
+    display: inline-block;
+    background-image: url(http://nastachku.ru/images/logos_pl.png);
+    width: 224px;
+    height: 104px;
+    vertical-align: top;
+    margin: 0px 7px 15px;
+    text-align: center;
+    background-position: 0px 0px;
     background-repeat: no-repeat;
 }
 .contacts__pay-link {
-    text-decoration: none; 
-    display: block; 
-    width: 224px; 
-    height: 104px; 
+    text-decoration: none;
+    display: block;
+    width: 224px;
+    height: 104px;
     color: rgb(212, 114, 75) !important;
 }
 .contacts__pay-pic {
@@ -2682,7 +2688,7 @@ margin-top: 23px;
 .mainpage__sections {
    &--noborder {
     border-bottom: none;
-   } 
+   }
 }
 
 .title--border {

@@ -28,7 +28,7 @@
         - now = configus.now_time
         - if now > start_time && now < finish_time
           %tr.current_time_line_tr{data: {time: now.to_i}}
-            %td{colspan: 10}
+            %td{colspan: @halls.count + 1}
               .show_passed{onclick: "showPassedClick(this)"}
                 .show_text
                   Показать прошедшие
