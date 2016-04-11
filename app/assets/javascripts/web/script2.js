@@ -21,8 +21,17 @@ function setNextAndPrevButtons(page, enableAll, disablePrev){
       }
 }
 
+function chunkArray (array, size) {
+  return array.reduce(function (res, item, index) {
+    if (index % size === 0) { res.push([]); }
+    res[res.length-1].push(item);
+    return res;
+  }, []);
+}
 
 function showAdapticTable() {
+    var hallCount = gon.hall_count;
+    var hallIdArray = _.range(1, hallCount+1);
     changeCurrentTimeLine();
     var table_class = $("dd.selected table").attr('class');
     if (table_class) {
@@ -39,21 +48,20 @@ function showAdapticTable() {
       }
       hideAllTd();
       if (check_width(604)) {
-        setNextAndPrevButtons(page, (page != 1 && page != 8), (page == 1))
+        setNextAndPrevButtons(page, (page != 1 && page != hallCount), (page == 1));
         showTdOfTable([page]);
       } else if (check_width(964)) {
         if(page > 2) {
           setPageOne();
         }
         if(page == 1) {
+          hallIdArray
           showTdOfTable([1,2,3,4]);
         } else if (page == 2) {
           showTdOfTable([5,6,7,8]);
         }
       } else {
         setPageOne();
-        var hallCount = gon.hall_count;
-        var hallIdArray = _.range(1, hallCount+1);
         showTdOfTable(hallIdArray);
       }
     }
