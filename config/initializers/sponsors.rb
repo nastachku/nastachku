@@ -44,7 +44,10 @@ Sponsors.configure do |config|
   config.silver = [
     {url: 'http://litebox.ru/', logo: 'logos/litebox.svg'},
     {url: 'https://cart-power.ru/', logo: 'logos/cart-power.svg'},
-    {url: 'http://www.mobirate.com/', logo: 'logos/mobirate.png'}
+    {url: 'http://www.mobirate.com/', logo: 'logos/mobirate.png'},
+    {url: 'http://www.1c-bitrix.ru/', logo: 'logos/bitrix.png'},
+    {url: 'http://unity3d.com/ru/', logo: 'logos/unity.png'},
+    {url: 'http://about.gitlab.com/', logo: 'logos/gitlab.png'}
   ]
 
   config.web_title = 'Web-партнёры'
