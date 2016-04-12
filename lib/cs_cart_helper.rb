@@ -4,6 +4,9 @@ module CsCartHelper
   include CsCart::Client
 
   def auth_cs_cart_valid_user?(user)
+    #NOTE: костыль, но уже пофиг. Надо это в конфигас вытащить.
+    return if Rails.env.development? || Rails.env.test?
+
     user.id.present? && user.first_name.present? && user.last_name.present? && user.email.present?
   end
 
