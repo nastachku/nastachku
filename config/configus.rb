@@ -142,6 +142,8 @@ Configus.build Rails.env do
   end
 
   env :test, parent: :production do
+    redis_host 'redis'
+
     platidoma do
       host 'pg-test.platidoma.ru'
     end
