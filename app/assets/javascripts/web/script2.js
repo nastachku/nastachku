@@ -4,7 +4,7 @@
  * dev.firsov@gmail.com
  */
 
-var mobileBreakpoint = 800; // 604
+var mobileBreakpoint = 900; // 604
 var midScreenBreakpoint = 1440; // 964
 
 function setNextAndPrevButtons(page, enableAll, disablePrev){

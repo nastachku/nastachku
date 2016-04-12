@@ -1,4 +1,5 @@
 @import "fonts.css";
+@import "web/_width_breakpoints";
 
 ////////////////////////////////////////// CONST
 @maincolor: #333;
@@ -227,10 +228,10 @@ header {
 .btn_main-menu {display: none}
 .btn_main-pay-btn {
   width: 172px;
-  @media (min-width: 620px) and (max-width: 1070px) {
+  @media (min-width: @small-width) and (max-width: @mid-width) {
     width: 100px;
   }
-  @media (max-width: 619px) {
+  @media (max-width: @small-width) {
     margin-top: 15px;
   }
 }
@@ -2549,7 +2550,7 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
   margin-top: -180px;
   padding: 0 6%;
 
-  @media (max-width: 979px) {
+  @media (max-width: @mid-width) {
     padding: 0;
     margin-top: -240px;
   }
@@ -2557,7 +2558,7 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
   input.input_type-1 {
     width: 60%;
 
-    @media (max-width: 979px) {
+    @media (max-width: @mid-width) {
       width: 55%;
     }
   }
@@ -2566,7 +2567,7 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
     width: 33%;
     height: 40px;
     line-height: 37px;
-    @media (max-width: 979px) {
+    @media (max-width: @mid-width) {
       width: 30%;
       min-width: 110px;
     }
@@ -2698,8 +2699,8 @@ margin-top: 23px;
     border-top: 1px solid #e1e1e1;
     border-bottom: 1px solid #e1e1e1;
 }
-@import "web/0-620";
-@import "web/0-979";
-@import "web/1200-";
-@import "web/620-979.less";
-@import "web/980-1200.less";
+@import "web/small-width";
+@import "web/small-mid-width";
+@import "web/mid-width.less";
+@import "web/large-width.less";
+@import "web/very-large-width";
