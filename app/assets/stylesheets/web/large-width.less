@@ -1,0 +1,83 @@
+@import "web/_width_breakpoints";
+
+@media (max-width: @large-width) {
+    .margin_of_information {
+        height: 86px;
+    }
+    .mainpage__social {
+        display: none;
+    }
+}
+
+@media (min-width: @mid-width) and (max-width: @large-width) {
+    .mainadv__banner__dollar {
+      .mainadv__banner();
+      background: white url('/assets/web/mainadv-banner-bg-ok.jpg') 100% 100% no-repeat;
+    }
+
+    .mainadv__banner__ok {
+      .mainadv__banner();
+      background: white url('/assets/web/mainadv-banner-bg-ok.jpg') 100% 100% no-repeat;
+    }
+
+    .mainadv__banner__girl {
+      .mainadv__banner();
+      h2 {
+        margin-top: 100px;
+      }
+      background: white url('/assets/web/mainadv-banner-bg-girl.jpg') 100% 20% no-repeat;
+    }
+
+    .mainadv__banner__boy {
+      .mainadv__banner();
+      h2 {
+        margin-top: 100px;
+      }
+      background: white url('/assets/web/mainadv-banner-bg-boy.jpg') 100% 20% no-repeat;
+    }
+    .margin_of_information {
+        height: 86px;
+    }
+    .header__logo {margin-top: 20px; width: 17.8%}
+    .header__nav {
+        a {
+            padding-left: 1.2%;
+            padding-right: 1.2%;
+        }
+    }
+    .header__login {
+        .btn_main {
+            width: 160px;
+            background-position: 34px 22px;
+        }
+    }
+    .company__logos li {
+        height: 200px;
+    }
+    .programm__filter__checkboxs li:nth-child(1) .checkbox_type-2 + label::before {
+        margin-top: 3px;
+    }
+  .speaker_table{
+    font-size: 0;
+    li {
+      width: 33.33%;
+      margin-bottom: 15px;
+    }
+  }
+  ul.ul_inline {
+    font-size: 0;
+    margin-bottom: 30px;
+  }
+  ul.ul_inline li {
+    width: 33.33%;
+  }
+  .statistics_box {
+    width: 100%;
+  }
+  .statistics_text {
+    max-width: 100%;
+  }
+  .company__logos ul {
+    width: 100% !important;
+  }
+}
