@@ -21,9 +21,9 @@
             %th
               .hall-circle
                 = ('A'..'Z').to_a[index]
-              = hall.title
+              %span.hall-title= hall.title
           %th
-            %span.programm__next{ data: { page: "1" }}
+            %span.programm__next{ data: { page: "2" }}
       %tbody
         - now = configus.now_time
         - if now > start_time && now < finish_time

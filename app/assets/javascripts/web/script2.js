@@ -3,6 +3,10 @@
  * mihailfirsov.ru
  * dev.firsov@gmail.com
  */
+
+var mobileBreakpoint = 800; // 604
+var midScreenBreakpoint = 1440; // 964
+
 function setNextAndPrevButtons(page, enableAll, disablePrev){
   var $next = $('.programm__next'), $prev=$('.programm__prev');
   $next.attr('data-page', page);
@@ -29,6 +33,15 @@ function chunkArray (array, size) {
   }, []);
 }
 
+function hallPages () {
+  var hallCount = gon.hall_count;
+  var halfHallCount = Math.ceil(hallCount / 2);
+  var hallIdArray = _.range(1, hallCount+1);
+  var hallPages = chunkArray(hallIdArray, halfHallCount);
+
+  return hallPages;
+}
+
 function showAdapticTable() {
   var hallCount = gon.hall_count;
   var hallCount = gon.hall_count;
@@ -48,10 +61,10 @@ function showAdapticTable() {
       setPageOne();
     }
     hideAllTd();
-    if (check_width(604)) {
+    if (check_width(mobileBreakpoint)) {
       setNextAndPrevButtons(page, (page != 1 && page != hallCount), (page == 1));
       showTdOfTable([page]);
-    } else if (check_width(964)) {
+    } else if (check_width(midScreenBreakpoint)) {
       if(page > 2) {
         setPageOne();
       }
@@ -83,7 +96,7 @@ jQuery(document).ready(function ($) {
   });
   showAdapticTable();
   $(window).on("load resize", function (){
-    if (check_width(604)) {
+    if (check_width(mobileBreakpoint)) {
       var options = {
         pagingNav: false,
         scrollbar: false,
@@ -135,7 +148,7 @@ function check_width (data_width) {
 
 function programm_next (next, prev) {
   var page=Number(next.attr('data-page'));
-  if (check_width(604)) {
+  if (check_width(mobileBreakpoint)) {
     if (page<gon.hall_count){
       if (page==gon.hall_count-1) next.addClass('disable');
       next.attr('data-page', (page + 1));
@@ -144,23 +157,20 @@ function programm_next (next, prev) {
       // то, что выше - может не работать как надо
       showTdOfTable([page+1]);
     }
-  } else if (check_width(964)) {
-    if (page==1) {
+  } else if (check_width(midScreenBreakpoint)) {
+    console.log('next', page);
+    // if (page==2) {
       next.addClass('disable').attr('data-page',2);
       prev.removeClass('disable').attr('data-page',2);
       next.parents('table').attr('class','page-2');
-      var hallCount = gon.hall_count;
-      var halfHallCount = Math.ceil(hallCount / 2);
-      var hallIdArray = _.range(1, hallCount+1);
-      var hallPages = chunkArray(hallIdArray, halfHallCount);
-      showTdOfTable(hallPages[1]);
-    }
+      showTdOfTable(hallPages()[1]);
+    // }
   }
 }
 
 function programm_prev (prev, next) {
   var page=Number(prev.attr('data-page'));
-  if (check_width(604)) {
+  if (check_width(mobileBreakpoint)) {
     if (page>1){
       if (page==2) prev.addClass('disable');
       prev.attr('data-page', (page - 1));
@@ -169,13 +179,14 @@ function programm_prev (prev, next) {
       // то, что выше - может не работать как надо
       showTdOfTable([page-1]);
     }
-  } else if (check_width(964)) {
-    if (page==2) {
+  } else if (check_width(midScreenBreakpoint)) {
+    console.log('prev', page);
+    // if (page==1) {
       next.removeClass('disable').attr('data-page',1);
       prev.addClass('disable').attr('data-page',1);
-      next.parents('table').attr('class','page-1')
-      showTdOfTable([1,2,3,4]);
-    }
+      next.parents('table').attr('class','page-1');
+      showTdOfTable(hallPages()[0]);
+    // }
   }
 }
 
