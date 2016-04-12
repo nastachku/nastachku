@@ -3,7 +3,7 @@ require 'resque/server'
 require 'resque/scheduler'
 require 'resque/scheduler/server'
 
-Resque.redis = 'localhost:6379'
+Resque.redis = "#{configus.redis_host}:6379"
 
 Resque::Mailer.excluded_environments = [:test, :cucumber]
 

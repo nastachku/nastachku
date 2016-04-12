@@ -5,6 +5,8 @@ Configus.build Rails.env do
   credentials_hash = YAML.load(File.read("config/credentials.yml"))
 
   env :production do
+    redis_host 'localhost'
+
     analytics do
       host 'nastachku.ru'
     end
@@ -96,6 +98,8 @@ Configus.build Rails.env do
   end
 
   env :development, parent: :production do
+    redis_host 'redis'
+
     move_to_top_count 2
 
     now_time -> {Time.zone.now + 16.hours}
@@ -138,6 +142,8 @@ Configus.build Rails.env do
   end
 
   env :test, parent: :production do
+    redis_host 'redis'
+
     platidoma do
       host 'pg-test.platidoma.ru'
     end
@@ -149,6 +155,8 @@ Configus.build Rails.env do
   end
 
   env :staging, parent: :production do
+    redis_host 'localhost'
+
     now_time -> {Time.zone.now + 16.hours}
 
     analytics do

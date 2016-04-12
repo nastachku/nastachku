@@ -1,0 +1,131 @@
+@import "web/_width_breakpoints";
+
+@media (max-width: @mid-width) { ////////////////////////////////////////// 320, 640
+
+    .layout-line {
+        padding: 0;
+    }
+
+
+    .margin_of_information {
+        margin-top: 0px;
+        height: 65px;
+    }
+
+    ////////////////////////////////////////// INFOLINE
+
+
+    ////////////////////////////////////////// MAIN ADV
+    .mainadv__banner {
+        width: 90%;
+        left: 5%;
+        margin-left: 0;
+        background: white;
+        text-align: center;
+    }
+
+    .mainadv__banner__dollar {
+       .mainadv__banner();
+    }
+
+    .mainadv__banner__ok {
+       .mainadv__banner();
+    }
+
+    ////////////////////////////////////////// POPUPS
+    .popup__auth {
+        top: 5%;
+        margin-top: 0;
+    }
+
+    ///////////////////////////////////////// OTHER
+    .pagetitle__title {text-align: center}
+
+    //////////////////////////////////////// PROGRAMM
+    .programm__prev, .programm__next {
+        position: relative;
+        display: block;
+        width: 55px;
+        height: 55px;
+        background-color: black;
+        cursor: pointer;
+        &.disable {
+            &:after {opacity: .5}
+        }
+        &:after {
+            content: '';
+            top: 24px;
+            position: absolute;
+            width: 0;
+            height: 0;
+        }
+    }
+
+    .programm__prev {
+        border-right: 1px solid @maincolor;
+        &:after {
+            left: 18px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid white;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+    }
+
+    .programm__next {
+        border-left: 1px solid @maincolor;
+        &:after {
+            right: 20px;
+            border-left: 5px solid white;
+            border-right: 5px solid transparent;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+    }
+
+    .programm__timer {top: 55px}
+
+    ////////////////////////////////////////// MEMBERS
+    .members__list__item {
+      .item_overlay {
+        width: 100%;
+        height: 100%;
+        display: inline;
+        position: absolute;
+        z-index: 100;
+        margin-top: -4%;
+        margin-left: -4%;
+      }
+        &::after {
+            cursor: pointer;
+            content: '';
+            position: absolute;
+            top: 32px;
+            right: 3%;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid black;
+        }
+        &.open::after {
+            margin-top: -5px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid black;
+        }
+    }
+    .layout-wrapper {
+        padding: 0 10px;
+        .line_speaker {
+            margin: 0 -10px;
+        }
+        .mainpage__sections {
+            margin: 0;
+        }
+    }
+    .statistics_text {
+        max-width: 100%;
+    }
+}

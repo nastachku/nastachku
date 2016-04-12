@@ -1,0 +1,23 @@
+db:
+  image: postgres:9.4.1
+  ports:
+    - "5432"
+
+redis:
+  image: redis
+  ports:
+    - "6379"
+
+web:
+  dns: ["8.8.8.8"]
+  build: .
+  command: bundle exec foreman start
+  volumes:
+    - ./:/myapp
+    - ~/.ssh:/root/.ssh
+    - ~/.bash_history:/root/.bash_history
+  ports:
+    - "8083:8083"
+  links:
+    - db
+    - redis

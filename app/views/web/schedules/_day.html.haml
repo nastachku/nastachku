@@ -18,17 +18,17 @@
           %th
             %span.programm__prev.disable{ data: { page: "1" }}
           - @halls.each_with_index do |hall, index|
-            %th
+            %th{data: {hall: index.next}}
               .hall-circle
                 = ('A'..'Z').to_a[index]
-              = hall.title
+              %span.hall-title= hall.title
           %th
-            %span.programm__next{ data: { page: "1" }}
+            %span.programm__next{ data: { page: "2" }}
       %tbody
         - now = configus.now_time
         - if now > start_time && now < finish_time
           %tr.current_time_line_tr{data: {time: now.to_i}}
-            %td{colspan: 10}
+            %td{colspan: @halls.count + 1}
               .show_passed{onclick: "showPassedClick(this)"}
                 .show_text
                   Показать прошедшие

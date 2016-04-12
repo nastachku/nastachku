@@ -7,7 +7,7 @@ namespace :resque do
     require 'resque-scheduler'
 
     # you probably already have this somewhere
-    Resque.redis = 'localhost:6379'
+    Resque.redis = "#{configus.redis_host}:6379"
 
     # If you want to be able to dynamically change the schedule,
     # uncomment this line.  A dynamic schedule can be updated via the

@@ -1,4 +1,5 @@
 @import "fonts.css";
+@import "web/_width_breakpoints";
 
 ////////////////////////////////////////// CONST
 @maincolor: #333;
@@ -227,10 +228,10 @@ header {
 .btn_main-menu {display: none}
 .btn_main-pay-btn {
   width: 172px;
-  @media (min-width: 620px) and (max-width: 1070px) {
+  @media (min-width: @small-width) and (max-width: @mid-width) {
     width: 100px;
   }
-  @media (max-width: 619px) {
+  @media (max-width: @small-width) {
     margin-top: 15px;
   }
 }
@@ -1512,6 +1513,7 @@ footer {
     }
 
     td {
+        word-wrap: break-word;
         border-left: 1px solid #eaeaeb;
         padding-top: 10px;
         width: 12%;
@@ -1550,6 +1552,10 @@ footer {
         margin-left: 15px;
         text-transform: uppercase;
     }
+}
+
+.hall-title {
+  white-space: nowrap;
 }
 
 .programm__schedule__lectures__lecture {
@@ -1845,22 +1851,22 @@ footer {
     line-height: 28px;
 }
 .contacts__pay-item {
-    line-height: 104px; 
-    display: inline-block; 
-    background-image: url(http://nastachku.ru/images/logos_pl.png); 
-    width: 224px; 
-    height: 104px; 
-    vertical-align: top; 
-    margin: 0px 7px 15px; 
-    text-align: center; 
-    background-position: 0px 0px; 
+    line-height: 104px;
+    display: inline-block;
+    background-image: url(http://nastachku.ru/images/logos_pl.png);
+    width: 224px;
+    height: 104px;
+    vertical-align: top;
+    margin: 0px 7px 15px;
+    text-align: center;
+    background-position: 0px 0px;
     background-repeat: no-repeat;
 }
 .contacts__pay-link {
-    text-decoration: none; 
-    display: block; 
-    width: 224px; 
-    height: 104px; 
+    text-decoration: none;
+    display: block;
+    width: 224px;
+    height: 104px;
     color: rgb(212, 114, 75) !important;
 }
 .contacts__pay-pic {
@@ -1888,6 +1894,10 @@ footer {
     max-width: 1260px;
     margin: 0 auto;
     padding: 0 10px;
+}
+
+.layout-line-full {
+  max-width: 100%;
 }
 
 
@@ -2540,7 +2550,7 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
   margin-top: -180px;
   padding: 0 6%;
 
-  @media (max-width: 979px) {
+  @media (max-width: @mid-width) {
     padding: 0;
     margin-top: -240px;
   }
@@ -2548,7 +2558,7 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
   input.input_type-1 {
     width: 60%;
 
-    @media (max-width: 979px) {
+    @media (max-width: @mid-width) {
       width: 55%;
     }
   }
@@ -2557,7 +2567,7 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
     width: 33%;
     height: 40px;
     line-height: 37px;
-    @media (max-width: 979px) {
+    @media (max-width: @mid-width) {
       width: 30%;
       min-width: 110px;
     }
@@ -2682,15 +2692,15 @@ margin-top: 23px;
 .mainpage__sections {
    &--noborder {
     border-bottom: none;
-   } 
+   }
 }
 
 .title--border {
     border-top: 1px solid #e1e1e1;
     border-bottom: 1px solid #e1e1e1;
 }
-@import "web/0-620";
-@import "web/0-979";
-@import "web/1200-";
-@import "web/620-979.less";
-@import "web/980-1200.less";
+@import "web/small-width";
+@import "web/small-mid-width";
+@import "web/mid-width.less";
+@import "web/large-width.less";
+@import "web/very-large-width";
