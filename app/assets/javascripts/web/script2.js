@@ -190,13 +190,24 @@ function programm_prev (prev, next) {
   }
 }
 
-// halls = [1,2,3]
 function showTdOfTable(halls) {
+  showHeadOfTable(halls);
   hideAllTd();
   halls.map(function(hall) {
     $("td[data-hall=" + hall + "]").show();
   });
   hidePassedForHalls(halls);
+}
+
+function hideAllHeads() {
+  $("th[data-hall]").hide();
+}
+
+function showHeadOfTable(halls) {
+  hideAllHeads();
+  halls.map(function(hall) {
+    $("th[data-hall=" + hall + "]").show();
+  });
 }
 
 function hidePassedForHalls(halls) {
