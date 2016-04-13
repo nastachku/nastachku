@@ -11,6 +11,14 @@ function hallCount() {
   return (!_.isUndefined(window.gon) && window.gon.hall_count);
 }
 
+function hallIdArray() {
+  if (_.isUndefined(hallIdArray())) {
+    return [];
+  } else {
+    return _.range(1, hallCount()+1);
+  }
+}
+
 function setNextAndPrevButtons(page, enableAll, disablePrev){
   var $next = $('.programm__next'), $prev=$('.programm__prev');
   $next.attr('data-page', page);
@@ -38,16 +46,11 @@ function chunkArray (array, size) {
 }
 
 function hallPages () {
-
   var halfHallCount = Math.ceil(hallCount() / 2);
-  var hallIdArray = _.range(1, hallCount()+1);
-  var hallPages = chunkArray(hallIdArray, halfHallCount);
-
-  return hallPages;
+  return chunkArray(hallIdArray(), halfHallCount);
 }
 
 function showAdapticTable() {
-  var hallIdArray = _.range(1, hallCount()+1);
   changeCurrentTimeLine();
   var table_class = $("dd.selected table").attr('class');
   if (table_class) {
@@ -58,7 +61,7 @@ function showAdapticTable() {
       $table.removeClass();
       $table.addClass("page-1");
       setNextAndPrevButtons(page, false, (page == 1));
-    }
+    };
     if (isNaN(page)) {
       setPageOne();
     }
@@ -71,17 +74,16 @@ function showAdapticTable() {
         setPageOne();
       }
       var halfHallCount = Math.ceil(hallCount() / 2);
-      var hallPages = chunkArray(hallIdArray, halfHallCount);
       if(page == 1) {
-        var firstPageColumn = hallPages[0];
+        var firstPageColumn = hallPages()[0];
         showTdOfTable(firstPageColumn);
       } else if (page == 2) {
-        var secondPageColumn = hallPages[1];
+        var secondPageColumn = hallPages()[1];
         showTdOfTable(secondPageColumn);
       }
     } else {
       setPageOne();
-      showTdOfTable(hallIdArray);
+      showTdOfTable(hallIdArray());
     }
   }
 }
