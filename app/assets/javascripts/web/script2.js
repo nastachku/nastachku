@@ -12,7 +12,7 @@ function hallCount() {
 }
 
 function hallIdArray() {
-  if (_.isUndefined(hallIdArray())) {
+  if (_.isUndefined(hallCount())) {
     return [];
   } else {
     return _.range(1, hallCount()+1);
