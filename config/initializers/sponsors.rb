@@ -50,7 +50,7 @@ Sponsors.configure do |config|
     {url: 'http://about.gitlab.com/', logo: 'logos/gitlab.png'}
   ]
 
-  config.web_title = 'Web-партнёры'
+  config.web_title = 'Web-партнёр'
   config.web = [
     {url: 'http://kontora-ivanova.ru/', logo: 'logos/kontora-ivanova.svg'}
   ]
@@ -66,7 +66,7 @@ Sponsors.configure do |config|
     {url: 'http://www.1.1dma.ru/', logo: 'logos/1dma.jpg'}
   ]
 
-  config.digital_title = 'Digital-партнеры'
+  config.digital_title = 'Digital-партнёры'
   config.digital = [
     {url: 'http://www.ruward.ru/', logo: 'logos/ruward.svg'},
     {url: 'http://raec.ru/', logo: 'logos/raec.png'}
