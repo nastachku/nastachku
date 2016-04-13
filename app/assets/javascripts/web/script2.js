@@ -7,7 +7,9 @@
 var mobileBreakpoint = 900; // 604
 var midScreenBreakpoint = 1440; // 964
 
-var hallCount = (!_.isUndefined(window.gon) && window.gon.hall_count);
+function hallCount() {
+  return (!_.isUndefined(window.gon) && window.gon.hall_count);
+}
 
 function setNextAndPrevButtons(page, enableAll, disablePrev){
   var $next = $('.programm__next'), $prev=$('.programm__prev');
