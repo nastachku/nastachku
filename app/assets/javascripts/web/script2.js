@@ -7,6 +7,8 @@
 var mobileBreakpoint = 900; // 604
 var midScreenBreakpoint = 1440; // 964
 
+var hallCount = (!_.isUndefined(window.gon) && window.gon.hall_count);
+
 function setNextAndPrevButtons(page, enableAll, disablePrev){
   var $next = $('.programm__next'), $prev=$('.programm__prev');
   $next.attr('data-page', page);
@@ -34,7 +36,7 @@ function chunkArray (array, size) {
 }
 
 function hallPages () {
-  var hallCount = gon.hall_count;
+
   var halfHallCount = Math.ceil(hallCount / 2);
   var hallIdArray = _.range(1, hallCount+1);
   var hallPages = chunkArray(hallIdArray, halfHallCount);
@@ -43,8 +45,6 @@ function hallPages () {
 }
 
 function showAdapticTable() {
-  var hallCount = gon.hall_count;
-  var hallCount = gon.hall_count;
   var hallIdArray = _.range(1, hallCount+1);
   changeCurrentTimeLine();
   var table_class = $("dd.selected table").attr('class');
@@ -68,7 +68,7 @@ function showAdapticTable() {
       if(page > 2) {
         setPageOne();
       }
-      var halfHallCount = Math.ceil(gon.hall_count / 2);
+      var halfHallCount = Math.ceil(hallCount / 2);
       var hallPages = chunkArray(hallIdArray, halfHallCount);
       if(page == 1) {
         var firstPageColumn = hallPages[0];
@@ -149,8 +149,8 @@ function check_width (data_width) {
 function programm_next (next, prev) {
   var page=Number(next.attr('data-page'));
   if (check_width(mobileBreakpoint)) {
-    if (page<gon.hall_count){
-      if (page==gon.hall_count-1) next.addClass('disable');
+    if (page < hallCount){
+      if (page==hallCount-1) next.addClass('disable');
       next.attr('data-page', (page + 1));
       prev.removeClass('disable').attr('data-page', (page + 1));
       next.parents('table').attr('class', 'page-' + (page + 1));
