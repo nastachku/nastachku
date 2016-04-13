@@ -31,7 +31,7 @@ Sponsors.configure do |config|
   config.platin_title = 'Платиновые спонсоры'
   config.platin = [
     {url: 'http://restream.rt.ru/', logo: 'logos/restream.svg'},
-    {url: '', logo: 'logos/skoro-logo.png'}
+    {url: 'http://prof-itgroup.ru/', logo: 'logos/skoro-logo.png'}
 
   ]
 
@@ -116,5 +116,10 @@ Sponsors.configure do |config|
   config.intellectual_title = 'Интеллектуальный партнёр'
   config.intellectual = [
     {url: 'http://mann-ivanov-ferber.ru/', logo: 'logos/mann-ivanov-ferber.gif'}
+  ]
+
+  config.technical_title = 'Технологический партнёр'
+  config.technical = [
+    {url: 'http://ibecom.ru/', logo: 'logos/ibecom.png'}
   ]
 end
