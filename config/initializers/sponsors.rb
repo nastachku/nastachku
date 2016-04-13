@@ -109,4 +109,10 @@ Sponsors.configure do |config|
     {url: 'http://artsoda.ru/', logo: 'logos/soda.png'},
     {url: 'http://www.umi-cms.ru/', logo: 'logos/umi-cms.png'}
   ]
+
+
+  config.intellectual_title = 'Интеллектуальный партнёр'
+  config.intellectual = [
+    {url: 'http://mann-ivanov-ferber.ru/', logo: 'logos/mann-ivanov-ferber.gif'}
+  ]
 end
