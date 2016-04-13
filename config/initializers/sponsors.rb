@@ -31,7 +31,7 @@ Sponsors.configure do |config|
   config.platin_title = 'Платиновые спонсоры'
   config.platin = [
     {url: 'http://restream.rt.ru/', logo: 'logos/restream.svg'},
-    {url: '', logo: 'logos/skoro-logo.png'}
+    {url: 'http://prof-itgroup.ru/', logo: 'logos/skoro-logo.png'}
 
   ]
 
@@ -47,7 +47,9 @@ Sponsors.configure do |config|
     {url: 'http://www.mobirate.com/', logo: 'logos/mobirate.png'},
     {url: 'http://www.1c-bitrix.ru/', logo: 'logos/bitrix.png'},
     {url: 'http://unity3d.com/ru/', logo: 'logos/unity.png'},
-    {url: 'http://about.gitlab.com/', logo: 'logos/gitlab.png'}
+    {url: 'http://about.gitlab.com/', logo: 'logos/gitlab.png'},
+    {url: 'http://safeor.ru/eshops', logo: 'logos/sor.svg'}
+
   ]
 
   config.web_title = 'Web-партнёр'
@@ -107,6 +109,18 @@ Sponsors.configure do |config|
     {url: 'http://ulpressa.ru/', logo: 'logos/ulpressa.png'},
     {url: 'http://1ul.ru/', logo: 'logos/1UL.png'},
     {url: 'http://artsoda.ru/', logo: 'logos/soda.png'},
-    {url: 'http://www.umi-cms.ru/', logo: 'logos/umi-cms.png'}
+    {url: 'http://www.umi-cms.ru/', logo: 'logos/umi-cms.png'},
+    {url: 'http://www.radio2x2.ru/', logo: 'logos/2x2.png'}
+  ]
+
+
+  config.intellectual_title = 'Интеллектуальный партнёр'
+  config.intellectual = [
+    {url: 'http://mann-ivanov-ferber.ru/', logo: 'logos/mann-ivanov-ferber.gif'}
+  ]
+
+  config.technical_title = 'Технологический партнёр'
+  config.technical = [
+    {url: 'http://ibecom.ru/', logo: 'logos/ibecom.png'}
   ]
 end
