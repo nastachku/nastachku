@@ -47,7 +47,9 @@ Sponsors.configure do |config|
     {url: 'http://www.mobirate.com/', logo: 'logos/mobirate.png'},
     {url: 'http://www.1c-bitrix.ru/', logo: 'logos/bitrix.png'},
     {url: 'http://unity3d.com/ru/', logo: 'logos/unity.png'},
-    {url: 'http://about.gitlab.com/', logo: 'logos/gitlab.png'}
+    {url: 'http://about.gitlab.com/', logo: 'logos/gitlab.png'},
+    {url: 'http://safeor.ru/eshops', logo: 'logos/sor.svg'}
+
   ]
 
   config.web_title = 'Web-партнёр'
