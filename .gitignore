@@ -13,3 +13,4 @@
 /config/credentials.yml
 /config/secrets.yml
 .capistrano
+/vendor/bundle
