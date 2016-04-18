@@ -114,9 +114,10 @@ Sponsors.configure do |config|
   ]
 
 
-  config.intellectual_title = 'Интеллектуальный партнёр'
+  config.intellectual_title = 'Интеллектуальные партнёры'
   config.intellectual = [
-    {url: 'http://mann-ivanov-ferber.ru/', logo: 'logos/mann-ivanov-ferber.gif'}
+    {url: 'http://mann-ivanov-ferber.ru/', logo: 'logos/mann-ivanov-ferber.gif'},
+    {url: 'http://devprom.ru/', logo: 'logos/devprom.png'}
   ]
 
   config.technical_title = 'Технологический партнёр'
