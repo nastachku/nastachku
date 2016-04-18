@@ -2,6 +2,8 @@
   .content__tabs__line
   .layout-line.layout-line-full
     %h1.pagetitle__title Программа
+    %div.top-notice
+      Внимание! Время в расписании указано по ульяновскому времени (МСК+1)
     - if signed_in?
       .programm__my
         %input#my_programm.checkbox_type-3{ type:"checkbox", name: "my_programm", value:"Y", data: {my: "in_my_schedule"}}
