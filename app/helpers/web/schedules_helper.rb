@@ -29,15 +29,25 @@ module Web::SchedulesHelper
   end
 
   def day_selected(day)
-    if DateTime.now > DateTime.new(2016, 4, 22, 19, 0, 0)
-      if day.day == configus.schedule.first_day.date.day
+    if conference_is_going?
+      if day.to_date == configus.now_time.to_date
+        "selected"
+      else
         ""
-      elsif day.day == configus.schedule.second_day.date.day
-      "selected"
       end
-    elsif day.day == configus.schedule.first_day.date.day
-      "selected"
+    else
+      if day.to_date == configus.schedule.first_day.date
+        "selected"
+      else
+        ""
+      end
     end
+
+  end
+
+  def conference_is_going?
+    configus.now_time.to_date == configus.schedule.first_day.date ||
+      configus.now_time.to_date == configus.schedule.second_day.date
   end
 
   include WorkshopsHelper
