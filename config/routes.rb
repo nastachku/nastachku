@@ -120,6 +120,8 @@ Nastachku::Application.routes.draw do
       get :authorization, on: :member
     end
 
+    resource :social_wall, only: [:show]
+
     namespace :registrator do
       root to: "users#index"
       resource :users, only: [:index, :new, :create] do
