@@ -81,6 +81,6 @@ module Web::SchedulesHelper
   end
 
   def current_day_of_conference?(day)
-    day.day == DateTime.now.day
+    day.to_date == configus.now_time.to_date
   end
 end
