@@ -37,7 +37,8 @@ Sponsors.configure do |config|
 
   config.gold_title = 'Золотые спонсоры'
   config.gold = [
-    {url: 'https://www.machinezone.com/', logo: 'logos/machine_zone.png'}
+    {url: 'https://www.machinezone.com/', logo: 'logos/machine_zone.png'},
+    {url: 'http://www.ptsecurity.ru/', logo: 'logos/ptsecurity.png'}
   ]
 
   config.silver_title = 'Серебряные спонсоры'
