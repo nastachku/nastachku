@@ -102,7 +102,7 @@ Configus.build Rails.env do
 
     move_to_top_count 2
 
-    now_time -> {Time.zone.now + 16.hours}
+    now_time -> {Time.zone.now + 3.days}
 
     analytics do
       host 'staging.nastachku.ru'
@@ -157,7 +157,7 @@ Configus.build Rails.env do
   env :staging, parent: :production do
     redis_host 'localhost'
 
-    now_time -> {Time.zone.now + 16.hours}
+    now_time -> {Time.zone.now + 3.days}
 
     analytics do
       host 'staging.nastachku.ru'
