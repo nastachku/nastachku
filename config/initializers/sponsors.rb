@@ -15,7 +15,9 @@ Sponsors.configure do |config|
     {url: 'http://ulgov.ru/', logo: 'logos/ulgov.jpg'},
     {url: 'http://seo.ru/', logo: 'logos/seoru.png'},
     {url: 'http://e-ul.ru/', logo: 'logos/el_ul.jpg'},
-    {url: 'http://ritg.ru/', logo: 'logos/russian-it-group.png'}
+    {url: 'http://ritg.ru/', logo: 'logos/russian-it-group.png'},
+    {url: 'http://www.ulstu.ru/', logo: 'logos/ulstu.jpg'},
+    {url: 'http://www.ulsu.ru/', logo: 'logos/ulsu.png'}
   ]
 
   config.syberfootball_title = 'Федерация киберфутбола России'
