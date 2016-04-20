@@ -24,12 +24,12 @@ Configus.build Rails.env do
       first_day do
         date Time.utc(2016, 4, 22)
         start_time DateTime.new(2016, 4, 22, 9, 0, 0, Time.zone.formatted_offset)
-        finish_time DateTime.new(2016, 4, 22, 21, 30, 0, Time.zone.formatted_offset)
+        finish_time DateTime.new(2016, 4, 22, 22, 00, 0, Time.zone.formatted_offset)
       end
       second_day do
         date Time.utc(2016, 4, 23)
-        start_time DateTime.new(2016, 4, 23, 10, 0, 0, Time.zone.formatted_offset)
-        finish_time DateTime.new(2016, 4, 23, 19, 45, 0, Time.zone.formatted_offset)
+        start_time DateTime.new(2016, 4, 23, 11, 0, 0, Time.zone.formatted_offset)
+        finish_time DateTime.new(2016, 4, 23, 21, 0, 0, Time.zone.formatted_offset)
       end
     end
 
