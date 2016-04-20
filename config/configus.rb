@@ -29,7 +29,7 @@ Configus.build Rails.env do
       second_day do
         date Time.utc(2016, 4, 23)
         start_time DateTime.new(2016, 4, 23, 11, 0, 0, Time.zone.formatted_offset)
-        finish_time DateTime.new(2016, 4, 23, 21, 0, 0, Time.zone.formatted_offset)
+        finish_time DateTime.new(2016, 4, 23, 19, 45, 0, Time.zone.formatted_offset)
       end
     end
 
