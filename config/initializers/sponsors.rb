@@ -50,7 +50,9 @@ Sponsors.configure do |config|
     {url: 'http://unity3d.com/ru/', logo: 'logos/unity.png'},
     {url: 'http://about.gitlab.com/', logo: 'logos/gitlab.png'},
     {url: 'http://safeor.ru/eshops', logo: 'logos/sor.svg'},
-    {url: 'https://qrator.net/ru/', logo: 'logos/qrator.png'}
+    {url: 'https://qrator.net/ru/', logo: 'logos/qrator.png'},
+    {url: 'http://www.npomars.com/ru/', logo: 'logos/mars.png'}
+
   ]
 
   config.web_title = 'Web-партнёр'
