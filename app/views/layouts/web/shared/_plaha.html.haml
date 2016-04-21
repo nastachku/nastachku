@@ -7,7 +7,7 @@
       -# = link_to "Культурная программа", page_path('stroll')
       = link_to "Проживание и проезд", page_path("hotel")
       = link_to "Обзор программы стачки", "/docs/program.pdf"
-      = link_to "Афтепати", page_path('afterparty')
+      = link_to "Что посетить", page_path('afterparty')
       - unless current_user
         = link_to "Регистрация", new_user_path
         = link_to "Купить билет (#{price})", buy_now_path
