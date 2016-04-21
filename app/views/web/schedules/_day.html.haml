@@ -46,13 +46,11 @@
                 %td.programm__time{ style: "border-left: 0px; border-top: 0px" }
                 - (1..@halls.count).each_with_index do |item, index|
                   %td{data: {hall: index} }
-                %td
             - else
               %tr{ id: "#{i_time.hour}_#{i_time.minute}_tr", data: { time: i_time.to_i }  }
                 = render "timeline", i_time: i_time
                 - (1..@halls.count).each_with_index do |item, index|
                   %td{data: {hall: index} }
-                %td
           - elsif @first_hall.has_begin_event?(i_time)
             %tr.programm__schedule__mainaction{ id: "#{i_time.hour}_#{i_time.minute}_tr", data: { time: i_time.to_i }  }
               %td.programm__time
