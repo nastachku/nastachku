@@ -23,13 +23,13 @@ Configus.build Rails.env do
     schedule do
       first_day do
         date Time.utc(2016, 4, 22)
-        start_time DateTime.new(2016, 4, 22, 9, 0, 0, "MSK")
-        finish_time DateTime.new(2016, 4, 22, 21, 30, 0, "MSK")
+        start_time DateTime.new(2016, 4, 22, 9, 0, 0, Time.zone.formatted_offset)
+        finish_time DateTime.new(2016, 4, 22, 22, 00, 0, Time.zone.formatted_offset)
       end
       second_day do
         date Time.utc(2016, 4, 23)
-        start_time DateTime.new(2016, 4, 23, 10, 0, 0, "MSK")
-        finish_time DateTime.new(2016, 4, 23, 19, 45, 0, "MSK")
+        start_time DateTime.new(2016, 4, 23, 11, 0, 0, Time.zone.formatted_offset)
+        finish_time DateTime.new(2016, 4, 23, 19, 45, 0, Time.zone.formatted_offset)
       end
     end
 
@@ -102,7 +102,7 @@ Configus.build Rails.env do
 
     move_to_top_count 2
 
-    now_time -> {Time.zone.now + 16.hours}
+    now_time -> {Time.zone.now + 3.days}
 
     analytics do
       host 'staging.nastachku.ru'
@@ -157,7 +157,7 @@ Configus.build Rails.env do
   env :staging, parent: :production do
     redis_host 'localhost'
 
-    now_time -> {Time.zone.now + 16.hours}
+    now_time -> {Time.zone.now + 3.days}
 
     analytics do
       host 'staging.nastachku.ru'
