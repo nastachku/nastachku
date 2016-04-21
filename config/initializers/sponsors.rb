@@ -117,7 +117,8 @@ Sponsors.configure do |config|
     {url: 'http://www.umi-cms.ru/', logo: 'logos/umi-cms.png'},
     {url: 'http://www.radio2x2.ru/', logo: 'logos/2x2.png'},
     {url: 'http://sim-print.ru/', logo: 'logos/simprint.png'},
-    {url: 'http://www.goodlines.ru/', logo: 'logos/goodlines.png'}
+    {url: 'http://www.goodlines.ru/', logo: 'logos/goodlines.png'},
+    {url: 'http://fribit.ru/', logo: 'logos/fribit.png'}
   ]
 
 
