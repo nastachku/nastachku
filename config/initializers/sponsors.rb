@@ -33,7 +33,7 @@ Sponsors.configure do |config|
   config.platin_title = 'Платиновые спонсоры'
   config.platin = [
     {url: 'http://restream.rt.ru/', logo: 'logos/restream.svg'},
-    {url: 'http://prof-itgroup.ru/', logo: 'logos/skoro-logo.png'}
+    {url: 'http://scorocode.ru/', logo: 'logos/skoro-logo.png'}
 
   ]
 
