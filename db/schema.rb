@@ -333,7 +333,7 @@ ActiveRecord::Schema.define(version: 20160306201646) do
     t.text     "vkontakte"
     t.text     "reason_to_give_ticket"
     t.string   "badge_state"
-    t.integer  "code_activation_count",   default: 0, null: false
+    t.integer  "code_activation_count",   default: 0,  null: false
     t.datetime "last_code_activation_at"
     t.string   "phone"
     t.string   "middle_name"

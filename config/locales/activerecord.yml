@@ -108,7 +108,11 @@ ru:
         ticket: 'Билет на конфу'
         afterparty_ticket: 'Билет на пати'
         orders: "Заказы"
-
+        sign_in_count: "Количество авторизаций"
+        current_sign_in_at: "Дата последней авторизации"
+        current_sign_in_ip: "IP последней авторизации"
+        last_sign_in_at: "Дата предидущей авторизации"
+        last_sign_in_ip: "IP предидущей авторизации"
       topic:
         title: 'Название'
         description: 'Описание'

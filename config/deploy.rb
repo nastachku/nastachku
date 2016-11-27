@@ -1,6 +1,5 @@
 lock '3.4.0'
 
-
 set :application, 'nastachku'
 set :repo_url, 'git@github.com:rocket-11/nastachku.git'
 
