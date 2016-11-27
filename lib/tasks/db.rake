@@ -10,6 +10,8 @@ namespace :db do
 
     models_to_destroy.each(&:destroy_all)
 
+    ActiveRecord::Base.connection.execute("DELETE FROM sessions WHERE updated_at < '#{1.month.ago.to_date}'")
+
     User.update_all({
                       show_as_participant: false,
                       invisible_lector: false,
