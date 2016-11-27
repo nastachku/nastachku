@@ -22,14 +22,14 @@ Configus.build Rails.env do
 
     schedule do
       first_day do
-        date Time.utc(2016, 4, 22)
-        start_time DateTime.new(2016, 4, 22, 9, 0, 0, Time.zone.formatted_offset)
-        finish_time DateTime.new(2016, 4, 22, 22, 00, 0, Time.zone.formatted_offset)
+        date Time.utc(2017, 4, 14)
+        start_time DateTime.new(2017, 4, 14, 9, 0, 0, Time.zone.formatted_offset)
+        finish_time DateTime.new(2017, 4, 14, 22, 00, 0, Time.zone.formatted_offset)
       end
       second_day do
-        date Time.utc(2016, 4, 23)
-        start_time DateTime.new(2016, 4, 23, 11, 0, 0, Time.zone.formatted_offset)
-        finish_time DateTime.new(2016, 4, 23, 19, 45, 0, Time.zone.formatted_offset)
+        date Time.utc(2017, 4, 15)
+        start_time DateTime.new(2017, 4, 15, 11, 0, 0, Time.zone.formatted_offset)
+        finish_time DateTime.new(2017, 4, 15, 19, 45, 0, Time.zone.formatted_offset)
       end
     end
 
@@ -43,7 +43,7 @@ Configus.build Rails.env do
     end
 
     badges do
-      time_to_print_badges DateTime.new(2016, 4, 21, 18, 0, 0)
+      time_to_print_badges DateTime.new(2017, 4, 13, 18, 0, 0)
     end
 
     token do

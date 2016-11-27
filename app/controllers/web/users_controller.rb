@@ -9,7 +9,7 @@ class Web::UsersController < Web::ApplicationController
     @users = @users.lectors if params[:q] && params[:q]['s'].include?('only_lectors')
 
     @meta_tags = {
-      title: "«Стачка 2016» — участники",
+      title: "«Стачка 2017» — участники",
       description: "Полный список участников, зарегистрировавшихся на международную IT-конференцию «Стачка!».",
       keywords: "стачка участники"
     }
@@ -20,7 +20,7 @@ class Web::UsersController < Web::ApplicationController
   def new
     @user = UserRegistrationType.new
     @meta_tags = {
-      title: "«Стачка 2016» — форма регистрации участника",
+      title: "«Стачка 2017» — форма регистрации участника",
       description: "Участие в конференции – платное. Условия допуска: документ, удостоверяющий личность.",
       keywords: "стачка регистрация"
     }
