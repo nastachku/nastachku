@@ -8,7 +8,7 @@ module Web::SchedulesHelper
   end
 
   def time_first_day(hour, minutes)
-    DateTime.new(2016, 4, 22, hour, minutes, 0)
+    DateTime.new(2017, 4, 14, hour, minutes, 0)
   end
 
   def slots_in_time?(slots, time)

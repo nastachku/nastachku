@@ -5,7 +5,7 @@ class Web::BuyNowsController < Web::ApplicationController
     @form = BuyNowOrderType.new
 
     @meta_tags = {
-      title: "Купить билеты на Стачку 2016",
+      title: "Купить билеты на Стачку 2017",
       description: "На этой странице вы можете приобрести билет на ежегодную IT-конференцию «Стачка».",
       keywords: "стачка билеты"
     }

@@ -10,7 +10,7 @@ class Web::SchedulesController < Web::ApplicationController
     @workshops = Workshop.all
 
     @meta_tags = {
-      title: "«Стачка 2016» — расписание докладов и мероприятий",
+      title: "«Стачка 2017» — расписание докладов и мероприятий",
       description: "Программа докладов и других мероприятий международной IT-конференции «Стачка!» в Ульяновске.",
       keywords: "стачка программа"
     }

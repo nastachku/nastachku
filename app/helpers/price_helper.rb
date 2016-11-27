@@ -3,10 +3,16 @@ module PriceHelper
     # TODO: надо это выдёргивать из models/pricelist
     current_date = Time.current.to_date
 
-    date = if current_date <= Date.new(2016, 03, 31)
-             Date.new(2016, 03, 31)
-           elsif current_date <= Date.new(2016, 04, 12)
-             Date.new(2016, 04, 12)
+    date = if current_date < Date.new(2017, 1, 1)
+             Date.new(2017, 1, 1)
+           elsif current_date < Date.new(2017, 2, 1)
+             Date.new(2017, 2, 1)
+           elsif current_date < Date.new(2017, 3, 1)
+             Date.new(2017, 3, 1)
+           elsif current_date < Date.new(2017, 4, 1)
+             Date.new(2017, 4, 1)
+           elsif current_date < Date.new(2017, 4, 9)
+             Date.new(2017, 4, 9)
            else
              nil
            end

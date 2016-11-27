@@ -1,13 +1,11 @@
 .infoline
   .layout-line
     %p.infoline__left
-      %b 22-23 апреля 2016 года,
+      %b 14-15 апреля 2017 года,
       Ленинский мемориал, Ульяновск
     %p.infoline__right
-      -# = link_to "Культурная программа", page_path('stroll')
       = link_to "Проживание и проезд", page_path("hotel")
-      = link_to "Обзор программы стачки", "/docs/program.pdf"
-      = link_to "Что посетить", page_path('afterparty')
+      = link_to "AfterParty", page_path('afterparty')
       - unless current_user
         = link_to "Регистрация", new_user_path
         = link_to "Купить билет (#{price})", buy_now_path
