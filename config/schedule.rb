@@ -25,11 +25,6 @@ job_type :rake, "cd :path && RAILS_ENV=#{environment} rake :task"
 set :output, 'tmp/whenever.log'
 set :path, "/u/apps/nastachku/current"
 
-every 4.hours do
-  # TODO: сделать обычный бэкап базы
-  # bundle_command "backup perform -t nastachku_#{environment} -c config/backup.rb --root_path ."
-end
-
 every 1.hours do
   rake "app:timepad_user_synchronization"
 end
