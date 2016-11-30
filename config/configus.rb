@@ -64,7 +64,7 @@ Configus.build Rails.env do
 
     cs_cart do
       secret_key credentials_hash["production"]["cs-cart"]["secret_key"]
-      enable_auth true
+      enable_auth false
       shop_url "nastachku.cs-cart.ru"
     end
 
