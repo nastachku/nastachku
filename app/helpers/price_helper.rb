@@ -5,8 +5,8 @@ module PriceHelper
 
     date = if current_date < Date.new(2017, 1, 1)
              Date.new(2017, 1, 1)
-           elsif current_date < Date.new(2017, 2, 15)
-             Date.new(2017, 2, 15)
+           elsif current_date < Date.new(2017, 2, 1)
+             Date.new(2017, 2, 1)
            elsif current_date < Date.new(2017, 3, 1)
              Date.new(2017, 3, 1)
            elsif current_date < Date.new(2017, 4, 1)
