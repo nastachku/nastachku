@@ -3,7 +3,7 @@ class Pricelist
   def self.ticket_price
     if before(2017, 1, 1)
       990
-    elsif  before(2017, 2, 15)
+    elsif  before(2017, 2, 1)
       1330
     elsif before(2017, 3, 1)
       2000
