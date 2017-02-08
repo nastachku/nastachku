@@ -56,8 +56,16 @@ Nastachku::Application.routes.draw do
     resources :users, only: [:new, :create, :index]
     resources :welcome, only: [:index]
     resources :lectures, only: [:index]
-    resources :speaker, only: [:index]
-    resources :contacts, only: [:index]
+    get '/contacts', to: 'pages#show', defaults: { id: 'contacts' }
+    get '/hotel', to: 'pages#show', defaults: { id: 'hotel' }
+    get '/speaker', to: 'pages#show', defaults: { id: 'speaker' }
+    get '/afterparty', to: 'pages#show', defaults: { id: 'afterparty' }
+    get '/social_wall', to: 'pages#show', defaults: { id: 'social_wall' } # will be refactored later
+    get '/app', to: 'pages#show', defaults: { id: 'app' }
+    get '/privacy', to: 'pages#show', defaults: { id: 'privacy' }
+    get '/stroll', to: 'pages#show', defaults: { id: 'stroll' }
+    get '/location', to: 'pages#show', defaults: { id: 'location' }
+    get '/banners', to: 'pages#show', defaults: { id: 'banners' }
     resources :pages, only: [:show]
     resources :promo, only: [:show]
     get '/promo', to: redirect('/promo/programmers')
@@ -119,8 +127,6 @@ Nastachku::Application.routes.draw do
     resource :social_networks, only: [] do
       get :authorization, on: :member
     end
-
-    resource :social_wall, only: [:show]
 
     namespace :registrator do
       root to: "users#index"
