@@ -13,6 +13,7 @@ namespace :db do
     ActiveRecord::Base.connection.execute("DELETE FROM sessions WHERE updated_at < '#{1.month.ago.to_date}'")
 
     User.update_all({
+                      last_sign_in_at: nil,
                       show_as_participant: false,
                       invisible_lector: false,
                       not_going_to_conference: false,

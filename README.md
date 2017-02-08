@@ -1,13 +1,13 @@
-[![Build Status](https://travis-ci.org/rocket-11/nastachku.svg?branch=develop)](https://travis-ci.org/rocket-11/nastachku)
+[![Build Status](https://travis-ci.org/nastachku/nastachku.svg?branch=develop)](https://travis-ci.org/nastachku/nastachku)
 
 ## Installation and running way
 ```sh
-  git clone https://github.com/rocket-11/nastachku.git
+  git clone https://github.com/nastachku/nastachku.git
   cd nastachku
-  
+
   bundle install
   sudo apt-get install redis-server
-  
+
   bundle exec rake db:create db:migrate db:seed
   bundle exec unicorn
 ```

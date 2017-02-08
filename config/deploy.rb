@@ -1,7 +1,7 @@
 lock '3.4.0'
 
 set :application, 'nastachku'
-set :repo_url, 'git@github.com:rocket-11/nastachku.git'
+set :repo_url, 'git@github.com:nastachku/nastachku.git'
 
 set :deploy_to, "/u/apps/#{fetch :application}"
 set :keep_releases, 10
