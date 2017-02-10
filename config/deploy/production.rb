@@ -1,5 +1,5 @@
 set :stage, :production
-server 'nastachku.ru',
+server '91.239.26.221',
   user: 'nastachku',
   roles: %w{web app db resque_worker resque_scheduler}
 set :branch, 'master'
