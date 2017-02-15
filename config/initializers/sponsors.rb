@@ -12,6 +12,7 @@ Sponsors.configure do |config|
 
   config.strategy_title = 'Стратегические партнёры'
   config.strategy = [
+    {url: 'http://restream.rt.ru/', logo: 'logos/restream.png'},
     {url: 'http://ulgov.ru/', logo: 'logos/ulgov.jpg'},
     {url: 'http://seo.ru/', logo: 'logos/seoru.png'},
     {url: 'http://ritg.ru/', logo: 'logos/russian-it-group.png'}
