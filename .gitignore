@@ -14,3 +14,4 @@
 /config/secrets.yml
 .capistrano
 /vendor/bundle
+*.DS_Store
