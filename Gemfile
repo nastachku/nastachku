@@ -69,6 +69,8 @@ gem 'compass-rails', '2.0.0'
 gem 'haml_coffee_assets'
 gem 'execjs'
 
+gem 'recaptcha', require: 'recaptcha/rails'
+
 group :test, :development do
   gem 'sqlite3'
   gem 'pre-commit'
