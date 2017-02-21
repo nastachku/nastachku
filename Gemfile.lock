@@ -354,6 +354,8 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.1)
+    recaptcha (4.1.0)
+      json
     redcarpet (3.2.2)
     redis (3.2.0)
     redis-namespace (1.5.1)
@@ -548,6 +550,7 @@ DEPENDENCIES
   rails (~> 4.2.0)
   rake
   ransack
+  recaptcha
   redcarpet
   responders (~> 2.0)
   resque
@@ -578,4 +581,4 @@ DEPENDENCIES
   wrong
 
 BUNDLED WITH
-   1.13.6
+   1.14.3
