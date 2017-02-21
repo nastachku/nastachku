@@ -23,6 +23,8 @@
           = f.input :password, input_html: {class: "input_type-1"}, placeholder: "Придумайте пароль"
         %li.form__element
           = f.input :password_confirmation, required: true, input_html: {class: "input_type-1"}, placeholder: "Повторите пароль"
+        %li.form__element
+          = recaptcha_tags
         %li.privacy_politics
           %input#privacy.checkbox_type-1{ name: "privacy_order", type: "checkbox" }
           %label.privacy_checkbox{ for: "privacy" }
