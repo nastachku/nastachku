@@ -9,7 +9,8 @@
       %th= Workshop.human_attribute_name :title
       %th
         .nowrap= Workshop.human_attribute_name :created_at
-      %th
+      %th Редактировать
+      %th Удалить
   %tbody
     - @workshops.each do |workshop|
       %tr
@@ -17,8 +18,8 @@
         %td
           .nowrap= l workshop.created_at
         %td
-          .pull-right.btn-group
-            = link_to edit_admin_workshop_path(workshop), class: 'btn btn-mini' do
-              %i.icon-pencil
-            -#= link_to admin_workshop_path(workshop), class: 'btn btn-mini', method: :delete do
-            -#  %i.icon-trash
+          = link_to edit_admin_workshop_path(workshop), class: 'btn btn-mini' do
+            %i.icon-pencil
+        %td
+          = link_to admin_workshop_path(workshop), class: 'btn btn-mini', method: :delete, :data => { :confirm => 'Are you sure?' } do
+            %i.icon-trash
