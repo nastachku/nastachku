@@ -41,6 +41,12 @@ class Web::Admin::LecturesController < Web::Admin::ApplicationController
     end
   end
 
+  def destroy
+    @lecture = Lecture.find(params[:id])
+    @lecture.destroy
+    redirect_to admin_lecture_path
+  end
+
   def report
     @lectures = Lecture.all
     report = Reporters::LecturesReporter.make_csv(@lectures)
