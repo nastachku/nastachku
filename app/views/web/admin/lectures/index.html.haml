@@ -34,7 +34,8 @@
       %th Голосов в фидбеке
       %th Средний голос
       %th= Lecture.human_attribute_name(:move_to_top)
-      %th
+      %th Edit
+      %th Del
   %tbody
     - @lectures.each do |lecture|
       %tr
@@ -53,9 +54,11 @@
         %td= lecture.average_feedback_vote
         %td= bool_mark(lecture.move_to_top)
         %td
-          .pull-right.btn-group
-            = link_to edit_admin_lecture_path(lecture), class: 'btn btn-mini' do
-              %i.icon-pencil
+          = link_to edit_admin_lecture_path(lecture), class: 'btn btn-mini' do
+            %i.icon-pencil
+        %td
+          = link_to admin_lecture_path(lecture), class: 'btn btn-mini', method: :delete, :data => { :confirm => 'Are you sure?' } do
+            %i.icon-trash
 = paginate @lectures
 
 .row

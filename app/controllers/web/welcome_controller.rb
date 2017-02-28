@@ -1,7 +1,7 @@
 #encoding: utf-8
 class Web::WelcomeController < Web::ApplicationController
   def index
-    @lectures = LectureDecorator.decorate_collection Lecture.includes(:workshop, :user).scheduled.with_active_speaker.shuffle.first 30
+    @lectures = LectureDecorator.decorate_collection Lecture.includes(:workshop, :user).where.not(workshops: {id: nil}).scheduled.with_active_speaker.shuffle.first 30
 
     @meta_tags = {
       title: "«Стачка 2017», Международная IT-конференция в Ульяновске",
